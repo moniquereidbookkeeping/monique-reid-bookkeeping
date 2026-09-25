@@ -250,7 +250,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <span className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">
                 SELECT PRACTICE SCALE TO MODEL:
               </span>
-              <span className="text-xs text-[#1A2E40] font-semibold flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#FAF8F5] border border-[#D4AF37]/30">
+              <span className="text-xs text-[#1A2E40] font-semibold flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#D4AF37]/15 to-[#D4AF37]/10 border border-[#D4AF37]/40">
+                <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse shrink-0" />
                 <Sliders className="w-3.5 h-3.5 text-[#D4AF37]" /> Live Interactive
               </span>
             </div>
@@ -274,7 +275,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                         isSelected ? 'text-[#D4AF37]' : 'text-[#1A2E40]'
                       }`}
                     >
-                      {sc.name.split(' ')[0]}
+                      {sc.id === 'boutique' ? 'Boutique' : sc.id === 'established' ? 'Growing' : 'High-Volume'}
                     </p>
                     <p className="text-[11px] opacity-85 truncate mt-0.5">{sc.stage}</p>
                     <p
@@ -321,7 +322,10 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   step="2500"
                   value={baseRevenue}
                   onChange={(e) => setCustomRevenue(Number(e.target.value))}
-                  className="w-full h-2 bg-[#E2E8F0] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
+                  className="w-full h-2.5 bg-[#E2E8F0] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
+                  style={{
+                    background: `linear-gradient(to right, #D4AF37 0%, #D4AF37 ${((baseRevenue - 30000) / (250000 - 30000)) * 100}%, #E2E8F0 ${((baseRevenue - 30000) / (250000 - 30000)) * 100}%, #E2E8F0 100%)`
+                  }}
                 />
               </div>
               <div className="flex justify-between text-[10px] text-[#4A5568] mt-1">

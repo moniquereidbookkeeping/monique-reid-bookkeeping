@@ -10,6 +10,7 @@ const plans = [
     id: 'foundation',
     name: 'Foundation',
     tagline: 'Boutique or single-provider practice',
+    volumeHint: 'Up to ~$25K/mo in practice transactions',
     icon: Shield,
     monthlyPrice: 497,
     annualPrice: 447,
@@ -38,6 +39,7 @@ const plans = [
     id: 'growth',
     name: 'Growth',
     tagline: 'Established practice ready for deeper visibility',
+    volumeHint: '$25K–$75K/mo in practice transactions',
     icon: Zap,
     monthlyPrice: 797,
     annualPrice: 717,
@@ -65,6 +67,7 @@ const plans = [
     id: 'fullspectrum',
     name: 'Full-Spectrum',
     tagline: 'Multi-provider or multi-modality practice',
+    volumeHint: '$75K+/mo or multi-provider practices',
     icon: Star,
     monthlyPrice: 1197,
     annualPrice: 1077,
@@ -205,6 +208,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                         Switch to annual &amp; save ${annualSavings(plan).toLocaleString()}/yr
                       </p>
                     )}
+                    <p className={`text-[11px] mt-2 font-semibold px-2 py-0.5 rounded-md inline-block ${
+                      plan.popular
+                        ? 'bg-white/10 text-[#E2E8F0]'
+                        : 'bg-[#FAF8F5] border border-[#E2E8F0] text-[#64748B]'
+                    }`}>
+                      {plan.volumeHint}
+                    </p>
                   </div>
 
                   {/* Features */}

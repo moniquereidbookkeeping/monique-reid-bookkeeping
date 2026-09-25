@@ -98,8 +98,8 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Decorative Geometric Gold Ring Behind */}
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#D4AF37]/30 via-[#1A2E40]/10 to-[#D4AF37]/20 -rotate-2 blur-xs pointer-events-none" />
 
-              {/* Portrait Container with Original Background and Chair Preserved */}
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF8F5] to-[#F0EDE6] border-2 border-[#D4AF37]/50 shadow-xl group">
+              {/* Portrait Container — navy bg matches the cutout portrait */}
+              <div className="relative rounded-2xl overflow-hidden bg-[#1A2E40] border-2 border-[#D4AF37]/50 shadow-xl group">
                 {/* Subtle top badge */}
                 <div className="absolute top-3 left-3 z-20 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A2E40]/90 backdrop-blur-sm text-white text-xs font-medium border border-[#D4AF37]/40 shadow-sm">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />

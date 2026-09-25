@@ -16,7 +16,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
             <div className="relative w-full max-w-sm">
               <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#D4AF37]/30 to-[#1A2E40]/20 rotate-1 blur-xs pointer-events-none" />
 
-              <div className="relative rounded-2xl overflow-hidden bg-white border-2 border-[#D4AF37]/60 shadow-xl group">
+              <div className="relative rounded-2xl overflow-hidden bg-[#1A2E40] border-2 border-[#D4AF37]/60 shadow-xl group">
                 <FounderPortrait variant="about" />
 
                 <div className="p-4 bg-white border-t border-[#E2E8F0] text-center">

@@ -25,17 +25,26 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems: { label: string; page: PageView; id: string }[] = [
+  const navItems: { label: string; page: PageView; id: string; scrollTo?: string }[] = [
     { label: 'Home', page: 'home', id: 'nav-home' },
     { label: 'Services', page: 'services', id: 'nav-services' },
-    { label: 'About Monique', page: 'about', id: 'nav-about' },
+    { label: 'Pricing', page: 'home', id: 'nav-pricing', scrollTo: 'pricing-section' },
+    { label: 'About', page: 'about', id: 'nav-about' },
     { label: 'Contact', page: 'contact', id: 'nav-contact' },
   ];
 
-  const handleNavClick = (page: PageView) => {
+  const handleNavClick = (page: PageView, scrollTo?: string) => {
     onNavigate(page);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (scrollTo) {
+      setTimeout(() => {
+        const el = document.getElementById(scrollTo);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 80);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -85,9 +94,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               const isActive = currentPage === item.page;
               return (
                 <button
-                  key={item.page}
+                  key={item.page + item.id}
                   id={item.id}
-                  onClick={() => handleNavClick(item.page)}
+                  onClick={() => handleNavClick(item.page, item.scrollTo)}
                   className={`px-3 py-2 xl:px-3.5 xl:py-2 text-[13.5px] xl:text-[14px] tracking-[0.01em] transition-all duration-200 rounded-lg relative cursor-pointer ${
                     isActive
                       ? 'text-[#1A2E40] font-semibold bg-[#FAF8F5]'
@@ -143,9 +152,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               const isActive = currentPage === item.page;
               return (
                 <button
-                  key={item.page}
+                  key={`mob-${item.page}-${item.id}`}
                   id={`mobile-${item.id}`}
-                  onClick={() => handleNavClick(item.page)}
+                  onClick={() => handleNavClick(item.page, item.scrollTo)}
                   className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium flex items-center justify-between transition-colors cursor-pointer ${
                     isActive
                       ? 'bg-[#1A2E40] text-[#D4AF37] font-semibold'
