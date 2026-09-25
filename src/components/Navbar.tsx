@@ -121,15 +121,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile hamburger menu toggle */}
           <div className="flex lg:hidden items-center gap-2">
             <button
-              id="mobile-book-call-quick-btn"
-              onClick={onBookCall}
-              className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C8A02A] text-[#1A2E40] text-xs font-bold flex items-center gap-1.5 shadow-sm border border-[#FFF5DE]/40 cursor-pointer"
-              aria-label="Book a call on Calendly"
-            >
-              <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
-              <span>Book Call</span>
-            </button>
-            <button
               id="mobile-nav-toggle-btn"
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
