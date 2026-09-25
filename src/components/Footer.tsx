@@ -172,7 +172,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#E2E8F0]/70 border-t border-white/10 mt-8">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
-            <p>© 2026 Monique Reid Bookkeeping. All rights reserved.</p>
+            <p>© 2026 Monique Reid Bookkeeping • Fort Lauderdale, FL • All rights reserved.</p>
             <span className="hidden sm:inline text-white/30">·</span>
             <div className="flex items-center gap-3">
               <button
@@ -208,3 +208,4 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
     </footer>
   );
 };
+
