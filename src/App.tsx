@@ -18,6 +18,7 @@ import { ProfitCalculator } from './components/ProfitCalculator';
 import { ContactSection } from './components/ContactSection';
 import { TermsPage } from './components/TermsPage';
 import { PrivacyPage } from './components/PrivacyPage';
+import { PricingSection } from './components/PricingSection';
 import { Footer } from './components/Footer';
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
@@ -72,7 +73,10 @@ export default function App() {
             {/* Section 2: Core 6-Service Bookkeeping Architecture + Restored Tech & Bottleneck Stack */}
             <ServicesSection onBookCall={handleBookCall} />
 
-            {/* Section 3: Your Numbers Matter + Live Interactive Financial Dashboard */}
+            {/* Section 3: Transparent Flat-Rate Pricing Plans */}
+            <PricingSection onBookCall={handleBookCall} />
+
+            {/* Section 4: Your Numbers Matter + Live Interactive Financial Dashboard */}
             <FinancialDashboard
               onExploreServices={() => handleNavigate('services')}
               onBookCall={handleBookCall}
