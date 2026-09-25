@@ -69,23 +69,20 @@ export default function App() {
               }}
             />
 
-            {/* Section 2: Your Numbers Matter + Live Interactive Financial Dashboard */}
+            {/* Section 2: Core 6-Service Bookkeeping Architecture + Restored Tech & Bottleneck Stack */}
+            <ServicesSection onBookCall={handleBookCall} />
+
+            {/* Section 3: Your Numbers Matter + Live Interactive Financial Dashboard */}
             <FinancialDashboard
               onExploreServices={() => handleNavigate('services')}
               onBookCall={handleBookCall}
             />
-
-            {/* Section 3: Core 6-Service Bookkeeping Architecture + Restored Tech & Bottleneck Stack */}
-            <ServicesSection onBookCall={handleBookCall} />
 
             {/* Interactive 60-Second Practice Bookkeeping Health Check */}
             <PracticeAudit onBookCall={handleBookCall} />
 
             {/* Section 4: Built for Growing Practices (Navy #1A2E40) */}
             <BuiltForPractices onBookCall={handleBookCall} />
-
-            {/* Section 5: GetBillForge Small Business Tools */}
-            <GetBillForgeSection />
 
             {/* About Monique Reid Preview */}
             <AboutSection onBookCall={handleBookCall} />
@@ -108,7 +105,7 @@ export default function App() {
                 </h2>
 
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
-                  Book a complimentary 20-minute Financial Clarity Call on Calendly and tell us what is happening with your books. We'll outline your options and discuss a clear path to organized financial records.
+                  Book a complimentary 20-minute Financial Clarity Call on Calendly and tell me what is happening with your books. I'll outline your options and discuss a clear path to organized financial records.
                 </p>
 
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
