@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   DollarSign, 
   TrendingUp, 
@@ -150,6 +150,43 @@ const serviceInsights: Record<ServiceKey, { name: string; margin: string; explan
   },
 };
 
+// Smooth animated counter — counts from previous value to target on change
+function useAnimatedValue(target: number, duration = 550): number {
+  const [display, setDisplay] = useState(target);
+  const prevRef = useRef(target);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const start = prevRef.current;
+    const end = target;
+    if (start === end) return;
+
+    const startTime = performance.now();
+
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(start + (end - start) * eased));
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(animate);
+      } else {
+        prevRef.current = end;
+      }
+    };
+
+    if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
+  }, [target, duration]);
+
+  return display;
+}
+
 interface FinancialDashboardProps {
   onExploreServices: () => void;
   onBookCall: () => void;
@@ -195,6 +232,17 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
   const currentLaser = Math.round(totalRev * laserShare);
   const currentMemberships = Math.round(totalRev * membershipsShare);
   const currentSkincare = Math.round(totalRev * skincareShare);
+
+  // Animated display values — count smoothly on slider/scenario change
+  const animTotalRev = useAnimatedValue(totalRev);
+  const animCogs = useAnimatedValue(cogsAmount);
+  const animProviderPay = useAnimatedValue(providerPayAmount);
+  const animOpex = useAnimatedValue(opexAmount);
+  const animSurplus = useAnimatedValue(surplusAmount);
+  const animInjectables = useAnimatedValue(currentInjectables);
+  const animLaser = useAnimatedValue(currentLaser);
+  const animMemberships = useAnimatedValue(currentMemberships);
+  const animSkincare = useAnimatedValue(currentSkincare);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -503,8 +551,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 </p>
                 <Info className="w-3.5 h-3.5 text-[#4A5568]/60" />
               </div>
-              <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1">
-                {formatCurrency(totalRev)}
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
+                {formatCurrency(animTotalRev)}
               </p>
               <div className="flex items-center gap-1 mt-2 text-[11px] text-[#1A2E40]/80 font-medium">
                 <Info className="w-3 h-3 text-[#D4AF37]" />
@@ -529,8 +577,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   {currentScenario.cogsPercent}%
                 </span>
               </div>
-              <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1">
-                {formatCurrency(cogsAmount)}
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
+                {formatCurrency(animCogs)}
               </p>
               <p className="text-[11px] text-[#4A5568] mt-2 truncate">
                 Direct clinical products &amp; supplies
@@ -554,8 +602,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   {currentScenario.providerPayPercent}%
                 </span>
               </div>
-              <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1">
-                {formatCurrency(providerPayAmount)}
+              <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
+                {formatCurrency(animProviderPay)}
               </p>
               <p className="text-[11px] text-[#4A5568] mt-2 truncate">
                 Clinical provider compensation
@@ -580,8 +628,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     {surplusPercent}%
                   </span>
                 </div>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-white mt-1">
-                  {formatCurrency(surplusAmount)}
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-white mt-1 tabular-nums">
+                  {formatCurrency(animSurplus)}
                 </p>
                 <p className="text-[11px] text-[#E2E8F0]/90 mt-2 line-clamp-2">
                   Amount remaining after the expenses included in this simplified model.
@@ -617,7 +665,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     </button>
                   </div>
                   <p className="text-gray-200 text-[11px]">
-                    This figure represents the simplified arithmetic surplus ({formatCurrency(totalRev)} collections − {formatCurrency(cogsAmount)} COGS − {formatCurrency(providerPayAmount)} Provider Pay − {formatCurrency(opexAmount)} Operating Expenses = {formatCurrency(surplusAmount)}). It is not cash available for owner distributions, and does not account for income taxes, debt service, capital expenditures, or working capital reserves.
+                    This figure represents the simplified arithmetic surplus ({formatCurrency(animTotalRev)} collections − {formatCurrency(animCogs)} COGS − {formatCurrency(animProviderPay)} Provider Pay − {formatCurrency(animOpex)} Operating Expenses = {formatCurrency(animSurplus)}). It is not cash available for owner distributions, and does not account for income taxes, debt service, capital expenditures, or working capital reserves.
                   </p>
                 </div>
               )}
@@ -635,14 +683,14 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 onClick={() => setActiveMetric('cogs')} 
                 className="font-medium text-[#4A5568] hover:text-[#1A2E40] transition-colors cursor-pointer"
               >
-                Treatment COGS: <strong className="text-[#1A2E40]">{formatCurrency(cogsAmount)}</strong> ({currentScenario.cogsPercent}%)
+                Treatment COGS: <strong className="text-[#1A2E40] tabular-nums">{formatCurrency(animCogs)}</strong> ({currentScenario.cogsPercent}%)
               </button>
               <span className="text-[#CBD5E1] hidden sm:inline">•</span>
               <button 
                 onClick={() => setActiveMetric('providerPay')} 
                 className="font-medium text-[#4A5568] hover:text-[#1A2E40] transition-colors cursor-pointer"
               >
-                Provider Pay: <strong className="text-[#1A2E40]">{formatCurrency(providerPayAmount)}</strong> ({currentScenario.providerPayPercent}%)
+                Provider Pay: <strong className="text-[#1A2E40] tabular-nums">{formatCurrency(animProviderPay)}</strong> ({currentScenario.providerPayPercent}%)
               </button>
               <span className="text-[#CBD5E1] hidden sm:inline">•</span>
               <button 
@@ -651,14 +699,14 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   activeMetric === 'opex' ? 'bg-[#1A2E40] text-[#D4AF37]' : 'text-[#1A2E40] hover:text-[#D4AF37] underline decoration-[#D4AF37] underline-offset-2'
                 }`}
               >
-                Operating Expenses: <strong>{formatCurrency(opexAmount)}</strong> ({currentScenario.opexPercent}%)
+                Operating Expenses: <strong className="tabular-nums">{formatCurrency(animOpex)}</strong> ({currentScenario.opexPercent}%)
               </button>
               <span className="text-[#CBD5E1] hidden sm:inline">•</span>
               <button 
                 onClick={() => setActiveMetric('surplus')} 
                 className="font-bold text-emerald-800 hover:underline transition-colors cursor-pointer"
               >
-                Surplus: <strong>{formatCurrency(surplusAmount)}</strong> ({surplusPercent}%)
+                Surplus: <strong className="tabular-nums">{formatCurrency(animSurplus)}</strong> ({surplusPercent}%)
               </button>
             </div>
           </div>
@@ -797,8 +845,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                       <span className="w-2.5 h-2.5 rounded-full bg-[#1A2E40]" />
                       Injectables (Neurotoxins &amp; Dermal Fillers)
                     </span>
-                    <span className="text-[#1A2E40] font-bold">
-                      {formatCurrency(currentInjectables)} (
+                    <span className="text-[#1A2E40] font-bold tabular-nums">
+                      {formatCurrency(animInjectables)} (
                       {Math.round((currentInjectables / totalRev) * 100)}%)
                     </span>
                   </div>
@@ -828,8 +876,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                       <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37]" />
                       Laser, RF Microneedling &amp; Body Contouring
                     </span>
-                    <span className="text-[#1A2E40] font-bold">
-                      {formatCurrency(currentLaser)} (
+                    <span className="text-[#1A2E40] font-bold tabular-nums">
+                      {formatCurrency(animLaser)} (
                       {Math.round((currentLaser / totalRev) * 100)}%)
                     </span>
                   </div>
@@ -859,8 +907,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                       <span className="w-2.5 h-2.5 rounded-full bg-[#4A5568]" />
                       Membership Revenue &amp; Recurring Packages
                     </span>
-                    <span className="text-[#1A2E40] font-bold">
-                      {formatCurrency(currentMemberships)} (
+                    <span className="text-[#1A2E40] font-bold tabular-nums">
+                      {formatCurrency(animMemberships)} (
                       {Math.round((currentMemberships / totalRev) * 100)}%)
                     </span>
                   </div>
@@ -890,8 +938,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                       <span className="w-2.5 h-2.5 rounded-full bg-[#94A3B8]" />
                       Medical-Grade Skincare Retail (SkinCeuticals, ZO, Alastin)
                     </span>
-                    <span className="text-[#1A2E40] font-bold">
-                      {formatCurrency(currentSkincare)} (
+                    <span className="text-[#1A2E40] font-bold tabular-nums">
+                      {formatCurrency(animSkincare)} (
                       {Math.round((currentSkincare / totalRev) * 100)}%)
                     </span>
                   </div>
@@ -921,8 +969,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
                     Treatment COGS ({currentScenario.cogsPercent}%)
                   </h5>
-                  <p className="text-xl font-bold text-[#1A2E40] mb-2">
-                    {formatCurrency(cogsAmount)}
+                  <p className="text-xl font-bold text-[#1A2E40] mb-2 tabular-nums">
+                    {formatCurrency(animCogs)}
                   </p>
                   <ul className="text-xs text-[#4A5568] space-y-1.5">
                     <li>• Direct clinical products administered (neurotoxins, dermal fillers)</li>
@@ -937,8 +985,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     <span className="w-2 h-2 rounded-full bg-[#1A2E40]" />
                     Provider Compensation ({currentScenario.providerPayPercent}%)
                   </h5>
-                  <p className="text-xl font-bold text-[#1A2E40] mb-2">
-                    {formatCurrency(providerPayAmount)}
+                  <p className="text-xl font-bold text-[#1A2E40] mb-2 tabular-nums">
+                    {formatCurrency(animProviderPay)}
                   </p>
                   <ul className="text-xs text-[#4A5568] space-y-1.5">
                     <li>• Direct clinical provider compensation (hourly, commission, or salary)</li>
@@ -953,8 +1001,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     <span className="w-2 h-2 rounded-full bg-[#94A3B8]" />
                     Operating Expenses &amp; Overhead ({currentScenario.opexPercent}%)
                   </h5>
-                  <p className="text-xl font-bold text-[#1A2E40] mb-2">
-                    {formatCurrency(opexAmount)}
+                  <p className="text-xl font-bold text-[#1A2E40] mb-2 tabular-nums">
+                    {formatCurrency(animOpex)}
                   </p>
                   <ul className="text-xs text-[#4A5568] space-y-1.5">
                     <li>• Clinic suite lease, routine utilities, and liability insurance</li>
