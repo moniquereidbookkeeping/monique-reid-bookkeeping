@@ -22,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           <div className="lg:col-span-4 space-y-4">
             <Logo variant="light" size="lg" onClick={() => onNavigate('home')} />
             <p className="text-sm text-[#E2E8F0] max-w-sm leading-relaxed mt-2 font-light">
-              Specialized bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
+              Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss clinics, and related self-pay healthcare businesses.
             </p>
             <p className="text-xs font-serif italic text-[#D4AF37]">
               Clean Books. Clearer Numbers.

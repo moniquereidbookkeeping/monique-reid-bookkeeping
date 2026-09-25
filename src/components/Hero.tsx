@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Aesthetic & Wellness Practice Niche Eyebrow Tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/15 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Aesthetic &amp; Wellness Practice Bookkeeping</span>
+              <span>QuickBooks Bookkeeping for Self-Pay Healthcare</span>
             </div>
 
             {/* Main Headline */}
@@ -56,16 +56,16 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Subheading with Consistent Umbrella Positioning */}
             <p className="text-lg sm:text-xl text-[#4A5568] leading-relaxed max-w-2xl font-normal">
-              Specialized bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
+              Precise, practice-ready financial records so you can focus on patient outcomes—not spreadsheets. Built for MedSpas, aesthetic clinics, and self-pay healthcare practices nationwide.
             </p>
 
             {/* Strategic Segments Mention */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-[#64748B]">
-              <span className="font-semibold text-[#1A2E40]">Specialized in:</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">MedSpas &amp; Injectors</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Aesthetic Clinics</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">IV Hydration &amp; Wellness</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Medical Weight-Loss</span>
+              <span className="font-semibold text-[#1A2E40]">Serving:</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">MedSpas &amp; Laser Centers</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Nurse Injectors &amp; NPs</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">IV Infusion Suites</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Weight-Loss Clinics</span>
             </div>
 
             {/* Action Buttons */}
@@ -98,8 +98,8 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Decorative Geometric Gold Ring Behind */}
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#D4AF37]/30 via-[#1A2E40]/10 to-[#D4AF37]/20 -rotate-2 blur-xs pointer-events-none" />
 
-              {/* Portrait Container — navy bg matches the cutout portrait */}
-              <div className="relative rounded-2xl overflow-hidden bg-[#1A2E40] border-2 border-[#D4AF37]/50 shadow-xl group">
+              {/* Portrait Container */}
+              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#F5F3EE] to-[#EAE6DE] border-2 border-[#D4AF37]/50 shadow-xl group">
                 {/* Subtle top badge */}
                 <div className="absolute top-3 left-3 z-20 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A2E40]/90 backdrop-blur-sm text-white text-xs font-medium border border-[#D4AF37]/40 shadow-sm">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />

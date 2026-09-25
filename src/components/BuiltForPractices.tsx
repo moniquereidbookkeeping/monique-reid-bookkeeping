@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Building2, Syringe, HeartPulse, Scale, Sparkles, Calendar, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Stethoscope, Syringe, HeartPulse, Scale, Sparkles, Calendar, ArrowRight } from 'lucide-react';
 
 interface BuiltForPracticesProps {
   onBookCall: () => void;
@@ -7,11 +7,11 @@ interface BuiltForPracticesProps {
 
 export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall }) => {
   const practiceTypes = [
-    { title: 'MedSpas', desc: 'Neurotoxins, Dermal Fillers, Laser, RF, Facials & Esthetics', icon: Syringe },
-    { title: 'Aesthetic Clinics', desc: 'Physician, Nurse Practitioner & PA-led cosmetic centers', icon: Sparkles },
-    { title: 'IV Hydration & Wellness Practices', desc: 'Vitamin drips, NAD+ infusions, shot bars & wellness suites', icon: HeartPulse },
-    { title: 'Medical Weight-Loss Practices', desc: 'Semaglutide, Tirzepatide, peptide protocols & metabolic testing', icon: Scale },
-    { title: 'Related Self-Pay Healthcare', desc: 'Cosmetic dermatology, regenerative wellness & specialized clinical practices', icon: Building2 },
+    { title: 'MedSpas', desc: 'Full-service med spas offering injectables, energy devices, facials, and retail skincare', icon: Syringe },
+    { title: 'Aesthetic Clinics', desc: 'Cosmetic-focused clinics led by MDs, NPs, PAs, and RNs delivering advanced aesthetic treatments', icon: Sparkles },
+    { title: 'IV Hydration & Wellness Practices', desc: 'Concierge infusion lounges, mobile drip services, and integrated wellness studios', icon: HeartPulse },
+    { title: 'Medical Weight-Loss Practices', desc: 'GLP-1 prescription clinics, metabolic health programs, and peptide therapy providers', icon: Scale },
+    { title: 'Related Self-Pay Healthcare', desc: 'Hormone replacement therapy, functional medicine, regenerative aesthetics, and concierge care', icon: Stethoscope },
   ];
 
   return (
@@ -28,7 +28,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold tracking-wider text-[#D4AF37] uppercase">
-              <Building2 className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <Stethoscope className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Built For Growing Practices</span>
             </div>
 
