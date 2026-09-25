@@ -39,6 +39,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Merchant and POS payout reconciliation for Boulevard, Vagaro, Stripe, Square, and connected gateways',
         'Clear separation and documentation of owner, personal, and intercompany transactions',
       ],
+      startingPrice: 'Project-based pricing',
       noticeTitle: 'Project Scoping & Pricing',
       notice: 'Cleanup projects are individually scoped based on historical timeframe, monthly transaction volume, number of connected accounts, payment platform complexity, and existing ledger condition. A complimentary preliminary review determines the exact scope and quote.',
     },
@@ -59,6 +60,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Executive Financial Summary delivered in plain English highlighting notable trends and key variances',
         'Organized year-end financial handoff package prepared for your CPA or tax professional',
       ],
+      startingPrice: 'Starting at $497/mo',
       noticeTitle: 'Customized Retainer',
       notice: 'Monthly bookkeeping retainers are tailored to your practice’s transaction volume, active bank/credit accounts, POS integrations, and reporting depth.',
     },
@@ -79,6 +81,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Plain-language executive summary outlining notable changes, overhead ratios, and actionable focus areas',
         'Cash-flow visibility to support strategic decisions around hiring, provider compensation, equipment leases, and suite expansion',
       ],
+      startingPrice: 'Starting at $797/mo',
       noticeTitle: 'Reporting Integration',
       notice: 'Available as an enhanced advisory layer paired with ongoing monthly bookkeeping engagements, structured around your practice’s management platforms and data availability.',
     },
@@ -100,6 +103,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Dedicated tracking for IV hydration, vitamin shot bars, and medical weight-loss (GLP-1/peptides) revenue streams',
         'Multi-location and provider-level performance tracking for expanding practices',
       ],
+      startingPrice: 'Starting at $1,197/mo',
       noticeTitle: 'Professional Coordination',
       notice: 'Specialized regulatory, medical director compensation legalities, and corporate entity compliance are coordinated with your licensed legal and CPA advisors.',
     },
@@ -120,6 +124,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Product and service item catalog setup with accurate tax mapping based on client guidance and applicable rules',
         'Owner initial equity contributions, capital funding, and fixed-asset scheduling',
       ],
+      startingPrice: 'Project-based pricing',
       noticeTitle: 'Setup Deliverable',
       notice: 'Includes an initial architecture build, feed validation, and an administrative walkthrough for the practice owner or clinic manager.',
     },
@@ -140,6 +145,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Historical trend modeling across revenue growth, clinical supply cost ratios, and operational overhead',
         'Clear documentation: Monique Reid Bookkeeping provides bookkeeping organization and does not render formal valuation opinions, audit opinions, or tax filings',
       ],
+      startingPrice: 'Project-based pricing',
       noticeTitle: 'Engagement Scope',
       notice: 'Scoped as a project engagement based on the number of historical fiscal years, document completeness, entity structure, and level of reconstruction required.',
     },
@@ -162,7 +168,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             Bookkeeping &amp; Financial Operations Architecture
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#4A5568] leading-relaxed">
-            From thorough QuickBooks cleanups and routine monthly closes to specialized Chart of Accounts design and multi-year historical reconstruction—our six services are built around the clinical workflows of aesthetic and wellness practices.
+            From thorough QuickBooks cleanups and routine monthly closes to specialized Chart of Accounts design and multi-year historical reconstruction—my six services are built around the clinical workflows of aesthetic and wellness practices.
           </p>
 
           {/* Filter Pills */}
@@ -283,9 +289,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
 
-                    <span className="text-[11px] text-[#94A3B8]">
-                      Certified QBO ProAdvisor
-                    </span>
+                    {svc.startingPrice && (
+                      <span className="text-[11px] font-semibold text-[#D4AF37]">
+                        {svc.startingPrice}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -311,7 +319,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   PRACTICE SOFTWARE &amp; POS INTEGRATION
                 </span>
                 <h3 id="pos-integration-heading" className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight">
-                  We Reconcile Your Aesthetic &amp; Wellness Technology Stack
+                  I Reconcile Your Aesthetic &amp; Wellness Technology Stack
                 </h3>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
                   You don't need to change your booking or POS system. Monique’s bookkeeping process is designed to reconcile settlements, provider tips, merchant processing fees, patient financing transactions, and package sales from your booking platform straight into QuickBooks Online.
@@ -379,7 +387,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               {/* Three Core Bottlenecks */}
               <div className="pt-3 border-t border-[#E2E8F0] space-y-5">
                 <h5 className="text-base sm:text-lg font-bold text-[#1A2E40]">
-                  The Three Core Bottlenecks We Fix For Your Practice:
+                  The Three Core Bottlenecks I Fix For Your Practice:
                 </h5>
 
                 <ul className="space-y-4 text-sm sm:text-base text-[#4A5568] leading-relaxed">
@@ -387,7 +395,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">1. Package, Gift Card &amp; Membership Liability Tracking:</strong>{' '}
-                      When you sell high-value treatment packages, gift cards, or prepaid memberships, recording full payments immediately as earned income can distort monthly profitability and cash visibility. We track unearned balances systematically as liabilities and record earned revenue as services are completed, aligned with your practice accounting policies and CPA guidance.
+                      When you sell high-value treatment packages, gift cards, or prepaid memberships, recording full payments immediately as earned income can distort monthly profitability and cash visibility. I track unearned balances systematically as liabilities and record earned revenue as services are completed, aligned with your practice accounting policies and CPA guidance.
                     </div>
                   </li>
 
@@ -395,7 +403,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">2. Merchant &amp; Financing Fee Splits:</strong>{' '}
-                      Platforms like Stripe, Square, Cherry Financing, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. We cleanly isolate those deductions as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
+                      Platforms like Stripe, Square, Cherry Financing, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. I cleanly isolate those deductions as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
                     </div>
                   </li>
 
@@ -403,7 +411,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">3. Provider Payout &amp; Tip Isolation:</strong>{' '}
-                      We build clean clearing workflows to separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
+                      I build clean clearing workflows to separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
                     </div>
                   </li>
                 </ul>
@@ -414,7 +422,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 <div className="p-4 sm:p-5 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35">
                   <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
                     <strong className="text-[#1A2E40] font-bold">In Summary:</strong>{' '}
-                    You don't need to change the booking platform, POS, or patient financing software you love. We step in to clean up the backend data flow, reconcile your software reporting against your bank feeds, and deliver clear, reliable financial statements every month.
+                    You don't need to change the booking platform, POS, or patient financing software you love. I step in to clean up the backend data flow, reconcile your software reporting against your bank feeds, and deliver clear, reliable financial statements every month.
                   </p>
                 </div>
               </div>
