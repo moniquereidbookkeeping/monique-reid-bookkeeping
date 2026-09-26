@@ -23,7 +23,7 @@ interface TermsPageProps {
 
 export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) => {
   return (
-    <div className="bg-[#FDFCFA] text-[#4A5568] pb-20">
+    <div className="bg-[#FDFCFA] text-[#57534E] pb-20">
       {/* Header Banner */}
       <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
@@ -44,7 +44,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8 text-[#4A5568]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8 text-[#57534E]">
         {/* Intro Card */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-sm space-y-4">
           <div className="flex items-start gap-4">
@@ -82,7 +82,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           </p>
           <div>
             <p className="text-sm font-semibold text-[#1A2E40] mb-2">Our services may include:</p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#4A5568]">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E]">
               {[
                 'QuickBooks Online setup and organization',
                 'Chart-of-accounts support',
@@ -101,7 +101,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
               ))}
             </ul>
           </div>
-          <p className="text-xs sm:text-sm text-[#4A5568] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
+          <p className="text-xs sm:text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
             The specific services, deliverables, timing, fees and responsibilities for a client engagement will be defined in the applicable service agreement or statement of work.
           </p>
         </div>
@@ -190,7 +190,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <p className="text-sm leading-relaxed">
             Where available, clients should provide appropriate delegated, accountant or user access through the relevant third-party platform rather than sharing passwords.
           </p>
-          <p className="text-xs sm:text-sm text-[#4A5568] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30 font-medium">
+          <p className="text-xs sm:text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30 font-medium">
             Clients remain responsible for their business decisions and for legal, tax, payroll, licensing, regulatory and operational requirements applicable to their business.
           </p>
         </div>
@@ -293,7 +293,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             <p className="text-sm font-semibold text-[#1A2E40] mb-2">
               Depending on the system and service involved, safeguards may include:
             </p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#4A5568]">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E]">
               {[
                 'Multi-factor authentication',
                 'Unique passwords',
@@ -428,7 +428,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
               <li>circumstances outside our reasonable control.</li>
             </ul>
           </div>
-          <p className="text-xs sm:text-sm text-[#4A5568]">
+          <p className="text-xs sm:text-sm text-[#57534E]">
             Any specific limitation of liability applicable to a paid engagement will be stated in the applicable client service agreement.
           </p>
         </div>
@@ -452,7 +452,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
               <li>a substitute for advice from an appropriately licensed professional.</li>
             </ul>
           </div>
-          <p className="text-xs sm:text-sm text-[#4A5568]">
+          <p className="text-xs sm:text-sm text-[#57534E]">
             Information on this website may be updated or changed without notice.
           </p>
         </div>
@@ -469,7 +469,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <p className="text-sm leading-relaxed">
             You may not reproduce, modify, redistribute, sell, or commercially exploit our website content or proprietary materials without written permission.
           </p>
-          <p className="text-xs sm:text-sm text-[#4A5568]">
+          <p className="text-xs sm:text-sm text-[#57534E]">
             This does not restrict materials that are expressly offered by us for licensed or permitted client use.
           </p>
         </div>
