@@ -575,10 +575,10 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <p>
               Email:{' '}
               <a
-                href="mailto:hello@moniquereidbookkeeping.com"
+                href="mailto:monique@moniquereidbookkeeping.com"
                 className="text-[#D4AF37] hover:underline"
               >
-                hello@moniquereidbookkeeping.com
+                monique@moniquereidbookkeeping.com
               </a>
             </p>
           </div>
@@ -589,7 +589,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             </p>
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <a
-                href="mailto:hello@moniquereidbookkeeping.com"
+                href="mailto:monique@moniquereidbookkeeping.com"
                 className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all w-full sm:w-auto"
               >
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
