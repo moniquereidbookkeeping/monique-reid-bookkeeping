@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Sparkles, Calendar, ArrowRight, Star, Zap, Shield } from 'lucide-react';
+import { CheckCircle2, Sparkles, Calendar, ArrowRight, BookOpen, TrendingUp, BarChart3, Star } from 'lucide-react';
 
 interface PricingSectionProps {
   onBookCall: () => void;
@@ -11,7 +11,7 @@ const plans = [
     name: 'Foundation',
     tagline: 'Boutique or single-provider practice',
     volumeHint: 'Up to ~$25K/mo in practice transactions',
-    icon: Shield,
+    icon: BookOpen,
     monthlyPrice: 497,
     annualPrice: 447,
     popular: false,
@@ -40,7 +40,7 @@ const plans = [
     name: 'Growth',
     tagline: 'Established practice ready for deeper visibility',
     volumeHint: '$25K–$75K/mo in practice transactions',
-    icon: Zap,
+    icon: TrendingUp,
     monthlyPrice: 797,
     annualPrice: 717,
     popular: true,
@@ -68,7 +68,7 @@ const plans = [
     name: 'Full-Spectrum',
     tagline: 'Multi-provider or multi-modality practice',
     volumeHint: '$75K+/mo or multi-provider practices',
-    icon: Star,
+    icon: BarChart3,
     monthlyPrice: 1197,
     annualPrice: 1077,
     popular: false,
