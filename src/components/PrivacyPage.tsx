@@ -26,7 +26,7 @@ interface PrivacyPageProps {
 
 export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall }) => {
   return (
-    <div className="bg-[#FDFCFA] text-[#4A5568] pb-20">
+    <div className="bg-[#FDFCFA] text-[#57534E] pb-20">
       {/* Header Banner */}
       <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
@@ -47,7 +47,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8 text-[#4A5568]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8 text-[#57534E]">
         {/* Intro Card */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-sm space-y-4">
           <div className="flex items-start gap-4">
@@ -85,7 +85,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <p className="text-sm leading-relaxed">
               When you contact us, submit an inquiry, or schedule a Financial Clarity Call, we may collect:
             </p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#4A5568] pt-1">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E] pt-1">
               {[
                 'Full name',
                 'Business/practice name',
@@ -119,7 +119,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           </p>
           <div>
             <p className="text-sm font-semibold text-[#1A2E40] mb-2">Depending on the engagement, this may include:</p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#4A5568]">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E]">
               {[
                 'QuickBooks Online information',
                 'Bank and credit-card statements',
@@ -180,7 +180,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           </p>
           <div className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] space-y-1 text-xs sm:text-sm">
             <p className="font-bold text-[#1A2E40]">HIPAA</p>
-            <p className="text-[#4A5568]">
+            <p className="text-[#57534E]">
               If a particular engagement involves creating, receiving, maintaining, or transmitting PHI and Monique Reid Bookkeeping is acting as a HIPAA business associate, the parties will address applicable HIPAA requirements through appropriate written agreements and safeguards before such information is handled. HHS explains that accounting services can fall within the business-associate framework when they involve PHI.
             </p>
           </div>
@@ -195,7 +195,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             We use collected information for legitimate business purposes, including:
           </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#4A5568]">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E]">
             {[
               'Responding to inquiries',
               'Scheduling consultations',
@@ -239,25 +239,25 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-3 text-sm">
             <div className="p-3 rounded-lg bg-[#FAF8F5] border border-[#E2E8F0]">
               <p className="font-bold text-[#1A2E40]">Provide our services</p>
-              <p className="text-[#4A5568] mt-0.5">
+              <p className="text-[#57534E] mt-0.5">
                 For example, we may use technology providers and platforms necessary to deliver bookkeeping, scheduling, communication, document-management, payment-processing, or related services.
               </p>
             </div>
             <div className="p-3 rounded-lg bg-[#FAF8F5] border border-[#E2E8F0]">
               <p className="font-bold text-[#1A2E40]">Follow your instructions</p>
-              <p className="text-[#4A5568] mt-0.5">
+              <p className="text-[#57534E] mt-0.5">
                 We may share information with your CPA, tax professional, attorney, lender, consultant, or other authorized professional when you request or authorize us to do so.
               </p>
             </div>
             <div className="p-3 rounded-lg bg-[#FAF8F5] border border-[#E2E8F0]">
               <p className="font-bold text-[#1A2E40]">Meet legal obligations</p>
-              <p className="text-[#4A5568] mt-0.5">
+              <p className="text-[#57534E] mt-0.5">
                 We may disclose information when required by applicable law, legal process, court order, or other lawful requirement.
               </p>
             </div>
             <div className="p-3 rounded-lg bg-[#FAF8F5] border border-[#E2E8F0]">
               <p className="font-bold text-[#1A2E40]">Protect rights and security</p>
-              <p className="text-[#4A5568] mt-0.5">
+              <p className="text-[#57534E] mt-0.5">
                 We may disclose information when reasonably necessary to protect our rights, property, systems, clients, or others, or to investigate suspected fraud, abuse, or security incidents.
               </p>
             </div>
@@ -284,7 +284,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             These providers may process information on our behalf according to their own terms and privacy policies.
           </p>
-          <p className="text-xs sm:text-sm text-[#4A5568]">
+          <p className="text-xs sm:text-sm text-[#57534E]">
             We encourage you to review the privacy and security practices of third-party services you use.
           </p>
         </div>
@@ -390,7 +390,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <p className="text-sm font-semibold text-[#1A2E40] mb-2">
               Depending on the system and information involved, our practices may include:
             </p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#4A5568]">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E]">
               {[
                 'Multi-factor authentication',
                 'Strong and unique passwords',
@@ -429,7 +429,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             We do not intentionally request patient medical information when it is not necessary for the agreed bookkeeping services. Clients should not provide unnecessary sensitive information through ordinary website forms or email.
           </p>
-          <p className="text-xs sm:text-sm text-[#4A5568] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
+          <p className="text-xs sm:text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
             This approach follows the FTC&apos;s guidance to take stock of sensitive information, keep only what is needed, protect it appropriately, and securely dispose of information that is no longer necessary.
           </p>
         </div>
@@ -469,7 +469,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             Where notification is legally required, we will provide notice in the manner and within the timeframe required by applicable law.
           </p>
-          <p className="text-xs sm:text-sm text-[#4A5568]">
+          <p className="text-xs sm:text-sm text-[#57534E]">
             The FTC recommends that businesses maintain a plan for responding to security incidents rather than assuming a breach will never occur.
           </p>
         </div>
@@ -490,7 +490,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <li>Withdraw certain communications preferences</li>
             <li>Ask questions about this Privacy Policy</li>
           </ul>
-          <p className="text-xs sm:text-sm text-[#4A5568] pt-1">
+          <p className="text-xs sm:text-sm text-[#57534E] pt-1">
             Requests may be subject to identity verification and applicable legal exceptions.
           </p>
         </div>
@@ -527,16 +527,16 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <span>17. GetBillForge</span>
           </h3>
           <p className="text-sm leading-relaxed">
-            Monique Reid Bookkeeping may provide links to GetBillForge, a separate small-business template and digital-product business.
+            Monique Reid Bookkeeping may contain links to <a href="https://getbillforge.com" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline">GetBillForge (getbillforge.com)</a>, a separate digital-product business that sells professionally designed invoice and billing template kits for MedSpas, aesthetic clinics, IV hydration centers, and wellness practices.
           </p>
           <p className="text-sm leading-relaxed">
-            If you visit GetBillForge or purchase products through that business, the privacy practices applicable to GetBillForge may be governed by its own privacy policy and terms.
+            GetBillForge products are downloadable business tools — not bookkeeping or financial reporting services. If you visit GetBillForge or purchase products through that site, your interactions are governed by GetBillForge&apos;s own terms and privacy practices.
           </p>
           <p className="text-sm leading-relaxed">
-            The two businesses may be related through common ownership, but information should not be treated as being automatically shared between them unless permitted by law and appropriate for the stated purpose.
+            Although both businesses are owned by Monique Reid, they operate independently. Information you provide to Monique Reid Bookkeeping as a bookkeeping client is not shared with or used by GetBillForge for marketing or product purposes, and vice versa.
           </p>
           <p className="text-xs sm:text-sm text-[#1A2E40] font-medium bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
-            We maintain this operational separation so that Monique Reid Bookkeeping client financial records remain completely separate from the marketing and product operations of GetBillForge.
+            We maintain this separation so that client financial records handled through Monique Reid Bookkeeping remain completely separate from the product and marketing operations of GetBillForge.
           </p>
         </div>
 
