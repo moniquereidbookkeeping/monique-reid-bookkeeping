@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Aesthetic & Wellness Practice Niche Eyebrow Tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/15 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>QuickBooks Bookkeeping for Self-Pay Healthcare</span>
+              <span>Aesthetic &amp; Wellness Practice Bookkeeping</span>
             </div>
 
             {/* Main Headline */}
@@ -61,11 +61,11 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Strategic Segments Mention */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-[#64748B]">
-              <span className="font-semibold text-[#1A2E40]">Serving:</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">MedSpas &amp; Laser Centers</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Nurse Injectors &amp; NPs</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">IV Infusion Suites</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Weight-Loss Clinics</span>
+              <span className="font-semibold text-[#1A2E40]">Specialized in:</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">MedSpas &amp; Injectors</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Aesthetic Clinics</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">IV Hydration &amp; Wellness</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Medical Weight-Loss</span>
             </div>
 
             {/* Action Buttons */}
