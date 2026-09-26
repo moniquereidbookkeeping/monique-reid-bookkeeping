@@ -35,26 +35,26 @@ export const Logo: React.FC<LogoProps> = ({
       aria-label="Monique Reid Bookkeeping Home"
       className={`inline-flex items-center gap-3.5 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-xl p-0.5 ${className}`}
     >
-      {/* Newly Approved MR Monogram Badge Image with Crisp Scaling and Transparency */}
+      {/* MR Monogram Badge — dark-bg on light header, white-bg on dark footer */}
       <div
-        className="relative shrink-0 transition-transform duration-300 group-hover:scale-105"
+        className="relative shrink-0 transition-transform duration-300 group-hover:scale-105 rounded-xl overflow-hidden"
         style={{
           width: markPixelSize,
           height: markPixelSize,
         }}
       >
         <img
-          src="/mr-logo-192.png"
+          src={isDark ? '/mr-logo-dark-bg.png' : '/mr-logo-white-bg.png'}
           alt="Monique Reid Bookkeeping MR Monogram Emblem"
           width={markPixelSize}
           height={markPixelSize}
-          className="w-full h-full object-contain filter drop-shadow-sm"
+          className="w-full h-full object-cover"
           loading="eager"
         />
       </div>
 
-      {/* Typography Wordmark - Monique Reid Bookkeeping */}
-      <div className="flex flex-col items-start justify-center text-left">
+      {/* Typography Wordmark — BOOKKEEPING centered under MONIQUE REID */}
+      <div className="flex flex-col items-center justify-center text-center">
         <span
           className="font-serif font-bold tracking-[0.06em] leading-tight transition-colors duration-200"
           style={{
