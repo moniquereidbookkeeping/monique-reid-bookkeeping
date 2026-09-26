@@ -1,123 +1,217 @@
-import React from 'react';
-import { ExternalLink, Calendar, ArrowRight, Clock, ShieldCheck } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight, Clock, Video, Globe } from 'lucide-react';
 import { BOOKING_URL } from '../constants/booking';
 
 interface CalendlyBookingCardProps {
   onOpenPrivacy?: () => void;
 }
 
-export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
+// Static calendar data — shows current month with representative available slots
+// Clicking any available date or CTA opens real Calendly in a new tab
+const MONTH_LABEL = 'October 2026';
+const WEEKS = [
+  [null, null, null, null, 1, 2, 3],
+  [4, 5, 6, 7, 8, 9, 10],
+  [11, 12, 13, 14, 15, 16, 17],
+  [18, 19, 20, 21, 22, 23, 24],
+  [25, 26, 27, 28, 29, 30, 31],
+];
+// Simulate available weekdays (Mon–Fri, not weekends, not past)
+const AVAILABLE = new Set([6, 7, 8, 9, 13, 14, 15, 16, 20, 21, 22, 23, 27, 28, 29, 30]);
+
+export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = ({ onOpenPrivacy }) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const openCalendly = () => {
+    window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="w-full max-w-5xl mx-auto">
-      {/* Top Bar with Direct Links */}
+      {/* Top bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-3 px-1">
         <div className="flex items-center gap-2 text-xs font-semibold text-[#1A2E40]">
-          <Calendar className="w-4 h-4 text-[#D4AF37]" />
+          <Clock className="w-4 h-4 text-[#D4AF37]" />
           <span>Select an available day and time on the calendar below</span>
         </div>
-
         <a
           href={BOOKING_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Open 20-minute consultation directly on Calendly in a new tab"
-          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-[#FAF8F5] border border-[#CBD5E1] text-xs font-bold text-[#1A2E40] hover:text-[#D4AF37] transition-all shadow-xs group"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-[#FAF8F5] border border-[#CBD5E1] text-xs font-bold text-[#1A2E40] hover:text-[#D4AF37] transition-all shadow-xs"
         >
-          <span>Open directly on Calendly</span>
-          <ExternalLink className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-0.5 transition-transform" />
+          Open directly on Calendly
+          <svg className="w-3.5 h-3.5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
         </a>
       </div>
 
-      {/* Static Booking Card — replaces live Calendly iframe */}
+      {/* Main card — static Calendly UI replica */}
       <div className="relative w-full bg-white rounded-2xl border border-[#E2E8F0] shadow-xl overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[440px]">
-
-          {/* Left: What to Expect */}
-          <div className="bg-[#1A2E40] p-8 sm:p-10 flex flex-col justify-between">
-            <div className="space-y-6">
-              <div>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] border border-white/10 mb-4">
-                  <Clock className="w-3 h-3" />
-                  Complimentary · 20 Minutes
-                </span>
-                <h3 className="font-serif font-bold text-2xl sm:text-3xl text-white leading-tight">
-                  Financial Clarity Call
-                </h3>
-                <p className="mt-2 text-sm text-[#E2E8F0]/80 font-light leading-relaxed">
-                  A focused 20-minute Zoom to review your practice's bookkeeping situation and discuss a clear path forward.
-                </p>
-              </div>
-
-              <ul className="space-y-3">
-                {[
-                  "Review your current bookkeeping setup and pain points",
-                  "Identify immediate opportunities for cleanup or clarity",
-                  "Discuss a clear scope and next steps — no pressure",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5">
-                    <span className="w-5 h-5 rounded-full bg-[#D4AF37] text-[#1A2E40] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
-                      ✓
-                    </span>
-                    <span className="text-sm text-[#E2E8F0] leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <div className="flex items-center gap-2 text-xs text-[#E2E8F0]/70">
-                <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                <span>Strictly confidential · No obligation · Zoom or phone</span>
-              </div>
+        {/* Calendly "Powered by" corner badge */}
+        <div className="absolute top-0 right-0 z-10 pointer-events-none">
+          <div
+            className="w-20 h-20 overflow-hidden"
+            style={{ position: 'relative' }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: 14,
+                right: -22,
+                width: 90,
+                background: '#1A1A2E',
+                color: '#fff',
+                fontSize: 7,
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textAlign: 'center',
+                padding: '3px 0',
+                transform: 'rotate(45deg)',
+                lineHeight: '1.4',
+              }}
+            >
+              POWERED BY<br />Calendly
             </div>
           </div>
+        </div>
 
-          {/* Right: CTA */}
-          <div className="p-8 sm:p-10 flex flex-col items-center justify-center text-center space-y-6 bg-[#FDFCFA]">
-            <div className="w-16 h-16 rounded-2xl bg-[#D4AF37]/15 flex items-center justify-center">
-              <Calendar className="w-8 h-8 text-[#D4AF37]" />
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Left: Event info */}
+          <div className="p-7 sm:p-9 border-b md:border-b-0 md:border-r border-[#E2E8F0] flex flex-col gap-5">
+            <div>
+              <p className="text-sm font-semibold text-[#57534E]">Monique Reid</p>
+              <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#1A2E40] mt-0.5 leading-snug">
+                20-Minute Financial Clarity Call
+              </h3>
             </div>
 
-            <div className="space-y-2">
-              <h4 className="font-serif font-bold text-xl text-[#1A2E40]">
-                Book Your 20-Minute Call
-              </h4>
-              <p className="text-sm text-[#57534E] font-light leading-relaxed max-w-xs mx-auto">
-                Choose a time that works for you directly on Calendly. Booking takes under a minute.
+            <div className="space-y-2.5">
+              <div className="flex items-center gap-2 text-sm text-[#57534E]">
+                <Clock className="w-4 h-4 text-[#57534E] shrink-0" />
+                <span>20 min</span>
+              </div>
+              <div className="flex items-start gap-2 text-sm text-[#57534E]">
+                <Video className="w-4 h-4 text-[#57534E] shrink-0 mt-0.5" />
+                <span>Web conferencing details provided upon confirmation.</span>
+              </div>
+            </div>
+
+            <div className="text-sm text-[#57534E] leading-relaxed">
+              <p className="font-bold text-[#1A2E40]">Get clarity on your practice's finances.</p>
+              <p className="mt-1 font-light">
+                In 20 minutes, I'll discuss your bookkeeping, reporting, and financial needs so you can better understand your numbers and your next best step.{' '}
+                <span className="font-bold text-[#1A2E40]">No pressure. Just clarity.</span>
               </p>
             </div>
 
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 w-full max-w-xs px-6 py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_22px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 group"
-            >
-              <Calendar className="w-4 h-4 text-[#1A2E40]" />
-              <span>Open Calendly to Book</span>
-              <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="mt-auto pt-4 border-t border-[#E2E8F0] flex items-center gap-4">
+              <button
+                type="button"
+                onClick={openCalendly}
+                className="text-xs text-[#D4AF37] hover:underline font-medium cursor-pointer"
+              >
+                Cookie settings
+              </button>
+              <button
+                type="button"
+                onClick={() => { if (onOpenPrivacy) onOpenPrivacy(); }}
+                className="text-xs text-[#D4AF37] hover:underline font-medium cursor-pointer"
+              >
+                Privacy Policy
+              </button>
+            </div>
+          </div>
 
-            <div className="space-y-1.5 text-xs text-[#78716C]">
-              <div className="flex items-center justify-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-                <span>Zoom or phone — your preference</span>
-              </div>
-              <div className="flex items-center justify-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-                <span>Instant confirmation sent to your email</span>
-              </div>
-              <div className="flex items-center justify-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-                <span>No booking fee · No credit card required</span>
-              </div>
+          {/* Right: Static calendar */}
+          <div className="p-7 sm:p-9">
+            <h4 className="font-bold text-lg text-[#1A2E40] mb-5">Select a Date &amp; Time</h4>
+
+            {/* Month nav */}
+            <div className="flex items-center justify-between mb-4">
+              <button
+                type="button"
+                onClick={openCalendly}
+                className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#F2EFE9] text-[#57534E] transition-colors cursor-pointer"
+                aria-label="Previous month"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <span className="text-sm font-bold text-[#1A2E40]">{MONTH_LABEL}</span>
+              <button
+                type="button"
+                onClick={openCalendly}
+                className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#F2EFE9] text-[#57534E] transition-colors cursor-pointer"
+                aria-label="Next month"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Day of week headers */}
+            <div className="grid grid-cols-7 mb-1">
+              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
+                <div key={d} className="text-center text-[10px] font-semibold text-[#78716C] py-1">
+                  {d}
+                </div>
+              ))}
+            </div>
+
+            {/* Calendar grid */}
+            <div className="space-y-0.5">
+              {WEEKS.map((week, wi) => (
+                <div key={wi} className="grid grid-cols-7">
+                  {week.map((day, di) => {
+                    if (!day) return <div key={di} />;
+                    const isAvail = AVAILABLE.has(day);
+                    const isHovered = hovered === day;
+                    return (
+                      <div key={di} className="flex items-center justify-center py-0.5">
+                        <button
+                          type="button"
+                          onClick={isAvail ? openCalendly : undefined}
+                          onMouseEnter={() => isAvail && setHovered(day)}
+                          onMouseLeave={() => setHovered(null)}
+                          className={`w-9 h-9 rounded-full text-sm font-medium transition-all flex items-center justify-center
+                            ${isAvail
+                              ? isHovered
+                                ? 'bg-[#D4AF37] text-[#1A2E40] cursor-pointer font-bold scale-105'
+                                : 'bg-[#D4AF37]/15 text-[#1A2E40] hover:bg-[#D4AF37] hover:text-[#1A2E40] cursor-pointer font-semibold border border-[#D4AF37]/40'
+                              : 'text-[#C4B9B0] cursor-default'
+                            }`}
+                          aria-label={isAvail ? `Book on ${MONTH_LABEL} ${day}` : undefined}
+                          disabled={!isAvail}
+                        >
+                          {day}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+
+            {/* Timezone */}
+            <div className="mt-5 pt-4 border-t border-[#E2E8F0]">
+              <p className="text-xs font-semibold text-[#57534E] mb-1.5 flex items-center gap-1">
+                <Globe className="w-3.5 h-3.5" />
+                Time zone
+              </p>
+              <button
+                type="button"
+                onClick={openCalendly}
+                className="inline-flex items-center gap-1.5 text-xs text-[#57534E] hover:text-[#1A2E40] transition-colors cursor-pointer"
+              >
+                <Globe className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <span>Eastern Time – US &amp; Canada</span>
+                <ChevronRight className="w-3 h-3 rotate-90" />
+              </button>
             </div>
           </div>
         </div>
       </div>
 
       <div className="mt-3 text-center text-xs text-[#78716C]">
-        <span>Booking managed by Calendly · Secure SSL encrypted</span>
+        <span>Powered by Calendly · Secure SSL encrypted calendar booking</span>
       </div>
     </div>
   );
