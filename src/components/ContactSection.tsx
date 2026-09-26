@@ -26,8 +26,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
             Book Your Complimentary 20-Minute Financial Clarity Call
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-[#4A5568] leading-relaxed font-normal">
-            Select a convenient time on our calendar. We'll discuss your practice's current bookkeeping setup, identify immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
+          <p className="mt-3 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
+            Select a convenient time on Calendly. I'll discuss your practice's current bookkeeping setup, identify immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
           </p>
         </div>
 
