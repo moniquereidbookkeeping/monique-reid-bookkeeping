@@ -562,7 +562,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-1 text-sm text-[#E2E8F0]">
             <p className="font-bold text-white text-base">Monique Reid Bookkeeping</p>
             <p>Monique Reid, Founder</p>
-            <p className="text-[#D4AF37] font-medium">MedSpa &amp; Aesthetic Practice Bookkeeping</p>
+            <p className="text-[#D4AF37] font-medium">Specialized Bookkeeping for MedSpas, Aesthetic Clinics &amp; Wellness Practices</p>
             <p className="pt-1">
               Website:{' '}
               <a
