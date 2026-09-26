@@ -286,7 +286,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 onClick={onExploreServices}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A2E40] hover:text-[#D4AF37] transition-colors group cursor-pointer"
               >
-                <span>Explore Our Four Core Bookkeeping Services</span>
+                <span>Explore Our Six Bookkeeping Services</span>
                 <ArrowUpRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
@@ -312,10 +312,10 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <button
                     key={sc.id}
                     onClick={() => handleScenarioSelect(sc.id)}
-                    className={`p-3.5 rounded-xl text-left border transition-all text-xs cursor-pointer ${
+                    className={`p-3.5 rounded-xl text-left border-2 transition-all text-xs cursor-pointer ${
                       isSelected
                         ? 'bg-[#1A2E40] border-[#D4AF37] text-white shadow-md ring-2 ring-[#D4AF37]/50'
-                        : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#4A5568] hover:border-[#CBD5E1] hover:bg-white'
+                        : 'bg-white border-[#CBD5E1] text-[#4A5568] hover:border-[#1A2E40]/40 hover:shadow-sm hover:bg-[#FDFCFA]'
                     }`}
                   >
                     <p
@@ -542,7 +542,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               className={`p-4 rounded-xl text-left transition-all cursor-pointer relative ${
                 activeMetric === 'revenue'
                   ? 'bg-white border-2 border-[#1A2E40] shadow-md ring-2 ring-[#1A2E40]/10'
-                  : 'bg-[#FDFCFA] border border-[#E2E8F0] hover:border-[#CBD5E1]'
+                  : 'bg-white border-2 border-[#CBD5E1] hover:border-[#1A2E40]/50 hover:shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between">
@@ -566,7 +566,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               className={`p-4 rounded-xl text-left transition-all cursor-pointer relative ${
                 activeMetric === 'cogs'
                   ? 'bg-white border-2 border-[#D4AF37] shadow-md ring-2 ring-[#D4AF37]/20'
-                  : 'bg-[#FDFCFA] border border-[#E2E8F0] hover:border-[#CBD5E1]'
+                  : 'bg-white border-2 border-[#CBD5E1] hover:border-[#D4AF37]/60 hover:shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between">
@@ -591,7 +591,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               className={`p-4 rounded-xl text-left transition-all cursor-pointer relative ${
                 activeMetric === 'providerPay'
                   ? 'bg-white border-2 border-[#1A2E40] shadow-md ring-2 ring-[#1A2E40]/10'
-                  : 'bg-[#FDFCFA] border border-[#E2E8F0] hover:border-[#CBD5E1]'
+                  : 'bg-white border-2 border-[#CBD5E1] hover:border-[#1A2E40]/50 hover:shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between">

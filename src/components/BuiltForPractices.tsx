@@ -54,8 +54,10 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                   return (
                     <div
                       key={idx}
-                      className={`p-3.5 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/50 transition-all flex items-start gap-3 ${
-                        isLast ? 'sm:col-span-2' : ''
+                      className={`p-3.5 rounded-xl bg-white/5 transition-all flex items-start gap-3 ${
+                        isLast
+                          ? 'sm:col-span-2 border border-[#D4AF37]/40 hover:border-[#D4AF37]/70 bg-[#D4AF37]/5'
+                          : 'border border-white/10 hover:border-[#D4AF37]/50'
                       }`}
                     >
                       <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/20 text-[#D4AF37] flex items-center justify-center shrink-0">
