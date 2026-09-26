@@ -38,7 +38,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
 
             <p className="text-base sm:text-lg text-[#E2E8F0] leading-relaxed max-w-2xl font-light">
               Whether you are launching your first solo treatment suite or operating a multi-provider
-              aesthetic and wellness clinic with medical directors and clinical staff, we keep the financial side
+              aesthetic and wellness clinic with medical directors and clinical staff, I keep the financial side
               of your business organized, dependable, and understandable.
             </p>
 
@@ -82,7 +82,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                 <span>The Standard of Care</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-6">
-                What Staying Organized Looks Like
+                What You Get Every Month
               </h3>
 
               <ul className="space-y-4">

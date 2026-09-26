@@ -75,13 +75,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
           {/* Right Column: Bio & Practice Philosophy */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-              Clean Books. Clearer Numbers.{' '}
+              Clean Books. Confident Decisions.{' '}
               <span className="text-[#D4AF37] block mt-1">Built For Aesthetic &amp; Wellness Founders</span>
             </h2>
 
             <div className="space-y-4 text-base sm:text-lg text-[#4A5568] leading-relaxed font-normal">
               <p>
-                Hi, I'm Monique Reid. As a Certified QuickBooks ProAdvisor with a B.Sc. in Business Administration, I specialize in helping
+                Hi, I'm Monique Reid. As a Certified QuickBooks ProAdvisor with a BBA in Business Administration, I specialize in helping
                 medical spa founders, nurse injectors, aesthetic clinicians, and wellness practice owners turn financial
                 uncertainty into reliable, tax-ready clarity.
               </p>

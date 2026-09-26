@@ -183,14 +183,13 @@ export default function App() {
                   Meet Monique Reid
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Dedicated bookkeeping and financial guidance for MedSpa, aesthetic clinic, and wellness practice founders nationwide.
+                  Specialized bookkeeping for MedSpa, aesthetic clinic, and wellness practice founders nationwide.
                 </p>
               </div>
             </div>
 
             <AboutSection onBookCall={handleBookCall} />
             <BuiltForPractices onBookCall={handleBookCall} />
-            <GetBillForgeSection />
           </>
         )}
 

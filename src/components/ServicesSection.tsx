@@ -346,7 +346,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span
                       key={tech}
                       role="listitem"
-                      className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-medium text-white border border-white/15 transition-colors shadow-sm"
+                      className="px-3.5 py-1.5 rounded-lg bg-white/12 hover:bg-white/20 text-xs font-medium text-white border border-white/30 transition-colors shadow-sm"
                     >
                       {tech}
                     </span>

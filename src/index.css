@@ -25,6 +25,15 @@
   }
 }
 
+/* Global anchor color override — prevent browser default blue link bleed */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
 /* Custom scrollbar for premium aesthetic */
 ::-webkit-scrollbar {
   width: 8px;
