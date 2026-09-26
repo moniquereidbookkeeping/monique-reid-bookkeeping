@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { 
-  Sparkles, 
-  ArrowRight, 
-  Calendar, 
-  Wrench, 
-  Clock, 
-  TrendingUp, 
+import {
+  Sparkles,
+  ArrowRight,
+  Calendar,
+  Wrench,
+  Clock,
+  TrendingUp,
   HeartHandshake,
   Layers,
   LineChart,
@@ -44,50 +44,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       notice: 'Cleanup projects are individually scoped based on historical timeframe, monthly transaction volume, number of connected accounts, payment platform complexity, and existing ledger condition. A complimentary preliminary review determines the exact scope and quote.',
     },
     {
-      id: 'monthly',
-      num: '02',
-      phase: 'Maintain',
-      title: 'Monthly Bookkeeping',
-      tagline: 'Dependable, recurring monthly close process keeping your practice books current and audit-ready.',
-      lead: 'Consistent monthly management of all operating accounts, providing practice owners with reliable financial visibility to make confident operational decisions.',
-      icon: Clock,
-      highlight: 'A structured monthly close routine delivering clear statements and proactive review of uncleared items.',
-      deliverables: [
-        'Monthly reconciliations across all operating bank, credit card, and active financing accounts',
-        'Systematic transaction categorization and recurring expense verification',
-        'Ongoing review of uncleared items, outstanding checks, and items requiring practice follow-up',
-        'Preparation of monthly Balance Sheet and Profit & Loss statements',
-        'Executive Financial Summary delivered in plain English highlighting notable trends and key variances',
-        'Organized year-end financial handoff package prepared for your CPA or tax professional',
-      ],
-      startingPrice: 'Starting at $497/mo',
-      noticeTitle: 'Customized Retainer',
-      notice: 'Monthly bookkeeping retainers are tailored to your practice’s transaction volume, active bank/credit accounts, POS integrations, and reporting depth.',
-    },
-    {
-      id: 'reporting',
-      num: '03',
-      phase: 'Grow',
-      title: 'Financial Reporting & KPIs',
-      tagline: 'Executive reporting and plain-language metric analysis designed for practice growth and profitability.',
-      lead: 'Transforms raw accounting entries into actionable business intelligence, helping owners understand true treatment margins, revenue concentrations, and cash flow dynamics.',
-      icon: TrendingUp,
-      highlight: 'Reports designed for healthcare and aesthetic practice owners, not just compliance accountants.',
-      deliverables: [
-        'Treatment and service-line margin analysis where clinical cost records and inventory data permit',
-        'Monthly Balance Sheet reporting providing transparent visibility into assets, liabilities, and retained earnings',
-        'Period-over-period performance comparisons, including Month-over-Month and Quarter-over-Quarter trends',
-        'Revenue segmentation by modality (injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare, and memberships)',
-        'Plain-language executive summary outlining notable changes, overhead ratios, and actionable focus areas',
-        'Cash-flow visibility to support strategic decisions around hiring, provider compensation, equipment leases, and suite expansion',
-      ],
-      startingPrice: 'Starting at $797/mo',
-      noticeTitle: 'Reporting Integration',
-      notice: 'Available as an enhanced advisory layer paired with ongoing monthly bookkeeping engagements, structured around your practice’s management platforms and data availability.',
-    },
-    {
       id: 'focus',
-      num: '04',
+      num: '02',
       phase: 'Specialized',
       title: 'Aesthetic & Wellness Practice Specialization',
       tagline: 'Bookkeeping methodologies built specifically for the clinical and operational realities of self-pay healthcare.',
@@ -106,6 +64,48 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       startingPrice: 'Starting at $1,197/mo',
       noticeTitle: 'Professional Coordination',
       notice: 'Specialized regulatory, medical director compensation legalities, and corporate entity compliance are coordinated with your licensed legal and CPA advisors.',
+    },
+    {
+      id: 'monthly',
+      num: '03',
+      phase: 'Maintain',
+      title: 'Monthly Bookkeeping',
+      tagline: 'Dependable, recurring monthly close process keeping your practice books current and audit-ready.',
+      lead: 'Consistent monthly management of all operating accounts, providing practice owners with reliable financial visibility to make confident operational decisions.',
+      icon: Clock,
+      highlight: 'A structured monthly close routine delivering clear statements and proactive review of uncleared items.',
+      deliverables: [
+        'Monthly reconciliations across all operating bank, credit card, and active financing accounts',
+        'Systematic transaction categorization and recurring expense verification',
+        'Ongoing review of uncleared items, outstanding checks, and items requiring practice follow-up',
+        'Preparation of monthly Balance Sheet and Profit & Loss statements',
+        'Executive Financial Summary delivered in plain English highlighting notable trends and key variances',
+        'Organized year-end financial handoff package prepared for your CPA or tax professional',
+      ],
+      startingPrice: 'Starting at $497/mo',
+      noticeTitle: 'Customized Retainer',
+      notice: "Monthly bookkeeping retainers are tailored to your practice's transaction volume, active bank/credit accounts, POS integrations, and reporting depth.",
+    },
+    {
+      id: 'reporting',
+      num: '04',
+      phase: 'Grow',
+      title: 'Financial Reporting & KPIs',
+      tagline: 'Executive reporting and plain-language metric analysis designed for practice growth and profitability.',
+      lead: 'Transforms raw accounting entries into actionable business intelligence, helping owners understand true treatment margins, revenue concentrations, and cash flow dynamics.',
+      icon: TrendingUp,
+      highlight: 'Reports designed for healthcare and aesthetic practice owners, not just compliance accountants.',
+      deliverables: [
+        'Treatment and service-line margin analysis where clinical cost records and inventory data permit',
+        'Monthly Balance Sheet reporting providing transparent visibility into assets, liabilities, and retained earnings',
+        'Period-over-period performance comparisons, including Month-over-Month and Quarter-over-Quarter trends',
+        'Revenue segmentation by modality (injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare, and memberships)',
+        'Plain-language executive summary outlining notable changes, overhead ratios, and actionable focus areas',
+        'Cash-flow visibility to support strategic decisions around hiring, provider compensation, equipment leases, and suite expansion',
+      ],
+      startingPrice: 'Starting at $797/mo',
+      noticeTitle: 'Reporting Integration',
+      notice: "Available as an enhanced advisory layer paired with ongoing monthly bookkeeping engagements, structured around your practice's management platforms and data availability.",
     },
     {
       id: 'setup',
@@ -151,8 +151,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
     },
   ];
 
-  const filteredServices = activeTab === 'all' 
-    ? services 
+  const filteredServices = activeTab === 'all'
+    ? services
     : services.filter(s => s.id === activeTab);
 
   return (
@@ -165,10 +165,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             <span>Specialized Scope of Services</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Bookkeeping &amp; Financial Operations Architecture
+            What I Do For Your Practice
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#4A5568] leading-relaxed">
-            From thorough QuickBooks cleanups and routine monthly closes to specialized Chart of Accounts design and multi-year historical reconstruction—my six services are built around the clinical workflows of aesthetic and wellness practices.
+          <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
+            From QuickBooks cleanups and monthly closes to specialized Chart of Accounts design and multi-year historical reconstruction — built around the clinical workflows of aesthetic and wellness practices.
           </p>
 
           {/* Filter Pills */}
@@ -176,9 +176,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             {[
               { id: 'all', label: 'All Services (6)' },
               { id: 'cleanup', label: '01. Repair' },
-              { id: 'monthly', label: '02. Maintain' },
-              { id: 'reporting', label: '03. Grow' },
-              { id: 'focus', label: '04. Specialized' },
+              { id: 'focus', label: '02. Specialized' },
+              { id: 'monthly', label: '03. Maintain' },
+              { id: 'reporting', label: '04. Grow' },
               { id: 'setup', label: '05. Build' },
               { id: 'scale', label: '06. Scale' },
             ].map((tab) => (
@@ -188,7 +188,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-[#1A2E40] text-[#D4AF37] shadow-sm'
-                    : 'bg-white text-[#4A5568] border border-[#E2E8F0] hover:border-[#CBD5E1]'
+                    : 'bg-white text-[#57534E] border border-[#E2E8F0] hover:border-[#CBD5E1]'
                 }`}
               >
                 {tab.label}
@@ -230,7 +230,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   </p>
 
                   {/* Lead / Description */}
-                  <p className="text-xs text-[#4A5568] leading-relaxed mb-4 md:min-h-[4.25rem] flex items-start">
+                  <p className="text-xs text-[#57534E] leading-relaxed mb-4 md:min-h-[4.25rem] flex items-start">
                     {svc.lead}
                   </p>
 
@@ -253,7 +253,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   </div>
                   <ul className="space-y-2.5 flex-1 mb-6">
                     {svc.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs text-[#4A5568] leading-relaxed">
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-[#57534E] leading-relaxed">
                         <span className="w-4 h-4 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
                           ✓
                         </span>
@@ -266,7 +266,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 <div className="mt-auto">
                   {/* Notice footnote */}
                   {svc.notice && (
-                    <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] text-[#4A5568] mb-5 md:min-h-[5.25rem] flex items-start gap-2.5 leading-relaxed">
+                    <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] text-[#57534E] mb-5 md:min-h-[5.25rem] flex items-start gap-2.5 leading-relaxed">
                       <Info className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                       <div className="space-y-0.5">
                         {svc.noticeTitle && (
@@ -274,7 +274,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                             {svc.noticeTitle}
                           </span>
                         )}
-                        <span className="text-[#64748B] leading-relaxed block">{svc.notice}</span>
+                        <span className="text-[#78716C] leading-relaxed block">{svc.notice}</span>
                       </div>
                     </div>
                   )}
@@ -322,7 +322,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   I Reconcile Your Aesthetic &amp; Wellness Technology Stack
                 </h3>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
-                  You don't need to change your booking or POS system. Monique’s bookkeeping process is designed to reconcile settlements, provider tips, merchant processing fees, patient financing transactions, and package sales from your booking platform straight into QuickBooks Online.
+                  You don't need to change your booking or POS system. Monique's bookkeeping process is designed to reconcile settlements, provider tips, merchant processing fees, patient financing transactions, and package sales from your booking platform straight into QuickBooks Online.
                 </p>
 
                 {/* The Technology Integration Grid */}
@@ -372,14 +372,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               </div>
             </div>
 
-            {/* Core Bottlenecks Box (Restored from Screenshots 3, 4 & 5 with Defensible Wording) */}
-            <div className="bg-[#FDFCFA] text-[#4A5568] rounded-2xl p-6 sm:p-8 lg:p-10 border border-[#E2E8F0] shadow-md space-y-6">
+            {/* Core Bottlenecks Box */}
+            <div className="bg-[#FDFCFA] rounded-2xl p-6 sm:p-8 lg:p-10 border border-[#E2E8F0] shadow-md space-y-6">
               {/* Heading */}
               <div>
                 <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40] tracking-tight">
                   Stop letting your software break your books.
                 </h4>
-                <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed mt-2.5 font-normal">
+                <p className="text-sm sm:text-base text-[#57534E] leading-relaxed mt-2.5 font-normal">
                   Most standard bookkeepers turn on an automated POS sync tool and walk away. Without customized reconciliation, this can fill QuickBooks with un-reconciled transactions, create duplicate entries, obscure merchant processing deductions, and produce misleading financial reports that distort your true cash flow metrics.
                 </p>
               </div>
@@ -390,11 +390,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   The Three Core Bottlenecks I Fix For Your Practice:
                 </h5>
 
-                <ul className="space-y-4 text-sm sm:text-base text-[#4A5568] leading-relaxed">
+                <ul className="space-y-4 text-sm sm:text-base text-[#57534E] leading-relaxed">
                   <li className="flex items-start gap-3">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#1A2E40] font-bold">1. Package, Gift Card &amp; Membership Liability Tracking:</strong>{' '}
+                      <strong className="text-[#1A2E40] font-bold">1. Prepaid Package &amp; Membership Liability:</strong>{' '}
                       When you sell high-value treatment packages, gift cards, or prepaid memberships, recording full payments immediately as earned income can distort monthly profitability and cash visibility. I track unearned balances systematically as liabilities and record earned revenue as services are completed, aligned with your practice accounting policies and CPA guidance.
                     </div>
                   </li>
@@ -411,7 +411,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">3. Provider Payout &amp; Tip Isolation:</strong>{' '}
-                      I build clean clearing workflows to separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
+                      I build clean clearing workflows to separate injector tips and provider commissions from your practice's core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
                     </div>
                   </li>
                 </ul>
@@ -420,7 +420,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               {/* In Summary Callout */}
               <div className="pt-4 border-t border-[#E2E8F0]">
                 <div className="p-4 sm:p-5 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35">
-                  <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
                     <strong className="text-[#1A2E40] font-bold">In Summary:</strong>{' '}
                     You don't need to change the booking platform, POS, or patient financing software you love. I step in to clean up the backend data flow, reconcile your software reporting against your bank feeds, and deliver clear, reliable financial statements every month.
                   </p>
