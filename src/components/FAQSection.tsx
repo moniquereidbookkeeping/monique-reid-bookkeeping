@@ -309,7 +309,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                 id="faq-clear-search-btn"
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#A0AEC0] hover:text-[#4A5568]"
+                className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#A0AEC0] hover:text-[#57534E]"
                 aria-label="Clear search"
               >
                 <X className="w-4 h-4" />

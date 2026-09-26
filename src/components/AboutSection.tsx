@@ -26,7 +26,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                   <p className="text-xs font-semibold text-[#D4AF37] uppercase tracking-wider mt-0.5">
                     Founder · Certified QuickBooks ProAdvisor
                   </p>
-                  <p className="text-xs text-[#4A5568] mt-1">
+                  <p className="text-xs text-[#57534E] mt-1">
                     Specialist in Aesthetic, Wellness &amp; MedSpa Accounting
                   </p>
                 </div>
@@ -79,7 +79,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
               <span className="text-[#D4AF37] block mt-1">Built For Aesthetic &amp; Wellness Founders</span>
             </h2>
 
-            <div className="space-y-4 text-base sm:text-lg text-[#4A5568] leading-relaxed font-normal">
+            <div className="space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
               <p>
                 Hi, I'm Monique Reid. As a Certified QuickBooks ProAdvisor with a BBA in Business Administration, I specialize in helping
                 medical spa founders, nurse injectors, aesthetic clinicians, and wellness practice owners turn financial
@@ -104,7 +104,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
                   <span>No Confusing Jargon</span>
                 </div>
-                <p className="text-xs text-[#4A5568]">
+                <p className="text-xs text-[#57534E]">
                   Monthly summaries in plain English, explaining where your cash went and highlighting notable trends.
                 </p>
               </div>
@@ -114,7 +114,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
                   <span>CPA-Ready Handoff</span>
                 </div>
-                <p className="text-xs text-[#4A5568]">
+                <p className="text-xs text-[#57534E]">
                   At tax time, your CPA receives organized, reconciled reports and supporting documentation designed to make tax preparation efficient and straightforward.
                 </p>
               </div>
@@ -133,7 +133,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                 <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <span className="text-xs text-[#4A5568] flex items-center justify-center sm:justify-start gap-1">
+              <span className="text-xs text-[#57534E] flex items-center justify-center sm:justify-start gap-1">
                 <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
                 <span>Confidential Practice Review</span>
               </span>

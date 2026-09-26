@@ -60,7 +60,7 @@ export const ProblemsWeSolve: React.FC<ProblemsWeSolveProps> = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
             Problems We Solve for Practice Owners
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#4A5568] leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-[#57534E] leading-relaxed">
             Aesthetic and wellness practices have unique clinical and operational workflows. Generic bookkeeping methods often fail to capture the nuances of clinical inventory, multi-tier provider compensation, and specialized software integrations.
           </p>
         </div>
@@ -80,7 +80,7 @@ export const ProblemsWeSolve: React.FC<ProblemsWeSolveProps> = () => {
                 <h3 className="text-base sm:text-lg font-serif font-bold text-[#1A2E40] mb-2 leading-snug">
                   {prob.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed">
                   {prob.description}
                 </p>
               </div>

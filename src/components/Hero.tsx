@@ -32,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#1A2E40] tracking-tight leading-[1.12]">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#1A2E40] tracking-tight leading-[1.12]">
               Know Your Numbers.{' '}
               <br />
               <span className="text-[#D4AF37] relative inline-block">
@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             {/* Subheading with Consistent Umbrella Positioning */}
-            <p className="text-lg sm:text-xl text-[#4A5568] leading-relaxed max-w-2xl font-normal">
+            <p className="text-lg sm:text-xl text-[#57534E] leading-relaxed max-w-2xl font-normal">
               Precise, practice-ready financial records so you can focus on patient outcomes—not spreadsheets. Built for MedSpas, aesthetic clinics, and self-pay healthcare practices nationwide.
             </p>
 

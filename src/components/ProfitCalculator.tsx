@@ -39,7 +39,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40]">
             Aesthetic &amp; Wellness Treatment Margin Calculator
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-[#4A5568]">
+          <p className="mt-3 text-base sm:text-lg text-[#57534E]">
             Model unit contribution margins per treatment once clinical product COGS,
             provider compensation, and patient financing transaction fees are properly categorized.
           </p>
@@ -71,7 +71,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Patient Treatment Price"
                 className="w-full accent-[#D4AF37] cursor-pointer"
               />
-              <div className="flex justify-between text-[11px] text-[#4A5568] mt-1">
+              <div className="flex justify-between text-[11px] text-[#57534E] mt-1">
                 <span>$100 (e.g. Wellness Infusion/Botox)</span>
                 <span>$1,200 (Full Facial Balancing)</span>
                 <span>$2,500</span>
@@ -97,7 +97,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Product and Consumables Cost"
                 className="w-full accent-[#1A2E40] cursor-pointer"
               />
-              <p className="text-[11px] text-[#4A5568] mt-1">
+              <p className="text-[11px] text-[#57534E] mt-1">
                 Vials, syringes, IV kits, wellness supplies, topical numbing, and disposables
               </p>
             </div>
@@ -121,7 +121,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Provider Commission Rate Percentage"
                 className="w-full accent-[#D4AF37] cursor-pointer"
               />
-              <div className="flex justify-between text-[11px] text-[#4A5568] mt-1">
+              <div className="flex justify-between text-[11px] text-[#57534E] mt-1">
                 <span>0% (Solo Owner)</span>
                 <span>25% - 30% (Typical Clinician Tier)</span>
                 <span>50%</span>
@@ -147,7 +147,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Merchant Processing Fee Percentage"
                 className="w-full accent-[#1A2E40] cursor-pointer"
               />
-              <div className="flex justify-between text-[11px] text-[#4A5568] mt-1">
+              <div className="flex justify-between text-[11px] text-[#57534E] mt-1">
                 <span>2.6% (Standard Card)</span>
                 <span>5.9% (Cherry / CareCredit tier)</span>
                 <span>10%</span>

@@ -115,7 +115,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
             Simple, Predictable Monthly Retainers
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#4A5568] leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
             No hourly surprises. No hidden fees. Flat-rate bookkeeping built around your practice's actual complexity — not a generic small-business template.
           </p>
 
@@ -148,7 +148,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         </div>
 
         {/* Plan Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {plans.map((plan) => {
             const Icon = plan.icon;
             const price = billing === 'monthly' ? plan.monthlyPrice : plan.annualPrice;
@@ -158,7 +158,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                 key={plan.id}
                 className={`relative rounded-2xl border-2 ${plan.color} ${
                   plan.popular
-                    ? 'bg-[#1A2E40] text-white shadow-2xl scale-[1.02] z-10'
+                    ? 'bg-[#1A2E40] text-white shadow-2xl lg:scale-[1.02] z-10 sm:col-span-2 lg:col-span-1'
                     : 'bg-white shadow-sm hover:shadow-md'
                 } transition-all duration-300 flex flex-col`}
               >
@@ -224,7 +224,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
                           plan.popular ? 'text-[#D4AF37]' : 'text-emerald-500'
                         }`} />
-                        <span className={plan.popular ? 'text-[#E2E8F0]' : 'text-[#4A5568]'}>
+                        <span className={plan.popular ? 'text-[#E2E8F0]' : 'text-[#57534E]'}>
                           {feature}
                         </span>
                       </li>

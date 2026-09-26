@@ -39,7 +39,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-xs font-bold text-[#1A2E40]">20 Minutes Private Zoom</p>
-              <p className="text-[11px] text-[#4A5568]">Complimentary review, no obligation</p>
+              <p className="text-[11px] text-[#57534E]">Complimentary review, no obligation</p>
             </div>
           </div>
 
@@ -49,7 +49,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-xs font-bold text-[#1A2E40]">Client Financial Privacy</p>
-              <p className="text-[11px] text-[#4A5568]">Strict confidentiality and data security</p>
+              <p className="text-[11px] text-[#57534E]">Strict confidentiality and data security</p>
             </div>
           </div>
 
@@ -59,7 +59,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-xs font-bold text-[#1A2E40]">Certified QuickBooks ProAdvisor</p>
-              <p className="text-[11px] text-[#4A5568]">Aesthetic &amp; Wellness Specialized</p>
+              <p className="text-[11px] text-[#57534E]">Aesthetic &amp; Wellness Specialized</p>
             </div>
           </div>
         </div>

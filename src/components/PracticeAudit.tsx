@@ -52,7 +52,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               </h3>
             </div>
             {!completed && (
-              <div className="flex items-center gap-1 text-xs font-semibold text-[#4A5568]">
+              <div className="flex items-center gap-1 text-xs font-semibold text-[#57534E]">
                 <span>Question {step} of 4</span>
                 <div className="w-24 h-2 bg-[#E2E8F0] rounded-full overflow-hidden ml-2" aria-hidden="true">
                   <div
@@ -161,7 +161,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <h4 className="text-base font-bold text-[#1A2E40]">
                     Diagnostic Complete: Recommended Plan of Action
                   </h4>
-                  <p className="text-xs sm:text-sm text-[#4A5568] mt-1">
+                  <p className="text-xs sm:text-sm text-[#57534E] mt-1">
                     Based on your practice profile ({answers.pos}, {answers.status.toLowerCase()}), here is how Monique Reid Bookkeeping organizes your records:
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <p className="font-bold text-[#1A2E40] uppercase tracking-wider mb-1">
                     1. Reconcile Payouts &amp; Fees
                   </p>
-                  <p className="text-[#4A5568] leading-relaxed">
+                  <p className="text-[#57534E] leading-relaxed">
                     Reconcile {answers.pos} batch deposits with merchant processing deductions so net banking activity and gross collections are clearly tracked.
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <p className="font-bold text-[#1A2E40] uppercase tracking-wider mb-1">
                     2. Clean Chart of Accounts
                   </p>
-                  <p className="text-[#4A5568] leading-relaxed">
+                  <p className="text-[#57534E] leading-relaxed">
                     Separate injectable and clinical supply COGS from general operating expenses for clearer service-line margin visibility.
                   </p>
                 </div>
@@ -190,7 +190,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <p className="font-bold text-[#1A2E40] uppercase tracking-wider mb-1">
                     3. Monthly Close Routine
                   </p>
-                  <p className="text-[#4A5568] leading-relaxed">
+                  <p className="text-[#57534E] leading-relaxed">
                     Reconcile your {answers.accounts} systematically each month with organized Balance Sheet and Profit &amp; Loss reporting.
                   </p>
                 </div>
@@ -199,7 +199,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0]">
                 <button
                   onClick={resetAudit}
-                  className="flex items-center gap-1.5 text-xs text-[#4A5568] hover:text-[#1A2E40] cursor-pointer"
+                  className="flex items-center gap-1.5 text-xs text-[#57534E] hover:text-[#1A2E40] cursor-pointer"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                   <span>Start over</span>
