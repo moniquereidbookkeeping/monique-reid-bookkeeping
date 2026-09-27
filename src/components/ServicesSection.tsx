@@ -162,13 +162,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Specialized Scope of Services</span>
+            <span>What&apos;s Included</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
             What I Do For Your Practice
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
-            From QuickBooks cleanups and monthly closes to specialized Chart of Accounts design and multi-year historical reconstruction — built around the clinical workflows of aesthetic and wellness practices.
+            Monthly closes, QuickBooks cleanups, Chart of Accounts design, and multi-year reconstructions — all built around how aesthetic and wellness practices actually operate.
           </p>
 
           {/* Filter Pills */}
