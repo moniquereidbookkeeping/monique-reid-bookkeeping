@@ -1,263 +1,188 @@
-import React, { useState } from 'react';
-import { CheckCircle2, Sparkles, Calendar, ArrowRight, BookOpen, TrendingUp, BarChart3, Star } from 'lucide-react';
+import React from 'react';
+import { CheckCircle2, Sparkles, Calendar, ArrowRight, Clock, Wrench, Layers, Info } from 'lucide-react';
 
 interface PricingSectionProps {
   onBookCall: () => void;
 }
 
-const plans = [
+const monthlyPlans = [
   {
-    id: 'foundation',
-    name: 'Foundation',
-    tagline: 'Boutique or single-provider practice',
-    volumeHint: 'Up to ~$25K/mo in practice transactions',
-    icon: BookOpen,
-    monthlyPrice: 497,
-    annualPrice: 447,
-    popular: false,
-    color: 'border-[#E2E8F0]',
-    badge: null,
+    id: 'monthly',
+    name: 'Monthly Bookkeeping',
+    tagline: 'Reliable monthly bookkeeping for aesthetic and wellness practices.',
+    startingAt: '$497',
+    period: '/month',
+    label: 'Starting at',
+    icon: Clock,
+    featured: false,
     features: [
-      'Monthly bank & credit card reconciliations',
-      'Systematic transaction categorization',
-      'Monthly Profit & Loss statement',
+      'Bank and credit-card reconciliations',
+      'Transaction categorization',
+      'Monthly Profit & Loss Statement',
       'Monthly Balance Sheet',
-      'Plain-English executive summary',
-      'Uncleared item review & follow-up',
-      'Year-end CPA handoff package',
-      'Email support',
+      'Account review',
+      'Year-end CPA reporting package',
     ],
-    notIncluded: [
-      'Revenue segmentation by modality',
-      'Period-over-period KPI reporting',
-      'Patient financing reconciliation',
-      'Treatment COGS tracking',
-    ],
-    cta: 'Get Started',
+    complexityNote: 'Base rate for practices with straightforward transaction flow.',
+    cta: 'Book Your Financial Clarity Call',
   },
   {
-    id: 'growth',
-    name: 'Growth',
-    tagline: 'Established practice ready for deeper visibility',
-    volumeHint: '$25K–$75K/mo in practice transactions',
-    icon: TrendingUp,
-    monthlyPrice: 797,
-    annualPrice: 717,
-    popular: true,
-    color: 'border-[#D4AF37]',
-    badge: 'Most Popular',
+    id: 'specialized',
+    name: 'Specialized Practice Bookkeeping',
+    tagline: 'For practices with more complex financial workflows.',
+    startingAt: 'Custom',
+    period: 'monthly pricing',
+    label: 'Pricing',
+    icon: Sparkles,
+    featured: true,
     features: [
-      'Everything in Foundation',
-      'Multi-modality revenue segmentation',
-      'Period-over-period KPI reporting (MoM / QoQ)',
-      'Cash flow visibility & trend analysis',
-      'POS & booking platform reconciliation',
-      'Merchant & financing fee isolation (Stripe, Square)',
-      'Monthly bookkeeper strategy call',
-      'Priority email & phone support',
+      'Multiple POS and payment systems',
+      'Memberships and prepaid packages',
+      'Patient financing (Cherry, CareCredit, PatientFi)',
+      'Inventory and treatment-related costs',
+      'Provider compensation reconciliation',
+      'Multiple locations or high transaction volume',
     ],
-    notIncluded: [
-      'Treatment COGS tracking',
-      'Patient financing reconciliation (Cherry, CareCredit)',
-      'Provider commission clearing',
-    ],
-    cta: 'Get Started',
+    complexityNote: 'Scoped to your practice after a complimentary 15-min clarity call.',
+    cta: 'Get Your Custom Bookkeeping Plan',
+  },
+];
+
+const projectPlans = [
+  {
+    id: 'cleanup',
+    name: 'QuickBooks Cleanup & Catch-Up',
+    description: 'Your cleanup quote is based on months requiring cleanup, transaction volume, number of accounts, reconciliation status, POS platforms, and condition of the existing file.',
+    pricing: 'Custom Project Pricing',
+    icon: Wrench,
+    cta: 'Request a Cleanup Assessment',
   },
   {
-    id: 'fullspectrum',
-    name: 'Full-Spectrum',
-    tagline: 'Multi-provider or multi-modality practice',
-    volumeHint: '$75K+/mo or multi-provider practices',
-    icon: BarChart3,
-    monthlyPrice: 1197,
-    annualPrice: 1077,
-    popular: false,
-    color: 'border-[#1A2E40]',
-    badge: null,
-    features: [
-      'Everything in Growth',
-      'Treatment COGS tracking (neurotoxins, fillers, IVs)',
-      'Retail & clinical inventory cost tracking',
-      'Patient financing reconciliation (Cherry, CareCredit, PatientFi)',
-      'Unearned revenue liability tracking (packages, gift cards)',
-      'Provider commission & 1099 contractor payout clearing',
-      'Multi-location performance tracking',
-      'Medical weight-loss (GLP-1) revenue stream tracking',
-    ],
-    notIncluded: [],
-    cta: 'Get Started',
+    id: 'setup',
+    name: 'QuickBooks Setup & Restructuring',
+    description: 'For new practices or established businesses that need a better financial structure from the beginning. Scoped based on practice complexity and number of systems.',
+    pricing: 'One-Time Project Pricing',
+    icon: Layers,
+    cta: 'Request a Setup Consultation',
   },
 ];
 
 const trustItems = [
   'No long-term contracts',
-  'Cancel with 30 days’ notice',
+  'Cancel with 30 days notice',
   'Certified QBO ProAdvisor',
   'HIPAA-aware workflows',
 ];
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) => {
-  const [billing, setBilling] = useState<'monthly' | 'annual'>('monthly');
-
-  const annualSavings = (plan: typeof plans[0]) =>
-    (plan.monthlyPrice - plan.annualPrice) * 12;
-
   return (
-    <section id="pricing-section" className="py-16 lg:py-24 bg-[#FDFCFA] border-b border-[#E2E8F0]">
+    <section id="pricing-section" className="py-16 lg:py-24 bg-[#F8F9FA] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Transparent Flat-Rate Pricing</span>
+            <span>Simple, Predictable Pricing</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Simple, Predictable Monthly Retainers
+            Your Fee Reflects Your Practice's Complexity
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
-            No hourly surprises. No hidden fees. Flat-rate bookkeeping built around your practice's actual complexity — not a generic small-business template.
+            A solo aesthetic provider with one bank account and Square doesn't have the same bookkeeping requirements as a multi-provider MedSpa using Boulevard, Cherry, memberships, inventory, and provider compensation. That's why our pricing is based on the financial complexity of your practice.
           </p>
-
-          {/* Billing Toggle */}
-          <div className="mt-8 inline-flex items-center gap-3 bg-[#F1F5F9] rounded-xl p-1 border border-[#E2E8F0]">
-            <button
-              onClick={() => setBilling('monthly')}
-              className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
-                billing === 'monthly'
-                  ? 'bg-white text-[#1A2E40] shadow-sm border border-[#E2E8F0]'
-                  : 'text-[#64748B] hover:text-[#1A2E40]'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBilling('annual')}
-              className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer flex items-center gap-2 ${
-                billing === 'annual'
-                  ? 'bg-white text-[#1A2E40] shadow-sm border border-[#E2E8F0]'
-                  : 'text-[#64748B] hover:text-[#1A2E40]'
-              }`}
-            >
-              Annual
-              <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wide">
-                Save 10%
-              </span>
-            </button>
-          </div>
         </div>
 
-        {/* Plan Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {plans.map((plan) => {
+        {/* Monthly Plans */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto mb-10">
+          {monthlyPlans.map((plan) => {
             const Icon = plan.icon;
-            const price = billing === 'monthly' ? plan.monthlyPrice : plan.annualPrice;
-
             return (
               <div
                 key={plan.id}
-                className={`relative rounded-2xl border-2 ${plan.color} ${
-                  plan.popular
-                    ? 'bg-[#1A2E40] text-white shadow-2xl lg:scale-[1.02] z-10 sm:col-span-2 lg:col-span-1'
-                    : 'bg-white shadow-sm hover:shadow-md'
-                } transition-all duration-300 flex flex-col`}
+                className={`relative rounded-2xl flex flex-col transition-all duration-300 ${
+                  plan.featured
+                    ? 'bg-[#1A2E40] border-2 border-[#D4AF37]/50 shadow-xl text-white'
+                    : 'bg-white border-2 border-[#E2E8F0] hover:border-[#D4AF37]/50 shadow-sm hover:shadow-md'
+                }`}
               >
-                {/* Popular Badge */}
-                {plan.badge && (
+                {plan.featured && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] text-[#1A2E40] text-xs font-bold shadow-md border border-[#FFF5DE]/60 whitespace-nowrap">
-                      <Star className="w-3 h-3 fill-[#1A2E40]" />
-                      {plan.badge}
+                      <Sparkles className="w-3 h-3" />
+                      Complex Practice
                     </span>
                   </div>
                 )}
 
-                <div className="p-6 sm:p-8 flex flex-col flex-1">
-                  {/* Plan Header */}
+                <div className="p-7 sm:p-8 flex flex-col flex-1">
+                  {/* Header */}
                   <div className="mb-6">
-                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${
-                      plan.popular ? 'bg-white/10' : 'bg-[#FAF8F5] border border-[#E2E8F0]'
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${
+                      plan.featured ? 'bg-white/10' : 'bg-[#FAF8F5] border border-[#E2E8F0]'
                     }`}>
-                      <Icon className={`w-5 h-5 ${plan.popular ? 'text-[#D4AF37]' : 'text-[#1A2E40]'}`} />
+                      <Icon className={`w-5 h-5 ${plan.featured ? 'text-[#D4AF37]' : 'text-[#1A2E40]'}`} />
                     </div>
-                    <h3 className={`text-xl font-serif font-bold mb-1 ${plan.popular ? 'text-white' : 'text-[#1A2E40]'}`}>
+                    <h3 className={`text-xl font-serif font-bold mb-1.5 ${plan.featured ? 'text-white' : 'text-[#1A2E40]'}`}>
                       {plan.name}
                     </h3>
-                    <p className={`text-xs leading-relaxed ${plan.popular ? 'text-[#E2E8F0]' : 'text-[#64748B]'}`}>
+                    <p className={`text-sm leading-relaxed ${plan.featured ? 'text-[#E2E8F0]' : 'text-[#64748B]'}`}>
                       {plan.tagline}
                     </p>
                   </div>
 
                   {/* Price */}
-                  <div className="mb-6 pb-6 border-b border-white/10" style={{ borderColor: plan.popular ? 'rgba(255,255,255,0.12)' : '#E2E8F0' }}>
+                  <div className={`mb-6 pb-6 border-b ${plan.featured ? 'border-white/15' : 'border-[#E2E8F0]'}`}>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${plan.featured ? 'text-[#D4AF37]/80' : 'text-[#94A3B8]'}`}>
+                      {plan.label}
+                    </p>
                     <div className="flex items-end gap-1.5">
-                      <span className={`text-4xl sm:text-5xl font-bold font-serif ${plan.popular ? 'text-white' : 'text-[#1A2E40]'}`}>
-                        ${price.toLocaleString()}
+                      <span className={`text-4xl font-bold font-serif ${plan.featured ? 'text-white' : 'text-[#1A2E40]'}`}>
+                        {plan.startingAt}
                       </span>
-                      <span className={`text-sm mb-2 ${plan.popular ? 'text-[#CBD5E1]' : 'text-[#94A3B8]'}`}>
-                        /mo
+                      <span className={`text-sm mb-1.5 ${plan.featured ? 'text-[#CBD5E1]' : 'text-[#94A3B8]'}`}>
+                        {plan.period}
                       </span>
                     </div>
-                    {billing === 'annual' && (
-                      <p className="text-xs mt-1.5 text-emerald-400 font-semibold">
-                        Save ${annualSavings(plan).toLocaleString()}/year
-                      </p>
-                    )}
-                    {billing === 'monthly' && (
-                      <p className={`text-[11px] mt-1.5 ${plan.popular ? 'text-[#CBD5E1]' : 'text-[#94A3B8]'}`}>
-                        Switch to annual &amp; save ${annualSavings(plan).toLocaleString()}/yr
-                      </p>
-                    )}
-                    <p className={`text-[11px] mt-2 font-semibold px-2 py-0.5 rounded-md inline-block ${
-                      plan.popular
-                        ? 'bg-white/10 text-[#E2E8F0]'
-                        : 'bg-[#FAF8F5] border border-[#E2E8F0] text-[#64748B]'
-                    }`}>
-                      {plan.volumeHint}
+                    <p className={`text-xs mt-2 ${plan.featured ? 'text-[#CBD5E1]' : 'text-[#94A3B8]'}`}>
+                      {plan.complexityNote}
                     </p>
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-3 flex-1 mb-8">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${
-                          plan.popular ? 'text-[#D4AF37]' : 'text-emerald-500'
-                        }`} />
-                        <span className={plan.popular ? 'text-[#E2E8F0]' : 'text-[#57534E]'}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                    {plan.notIncluded.map((feature, i) => (
-                      <li key={`not-${i}`} className="flex items-start gap-2.5 text-xs leading-relaxed opacity-40">
-                        <span className="w-4 h-4 shrink-0 mt-0.5 flex items-center justify-center">
-                          <span className={`w-3 h-px ${plan.popular ? 'bg-white' : 'bg-[#94A3B8]'}`} />
-                        </span>
-                        <span className={plan.popular ? 'text-[#CBD5E1]' : 'text-[#94A3B8]'}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex-1 mb-6">
+                    <p className={`text-[10px] font-bold uppercase tracking-wider mb-3 ${plan.featured ? 'text-[#D4AF37]/80' : 'text-[#1A2E40]/60'}`}>
+                      {plan.featured ? 'Complexity factors may include' : 'May include'}
+                    </p>
+                    <ul className="space-y-2.5">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed">
+                          <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${plan.featured ? 'text-[#D4AF37]' : 'text-[#D4AF37]'}`} />
+                          <span className={plan.featured ? 'text-[#E2E8F0]' : 'text-[#57534E]'}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
                   {/* CTA */}
                   <button
                     onClick={onBookCall}
                     className={`w-full flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-xl font-bold text-sm transition-all active:scale-[0.98] cursor-pointer group ${
-                      plan.popular
-                        ? 'bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] shadow-[0_4px_16px_rgba(212,175,55,0.35)] hover:shadow-[0_6px_22px_rgba(212,175,55,0.5)] border border-[#FFF5DE]/60'
+                      plan.featured
+                        ? 'bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] shadow-[0_4px_16px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60'
                         : 'bg-[#1A2E40] hover:bg-[#1A2E40]/90 text-white shadow-sm'
                     }`}
                   >
-                    <span className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200 ${
-                      plan.popular
+                    <span className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-colors ${
+                      plan.featured
                         ? 'bg-[#1A2E40]/10 text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37]'
-                        : 'bg-white/10 text-white group-hover:bg-[#D4AF37] group-hover:text-[#1A2E40]'
+                        : 'bg-white/10 text-white'
                     }`}>
                       <Calendar className="w-3.5 h-3.5" />
                     </span>
-                    <span>Book a Clarity Call</span>
+                    <span>{plan.cta}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </button>
                 </div>
@@ -266,19 +191,81 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           })}
         </div>
 
+        {/* Project Pricing */}
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="h-px flex-1 bg-[#E2E8F0]" />
+            <p className="text-xs font-bold uppercase tracking-widest text-[#57534E]/70 px-3">One-Time Projects</p>
+            <div className="h-px flex-1 bg-[#E2E8F0]" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+            {projectPlans.map((project) => {
+              const Icon = project.icon;
+              return (
+                <div
+                  key={project.id}
+                  className="bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#D4AF37]/50 shadow-xs hover:shadow-md transition-all duration-300 p-6 flex gap-4 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors shrink-0 mt-0.5">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <h4 className="text-base font-serif font-bold text-[#1A2E40] leading-snug">{project.name}</h4>
+                      <span className="text-[11px] font-semibold text-[#D4AF37] whitespace-nowrap shrink-0 mt-0.5">{project.pricing}</span>
+                    </div>
+                    <p className="text-xs text-[#57534E] leading-relaxed mb-4">{project.description}</p>
+                    <button
+                      onClick={onBookCall}
+                      className="text-xs font-bold text-[#1A2E40] group-hover:text-[#D4AF37] flex items-center gap-1.5 transition-colors cursor-pointer"
+                    >
+                      <span>{project.cta}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Not Sure CTA */}
+        <div className="mt-12 max-w-5xl mx-auto rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/25 p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="max-w-xl">
+            <div className="flex items-center gap-2 mb-2">
+              <Info className="w-4 h-4 text-[#D4AF37]" />
+              <p className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">Not Sure What Your Practice Needs?</p>
+            </div>
+            <p className="text-lg font-serif font-bold text-white leading-snug mb-2">
+              Start with a 15-Minute Financial Clarity Call
+            </p>
+            <p className="text-sm text-white/70 leading-relaxed">
+              You don't need to diagnose your own bookkeeping problems first. We'll discuss how your practice handles bookkeeping, the systems you're using, where you're experiencing problems, and whether cleanup, ongoing bookkeeping, or QuickBooks restructuring makes sense.
+            </p>
+          </div>
+          <button
+            onClick={onBookCall}
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] border border-[#FFF5DE]/60 shrink-0 cursor-pointer group"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>Book Your Clarity Call</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </button>
+        </div>
+
         {/* Trust Bar */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           {trustItems.map((item) => (
             <div key={item} className="flex items-center gap-2 text-xs text-[#64748B] font-medium">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
               <span>{item}</span>
             </div>
           ))}
         </div>
 
-        {/* Custom Pricing Note */}
-        <p className="mt-6 text-center text-xs text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
-          All retainers are tailored to your practice&apos;s transaction volume, connected accounts, and POS complexity. High-volume or multi-entity practices receive a custom quote following a complimentary 20-minute review.
+        <p className="mt-5 text-center text-xs text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
+          No obligation. We'll determine whether we're a good fit before recommending a service.
         </p>
       </div>
     </section>
