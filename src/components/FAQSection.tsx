@@ -559,7 +559,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
               Have a specific question about your books?
             </h4>
             <p className="text-xs sm:text-sm text-[#E2E8F0] max-w-xl font-light leading-relaxed">
-              Every aesthetic and wellness practice has unique financial needs. Book a complimentary 20-minute Financial Clarity Call to discuss your QuickBooks setup, historical cleanup, monthly bookkeeping, or financial reporting needs.
+              Every aesthetic and wellness practice has unique financial needs. Book a complimentary 15-minute Financial Clarity Call to discuss your QuickBooks setup, historical cleanup, monthly bookkeeping, or financial reporting needs.
             </p>
           </div>
 

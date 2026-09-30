@@ -179,7 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
                   <Calendar className="w-3.5 h-3.5" />
                 </span>
-                <span>Book 20-Min Clarity Call</span>
+                <span>Book Your 15-Min Financial Clarity Call</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
