@@ -103,7 +103,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
             onClick={onBookCall}
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] transition-all duration-200 shadow-[0_4px_16px_rgba(212,175,55,0.3)] shrink-0 cursor-pointer"
           >
-            <span>📅 Book Your 15-Min Financial Audit</span>
+            <span>📅 Book Your 15-Min Financial Clarity Call</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

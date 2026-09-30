@@ -363,7 +363,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-4 h-4" />
                   </span>
-                  <span>Schedule 20–Min Clarity Call</span>
+                  <span>Book Your 15-Min Financial Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </button>
                 <p className="text-xs text-[#E2E8F0]/80 mt-2.5 text-center lg:text-right font-light">
