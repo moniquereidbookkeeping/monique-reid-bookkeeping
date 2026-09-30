@@ -56,7 +56,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-[#57534E] leading-relaxed max-w-2xl font-normal">
-              We reconcile Boulevard, Mindbody, and Square deposits, track high-cost Botox and filler inventory, and eliminate tax surprises caused by prepaid package liabilities—so you can focus on patient care, not spreadsheets.
+              We reconcile deposits from Boulevard, Vagaro, Square, and Cherry, track high-cost Botox and filler inventory, and eliminate tax surprises caused by prepaid package liabilities—so you can focus on patient care, not spreadsheets.
             </p>
 
             {/* Strategic Segments Mention */}
@@ -75,19 +75,19 @@ export const Hero: React.FC<HeroProps> = ({
                 onClick={onBookCall}
                 className="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl text-base font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.99] transition-all duration-200 shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_22px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 group cursor-pointer"
               >
-                <span className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
-                  <Calendar className="w-4 h-4" />
-                </span>
                 <span>📅 Book Your 15-Min Financial Audit</span>
                 <ArrowRight className="w-4 h-4 text-[#1A2E40] transition-transform group-hover:translate-x-1" />
               </button>
 
               <button
                 id="hero-explore-services-btn"
-                onClick={onExploreServices}
+                onClick={() => {
+                  const el = document.getElementById('services-section');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-[#1A2E40] bg-transparent border-2 border-[#1A2E40] hover:bg-[#1A2E40] hover:text-white transition-all duration-200 cursor-pointer"
               >
-                <span>Explore Services</span>
+                <span>See How It Works</span>
               </button>
             </div>
 
