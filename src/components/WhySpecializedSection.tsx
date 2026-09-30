@@ -10,9 +10,9 @@ const problems = [
     number: '01',
     title: "POS Payouts That Don't Match Gross Sales",
     problem:
-      'Platforms like Boulevard, Vagaro, Square, and Mindbody deposit net amounts after processing fees, refunds, tips, and other adjustments. When only the deposited amount is recorded, your books may not clearly reflect gross sales--or the fees and liabilities tied to those transactions.',
+      'Platforms like Boulevard, Vagaro, Square, and Mindbody deposit net amounts after processing fees, refunds, tips, and other adjustments. When only the deposited amount is recorded, your books may not clearly reflect gross sales—or the fees and liabilities tied to those transactions.',
     help:
-      'We reconcile platform activity against bank deposits and separately account for processing fees, refunds, tips, and adjustments--giving you cleaner QuickBooks records and a clearer picture of practice revenue.',
+      'We reconcile platform activity against bank deposits and separately account for processing fees, refunds, tips, and adjustments—giving you cleaner QuickBooks records and a clearer picture of practice revenue.',
   },
   {
     number: '02',
@@ -20,13 +20,13 @@ const problems = [
     problem:
       `When patients use Cherry, CareCredit, or PatientFi, the amount deposited into your bank is lower than the original transaction because merchant fees are deducted first. If those amounts aren't separated, it's hard to understand the true economics of each sale.`,
     help:
-      'We identify and categorize applicable financing costs separately from the related revenue--so your reports reflect what patients paid and what it cost you to accept that payment.',
+      'We identify and categorize applicable financing costs separately from the related revenue—so your reports reflect what patients paid and what it cost you to accept that payment.',
   },
   {
     number: '03',
     title: 'Packages & Memberships That Require Careful Tracking',
     problem:
-      `When a client pays for a package or membership upfront, that money isn't all earned yet--services still have to be delivered. Without consistent tracking, your monthly reports may not clearly show what's been collected, what's been earned, and what's still outstanding.`,
+      `When a client pays for a package or membership upfront, that money isn't all earned yet—services still have to be delivered. Without consistent tracking, your monthly reports may not clearly show what's been collected, what's been earned, and what's still outstanding.`,
     help:
       'Based on your accounting method and, where appropriate, guidance from your CPA, we help structure your QuickBooks records so prepaid balances, earned revenue, and related transactions are tracked consistently as services are provided.',
   },
@@ -47,7 +47,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
             Your Practice Has Financial Complexity Most Bookkeepers Aren't Built For
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl">
-            Between POS payouts, processing fees, provider tips, patient financing, memberships, prepaid packages, and treatment costs--simply categorizing transactions from a bank feed may not give you the financial clarity you need to understand how your practice is actually performing.
+            Between POS payouts, processing fees, provider tips, patient financing, memberships, prepaid packages, and treatment costs&#8212;simply categorizing transactions from a bank feed may not give you the financial clarity you need to understand how your practice is actually performing.
           </p>
         </div>
 
