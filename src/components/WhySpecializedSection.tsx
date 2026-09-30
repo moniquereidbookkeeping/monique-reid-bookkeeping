@@ -24,11 +24,19 @@ const problems = [
   },
   {
     number: '03',
-    title: 'Packages & Memberships That Require Careful Tracking',
+    title: 'Prepaid Packages and Memberships Are a Liability Until Services Are Delivered',
     problem:
-      `When a client pays for a package or membership upfront, that money isn't all earned yet—services still have to be delivered. Without consistent tracking, your monthly reports may not clearly show what's been collected, what's been earned, and what's still outstanding.`,
+      `When a client pays upfront for a package or membership, that money isn't fully earned yet—it's deferred revenue until the service is actually provided. Without consistent tracking, your reports can show cash you've collected as income you haven't earned, which distorts your monthly picture and can create problems at tax time.`,
     help:
-      'Based on your accounting method and, where appropriate, guidance from your CPA, we help structure your QuickBooks records so prepaid balances, earned revenue, and related transactions are tracked consistently as services are provided.',
+      'We help structure your QuickBooks records so collected payments, earned revenue, and outstanding balances are tracked separately and consistently—so your monthly reports reflect what you\'ve actually earned, not just what came in.',
+  },
+  {
+    number: '04',
+    title: 'Treatment Costs and Inventory Buried in Generic Expenses',
+    problem:
+      `Neurotoxin, filler, skincare retail, IV supplies, and weight-loss medications are direct costs tied to specific services—not generic overhead. When they're lumped into broad expense categories, you lose visibility into what each service line actually costs to deliver, making it nearly impossible to know which treatments are worth your chair time.`,
+    help:
+      'We separate product and supply costs from operating overhead and categorize treatment-related expenses so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins actually are.',
   },
 ];
 
@@ -51,7 +59,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
           </p>
         </div>
 
-        {/* Three Problem Cards */}
+        {/* Four Problem Cards */}
         <div className="space-y-6">
           {problems.map((item) => (
             <div
@@ -93,10 +101,10 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
           <div className="max-w-xl">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">The Result</p>
             <p className="text-xl font-serif font-bold text-white leading-snug">
-              Books That Help You Understand Your Practice
+              Finally Know Whether Your Practice Is Actually Profitable
             </p>
             <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              The goal isn't simply to make QuickBooks reconcile. It's to give you organized financial records that show where revenue is coming from, where money is going, and how your practice is performing.
+              When your books are structured around how your practice actually operates—not just what hit the bank account—your monthly reports tell you which services are earning, where costs are running high, and whether the revenue you're seeing is money you've actually made.
             </p>
           </div>
           <button
