@@ -17,7 +17,7 @@ interface FAQSectionProps {
 
 interface FAQItem {
   id: string;
-  category: 'getting-started' | 'quickbooks-systems' | 'cleanup-catchup' | 'financial-operations';
+  category: 'getting-started' | 'quickbooks-systems' | 'cleanup-catchup' | 'financial-operations' | 'pain-points';
   categoryLabel: string;
   question: string;
   answer: string;
@@ -29,17 +29,83 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showAll, setShowAll] = useState<boolean>(!featuredLimit);
   // Only one open accordion at a time; first item open by default
-  const [openId, setOpenId] = useState<string | null>('faq-1');
+  const [openId, setOpenId] = useState<string | null>('faq-p1');
 
   const categories = [
     { id: 'all', label: 'All Questions' },
+    { id: 'pain-points', label: 'Sound Familiar?' },
     { id: 'getting-started', label: 'Getting Started' },
-    { id: 'quickbooks-systems', label: 'QuickBooks & Practice Systems' },
+    { id: 'quickbooks-systems', label: 'QuickBooks & Systems' },
     { id: 'cleanup-catchup', label: 'Cleanup & Catch-Up' },
-    { id: 'financial-operations', label: 'Practice Financial Operations' },
+    { id: 'financial-operations', label: 'Financial Operations' },
   ];
 
   const faqs: FAQItem[] = [
+    {
+      id: 'faq-p1',
+      category: 'pain-points',
+      categoryLabel: 'SOUND FAMILIAR?',
+      question: 'My Boulevard or Square deposit never matches my gross sales. I have no idea where the money went.',
+      answer:
+        'This is one of the most common frustrations we hear from practice owners — and it is completely fixable.\n\nPlatforms like Boulevard, Vagaro, Square, Mindbody, and Mangomint deposit net amounts, not your total sales. By the time the money hits your bank, it has already had processing fees, refunds, tips, chargebacks, and sometimes reserves deducted from it. If your books only record what deposited, that missing money disappears — and you lose visibility into real costs.\n\nWe reconcile your platform reports against your actual bank deposits line by line. Every fee and adjustment gets its own category, so you can finally see where the gap came from and what running your payment processing actually costs your practice.',
+      takeaways: [
+        'Platform net deposits compared against gross sales reports',
+        'Processing fees, refunds, and adjustments tracked separately',
+        'No more unexplained gaps between sales and your bank balance',
+      ],
+    },
+    {
+      id: 'faq-p2',
+      category: 'pain-points',
+      categoryLabel: 'SOUND FAMILIAR?',
+      question: 'I offer Cherry or CareCredit and my CPA said I\'m recording patient financing wrong. I don\'t know how to fix it.',
+      answer:
+        'You are not alone — patient financing is one of the most consistently mishandled areas in aesthetic and wellness bookkeeping.\n\nHere is what typically happens: a patient finances a $1,200 treatment through Cherry or CareCredit. The financing company deposits $1,080 into your bank after deducting their merchant fee. If your books record $1,080 as the revenue, you have understated income AND hidden a real cost of doing business.\n\nWe record the full patient-charged amount as revenue, then separately categorize the financing merchant fee as an operating expense. Your reports then reflect what patients actually paid and what it cost you to offer financing — which is information you need to understand your real margins.',
+      takeaways: [
+        'Full patient charge recorded as revenue, not just the deposited amount',
+        'Cherry, CareCredit, and PatientFi fees tracked as separate operating costs',
+        'Financing economics visible in your monthly reports',
+      ],
+    },
+    {
+      id: 'faq-p3',
+      category: 'pain-points',
+      categoryLabel: 'SOUND FAMILIAR?',
+      question: 'I can\'t tell if my practice is actually profitable. The bank account looks okay sometimes, but something never adds up.',
+      answer:
+        'That feeling — where the schedule looks full but the money feels tight — is almost always a sign that cash flow and profitability are disconnected in your books.\n\nA busy treatment calendar does not automatically mean profit. Prepaid packages and memberships bring in cash upfront but the services still have to be delivered. Neurotoxin and filler costs are not always matched to the revenue they generate. Cherry fees quietly reduce your margins. Provider commissions fluctuate. Without organized books, all of this is invisible.\n\nWhen your QuickBooks is set up correctly for your practice, your monthly Profit and Loss statement shows what you actually earned after every real cost came out — not just what landed in the bank. That is the number that tells you whether the practice is healthy.',
+      takeaways: [
+        'Profitability separated from cash flow so you see the real picture',
+        'Treatment costs, product costs, and provider pay matched to the revenue they produced',
+        'A monthly P&L that actually reflects how your practice is performing',
+      ],
+    },
+    {
+      id: 'faq-p4',
+      category: 'pain-points',
+      categoryLabel: 'SOUND FAMILIAR?',
+      question: 'I already have a bookkeeper, but the reports I get don\'t tell me anything useful. I can\'t see which services are worth keeping.',
+      answer:
+        'A generalist bookkeeper can reconcile your accounts and keep your books from falling apart — but if they do not understand how aesthetic and wellness practices operate, the reports they produce will not help you make decisions.\n\nIf your revenue from injectables, skincare, IV drips, memberships, medical weight-loss programs, and treatment packages is all collapsed into one income line, you will never know which services are driving profitability and which ones are draining it.\n\nWe restructure your QuickBooks chart of accounts around your actual service lines and cost structure, so your financial reports show you where the revenue is coming from, what it cost to produce it, and where the real margin is in your practice.',
+      takeaways: [
+        'Revenue tracked by service category or treatment type',
+        'Product, supply, and provider costs matched to the services they support',
+        'Reports you can actually read and use — not just file away',
+      ],
+    },
+    {
+      id: 'faq-p5',
+      category: 'pain-points',
+      categoryLabel: 'SOUND FAMILIAR?',
+      question: 'Every tax season is a disaster. My CPA says my books are a mess and the bill is higher because of it.',
+      answer:
+        'When your books arrive at your CPA\'s desk in rough shape, they have to spend their billable time reconstructing what should have been organized throughout the year. That adds to your tax prep invoice, delays your filing, and increases the chance that deductible expenses get missed because documentation was never gathered.\n\nOur goal is to hand your CPA clean, reconciled QuickBooks records by January — organized the way they need them. Every account reconciled. Every transaction categorized. Supporting documentation noted. Questions flagged and answered before they have to ask.\n\nYour CPA does the tax strategy and filing. We do the year-round record-keeping that makes it possible to do that efficiently.',
+      takeaways: [
+        'Month-by-month records your CPA can use without reconstruction',
+        'Deductions documented and categorized throughout the year',
+        'A faster, smoother, less expensive tax season — every year',
+      ],
+    },
     {
       id: 'faq-1',
       category: 'getting-started',
@@ -280,11 +346,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
           </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Frequently Asked Questions
+            Real Questions From Practice Owners Like You
           </h2>
 
           <p className="text-base sm:text-lg text-[#57534E] font-light leading-relaxed">
-            Explore answers to common questions about specialized QuickBooks bookkeeping, historical cleanups, monthly financial reporting, practice-management platforms, provider payments, memberships, and more for aesthetic and wellness practices.
+            Start with <strong className="font-semibold text-[#1A2E40]">"Sound Familiar?"</strong> — questions written around the exact frustrations MedSpa, aesthetic clinic, IV hydration, and wellness practice owners bring to us. Or browse by topic below.
           </p>
         </div>
 
@@ -464,7 +530,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                       onClick={() => setShowAll(true)}
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#D4AF37]/50 text-[#1A2E40] hover:bg-[#FAF8F5] text-sm font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
                     >
-                      <span>View All 13 Frequently Asked Questions</span>
+                      <span>View All {faqs.length} Frequently Asked Questions</span>
                       <ChevronDown className="w-4 h-4 text-[#D4AF37]" />
                     </button>
                   ) : (

@@ -47,7 +47,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
             Your Practice Has Financial Complexity Most Bookkeepers Aren't Built For
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl">
-            Between POS payouts, processing fees, provider tips, patient financing, memberships, prepaid packages, and treatment costs&#8212;simply categorizing transactions from a bank feed may not give you the financial clarity you need to understand how your practice is actually performing.
+            Between POS payouts, processing fees, provider tips, patient financing, memberships, prepaid packages, and treatment costs&#8212;simply pulling transactions from a bank feed won't tell you whether your practice is actually profitable, which services are worth keeping, or where the money is really going.
           </p>
         </div>
 

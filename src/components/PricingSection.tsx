@@ -17,19 +17,19 @@ const monthlyPlans = [
     featured: false,
     features: [
       'Bank and credit-card reconciliations',
+      'POS and merchant payout reconciliation',
       'Transaction categorization',
       'Monthly Profit & Loss Statement',
       'Monthly Balance Sheet',
-      'Account review',
       'Year-end CPA reporting package',
     ],
-    complexityNote: 'Base rate for practices with straightforward transaction flow.',
-    cta: 'Book Your Financial Clarity Call',
+    complexityNote: 'For solo providers or single-location practices with one bank account and a simple payment setup.',
+    cta: 'Book Your 15-Min Financial Clarity Call',
   },
   {
     id: 'specialized',
     name: 'Specialized Practice Bookkeeping',
-    tagline: 'For practices with more complex financial workflows.',
+    tagline: 'For MedSpas, aesthetic clinics, IV hydration centers, and wellness practices with complex financial workflows.',
     startingAt: 'Custom',
     period: 'monthly pricing',
     label: 'Pricing',
@@ -44,7 +44,7 @@ const monthlyPlans = [
       'Multiple locations or high transaction volume',
     ],
     complexityNote: 'Scoped to your practice after a complimentary 15-min clarity call.',
-    cta: 'Get Your Custom Bookkeeping Plan',
+    cta: 'Book Your 15-Min Financial Clarity Call',
   },
 ];
 
@@ -249,7 +249,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
             className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] border border-[#FFF5DE]/60 shrink-0 cursor-pointer group"
           >
             <Calendar className="w-4 h-4" />
-            <span>Book Your Clarity Call</span>
+            <span>Book Your 15-Min Clarity Call</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>

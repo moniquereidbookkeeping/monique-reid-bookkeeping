@@ -48,7 +48,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       phase: 'Monthly',
       title: 'Specialized Monthly Bookkeeping',
       tagline: 'More than categorized transactions. Bookkeeping built around how your practice gets paid.',
-      lead: 'Best for growing aesthetic and wellness practices that need consistent monthly bookkeeping plus greater visibility into POS payouts, payment processing, memberships, packages, patient financing, inventory costs, and provider compensation.',
+      lead: 'Best for growing and established aesthetic and wellness practices — including MedSpas, IV hydration centers, medical weight-loss practices, and wellness clinics — that need consistent monthly bookkeeping with visibility into POS payouts, memberships, packages, patient financing, inventory costs, and provider compensation.',
       icon: Clock,
       highlight: 'We reconcile the financial activity flowing through your practice and organize it in QuickBooks so you can better understand where your money is coming from, where it\'s going, and how the business is performing.',
       deliverables: [
@@ -62,7 +62,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       startingPrice: 'Starting at $497/month',
       noticeTitle: 'Complexity-Based Pricing',
       notice: 'Your fee is determined by transaction volume, number of accounts, POS and payment platforms, patient financing, memberships and packages, inventory complexity, and provider compensation requirements.',
-      ctaLabel: 'Explore Monthly Bookkeeping',
+      ctaLabel: 'Get Your Monthly Bookkeeping Plan',
       featured: true,
     },
     {

@@ -81,9 +81,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
             <div className="space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
               <p>
-                Hi, I'm Monique Reid. As a Certified QuickBooks ProAdvisor with a BBA in Business Administration, I specialize in helping
-                medical spa founders, nurse injectors, aesthetic clinicians, and wellness practice owners turn financial
-                uncertainty into reliable, tax-ready clarity.
+                Hi, I'm Monique Reid. As a Certified QuickBooks ProAdvisor with a BBA in Business Administration, I specialize in helping MedSpa founders, nurse injectors, aesthetic clinicians, IV hydration center owners, medical weight-loss practices, and wellness providers turn financial uncertainty into reliable, tax-ready clarity.
               </p>
               <p>
                 Aesthetic and self-pay healthcare practices are unlike standard small businesses. You manage expensive
@@ -92,30 +90,39 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                 these into generic buckets—leaving you without clear visibility into your true service-line margins.
               </p>
               <p>
-                My focus is straightforward: to give you accurate, clean books every single month, so you can
-                confidently evaluate treatment profitability, compensate your providers transparently, and make business decisions based on organized financial records.
+                I started this practice because I kept seeing the same pattern: talented clinicians building real practices, but getting inconsistent or confusing financial information from bookkeepers who didn't understand their world. My goal is to change that — by giving you clean, accurate books every month and financial reports that actually reflect how your practice operates.
               </p>
             </div>
 
             {/* Core Values / Commitments */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#1A2E40] mb-1">
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
                   <span>No Confusing Jargon</span>
                 </div>
                 <p className="text-xs text-[#57534E]">
-                  Monthly summaries in plain English, explaining where your cash went and highlighting notable trends.
+                  Monthly summaries in plain language — where your cash went, what it cost, and what changed.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#1A2E40] mb-1">
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
-                  <span>CPA-Ready Handoff</span>
+                  <span>No Tax Season Surprises</span>
                 </div>
                 <p className="text-xs text-[#57534E]">
-                  At tax time, your CPA receives organized, reconciled reports and supporting documentation designed to make tax preparation efficient and straightforward.
+                  Your CPA gets clean, reconciled records by January — organized the way they need them, every year.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
+                <div className="flex items-center gap-2 text-sm font-bold text-[#1A2E40] mb-1">
+                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
+                  <span>You're Not Alone in This</span>
+                </div>
+                <p className="text-xs text-[#57534E]">
+                  Most practice owners come to us frustrated, behind, or just unsure. That's exactly what we're here for.
                 </p>
               </div>
             </div>
@@ -129,7 +136,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                 <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                   <Calendar className="w-3.5 h-3.5" />
                 </span>
-                <span>Book a Financial Clarity Call</span>
+                <span>Book Your 15-Min Financial Clarity Call</span>
                 <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
               </button>
 
