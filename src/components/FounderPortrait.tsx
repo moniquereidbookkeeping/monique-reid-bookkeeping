@@ -39,7 +39,7 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
         {/* Portrait image */}
         <img
           src={imageSrc}
-          alt="Monique Reid, Certified QuickBooks ProAdvisor for MedSpas, Aesthetic Clinics, and Wellness Practices"
+          alt="Monique Reid, Intuit Certified QuickBooks ProAdvisor for MedSpas, Aesthetic Clinics, and Wellness Practices"
           onError={handleImageError}
           className="relative z-[5] w-full h-auto object-contain object-bottom max-h-[540px] transition-transform duration-500 group-hover:scale-[1.015]"
           loading={variant === 'hero' ? 'eager' : 'lazy'}

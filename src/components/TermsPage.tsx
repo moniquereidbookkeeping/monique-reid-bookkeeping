@@ -75,7 +75,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             <span>1. About Monique Reid Bookkeeping</span>
           </h3>
           <p className="text-sm leading-relaxed">
-            Monique Reid Bookkeeping is an independent bookkeeping and financial reporting practice operated by Monique Reid, a Certified QuickBooks ProAdvisor with a Bachelor&apos;s degree in Business Administration.
+            Monique Reid Bookkeeping is an independent bookkeeping and financial reporting practice operated by Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor&apos;s degree in Business Administration.
           </p>
           <p className="text-sm leading-relaxed">
             We specialize in bookkeeping and financial organization for MedSpas, aesthetic clinics, IV hydration/wellness practices, medical weight-loss practices, and related businesses.
@@ -586,7 +586,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-xs transition-all shadow-md w-full sm:w-auto"
               >
                 <Calendar className="w-3.5 h-3.5" />
-                <span>Schedule Call</span>
+                <span>Book Your Free 15-Min Clarity Call</span>
               </button>
             </div>
           </div>

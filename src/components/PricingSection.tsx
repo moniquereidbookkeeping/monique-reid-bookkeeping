@@ -70,7 +70,7 @@ const projectPlans = [
 const trustItems = [
   'No long-term contracts',
   'Cancel with 30 days notice',
-  'Certified QBO ProAdvisor',
+  'Intuit Certified QBO ProAdvisor',
   'HIPAA-aware workflows',
 ];
 
@@ -110,7 +110,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] text-[#1A2E40] text-xs font-bold shadow-md border border-[#FFF5DE]/60 whitespace-nowrap">
                       <Sparkles className="w-3 h-3" />
-                      Complex Practice
+                      Most Popular
                     </span>
                   </div>
                 )}
