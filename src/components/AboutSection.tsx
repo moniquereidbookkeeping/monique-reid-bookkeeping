@@ -20,14 +20,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                 <FounderPortrait variant="about" />
 
                 <div className="p-4 bg-white border-t border-[#E2E8F0] text-center">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] mb-1">
+                    Specialized Bookkeeping
+                  </p>
                   <h3 className="font-serif font-bold text-xl text-[#1A2E40]">
                     Monique Reid
                   </h3>
-                  <p className="text-xs font-semibold text-[#D4AF37] uppercase tracking-wider mt-0.5">
-                    Founder · Certified QuickBooks ProAdvisor
-                  </p>
-                  <p className="text-xs text-[#57534E] mt-1">
-                    Specialist in Aesthetic, Wellness &amp; MedSpa Accounting
+                  <p className="text-xs font-semibold text-[#57534E] mt-0.5">
+                    Clean books. Clearer decisions.
                   </p>
                 </div>
               </div>
@@ -45,7 +45,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                   <div className="w-full aspect-square max-w-[100px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
                     <img
                       src="/assets/badges/gold-badge.svg"
-                      alt="Intuit ProAdvisor Gold Badge"
+                      alt="Intuit Certified QuickBooks ProAdvisor"
                       className="w-full h-full object-contain filter drop-shadow-md"
                     />
                   </div>
@@ -54,7 +54,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                   <div className="w-full aspect-square max-w-[100px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
                     <img
                       src="/assets/badges/level2-badge.svg"
-                      alt="Intuit ProAdvisor QuickBooks Level 2 Certified"
+                      alt="QuickBooks Online Level 2 Certified"
                       className="w-full h-full object-contain filter drop-shadow-md"
                     />
                   </div>
@@ -63,10 +63,18 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                   <div className="w-full aspect-square max-w-[100px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
                     <img
                       src="/assets/badges/payroll-badge.svg"
-                      alt="Intuit ProAdvisor QuickBooks Payroll Certified"
+                      alt="QuickBooks Payroll Certified"
                       className="w-full h-full object-contain filter drop-shadow-md"
                     />
                   </div>
+                </div>
+
+                {/* Credential labels */}
+                <div className="mt-3 pt-3 border-t border-[#E2E8F0] space-y-1">
+                  <p className="text-[10px] text-[#57534E] text-center leading-snug">Intuit Certified QuickBooks ProAdvisor</p>
+                  <p className="text-[10px] text-[#57534E] text-center leading-snug">QuickBooks Online Level 2</p>
+                  <p className="text-[10px] text-[#57534E] text-center leading-snug">QuickBooks Payroll Certified</p>
+                  <p className="text-[10px] text-[#57534E] text-center leading-snug">Bachelor of Business Administration</p>
                 </div>
               </div>
             </div>
@@ -75,22 +83,30 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
           {/* Right Column: Bio & Practice Philosophy */}
           <div className="lg:col-span-7 space-y-6 text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-              Clean Books. Confident Decisions.{' '}
-              <span className="text-[#D4AF37] block mt-1">Built For Aesthetic &amp; Wellness Founders</span>
+              Clean Books. Clearer Numbers.{' '}
+              <span className="text-[#D4AF37] block mt-1">More Confident Decisions.</span>
             </h2>
 
             <div className="space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
               <p>
-                Hi, I'm Monique Reid. As a Certified QuickBooks ProAdvisor with a BBA in Business Administration, I specialize in helping MedSpa founders, nurse injectors, aesthetic clinicians, IV hydration center owners, medical weight-loss practices, and wellness providers turn financial uncertainty into reliable, tax-ready clarity.
+                Hi, I'm Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor of Business Administration. I provide specialized QuickBooks bookkeeping and financial organization for MedSpas, aesthetic practices, IV hydration and wellness businesses, medical weight-loss practices, and independent aesthetic providers.
               </p>
               <p>
-                Aesthetic and self-pay healthcare practices are unlike standard small businesses. You manage expensive
-                neurotoxin and filler inventory, retail skincare, wellness infusions, prepaid package liabilities, tiered provider commissions, and
-                financing fees from Cherry and CareCredit. A standard generalist bookkeeper often lumps
-                these into generic buckets—leaving you without clear visibility into your true service-line margins.
+                I chose to specialize in these industries because their financial workflows can be more complex than traditional small-business bookkeeping. Between POS and merchant payouts, patient financing, memberships and prepaid packages, treatment and inventory costs, provider compensation, and multiple payment platforms, simply categorizing transactions from a bank feed doesn't always provide the financial clarity a growing practice needs.
               </p>
               <p>
-                I started this practice because I kept seeing the same pattern: talented clinicians building real practices, but getting inconsistent or confusing financial information from bookkeepers who didn't understand their world. My goal is to change that — by giving you clean, accurate books every month and financial reports that actually reflect how your practice operates.
+                My approach goes beyond keeping QuickBooks organized. I help structure your books around the way your practice actually operates—reconciling financial activity, separating applicable costs and liabilities, and producing financial reports that are easier to understand and use.
+              </p>
+              <p>
+                My goal is simple: clean, consistent books that help you understand where your money is coming from, where it's going, and how your practice is performing. So instead of spending your time trying to make sense of QuickBooks, you can spend more of it running and growing your practice.
+              </p>
+            </div>
+
+            {/* Founder-Led Bookkeeping */}
+            <div className="p-5 rounded-2xl bg-[#1A2E40]/5 border border-[#1A2E40]/10">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37] mb-2">Founder-Led Bookkeeping</p>
+              <p className="text-sm text-[#57534E] leading-relaxed">
+                Monique Reid Bookkeeping is a specialized, founder-led bookkeeping practice built around attentive service, consistent financial organization, and a deeper understanding of the financial workflows common to aesthetic and wellness businesses. The goal isn't simply to keep QuickBooks updated. It's to give you organized financial records and clearer reporting so you can better understand the financial side of your practice.
               </p>
             </div>
 
