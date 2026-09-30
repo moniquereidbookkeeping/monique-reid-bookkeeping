@@ -113,7 +113,7 @@ export default function App() {
                 </h2>
 
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
-                  Book a complimentary 20-minute Financial Clarity Call on Calendly and tell me what is happening with your books. I'll outline your options and discuss a clear path to organized financial records.
+                  Book a complimentary 15-minute Financial Clarity Call on Calendly and tell me what is happening with your books. I'll outline your options and discuss a clear path to organized financial records.
                 </p>
 
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -124,7 +124,7 @@ export default function App() {
                     <span className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                       <Calendar className="w-4 h-4" />
                     </span>
-                    <span>Book 20-Min Clarity Call on Calendly</span>
+                    <span>Book 15-Min Clarity Call on Calendly</span>
                     <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

@@ -54,7 +54,7 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
           href={BOOKING_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Open 20-minute consultation directly on Calendly in a new tab"
+          aria-label="Open 15-minute consultation directly on Calendly in a new tab"
           className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-[#FAF8F5] border border-[#CBD5E1] text-xs font-bold text-[#1A2E40] hover:text-[#D4AF37] transition-all shadow-xs group"
         >
           <span>Open directly on Calendly</span>
@@ -76,7 +76,7 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
             src={BOOKING_URL}
             width="100%"
             height="700"
-            title="Schedule 20-Minute Financial Clarity Call with Monique Reid"
+            title="Schedule 15-Minute Financial Clarity Call with Monique Reid"
             className="w-full h-[700px] border-0 rounded-2xl"
           />
         </div>

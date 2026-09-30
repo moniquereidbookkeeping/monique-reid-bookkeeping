@@ -24,7 +24,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             <span>Direct Practice Consultation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Book Your Complimentary 20-Minute Financial Clarity Call
+            Book Your Complimentary 15-Minute Financial Clarity Call
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
             Select a convenient time on Calendly. I'll discuss your practice's current bookkeeping setup, identify immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
@@ -38,7 +38,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <Clock className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#1A2E40]">20 Minutes Private Zoom</p>
+              <p className="text-xs font-bold text-[#1A2E40]">15 Minutes Private Zoom</p>
               <p className="text-[11px] text-[#57534E]">Complimentary review, no obligation</p>
             </div>
           </div>

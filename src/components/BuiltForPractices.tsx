@@ -121,7 +121,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                 <div>
                   <p className="text-xs text-[#E2E8F0]">Ready for clarity?</p>
-                  <p className="text-sm font-bold text-[#D4AF37]">Complimentary 20-Min Call</p>
+                  <p className="text-sm font-bold text-[#D4AF37]">Complimentary 15-Min Call</p>
                 </div>
                 <button
                   onClick={onBookCall}

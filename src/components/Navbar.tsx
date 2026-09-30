@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="hidden lg:flex items-center gap-1 xl:gap-2.5 ml-auto"
           >
             {navItems.map((item) => {
-              const isActive = currentPage === item.page;
+              const isActive = currentPage === item.page && !item.scrollTo;
               return (
                 <button
                   key={item.page + item.id}
@@ -149,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="lg:hidden mt-4 pt-4 pb-6 border-t border-[#E2E8F0] space-y-2 animate-in fade-in slide-in-from-top-2 duration-200"
           >
             {navItems.map((item) => {
-              const isActive = currentPage === item.page;
+              const isActive = currentPage === item.page && !item.scrollTo;
               return (
                 <button
                   key={`mob-${item.page}-${item.id}`}
