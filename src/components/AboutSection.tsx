@@ -89,16 +89,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
             <div className="space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
               <p>
-                Hi, I'm Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor of Business Administration. I provide specialized QuickBooks bookkeeping and financial organization for MedSpas, aesthetic practices, IV hydration and wellness businesses, medical weight-loss practices, and independent aesthetic providers.
+                Hi, I'm Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and independent aesthetic providers.
               </p>
               <p>
-                I chose to specialize in these industries because their financial workflows can be more complex than traditional small-business bookkeeping. Between POS and merchant payouts, patient financing, memberships and prepaid packages, treatment and inventory costs, provider compensation, and multiple payment platforms, simply categorizing transactions from a bank feed doesn't always provide the financial clarity a growing practice needs.
+                I chose to focus on this industry because I recognized how underserved these practices are by generalist bookkeepers. The financial workflows here are genuinely more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and most bookkeepers aren't structured to handle that complexity well. I built my QuickBooks approach around how these practices actually operate, not around a generic small-business model.
               </p>
               <p>
-                My approach goes beyond keeping QuickBooks organized. I help structure your books around the way your practice actually operates—reconciling financial activity, separating applicable costs and liabilities, and producing financial reports that are easier to understand and use.
-              </p>
-              <p>
-                My goal is simple: clean, consistent books that help you understand where your money is coming from, where it's going, and how your practice is performing. So instead of spending your time trying to make sense of QuickBooks, you can spend more of it running and growing your practice.
+                My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can actually use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
               </p>
             </div>
 
@@ -106,7 +103,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
             <div className="p-5 rounded-2xl bg-[#1A2E40]/5 border border-[#1A2E40]/10">
               <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37] mb-2">Founder-Led Bookkeeping</p>
               <p className="text-sm text-[#57534E] leading-relaxed">
-                Monique Reid Bookkeeping is a specialized, founder-led bookkeeping practice built around attentive service, consistent financial organization, and a deeper understanding of the financial workflows common to aesthetic and wellness businesses. The goal isn't simply to keep QuickBooks updated. It's to give you organized financial records and clearer reporting so you can better understand the financial side of your practice.
+                Monique Reid Bookkeeping is a specialized, founder-led practice built around careful financial organization and a genuine understanding of the workflows common to aesthetic and wellness businesses. Every client works directly with me — not a staff member — which means consistent attention and no handoff gaps.
               </p>
             </div>
 
