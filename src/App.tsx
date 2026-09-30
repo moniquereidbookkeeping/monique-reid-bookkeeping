@@ -19,6 +19,7 @@ import { ContactSection } from './components/ContactSection';
 import { TermsPage } from './components/TermsPage';
 import { PrivacyPage } from './components/PrivacyPage';
 import { PricingSection } from './components/PricingSection';
+import { WhySpecializedSection } from './components/WhySpecializedSection';
 import { Footer } from './components/Footer';
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
@@ -69,6 +70,9 @@ export default function App() {
                 }
               }}
             />
+
+            {/* Why Specialized: financial complexity education before services */}
+            <WhySpecializedSection onBookCall={handleBookCall} />
 
             {/* Section 2: Core 6-Service Bookkeeping Architecture + Restored Tech & Bottleneck Stack */}
             <ServicesSection onBookCall={handleBookCall} />
