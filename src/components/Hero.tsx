@@ -25,18 +25,18 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Value Proposition & Copy */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Aesthetic & Wellness Practice Niche Eyebrow Tag */}
+            {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/15 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Aesthetic &amp; Wellness Practice Bookkeeping</span>
+              <span>✦ Certified QuickBooks Specialist for MedSpas &amp; Aesthetic Clinics</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#1A2E40] tracking-tight leading-[1.12]">
-              Know Your Numbers.{' '}
+              Stop Guessing Your True Profit.{' '}
               <br />
               <span className="text-[#D4AF37] relative inline-block">
-                Grow With Confidence.
+                Get Clean, Tax-Ready QuickBooks for Your Practice.
                 <svg
                   className="absolute -bottom-2 left-0 w-full h-2.5 text-[#D4AF37]/40"
                   viewBox="0 0 200 8"
@@ -54,9 +54,9 @@ export const Hero: React.FC<HeroProps> = ({
               </span>
             </h1>
 
-            {/* Subheading with Consistent Umbrella Positioning */}
+            {/* Subheadline */}
             <p className="text-lg sm:text-xl text-[#57534E] leading-relaxed max-w-2xl font-normal">
-              Precise, practice-ready financial records so you can focus on patient outcomes—not spreadsheets. Built for MedSpas, aesthetic clinics, and self-pay healthcare practices nationwide.
+              We reconcile Boulevard, Mindbody, and Square deposits, track high-cost Botox and filler inventory, and eliminate tax surprises caused by prepaid package liabilities—so you can focus on patient care, not spreadsheets.
             </p>
 
             {/* Strategic Segments Mention */}
@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <span className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                   <Calendar className="w-4 h-4" />
                 </span>
-                <span>Book a Financial Clarity Call</span>
+                <span>📅 Book Your 15-Min Financial Audit</span>
                 <ArrowRight className="w-4 h-4 text-[#1A2E40] transition-transform group-hover:translate-x-1" />
               </button>
 
@@ -89,6 +89,34 @@ export const Hero: React.FC<HeroProps> = ({
               >
                 <span>Explore Services</span>
               </button>
+            </div>
+
+            {/* Tech Stack Integration Strip */}
+            <div className="pt-6 border-t border-[#1A2E40]/10">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#57534E]/70 mb-3">
+                Seamlessly Reconciling Your Technology Stack:
+              </p>
+              <p className="text-sm text-[#57534E] leading-relaxed">
+                <span className="font-medium text-[#1A2E40]">Boulevard</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">Vagaro</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">Jane App</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">Mindbody</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">Zenoti</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">Stripe</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">Square</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">Cherry Financing</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">CareCredit</span>
+                {' • '}
+                <span className="font-medium text-[#1A2E40]">PatientFi</span>
+              </p>
             </div>
           </div>
 
