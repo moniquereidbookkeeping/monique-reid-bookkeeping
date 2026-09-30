@@ -56,16 +56,16 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-[#57534E] leading-relaxed max-w-2xl font-normal">
-              We reconcile deposits from Boulevard, Vagaro, Square, and Cherry, track high-cost Botox and filler inventory, and eliminate tax surprises caused by prepaid package liabilities—so you can focus on patient care, not spreadsheets.
+              We reconcile payouts from Boulevard, Vagaro, Square, and Cherry; properly account for memberships, packages, and patient financing; and track your inventory and treatment costs—so you clearly see what your practice is actually earning.
             </p>
 
             {/* Strategic Segments Mention */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-[#64748B]">
               <span className="font-semibold text-[#1A2E40]">Specialized in:</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">MedSpas &amp; Injectors</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Aesthetic Clinics</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">MedSpas &amp; Aesthetic Practices</span>
               <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">IV Hydration &amp; Wellness</span>
               <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Medical Weight-Loss</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Injectors &amp; Aesthetic Providers</span>
             </div>
 
             {/* Action Buttons */}
@@ -92,31 +92,24 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Tech Stack Integration Strip */}
-            <div className="pt-6 border-t border-[#1A2E40]/10">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#57534E]/70 mb-3">
-                Seamlessly Reconciling Your Technology Stack:
+            <div className="pt-6 border-t border-[#1A2E40]/10 space-y-3">
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#57534E]/70">
+                Reconciling Payouts From Your Practice Software &amp; Patient Financing:
               </p>
-              <p className="text-sm text-[#57534E] leading-relaxed">
-                <span className="font-medium text-[#1A2E40]">Boulevard</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">Vagaro</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">Jane App</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">Mindbody</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">Zenoti</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">Stripe</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">Square</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">Cherry Financing</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">CareCredit</span>
-                {' • '}
-                <span className="font-medium text-[#1A2E40]">PatientFi</span>
-              </p>
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Practice Management:</span>
+                  {['Boulevard', 'Vagaro', 'Jane', 'Mindbody', 'Zenoti'].map(name => (
+                    <span key={name} className="px-2.5 py-1 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-medium text-[#1A2E40]">{name}</span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Payments &amp; Financing:</span>
+                  {['Stripe', 'Square', 'Cherry', 'CareCredit', 'PatientFi'].map(name => (
+                    <span key={name} className="px-2.5 py-1 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-xs font-medium text-[#1A2E40]">{name}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
