@@ -137,10 +137,10 @@ export const Hero: React.FC<HeroProps> = ({
                   </div>
                   <div className="text-left">
                     <p className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
-                      Core Standard
+                      Specialized Bookkeeping
                     </p>
                     <p className="text-sm font-bold text-[#1A2E40]">
-                      Clean books. Clearer numbers.
+                      Clean books. Clearer decisions.
                     </p>
                   </div>
                 </div>
