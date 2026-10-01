@@ -11,13 +11,15 @@ interface LogoProps {
 export const Logo: React.FC<LogoProps> = ({
   variant = 'dark',
   size = 'md',
-  showSubtitle = true,
+  showSubtitle: _showSubtitle = true,
   className = '',
   onClick,
 }) => {
-  const isDark = variant === 'dark'; // dark = on light bg (navbar), light = on dark bg (footer)
+  const isFooter = variant === 'light'; // footer sits on dark navy bg
 
-  const logoHeight = size === 'sm' ? 48 : size === 'lg' ? 96 : 80;
+  // Header: tall enough to read clearly at a glance
+  const logoHeight = size === 'sm' ? 52 : size === 'lg' ? 112 : 88;
+  const logoMaxWidth = size === 'sm' ? 220 : size === 'lg' ? 420 : 340;
 
   return (
     <div
@@ -32,51 +34,30 @@ export const Logo: React.FC<LogoProps> = ({
         }
       }}
       aria-label="Monique Reid Bookkeeping — Home"
-      className={`inline-flex items-center select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-xl p-0.5 transition-opacity duration-200 hover:opacity-90 ${className}`}
+      className={`inline-flex items-center select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-xl transition-opacity duration-200 hover:opacity-90 ${className}`}
     >
-      {isDark ? (
-        /* Header (light background): full horizontal logo */
+      {isFooter ? (
+        /* Footer (dark navy bg): same logo image in a white rounded container */
+        <div className="bg-white rounded-xl px-4 py-2 shadow-sm transition-transform duration-300 group-hover:scale-[1.02]">
+          <img
+            src="/mr-logo-full.png"
+            alt="Monique Reid Bookkeeping"
+            style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
+            className="object-contain block"
+            loading="eager"
+            draggable={false}
+          />
+        </div>
+      ) : (
+        /* Header (light bg): full horizontal logo, white bg blends naturally */
         <img
           src="/mr-logo-full.png"
           alt="Monique Reid Bookkeeping"
-          height={logoHeight}
-          style={{ height: logoHeight, width: 'auto', maxWidth: 360 }}
+          style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
           className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
           draggable={false}
         />
-      ) : (
-        /* Footer (dark background): icon mark (transparent) + text wordmark */
-        <div className="flex items-center gap-3">
-          <img
-            src="/mr-icon.png"
-            alt="Monique Reid Bookkeeping icon"
-            style={{ width: logoHeight, height: logoHeight }}
-            className="object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
-            loading="eager"
-            draggable={false}
-          />
-          <div className="flex flex-col items-start justify-center">
-            <span
-              className="font-serif font-bold text-white leading-tight tracking-wide"
-              style={{
-                fontSize: size === 'sm' ? '1.1rem' : size === 'lg' ? '1.7rem' : '1.4rem',
-              }}
-            >
-              Monique Reid
-            </span>
-            {showSubtitle && (
-              <span
-                className="font-serif font-bold uppercase tracking-[0.22em] leading-tight text-[#D4AF37] mt-0.5"
-                style={{
-                  fontSize: size === 'sm' ? '0.65rem' : size === 'lg' ? '0.95rem' : '0.8rem',
-                }}
-              >
-                Bookkeeping
-              </span>
-            )}
-          </div>
-        </div>
       )}
     </div>
   );
