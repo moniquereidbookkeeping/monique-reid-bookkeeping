@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --text-base: 0.875rem; /* 14px */
+  --text-base--line-height: 1.6;
+}
+
 @layer base {
   :root {
     --font-serif: 'Playfair Display', Georgia, serif;
