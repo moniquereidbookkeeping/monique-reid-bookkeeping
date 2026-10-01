@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse shrink-0" aria-hidden="true" />
             <span className="text-[#E2E8F0] font-medium">
-              Now Welcoming Aesthetic, Wellness &amp; MedSpa Practice Clients
+              Now Welcoming MedSpa, Aesthetic &amp; Wellness Practice Clients
             </span>
           </div>
           <div className="flex items-center gap-6">
