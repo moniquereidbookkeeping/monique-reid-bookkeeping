@@ -42,19 +42,19 @@ const problems = [
 
 export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ onBookCall }) => {
   return (
-    <section className="py-12 lg:py-18 bg-[#F8F9FA] border-b border-[#E2E8F0]">
+    <section className="py-10 lg:py-14 bg-[#F8F9FA] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="max-w-3xl mb-10">
+        <div className="max-w-3xl mb-7">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-4">
             <AlertCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>Why It Matters</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
             You Know What Came In. Do You Know What You Actually Made?
           </h2>
-          <p className="mt-3 text-base text-[#57534E] leading-relaxed max-w-2xl">
+          <p className="mt-2 text-sm text-[#57534E] leading-relaxed max-w-2xl">
             You're booking treatments, running memberships, and selling packages — and the revenue looks real. But at the end of the month, you're still not sure which services are actually making money, where the cash is going, or whether what's on paper reflects what your practice truly earned. Getting those answers requires books built around how your practice actually operates.
           </p>
         </div>
@@ -67,29 +67,29 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
               className="grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm"
             >
               {/* Number tab */}
-              <div className="lg:col-span-1 flex items-center justify-center bg-[#1A2E40] px-4 py-5 lg:py-0">
-                <span className="font-serif font-bold text-2xl text-[#D4AF37]">{item.number}</span>
+              <div className="lg:col-span-1 flex items-center justify-center bg-[#1A2E40] px-3 py-4 lg:py-0">
+                <span className="font-serif font-bold text-xl text-[#D4AF37]">{item.number}</span>
               </div>
 
               {/* Title */}
-              <div className="lg:col-span-3 flex items-center bg-[#1A2E40]/5 px-6 py-5 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
-                <h3 className="font-serif font-bold text-lg text-[#1A2E40] leading-snug">
+              <div className="lg:col-span-3 flex items-center bg-[#1A2E40]/5 px-5 py-4 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
+                <h3 className="font-serif font-bold text-base text-[#1A2E40] leading-snug">
                   {item.title}
                 </h3>
               </div>
 
               {/* Problem */}
-              <div className="lg:col-span-4 bg-white px-6 py-5 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">The Problem</p>
-                <p className="text-base text-[#57534E] leading-relaxed">{item.problem}</p>
+              <div className="lg:col-span-4 bg-white px-5 py-4 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#D4AF37] mb-1.5">The Problem</p>
+                <p className="text-sm text-[#57534E] leading-relaxed">{item.problem}</p>
               </div>
 
               {/* How We Help */}
-              <div className="lg:col-span-4 bg-white px-6 py-5">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-emerald-600 mb-2">How We Help</p>
-                <div className="flex gap-2.5">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                  <p className="text-base text-[#57534E] leading-relaxed">{item.help}</p>
+              <div className="lg:col-span-4 bg-white px-5 py-4">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-emerald-600 mb-1.5">How We Help</p>
+                <div className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                  <p className="text-sm text-[#57534E] leading-relaxed">{item.help}</p>
                 </div>
               </div>
             </div>

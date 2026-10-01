@@ -139,7 +139,7 @@ const trustItems = [
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) => {
   return (
-    <section id="pricing-section" className="py-14 lg:py-20 bg-[#F4F6F8] border-b border-[#E2E8F0]">
+    <section id="pricing-section" className="py-10 lg:py-16 bg-[#F4F6F8] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -148,10 +148,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
             <Sparkles className="w-3.5 h-3.5" />
             Transparent, Complexity-Based Pricing
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight mb-5">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
             Your Fee Reflects Your Practice's Complexity
           </h2>
-          <p className="text-base sm:text-lg text-[#374151] leading-relaxed">
+          <p className="text-sm text-[#374151] leading-relaxed">
             A solo provider with Square doesn't have the same bookkeeping needs as a multi-provider MedSpa
             running Boulevard, Cherry, memberships, and provider compensation.
             Our fees match the <strong className="text-[#1A2E40]">financial complexity of your practice</strong> — nothing more.
@@ -198,7 +198,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   </div>
                 )}
 
-                <div className={`p-6 flex flex-col flex-1 ${plan.featured ? 'pt-10' : 'pt-6'}`}>
+                <div className={`p-5 flex flex-col flex-1 ${plan.featured ? 'pt-9' : 'pt-5'}`}>
 
                   {/* Plan name + icon */}
                   <div className="flex items-center gap-3 mb-5">
@@ -226,14 +226,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   </div>
 
                   {/* Tagline */}
-                  <p className={`text-base leading-relaxed mb-7 ${
+                  <p className={`text-sm leading-relaxed mb-5 ${
                     plan.featured ? 'text-white/80' : 'text-[#374151]'
                   }`}>
                     {plan.tagline}
                   </p>
 
                   {/* Price */}
-                  <div className={`mb-7 pb-7 border-b ${
+                  <div className={`mb-5 pb-5 border-b ${
                     plan.featured ? 'border-white/15' : 'border-[#E2E8F0]'
                   }`}>
                     <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${
@@ -242,7 +242,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                       Starting At
                     </p>
                     <div className="flex items-end gap-2">
-                      <span className={`text-5xl font-bold font-serif leading-none ${
+                      <span className={`text-4xl font-bold font-serif leading-none ${
                         plan.featured ? 'text-white' : 'text-[#1A2E40]'
                       }`}>
                         {plan.startingAt}
@@ -259,11 +259,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   }`}>
                     What's Included
                   </p>
-                  <ul className="space-y-3.5 flex-1 mb-7">
+                  <ul className="space-y-2.5 flex-1 mb-5">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5 text-[#D4AF37]" />
-                        <span className={`text-base leading-snug ${
+                        <span className={`text-sm leading-snug ${
                           plan.featured ? 'text-white/90' : 'text-[#1A2E40]'
                         }`}>{feature}</span>
                       </li>
@@ -271,13 +271,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   </ul>
 
                   {/* Best For Note */}
-                  <div className={`flex items-start gap-3 text-sm leading-relaxed mb-7 p-4 rounded-xl ${
+                  <div className={`flex items-start gap-2.5 text-sm leading-relaxed mb-5 p-3 rounded-xl ${
                     plan.featured
                       ? 'bg-white/8 border border-white/12 text-white/75'
                       : 'bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-[#374151]'
                   }`}>
                     <Info className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                    <span className="text-base leading-relaxed">{plan.complexityNote}</span>
+                    <span className="text-sm leading-relaxed">{plan.complexityNote}</span>
                   </div>
 
                   {/* CTA */}
@@ -303,7 +303,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         <div className="max-w-6xl mx-auto mb-16">
           <div className="rounded-3xl overflow-hidden shadow-xl border border-[#D4AF37]/25">
             {/* Header */}
-            <div className="bg-[#1A2E40] px-6 sm:px-9 py-7">
+            <div className="bg-[#1A2E40] px-5 sm:px-7 py-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
                   <Info className="w-5 h-5 text-[#D4AF37]" />
@@ -312,10 +312,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   Complexity-Based Pricing
                 </p>
               </div>
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-snug mb-3">
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-white leading-snug mb-2">
                 What Determines Your Monthly Fee
               </h3>
-              <p className="text-base text-white/70 leading-relaxed max-w-3xl">
+              <p className="text-sm text-white/70 leading-relaxed max-w-3xl">
                 Your monthly fee is set by the number and type of financial systems your practice uses.
                 More systems, platforms, and revenue types mean more reconciliation work — and a higher starting rate.
                 Here's exactly what we assess before quoting your plan:
@@ -331,16 +331,16 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                 return (
                   <div
                     key={factor.label}
-                    className={`p-5 flex flex-col gap-3 hover:bg-[#FDFAF4] transition-colors border-b border-r border-[#E2E8F0] ${
+                    className={`p-4 flex flex-col gap-2 hover:bg-[#FDFAF4] transition-colors border-b border-r border-[#E2E8F0] ${
                       isLastRow ? 'border-b-0' : ''
                     } ${isLastCol ? 'border-r-0' : ''}`}
                   >
-                    <div className="w-11 h-11 rounded-xl bg-[#1A2E40] flex items-center justify-center shrink-0">
-                      <FIcon className="w-5 h-5 text-[#D4AF37]" />
+                    <div className="w-9 h-9 rounded-lg bg-[#1A2E40] flex items-center justify-center shrink-0">
+                      <FIcon className="w-4 h-4 text-[#D4AF37]" />
                     </div>
                     <div>
-                      <p className="text-base font-bold text-[#1A2E40] leading-snug mb-1.5">{factor.label}</p>
-                      <p className="text-base text-[#57534E] leading-relaxed">{factor.detail}</p>
+                      <p className="text-sm font-bold text-[#1A2E40] leading-snug mb-1">{factor.label}</p>
+                      <p className="text-xs text-[#57534E] leading-relaxed">{factor.detail}</p>
                     </div>
                   </div>
                 );
@@ -350,15 +350,15 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         </div>
 
         {/* Bottom CTA Banner */}
-        <div className="max-w-6xl mx-auto rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/30 p-6 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xl">
+        <div className="max-w-6xl mx-auto rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/30 p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-xl">
           <div className="max-w-xl">
             <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3">
               Not Sure Which Plan Fits?
             </p>
-            <p className="text-xl sm:text-2xl font-serif font-bold text-white leading-snug mb-3">
+            <p className="text-lg sm:text-xl font-serif font-bold text-white leading-snug mb-2">
               Start with a Free 20-Minute Clarity Call
             </p>
-            <p className="text-base text-white/70 leading-relaxed">
+            <p className="text-sm text-white/70 leading-relaxed">
               You don't need to diagnose your own bookkeeping problems first. We'll talk through your
               systems, identify where things are breaking down, and tell you exactly what we'd recommend — no pressure, no obligation.
             </p>
