@@ -5,48 +5,27 @@ interface PricingSectionProps {
   onBookCall: () => void;
 }
 
-const monthlyPlans = [
-  {
-    id: 'monthly',
-    name: 'Monthly Bookkeeping',
-    tagline: 'Reliable monthly bookkeeping for aesthetic and wellness practices.',
-    startingAt: '$497',
-    period: '/month',
-    label: 'Starting at',
-    icon: Clock,
-    featured: false,
-    features: [
-      'Bank and credit-card reconciliations',
-      'POS and merchant payout reconciliation',
-      'Transaction categorization',
-      'Monthly Profit & Loss Statement',
-      'Monthly Balance Sheet',
-      'Year-end CPA reporting package',
-    ],
-    complexityNote: 'For solo providers or single-location practices with one bank account and a simple payment setup.',
-    cta: 'Book Your 15-Min Financial Clarity Call',
-  },
-  {
-    id: 'specialized',
-    name: 'Specialized Practice Bookkeeping',
-    tagline: 'For MedSpas, aesthetic clinics, IV hydration centers, and wellness practices with complex financial workflows.',
-    startingAt: 'Custom',
-    period: 'monthly pricing',
-    label: 'Pricing',
-    icon: Sparkles,
-    featured: true,
-    features: [
-      'Multiple POS and payment systems',
-      'Memberships and prepaid packages',
-      'Patient financing (Cherry, CareCredit, PatientFi)',
-      'Inventory and treatment-related costs',
-      'Provider compensation reconciliation',
-      'Multiple locations or high transaction volume',
-    ],
-    complexityNote: 'Scoped to your practice after a complimentary 15-min clarity call.',
-    cta: 'Book Your 15-Min Financial Clarity Call',
-  },
-];
+const monthlyPlan = {
+  name: 'Monthly Bookkeeping',
+  tagline: 'Ongoing bookkeeping for MedSpas, aesthetic clinics, IV hydration centers, and wellness practices — scoped to your practice\'s complexity.',
+  startingAt: '$497',
+  period: '/month',
+  label: 'Starting at',
+  icon: Clock,
+  features: [
+    'Bank and credit-card reconciliations',
+    'POS and merchant payout reconciliation (Boulevard, Vagaro, Square, Jane & more)',
+    'Transaction categorization',
+    'Monthly Profit & Loss Statement',
+    'Monthly Balance Sheet',
+    'Year-end CPA reporting package',
+    'Memberships, prepaid packages & patient financing (where applicable)',
+    'Provider compensation reconciliation (where applicable)',
+    'Inventory and treatment-cost tracking (where applicable)',
+  ],
+  complexityNote: 'Your fee is scoped to your practice after a complimentary clarity call. Solo providers start at $497/month. MedSpas with multiple systems, providers, or locations receive a custom quote.',
+  cta: 'Book Your 15-Min Financial Clarity Call',
+};
 
 const projectPlans = [
   {
@@ -101,102 +80,76 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           </p>
         </div>
 
-        {/* Monthly Plans */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto mb-10">
-          {monthlyPlans.map((plan) => {
-            const Icon = plan.icon;
-            return (
-              <div
-                key={plan.id}
-                className={`relative rounded-2xl flex flex-col transition-all duration-300 ${
-                  plan.featured
-                    ? 'bg-[#1A2E40] border-2 border-[#D4AF37]/50 shadow-xl text-white'
-                    : 'bg-white border-2 border-[#E2E8F0] hover:border-[#D4AF37]/50 shadow-sm hover:shadow-md'
-                }`}
-              >
-                {plan.featured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] text-[#1A2E40] text-xs font-bold shadow-md border border-[#FFF5DE]/60 whitespace-nowrap">
-                      <Sparkles className="w-3 h-3" />
-                      Best Fit for MedSpas
-                    </span>
-                  </div>
-                )}
+        {/* Monthly Plan — single card */}
+        <div className="max-w-2xl mx-auto mb-10">
+          <div className="relative rounded-2xl bg-[#1A2E40] border-2 border-[#D4AF37]/50 shadow-xl text-white flex flex-col">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] text-[#1A2E40] text-xs font-bold shadow-md border border-[#FFF5DE]/60 whitespace-nowrap">
+                <Sparkles className="w-3 h-3" />
+                Monthly Bookkeeping
+              </span>
+            </div>
 
-                <div className="p-7 sm:p-8 flex flex-col flex-1">
-                  {/* Header */}
-                  <div className="mb-6">
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${
-                      plan.featured ? 'bg-white/10' : 'bg-[#FAF8F5] border border-[#E2E8F0]'
-                    }`}>
-                      <Icon className={`w-5 h-5 ${plan.featured ? 'text-[#D4AF37]' : 'text-[#1A2E40]'}`} />
-                    </div>
-                    <h3 className={`text-xl font-serif font-bold mb-1.5 ${plan.featured ? 'text-white' : 'text-[#1A2E40]'}`}>
-                      {plan.name}
-                    </h3>
-                    <p className={`text-sm leading-relaxed ${plan.featured ? 'text-[#E2E8F0]' : 'text-[#64748B]'}`}>
-                      {plan.tagline}
-                    </p>
-                  </div>
-
-                  {/* Price */}
-                  <div className={`mb-6 pb-6 border-b ${plan.featured ? 'border-white/15' : 'border-[#E2E8F0]'}`}>
-                    <p className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${plan.featured ? 'text-[#D4AF37]/80' : 'text-[#94A3B8]'}`}>
-                      {plan.label}
-                    </p>
-                    <div className="flex items-end gap-1.5">
-                      <span className={`text-4xl font-bold font-serif ${plan.featured ? 'text-white' : 'text-[#1A2E40]'}`}>
-                        {plan.startingAt}
-                      </span>
-                      <span className={`text-sm mb-1.5 ${plan.featured ? 'text-[#CBD5E1]' : 'text-[#94A3B8]'}`}>
-                        {plan.period}
-                      </span>
-                    </div>
-                    <p className={`text-xs mt-2 ${plan.featured ? 'text-[#CBD5E1]' : 'text-[#94A3B8]'}`}>
-                      {plan.complexityNote}
-                    </p>
-                  </div>
-
-                  {/* Features */}
-                  <div className="flex-1 mb-6">
-                    <p className={`text-[10px] font-bold uppercase tracking-wider mb-3 ${plan.featured ? 'text-[#D4AF37]/80' : 'text-[#1A2E40]/60'}`}>
-                      {plan.featured ? 'Complexity factors include' : 'Includes'}
-                    </p>
-                    <ul className="space-y-2.5">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed">
-                          <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${plan.featured ? 'text-[#D4AF37]' : 'text-[#D4AF37]'}`} />
-                          <span className={plan.featured ? 'text-[#E2E8F0]' : 'text-[#57534E]'}>
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* CTA */}
-                  <button
-                    onClick={onBookCall}
-                    className={`w-full flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-xl font-bold text-sm transition-all active:scale-[0.98] cursor-pointer group ${
-                      plan.featured
-                        ? 'bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] shadow-[0_4px_16px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60'
-                        : 'bg-[#1A2E40] hover:bg-[#1A2E40]/90 text-white shadow-sm'
-                    }`}
-                  >
-                    <span className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-colors ${
-                      plan.featured
-                        ? 'bg-[#1A2E40]/10 text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37]'
-                        : 'bg-white/10 text-white'
-                    }`}>
-                      <Calendar className="w-3.5 h-3.5" />
-                    </span>
-                    <span>{plan.cta}</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
+            <div className="p-7 sm:p-8 flex flex-col">
+              {/* Header */}
+              <div className="mb-6 pt-2">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 bg-white/10">
+                  <Clock className="w-5 h-5 text-[#D4AF37]" />
                 </div>
+                <h3 className="text-xl font-serif font-bold mb-1.5 text-white">
+                  {monthlyPlan.name}
+                </h3>
+                <p className="text-sm leading-relaxed text-[#E2E8F0]">
+                  {monthlyPlan.tagline}
+                </p>
               </div>
-            );
-          })}
+
+              {/* Price */}
+              <div className="mb-6 pb-6 border-b border-white/15">
+                <p className="text-[10px] font-bold uppercase tracking-widest mb-1 text-[#D4AF37]/80">
+                  {monthlyPlan.label}
+                </p>
+                <div className="flex items-end gap-1.5">
+                  <span className="text-4xl font-bold font-serif text-white">
+                    {monthlyPlan.startingAt}
+                  </span>
+                  <span className="text-sm mb-1.5 text-[#CBD5E1]">
+                    {monthlyPlan.period}
+                  </span>
+                </div>
+                <p className="text-xs mt-2 text-[#CBD5E1]">
+                  {monthlyPlan.complexityNote}
+                </p>
+              </div>
+
+              {/* Features */}
+              <div className="mb-6">
+                <p className="text-[10px] font-bold uppercase tracking-wider mb-3 text-[#D4AF37]/80">
+                  Includes
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {monthlyPlan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-xs leading-relaxed">
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#D4AF37]" />
+                      <span className="text-[#E2E8F0]">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* CTA */}
+              <button
+                onClick={onBookCall}
+                className="w-full flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-xl font-bold text-sm transition-all active:scale-[0.98] cursor-pointer group bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] shadow-[0_4px_16px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60"
+              >
+                <span className="w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-colors bg-[#1A2E40]/10 text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37]">
+                  <Calendar className="w-3.5 h-3.5" />
+                </span>
+                <span>{monthlyPlan.cta}</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Project Pricing */}
