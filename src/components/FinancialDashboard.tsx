@@ -95,35 +95,35 @@ const metricExplanations: Record<MetricKey, MetricExplanation> = {
     plainEnglish: 'Total cash and patient financing receipts collected during the period before merchant and processing fees are deducted. Gross collections is distinct from gross billings (total charges before discounts) and recognized revenue (earned value of completed services under accrual accounting).',
     benchmark: 'User-defined illustrative baseline: $92,500 in this scenario. Not a verified industry standard.',
     commonTrap: 'Treating gross collections, gross billings, and recognized revenue as interchangeable can distort practice reporting—particularly when patient financing holdbacks, prepaid packages, or gift card deposits are involved.',
-    solution: 'I perform illustrative reconciliations between your POS/booking platform and merchant bank deposits, isolating merchant fee deductions so gross collections and merchant fees are both tracked transparently.',
+    solution: 'We perform reconciliations between your POS/booking platform and merchant bank deposits, isolating merchant fee deductions so gross collections and merchant fees are both tracked transparently.',
   },
   cogs: {
     title: 'Treatment COGS (Direct Clinical Supplies)',
     plainEnglish: 'Direct clinical costs of products administered to patients (such as neurotoxins and dermal fillers) plus consumable treatment supplies. Treatment cost reporting depends on available inventory counts and whether the practice operates on cash or accrual accounting.',
     benchmark: 'User-defined illustrative target: 23% ($21,275) in this scenario. Universal benchmarks do not apply across different treatment mixes.',
     commonTrap: 'Expensing all inventory purchases immediately upon payment rather than recognizing costs as products are actually used or sold creates artificial monthly profit volatility.',
-    solution: 'I configure dedicated Chart of Accounts categories for clinical inventory and supplies, working with your available records to distinguish inventory on hand from products used in treatments.',
+    solution: 'We configure dedicated Chart of Accounts categories for clinical inventory and supplies, working with your available records to distinguish inventory on hand from products used in treatments.',
   },
   providerPay: {
     title: 'Provider Compensation',
     plainEnglish: 'Direct compensation paid to clinical service providers, including injectors and aestheticians (hourly, commission, or base salary). Where practice records permit, direct provider compensation is distinguished from administrative, front-desk, and clinical-support payroll.',
     benchmark: 'User-defined illustrative target: 32% ($29,600) in this scenario. Compensation structures vary widely by practice model and market.',
     commonTrap: 'Calculating provider compensation on gross billed charges before merchant financing fees are deducted, or calculating commissions on unearned package balances, can misalign payroll with actual practice collections.',
-    solution: 'I help organize revenue reporting against provider compensation schedules so that compensation calculations align cleanly with collected receipts and practice policies. (Note: Worker classification and payroll processing are determined by the practice and its payroll/legal advisors.)',
+    solution: 'We help organize revenue reporting against provider compensation schedules so that compensation calculations align cleanly with collected receipts and practice policies. (Note: Worker classification and payroll processing are determined by the practice and its payroll/legal advisors.)',
   },
   opex: {
     title: 'Operating Expenses & Overhead',
     plainEnglish: 'Routine administrative and operational costs required to maintain clinic operations—such as clinic suite rent, utilities, general liability insurance, software subscriptions, and merchant processing fees. Excludes debt principal repayments and capital asset investments.',
     benchmark: 'User-defined illustrative target: 16% ($14,800) in this scenario. Operating ratios depend on clinic footprint, lease terms, and local overhead.',
     commonTrap: 'Classifying loan principal repayments, owner disbursements, or capital equipment leases as operating expenses distorts operational margins and creates misleading P&L trends.',
-    solution: 'I establish an organized MedSpa Chart of Accounts that cleanly separates operational overhead from balance-sheet liabilities and financing payments, keeping your operational P&L accurate.',
+    solution: 'We establish an organized Chart of Accounts that cleanly separates operational overhead from balance-sheet liabilities and financing payments, keeping your operational P&L accurate.',
   },
   surplus: {
     title: 'Illustrative Operating Surplus',
     plainEnglish: 'Amount remaining after the expenses included in this simplified model ($21,275 Treatment COGS + $29,600 Provider Compensation + $14,800 Operating Expenses = $26,825). This figure represents the mathematical surplus of the specific illustrative items shown.',
     benchmark: 'User-defined illustrative outcome: 29% ($26,825) in this simplified scenario. Not a verified industry standard.',
     commonTrap: 'Operating surplus is not identical to net profit, EBITDA, or cash available for owner distributions. Cash available for owner distributions also depends on income taxes, debt principal payments, working capital reserves, capital expenditures, and unmodeled expenses.',
-    solution: 'I deliver structured monthly financial statements—including reconciled Profit & Loss and Balance Sheet reporting—so practice owners understand both operating performance and balance sheet obligations.',
+    solution: 'We deliver structured monthly financial statements—including reconciled Profit & Loss and Balance Sheet reporting—so practice owners understand both operating performance and balance sheet obligations.',
   },
 };
 
@@ -268,13 +268,13 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           <div className="lg:col-span-6 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
               <PieChart className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Illustrative Practice Financial Model</span>
+              <span>Sample Practice Financial Model</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
               Your books should tell you more than whether your bank account went up.
             </h2>
             <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
-              I organize the financial side of your practice so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice really is.
+              We organize the financial side of your practice so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice really is.
             </p>
             <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 text-xs text-[#718096] flex items-center gap-2">
               <Info className="w-4 h-4 text-[#D4AF37] shrink-0" />
@@ -1059,7 +1059,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   Reports Built for Practice Owners, Not Just Accountants
                 </p>
                 <p className="text-xs sm:text-sm text-[#57534E] mt-1 leading-relaxed">
-                  I help organize your aesthetic practice&apos;s financial records and develop clearer reporting across treatment revenue, product costs, provider compensation and operating expenses—so you can better understand your practice&apos;s financial performance.
+                  We help organize your practice&apos;s financial records and develop clearer reporting across treatment revenue, product costs, provider compensation and operating expenses—so you can better understand your practice&apos;s financial performance.
                 </p>
               </div>
             </div>

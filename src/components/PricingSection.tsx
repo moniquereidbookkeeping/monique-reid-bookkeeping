@@ -47,7 +47,7 @@ const monthlyPlans = [
     id: 'growth',
     name: 'Growth',
     revenueRange: '$25K – $75K / month',
-    tagline: 'Multi-provider MedSpas with memberships, patient financing, and multiple payment systems.',
+    tagline: 'Multi-provider aesthetic and wellness practices with memberships, patient financing, and multiple payment systems.',
     startingAt: '$797',
     period: '/month',
     icon: Sparkles,

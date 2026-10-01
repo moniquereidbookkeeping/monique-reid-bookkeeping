@@ -62,10 +62,10 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Strategic Segments Mention */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-[#64748B]">
               <span className="font-semibold text-[#1A2E40]">Specialized in:</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">MedSpas &amp; Aesthetic Practices</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">IV Hydration &amp; Wellness</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Medical Weight-Loss</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[#E2E8F0]">Injectors &amp; Aesthetic Providers</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">MedSpas &amp; Aesthetic Practices</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">IV Hydration &amp; Wellness</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">Medical Weight-Loss</span>
+              <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">Related Self-Pay Healthcare</span>
             </div>
 
             {/* Action Buttons */}
