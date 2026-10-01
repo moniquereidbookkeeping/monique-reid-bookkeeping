@@ -17,10 +17,9 @@ interface ServicesSectionProps {
 const niches = [
   'MedSpas',
   'Aesthetic Clinics',
-  'IV Hydration Centers',
+  'IV Hydration & Wellness Practices',
   'Medical Weight-Loss Practices',
-  'Hormone Therapy Clinics',
-  'Wellness Studios',
+  'Related Self-Pay Healthcare',
 ];
 
 const services = [

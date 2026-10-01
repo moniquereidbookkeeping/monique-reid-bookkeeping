@@ -5,8 +5,6 @@ import {
   Calendar,
   ArrowRight,
   Clock,
-  Wrench,
-  Layers,
   Info,
   TrendingUp,
   CreditCard,
@@ -90,26 +88,6 @@ const monthlyPlans = [
   },
 ];
 
-const projectPlans = [
-  {
-    id: 'cleanup',
-    name: 'QuickBooks Cleanup & Catch-Up',
-    description:
-      'Your cleanup quote is based on months requiring cleanup, transaction volume, number of accounts, reconciliation status, POS platforms, and overall condition of the existing file.',
-    pricing: 'Custom Project Pricing',
-    icon: Wrench,
-    cta: 'Request a Cleanup Assessment',
-  },
-  {
-    id: 'setup',
-    name: 'QuickBooks Setup & Restructuring',
-    description:
-      'For new practices or businesses that need a better financial structure from the beginning. Scoped based on practice complexity and number of systems.',
-    pricing: 'One-Time Project Pricing',
-    icon: Layers,
-    cta: 'Request a Setup Consultation',
-  },
-];
 
 const complexityFactors = [
   {
@@ -338,51 +316,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                 );
               })}
             </div>
-          </div>
-        </div>
-
-        {/* Project Pricing */}
-        <div className="max-w-5xl mx-auto mb-12">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="h-px flex-1 bg-[#E2E8F0]" />
-            <p className="text-xs font-bold uppercase tracking-widest text-[#57534E]/70 px-3">
-              One-Time Projects
-            </p>
-            <div className="h-px flex-1 bg-[#E2E8F0]" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {projectPlans.map((project) => {
-              const Icon = project.icon;
-              return (
-                <div
-                  key={project.id}
-                  className="bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#D4AF37]/50 shadow-xs hover:shadow-md transition-all duration-300 p-6 flex gap-4 group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <h4 className="text-base font-serif font-bold text-[#1A2E40] leading-snug">
-                        {project.name}
-                      </h4>
-                      <span className="text-[11px] font-semibold text-[#D4AF37] whitespace-nowrap shrink-0 mt-0.5">
-                        {project.pricing}
-                      </span>
-                    </div>
-                    <p className="text-xs text-[#57534E] leading-relaxed mb-4">{project.description}</p>
-                    <button
-                      onClick={onBookCall}
-                      className="text-xs font-bold text-[#1A2E40] group-hover:text-[#D4AF37] flex items-center gap-1.5 transition-colors cursor-pointer"
-                    >
-                      <span>{project.cta}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
 
