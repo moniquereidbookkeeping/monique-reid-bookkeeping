@@ -51,10 +51,10 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
             <AlertCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>Why It Matters</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
             You Know What Came In. Do You Know What You Actually Made?
           </h2>
-          <p className="mt-3 text-base text-[#57534E] leading-relaxed max-w-2xl">
+          <p className="mt-3 text-lg text-[#57534E] leading-relaxed max-w-2xl">
             You're booking treatments, running memberships, and selling packages — and the revenue looks real. But at the end of the month, you're still not sure which services are actually making money, where the cash is going, or whether what's on paper reflects what your practice truly earned. Getting those answers requires books built around how your practice actually operates.
           </p>
         </div>
