@@ -9,6 +9,7 @@ const monthlyPlans = [
   {
     id: 'entry',
     name: 'Entry',
+    revenueRange: 'Under $25K / month',
     tagline: 'Solo providers and single-location practices with a straightforward payment setup.',
     startingAt: '$497',
     period: '/month',
@@ -30,6 +31,7 @@ const monthlyPlans = [
   {
     id: 'growth',
     name: 'Growth',
+    revenueRange: '$25K – $75K / month',
     tagline: 'Multi-provider practices with memberships, patient financing, and multiple payment systems.',
     startingAt: '$797',
     period: '/month',
@@ -51,6 +53,7 @@ const monthlyPlans = [
   {
     id: 'full-spectrum',
     name: 'Full-Spectrum',
+    revenueRange: '$75K+ / month',
     tagline: 'Multi-location or high-volume practices with inventory, COGS tracking, and complex workflows.',
     startingAt: '$1,197',
     period: '/month',
@@ -157,6 +160,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                     <h3 className={`text-lg font-serif font-bold mb-1 ${plan.featured ? 'text-white' : 'text-[#1A2E40]'}`}>
                       {plan.name}
                     </h3>
+                    <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide mb-2 ${
+                      plan.featured
+                        ? 'bg-[#D4AF37]/20 text-[#D4AF37]'
+                        : 'bg-[#1A2E40]/6 text-[#1A2E40]/70'
+                    }`}>
+                      <TrendingUp className="w-2.5 h-2.5 shrink-0" />
+                      <span>{plan.revenueRange}</span>
+                    </div>
                     <p className={`text-xs leading-relaxed ${plan.featured ? 'text-[#E2E8F0]' : 'text-[#64748B]'}`}>
                       {plan.tagline}
                     </p>
