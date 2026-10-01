@@ -25,6 +25,11 @@ const monthlyPlans = [
       'Monthly Balance Sheet',
       'Year-end CPA reporting package',
     ],
+    notIncluded: [
+      'Multiple POS & payment systems',
+      'Memberships & patient financing',
+      'Provider compensation reconciliation',
+    ],
     complexityNote: 'Best for solo providers or boutique practices with one bank account and Square or a single POS.',
     cta: 'Book Your 15-Min Financial Clarity Call',
   },
@@ -46,6 +51,11 @@ const monthlyPlans = [
       'Patient financing reconciliation',
       'Provider compensation reconciliation',
       'Month-over-month reporting',
+    ],
+    notIncluded: [
+      'Multiple locations',
+      'Inventory & COGS tracking',
+      'Revenue by service category',
     ],
     complexityNote: 'Best for MedSpas and aesthetic clinics with 2–4 providers, Boulevard, Cherry, or CareCredit.',
     cta: 'Book Your 15-Min Financial Clarity Call',
@@ -69,6 +79,7 @@ const monthlyPlans = [
       'Revenue by service category',
       'Plain-language financial commentary',
     ],
+    notIncluded: null,
     complexityNote: 'Best for established MedSpas doing $75K+/month with complex multi-system workflows.',
     cta: 'Book Your 15-Min Financial Clarity Call',
   },
@@ -90,14 +101,6 @@ const projectPlans = [
     pricing: 'One-Time Project Pricing',
     icon: Layers,
     cta: 'Request a Setup Consultation',
-  },
-  {
-    id: 'reporting',
-    name: 'Financial Reporting & Practice Insights',
-    description: 'Included with qualifying monthly bookkeeping engagements. Also available as a standalone add-on — month-over-month comparisons, revenue visibility by service category, plain-language financial commentary, and year-end CPA reporting package.',
-    pricing: 'Included or Add-On',
-    icon: TrendingUp,
-    cta: 'Ask About Reporting Options',
   },
 ];
 
@@ -125,6 +128,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
             A solo aesthetic provider with one bank account and Square doesn't have the same bookkeeping requirements as a multi-provider MedSpa using Boulevard, Cherry, memberships, inventory, and provider compensation. That's why our pricing is based on the financial complexity of your practice.
           </p>
+        </div>
+
+        {/* Transparency Banner */}
+        <div className="max-w-5xl mx-auto mb-8">
+          <div className="flex items-start gap-3 px-5 py-4 rounded-2xl bg-white border border-[#D4AF37]/30 shadow-sm">
+            <CheckCircle2 className="w-4.5 h-4.5 text-[#D4AF37] shrink-0 mt-0.5" />
+            <p className="text-sm text-[#1A2E40] leading-relaxed">
+              <span className="font-bold">Most MedSpa bookkeeping firms won't show prices until after a discovery call.</span>{' '}
+              We publish ours — with revenue brackets, included services, and honest scope notes — so you can evaluate us on your own terms before we ever speak.
+            </p>
+          </div>
         </div>
 
         {/* Monthly Plans — 3 tiers */}
@@ -207,6 +221,23 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                       ))}
                     </ul>
                   </div>
+
+                  {/* Not Included */}
+                  {plan.notIncluded && (
+                    <div className={`mb-4 pt-3 border-t ${plan.featured ? 'border-white/10' : 'border-[#E2E8F0]'}`}>
+                      <p className={`text-[10px] font-bold uppercase tracking-wider mb-2 ${plan.featured ? 'text-white/30' : 'text-[#CBD5E1]'}`}>
+                        Not included at this tier
+                      </p>
+                      <ul className="space-y-1.5">
+                        {plan.notIncluded.map((item, i) => (
+                          <li key={i} className={`flex items-center gap-2 text-[11px] line-through ${plan.featured ? 'text-white/25' : 'text-[#CBD5E1]'}`}>
+                            <span className="w-3 h-3 shrink-0 not-italic no-underline" style={{textDecoration: 'none'}}>✕</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   {/* CTA */}
                   <button

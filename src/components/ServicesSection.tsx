@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Sparkles,
   ArrowRight,
   Calendar,
   Wrench,
   Clock,
-  TrendingUp,
   Layers,
   Info,
   CheckCircle2
@@ -16,8 +15,6 @@ interface ServicesSectionProps {
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) => {
-  const [activeTab, setActiveTab] = useState<string>('all');
-
   const services = [
     {
       id: 'cleanup',
@@ -57,6 +54,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Membership and prepaid-package tracking, as applicable',
         'Treatment, supply, and inventory-cost categorization',
         'Monthly Profit & Loss Statement and Balance Sheet',
+        'Month-over-month and quarter-over-quarter comparisons',
+        'Revenue visibility by service category, where source data supports it',
         'Plain-language monthly financial summary + year-end CPA package',
       ],
       startingPrice: 'Starting at $497/month',
@@ -88,37 +87,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       ctaLabel: 'Build Your QuickBooks Foundation',
       featured: false,
     },
-    {
-      id: 'reporting',
-      num: '04',
-      phase: 'Insights',
-      title: 'Financial Reporting & Practice Insights',
-      tagline: 'Your books should help you understand your business — not just record what already happened.',
-      lead: 'Best for established practice owners who want greater visibility beyond basic bookkeeping reports. Clean books are the foundation — the next step is turning those records into financial information you can actually use.',
-      icon: TrendingUp,
-      highlight: 'We organize your reporting so you can identify revenue patterns, understand major expenses, and see how your practice is changing over time.',
-      deliverables: [
-        'Monthly Profit & Loss and Balance Sheet',
-        'Month-over-month and quarter-over-quarter comparisons',
-        'Revenue visibility by service category, where source data supports it',
-        'Treatment, inventory, and provider compensation visibility',
-        'Plain-language financial commentary',
-        'Year-end financial reporting package for your CPA',
-      ],
-      startingPrice: 'Included with qualifying monthly plans',
-      noticeTitle: 'Add-On or Standalone',
-      notice: 'Included with qualifying monthly bookkeeping engagements or scoped separately based on reporting complexity.',
-      ctaLabel: 'See What\'s Behind Your Numbers',
-      featured: false,
-    },
   ];
 
-  const filteredServices = activeTab === 'all'
-    ? services
-    : services.filter(s => s.id === activeTab);
-
-  const featuredService = filteredServices.find(s => s.featured);
-  const otherServices = filteredServices.filter(s => !s.featured);
+  const featuredService = services.find(s => s.featured);
+  const otherServices = services.filter(s => !s.featured);
 
   return (
     <section id="services-section" className="py-16 lg:py-24 bg-[#FDFCFA] border-b border-[#E2E8F0]">
@@ -136,26 +108,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             From QuickBooks cleanup and setup to ongoing bookkeeping and financial reporting — all built around the financial workflows of aesthetic and wellness practices.
           </p>
 
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          {/* Journey Guide */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
             {[
-              { id: 'all', label: 'All Services' },
-              { id: 'cleanup', label: '01 Cleanup' },
-              { id: 'monthly', label: '02 Monthly' },
-              { id: 'setup', label: '03 Setup' },
-              { id: 'reporting', label: '04 Reporting' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                  activeTab === tab.id
-                    ? 'bg-[#1A2E40] text-[#D4AF37] shadow-sm'
-                    : 'bg-white text-[#57534E] border border-[#E2E8F0] hover:border-[#CBD5E1]'
-                }`}
-              >
-                {tab.label}
-              </button>
+              { label: 'Books are a mess?', sub: 'Start with Cleanup' },
+              { label: 'Starting fresh?', sub: 'Start with Setup' },
+              { label: 'Need ongoing bookkeeping?', sub: 'Go straight to Monthly' },
+            ].map((step, i) => (
+              <div key={i} className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-[#E2E8F0] shadow-xs">
+                <span className="text-xs text-[#57534E] font-medium">{step.label}</span>
+                <ArrowRight className="w-3 h-3 text-[#D4AF37] shrink-0" />
+                <span className="text-xs font-bold text-[#1A2E40]">{step.sub}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -281,29 +245,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                       {svc.lead}
                     </p>
 
-                    {/* Highlight */}
-                    <div className="mb-4 p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/30">
-                      <p className="text-[10px] uppercase font-bold tracking-wider text-[#D4AF37] mb-1 flex items-center gap-1">
-                        <Sparkles className="w-2.5 h-2.5" />
-                        What This Solves
-                      </p>
-                      <p className="text-xs text-[#1A2E40] font-medium leading-relaxed">
-                        {svc.highlight}
-                      </p>
-                    </div>
-
                     {/* Deliverables */}
                     <div className="pt-3 border-t border-[#E2E8F0] mb-3">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#1A2E40]">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#1A2E40]/60">
                         What's Included
                       </p>
                     </div>
                     <ul className="space-y-2 flex-1 mb-5">
                       {svc.deliverables.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-[#57534E] leading-relaxed">
-                          <span className="w-3.5 h-3.5 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[9px]">
-                            ✓
-                          </span>
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
