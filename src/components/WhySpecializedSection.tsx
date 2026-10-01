@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, AlertCircle, CheckCircle2, Calendar } from 'lucide-react';
 
 interface WhySpecializedSectionProps {
   onBookCall: () => void;
@@ -81,15 +81,15 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
               {/* Problem */}
               <div className="lg:col-span-4 bg-white px-6 py-5 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
                 <p className="text-[11px] font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">The Problem</p>
-                <p className="text-sm text-[#57534E] leading-relaxed">{item.problem}</p>
+                <p className="text-base text-[#57534E] leading-relaxed">{item.problem}</p>
               </div>
 
               {/* How We Help */}
               <div className="lg:col-span-4 bg-white px-6 py-5">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#1A2E40]/50 mb-2">How We Help</p>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-emerald-600 mb-2">How We Help</p>
                 <div className="flex gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#57534E] leading-relaxed">{item.help}</p>
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <p className="text-base text-[#57534E] leading-relaxed">{item.help}</p>
                 </div>
               </div>
             </div>
@@ -109,10 +109,13 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
           </div>
           <button
             onClick={onBookCall}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] transition-all duration-200 shadow-[0_4px_16px_rgba(212,175,55,0.3)] shrink-0 cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-sm font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] transition-all duration-200 shadow-[0_4px_16px_rgba(212,175,55,0.3)] shrink-0 cursor-pointer group"
           >
-            <span>📅 Book Your 15-Min Financial Clarity Call</span>
-            <ArrowRight className="w-4 h-4" />
+            <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
+              <Calendar className="w-3.5 h-3.5" />
+            </span>
+            <span>Book Your 15-Min Financial Clarity Call</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
 

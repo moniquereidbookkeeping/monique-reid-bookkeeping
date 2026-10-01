@@ -18,8 +18,8 @@ export const Logo: React.FC<LogoProps> = ({
   const isFooter = variant === 'light'; // footer sits on dark navy bg
 
   // Header: tall enough to read clearly at a glance
-  const logoHeight = size === 'sm' ? 60 : size === 'lg' ? 150 : 120;
-  const logoMaxWidth = size === 'sm' ? 260 : size === 'lg' ? 520 : 420;
+  const logoHeight = size === 'sm' ? 60 : size === 'lg' ? 220 : 120;
+  const logoMaxWidth = size === 'sm' ? 260 : size === 'lg' ? 640 : 420;
 
   return (
     <div
