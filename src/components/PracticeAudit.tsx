@@ -48,7 +48,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 Interactive Diagnostic
               </span>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40] mt-1">
-                Aesthetic &amp; Wellness Practice Bookkeeping Health Check
+                MedSpa &amp; Aesthetic Practice Bookkeeping Health Check
               </h3>
             </div>
             {!completed && (

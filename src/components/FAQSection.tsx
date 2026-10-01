@@ -397,7 +397,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                   key={cat.id}
                   id={`faq-tab-${cat.id}`}
                   type="button"
-                  onClick={() => setSelectedCategory(cat.id)}
+                  onClick={() => { setSelectedCategory(cat.id); setOpenId(null); }}
                   className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#1A2E40] text-white shadow-sm font-semibold'
@@ -436,6 +436,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                 onClick={() => {
                   setSearchQuery('');
                   setSelectedCategory('all');
+                  setOpenId(null);
                 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FAF8F5] border border-[#E2E8F0] text-xs font-semibold text-[#1A2E40] hover:bg-[#F2EFE9] cursor-pointer"
               >

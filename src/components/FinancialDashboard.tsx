@@ -438,11 +438,11 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     </span>
                   </h3>
                   <span className="text-[11px] text-[#57534E] bg-[#F1F5F9] px-2.5 py-0.5 rounded-md border border-[#E2E8F0] font-medium">
-                    Illustrative Practice Financial Model
+                    Sample Practice Financial Model
                   </span>
                 </div>
                 <p className="text-xs text-[#57534E] mt-0.5">
-                  Sample Financial Model • Illustrative Educational Demonstration
+                  Sample Financial Model • Educational Demonstration
                 </p>
               </div>
             </div>

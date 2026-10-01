@@ -89,7 +89,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
             <div className="space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
               <p>
-                Hi, I'm Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and independent aesthetic providers.
+                Hi, I'm Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
               </p>
               <p>
                 I chose to focus on this industry because I recognized how underserved these practices are by generalist bookkeepers. The financial workflows here are genuinely more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and most bookkeepers aren't structured to handle that complexity well. I built my QuickBooks approach around how these practices actually operate, not around a generic small-business model.
