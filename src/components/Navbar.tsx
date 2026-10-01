@@ -52,8 +52,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       id="site-header"
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#FDFCFA]/95 backdrop-blur-md shadow-sm border-b border-[#E2E8F0] py-1'
-          : 'bg-[#FDFCFA] border-b border-[#E2E8F0]/70 py-1'
+          ? 'bg-[#FDFCFA]/95 backdrop-blur-md shadow-sm border-b border-[#E2E8F0] py-3'
+          : 'bg-[#FDFCFA] border-b border-[#E2E8F0]/70 py-4'
       }`}
     >
       {/* Top micro announcement bar */}
