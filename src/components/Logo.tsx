@@ -17,7 +17,7 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   const isDark = variant === 'dark'; // dark = on light bg (navbar), light = on dark bg (footer)
 
-  const logoHeight = size === 'sm' ? 36 : size === 'lg' ? 52 : 44;
+  const logoHeight = size === 'sm' ? 40 : size === 'lg' ? 68 : 56;
 
   return (
     <div
@@ -40,31 +40,27 @@ export const Logo: React.FC<LogoProps> = ({
           src="/mr-logo-full.png"
           alt="Monique Reid Bookkeeping"
           height={logoHeight}
-          style={{ height: logoHeight, width: 'auto', maxWidth: 260 }}
+          style={{ height: logoHeight, width: 'auto', maxWidth: 300 }}
           className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
           draggable={false}
         />
       ) : (
-        /* Footer (dark background): icon mark in white pill + text wordmark */
+        /* Footer (dark background): icon mark (transparent) + text wordmark */
         <div className="flex items-center gap-3">
-          <div
-            className="shrink-0 bg-white rounded-xl p-1.5 shadow-sm transition-transform duration-300 group-hover:scale-105"
+          <img
+            src="/mr-icon.png"
+            alt="Monique Reid Bookkeeping icon"
             style={{ width: logoHeight, height: logoHeight }}
-          >
-            <img
-              src="/mr-icon.png"
-              alt="Monique Reid Bookkeeping icon"
-              className="w-full h-full object-contain"
-              loading="eager"
-              draggable={false}
-            />
-          </div>
+            className="object-contain shrink-0 transition-transform duration-300 group-hover:scale-105"
+            loading="eager"
+            draggable={false}
+          />
           <div className="flex flex-col items-start justify-center">
             <span
               className="font-serif font-bold text-white leading-tight tracking-wide"
               style={{
-                fontSize: size === 'sm' ? '1rem' : size === 'lg' ? '1.4rem' : '1.2rem',
+                fontSize: size === 'sm' ? '1rem' : size === 'lg' ? '1.5rem' : '1.25rem',
               }}
             >
               Monique Reid
@@ -73,7 +69,7 @@ export const Logo: React.FC<LogoProps> = ({
               <span
                 className="font-serif font-bold uppercase tracking-[0.22em] leading-tight text-[#D4AF37] mt-0.5"
                 style={{
-                  fontSize: size === 'sm' ? '0.62rem' : size === 'lg' ? '0.82rem' : '0.72rem',
+                  fontSize: size === 'sm' ? '0.62rem' : size === 'lg' ? '0.85rem' : '0.72rem',
                 }}
               >
                 Bookkeeping
