@@ -15,10 +15,9 @@ export const Logo: React.FC<LogoProps> = ({
   className = '',
   onClick,
 }) => {
-  const isDark = variant === 'dark'; // on light background, dark navy #1A2E40 text
-  const primaryColor = isDark ? '#1A2E40' : '#FFFFFF';
+  const isDark = variant === 'dark'; // dark = on light bg (navbar), light = on dark bg (footer)
 
-  const markPixelSize = size === 'sm' ? 42 : size === 'lg' ? 62 : 50;
+  const logoHeight = size === 'sm' ? 36 : size === 'lg' ? 52 : 44;
 
   return (
     <div
@@ -32,50 +31,57 @@ export const Logo: React.FC<LogoProps> = ({
           onClick();
         }
       }}
-      aria-label="Monique Reid Bookkeeping Home"
-      className={`inline-flex items-center gap-3.5 select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-xl p-0.5 ${className}`}
+      aria-label="Monique Reid Bookkeeping — Home"
+      className={`inline-flex items-center select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-xl p-0.5 transition-opacity duration-200 hover:opacity-90 ${className}`}
     >
-      {/* MR Monogram Badge — dark-bg on light header, white-bg on dark footer */}
-      <div
-        className="relative shrink-0 transition-transform duration-300 group-hover:scale-105 rounded-xl overflow-hidden"
-        style={{
-          width: markPixelSize,
-          height: markPixelSize,
-        }}
-      >
+      {isDark ? (
+        /* Header (light background): full horizontal logo */
         <img
-          src={isDark ? '/mr-logo-dark-bg.png' : '/mr-logo-white-bg.png'}
-          alt="Monique Reid Bookkeeping MR Monogram Emblem"
-          width={markPixelSize}
-          height={markPixelSize}
-          className="w-full h-full object-cover"
+          src="/mr-logo-full.png"
+          alt="Monique Reid Bookkeeping"
+          height={logoHeight}
+          style={{ height: logoHeight, width: 'auto', maxWidth: 260 }}
+          className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
+          draggable={false}
         />
-      </div>
-
-      {/* Typography Wordmark — BOOKKEEPING centered under MONIQUE REID */}
-      <div className="flex flex-col items-center justify-center text-center">
-        <span
-          className="font-serif font-bold tracking-[0.06em] leading-tight transition-colors duration-200"
-          style={{
-            color: primaryColor,
-            fontSize: size === 'sm' ? '1.12rem' : size === 'lg' ? '1.55rem' : '1.34rem',
-          }}
-        >
-          MONIQUE REID
-        </span>
-        {showSubtitle && (
-          <span
-            className="font-serif font-bold tracking-[0.24em] uppercase leading-tight mt-0.5"
-            style={{
-              color: isDark ? '#D4AF37' : '#F3D57A',
-              fontSize: size === 'sm' ? '0.74rem' : size === 'lg' ? '0.94rem' : '0.82rem',
-            }}
+      ) : (
+        /* Footer (dark background): icon mark in white pill + text wordmark */
+        <div className="flex items-center gap-3">
+          <div
+            className="shrink-0 bg-white rounded-xl p-1.5 shadow-sm transition-transform duration-300 group-hover:scale-105"
+            style={{ width: logoHeight, height: logoHeight }}
           >
-            BOOKKEEPING
-          </span>
-        )}
-      </div>
+            <img
+              src="/mr-icon.png"
+              alt="Monique Reid Bookkeeping icon"
+              className="w-full h-full object-contain"
+              loading="eager"
+              draggable={false}
+            />
+          </div>
+          <div className="flex flex-col items-start justify-center">
+            <span
+              className="font-serif font-bold text-white leading-tight tracking-wide"
+              style={{
+                fontSize: size === 'sm' ? '1rem' : size === 'lg' ? '1.4rem' : '1.2rem',
+              }}
+            >
+              Monique Reid
+            </span>
+            {showSubtitle && (
+              <span
+                className="font-serif font-bold uppercase tracking-[0.22em] leading-tight text-[#D4AF37] mt-0.5"
+                style={{
+                  fontSize: size === 'sm' ? '0.62rem' : size === 'lg' ? '0.82rem' : '0.72rem',
+                }}
+              >
+                Bookkeeping
+              </span>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
