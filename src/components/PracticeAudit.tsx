@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, Send, Lock } from 'lucide-react';
+
+const APPS_SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbyCB1po9zvFdyjLYeU_6dQ2VEtQn6-mX7qbQ4x06Mf_L0TkbvXnGA8rQ90ErocyANBi/exec';
 
 interface PracticeAuditProps {
   onBookCall: () => void;
@@ -23,12 +26,20 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
   const [otherPosValue, setOtherPosValue] = useState<string>('');
 
+  // Step 5 — lead capture
+  const [leadName, setLeadName] = useState<string>('');
+  const [leadEmail, setLeadEmail] = useState<string>('');
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string>('');
+
   const handleSelect = (field: keyof typeof answers, value: string) => {
-    setAnswers((prev) => ({ ...prev, [field]: value }));
+    const updated = { ...answers, [field]: value };
+    setAnswers(updated);
     if (step < 4) {
       setStep(step + 1);
     } else {
-      setCompleted(true);
+      // Go to lead capture step
+      setStep(5);
     }
   };
 
@@ -47,13 +58,63 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     handleSelect('pos', value);
   };
 
+  const handleLeadSubmit = async () => {
+    const name = leadName.trim();
+    const email = leadEmail.trim();
+
+    if (!name || !email) {
+      setSubmitError('Please enter your name and email to see your results.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setSubmitError('Please enter a valid email address.');
+      return;
+    }
+
+    setSubmitError('');
+    setSubmitting(true);
+
+    const payload = {
+      name,
+      email,
+      pos: answers.pos,
+      status: answers.status,
+      packages: answers.packages,
+      accounts: answers.accounts,
+    };
+
+    try {
+      // mode: 'no-cors' — Apps Script doesn't return CORS headers on POST,
+      // but the request still reaches the server and data is recorded.
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      // Network errors are silent — don't block the user from seeing results
+    }
+
+    setSubmitting(false);
+    setCompleted(true);
+  };
+
   const resetAudit = () => {
     setAnswers({ status: '', pos: '', packages: '', accounts: '' });
     setStep(1);
     setCompleted(false);
     setShowOtherInput(false);
     setOtherPosValue('');
+    setLeadName('');
+    setLeadEmail('');
+    setSubmitError('');
+    setSubmitting(false);
   };
+
+  // Progress bar: steps 1-4 are questions, step 5 is lead capture
+  const progressStep = step <= 4 ? step : 4;
+  const showProgress = !completed && step <= 4;
 
   return (
     <section className="py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
@@ -70,20 +131,21 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 MedSpa &amp; Aesthetic Practice Bookkeeping Health Check
               </h3>
             </div>
-            {!completed && (
+            {showProgress && (
               <div className="flex items-center gap-1 text-sm font-semibold text-[#57534E]">
-                <span>Question {step} of 4</span>
+                <span>Question {progressStep} of 4</span>
                 <div className="w-28 h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden ml-2" aria-hidden="true">
                   <div
                     className="h-full bg-[#D4AF37] transition-all duration-300"
-                    style={{ width: `${(step / 4) * 100}%` }}
+                    style={{ width: `${(progressStep / 4) * 100}%` }}
                   />
                 </div>
               </div>
             )}
           </div>
 
-          {!completed ? (
+          {/* ── Questions 1–4 ── */}
+          {!completed && step <= 4 && (
             <div className="space-y-8">
               {step === 1 && (
                 <div className="space-y-5">
@@ -130,7 +192,6 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     ))}
                   </div>
 
-                  {/* "Other" free-text input */}
                   {showOtherInput && (
                     <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
                       <label className="block text-sm font-semibold text-[#1A2E40]">
@@ -201,8 +262,83 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 </div>
               )}
             </div>
-          ) : (
-            /* Completed Diagnostic Results */
+          )}
+
+          {/* ── Step 5: Lead Capture ── */}
+          {!completed && step === 5 && (
+            <div className="space-y-6 animate-in fade-in duration-300">
+              {/* Progress complete indicator */}
+              <div className="flex items-center gap-3 p-4 rounded-xl bg-[#1A2E40] text-white">
+                <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
+                <div>
+                  <p className="text-sm font-bold">All 4 questions answered — your plan is ready.</p>
+                  <p className="text-xs text-white/70 mt-0.5">Enter your details below to see your personalized results.</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  Where should I send your personalized plan?
+                </h4>
+                <p className="text-sm text-[#57534E]">
+                  I'll review your practice profile and follow up with specific guidance — no obligation.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="block text-sm font-semibold text-[#1A2E40]">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      value={leadName}
+                      onChange={(e) => setLeadName(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && handleLeadSubmit()}
+                      placeholder="Jane"
+                      autoFocus
+                      className="w-full px-4 py-3 rounded-xl border border-[#E2E8F0] bg-[#FDFCFA] text-base text-[#1A2E40] placeholder:text-[#57534E]/40 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40 focus:border-[#D4AF37] transition-colors"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="block text-sm font-semibold text-[#1A2E40]">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      value={leadEmail}
+                      onChange={(e) => setLeadEmail(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && handleLeadSubmit()}
+                      placeholder="jane@mypractice.com"
+                      className="w-full px-4 py-3 rounded-xl border border-[#E2E8F0] bg-[#FDFCFA] text-base text-[#1A2E40] placeholder:text-[#57534E]/40 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40 focus:border-[#D4AF37] transition-colors"
+                    />
+                  </div>
+                </div>
+
+                {submitError && (
+                  <p className="text-sm text-red-500 font-medium">{submitError}</p>
+                )}
+
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
+                  <p className="flex items-center gap-1.5 text-xs text-[#57534E]">
+                    <Lock className="w-3 h-3 text-[#D4AF37]" />
+                    Your info is private — never shared or sold.
+                  </p>
+                  <button
+                    onClick={handleLeadSubmit}
+                    disabled={submitting}
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] border border-[#FFF5DE]/60 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                  >
+                    <Send className="w-4 h-4" />
+                    {submitting ? 'Sending…' : 'See My Results'}
+                    {!submitting && <ArrowRight className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── Completed Results ── */}
+          {completed && (
             <div className="space-y-6 animate-in fade-in duration-300">
               <div className="p-4 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/50 flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" />
