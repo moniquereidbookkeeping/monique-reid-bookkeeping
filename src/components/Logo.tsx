@@ -18,7 +18,7 @@ export const Logo: React.FC<LogoProps> = ({
   const isFooter = variant === 'light'; // footer sits on dark navy bg
 
   // Header: tall enough to read clearly at a glance
-  const logoHeight = size === 'sm' ? 60 : size === 'lg' ? 80 : 56;
+  const logoHeight = size === 'sm' ? 70 : size === 'lg' ? 80 : 56;
   const logoMaxWidth = size === 'sm' ? 220 : size === 'lg' ? 300 : 220;
 
   return (
@@ -41,7 +41,7 @@ export const Logo: React.FC<LogoProps> = ({
         <img
           src="/mr-logo-full.png"
           alt="Monique Reid Bookkeeping"
-          style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
+          style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth, filter: 'brightness(0) invert(1)' }}
           className="object-contain block transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
           draggable={false}
