@@ -20,6 +20,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   });
 
   const [completed, setCompleted] = useState<boolean>(false);
+  const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
+  const [otherPosValue, setOtherPosValue] = useState<string>('');
 
   const handleSelect = (field: keyof typeof answers, value: string) => {
     setAnswers((prev) => ({ ...prev, [field]: value }));
@@ -30,10 +32,27 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     }
   };
 
+  const handlePosSelect = (pos: string) => {
+    if (pos === 'Other') {
+      setShowOtherInput(true);
+    } else {
+      setShowOtherInput(false);
+      handleSelect('pos', pos);
+    }
+  };
+
+  const handleOtherSubmit = () => {
+    const value = otherPosValue.trim() || 'Other';
+    setShowOtherInput(false);
+    handleSelect('pos', value);
+  };
+
   const resetAudit = () => {
     setAnswers({ status: '', pos: '', packages: '', accounts: '' });
     setStep(1);
     setCompleted(false);
+    setShowOtherInput(false);
+    setOtherPosValue('');
   };
 
   return (
@@ -52,9 +71,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               </h3>
             </div>
             {!completed && (
-              <div className="flex items-center gap-1 text-xs font-semibold text-[#57534E]">
+              <div className="flex items-center gap-1 text-sm font-semibold text-[#57534E]">
                 <span>Question {step} of 4</span>
-                <div className="w-24 h-2 bg-[#E2E8F0] rounded-full overflow-hidden ml-2" aria-hidden="true">
+                <div className="w-28 h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden ml-2" aria-hidden="true">
                   <div
                     className="h-full bg-[#D4AF37] transition-all duration-300"
                     style={{ width: `${(step / 4) * 100}%` }}
@@ -67,8 +86,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
           {!completed ? (
             <div className="space-y-8">
               {step === 1 && (
-                <div className="space-y-4">
-                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
+                <div className="space-y-5">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
                     1. What is the current status of your QuickBooks accounts?
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -81,7 +100,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={opt.val}
                         onClick={() => handleSelect('status', opt.label)}
-                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm sm:text-base font-medium text-[#1A2E40] leading-snug cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {opt.label}
                       </button>
@@ -91,27 +110,57 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               )}
 
               {step === 2 && (
-                <div className="space-y-4">
-                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
+                <div className="space-y-5">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
                     2. Which Point-of-Sale or practice-management platform does your clinic use?
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {['Boulevard', 'Vagaro', 'Jane App', 'Mindbody', 'Zenoti', 'Square', 'Stripe', 'Other'].map((pos) => (
                       <button
                         key={pos}
-                        onClick={() => handleSelect('pos', pos)}
-                        className="p-4 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm font-semibold text-[#1A2E40] cursor-pointer"
+                        onClick={() => handlePosSelect(pos)}
+                        className={`p-4 rounded-xl border text-center transition-all text-base font-semibold cursor-pointer ${
+                          showOtherInput && pos === 'Other'
+                            ? 'border-[#D4AF37] bg-[#FAF8F5] text-[#1A2E40]'
+                            : 'border-[#E2E8F0] hover:border-[#D4AF37] hover:bg-[#FAF8F5] text-[#1A2E40]'
+                        }`}
                       >
                         {pos}
                       </button>
                     ))}
                   </div>
+
+                  {/* "Other" free-text input */}
+                  {showOtherInput && (
+                    <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <label className="block text-sm font-semibold text-[#1A2E40]">
+                        Please enter your platform name:
+                      </label>
+                      <div className="flex gap-3">
+                        <input
+                          type="text"
+                          value={otherPosValue}
+                          onChange={(e) => setOtherPosValue(e.target.value)}
+                          onKeyDown={(e) => e.key === 'Enter' && handleOtherSubmit()}
+                          placeholder="e.g. Phorest, Fresha, AestheticsPro…"
+                          autoFocus
+                          className="flex-1 px-4 py-3 rounded-xl border border-[#D4AF37] bg-[#FAF8F5] text-base text-[#1A2E40] placeholder:text-[#57534E]/50 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
+                        />
+                        <button
+                          onClick={handleOtherSubmit}
+                          className="px-5 py-3 rounded-xl bg-[#1A2E40] text-white text-sm font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
+                        >
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
               {step === 3 && (
-                <div className="space-y-4">
-                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
+                <div className="space-y-5">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
                     3. Do you offer memberships, treatment packages, or patient financing?
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -124,7 +173,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={pkg.val}
                         onClick={() => handleSelect('packages', pkg.label)}
-                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm sm:text-base font-medium text-[#1A2E40] leading-snug cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {pkg.label}
                       </button>
@@ -134,8 +183,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               )}
 
               {step === 4 && (
-                <div className="space-y-4">
-                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
+                <div className="space-y-5">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
                     4. How many bank, card, and financing accounts does your practice use?
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -143,7 +192,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={acc}
                         onClick={() => handleSelect('accounts', acc)}
-                        className="p-4 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm font-semibold text-[#1A2E40] cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base font-semibold text-[#1A2E40] cursor-pointer"
                       >
                         {acc}
                       </button>

@@ -268,7 +268,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           <div className="lg:col-span-6 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
               <PieChart className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>MedSpa Financial Intelligence</span>
+              <span>Aesthetic &amp; Wellness Practice Intelligence</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
               Your books should tell you more than whether your bank account went up.
@@ -441,9 +441,6 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     Practice Revenue Analysis
                   </span>
                 </div>
-                <p className="text-xs text-[#57534E] mt-0.5">
-                  MedSpa Revenue &amp; Cost Model • Expert Benchmarks
-                </p>
               </div>
             </div>
 
