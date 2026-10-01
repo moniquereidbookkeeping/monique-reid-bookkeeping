@@ -52,10 +52,10 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
             <span>Why It Matters</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
-            Your Practice Has Financial Complexity Most Bookkeepers Aren't Built For
+            You Know What Came In. Do You Know What You Actually Made?
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl">
-            Between POS payouts, processing fees, provider tips, patient financing, memberships, prepaid packages, and treatment costs&#8212;simply pulling transactions from a bank feed won't tell you whether your practice is actually profitable, which services are worth keeping, or where the money is really going.
+            You're booking treatments, running memberships, and selling packages — and the revenue looks real. But at the end of the month, you're still not sure which services are actually making money, where the cash is going, or whether what's on paper reflects what your practice truly earned. Getting those answers requires books built around how your practice actually operates.
           </p>
         </div>
 
