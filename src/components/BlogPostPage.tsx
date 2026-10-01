@@ -3,11 +3,11 @@ import {
   ArrowLeft,
   Clock,
   Calendar,
-  Tag,
   ArrowRight,
   Lightbulb,
   Info,
   BookOpen,
+  ChevronRight,
 } from 'lucide-react';
 import { getBlogPostBySlug } from '../data/blogPosts';
 import { BlogSection } from '../types';
@@ -27,31 +27,37 @@ const renderSection = (section: BlogSection, index: number) => {
   switch (section.type) {
     case 'intro':
       return (
-        <p key={index} className="text-lg text-[#57534E] leading-relaxed font-normal border-l-4 border-[#D4AF37] pl-5 py-1 italic">
+        <p
+          key={index}
+          className="text-lg sm:text-xl text-[#44403C] leading-relaxed font-normal border-l-4 border-[#D4AF37] pl-5 py-1.5 italic text-balance"
+        >
           {section.text}
         </p>
       );
 
     case 'heading':
       return (
-        <h2 key={index} className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40] mt-10 mb-2 leading-tight">
+        <h2
+          key={index}
+          className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40] mt-12 mb-3 leading-tight"
+        >
           {section.heading}
         </h2>
       );
 
     case 'paragraph':
       return (
-        <p key={index} className="text-base text-[#57534E] leading-[1.8]">
+        <p key={index} className="text-[15px] text-[#57534E] leading-[1.85]">
           {section.text}
         </p>
       );
 
     case 'list':
       return (
-        <ul key={index} className="space-y-3 pl-1">
+        <ul key={index} className="space-y-3 pl-1 my-2">
           {section.items?.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm text-[#57534E] leading-relaxed">
-              <span className="mt-1.5 w-2 h-2 rounded-full bg-[#D4AF37] shrink-0" />
+            <li key={i} className="flex items-start gap-3.5 text-[15px] text-[#57534E] leading-relaxed">
+              <span className="mt-[7px] w-2 h-2 rounded-full bg-[#D4AF37] shrink-0" />
               <span>{item}</span>
             </li>
           ))}
@@ -60,23 +66,48 @@ const renderSection = (section: BlogSection, index: number) => {
 
     case 'callout':
       return (
-        <div key={index} className="rounded-xl border border-[#D4AF37]/40 bg-[#FAF8F5] p-5 space-y-2">
-          <div className="flex items-center gap-2 text-[#1A2E40]">
-            <Info className="w-4 h-4 text-[#D4AF37] shrink-0" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">{section.heading}</span>
+        <div
+          key={index}
+          className="rounded-xl border border-[#D4AF37]/50 bg-gradient-to-br from-[#FAF8F5] to-[#FFF9EC] p-5 sm:p-6 space-y-2 shadow-sm"
+        >
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+              <Info className="w-3.5 h-3.5 text-[#D4AF37]" />
+            </div>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
+              {section.heading}
+            </span>
           </div>
-          <p className="text-sm text-[#57534E] leading-relaxed">{section.text}</p>
+          <p className="text-sm text-[#57534E] leading-relaxed pl-9">{section.text}</p>
         </div>
       );
 
     case 'tip':
       return (
-        <div key={index} className="rounded-xl border border-[#1A2E40]/20 bg-[#1A2E40]/5 p-5 space-y-2">
+        <div
+          key={index}
+          className="rounded-xl border border-[#1A2E40]/15 bg-gradient-to-br from-[#1A2E40]/5 to-[#1A2E40]/8 p-5 sm:p-6 space-y-2 shadow-sm"
+        >
           <div className="flex items-center gap-2">
-            <Lightbulb className="w-4 h-4 text-[#D4AF37] shrink-0" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">{section.heading}</span>
+            <div className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center shrink-0">
+              <Lightbulb className="w-3.5 h-3.5 text-[#D4AF37]" />
+            </div>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#1A2E40]">
+              {section.heading}
+            </span>
           </div>
-          <p className="text-sm text-[#57534E] leading-relaxed">{section.text}</p>
+          <p className="text-sm text-[#57534E] leading-relaxed pl-9">{section.text}</p>
+        </div>
+      );
+
+    case 'cta-inline':
+      return (
+        <div
+          key={index}
+          className="rounded-xl border border-[#D4AF37]/30 bg-[#1A2E40] p-5 sm:p-6 text-center space-y-2 my-2"
+        >
+          <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">{section.heading}</p>
+          <p className="text-sm text-white/80 leading-relaxed">{section.text}</p>
         </div>
       );
 
@@ -118,84 +149,130 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
   }
 
   return (
-    <div>
-      {/* Header */}
-      <div className="bg-[#1A2E40] text-white pt-10 pb-14 border-b border-[#D4AF37]/30">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-5">
+    <div className="min-h-screen bg-[#FDFCFA]">
+
+      {/* ── Hero cover image with overlay ── */}
+      <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[500px] overflow-hidden">
+        <img
+          src={`${post.coverImage}?auto=format&fit=crop&w=1600&q=85`}
+          alt={post.coverAlt}
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        {/* Layered gradient: transparent top → dark navy bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/60 to-[#0D1B2A]/15" />
+
+        {/* Breadcrumb nav inside image */}
+        <div className="absolute top-5 left-4 sm:left-8">
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 text-xs text-[#D4AF37] hover:text-[#E5C765] transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 text-xs text-white/80 hover:text-[#D4AF37] transition-colors cursor-pointer bg-black/25 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/15"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             All Articles
           </button>
+        </div>
 
-          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]">
-            <Tag className="w-3 h-3" />
-            {post.category}
-          </span>
+        {/* Title + meta overlaid on image bottom */}
+        <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 lg:px-0 pb-8 sm:pb-10">
+          <div className="max-w-3xl lg:mx-auto space-y-3">
+            {/* Category chip */}
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#D4AF37]/90 text-[#1A2E40] text-[10px] font-bold uppercase tracking-widest">
+              {post.category}
+            </span>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight">
-            {post.title}
-          </h1>
+            {/* Title */}
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight text-balance">
+              {post.title}
+            </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs text-[#E2E8F0]/70">
-            <span className="flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5 text-[#D4AF37]" />
-              Monique Reid
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
-              {formatDate(post.publishedDate)}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
-              {post.readingTime} min read
-            </span>
+            {/* Meta row */}
+            <div className="flex flex-wrap items-center gap-4 text-[11px] text-white/70">
+              <span className="flex items-center gap-1.5">
+                <BookOpen className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <span className="text-white font-semibold">Monique Reid</span>
+              </span>
+              <span className="text-white/30">·</span>
+              <span className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
+                {formatDate(post.publishedDate)}
+              </span>
+              <span className="text-white/30">·</span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
+                {post.readingTime} min read
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Article body */}
-      <article className="py-12 bg-[#FDFCFA]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      {/* ── Article body ── */}
+      <article className="py-10 sm:py-14">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
           {/* Tags */}
-          <div className="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-[#E2E8F0]">
+          <div className="flex flex-wrap gap-2 mb-8 pb-6 border-b border-[#E2E8F0]">
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-[11px] font-semibold text-[#1A2E40]"
+                className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#1A2E40]/6 border border-[#1A2E40]/10 text-[11px] font-semibold text-[#1A2E40]"
               >
+                <ChevronRight className="w-2.5 h-2.5 text-[#D4AF37]" />
                 {tag}
               </span>
             ))}
           </div>
 
           {/* Content sections */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             {post.content.map((section, i) => renderSection(section, i))}
           </div>
 
+          {/* Author byline */}
+          <div className="mt-12 pt-8 border-t border-[#E2E8F0] flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-[#1A2E40] flex items-center justify-center shrink-0">
+              <BookOpen className="w-4 h-4 text-[#D4AF37]" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-[#1A2E40]">Monique Reid</p>
+              <p className="text-xs text-[#57534E]">
+                MedSpa &amp; Aesthetic Practice Bookkeeping Specialist · Fort Lauderdale, FL
+              </p>
+            </div>
+          </div>
+
           {/* End CTA */}
-          <div className="mt-14 pt-10 border-t border-[#E2E8F0]">
-            <div className="rounded-2xl bg-[#1A2E40] p-6 sm:p-8 text-white text-center space-y-4">
+          <div className="mt-10">
+            <div className="rounded-2xl bg-gradient-to-br from-[#1A2E40] to-[#0D1B2A] p-6 sm:p-8 text-white text-center space-y-4 border border-[#D4AF37]/20 shadow-xl">
               <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">
-                Ready to talk about your practice?
+                ✦ Ready to Talk About Your Practice?
               </p>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
-                Book a complimentary 20-minute Financial Clarity Call
+                Book a Complimentary 20-Minute Financial Clarity Call
               </h3>
               <p className="text-sm text-[#E2E8F0] font-light leading-relaxed max-w-md mx-auto">
-                Tell me what is happening with your books and I will outline a clear path forward — no obligation.
+                Tell me what's happening with your books and I'll outline a clear path forward — no obligation.
               </p>
               <button
                 onClick={onBookCall}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] border border-[#FFF5DE]/60 cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_14px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60 cursor-pointer"
               >
                 Book Your Free Clarity Call
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
+          </div>
+
+          {/* Back link */}
+          <div className="mt-8 text-center">
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1A2E40]/60 hover:text-[#D4AF37] transition-colors cursor-pointer"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              Back to All Articles
+            </button>
           </div>
         </div>
       </article>

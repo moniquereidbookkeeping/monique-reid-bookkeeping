@@ -18,6 +18,9 @@ export interface BlogPost {
   tags: string[];
   publishedDate: string;
   readingTime: number;
+  coverImage: string;
+  coverAlt: string;
+  featured?: boolean;
   content: BlogSection[];
 }
 
