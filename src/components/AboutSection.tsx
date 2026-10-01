@@ -102,7 +102,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
             {/* Founder-Led Bookkeeping */}
             <div className="p-5 rounded-2xl bg-[#1A2E40]/5 border border-[#1A2E40]/10">
               <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37] mb-2">Founder-Led Bookkeeping</p>
-              <p className="text-sm text-[#57534E] leading-relaxed">
+              <p className="text-base text-[#57534E] leading-relaxed">
                 Monique Reid Bookkeeping is a specialized, founder-led practice built around careful financial organization and a genuine understanding of the workflows common to aesthetic and wellness businesses.
               </p>
             </div>

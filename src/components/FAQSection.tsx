@@ -428,7 +428,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
               <p className="font-serif font-bold text-lg text-[#1A2E40]">
                 No matching questions found
               </p>
-              <p className="text-sm text-[#718096] max-w-md mx-auto">
+              <p className="text-base text-[#718096] max-w-md mx-auto">
                 No questions match "{searchQuery}". Try a different keyword or reset your filter.
               </p>
               <button
@@ -490,7 +490,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                         id={`faq-answer-${faq.id}`}
                         role="region"
                         aria-labelledby={`faq-btn-${faq.id}`}
-                        className="px-5 sm:px-6 pb-6 pt-1 text-[#57534E] border-t border-[#F2EFE9] space-y-4 text-sm sm:text-base leading-relaxed animate-in fade-in duration-150"
+                        className="px-5 sm:px-6 pb-6 pt-1 text-[#57534E] border-t border-[#F2EFE9] space-y-4 text-base leading-relaxed animate-in fade-in duration-150"
                       >
                         <div className="space-y-3 font-light text-[#57534E] whitespace-pre-line">
                           {faq.answer}
@@ -506,7 +506,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                               {faq.takeaways.map((takeaway, tIdx) => (
                                 <li
                                   key={tIdx}
-                                  className="flex items-start gap-2 text-xs sm:text-sm text-[#57534E]"
+                                  className="flex items-start gap-2 text-sm sm:text-base text-[#57534E]"
                                 >
                                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                                   <span>{takeaway}</span>
@@ -558,7 +558,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
             <h4 className="font-serif font-bold text-xl sm:text-2xl text-white">
               Have a specific question about your books?
             </h4>
-            <p className="text-xs sm:text-sm text-[#E2E8F0] max-w-xl font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-[#E2E8F0] max-w-xl font-light leading-relaxed">
               Every aesthetic and wellness practice has unique financial needs. Book a complimentary 20-minute Financial Clarity Call to discuss your QuickBooks setup, historical cleanup, monthly bookkeeping, or financial reporting needs.
             </p>
           </div>

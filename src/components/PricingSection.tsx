@@ -277,7 +277,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                       : 'bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-[#374151]'
                   }`}>
                     <Info className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                    <span className="text-sm leading-relaxed">{plan.complexityNote}</span>
+                    <span className="text-base leading-relaxed">{plan.complexityNote}</span>
                   </div>
 
                   {/* CTA */}
@@ -340,7 +340,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                     </div>
                     <div>
                       <p className="text-base font-bold text-[#1A2E40] leading-snug mb-1.5">{factor.label}</p>
-                      <p className="text-sm text-[#57534E] leading-relaxed">{factor.detail}</p>
+                      <p className="text-base text-[#57534E] leading-relaxed">{factor.detail}</p>
                     </div>
                   </div>
                 );
@@ -386,7 +386,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           })}
         </div>
 
-        <p className="mt-5 text-center text-sm text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
+        <p className="mt-5 text-center text-base text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
           No obligation. We'll determine whether we're a good fit before recommending a service.
         </p>
       </div>

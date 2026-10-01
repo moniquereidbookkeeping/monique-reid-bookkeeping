@@ -199,13 +199,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <h3 className="text-2xl font-serif font-bold text-[#1A2E40] leading-snug mb-2">
                     {svc.title}
                   </h3>
-                  <p className="text-sm text-[#94A3B8] italic leading-relaxed mb-5">
+                  <p className="text-base text-[#94A3B8] italic leading-relaxed mb-5">
                     {svc.tagline}
                   </p>
 
                   {/* Best for */}
                   <div
-                    className={`p-4 rounded-xl mb-5 border text-sm text-[#57534E] leading-relaxed ${
+                    className={`p-4 rounded-xl mb-5 border text-base text-[#57534E] leading-relaxed ${
                       isMonthly
                         ? 'bg-[#D4AF37]/8 border-[#D4AF37]/25'
                         : 'bg-[#F8FAFC] border-[#E2E8F0]'
@@ -221,7 +221,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   </p>
                   <ul className="space-y-2.5 flex-1 mb-5">
                     {svc.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-sm text-[#57534E] leading-relaxed">
+                      <li key={idx} className="flex items-start gap-2.5 text-base text-[#57534E] leading-relaxed">
                         <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
@@ -229,7 +229,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   </ul>
 
                   {/* Scope note */}
-                  <div className="flex items-start gap-2 text-sm text-[#94A3B8] leading-relaxed mb-5">
+                  <div className="flex items-start gap-2 text-base text-[#94A3B8] leading-relaxed mb-5">
                     <Info className="w-4 h-4 text-[#D4AF37]/50 shrink-0 mt-0.5" />
                     <span>{svc.priceNote}</span>
                   </div>
