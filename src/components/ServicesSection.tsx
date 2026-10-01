@@ -8,6 +8,7 @@ import {
   Layers,
   Info,
   CheckCircle2,
+  BarChart2,
 } from 'lucide-react';
 
 interface ServicesSectionProps {
@@ -72,8 +73,31 @@ const services = [
     cta: 'Get Your Monthly Plan',
   },
   {
-    id: 'setup',
+    id: 'reporting',
     num: '03',
+    phase: 'Report',
+    icon: BarChart2,
+    badge: null as string | null,
+    title: 'Financial Reporting & KPIs',
+    tagline: 'Know which services are earning and where your margins actually are.',
+    bestFor:
+      'Practices on monthly bookkeeping that want practice-specific KPI tracking and P&L visibility by service line — not just one combined number at month-end.',
+    deliverables: [
+      'Practice P&L segmented by service line or revenue category',
+      'Month-over-month trend reporting',
+      'KPIs: revenue per treatment, cost per service, provider productivity',
+      'Gross margin by treatment category',
+      'Cash flow summary and bank position',
+      'Plain-language financial narrative each reporting period',
+    ],
+    price: 'Add-on to Monthly Bookkeeping',
+    priceNote:
+      'Available as an enhancement to Specialized Monthly Bookkeeping plans. Scope by service lines and reporting depth.',
+    cta: 'Add Reporting to My Plan',
+  },
+  {
+    id: 'setup',
+    num: '04',
     phase: 'Build',
     icon: Layers,
     badge: null as string | null,
@@ -121,7 +145,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             {niches.map((n) => (
               <span
                 key={n}
-                className="px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold text-[#1A2E40]"
+                className="px-3 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-semibold text-[#1A2E40]"
               >
                 {n}
               </span>
@@ -129,8 +153,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
           </div>
         </div>
 
-        {/* 3 Equal Service Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* 4 Service Cards — 2×2 grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {services.map((svc) => {
             const Icon = svc.icon;
             const isMonthly = svc.id === 'monthly';
@@ -147,8 +171,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 {/* Badge */}
                 {svc.badge && (
                   <div className="absolute top-5 right-5">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#D4AF37] text-[#1A2E40] text-[10px] font-bold uppercase tracking-wider shadow-sm">
-                      <Sparkles className="w-2.5 h-2.5" />
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#D4AF37] text-[#1A2E40] text-xs font-bold uppercase tracking-wider shadow-sm">
+                      <Sparkles className="w-3 h-3" />
                       {svc.badge}
                     </span>
                   </div>
@@ -158,30 +182,30 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   {/* Phase indicator */}
                   <div className="flex items-center gap-2.5 mb-4">
                     <div
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                      className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
                         isMonthly
                           ? 'bg-[#D4AF37]/15 text-[#D4AF37]'
                           : 'bg-[#1A2E40]/6 text-[#1A2E40]'
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
                       {svc.num} · {svc.phase}
                     </span>
                   </div>
 
                   {/* Title + Tagline */}
-                  <h3 className="text-xl font-serif font-bold text-[#1A2E40] leading-snug mb-1.5">
+                  <h3 className="text-2xl font-serif font-bold text-[#1A2E40] leading-snug mb-2">
                     {svc.title}
                   </h3>
-                  <p className="text-xs text-[#94A3B8] italic leading-relaxed mb-5">
+                  <p className="text-sm text-[#94A3B8] italic leading-relaxed mb-5">
                     {svc.tagline}
                   </p>
 
                   {/* Best for */}
                   <div
-                    className={`p-3.5 rounded-xl mb-5 border text-xs text-[#57534E] leading-relaxed ${
+                    className={`p-4 rounded-xl mb-5 border text-sm text-[#57534E] leading-relaxed ${
                       isMonthly
                         ? 'bg-[#D4AF37]/8 border-[#D4AF37]/25'
                         : 'bg-[#F8FAFC] border-[#E2E8F0]'
@@ -192,37 +216,37 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   </div>
 
                   {/* Deliverables */}
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#1A2E40]/40 mb-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]/40 mb-3">
                     Scope of Work
                   </p>
-                  <ul className="space-y-2 flex-1 mb-5">
+                  <ul className="space-y-2.5 flex-1 mb-5">
                     {svc.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs text-[#57534E] leading-relaxed">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2.5 text-sm text-[#57534E] leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
                   {/* Scope note */}
-                  <div className="flex items-start gap-2 text-[11px] text-[#94A3B8] leading-relaxed mb-5">
-                    <Info className="w-3.5 h-3.5 text-[#D4AF37]/50 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2 text-sm text-[#94A3B8] leading-relaxed mb-5">
+                    <Info className="w-4 h-4 text-[#D4AF37]/50 shrink-0 mt-0.5" />
                     <span>{svc.priceNote}</span>
                   </div>
 
                   {/* Bottom: price + CTA */}
                   <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0] mt-auto gap-3">
-                    <span className="text-sm font-bold text-[#1A2E40] font-serif leading-snug">{svc.price}</span>
+                    <span className="text-base font-bold text-[#1A2E40] font-serif leading-snug">{svc.price}</span>
                     <button
                       onClick={onBookCall}
-                      className={`inline-flex items-center gap-1.5 text-xs font-bold transition-colors group cursor-pointer shrink-0 ${
+                      className={`inline-flex items-center gap-1.5 text-sm font-bold transition-colors group cursor-pointer shrink-0 ${
                         isMonthly
                           ? 'text-[#D4AF37] hover:text-[#C8A02A]'
                           : 'text-[#1A2E40] hover:text-[#D4AF37]'
                       }`}
                     >
                       <span>{svc.cta}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                     </button>
                   </div>
                 </div>
@@ -252,7 +276,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 >
                   Built Around the Systems Your Practice Uses
                 </h3>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
+                <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
                   You don't need to change your booking or payment platform. We reconcile settlements,
                   processing fees, patient financing transactions, tips, and package sales from your
                   practice software straight into QuickBooks Online.
@@ -260,7 +284,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
 
                 <div className="space-y-3 pt-2">
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]/70 mb-2">
+                    <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]/70 mb-2">
                       Practice Management
                     </p>
                     <div className="flex flex-wrap gap-2" role="list" aria-label="Practice management platforms">
@@ -268,7 +292,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                         <span
                           key={tech}
                           role="listitem"
-                          className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/18 text-xs font-medium text-white border border-white/25 transition-colors"
+                          className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/18 text-sm font-medium text-white border border-white/25 transition-colors"
                         >
                           {tech}
                         </span>
@@ -276,7 +300,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     </div>
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37]/70 mb-2">
+                    <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]/70 mb-2">
                       Payments &amp; Patient Financing
                     </p>
                     <div className="flex flex-wrap gap-2" role="list" aria-label="Payment and financing platforms">
@@ -284,7 +308,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                         <span
                           key={tech}
                           role="listitem"
-                          className="px-3 py-1.5 rounded-lg bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-xs font-medium text-[#D4AF37] border border-[#D4AF37]/30 transition-colors"
+                          className="px-3 py-1.5 rounded-lg bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-sm font-medium text-[#D4AF37] border border-[#D4AF37]/30 transition-colors"
                         >
                           {tech}
                         </span>
@@ -302,10 +326,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors shrink-0">
                     <Calendar className="w-4 h-4" />
                   </span>
-                  <span>Book Your 15-Min Financial Clarity Call</span>
+                  <span>Book Your 20-Min Financial Clarity Call</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <p className="text-xs text-[#E2E8F0]/70 mt-2.5 text-center lg:text-right font-light">
+                <p className="text-sm text-[#E2E8F0]/70 mt-2.5 text-center lg:text-right font-light">
                   No obligation. We'll determine fit before recommending a service.
                 </p>
               </div>

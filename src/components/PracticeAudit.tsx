@@ -212,7 +212,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-3.5 h-3.5" />
                   </span>
-                  <span>Review Results With Monique (15-Min Clarity Call)</span>
+                  <span>Review Results With Monique (20-Min Clarity Call)</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

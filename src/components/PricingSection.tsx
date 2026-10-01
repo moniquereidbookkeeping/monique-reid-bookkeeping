@@ -356,7 +356,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
               Not Sure Which Plan Fits?
             </p>
             <p className="text-2xl sm:text-3xl font-serif font-bold text-white leading-snug mb-4">
-              Start with a Free 15-Minute Clarity Call
+              Start with a Free 20-Minute Clarity Call
             </p>
             <p className="text-base sm:text-lg text-white/70 leading-relaxed">
               You don't need to diagnose your own bookkeeping problems first. We'll talk through your

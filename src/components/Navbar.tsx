@@ -70,7 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('contact')}
               className="text-[#D4AF37] hover:underline flex items-center gap-1 font-semibold transition-colors cursor-pointer"
             >
-              <span>Book Your Free 15-Min Financial Clarity Call</span>
+              <span>Book Your Free 20-Min Financial Clarity Call</span>
               <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37]" />
             </button>
           </div>
@@ -179,7 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
                   <Calendar className="w-3.5 h-3.5" />
                 </span>
-                <span>Book Your 15-Min Financial Clarity Call</span>
+                <span>Book Your 20-Min Financial Clarity Call</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>

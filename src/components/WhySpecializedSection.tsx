@@ -114,7 +114,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
             <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
               <Calendar className="w-3.5 h-3.5" />
             </span>
-            <span>Book Your 15-Min Financial Clarity Call</span>
+            <span>Book Your 20-Min Financial Clarity Call</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>

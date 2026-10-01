@@ -586,7 +586,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-xs transition-all shadow-md w-full sm:w-auto"
               >
                 <Calendar className="w-3.5 h-3.5" />
-                <span>Book Your Free 15-Min Clarity Call</span>
+                <span>Book Your Free 20-Min Clarity Call</span>
               </button>
             </div>
           </div>

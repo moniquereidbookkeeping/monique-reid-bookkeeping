@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({
                 onClick={onBookCall}
                 className="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl text-base font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.99] transition-all duration-200 shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_22px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 group cursor-pointer"
               >
-                <span>📅 Book Your 15-Min Financial Clarity Call</span>
+                <span>Book Your 20-Min Financial Clarity Call</span>
                 <ArrowRight className="w-4 h-4 text-[#1A2E40] transition-transform group-hover:translate-x-1" />
               </button>
 
