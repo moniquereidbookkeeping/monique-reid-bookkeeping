@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/15 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Intuit Certified QuickBooks ProAdvisor · Aesthetic &amp; Wellness Practices</span>
+              <span>Intuit Certified QuickBooks ProAdvisor · MedSpa, Aesthetic &amp; Wellness Practices</span>
             </div>
 
             {/* Main Headline */}

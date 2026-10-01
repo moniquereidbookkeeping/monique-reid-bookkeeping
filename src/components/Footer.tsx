@@ -22,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           <div className="lg:col-span-4 space-y-4">
             <Logo variant="light" size="lg" onClick={() => onNavigate('home')} />
             <p className="text-sm text-[#E2E8F0] max-w-sm leading-relaxed mt-2 font-light">
-              Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss clinics, and related self-pay healthcare businesses.
+              Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
             </p>
             <p className="text-xs font-serif italic text-[#D4AF37]">
               Clean Books. Clearer Numbers.
@@ -127,10 +127,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
               <li>
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="hover:text-[#D4AF37] transition-colors flex items-center gap-2.5 break-all text-[#E2E8F0]/90"
+                  className="hover:text-[#D4AF37] transition-colors flex items-center gap-2.5 text-[#E2E8F0]/90"
                 >
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span className="font-bold">{CONTACT_EMAIL}</span>
+                  <span className="font-bold text-xs whitespace-nowrap">{CONTACT_EMAIL}</span>
                 </a>
               </li>
               <li>
@@ -144,8 +144,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                     <ExternalLink className="w-4 h-4 text-[#D4AF37] shrink-0" />
                     <span>Shop Our Business Templates</span>
                   </div>
-                  <div className="text-[#D4AF37] text-xs mt-0.5">
-                    (at GetBillForge.com)
+                  <div className="text-white text-xs mt-0.5 pl-6.5 group-hover:text-[#D4AF37] transition-colors">
+                    GetBillForge.com
                   </div>
                 </a>
               </li>

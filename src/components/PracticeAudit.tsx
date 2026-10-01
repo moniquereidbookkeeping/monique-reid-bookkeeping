@@ -168,30 +168,39 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                <div className="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
-                  <p className="font-bold text-[#1A2E40] uppercase tracking-wider mb-1">
-                    1. Reconcile Payouts &amp; Fees
+                <div className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
+                  <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
+                    Step 1
+                  </p>
+                  <p className="font-bold text-[#1A2E40] text-sm mb-1.5">
+                    Reconcile Payouts &amp; Fees
                   </p>
                   <p className="text-[#57534E] leading-relaxed">
                     Reconcile {answers.pos} batch deposits with merchant processing deductions so net banking activity and gross collections are clearly tracked.
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
-                  <p className="font-bold text-[#1A2E40] uppercase tracking-wider mb-1">
-                    2. Clean Chart of Accounts
+                <div className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
+                  <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
+                    Step 2
+                  </p>
+                  <p className="font-bold text-[#1A2E40] text-sm mb-1.5">
+                    Clean Chart of Accounts
                   </p>
                   <p className="text-[#57534E] leading-relaxed">
-                    Separate injectable and clinical supply COGS from general operating expenses for clearer service-line margin visibility.
+                    Separate clinical supply COGS from general operating expenses for clearer service-line margin visibility.
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
-                  <p className="font-bold text-[#1A2E40] uppercase tracking-wider mb-1">
-                    3. Monthly Close Routine
+                <div className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
+                  <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
+                    Step 3
+                  </p>
+                  <p className="font-bold text-[#1A2E40] text-sm mb-1.5">
+                    Monthly Close Routine
                   </p>
                   <p className="text-[#57534E] leading-relaxed">
-                    Reconcile your {answers.accounts} systematically each month with organized Balance Sheet and Profit &amp; Loss reporting.
+                    Reconcile your {answers.accounts} systematically each month with an organized Balance Sheet and Profit &amp; Loss.
                   </p>
                 </div>
               </div>
