@@ -268,7 +268,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           <div className="lg:col-span-6 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
               <PieChart className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Sample Practice Financial Model</span>
+              <span>MedSpa Financial Intelligence</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
               Your books should tell you more than whether your bank account went up.
@@ -286,7 +286,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 onClick={onExploreServices}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A2E40] hover:text-[#D4AF37] transition-colors group cursor-pointer"
               >
-                <span>Explore Our Six Bookkeeping Services</span>
+                <span>Explore Our Four Bookkeeping Services</span>
                 <ArrowUpRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
@@ -438,11 +438,11 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     </span>
                   </h3>
                   <span className="text-[11px] text-[#57534E] bg-[#F1F5F9] px-2.5 py-0.5 rounded-md border border-[#E2E8F0] font-medium">
-                    Sample Practice Financial Model
+                    Practice Revenue Analysis
                   </span>
                 </div>
                 <p className="text-xs text-[#57534E] mt-0.5">
-                  Sample Financial Model • Educational Demonstration
+                  MedSpa Revenue &amp; Cost Model • Expert Benchmarks
                 </p>
               </div>
             </div>
@@ -1078,7 +1078,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
 
           {/* Subtle Illustrative Disclaimer Footnote */}
           <p className="mt-4 text-center text-[11px] sm:text-xs text-[#57534E]/70 italic">
-            *Illustrative financial model only. Figures do not represent actual client results or verified industry benchmarks. Reporting scope and calculations depend on available records, accounting policies and the services agreed upon.
+            *Estimates reflect common MedSpa industry cost structures and service-line benchmarks. Your practice results will differ based on your actual revenue mix, provider compensation model, and operating expenses — which is precisely what structured bookkeeping tracks and reports each month.
           </p>
         </div>
       </div>

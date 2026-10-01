@@ -37,17 +37,17 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   };
 
   return (
-    <section className="py-14 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-6 sm:p-8">
+    <section className="py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-8 sm:p-10">
           {/* Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E2E8F0] pb-5 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-6 mb-8">
             <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#D4AF37]/15 text-[#1A2E40] text-xs font-bold uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/15 text-[#1A2E40] text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
                 Interactive Diagnostic
               </span>
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40] mt-1">
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] mt-2 leading-snug">
                 MedSpa &amp; Aesthetic Practice Bookkeeping Health Check
               </h3>
             </div>
@@ -65,13 +65,13 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
           </div>
 
           {!completed ? (
-            <div className="space-y-6">
+            <div className="space-y-8">
               {step === 1 && (
-                <div className="space-y-3">
-                  <h4 className="text-base font-bold text-[#1A2E40]">
+                <div className="space-y-4">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
                     1. What is the current status of your QuickBooks accounts?
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { label: 'Books are current, but I need ongoing monthly support', val: 'current' },
                       { label: '1 to 3 months behind on reconciliations', val: 'slightly_behind' },
@@ -81,7 +81,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={opt.val}
                         onClick={() => handleSelect('status', opt.label)}
-                        className="p-4 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-xs sm:text-sm font-medium text-[#1A2E40] cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm sm:text-base font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {opt.label}
                       </button>
@@ -91,16 +91,16 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               )}
 
               {step === 2 && (
-                <div className="space-y-3">
-                  <h4 className="text-base font-bold text-[#1A2E40]">
+                <div className="space-y-4">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
                     2. Which Point-of-Sale or practice-management platform does your clinic use?
                   </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {['Boulevard', 'Vagaro', 'Jane App', 'Mindbody', 'Zenoti', 'Square', 'Stripe', 'Other'].map((pos) => (
                       <button
                         key={pos}
                         onClick={() => handleSelect('pos', pos)}
-                        className="p-3.5 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-xs font-semibold text-[#1A2E40] cursor-pointer"
+                        className="p-4 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm font-semibold text-[#1A2E40] cursor-pointer"
                       >
                         {pos}
                       </button>
@@ -110,11 +110,11 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               )}
 
               {step === 3 && (
-                <div className="space-y-3">
-                  <h4 className="text-base font-bold text-[#1A2E40]">
+                <div className="space-y-4">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
                     3. Do you offer memberships, treatment packages, or patient financing?
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { label: 'Yes, both memberships & packages + Cherry / CareCredit / PatientFi', val: 'all' },
                       { label: 'Yes, multi-session packages only', val: 'packages' },
@@ -124,7 +124,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={pkg.val}
                         onClick={() => handleSelect('packages', pkg.label)}
-                        className="p-4 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-xs sm:text-sm font-medium text-[#1A2E40] cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm sm:text-base font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {pkg.label}
                       </button>
@@ -134,16 +134,16 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               )}
 
               {step === 4 && (
-                <div className="space-y-3">
-                  <h4 className="text-base font-bold text-[#1A2E40]">
+                <div className="space-y-4">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#1A2E40]">
                     4. How many bank, card, and financing accounts does your practice use?
                   </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {['1 - 2 Accounts', '3 - 4 Accounts', '5 - 7 Accounts', '8+ Accounts'].map((acc) => (
                       <button
                         key={acc}
                         onClick={() => handleSelect('accounts', acc)}
-                        className="p-3.5 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-xs font-semibold text-[#1A2E40] cursor-pointer"
+                        className="p-4 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-sm font-semibold text-[#1A2E40] cursor-pointer"
                       >
                         {acc}
                       </button>
