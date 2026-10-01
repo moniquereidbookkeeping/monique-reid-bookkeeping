@@ -18,8 +18,8 @@ export const Logo: React.FC<LogoProps> = ({
   const isFooter = variant === 'light'; // footer sits on dark navy bg
 
   // Header: tall enough to read clearly at a glance
-  const logoHeight = size === 'sm' ? 60 : size === 'lg' ? 220 : 120;
-  const logoMaxWidth = size === 'sm' ? 260 : size === 'lg' ? 640 : 420;
+  const logoHeight = size === 'sm' ? 50 : size === 'lg' ? 100 : 80;
+  const logoMaxWidth = size === 'sm' ? 200 : size === 'lg' ? 360 : 300;
 
   return (
     <div
@@ -37,17 +37,15 @@ export const Logo: React.FC<LogoProps> = ({
       className={`inline-flex items-center select-none cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-xl transition-opacity duration-200 hover:opacity-90 ${className}`}
     >
       {isFooter ? (
-        /* Footer (dark navy bg): same logo image in a white rounded container */
-        <div className="bg-white rounded-xl px-4 py-2 shadow-sm transition-transform duration-300 group-hover:scale-[1.02]">
-          <img
-            src="/mr-logo-full.png"
-            alt="Monique Reid Bookkeeping"
-            style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
-            className="object-contain block"
-            loading="eager"
-            draggable={false}
-          />
-        </div>
+        /* Footer (dark navy bg): logo directly, no container */
+        <img
+          src="/mr-logo-full.png"
+          alt="Monique Reid Bookkeeping"
+          style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
+          className="object-contain block transition-transform duration-300 group-hover:scale-[1.02]"
+          loading="eager"
+          draggable={false}
+        />
       ) : (
         /* Header (light bg): full horizontal logo, white bg blends naturally */
         <img
