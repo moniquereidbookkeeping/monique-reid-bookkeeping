@@ -18,6 +18,8 @@ import { ProfitCalculator } from './components/ProfitCalculator';
 import { ContactSection } from './components/ContactSection';
 import { TermsPage } from './components/TermsPage';
 import { PrivacyPage } from './components/PrivacyPage';
+import { BlogListPage } from './components/BlogListPage';
+import { BlogPostPage } from './components/BlogPostPage';
 import { PricingSection } from './components/PricingSection';
 import { WhySpecializedSection } from './components/WhySpecializedSection';
 import { Footer } from './components/Footer';
@@ -25,6 +27,7 @@ import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageView>('home');
+  const [currentBlogSlug, setCurrentBlogSlug] = useState<string>('');
 
   const handleNavigate = (page: PageView) => {
     setCurrentPage(page);
@@ -233,6 +236,24 @@ export default function App() {
 
             <ContactSection onNavigate={handleNavigate} />
           </>
+        )}
+
+        {currentPage === 'blog' && (
+          <BlogListPage
+            onReadPost={(slug) => {
+              setCurrentBlogSlug(slug);
+              handleNavigate('blog-post');
+            }}
+            onBookCall={handleBookCall}
+          />
+        )}
+
+        {currentPage === 'blog-post' && (
+          <BlogPostPage
+            slug={currentBlogSlug}
+            onBack={() => handleNavigate('blog')}
+            onBookCall={handleBookCall}
+          />
         )}
 
         {currentPage === 'terms' && (

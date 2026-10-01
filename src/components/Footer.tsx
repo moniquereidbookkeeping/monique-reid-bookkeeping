@@ -94,6 +94,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
               </li>
               <li>
                 <button
+                  onClick={() => onNavigate('blog')}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
+                >
+                  Bookkeeping Blog
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => {
                     onNavigate('home');
                     setTimeout(() => {

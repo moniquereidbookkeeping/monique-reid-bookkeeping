@@ -29,6 +29,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Home', page: 'home', id: 'nav-home' },
     { label: 'Services', page: 'services', id: 'nav-services' },
     { label: 'Pricing', page: 'home', id: 'nav-pricing', scrollTo: 'pricing-section' },
+    { label: 'Blog', page: 'blog', id: 'nav-blog' },
     { label: 'About', page: 'about', id: 'nav-about' },
     { label: 'Contact', page: 'contact', id: 'nav-contact' },
   ];

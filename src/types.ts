@@ -1,4 +1,25 @@
-export type PageView = 'home' | 'services' | 'dashboard' | 'about' | 'calculator' | 'contact' | 'terms' | 'privacy';
+export type PageView = 'home' | 'services' | 'dashboard' | 'about' | 'calculator' | 'contact' | 'terms' | 'privacy' | 'blog' | 'blog-post';
+
+export interface BlogSection {
+  type: 'intro' | 'heading' | 'paragraph' | 'list' | 'callout' | 'tip' | 'cta-inline';
+  heading?: string;
+  text?: string;
+  items?: string[];
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  excerpt: string;
+  category: string;
+  tags: string[];
+  publishedDate: string;
+  readingTime: number;
+  content: BlogSection[];
+}
 
 export interface ServiceItem {
   id: string;
