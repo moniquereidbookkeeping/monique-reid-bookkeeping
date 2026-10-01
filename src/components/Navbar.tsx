@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between gap-4 lg:gap-6 xl:gap-8">
           {/* Newly Approved MR Logo */}
           <div className="shrink-0">
-            <Logo size="md" onClick={() => handleNavClick('home')} />
+            <Logo size="lg" onClick={() => handleNavClick('home')} />
           </div>
 
           {/* Desktop Navigation */}

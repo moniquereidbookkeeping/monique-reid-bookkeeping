@@ -39,9 +39,9 @@ export const Logo: React.FC<LogoProps> = ({
       {isFooter ? (
         /* Footer (dark navy bg): logo directly, no container */
         <img
-          src="/mr-logo-full.png"
+          src="/mr-logo-footer.png"
           alt="Monique Reid Bookkeeping"
-          style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth, filter: 'brightness(0) invert(1)' }}
+          style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
           className="object-contain block transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
           draggable={false}
