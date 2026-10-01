@@ -127,7 +127,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>What's Included</span>
+            <span>Our Services</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
             Specialized Bookkeeping for the Way Your Practice Actually Operates

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Sparkles, Calendar, ArrowRight, Clock, Wrench, Layers, Info } from 'lucide-react';
+import { CheckCircle2, Sparkles, Calendar, ArrowRight, Clock, Wrench, Layers, Info, TrendingUp } from 'lucide-react';
 
 interface PricingSectionProps {
   onBookCall: () => void;
@@ -65,6 +65,14 @@ const projectPlans = [
     icon: Layers,
     cta: 'Request a Setup Consultation',
   },
+  {
+    id: 'reporting',
+    name: 'Financial Reporting & Practice Insights',
+    description: 'Included with qualifying monthly bookkeeping engagements. Also available as a standalone add-on — month-over-month comparisons, revenue visibility by service category, plain-language financial commentary, and year-end CPA reporting package.',
+    pricing: 'Included or Add-On',
+    icon: TrendingUp,
+    cta: 'Ask About Reporting Options',
+  },
 ];
 
 const trustItems = [
@@ -83,7 +91,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Simple, Predictable Pricing</span>
+            <span>Transparent, Complexity-Based Pricing</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
             Your Fee Reflects Your Practice's Complexity
@@ -110,7 +118,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] text-[#1A2E40] text-xs font-bold shadow-md border border-[#FFF5DE]/60 whitespace-nowrap">
                       <Sparkles className="w-3 h-3" />
-                      Most Popular
+                      Best Fit for MedSpas
                     </span>
                   </div>
                 )}
@@ -152,7 +160,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   {/* Features */}
                   <div className="flex-1 mb-6">
                     <p className={`text-[10px] font-bold uppercase tracking-wider mb-3 ${plan.featured ? 'text-[#D4AF37]/80' : 'text-[#1A2E40]/60'}`}>
-                      {plan.featured ? 'Complexity factors may include' : 'May include'}
+                      {plan.featured ? 'Complexity factors include' : 'Includes'}
                     </p>
                     <ul className="space-y-2.5">
                       {plan.features.map((feature, i) => (
@@ -195,11 +203,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         <div className="max-w-5xl mx-auto">
           <div className="mb-5 flex items-center gap-3">
             <div className="h-px flex-1 bg-[#E2E8F0]" />
-            <p className="text-xs font-bold uppercase tracking-widest text-[#57534E]/70 px-3">One-Time Projects</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#57534E]/70 px-3">One-Time Projects &amp; Add-Ons</p>
             <div className="h-px flex-1 bg-[#E2E8F0]" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {projectPlans.map((project) => {
               const Icon = project.icon;
               return (
