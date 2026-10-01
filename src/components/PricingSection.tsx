@@ -5,6 +5,7 @@ import {
   Calendar,
   ArrowRight,
   Clock,
+  Layers,
   Info,
   TrendingUp,
   CreditCard,
