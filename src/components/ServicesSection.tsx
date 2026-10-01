@@ -131,7 +131,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
             Specialized Bookkeeping Services
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
             Built for the Financial Reality of Aesthetic &amp; Wellness Practices
           </h2>
           <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
@@ -259,7 +259,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         <section
           id="practice-software-pos-integration"
           aria-labelledby="pos-integration-heading"
-          className="mt-16 bg-[#1A2E40] text-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden border border-[#D4AF37]/30"
+          className="mt-12 bg-[#1A2E40] text-white rounded-3xl p-5 sm:p-7 lg:p-9 shadow-2xl relative overflow-hidden border border-[#D4AF37]/30"
         >
           <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -left-10 -top-10 w-60 h-60 bg-[#D4AF37]/10 rounded-full blur-2xl pointer-events-none" />
@@ -272,11 +272,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 </span>
                 <h3
                   id="pos-integration-heading"
-                  className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight"
+                  className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-white leading-tight"
                 >
                   Built Around the Systems Your Practice Uses
                 </h3>
-                <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
+                <p className="text-base text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
                   You don't need to change your booking or payment platform. We reconcile settlements,
                   processing fees, patient financing transactions, tips, and package sales from your
                   practice software straight into QuickBooks Online.

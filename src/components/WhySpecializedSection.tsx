@@ -42,19 +42,19 @@ const problems = [
 
 export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ onBookCall }) => {
   return (
-    <section className="py-16 lg:py-24 bg-[#F8F9FA] border-b border-[#E2E8F0]">
+    <section className="py-12 lg:py-18 bg-[#F8F9FA] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="max-w-3xl mb-14">
+        <div className="max-w-3xl mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-4">
             <AlertCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>Why It Matters</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
             You Know What Came In. Do You Know What You Actually Made?
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed max-w-2xl">
+          <p className="mt-3 text-base text-[#57534E] leading-relaxed max-w-2xl">
             You're booking treatments, running memberships, and selling packages — and the revenue looks real. But at the end of the month, you're still not sure which services are actually making money, where the cash is going, or whether what's on paper reflects what your practice truly earned. Getting those answers requires books built around how your practice actually operates.
           </p>
         </div>
@@ -97,10 +97,10 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
         </div>
 
         {/* Closing statement + CTA */}
-        <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-8 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20">
+        <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20">
           <div className="max-w-xl">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">The Result</p>
-            <p className="text-xl font-serif font-bold text-white leading-snug">
+            <p className="text-lg font-serif font-bold text-white leading-snug">
               Finally Know Whether Your Practice Is Actually Profitable
             </p>
             <p className="mt-2 text-sm text-white/70 leading-relaxed">
