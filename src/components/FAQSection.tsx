@@ -350,7 +350,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
           </h2>
 
           <p className="text-base sm:text-lg text-[#57534E] font-light leading-relaxed">
-            Start with <strong className="font-semibold text-[#1A2E40]">"Sound Familiar?"</strong> — questions written around the exact frustrations MedSpa, aesthetic clinic, IV hydration, and wellness practice owners bring to us. Or browse by topic below.
+            Start with <strong className="font-semibold text-[#1A2E40]">"Sound Familiar?"</strong> — questions written around the exact frustrations MedSpa, aesthetic clinic, IV hydration, and wellness practice owners experienced. Or browse by topic below.
           </p>
         </div>
 
@@ -406,7 +406,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                 >
                   <span>{cat.label}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full ${
                       isSelected
                         ? 'bg-[#D4AF37] text-[#1A2E40] font-bold'
                         : 'bg-[#F2EFE9] text-[#718096]'
@@ -500,7 +500,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                           <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-2.5">
                             <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40] flex items-center gap-1.5">
                               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-                              KEY TAKEAWAYS FOR AESTHETIC &amp; WELLNESS PRACTICES
+                              KEY TAKEAWAYS FOR MEDSPA AND AESTHETIC PRACTICES
                             </p>
                             <ul className="space-y-1.5">
                               {faq.takeaways.map((takeaway, tIdx) => (

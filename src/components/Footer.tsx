@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   onClick={() => onNavigate('services')}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
                 >
-                  Monthly Bookkeeping
+                  Specialized Monthly Bookkeeping
                 </button>
               </li>
               <li>
@@ -64,23 +64,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   onClick={() => onNavigate('services')}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
                 >
-                  Aesthetic &amp; Wellness Practice Specialization
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
-                  QuickBooks Setup &amp; Chart of Accounts
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
-                  Historical Financial Records &amp; Reporting
+                  QuickBooks Setup &amp; Restructuring
                 </button>
               </li>
             </ul>
@@ -146,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   className="hover:text-[#D4AF37] transition-colors flex items-center gap-2.5 break-all text-[#E2E8F0]/90"
                 >
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>{CONTACT_EMAIL}</span>
+                  <span className="font-bold">{CONTACT_EMAIL}</span>
                 </a>
               </li>
               <li>

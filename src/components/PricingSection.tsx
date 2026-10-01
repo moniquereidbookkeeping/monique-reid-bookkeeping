@@ -134,7 +134,6 @@ const trustItems = [
   { icon: ShieldCheck, text: 'No long-term contracts' },
   { icon: ShieldCheck, text: 'Cancel with 30 days notice' },
   { icon: ShieldCheck, text: 'Intuit Certified QBO ProAdvisor' },
-  { icon: ShieldCheck, text: 'HIPAA-aware workflows' },
 ];
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) => {
@@ -148,26 +147,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
             <Sparkles className="w-3.5 h-3.5" />
             Transparent, Complexity-Based Pricing
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
             Your Fee Reflects Your Practice's Complexity
           </h2>
-          <p className="text-sm text-[#374151] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#374151] leading-relaxed">
             A solo provider with Square doesn't have the same bookkeeping needs as a multi-provider MedSpa
             running Boulevard, Cherry, memberships, and provider compensation.
             Our fees match the <strong className="text-[#1A2E40]">financial complexity of your practice</strong> — nothing more.
           </p>
-        </div>
-
-        {/* Transparency Banner */}
-        <div className="max-w-4xl mx-auto mb-14">
-          <div className="flex items-start gap-4 px-7 py-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/40 shadow-lg">
-            <CheckCircle2 className="w-6 h-6 text-[#D4AF37] shrink-0 mt-0.5" />
-            <p className="text-base sm:text-lg text-white leading-relaxed">
-              <span className="font-bold text-[#D4AF37]">Most aesthetic and wellness bookkeeping firms won't show prices until after a discovery call.</span>{' '}
-              We publish ours — with revenue brackets, included services, and honest scope notes — so you can
-              evaluate us on your own terms before we ever speak.
-            </p>
-          </div>
         </div>
 
         {/* Pricing Cards */}

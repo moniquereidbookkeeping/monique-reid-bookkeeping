@@ -67,7 +67,7 @@ const services = [
       'Month-over-month comparisons and revenue by service category',
       'Plain-language financial summary + year-end CPA package',
     ],
-    price: 'Starting at $497 / month',
+    price: '',
     priceNote:
       'Complexity-based. Determined by transaction volume, accounts, POS platforms, memberships, and provider structure.',
     cta: 'Get Your Monthly Plan',
@@ -131,10 +131,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
             Specialized Bookkeeping Services
           </div>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#1A2E40] leading-tight mb-3">
-            Built for the Financial Reality of Aesthetic &amp; Wellness Practices
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight mb-3">
+            Built for the Financial Reality of MedSpa and Aesthetic Practices
           </h2>
-          <p className="text-sm text-[#57534E] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
             We understand how practices that run on Boulevard, use Cherry or CareCredit for patient financing,
             track inventory and treatment costs, and split revenue across providers actually get paid.
             Generic bookkeeping misses all of it.
@@ -229,14 +229,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   </ul>
 
                   {/* Scope note */}
-                  <div className="flex items-start gap-2 text-base text-[#94A3B8] leading-relaxed mb-5">
+                  <div className="flex items-start gap-2 text-base text-[#57534E] leading-relaxed mb-5">
                     <Info className="w-4 h-4 text-[#D4AF37]/50 shrink-0 mt-0.5" />
                     <span>{svc.priceNote}</span>
                   </div>
 
                   {/* Bottom: price + CTA */}
                   <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0] mt-auto gap-3">
-                    <span className="text-base font-bold text-[#1A2E40] font-serif leading-snug">{svc.price}</span>
+                    {svc.price && <span className="text-base font-bold text-[#1A2E40] font-serif leading-snug">{svc.price}</span>}
                     <button
                       onClick={onBookCall}
                       className={`inline-flex items-center gap-1.5 text-sm font-bold transition-colors group cursor-pointer shrink-0 ${
