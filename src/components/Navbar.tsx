@@ -69,10 +69,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-6">
             <button
               onClick={() => handleNavClick('contact')}
-              className="text-[#D4AF37] hover:underline flex items-center gap-1 font-semibold transition-colors cursor-pointer"
+              className="text-white hover:underline flex items-center gap-1 font-semibold transition-colors cursor-pointer"
             >
               <span>Book Your Free 20-Min Financial Clarity Call</span>
-              <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <ChevronRight className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
         </div>

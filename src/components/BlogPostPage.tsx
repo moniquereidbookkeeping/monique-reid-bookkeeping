@@ -231,8 +231,12 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
 
           {/* Author byline */}
           <div className="mt-12 pt-8 border-t border-[#E2E8F0] flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-[#1A2E40] flex items-center justify-center shrink-0">
-              <BookOpen className="w-4 h-4 text-[#D4AF37]" />
+            <div className="w-12 h-12 rounded-full overflow-hidden bg-[#1A2E40] shrink-0 border-2 border-[#D4AF37]/40">
+              <img
+                src="/monique-reid-headshot.png"
+                alt="Monique Reid"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
               <p className="text-sm font-bold text-[#1A2E40]">Monique Reid</p>
