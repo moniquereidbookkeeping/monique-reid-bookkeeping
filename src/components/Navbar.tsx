@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-[#FDFCFA]/95 backdrop-blur-md shadow-sm border-b border-[#E2E8F0] py-2'
-          : 'bg-[#FDFCFA] border-b border-[#E2E8F0]/70 py-3'
+          : 'bg-[#FDFCFA] border-b border-[#E2E8F0]/70 py-2'
       }`}
     >
       {/* Top micro announcement bar */}
@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between gap-4 lg:gap-6 xl:gap-8">
           {/* Newly Approved MR Logo */}
           <div className="shrink-0">
-            <Logo onClick={() => handleNavClick('home')} />
+            <Logo size="lg" onClick={() => handleNavClick('home')} />
           </div>
 
           {/* Desktop Navigation */}
