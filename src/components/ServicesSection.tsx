@@ -43,8 +43,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       startingPrice: 'From $597 (1–3 months)',
       pricingTiers: [
         { label: '1–3 months behind', price: '$597' },
-        { label: '4–6 months behind', price: '$997' },
-        { label: '7–12 months behind', price: '$1,497' },
+        { label: '4–6 months behind', price: '$1,297' },
+        { label: '7–12 months behind', price: '$1,997' },
         { label: '2+ years / multi-entity', price: 'Custom quote' },
       ],
       noticeTitle: 'Cleanup Pricing Guide',
