@@ -1,253 +1,384 @@
-import React from 'react';
-import {
-  Sparkles,
-  ArrowRight,
-  Calendar,
-  Wrench,
-  Clock,
+import React, { useState } from 'react';
+import { 
+  Sparkles, 
+  ArrowRight, 
+  Calendar, 
+  Wrench, 
+  Clock, 
+  TrendingUp, 
+  HeartHandshake,
   Layers,
+  LineChart,
   Info,
-  CheckCircle2,
-  BarChart2,
+  CheckCircle2
 } from 'lucide-react';
+import { BOOKING_URL } from '../constants/booking';
 
 interface ServicesSectionProps {
   onBookCall: () => void;
 }
 
-const niches = [
-  'MedSpas',
-  'Aesthetic Clinics',
-  'IV Hydration & Wellness Practices',
-  'Medical Weight-Loss Practices',
-  'Related Self-Pay Healthcare',
-];
-
-const services = [
-  {
-    id: 'cleanup',
-    num: '01',
-    phase: 'Repair',
-    icon: Wrench,
-    badge: null as string | null,
-    title: 'QuickBooks Cleanup & Catch-Up',
-    tagline: 'Get caught up. Clean up the past. Start fresh.',
-    bestFor:
-      'Practices that are months or years behind, have unreconciled accounts, transactions that no longer add up, or books they cannot trust before filing with a CPA.',
-    deliverables: [
-      'Multi-month bank and credit-card reconciliations',
-      'Review and correction of uncategorized or misclassified transactions',
-      'POS and merchant payout reconciliation',
-      'Chart of Accounts review and restructuring',
-      'Separation of business, owner-draw, and intercompany activity',
-      'Year-end financial package for your CPA or tax professional',
-    ],
-    price: 'Custom flat-rate project',
-    priceNote:
-      'Scoped by months requiring cleanup, transaction volume, number of accounts, platforms involved, and overall condition of the file.',
-    cta: 'Request a Cleanup Assessment',
-  },
-  {
-    id: 'monthly',
-    num: '02',
-    phase: 'Maintain',
-    icon: Clock,
-    badge: 'Most Requested' as string | null,
-    title: 'Specialized Monthly Bookkeeping',
-    tagline: 'More than categorized transactions — built for how your practice earns.',
-    bestFor:
-      'Growing and established practices that need consistent monthly bookkeeping with real visibility into POS settlements, patient financing, memberships, inventory costs, and provider compensation.',
-    deliverables: [
-      'Monthly bank, credit-card, and POS payout reconciliations',
-      'Patient financing tracking (Cherry, CareCredit, PatientFi)',
-      'Membership and prepaid-package reconciliation',
-      'Treatment, supply, and inventory-cost categorization',
-      'Provider compensation reconciliation, as applicable',
-      'Monthly P&L Statement and Balance Sheet',
-      'Month-over-month comparisons and revenue by service category',
-      'Plain-language financial summary + year-end CPA package',
-    ],
-    price: '',
-    priceNote:
-      'Complexity-based. Determined by transaction volume, accounts, POS platforms, memberships, and provider structure.',
-    cta: 'Get Your Monthly Plan',
-  },
-  {
-    id: 'reporting',
-    num: '03',
-    phase: 'Report',
-    icon: BarChart2,
-    badge: null as string | null,
-    title: 'Financial Reporting & KPIs',
-    tagline: 'Know which services are earning and where your margins actually are.',
-    bestFor:
-      'Practices on monthly bookkeeping that want practice-specific KPI tracking and P&L visibility by service line — not just one combined number at month-end.',
-    deliverables: [
-      'Practice P&L segmented by service line or revenue category',
-      'Month-over-month trend reporting',
-      'KPIs: revenue per treatment, cost per service, provider productivity',
-      'Gross margin by treatment category',
-      'Cash flow summary and bank position',
-      'Plain-language financial narrative each reporting period',
-    ],
-    price: 'Add-on to Monthly Bookkeeping',
-    priceNote:
-      'Available as an enhancement to Specialized Monthly Bookkeeping plans. Scope by service lines and reporting depth.',
-    cta: 'Add Reporting to My Plan',
-  },
-  {
-    id: 'setup',
-    num: '04',
-    phase: 'Build',
-    icon: Layers,
-    badge: null as string | null,
-    title: 'QuickBooks Setup & Restructuring',
-    tagline: 'A financial foundation that reflects how your practice earns and spends.',
-    bestFor:
-      'New practices setting up QuickBooks for the first time, established practices opening a second location, or any practice that has outgrown a generic bookkeeping structure.',
-    deliverables: [
-      'QuickBooks Online company setup or full restructuring',
-      'Chart of Accounts customized to your service lines and revenue streams',
-      'Bank, credit-card, and merchant account connections',
-      'POS and payment workflow mapping (Boulevard, Vagaro, Jane, Mindbody, Square)',
-      'Owner equity account structure and opening-balance review',
-      'Initial reconciliation framework and workflow documentation',
-    ],
-    price: 'One-time flat-rate project',
-    priceNote:
-      'Scoped by practice complexity, number of systems, and whether we are building new or restructuring an existing file.',
-    cta: 'Build Your Foundation',
-  },
-];
-
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) => {
-  return (
-    <section id="services-section" className="py-16 lg:py-24 bg-white border-b border-[#E2E8F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  const [activeTab, setActiveTab] = useState<string>('all');
+  type PricingTier = { label: string; price: string };
 
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-4">
+  const services = [
+    {
+      id: 'cleanup',
+      num: '01',
+      phase: 'Repair',
+      title: 'QuickBooks Cleanup & Catch-Up',
+      tagline: 'Multi-month and multi-year reconstruction to bring disorganized books up to date.',
+      lead: 'Designed for MedSpas, aesthetic clinics, and wellness practices whose books are months or years behind, filled with uncategorized expenses, duplicate sync entries, or unresolved suspense accounts.',
+      icon: Wrench,
+      highlight: 'Transforms historical bookkeeping backlogs into clean, reconciled financial records your CPA can work from efficiently.',
+      deliverables: [
+        'Multi-month or multi-year bank, credit card, and financing account reconciliations',
+        'Comprehensive transaction review, vendor verification, and recategorization',
+        'Identification and resolution of duplicate, missing, and uncategorized entries',
+        'Specialized Chart of Accounts restructuring tailored to aesthetic and wellness modalities',
+        'Merchant and POS payout reconciliation for Boulevard, Vagaro, Stripe, Square, and connected gateways',
+        'Clear separation and documentation of owner, personal, and intercompany transactions',
+      ],
+      startingPrice: 'From $597 (1–3 months)',
+      pricingTiers: [
+        { label: '1–3 months behind', price: '$597' },
+        { label: '4–6 months behind', price: '$997' },
+        { label: '7–12 months behind', price: '$1,497' },
+        { label: '2+ years / multi-entity', price: 'Custom quote' },
+      ],
+      noticeTitle: 'Cleanup Pricing Guide',
+      notice: 'All cleanup projects include a complimentary preliminary review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',
+    },
+    {
+      id: 'monthly',
+      num: '02',
+      phase: 'Maintain',
+      title: 'Monthly Bookkeeping',
+      tagline: 'Dependable, recurring monthly close process keeping your practice books current and audit-ready.',
+      lead: 'Consistent monthly management of all operating accounts, providing practice owners with reliable financial visibility to make confident operational decisions.',
+      icon: Clock,
+      highlight: 'A structured monthly close routine delivering clear statements and proactive review of uncleared items.',
+      deliverables: [
+        'Monthly reconciliations across all operating bank, credit card, and active financing accounts',
+        'Systematic transaction categorization and recurring expense verification',
+        'Ongoing review of uncleared items, outstanding checks, and items requiring practice follow-up',
+        'Preparation of monthly Balance Sheet and Profit & Loss statements',
+        'Executive Financial Summary delivered in plain English highlighting notable trends and key variances',
+        'Organized year-end financial handoff package prepared for your CPA or tax professional',
+      ],
+      startingPrice: 'Starting at $497/mo',
+      monthlyTiers: [
+        { tier: 'Entry', price: '$497/mo', highlights: ['Up to 3 accounts', 'Monthly reconciliation', 'P&L + Balance Sheet', 'Year-end CPA package'] },
+        { tier: 'Growth', price: '$797/mo', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
+        { tier: 'Full-Spectrum', price: '$1,197/mo', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
+      ],
+      noticeTitle: 'Customized Retainer',
+      notice: 'Monthly bookkeeping retainers are tailored to your practice’s transaction volume, active bank/credit accounts, POS integrations, and reporting depth.',
+    },
+    {
+      id: 'reporting',
+      num: '03',
+      phase: 'Grow',
+      title: 'Financial Reporting & KPIs',
+      tagline: 'Executive reporting and plain-language metric analysis designed for practice growth and profitability.',
+      lead: 'Transforms raw accounting entries into actionable business intelligence, helping owners understand true treatment margins, revenue concentrations, and cash flow dynamics.',
+      icon: TrendingUp,
+      highlight: 'Reports designed for healthcare and aesthetic practice owners, not just compliance accountants.',
+      deliverables: [
+        'Treatment and service-line margin analysis where clinical cost records and inventory data permit',
+        'Monthly Balance Sheet reporting providing transparent visibility into assets, liabilities, and retained earnings',
+        'Period-over-period performance comparisons, including Month-over-Month and Quarter-over-Quarter trends',
+        'Revenue segmentation by modality (injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare, and memberships)',
+        'Plain-language executive summary outlining notable changes, overhead ratios, and actionable focus areas',
+        'Cash-flow visibility to support strategic decisions around hiring, provider compensation, equipment leases, and suite expansion',
+      ],
+      startingPrice: 'Starting at $797/mo',
+      noticeTitle: 'Reporting Integration',
+      notice: 'Available as an enhanced advisory layer paired with ongoing monthly bookkeeping engagements, structured around your practice’s management platforms and data availability.',
+    },
+    {
+      id: 'focus',
+      num: '04',
+      phase: 'Specialized',
+      title: 'Aesthetic & Wellness Practice Specialization',
+      tagline: 'Bookkeeping methodologies built specifically for the clinical and operational realities of self-pay healthcare.',
+      lead: 'Bridges the critical operational gap between clinical scheduling software, inventory carrying costs, tiered provider pay structures, and QuickBooks Online.',
+      icon: HeartHandshake,
+      highlight: 'Industry-specific workflows that reflect clinical inventory, patient financing, and recurring membership models.',
+      deliverables: [
+        'Treatment COGS tracking for neurotoxins, dermal fillers, and specialty medical consumables where applicable',
+        'Retail skincare and clinical inventory cost tracking and valuation schedules',
+        'Systematic unearned revenue liability tracking for prepaid packages, gift cards, and VIP memberships',
+        'Provider commission, injector percentage, and 1099 contractor payout clearing reconciliations',
+        'Patient financing platform reconciliation (Cherry, CareCredit, PatientFi) isolating merchant discount fees',
+        'Dedicated tracking for IV hydration, vitamin shot bars, and medical weight-loss (GLP-1/peptides) revenue streams',
+        'Multi-location and provider-level performance tracking for expanding practices',
+      ],
+      startingPrice: 'Starting at $1,197/mo',
+      noticeTitle: 'Professional Coordination',
+      notice: 'Specialized regulatory, medical director compensation legalities, and corporate entity compliance are coordinated with your licensed legal and CPA advisors.',
+    },
+    {
+      id: 'setup',
+      num: '05',
+      phase: 'Build',
+      title: 'QuickBooks Setup & Chart of Accounts',
+      tagline: 'Establish a tailored financial architecture for newly launching or restructured practices.',
+      lead: 'Designed for practitioners launching a new aesthetic clinic, wellness suite, or medical weight-loss clinic, or established practices outgrowing a generic off-the-shelf setup.',
+      icon: Layers,
+      highlight: 'An aesthetic-native Chart of Accounts configured to capture revenue modalities and clinical costs from Day One.',
+      deliverables: [
+        'Complete QuickBooks Online company file setup, preferences, and permissions configuration',
+        'Specialized Chart of Accounts organized across clinical treatments, medical consumables, operating overhead, and administrative tiers',
+        'Direct bank, credit card, and merchant gateway feed integration and rules setup',
+        'Practice-management and POS mapping (Boulevard, Vagaro, Jane, Mindbody, Square, Stripe) to support clean reconciliation',
+        'Product and service item catalog setup with accurate tax mapping based on client guidance and applicable rules',
+        'Owner initial equity contributions, capital funding, and fixed-asset scheduling',
+      ],
+      startingPrice: 'Project-based pricing',
+      noticeTitle: 'Setup Deliverable',
+      notice: 'Includes an initial architecture build, feed validation, and an administrative walkthrough for the practice owner or clinic manager.',
+    },
+    {
+      id: 'scale',
+      num: '06',
+      phase: 'Scale',
+      title: 'Historical Financial Records & Reporting',
+      tagline: 'Multi-year financial reconstruction and normalization for lending, succession, or practice expansion.',
+      lead: 'Designed for established aesthetic and wellness practices preparing for bank financing, partnership buy-ins, clinical expansion, or practice valuation review.',
+      icon: LineChart,
+      highlight: 'Standardized multi-year financial schedules that provide lenders, CPAs, or advisors with an organized historical record.',
+      deliverables: [
+        'Multi-year financial record reconstruction, standardization, and normalization based on available records',
+        'Historical multi-period Profit & Loss and Balance Sheet standardization for clear multi-year comparative analysis',
+        'Organization and scheduling of non-recurring, discretionary, and owner transactions for review by qualified CPAs or transaction advisors',
+        'Structured financial packages assembled to support financing applications and lender underwriting inquiries',
+        'Historical trend modeling across revenue growth, clinical supply cost ratios, and operational overhead',
+        'Clear documentation: Monique Reid Bookkeeping provides bookkeeping organization and does not render formal valuation opinions, audit opinions, or tax filings',
+      ],
+      startingPrice: 'Project-based pricing',
+      noticeTitle: 'Engagement Scope',
+      notice: 'Scoped as a project engagement based on the number of historical fiscal years, document completeness, entity structure, and level of reconstruction required.',
+    },
+  ];
+
+  const filteredServices = activeTab === 'all' 
+    ? services 
+    : services.filter(s => s.id === activeTab);
+
+  return (
+    <section id="services-section" className="py-16 lg:py-24 bg-[#FDFCFA] border-b border-[#E2E8F0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            Specialized Bookkeeping Services
+            <span>Specialized Scope of Services</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight mb-3">
-            Built for the Financial Reality of MedSpa and Aesthetic Practices
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
+            Bookkeeping &amp; Financial Operations Architecture
           </h2>
-          <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
-            We understand how practices that run on Boulevard, use Cherry or CareCredit for patient financing,
-            track inventory and treatment costs, and split revenue across providers actually get paid.
-            Generic bookkeeping misses all of it.
+          <p className="mt-4 text-base sm:text-lg text-[#4A5568] leading-relaxed">
+            From thorough QuickBooks cleanups and routine monthly closes to specialized Chart of Accounts design and multi-year historical reconstruction—my six services are built around the clinical workflows of aesthetic and wellness practices.
           </p>
 
-          {/* Niche Tags */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
-            {niches.map((n) => (
-              <span
-                key={n}
-                className="px-3 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-semibold text-[#1A2E40]"
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            {[
+              { id: 'all', label: 'All Services (6)' },
+              { id: 'cleanup', label: '01. Repair' },
+              { id: 'monthly', label: '02. Maintain' },
+              { id: 'reporting', label: '03. Grow' },
+              { id: 'focus', label: '04. Specialized' },
+              { id: 'setup', label: '05. Build' },
+              { id: 'scale', label: '06. Scale' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                  activeTab === tab.id
+                    ? 'bg-[#1A2E40] text-[#D4AF37] shadow-sm'
+                    : 'bg-white text-[#4A5568] border border-[#E2E8F0] hover:border-[#CBD5E1]'
+                }`}
               >
-                {n}
-              </span>
+                {tab.label}
+              </button>
             ))}
           </div>
         </div>
 
-        {/* 4 Service Cards — 2×2 grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {services.map((svc) => {
+        {/* Audit Bridge Banner */}
+        <div className="max-w-6xl mx-auto mb-8 flex flex-col sm:flex-row items-center justify-between gap-3 px-5 py-4 rounded-2xl bg-[#1A2E40]/[0.04] border border-[#1A2E40]/10">
+          <div className="flex items-start sm:items-center gap-3">
+            <span className="text-xl mt-0.5 sm:mt-0" aria-hidden="true">🩺</span>
+            <p className="text-sm text-[#1A2E40] leading-snug">
+              <strong className="font-bold">Completed the Practice Audit?</strong> Your personalized plan is ready. Book your call and reference your audit results — I'll pick up exactly where the diagnostic left off.{' '}
+              <a href="#practice-audit" className="text-[#D4AF37] font-semibold hover:underline whitespace-nowrap">
+                Take the free audit →
+              </a>
+            </p>
+          </div>
+          <button
+            onClick={onBookCall}
+            className="shrink-0 px-4 py-2.5 rounded-xl bg-[#1A2E40] text-[#D4AF37] text-xs font-bold flex items-center gap-2 hover:bg-[#243B55] transition-colors cursor-pointer whitespace-nowrap shadow-sm"
+          >
+            <Calendar className="w-3.5 h-3.5" />
+            Book My Call
+          </button>
+        </div>
+
+        {/* Services Grid (All 6 Distinct Services) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch max-w-6xl mx-auto">
+          {filteredServices.map((svc) => {
             const Icon = svc.icon;
-            const isMonthly = svc.id === 'monthly';
+
             return (
               <div
                 key={svc.id}
                 id={`service-card-${svc.id}`}
-                className={`relative rounded-2xl border-l-4 border border-[#E2E8F0] flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-lg ${
-                  isMonthly
-                    ? 'bg-[#FDFAF4] border-l-[#D4AF37] shadow-sm'
-                    : 'bg-white border-l-[#D4AF37]/50 shadow-xs hover:border-l-[#D4AF37]'
-                }`}
+                className="bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#D4AF37]/60 shadow-xs hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group"
               >
-                {/* Badge */}
-                {svc.badge && (
-                  <div className="absolute top-5 right-5">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#D4AF37] text-[#1A2E40] text-xs font-bold uppercase tracking-wider shadow-sm">
-                      <Sparkles className="w-3 h-3" />
-                      {svc.badge}
+                <div className="flex flex-col flex-1">
+                  {/* Card Header */}
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <span className="text-xs font-bold tracking-widest text-[#D4AF37] uppercase">
+                      {svc.num}. {svc.phase.toUpperCase()}
                     </span>
-                  </div>
-                )}
-
-                <div className="p-7 flex flex-col flex-1">
-                  {/* Phase indicator */}
-                  <div className="flex items-center gap-2.5 mb-4">
-                    <div
-                      className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
-                        isMonthly
-                          ? 'bg-[#D4AF37]/15 text-[#D4AF37]'
-                          : 'bg-[#1A2E40]/6 text-[#1A2E40]'
-                      }`}
-                    >
+                    <div className="w-10 h-10 rounded-xl bg-[#FDFCFA] border border-[#E2E8F0] flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                      {svc.num} · {svc.phase}
-                    </span>
                   </div>
 
-                  {/* Title + Tagline */}
-                  <h3 className="text-2xl font-serif font-bold text-[#1A2E40] leading-snug mb-2">
+                  {/* Title */}
+                  <h3 className="text-xl font-serif font-bold text-[#1A2E40] mb-2 leading-snug md:min-h-[3.25rem] flex items-start">
                     {svc.title}
                   </h3>
-                  <p className="text-base text-[#94A3B8] italic leading-relaxed mb-5">
+
+                  {/* Tagline */}
+                  <p className="text-xs font-semibold text-[#1A2E40]/85 mb-2.5 md:min-h-[2.25rem] flex items-start leading-snug">
                     {svc.tagline}
                   </p>
 
-                  {/* Best for */}
-                  <div
-                    className={`p-4 rounded-xl mb-5 border text-base text-[#57534E] leading-relaxed ${
-                      isMonthly
-                        ? 'bg-[#D4AF37]/8 border-[#D4AF37]/25'
-                        : 'bg-[#F8FAFC] border-[#E2E8F0]'
-                    }`}
-                  >
-                    <span className="font-bold text-[#1A2E40]">Best when: </span>
-                    {svc.bestFor}
+                  {/* Lead / Description */}
+                  <p className="text-xs text-[#4A5568] leading-relaxed mb-4 md:min-h-[4.25rem] flex items-start">
+                    {svc.lead}
+                  </p>
+
+                  {/* Key Benefit Box */}
+                  <div className="mb-5 p-3.5 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 md:min-h-[4.75rem] flex flex-col justify-center">
+                    <p className="text-[10px] uppercase font-bold tracking-wider text-[#D4AF37] mb-1 flex items-center gap-1.5">
+                      <Sparkles className="w-3 h-3 text-[#D4AF37]" />
+                      <span>Key Strategic Value</span>
+                    </p>
+                    <p className="text-xs text-[#1A2E40] font-semibold leading-relaxed">
+                      {svc.highlight}
+                    </p>
                   </div>
 
-                  {/* Deliverables */}
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]/40 mb-3">
-                    Scope of Work
-                  </p>
-                  <ul className="space-y-2.5 flex-1 mb-5">
+                  {/* Deliverables checklist */}
+                  <div className="pt-4 border-t border-[#E2E8F0] mb-3">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">
+                      Substantive Deliverables:
+                    </p>
+                  </div>
+                  <ul className="space-y-2.5 flex-1 mb-6">
                     {svc.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-base text-[#57534E] leading-relaxed">
-                        <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-[#4A5568] leading-relaxed">
+                        <span className="w-4 h-4 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
+                          ✓
+                        </span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  {/* Scope note */}
-                  <div className="flex items-start gap-2 text-base text-[#57534E] leading-relaxed mb-5">
-                    <Info className="w-4 h-4 text-[#D4AF37]/50 shrink-0 mt-0.5" />
-                    <span>{svc.priceNote}</span>
-                  </div>
+                <div className="mt-auto">
+                  {/* Cleanup pricing tiers */}
+                  {'pricingTiers' in svc && Array.isArray((svc as { pricingTiers: PricingTier[] }).pricingTiers) && (
+                    <div className="mb-4 rounded-xl border border-[#D4AF37]/30 overflow-hidden">
+                      <div className="px-3.5 py-2 bg-[#FAF8F5] border-b border-[#D4AF37]/20 flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37]" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1A2E40]">Cleanup Pricing</span>
+                      </div>
+                      {(svc as { pricingTiers: PricingTier[] }).pricingTiers.map((tier, i) => (
+                        <div key={i} className={`flex items-center justify-between px-3.5 py-2.5 text-xs ${i % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'} border-b border-[#E2E8F0] last:border-b-0`}>
+                          <span className="text-[#4A5568]">{tier.label}</span>
+                          <span className="font-bold text-[#1A2E40]">{tier.price}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
-                  {/* Bottom: price + CTA */}
-                  <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0] mt-auto gap-3">
-                    {svc.price && <span className="text-base font-bold text-[#1A2E40] font-serif leading-snug">{svc.price}</span>}
+                  {/* Cleanup → Monthly bridge */}
+                  {svc.id === 'cleanup' && (
+                    <p className="text-[11px] text-[#64748B] mt-2 mb-4 flex items-start gap-1.5">
+                      <span className="text-[#D4AF37] shrink-0 font-bold">→</span>
+                      <span>Most cleanup clients transition directly to Monthly Bookkeeping once the backlog is cleared.</span>
+                    </p>
+                  )}
+
+                  {/* Monthly tier comparison table */}
+                  {'monthlyTiers' in svc && Array.isArray((svc as any).monthlyTiers) && (
+                    <div className="mb-4 rounded-xl border border-[#D4AF37]/30 overflow-hidden">
+                      <div className="px-3.5 py-2 bg-[#FAF8F5] border-b border-[#D4AF37]/20 flex items-center gap-1.5">
+                        <Layers className="w-3.5 h-3.5 text-[#D4AF37]" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1A2E40]">Monthly Plan Comparison</span>
+                      </div>
+                      <div className="grid grid-cols-3 divide-x divide-[#E2E8F0]">
+                        {(svc as any).monthlyTiers.map((mt: {tier: string; price: string; highlights: string[]}, i: number) => (
+                          <div key={i} className={`p-3 flex flex-col gap-1.5 ${i === 1 ? 'bg-[#FAF8F5]' : 'bg-white'}`}>
+                            <div className="flex flex-col gap-0.5">
+                              <span className={`text-[11px] font-bold ${i === 1 ? 'text-[#D4AF37]' : 'text-[#1A2E40]'}`}>{mt.tier}</span>
+                              <span className="text-xs font-bold text-[#1A2E40]">{mt.price}</span>
+                              {i === 1 && <span className="text-[9px] uppercase font-bold tracking-wider text-[#D4AF37]">Most Popular</span>}
+                            </div>
+                            <ul className="space-y-1 mt-1">
+                              {mt.highlights.map((h: string, j: number) => (
+                                <li key={j} className="text-[10px] text-[#4A5568] flex items-start gap-1">
+                                  <span className="text-[#D4AF37] shrink-0 mt-px">✓</span>
+                                  <span>{h}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Notice footnote */}
+                  {svc.notice && (
+                    <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] text-[#4A5568] mb-5 flex items-start gap-2.5 leading-relaxed">
+                      <Info className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                      <div className="space-y-0.5">
+                        {svc.noticeTitle && (
+                          <span className="font-bold text-[#1A2E40] block text-xs tracking-wide">
+                            {svc.noticeTitle}
+                          </span>
+                        )}
+                        <span className="text-[#64748B] leading-relaxed block">{svc.notice}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Card Action */}
+                  <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0]">
                     <button
                       onClick={onBookCall}
-                      className={`inline-flex items-center gap-1.5 text-sm font-bold transition-colors group cursor-pointer shrink-0 ${
-                        isMonthly
-                          ? 'text-[#D4AF37] hover:text-[#C8A02A]'
-                          : 'text-[#1A2E40] hover:text-[#D4AF37]'
-                      }`}
+                      className="text-xs font-bold text-[#1A2E40] group-hover:text-[#D4AF37] flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
-                      <span>{svc.cta}</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                      <span>Book a 20-Min Clarity Call</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
+
+                    {svc.startingPrice && (
+                      <span className="text-[11px] font-semibold text-[#D4AF37]">
+                        {svc.startingPrice}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -255,83 +386,130 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
           })}
         </div>
 
-        {/* Platform Integration */}
+        {/* RESTORED TECHNOLOGY AND BOTTLENECK SECTION (Per Screenshots & Specifications) */}
         <section
           id="practice-software-pos-integration"
           aria-labelledby="pos-integration-heading"
-          className="mt-10 bg-[#1A2E40] text-white rounded-2xl p-5 sm:p-6 lg:p-8 shadow-2xl relative overflow-hidden border border-[#D4AF37]/30"
+          className="mt-16 bg-[#1A2E40] text-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden border border-[#D4AF37]/30"
         >
+          {/* Subtle gold ambient glow */}
           <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -left-10 -top-10 w-60 h-60 bg-[#D4AF37]/10 rounded-full blur-2xl pointer-events-none" />
 
-          <div className="relative z-10">
+          <div className="relative z-10 space-y-10">
+            {/* Top Technology Reconciliation Header */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                  Practice Software &amp; POS Integration
+                  PRACTICE SOFTWARE &amp; POS INTEGRATION
                 </span>
-                <h3
-                  id="pos-integration-heading"
-                  className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-white leading-tight"
-                >
-                  Built Around the Systems Your Practice Uses
+                <h3 id="pos-integration-heading" className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight">
+                  I Reconcile Your Aesthetic &amp; Wellness Technology Stack
                 </h3>
-                <p className="text-sm text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
-                  You don't need to change your booking or payment platform. We reconcile settlements,
-                  processing fees, patient financing transactions, tips, and package sales from your
-                  practice software straight into QuickBooks Online.
+                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
+                  You don't need to change your booking or POS system. Monique’s bookkeeping process is designed to reconcile settlements, provider tips, merchant processing fees, patient financing transactions, and package sales from your booking platform straight into QuickBooks Online.
                 </p>
 
-                <div className="space-y-3 pt-2">
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]/70 mb-2">
-                      Practice Management
-                    </p>
-                    <div className="flex flex-wrap gap-2" role="list" aria-label="Practice management platforms">
-                      {['Boulevard', 'Vagaro', 'Jane App', 'Mindbody', 'Zenoti'].map((tech) => (
-                        <span
-                          key={tech}
-                          role="listitem"
-                          className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/18 text-sm font-medium text-white border border-white/25 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]/70 mb-2">
-                      Payments &amp; Patient Financing
-                    </p>
-                    <div className="flex flex-wrap gap-2" role="list" aria-label="Payment and financing platforms">
-                      {['Stripe', 'Square', 'Cherry Financing', 'CareCredit', 'PatientFi'].map((tech) => (
-                        <span
-                          key={tech}
-                          role="listitem"
-                          className="px-3 py-1.5 rounded-lg bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-sm font-medium text-[#D4AF37] border border-[#D4AF37]/30 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                {/* The Technology Integration Grid */}
+                <div
+                  className="flex flex-wrap gap-2.5 pt-2"
+                  role="list"
+                  aria-label="Supported aesthetic and wellness practice software"
+                >
+                  {[
+                    'Boulevard',
+                    'Vagaro',
+                    'Jane App',
+                    'Mindbody',
+                    'Zenoti',
+                    'Stripe',
+                    'Square',
+                    'Cherry Financing',
+                    'CareCredit',
+                    'PatientFi',
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      role="listitem"
+                      className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-medium text-white border border-white/15 transition-colors shadow-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
+              {/* Schedule 20-Min Clarity Call CTA Card (Restored from Screenshot 2) */}
               <div className="lg:col-span-4 flex flex-col items-center lg:items-end justify-center">
                 <button
                   onClick={onBookCall}
                   className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm sm:text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.35)] hover:shadow-[0_6px_24px_rgba(212,175,55,0.5)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 active:scale-[0.99] group cursor-pointer"
                 >
-                  <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors shrink-0">
+                  <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-4 h-4" />
                   </span>
-                  <span>Book Your 20-Min Financial Clarity Call</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span>Schedule 20–Min Clarity Call</span>
+                  <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </button>
-                <p className="text-sm text-[#E2E8F0]/70 mt-2.5 text-center lg:text-right font-light">
-                  No obligation. We'll determine fit before recommending a service.
+                <p className="text-xs text-[#E2E8F0]/80 mt-2.5 text-center lg:text-right font-light">
+                  20–minute private consultation via Calendly
                 </p>
+              </div>
+            </div>
+
+            {/* Core Bottlenecks Box (Restored from Screenshots 3, 4 & 5 with Defensible Wording) */}
+            <div className="bg-[#FDFCFA] text-[#4A5568] rounded-2xl p-6 sm:p-8 lg:p-10 border border-[#E2E8F0] shadow-md space-y-6">
+              {/* Heading */}
+              <div>
+                <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40] tracking-tight">
+                  Stop letting your software break your books.
+                </h4>
+                <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed mt-2.5 font-normal">
+                  Most standard bookkeepers turn on an automated POS sync tool and walk away. Without customized reconciliation, this can fill QuickBooks with un-reconciled transactions, create duplicate entries, obscure merchant processing deductions, and produce misleading financial reports that distort your true cash flow metrics.
+                </p>
+              </div>
+
+              {/* Three Core Bottlenecks */}
+              <div className="pt-3 border-t border-[#E2E8F0] space-y-5">
+                <h5 className="text-base sm:text-lg font-bold text-[#1A2E40]">
+                  The Three Core Bottlenecks I Fix For Your Practice:
+                </h5>
+
+                <ul className="space-y-4 text-sm sm:text-base text-[#4A5568] leading-relaxed">
+                  <li className="flex items-start gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
+                    <div>
+                      <strong className="text-[#1A2E40] font-bold">1. Package, Gift Card &amp; Membership Liability Tracking:</strong>{' '}
+                      When you sell high-value treatment packages, gift cards, or prepaid memberships, recording full payments immediately as earned income can distort monthly profitability and cash visibility. I track unearned balances systematically as liabilities and record earned revenue as services are completed, aligned with your practice accounting policies and CPA guidance.
+                    </div>
+                  </li>
+
+                  <li className="flex items-start gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
+                    <div>
+                      <strong className="text-[#1A2E40] font-bold">2. Merchant &amp; Financing Fee Splits:</strong>{' '}
+                      Platforms like Stripe, Square, Cherry Financing, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. I cleanly isolate those deductions as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
+                    </div>
+                  </li>
+
+                  <li className="flex items-start gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
+                    <div>
+                      <strong className="text-[#1A2E40] font-bold">3. Provider Payout &amp; Tip Isolation:</strong>{' '}
+                      I build clean clearing workflows to separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* In Summary Callout */}
+              <div className="pt-4 border-t border-[#E2E8F0]">
+                <div className="p-4 sm:p-5 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35">
+                  <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
+                    <strong className="text-[#1A2E40] font-bold">In Summary:</strong>{' '}
+                    You don't need to change the booking platform, POS, or patient financing software you love. I step in to clean up the backend data flow, reconcile your software reporting against your bank feeds, and deliver clear, reliable financial statements every month.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
