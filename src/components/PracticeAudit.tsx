@@ -15,6 +15,11 @@ interface Step {
   body: string;
 }
 
+// Total question count
+const TOTAL_QUESTIONS = 7;
+// Step at which lead capture appears
+const LEAD_CAPTURE_STEP = TOTAL_QUESTIONS + 1;
+
 // Fallback template plan if AI is unavailable
 const getFallbackPlan = (status: string, pos: string): Step[] => {
   const s = status.toLowerCase();
@@ -94,18 +99,26 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     pos: string;
     packages: string;
     accounts: string;
+    revenue: string;
+    timeInBusiness: string;
+    challenge: string;
   }>({
     status: '',
     pos: '',
     packages: '',
     accounts: '',
+    revenue: '',
+    timeInBusiness: '',
+    challenge: '',
   });
 
   const [completed, setCompleted] = useState<boolean>(false);
-  const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
+  const [showOtherPos, setShowOtherPos] = useState<boolean>(false);
   const [otherPosValue, setOtherPosValue] = useState<string>('');
+  const [showOtherChallenge, setShowOtherChallenge] = useState<boolean>(false);
+  const [otherChallengeValue, setOtherChallengeValue] = useState<string>('');
 
-  // Step 5 — lead capture
+  // Lead capture
   const [leadName, setLeadName] = useState<string>('');
   const [leadEmail, setLeadEmail] = useState<string>('');
   const [submitting, setSubmitting] = useState<boolean>(false);
@@ -119,11 +132,11 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const goBack = () => {
     if (step === 2) {
       setAnswers((a) => ({ ...a, status: '' }));
-      setShowOtherInput(false);
+      setShowOtherPos(false);
       setStep(1);
     } else if (step === 3) {
       setAnswers((a) => ({ ...a, pos: '' }));
-      setShowOtherInput(false);
+      setShowOtherPos(false);
       setOtherPosValue('');
       setStep(2);
     } else if (step === 4) {
@@ -132,37 +145,60 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     } else if (step === 5) {
       setAnswers((a) => ({ ...a, accounts: '' }));
       setStep(4);
+    } else if (step === 6) {
+      setAnswers((a) => ({ ...a, revenue: '' }));
+      setStep(5);
+    } else if (step === 7) {
+      setAnswers((a) => ({ ...a, timeInBusiness: '' }));
+      setStep(6);
+    } else if (step === LEAD_CAPTURE_STEP) {
+      setAnswers((a) => ({ ...a, challenge: '' }));
+      setShowOtherChallenge(false);
+      setOtherChallengeValue('');
+      setStep(7);
     }
   };
 
+  const advance = () => setStep((s) => s + 1);
+
   const handleSelect = (field: keyof typeof answers, value: string) => {
-    const updated = { ...answers, [field]: value };
-    setAnswers(updated);
-    if (step < 4) {
-      setStep(step + 1);
-    } else {
-      setStep(5);
-    }
+    setAnswers((a) => ({ ...a, [field]: value }));
+    advance();
   };
 
   const handlePosSelect = (pos: string) => {
     if (pos === 'Other') {
-      setShowOtherInput(true);
+      setShowOtherPos(true);
     } else {
-      setShowOtherInput(false);
+      setShowOtherPos(false);
       handleSelect('pos', pos);
     }
   };
 
-  const handleOtherSubmit = () => {
+  const handleOtherPosSubmit = () => {
     const value = otherPosValue.trim() || 'Other';
-    setShowOtherInput(false);
+    setShowOtherPos(false);
     handleSelect('pos', value);
   };
 
-  // ── AI plan fetch — returns steps or null, sets UI state ──
+  const handleChallengeSelect = (value: string) => {
+    if (value === 'Other') {
+      setShowOtherChallenge(true);
+    } else {
+      setShowOtherChallenge(false);
+      handleSelect('challenge', value);
+    }
+  };
+
+  const handleOtherChallengeSubmit = () => {
+    const value = otherChallengeValue.trim() || 'Other challenge';
+    setShowOtherChallenge(false);
+    handleSelect('challenge', value);
+  };
+
+  // ── AI plan fetch ─────────────────────────────────────────
   const fetchAIPlan = async (
-    payload: { status: string; pos: string; packages: string; accounts: string },
+    payload: typeof answers,
   ): Promise<Step[] | null> => {
     setLoadingPlan(true);
     try {
@@ -179,7 +215,6 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
       }
       throw new Error('Invalid steps');
     } catch {
-      // aiPlan stays null → fallback template renders on screen
       return null;
     } finally {
       setLoadingPlan(false);
@@ -202,28 +237,13 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
 
     setSubmitError('');
     setSubmitting(true);
-
-    // Show results page immediately so the user isn't waiting on a blank screen.
-    // The loading skeleton appears while Gemini generates the plan in the background.
     setCompleted(true);
 
-    const diagPayload = {
-      status: answers.status,
-      pos: answers.pos,
-      packages: answers.packages,
-      accounts: answers.accounts,
-    };
-
-    // Await the AI — user sees the loading skeleton during this time (~3–5s)
+    const diagPayload = { ...answers };
     const aiSteps = await fetchAIPlan(diagPayload);
-
-    // Use AI steps if available, otherwise fall back to the static template
     const stepsForEmail = aiSteps ?? getFallbackPlan(answers.status, answers.pos);
     const aiSucceeded = aiSteps !== null;
 
-    // Post to Apps Script once — with the final steps included so they can
-    // go into the thank-you email. Flag aiError so Monique gets an alert
-    // when the AI couldn't generate a custom plan.
     fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -235,6 +255,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
         status: answers.status,
         packages: answers.packages,
         accounts: answers.accounts,
+        revenue: answers.revenue,
+        timeInBusiness: answers.timeInBusiness,
+        challenge: answers.challenge,
         steps: stepsForEmail,
         aiError: !aiSucceeded,
       }),
@@ -244,11 +267,13 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   };
 
   const resetAudit = () => {
-    setAnswers({ status: '', pos: '', packages: '', accounts: '' });
+    setAnswers({ status: '', pos: '', packages: '', accounts: '', revenue: '', timeInBusiness: '', challenge: '' });
     setStep(1);
     setCompleted(false);
-    setShowOtherInput(false);
+    setShowOtherPos(false);
     setOtherPosValue('');
+    setShowOtherChallenge(false);
+    setOtherChallengeValue('');
     setLeadName('');
     setLeadEmail('');
     setSubmitError('');
@@ -258,9 +283,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   };
 
   const activePlan = aiPlan ?? getFallbackPlan(answers.status, answers.pos);
-
-  const progressStep = step <= 4 ? step : 4;
-  const showProgress = !completed && step <= 4;
+  const isQuestionStep = step >= 1 && step <= TOTAL_QUESTIONS;
+  const showProgress = !completed && isQuestionStep;
 
   return (
     <section className="py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
@@ -280,20 +304,22 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
             </div>
             {showProgress && (
               <div className="flex items-center gap-1 text-sm font-semibold text-[#57534E]">
-                <span>Question {progressStep} of 4</span>
+                <span>Question {step} of {TOTAL_QUESTIONS}</span>
                 <div className="w-28 h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden ml-2" aria-hidden="true">
                   <div
                     className="h-full bg-[#D4AF37] transition-all duration-300"
-                    style={{ width: `${(progressStep / 4) * 100}%` }}
+                    style={{ width: `${(step / TOTAL_QUESTIONS) * 100}%` }}
                   />
                 </div>
               </div>
             )}
           </div>
 
-          {/* ── Questions 1–4 ── */}
-          {!completed && step <= 4 && (
+          {/* ── Questions 1–7 ── */}
+          {!completed && isQuestionStep && (
             <div className="space-y-8">
+
+              {/* Q1 — QB Status */}
               {step === 1 && (
                 <div className="space-y-5">
                   <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
@@ -318,6 +344,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 </div>
               )}
 
+              {/* Q2 — POS Platform */}
               {step === 2 && (
                 <div className="space-y-5">
                   <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
@@ -329,7 +356,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                         key={pos}
                         onClick={() => handlePosSelect(pos)}
                         className={`p-4 rounded-xl border text-center transition-all text-base font-semibold cursor-pointer ${
-                          showOtherInput && pos === 'Other'
+                          showOtherPos && pos === 'Other'
                             ? 'border-[#D4AF37] bg-[#FAF8F5] text-[#1A2E40]'
                             : 'border-[#E2E8F0] hover:border-[#D4AF37] hover:bg-[#FAF8F5] text-[#1A2E40]'
                         }`}
@@ -338,8 +365,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       </button>
                     ))}
                   </div>
-
-                  {showOtherInput && (
+                  {showOtherPos && (
                     <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
                       <label className="block text-sm font-semibold text-[#1A2E40]">
                         Please enter your platform name:
@@ -349,13 +375,13 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                           type="text"
                           value={otherPosValue}
                           onChange={(e) => setOtherPosValue(e.target.value)}
-                          onKeyDown={(e) => e.key === 'Enter' && handleOtherSubmit()}
+                          onKeyDown={(e) => e.key === 'Enter' && handleOtherPosSubmit()}
                           placeholder="e.g. Phorest, Fresha, AestheticsPro…"
                           autoFocus
                           className="flex-1 px-4 py-3 rounded-xl border border-[#D4AF37] bg-[#FAF8F5] text-base text-[#1A2E40] placeholder:text-[#57534E]/50 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
                         />
                         <button
-                          onClick={handleOtherSubmit}
+                          onClick={handleOtherPosSubmit}
                           className="px-5 py-3 rounded-xl bg-[#1A2E40] text-white text-sm font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
                         >
                           Continue
@@ -366,6 +392,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 </div>
               )}
 
+              {/* Q3 — Packages */}
               {step === 3 && (
                 <div className="space-y-5">
                   <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
@@ -390,6 +417,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 </div>
               )}
 
+              {/* Q4 — Accounts */}
               {step === 4 && (
                 <div className="space-y-5">
                   <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
@@ -409,7 +437,113 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 </div>
               )}
 
-              {/* Back button for questions 2–4 */}
+              {/* Q5 — Monthly Revenue Range (NEW) */}
+              {step === 5 && (
+                <div className="space-y-5">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                    5. What is your practice's approximate monthly revenue?
+                  </h4>
+                  <p className="text-sm text-[#57534E]">This helps us recommend the right service tier for your size.</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      'Under $10,000 / month',
+                      '$10,000 – $30,000 / month',
+                      '$30,000 – $75,000 / month',
+                      '$75,000+ / month',
+                    ].map((rev) => (
+                      <button
+                        key={rev}
+                        onClick={() => handleSelect('revenue', rev)}
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
+                      >
+                        {rev}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Q6 — Time in Business (NEW) */}
+              {step === 6 && (
+                <div className="space-y-5">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                    6. How long has your practice been open?
+                  </h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    {[
+                      'Less than 1 year',
+                      '1 – 3 years',
+                      '3 – 7 years',
+                      '7+ years',
+                    ].map((t) => (
+                      <button
+                        key={t}
+                        onClick={() => handleSelect('timeInBusiness', t)}
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-center hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base font-semibold text-[#1A2E40] leading-snug cursor-pointer"
+                      >
+                        {t}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Q7 — Biggest Challenge (NEW) */}
+              {step === 7 && (
+                <div className="space-y-5">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                    7. What is your biggest bookkeeping challenge right now?
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      "I can't tell which services are actually profitable",
+                      "Tax season is stressful — my books are never clean in time",
+                      "I'm not sure if my payroll and provider costs are too high",
+                      "I'm growing fast and the numbers feel out of control",
+                      "I have no idea what my real monthly profit is",
+                      "Other",
+                    ].map((ch) => (
+                      <button
+                        key={ch}
+                        onClick={() => handleChallengeSelect(ch)}
+                        className={`p-5 rounded-xl border text-left transition-all text-base font-medium text-[#1A2E40] leading-snug cursor-pointer ${
+                          showOtherChallenge && ch === 'Other'
+                            ? 'border-[#D4AF37] bg-[#FAF8F5]'
+                            : 'border-[#E2E8F0] hover:border-[#D4AF37] hover:bg-[#FAF8F5]'
+                        }`}
+                      >
+                        {ch}
+                      </button>
+                    ))}
+                  </div>
+                  {showOtherChallenge && (
+                    <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <label className="block text-sm font-semibold text-[#1A2E40]">
+                        Describe your challenge:
+                      </label>
+                      <div className="flex gap-3">
+                        <input
+                          type="text"
+                          value={otherChallengeValue}
+                          onChange={(e) => setOtherChallengeValue(e.target.value)}
+                          onKeyDown={(e) => e.key === 'Enter' && handleOtherChallengeSubmit()}
+                          placeholder="Tell us what's going on with your books…"
+                          autoFocus
+                          className="flex-1 px-4 py-3 rounded-xl border border-[#D4AF37] bg-[#FAF8F5] text-base text-[#1A2E40] placeholder:text-[#57534E]/50 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
+                        />
+                        <button
+                          onClick={handleOtherChallengeSubmit}
+                          className="px-5 py-3 rounded-xl bg-[#1A2E40] text-white text-sm font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
+                        >
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Back button for questions 2–7 */}
               {step > 1 && (
                 <div className="pt-2">
                   <button
@@ -424,13 +558,13 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
             </div>
           )}
 
-          {/* ── Step 5: Lead Capture ── */}
-          {!completed && step === 5 && (
+          {/* ── Lead Capture (Step 8) ── */}
+          {!completed && step === LEAD_CAPTURE_STEP && (
             <div className="space-y-6 animate-in fade-in duration-300">
               <div className="flex items-center gap-3 p-4 rounded-xl bg-[#1A2E40] text-white">
                 <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
                 <div>
-                  <p className="text-sm font-bold">All 4 questions answered — your plan is ready.</p>
+                  <p className="text-sm font-bold">All {TOTAL_QUESTIONS} questions answered — your plan is ready.</p>
                   <p className="text-xs text-white/70 mt-0.5">Enter your details below to see your personalized results.</p>
                 </div>
               </div>
@@ -571,6 +705,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               </div>
             </div>
           )}
+
         </div>
       </div>
     </section>
