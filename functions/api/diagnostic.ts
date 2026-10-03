@@ -1,0 +1,164 @@
+// ============================================================
+//  Monique Reid Bookkeeping — AI Diagnostic Function
+//  Cloudflare Pages Function: POST /api/diagnostic
+//  Calls Gemini API to generate unique 3-step plans
+// ============================================================
+
+export interface Env {
+  GEMINI_API_KEY: string;
+}
+
+interface DiagnosticRequest {
+  status: string;
+  pos: string;
+  packages: string;
+  accounts: string;
+}
+
+interface Step {
+  title: string;
+  body: string;
+}
+
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+// Handle CORS preflight
+export const onRequestOptions: PagesFunction = async () => {
+  return new Response(null, { status: 204, headers: CORS_HEADERS });
+};
+
+export const onRequestPost: PagesFunction<Env> = async (context) => {
+  try {
+    const body = await context.request.json() as DiagnosticRequest;
+    const { status = '', pos = '', packages = '', accounts = '' } = body;
+
+    if (!status || !pos) {
+      return Response.json(
+        { error: 'Missing required fields' },
+        { status: 400, headers: CORS_HEADERS },
+      );
+    }
+
+    const apiKey = context.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      console.error('GEMINI_API_KEY not configured');
+      return Response.json(
+        { error: 'API not configured' },
+        { status: 500, headers: CORS_HEADERS },
+      );
+    }
+
+    const prompt = buildPrompt(status, pos, packages, accounts);
+
+    const geminiUrl =
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+    const geminiRes = await fetch(geminiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          temperature: 0.75,
+          maxOutputTokens: 650,
+          responseMimeType: 'application/json',
+        },
+      }),
+    });
+
+    if (!geminiRes.ok) {
+      const errText = await geminiRes.text().catch(() => '');
+      console.error('Gemini API error:', geminiRes.status, errText);
+      return Response.json(
+        { error: 'AI service unavailable' },
+        { status: 502, headers: CORS_HEADERS },
+      );
+    }
+
+    const geminiData = await geminiRes.json() as {
+      candidates?: { content?: { parts?: { text?: string }[] } }[];
+    };
+
+    const rawText = geminiData.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+
+    // Parse the JSON array out of the response
+    const steps = parseSteps(rawText);
+    if (!steps) {
+      console.error('Failed to parse steps from Gemini response:', rawText);
+      return Response.json(
+        { error: 'Unexpected AI response format' },
+        { status: 500, headers: CORS_HEADERS },
+      );
+    }
+
+    return Response.json({ steps }, { headers: CORS_HEADERS });
+
+  } catch (err) {
+    console.error('Diagnostic function error:', err);
+    return Response.json(
+      { error: 'Internal error' },
+      { status: 500, headers: CORS_HEADERS },
+    );
+  }
+};
+
+// ─── Helpers ────────────────────────────────────────────────
+
+function buildPrompt(status: string, pos: string, packages: string, accounts: string): string {
+  return `You are Monique Reid, a Certified QuickBooks ProAdvisor who specializes exclusively in MedSpa, aesthetic, and wellness practices. You have just received a bookkeeping health check submission from a practice owner.
+
+PRACTICE PROFILE:
+- QuickBooks Status: ${status}
+- Point-of-Sale / Practice Management Platform: ${pos}
+- Revenue Model: ${packages}
+- Number of Bank, Card & Financing Accounts: ${accounts}
+
+Write a personalized 3-step action plan for this exact practice. Rules:
+1. Each step must reference the client's specific platform (${pos}) by name at least once across the three steps.
+2. Steps must directly address the QB status situation described above (${status}).
+3. Where the revenue model is relevant (${packages}), name it specifically — e.g. "membership dues," "Cherry/CareCredit financing splits," "package redemption liabilities."
+4. The account count (${accounts}) should inform step complexity — more accounts = more reconciliation detail.
+5. Write in Monique's voice: direct, expert, confident. No fluff. No generic advice.
+6. Use real bookkeeping terminology: reconciliation, chart of accounts, P&L, journal entry, clearing account, deferred revenue, etc.
+7. Each step title is 4–8 words. Each body is 2–3 specific sentences.
+
+Return ONLY a JSON array with exactly 3 objects, no markdown, no wrapper text:
+[{"title":"...","body":"..."},{"title":"...","body":"..."},{"title":"...","body":"..."}]`;
+}
+
+function parseSteps(raw: string): Step[] | null {
+  try {
+    // Try direct parse first (when responseMimeType = application/json works)
+    const direct = JSON.parse(raw.trim());
+    if (isValidSteps(direct)) return direct;
+  } catch { /* fall through */ }
+
+  // Extract array from anywhere in the string
+  const match = raw.match(/\[[\s\S]*?\]/);
+  if (!match) return null;
+
+  try {
+    const parsed = JSON.parse(match[0]);
+    if (isValidSteps(parsed)) return parsed;
+  } catch { /* fall through */ }
+
+  return null;
+}
+
+function isValidSteps(val: unknown): val is Step[] {
+  return (
+    Array.isArray(val) &&
+    val.length === 3 &&
+    val.every(
+      (s) =>
+        typeof s === 'object' &&
+        s !== null &&
+        typeof (s as Step).title === 'string' &&
+        typeof (s as Step).body === 'string',
+    )
+  );
+}
