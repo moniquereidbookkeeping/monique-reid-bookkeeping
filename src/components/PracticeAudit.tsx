@@ -1,12 +1,91 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, Send, Lock } from 'lucide-react';
+import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Lock, Loader2 } from 'lucide-react';
 
 const APPS_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbyCB1po9zvFdyjLYeU_6dQ2VEtQn6-mX7qbQ4x06Mf_L0TkbvXnGA8rQ90ErocyANBi/exec';
 
+const DIAGNOSTIC_URL = '/api/diagnostic';
+
 interface PracticeAuditProps {
   onBookCall: () => void;
 }
+
+interface Step {
+  title: string;
+  body: string;
+}
+
+// Fallback template plan if AI is unavailable
+const getFallbackPlan = (status: string, pos: string): Step[] => {
+  const s = status.toLowerCase();
+  const p = pos || 'your platform';
+
+  if (s.includes('cleanup') || s.includes('4 to 12')) {
+    return [
+      {
+        title: 'Historical Transaction Cleanup',
+        body: `Categorize and reconcile all ${p} transactions month by month to rebuild accurate records from the ground up.`,
+      },
+      {
+        title: 'Correct Chart of Accounts',
+        body: 'Rebuild your chart of accounts to properly separate clinical supplies, payroll, retail, and operating costs.',
+      },
+      {
+        title: 'Tax-Ready File Delivery',
+        body: 'Deliver a clean, fully reconciled QuickBooks file with P&L and Balance Sheet ready for your CPA.',
+      },
+    ];
+  }
+
+  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
+    return [
+      {
+        title: 'Reconcile Payouts & Fees',
+        body: `Reconcile ${p} batch deposits with merchant processing deductions so net banking activity and gross collections are clearly tracked.`,
+      },
+      {
+        title: 'Clean Chart of Accounts',
+        body: 'Separate clinical supply COGS from general operating expenses for clearer service-line margin visibility.',
+      },
+      {
+        title: 'Monthly Close Routine',
+        body: 'Reconcile your accounts systematically each month with an organized Balance Sheet and Profit & Loss.',
+      },
+    ];
+  }
+
+  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
+    return [
+      {
+        title: 'QuickBooks Company File Setup',
+        body: 'Configure your QBO account with the right settings, fiscal year, and industry classification from day one.',
+      },
+      {
+        title: 'Chart of Accounts Build',
+        body: 'Build a chart of accounts designed for aesthetic practices — service revenue, clinical supplies, retail, and payroll all properly separated.',
+      },
+      {
+        title: `Connect ${p} to QuickBooks`,
+        body: `Set up your ${p} reconciliation workflow so every deposit matches your bank statement automatically from the start.`,
+      },
+    ];
+  }
+
+  return [
+    {
+      title: 'Service-Line P&L Report',
+      body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.`,
+    },
+    {
+      title: 'Membership Revenue Tracking',
+      body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.',
+    },
+    {
+      title: 'Monthly Financial Review',
+      body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.',
+    },
+  ];
+};
 
 export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const [step, setStep] = useState<number>(1);
@@ -32,13 +111,36 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState<string>('');
 
+  // AI diagnostic plan
+  const [aiPlan, setAiPlan] = useState<Step[] | null>(null);
+  const [loadingPlan, setLoadingPlan] = useState<boolean>(false);
+
+  // ── Navigation ────────────────────────────────────────────
+  const goBack = () => {
+    if (step === 2) {
+      setAnswers((a) => ({ ...a, status: '' }));
+      setShowOtherInput(false);
+      setStep(1);
+    } else if (step === 3) {
+      setAnswers((a) => ({ ...a, pos: '' }));
+      setShowOtherInput(false);
+      setOtherPosValue('');
+      setStep(2);
+    } else if (step === 4) {
+      setAnswers((a) => ({ ...a, packages: '' }));
+      setStep(3);
+    } else if (step === 5) {
+      setAnswers((a) => ({ ...a, accounts: '' }));
+      setStep(4);
+    }
+  };
+
   const handleSelect = (field: keyof typeof answers, value: string) => {
     const updated = { ...answers, [field]: value };
     setAnswers(updated);
     if (step < 4) {
       setStep(step + 1);
     } else {
-      // Go to lead capture step
       setStep(5);
     }
   };
@@ -58,6 +160,33 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     handleSelect('pos', value);
   };
 
+  // ── AI plan fetch — returns steps or null, sets UI state ──
+  const fetchAIPlan = async (
+    payload: { status: string; pos: string; packages: string; accounts: string },
+  ): Promise<Step[] | null> => {
+    setLoadingPlan(true);
+    try {
+      const res = await fetch(DIAGNOSTIC_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json() as { steps?: Step[] };
+      if (data.steps && data.steps.length === 3) {
+        setAiPlan(data.steps);
+        return data.steps;
+      }
+      throw new Error('Invalid steps');
+    } catch {
+      // aiPlan stays null → fallback template renders on screen
+      return null;
+    } finally {
+      setLoadingPlan(false);
+    }
+  };
+
+  // ── Lead submit ───────────────────────────────────────────
   const handleLeadSubmit = async () => {
     const name = leadName.trim();
     const email = leadEmail.trim();
@@ -74,30 +203,44 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     setSubmitError('');
     setSubmitting(true);
 
-    const payload = {
-      name,
-      email,
-      pos: answers.pos,
+    // Show results page immediately so the user isn't waiting on a blank screen.
+    // The loading skeleton appears while Gemini generates the plan in the background.
+    setCompleted(true);
+
+    const diagPayload = {
       status: answers.status,
+      pos: answers.pos,
       packages: answers.packages,
       accounts: answers.accounts,
     };
 
-    try {
-      // mode: 'no-cors' — Apps Script doesn't return CORS headers on POST,
-      // but the request still reaches the server and data is recorded.
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-    } catch {
-      // Network errors are silent — don't block the user from seeing results
-    }
+    // Await the AI — user sees the loading skeleton during this time (~3–5s)
+    const aiSteps = await fetchAIPlan(diagPayload);
+
+    // Use AI steps if available, otherwise fall back to the static template
+    const stepsForEmail = aiSteps ?? getFallbackPlan(answers.status, answers.pos);
+    const aiSucceeded = aiSteps !== null;
+
+    // Post to Apps Script once — with the final steps included so they can
+    // go into the thank-you email. Flag aiError so Monique gets an alert
+    // when the AI couldn't generate a custom plan.
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        pos: answers.pos,
+        status: answers.status,
+        packages: answers.packages,
+        accounts: answers.accounts,
+        steps: stepsForEmail,
+        aiError: !aiSucceeded,
+      }),
+    }).catch(() => {/* silent */});
 
     setSubmitting(false);
-    setCompleted(true);
   };
 
   const resetAudit = () => {
@@ -110,9 +253,12 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     setLeadEmail('');
     setSubmitError('');
     setSubmitting(false);
+    setAiPlan(null);
+    setLoadingPlan(false);
   };
 
-  // Progress bar: steps 1-4 are questions, step 5 is lead capture
+  const activePlan = aiPlan ?? getFallbackPlan(answers.status, answers.pos);
+
   const progressStep = step <= 4 ? step : 4;
   const showProgress = !completed && step <= 4;
 
@@ -120,6 +266,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     <section className="py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-8 sm:p-10">
+
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-6 mb-8">
             <div>
@@ -261,13 +408,25 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                 </div>
               )}
+
+              {/* Back button for questions 2–4 */}
+              {step > 1 && (
+                <div className="pt-2">
+                  <button
+                    onClick={goBack}
+                    className="inline-flex items-center gap-1.5 text-sm text-[#57534E] hover:text-[#1A2E40] transition-colors cursor-pointer"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
           {/* ── Step 5: Lead Capture ── */}
           {!completed && step === 5 && (
             <div className="space-y-6 animate-in fade-in duration-300">
-              {/* Progress complete indicator */}
               <div className="flex items-center gap-3 p-4 rounded-xl bg-[#1A2E40] text-white">
                 <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
                 <div>
@@ -286,9 +445,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-[#1A2E40]">
-                      First Name
-                    </label>
+                    <label className="block text-sm font-semibold text-[#1A2E40]">First Name</label>
                     <input
                       type="text"
                       value={leadName}
@@ -300,9 +457,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-[#1A2E40]">
-                      Email Address
-                    </label>
+                    <label className="block text-sm font-semibold text-[#1A2E40]">Email Address</label>
                     <input
                       type="email"
                       value={leadEmail}
@@ -319,10 +474,19 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 )}
 
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
-                  <p className="flex items-center gap-1.5 text-xs text-[#57534E]">
-                    <Lock className="w-3 h-3 text-[#D4AF37]" />
-                    Your info is private — never shared or sold.
-                  </p>
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={goBack}
+                      className="inline-flex items-center gap-1.5 text-sm text-[#57534E] hover:text-[#1A2E40] transition-colors cursor-pointer"
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                      Back
+                    </button>
+                    <p className="flex items-center gap-1.5 text-xs text-[#57534E]">
+                      <Lock className="w-3 h-3 text-[#D4AF37]" />
+                      Your info is private — never shared or sold.
+                    </p>
+                  </div>
                   <button
                     onClick={handleLeadSubmit}
                     disabled={submitting}
@@ -352,43 +516,38 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                <div className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
-                  <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
-                    Step 1
-                  </p>
-                  <p className="font-bold text-[#1A2E40] text-sm mb-1.5">
-                    Reconcile Payouts &amp; Fees
-                  </p>
-                  <p className="text-[#57534E] leading-relaxed">
-                    Reconcile {answers.pos} batch deposits with merchant processing deductions so net banking activity and gross collections are clearly tracked.
-                  </p>
+              {loadingPlan ? (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Loader2 className="w-4 h-4 text-[#D4AF37] animate-spin shrink-0" />
+                        <p className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-wider">
+                          Analyzing…
+                        </p>
+                      </div>
+                      <div className="space-y-2 animate-pulse">
+                        <div className="h-3.5 bg-[#E2E8F0] rounded-full w-4/5" />
+                        <div className="h-2.5 bg-[#E2E8F0] rounded-full w-full" />
+                        <div className="h-2.5 bg-[#E2E8F0] rounded-full w-5/6" />
+                        <div className="h-2.5 bg-[#E2E8F0] rounded-full w-3/4" />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-
-                <div className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
-                  <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
-                    Step 2
-                  </p>
-                  <p className="font-bold text-[#1A2E40] text-sm mb-1.5">
-                    Clean Chart of Accounts
-                  </p>
-                  <p className="text-[#57534E] leading-relaxed">
-                    Separate clinical supply COGS from general operating expenses for clearer service-line margin visibility.
-                  </p>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                  {activePlan.map((s, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
+                      <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
+                        Step {i + 1}
+                      </p>
+                      <p className="font-bold text-[#1A2E40] text-sm mb-1.5">{s.title}</p>
+                      <p className="text-[#57534E] leading-relaxed">{s.body}</p>
+                    </div>
+                  ))}
                 </div>
-
-                <div className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
-                  <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
-                    Step 3
-                  </p>
-                  <p className="font-bold text-[#1A2E40] text-sm mb-1.5">
-                    Monthly Close Routine
-                  </p>
-                  <p className="text-[#57534E] leading-relaxed">
-                    Reconcile your {answers.accounts} systematically each month with an organized Balance Sheet and Profit &amp; Loss.
-                  </p>
-                </div>
-              </div>
+              )}
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0]">
                 <button
