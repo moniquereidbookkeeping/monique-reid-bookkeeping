@@ -1,0 +1,7 @@
+# Cloudflare Pages configuration
+name = "mr-bookkeeping"
+pages_build_output_dir = "dist"
+
+# Environment variables are set in the Cloudflare Pages dashboard:
+# Settings → Environment variables → Production → Add variable
+#   GEMINI_API_KEY = (your Google AI Studio key)
