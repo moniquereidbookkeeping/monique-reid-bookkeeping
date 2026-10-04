@@ -8,11 +8,12 @@ const ALLOWED_ORIGINS = new Set([
   'https://moniquereidbookkeeping.com',
   'https://www.moniquereidbookkeeping.com',
   'https://mr-bookkeeping.pages.dev',
+  'https://monique-reid-bookkeeping.pages.dev',
   'http://localhost:3000',
 ]);
 
-/** Pages preview deployments look like https://<hash>.mr-bookkeeping.pages.dev */
-const PREVIEW_ORIGIN = /^https:\/\/[a-z0-9-]+\.mr-bookkeeping\.pages\.dev$/;
+/** Pages preview deployments look like https://<hash-or-branch>.<project>.pages.dev */
+const PREVIEW_ORIGIN = /^https:\/\/[a-z0-9-]+\.(mr-bookkeeping|monique-reid-bookkeeping)\.pages\.dev$/;
 
 function originOf(request: Request): string {
   const origin = request.headers.get('Origin');
