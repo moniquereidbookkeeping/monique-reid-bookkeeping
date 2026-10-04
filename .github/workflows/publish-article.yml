@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   publish:
@@ -35,14 +36,26 @@ jobs:
           TOPIC_HINT: ${{ github.event.inputs.topic_hint }}
         run: node .github/scripts/generate-article.mjs
 
-      - name: Commit new article
+      - name: Open a pull request for review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          if git diff --quiet src/data/blogPosts.ts; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          BRANCH="auto-article-$(date +%Y%m%d-%H%M)"
           git config user.name  "MR Bookkeeping Bot"
           git config user.email "moniquethebookkeeper@gmail.com"
+          git checkout -b "$BRANCH"
           git add src/data/blogPosts.ts
-          git diff --cached --quiet && echo "No changes to commit" || \
-            git commit -m "content: auto-publish article — $(date '+%Y-%m-%d')"
-          git push
+          git commit -m "content: draft article — $(date '+%Y-%m-%d')"
+          git push origin "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "New blog article for review — $(date '+%Y-%m-%d')" \
+            --body "An AI-drafted article is ready for review. Please read it for accuracy (especially any tax, payroll or accounting details) before merging. Merging publishes it to the live site."
 
   notify-failure:
     name: Notify on failure
@@ -60,7 +73,7 @@ jobs:
           password: ${{ secrets.NOTIFY_EMAIL_PASS }}
           to: moniquethebookkeeper@gmail.com
           from: MR Bookkeeping Bot <${{ secrets.NOTIFY_EMAIL_USER }}>
-          subject: "⚠️ Auto-blog article failed to publish ($(date '+%Y-%m-%d'))"
+          subject: "⚠️ Auto-blog article draft failed"
           body: |
             The scheduled blog article generation failed on GitHub Actions.
 
@@ -70,5 +83,5 @@ jobs:
             Check the Actions log for details:
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-            No article was published today. You may want to trigger a manual run
+            No article draft was created. You may want to trigger a manual run
             once the issue is resolved (use the "Run workflow" button on the Actions tab).

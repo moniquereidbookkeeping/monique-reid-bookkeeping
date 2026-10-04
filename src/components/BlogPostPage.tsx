@@ -120,19 +120,63 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
   const post = getBlogPostBySlug(slug);
 
   useEffect(() => {
-    if (post) {
-      document.title = post.metaTitle;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', post.metaDescription);
-      } else {
-        const meta = document.createElement('meta');
-        meta.name = 'description';
-        meta.content = post.metaDescription;
-        document.head.appendChild(meta);
+    if (!post) return;
+
+    const origin = 'https://moniquereidbookkeeping.com';
+    const url = `${origin}/blog/${post.slug}`;
+    const restore: Array<() => void> = [];
+
+    // Set a <meta> value and remember how to put the old one back.
+    const setMeta = (selector: string, make: () => HTMLMetaElement, value: string) => {
+      let el = document.head.querySelector(selector) as HTMLMetaElement | null;
+      const created = !el;
+      if (!el) {
+        el = make();
+        document.head.appendChild(el);
       }
-    }
+      const previous = el.getAttribute('content');
+      el.setAttribute('content', value);
+      restore.push(() => {
+        if (created) el!.remove();
+        else if (previous !== null) el!.setAttribute('content', previous);
+      });
+    };
+    const named = (name: string) => () => Object.assign(document.createElement('meta'), { name });
+    const prop = (property: string) => () => {
+      const m = document.createElement('meta');
+      m.setAttribute('property', property);
+      return m;
+    };
+
+    document.title = post.metaTitle;
+    setMeta('meta[name="description"]', named('description'), post.metaDescription);
+    setMeta('meta[property="og:type"]', prop('og:type'), 'article');
+    setMeta('meta[property="og:title"]', prop('og:title'), post.metaTitle);
+    setMeta('meta[property="og:description"]', prop('og:description'), post.metaDescription);
+    setMeta('meta[name="twitter:title"]', named('twitter:title'), post.metaTitle);
+    setMeta('meta[name="twitter:description"]', named('twitter:description'), post.metaDescription);
+
+    // Article structured data for this post.
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.id = 'post-jsonld';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: post.title,
+      description: post.metaDescription,
+      datePublished: post.publishedDate,
+      dateModified: post.publishedDate,
+      mainEntityOfPage: url,
+      image: post.coverImage,
+      author: { '@id': `${origin}/#person` },
+      publisher: { '@id': `${origin}/#organization` },
+    });
+    document.head.appendChild(ld);
+
     return () => {
+      restore.forEach((fn) => fn());
+      ld.remove();
       document.title = 'Monique Reid Bookkeeping | MedSpa & Aesthetic Practice QuickBooks Specialist';
     };
   }, [post]);

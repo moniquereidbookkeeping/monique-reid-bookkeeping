@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PageView } from './types';
+import { PAGE_META, SITE_ORIGIN, parsePath, pathFor } from './router';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FinancialDashboard } from './components/FinancialDashboard';
@@ -26,18 +27,57 @@ import { Footer } from './components/Footer';
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageView>('home');
-  const [currentBlogSlug, setCurrentBlogSlug] = useState<string>('');
+  const initial = parsePath(window.location.pathname);
+  const [currentPage, setCurrentPage] = useState<PageView>(initial.page);
+  const [currentBlogSlug, setCurrentBlogSlug] = useState<string>(initial.slug);
 
-  const handleNavigate = (page: PageView) => {
+  // Keep the URL and the visible page in sync (back/forward buttons, shared links).
+  useEffect(() => {
+    const onPop = () => {
+      const { page, slug } = parsePath(window.location.pathname);
+      setCurrentPage(page);
+      setCurrentBlogSlug(slug);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  // Per-page canonical URL, title and description (blog posts set their own title/description).
+  useEffect(() => {
+    const path = pathFor(currentPage, currentBlogSlug);
+    const url = SITE_ORIGIN + (path === '/' ? '' : path);
+    const setTag = (selector: string, create: () => HTMLElement, attr: string, value: string) => {
+      let el = document.head.querySelector(selector) as HTMLElement | null;
+      if (!el) {
+        el = create();
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setTag('link[rel="canonical"]', () => Object.assign(document.createElement('link'), { rel: 'canonical' }), 'href', url);
+    setTag('meta[property="og:url"]', () => { const m = document.createElement('meta'); m.setAttribute('property', 'og:url'); return m; }, 'content', url);
+    const meta = PAGE_META[currentPage];
+    if (meta) {
+      document.title = meta.title;
+      setTag('meta[name="description"]', () => Object.assign(document.createElement('meta'), { name: 'description' }), 'content', meta.description);
+    } else if (currentPage === 'home') {
+      document.title = 'MedSpa Bookkeeper | Monique Reid — QuickBooks ProAdvisor for Aesthetic & Wellness Practices';
+    }
+  }, [currentPage, currentBlogSlug]);
+
+  const go = (page: PageView, slug = '') => {
+    const path = pathFor(page, slug);
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
     setCurrentPage(page);
+    setCurrentBlogSlug(slug);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleBookCall = () => {
-    setCurrentPage('contact');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const handleNavigate = (page: PageView) => go(page);
+
+  const handleBookCall = () => go('contact');
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#57534E]">
@@ -240,10 +280,7 @@ export default function App() {
 
         {currentPage === 'blog' && (
           <BlogListPage
-            onReadPost={(slug) => {
-              setCurrentBlogSlug(slug);
-              handleNavigate('blog-post');
-            }}
+            onReadPost={(slug) => go('blog-post', slug)}
             onBookCall={handleBookCall}
           />
         )}

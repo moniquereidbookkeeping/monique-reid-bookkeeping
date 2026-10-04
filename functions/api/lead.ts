@@ -5,18 +5,25 @@
 //  Replaces Google Apps Script entirely.
 //  Handles: Gemini expert brief · Resend emails · Sheets logging
 //
-//  Env vars (set in Cloudflare Pages → Settings → Environment Variables):
-//    GEMINI_API_KEY   — already set
-//    RESEND_API_KEY   — from resend.com
-//    GOOGLE_SA_KEY    — service account JSON (full text, single line)
-//    SPREADSHEET_ID   — 1BcekbZli5VRJroBvCtTxUin4o5baaFAoe0MAKXs3wLw
+//  Env vars (set in Cloudflare Pages → Settings → Environment Variables,
+//  stored as encrypted secrets):
+//    GEMINI_API_KEY       — Google AI Studio key
+//    RESEND_API_KEY       — from resend.com
+//    GOOGLE_SA_KEY        — service account JSON (full text, single line)
+//    SPREADSHEET_ID       — ID of the Google Sheet that receives leads
+//    TURNSTILE_SECRET_KEY — optional; when set, every request must pass Cloudflare Turnstile
+//    GEMINI_MODEL         — optional; defaults to the model set in _lib/security.ts
 // ============================================================
+
+import { DEFAULT_GEMINI_MODEL, allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
 
 export interface Env {
   GEMINI_API_KEY: string;
   RESEND_API_KEY: string;
   GOOGLE_SA_KEY: string;
   SPREADSHEET_ID: string;
+  TURNSTILE_SECRET_KEY?: string;
+  GEMINI_MODEL?: string;
 }
 
 const FROM_EMAIL   = 'monique@moniquereidbookkeeping.com';
@@ -25,50 +32,64 @@ const NOTIFY_EMAIL = 'moniquethebookkeeper@gmail.com';
 const CALENDLY     = 'https://calendly.com/moniquethebookkeeper/20min';
 const SHEET_NAME   = 'Leads';
 
-const CORS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+export const onRequestOptions: PagesFunction = async (ctx) => {
+  const origin = allowedOrigin(ctx.request);
+  return new Response(null, { status: origin ? 204 : 403, headers: corsHeaders(origin) });
 };
-
-export const onRequestOptions: PagesFunction = async () =>
-  new Response(null, { status: 204, headers: CORS });
 
 // ─────────────────────────────────────────────
 //  Main handler
 // ─────────────────────────────────────────────
 export const onRequestPost: PagesFunction<Env> = async (ctx) => {
-  try {
-    const data = await ctx.request.json() as Record<string, unknown>;
+  // Only our own pages may call this endpoint.
+  const origin = allowedOrigin(ctx.request);
+  if (!origin) return json({ error: 'Forbidden' }, 403, null);
+  if (rateLimited(ctx.request, 'lead', 5)) return json({ error: 'Too many requests' }, 429, origin);
 
-    const name           = String(data.name           ?? '');
-    const email          = String(data.email          ?? '');
-    const pos            = String(data.pos            ?? '');
-    const status         = String(data.status         ?? '');
-    const packages       = String(data.packages       ?? '');
-    const accounts       = String(data.accounts       ?? '');
-    const revenue        = String(data.revenue        ?? '');
-    const timeInBusiness = String(data.timeInBusiness ?? '');
-    const challenge      = String(data.challenge      ?? '');
-    const steps          = Array.isArray(data.steps) ? data.steps as {title:string;body:string}[] : [];
-    const aiError        = data.aiError === true;
+  try {
+    const data = await readJsonBody(ctx.request);
+    if (!data) return json({ error: 'Invalid request' }, 400, origin);
+
+    if (!(await verifyTurnstile(ctx.env.TURNSTILE_SECRET_KEY, data.turnstileToken, ctx.request))) {
+      return json({ error: 'Verification failed' }, 403, origin);
+    }
+
+    const name           = cleanName(data.name);
+    const email          = typeof data.email === 'string' ? data.email.trim() : '';
+    const pos            = clean(data.pos, 60);
+    const status         = clean(data.status, 120);
+    const packages       = clean(data.packages, 200);
+    const accounts       = clean(data.accounts, 40);
+    const revenue        = clean(data.revenue, 60);
+    const timeInBusiness = clean(data.timeInBusiness, 60);
+    const challenge      = clean(data.challenge, 600);
 
     if (!name || !email) {
-      return Response.json({ error: 'Missing name or email' }, { status: 400, headers: CORS });
+      return json({ error: 'Missing name or email' }, 400, origin);
+    }
+    if (!isEmail(email)) {
+      return json({ error: 'Invalid email' }, 400, origin);
     }
 
     // Run Gemini + tier detection in parallel
-    const [expert, tier] = await Promise.all([
+    const [briefResult, tier] = await Promise.all([
       generateExpertBrief(ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge),
       Promise.resolve(detectTier(pos, packages, accounts, revenue)),
     ]);
+    const expert = briefResult.brief;
     const cleanup = getCleanupRec(status);
     const autoNote = getAutoNote(status);
+
+    // The plan emailed to the prospect is built here on the server. Nothing the
+    // browser sends can become email content.
+    const aiSteps = safeSteps(expert?.steps);
+    const steps = aiSteps ?? getFallbackSteps(status, pos);
+    const aiError = aiSteps === null;
 
     // Emails — fire both, don't block on sheet
     const emailPromises = [
       sendNotifyEmail(ctx.env, { name, email, pos, status, packages, accounts,
-        revenue, timeInBusiness, challenge, tier, cleanup, autoNote, aiError, expert }),
+        revenue, timeInBusiness, challenge, tier, cleanup, autoNote, aiError, expert, aiFailure: briefResult.reason }),
       sendThankYouEmail(ctx.env, { name, email, pos, status, steps, aiError }),
     ];
 
@@ -80,13 +101,56 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
 
     await Promise.all([...emailPromises, sheetPromise]);
 
-    return Response.json({ success: true }, { headers: CORS });
+    return json({ success: true }, 200, origin);
 
   } catch (err) {
     console.error('Lead handler error:', err);
-    return Response.json({ success: false, error: String(err) }, { status: 500, headers: CORS });
+    return json({ success: false, error: 'Something went wrong' }, 500, origin);
   }
 };
+
+// ─────────────────────────────────────────────
+//  Plan steps: validation + template fallback
+// ─────────────────────────────────────────────
+function safeSteps(raw: unknown): { title: string; body: string }[] | null {
+  if (!Array.isArray(raw) || raw.length !== 3) return null;
+  const out = raw.map((s) => ({
+    title: clean((s as { title?: unknown })?.title, 80),
+    body: clean((s as { body?: unknown })?.body, 420),
+  }));
+  return out.every((s) => s.title && s.body) ? out : null;
+}
+
+function getFallbackSteps(status: string, pos: string): { title: string; body: string }[] {
+  const s = status.toLowerCase();
+  const p = pos || 'your platform';
+  if (s.includes('cleanup') || s.includes('4 to 12')) {
+    return [
+      { title: 'Historical Transaction Cleanup', body: `Categorize and reconcile all ${p} transactions month by month to rebuild accurate records from the ground up.` },
+      { title: 'Correct Chart of Accounts', body: 'Rebuild your chart of accounts to properly separate clinical supplies, payroll, retail, and operating costs.' },
+      { title: 'Tax-Ready File Delivery', body: 'Deliver a clean, fully reconciled QuickBooks file with P&L and Balance Sheet ready for your CPA.' },
+    ];
+  }
+  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
+    return [
+      { title: 'Reconcile Payouts & Fees', body: `Reconcile ${p} batch deposits with merchant processing deductions so net banking activity and gross collections are clearly tracked.` },
+      { title: 'Clean Chart of Accounts', body: 'Separate clinical supply COGS from general operating expenses for clearer service-line margin visibility.' },
+      { title: 'Monthly Close Routine', body: 'Reconcile your accounts systematically each month with an organized Balance Sheet and Profit & Loss.' },
+    ];
+  }
+  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
+    return [
+      { title: 'QuickBooks Company File Setup', body: 'Configure your QBO account with the right settings, fiscal year, and industry classification from day one.' },
+      { title: 'Chart of Accounts Build', body: 'Build a chart of accounts designed for aesthetic practices — service revenue, clinical supplies, retail, and payroll all properly separated.' },
+      { title: `Connect ${p} to QuickBooks`, body: `Set up your ${p} reconciliation workflow so every deposit matches your bank statement automatically from the start.` },
+    ];
+  }
+  return [
+    { title: 'Service-Line P&L Report', body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.` },
+    { title: 'Membership Revenue Tracking', body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.' },
+    { title: 'Monthly Financial Review', body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.' },
+  ];
+}
 
 // ─────────────────────────────────────────────
 //  Tier detection
@@ -162,8 +226,8 @@ interface ExpertBrief {
 async function generateExpertBrief(
   env: Env, pos: string, status: string, packages: string,
   accounts: string, revenue: string, timeInBusiness: string, challenge: string,
-): Promise<ExpertBrief | null> {
-  if (!env.GEMINI_API_KEY) return null;
+): Promise<{ brief: ExpertBrief | null; reason: string }> {
+  if (!env.GEMINI_API_KEY) return { brief: null, reason: 'GEMINI_API_KEY is not set in Cloudflare' };
 
   const prompt =
     'You are the expert AI advisor for Monique Reid, a Certified QuickBooks ProAdvisor specializing exclusively in MedSpas, aesthetic clinics, and wellness practices. A prospect just submitted a bookkeeping health-check. Write Monique\'s private pre-call brief.\n\n' +
@@ -185,22 +249,37 @@ async function generateExpertBrief(
 
   try {
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL}:generateContent`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.7, maxOutputTokens: 1400, responseMimeType: 'application/json' },
+          // Generous limit: newer Gemini models spend part of it on internal "thinking".
+          generationConfig: { temperature: 0.7, maxOutputTokens: 4096, responseMimeType: 'application/json' },
         }),
       }
     );
-    const json = await res.json() as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
-    const text = json.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
-    return JSON.parse(text.trim()) as ExpertBrief;
+    const json = await res.json().catch(() => ({})) as {
+      candidates?: { finishReason?: string; content?: { parts?: { text?: string }[] } }[];
+      error?: { message?: string };
+    };
+    if (!res.ok) {
+      const msg = (json.error?.message ?? '').replace(/AIza[\w-]+/g, '[key]').slice(0, 160);
+      console.error('Gemini expert brief HTTP error:', res.status, msg);
+      return { brief: null, reason: `Gemini returned HTTP ${res.status}${msg ? ': ' + msg : ''}` };
+    }
+    const cand = json.candidates?.[0];
+    const text = cand?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
+    if (!text) return { brief: null, reason: `Gemini returned no text (finish reason: ${cand?.finishReason ?? 'none'})` };
+    try {
+      return { brief: JSON.parse(text.trim()) as ExpertBrief, reason: '' };
+    } catch {
+      return { brief: null, reason: `Gemini output was not valid JSON (finish reason: ${cand?.finishReason ?? 'unknown'})` };
+    }
   } catch (err) {
     console.error('Gemini expert brief error:', err);
-    return null;
+    return { brief: null, reason: 'Could not reach Gemini' };
   }
 }
 
@@ -286,7 +365,7 @@ async function sendNotifyEmail(env: Env, d: {
   name: string; email: string; pos: string; status: string; packages: string;
   accounts: string; revenue: string; timeInBusiness: string; challenge: string;
   tier: Tier; cleanup: Cleanup; autoNote: string; aiError: boolean;
-  expert: ExpertBrief | null;
+  expert: ExpertBrief | null; aiFailure: string;
 }): Promise<void> {
   const cleanupBlock =
     '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
@@ -315,7 +394,7 @@ async function sendNotifyEmail(env: Env, d: {
       '💼 RECOMMENDED PACKAGE\n' + (d.expert.recommendedPackage ?? '') + '\n' +
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
   } else {
-    expertBlock = '\n[AI expert brief unavailable — check GEMINI_API_KEY]';
+    expertBlock = '\n[AI expert brief unavailable — ' + (d.aiFailure || 'reason unknown') + ']';
   }
 
   await sendViaResend(env, {
@@ -351,7 +430,7 @@ async function sendThankYouEmail(env: Env, d: {
   name: string; email: string; pos: string; status: string;
   steps: { title: string; body: string }[]; aiError: boolean;
 }): Promise<void> {
-  const firstName = d.name.split(' ')[0] || d.name;
+  const firstName = (d.name.split(' ')[0] || d.name).slice(0, 30);
   const subjectLine = d.pos
     ? `Your ${d.pos} bookkeeping plan, ${firstName}`
     : `Your MedSpa bookkeeping plan, ${firstName}`;
@@ -426,7 +505,7 @@ async function appendToSheet(env: Env, d: {
 
   const url =
     `https://sheets.googleapis.com/v4/spreadsheets/${env.SPREADSHEET_ID}/values/` +
-    `${encodeURIComponent(SHEET_NAME)}!A1:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+    `${encodeURIComponent(SHEET_NAME)}!A1:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
 
   const res = await fetch(url, {
     method: 'POST',

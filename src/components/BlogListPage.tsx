@@ -46,7 +46,12 @@ const FeaturedCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, 
       </div>
 
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-snug group-hover:text-[#E5C765] transition-colors duration-300">
-        {post.title}
+        <a
+          href={`/blog/${post.slug}`}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); onRead(); }}
+        >
+          {post.title}
+        </a>
       </h2>
       <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-2xl line-clamp-2">
         {post.excerpt}
@@ -95,7 +100,12 @@ const PostCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, onRe
     {/* Text body */}
     <div className="px-5 pt-4 pb-3 flex-1 flex flex-col gap-2.5">
       <h2 className="text-base font-serif font-bold text-[#1A2E40] leading-snug group-hover:text-[#C8A02A] transition-colors line-clamp-2">
-        {post.title}
+        <a
+          href={`/blog/${post.slug}`}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); onRead(); }}
+        >
+          {post.title}
+        </a>
       </h2>
       <p className="text-sm text-[#57534E] leading-relaxed flex-1 line-clamp-3">
         {post.excerpt}
