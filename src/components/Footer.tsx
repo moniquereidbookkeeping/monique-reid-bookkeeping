@@ -1,6 +1,7 @@
 import React from 'react';
 import { Logo } from './Logo';
 import { PageView } from '../types';
+import { pathFor } from '../router';
 import { Calendar, ArrowUp, ExternalLink, Mail } from 'lucide-react';
 import { CONTACT_EMAIL } from '../constants/booking';
 
@@ -36,36 +37,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-[#E2E8F0]/90">
               <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   QuickBooks Cleanup &amp; Catch-Up
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Specialized Monthly Bookkeeping
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Financial Reporting &amp; KPIs
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   QuickBooks Setup &amp; Restructuring
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -77,28 +70,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-[#E2E8F0]/90">
               <li>
-                <button
-                  onClick={() => onNavigate('dashboard')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('dashboard')} onClick={(e) => { e.preventDefault(); onNavigate('dashboard'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Financial Dashboard
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('calculator')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('calculator')} onClick={(e) => { e.preventDefault(); onNavigate('calculator'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Profit Calculator
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('blog')}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('blog')} onClick={(e) => { e.preventDefault(); onNavigate('blog'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Bookkeeping Blog
-                </button>
+                </a>
               </li>
               <li>
                 <button
@@ -167,19 +154,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
             <p>© 2026 Monique Reid Bookkeeping • Fort Lauderdale, FL • All rights reserved.</p>
             <span className="hidden sm:inline text-white/30">·</span>
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => onNavigate('terms')}
-                className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer"
-              >
+              <a href={pathFor('terms')} onClick={(e) => { e.preventDefault(); onNavigate('terms'); }}
+                className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer">
                 Terms of Service
-              </button>
+              </a>
               <span className="text-white/30">·</span>
-              <button
-                onClick={() => onNavigate('privacy')}
-                className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer"
-              >
+              <a href={pathFor('privacy')} onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}
+                className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer">
                 Privacy Policy
-              </button>
+              </a>
             </div>
           </div>
 

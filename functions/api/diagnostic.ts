@@ -4,8 +4,11 @@
 //  Calls Gemini API to generate unique 3-step plans
 // ============================================================
 
+import { allowedOrigin, clean, corsHeaders, json, rateLimited, readJsonBody } from '../_lib/security';
+
 export interface Env {
   GEMINI_API_KEY: string;
+  GEMINI_MODEL?: string; // optional; defaults to gemini-2.0-flash
 }
 
 interface DiagnosticRequest {
@@ -20,46 +23,47 @@ interface Step {
   body: string;
 }
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
-
-// Handle CORS preflight
-export const onRequestOptions: PagesFunction = async () => {
-  return new Response(null, { status: 204, headers: CORS_HEADERS });
+// Handle CORS preflight (our own pages only)
+export const onRequestOptions: PagesFunction = async (context) => {
+  const origin = allowedOrigin(context.request);
+  return new Response(null, { status: origin ? 204 : 403, headers: corsHeaders(origin) });
 };
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
+  const origin = allowedOrigin(context.request);
+  if (!origin) return json({ error: 'Forbidden' }, 403, null);
+  if (rateLimited(context.request, 'diagnostic', 8)) {
+    return json({ error: 'Too many requests' }, 429, origin);
+  }
+
   try {
-    const body = await context.request.json() as DiagnosticRequest;
-    const { status = '', pos = '', packages = '', accounts = '' } = body;
+    const body = await readJsonBody(context.request);
+    if (!body) return json({ error: 'Invalid request' }, 400, origin);
+
+    // Short, single-line values only: these go into an AI prompt.
+    const status = clean(body.status, 120);
+    const pos = clean(body.pos, 60);
+    const packages = clean(body.packages, 200);
+    const accounts = clean(body.accounts, 40);
 
     if (!status || !pos) {
-      return Response.json(
-        { error: 'Missing required fields' },
-        { status: 400, headers: CORS_HEADERS },
-      );
+      return json({ error: 'Missing required fields' }, 400, origin);
     }
 
     const apiKey = context.env.GEMINI_API_KEY;
     if (!apiKey) {
       console.error('GEMINI_API_KEY not configured');
-      return Response.json(
-        { error: 'API not configured' },
-        { status: 500, headers: CORS_HEADERS },
-      );
+      return json({ error: 'API not configured' }, 500, origin);
     }
 
     const prompt = buildPrompt(status, pos, packages, accounts);
 
     const geminiUrl =
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+      `https://generativelanguage.googleapis.com/v1beta/models/${context.env.GEMINI_MODEL || 'gemini-2.0-flash'}:generateContent`;
 
     const geminiRes = await fetch(geminiUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
@@ -73,10 +77,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     if (!geminiRes.ok) {
       const errText = await geminiRes.text().catch(() => '');
       console.error('Gemini API error:', geminiRes.status, errText);
-      return Response.json(
-        { error: 'AI service unavailable' },
-        { status: 502, headers: CORS_HEADERS },
-      );
+      return json({ error: 'AI service unavailable' }, 502, origin);
     }
 
     const geminiData = await geminiRes.json() as {
@@ -89,20 +90,14 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const steps = parseSteps(rawText);
     if (!steps) {
       console.error('Failed to parse steps from Gemini response:', rawText);
-      return Response.json(
-        { error: 'Unexpected AI response format' },
-        { status: 500, headers: CORS_HEADERS },
-      );
+      return json({ error: 'Unexpected AI response format' }, 500, origin);
     }
 
-    return Response.json({ steps }, { headers: CORS_HEADERS });
+    return json({ steps }, 200, origin);
 
   } catch (err) {
     console.error('Diagnostic function error:', err);
-    return Response.json(
-      { error: 'Internal error' },
-      { status: 500, headers: CORS_HEADERS },
-    );
+    return json({ error: 'Internal error' }, 500, origin);
   }
 };
 
@@ -134,7 +129,7 @@ function parseSteps(raw: string): Step[] | null {
   try {
     // Try direct parse first (when responseMimeType = application/json works)
     const direct = JSON.parse(raw.trim());
-    if (isValidSteps(direct)) return direct;
+    if (isValidSteps(direct)) return tidy(direct);
   } catch { /* fall through */ }
 
   // Extract array from anywhere in the string
@@ -143,10 +138,14 @@ function parseSteps(raw: string): Step[] | null {
 
   try {
     const parsed = JSON.parse(match[0]);
-    if (isValidSteps(parsed)) return parsed;
+    if (isValidSteps(parsed)) return tidy(parsed);
   } catch { /* fall through */ }
 
   return null;
+}
+
+function tidy(steps: Step[]): Step[] {
+  return steps.map((s) => ({ title: clean(s.title, 80), body: clean(s.body, 420) }));
 }
 
 function isValidSteps(val: unknown): val is Step[] {

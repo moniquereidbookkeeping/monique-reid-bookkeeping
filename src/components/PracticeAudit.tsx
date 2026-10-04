@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TurnstileWidget } from './TurnstileWidget';
 import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Lock, Loader2 } from 'lucide-react';
 
 const LEAD_URL = '/api/lead';
@@ -120,6 +121,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   // Lead capture
   const [leadName, setLeadName] = useState<string>('');
   const [leadEmail, setLeadEmail] = useState<string>('');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState<string>('');
 
@@ -239,9 +241,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     setCompleted(true);
 
     const diagPayload = { ...answers };
-    const aiSteps = await fetchAIPlan(diagPayload);
-    const stepsForEmail = aiSteps ?? getFallbackPlan(answers.status, answers.pos);
-    const aiSucceeded = aiSteps !== null;
+    await fetchAIPlan(diagPayload);
 
     fetch(LEAD_URL, {
       method: 'POST',
@@ -256,8 +256,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
         revenue: answers.revenue,
         timeInBusiness: answers.timeInBusiness,
         challenge: answers.challenge,
-        steps: stepsForEmail,
-        aiError: !aiSucceeded,
+        turnstileToken,
       }),
     }).catch(() => {/* silent */});
 
@@ -365,12 +364,12 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                   {showOtherPos && (
                     <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <label className="block text-sm font-semibold text-[#1A2E40]">
+                      <label htmlFor="audit-other-platform" className="block text-sm font-semibold text-[#1A2E40]">
                         Please enter your platform name:
                       </label>
                       <div className="flex gap-3">
                         <input
-                          type="text"
+                          id="audit-other-platform" type="text"
                           value={otherPosValue}
                           onChange={(e) => setOtherPosValue(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && handleOtherPosSubmit()}
@@ -516,12 +515,12 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                   {showOtherChallenge && (
                     <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <label className="block text-sm font-semibold text-[#1A2E40]">
+                      <label htmlFor="audit-other-challenge" className="block text-sm font-semibold text-[#1A2E40]">
                         Describe your challenge:
                       </label>
                       <div className="flex gap-3">
                         <input
-                          type="text"
+                          id="audit-other-challenge" type="text"
                           value={otherChallengeValue}
                           onChange={(e) => setOtherChallengeValue(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && handleOtherChallengeSubmit()}
@@ -577,9 +576,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-[#1A2E40]">First Name</label>
+                    <label htmlFor="audit-first-name" className="block text-sm font-semibold text-[#1A2E40]">First Name</label>
                     <input
-                      type="text"
+                      id="audit-first-name" autoComplete="given-name" type="text"
                       value={leadName}
                       onChange={(e) => setLeadName(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && handleLeadSubmit()}
@@ -589,9 +588,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="block text-sm font-semibold text-[#1A2E40]">Email Address</label>
+                    <label htmlFor="audit-email" className="block text-sm font-semibold text-[#1A2E40]">Email Address</label>
                     <input
-                      type="email"
+                      id="audit-email" autoComplete="email" type="email"
                       value={leadEmail}
                       onChange={(e) => setLeadEmail(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && handleLeadSubmit()}
@@ -600,6 +599,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     />
                   </div>
                 </div>
+
+                <TurnstileWidget onToken={setTurnstileToken} />
 
                 {submitError && (
                   <p className="text-sm text-red-500 font-medium">{submitError}</p>

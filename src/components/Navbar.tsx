@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { PageView } from '../types';
+import { pathFor } from '../router';
 import { Calendar, Menu, X, ChevronRight, ArrowUpRight, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
@@ -94,10 +95,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navItems.map((item) => {
               const isActive = currentPage === item.page && !item.scrollTo;
               return (
-                <button
+                <a
                   key={item.page + item.id}
                   id={item.id}
-                  onClick={() => handleNavClick(item.page, item.scrollTo)}
+                  href={item.scrollTo ? `/#${item.scrollTo}` : pathFor(item.page)}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(item.page, item.scrollTo); }}
                   className={`px-3 py-2 xl:px-3.5 xl:py-2 text-[13.5px] xl:text-[14px] tracking-[0.01em] transition-all duration-200 rounded-lg relative cursor-pointer ${
                     isActive
                       ? 'text-[#1A2E40] font-semibold bg-[#FAF8F5]'
@@ -108,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {isActive && (
                     <span className="absolute -bottom-1 left-2.5 right-2.5 h-[2px] bg-[#D4AF37] rounded-full shadow-[0_1px_3px_rgba(212,175,55,0.4)]" />
                   )}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -152,10 +154,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navItems.map((item) => {
               const isActive = currentPage === item.page && !item.scrollTo;
               return (
-                <button
+                <a
                   key={`mob-${item.page}-${item.id}`}
                   id={`mobile-${item.id}`}
-                  onClick={() => handleNavClick(item.page, item.scrollTo)}
+                  href={item.scrollTo ? `/#${item.scrollTo}` : pathFor(item.page)}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(item.page, item.scrollTo); }}
                   className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium flex items-center justify-between transition-colors cursor-pointer ${
                     isActive
                       ? 'bg-[#1A2E40] text-[#D4AF37] font-semibold'
@@ -164,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <span>{item.label}</span>
                   <ChevronRight className="w-4 h-4 text-[#D4AF37]" />
-                </button>
+                </a>
               );
             })}
 

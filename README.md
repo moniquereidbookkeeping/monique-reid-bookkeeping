@@ -1,20 +1,19 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Monique Reid Bookkeeping
 
-# Run and deploy your AI Studio app
+Website for Monique Reid Bookkeeping: QuickBooks bookkeeping for MedSpas, aesthetic clinics and wellness practices.
 
-This contains everything you need to run your app locally.
+- **Stack:** React + Vite + Tailwind, hosted on Cloudflare Pages
+- **Server code:** `functions/api/lead.ts` (lead capture, email, Google Sheet) and `functions/api/diagnostic.ts` (AI plan)
+- **Blog:** posts live in `src/data/blogPosts.ts`. A GitHub Action drafts a new article twice a week and opens a pull request for review. Merging it publishes it.
+- **Sitemap:** `public/sitemap.xml` is generated from the page list and blog posts on every build.
 
-View your app in AI Studio: https://ai.studio/apps/425f8f1b-9ab2-4e28-be17-e313b412f177
+## Run locally
 
-## Run Locally
+```
+npm install
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+## Secrets
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Real keys are set in the Cloudflare Pages dashboard and GitHub Actions secrets. See `.env.example` for the names. Never commit real keys.
