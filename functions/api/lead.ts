@@ -12,10 +12,10 @@
 //    GOOGLE_SA_KEY        — service account JSON (full text, single line)
 //    SPREADSHEET_ID       — ID of the Google Sheet that receives leads
 //    TURNSTILE_SECRET_KEY — optional; when set, every request must pass Cloudflare Turnstile
-//    GEMINI_MODEL         — optional; defaults to gemini-2.0-flash
+//    GEMINI_MODEL         — optional; defaults to the model set in _lib/security.ts
 // ============================================================
 
-import { allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
+import { DEFAULT_GEMINI_MODEL, allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
 
 export interface Env {
   GEMINI_API_KEY: string;
@@ -72,10 +72,11 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     }
 
     // Run Gemini + tier detection in parallel
-    const [expert, tier] = await Promise.all([
+    const [briefResult, tier] = await Promise.all([
       generateExpertBrief(ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge),
       Promise.resolve(detectTier(pos, packages, accounts, revenue)),
     ]);
+    const expert = briefResult.brief;
     const cleanup = getCleanupRec(status);
     const autoNote = getAutoNote(status);
 
@@ -88,7 +89,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     // Emails — fire both, don't block on sheet
     const emailPromises = [
       sendNotifyEmail(ctx.env, { name, email, pos, status, packages, accounts,
-        revenue, timeInBusiness, challenge, tier, cleanup, autoNote, aiError, expert }),
+        revenue, timeInBusiness, challenge, tier, cleanup, autoNote, aiError, expert, aiFailure: briefResult.reason }),
       sendThankYouEmail(ctx.env, { name, email, pos, status, steps, aiError }),
     ];
 
@@ -225,8 +226,8 @@ interface ExpertBrief {
 async function generateExpertBrief(
   env: Env, pos: string, status: string, packages: string,
   accounts: string, revenue: string, timeInBusiness: string, challenge: string,
-): Promise<ExpertBrief | null> {
-  if (!env.GEMINI_API_KEY) return null;
+): Promise<{ brief: ExpertBrief | null; reason: string }> {
+  if (!env.GEMINI_API_KEY) return { brief: null, reason: 'GEMINI_API_KEY is not set in Cloudflare' };
 
   const prompt =
     'You are the expert AI advisor for Monique Reid, a Certified QuickBooks ProAdvisor specializing exclusively in MedSpas, aesthetic clinics, and wellness practices. A prospect just submitted a bookkeeping health-check. Write Monique\'s private pre-call brief.\n\n' +
@@ -248,22 +249,37 @@ async function generateExpertBrief(
 
   try {
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL || 'gemini-2.0-flash'}:generateContent`,
+      `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL}:generateContent`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.7, maxOutputTokens: 1400, responseMimeType: 'application/json' },
+          // Generous limit: newer Gemini models spend part of it on internal "thinking".
+          generationConfig: { temperature: 0.7, maxOutputTokens: 4096, responseMimeType: 'application/json' },
         }),
       }
     );
-    const json = await res.json() as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
-    const text = json.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
-    return JSON.parse(text.trim()) as ExpertBrief;
+    const json = await res.json().catch(() => ({})) as {
+      candidates?: { finishReason?: string; content?: { parts?: { text?: string }[] } }[];
+      error?: { message?: string };
+    };
+    if (!res.ok) {
+      const msg = (json.error?.message ?? '').replace(/AIza[\w-]+/g, '[key]').slice(0, 160);
+      console.error('Gemini expert brief HTTP error:', res.status, msg);
+      return { brief: null, reason: `Gemini returned HTTP ${res.status}${msg ? ': ' + msg : ''}` };
+    }
+    const cand = json.candidates?.[0];
+    const text = cand?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
+    if (!text) return { brief: null, reason: `Gemini returned no text (finish reason: ${cand?.finishReason ?? 'none'})` };
+    try {
+      return { brief: JSON.parse(text.trim()) as ExpertBrief, reason: '' };
+    } catch {
+      return { brief: null, reason: `Gemini output was not valid JSON (finish reason: ${cand?.finishReason ?? 'unknown'})` };
+    }
   } catch (err) {
     console.error('Gemini expert brief error:', err);
-    return null;
+    return { brief: null, reason: 'Could not reach Gemini' };
   }
 }
 
@@ -349,7 +365,7 @@ async function sendNotifyEmail(env: Env, d: {
   name: string; email: string; pos: string; status: string; packages: string;
   accounts: string; revenue: string; timeInBusiness: string; challenge: string;
   tier: Tier; cleanup: Cleanup; autoNote: string; aiError: boolean;
-  expert: ExpertBrief | null;
+  expert: ExpertBrief | null; aiFailure: string;
 }): Promise<void> {
   const cleanupBlock =
     '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
@@ -378,7 +394,7 @@ async function sendNotifyEmail(env: Env, d: {
       '💼 RECOMMENDED PACKAGE\n' + (d.expert.recommendedPackage ?? '') + '\n' +
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
   } else {
-    expertBlock = '\n[AI expert brief unavailable — check GEMINI_API_KEY]';
+    expertBlock = '\n[AI expert brief unavailable — ' + (d.aiFailure || 'reason unknown') + ']';
   }
 
   await sendViaResend(env, {

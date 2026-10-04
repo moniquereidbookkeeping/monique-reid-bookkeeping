@@ -1,6 +1,9 @@
 // Shared request-safety helpers for the Pages Functions (/api/lead, /api/diagnostic).
 // This file exports no onRequest handlers, so Cloudflare Pages does not turn it into a route.
 
+/** Google retired gemini-2.0-flash on 1 June 2026. Override with the GEMINI_MODEL variable if this one changes. */
+export const DEFAULT_GEMINI_MODEL = 'gemini-3.6-flash';
+
 const ALLOWED_ORIGINS = new Set([
   'https://moniquereidbookkeeping.com',
   'https://www.moniquereidbookkeeping.com',

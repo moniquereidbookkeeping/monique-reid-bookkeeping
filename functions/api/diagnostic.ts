@@ -4,11 +4,11 @@
 //  Calls Gemini API to generate unique 3-step plans
 // ============================================================
 
-import { allowedOrigin, clean, corsHeaders, json, rateLimited, readJsonBody } from '../_lib/security';
+import { DEFAULT_GEMINI_MODEL, allowedOrigin, clean, corsHeaders, json, rateLimited, readJsonBody } from '../_lib/security';
 
 export interface Env {
   GEMINI_API_KEY: string;
-  GEMINI_MODEL?: string; // optional; defaults to gemini-2.0-flash
+  GEMINI_MODEL?: string; // optional; see DEFAULT_GEMINI_MODEL
 }
 
 interface DiagnosticRequest {
@@ -59,7 +59,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const prompt = buildPrompt(status, pos, packages, accounts);
 
     const geminiUrl =
-      `https://generativelanguage.googleapis.com/v1beta/models/${context.env.GEMINI_MODEL || 'gemini-2.0-flash'}:generateContent`;
+      `https://generativelanguage.googleapis.com/v1beta/models/${context.env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL}:generateContent`;
 
     const geminiRes = await fetch(geminiUrl, {
       method: 'POST',
@@ -68,7 +68,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.75,
-          maxOutputTokens: 650,
+          maxOutputTokens: 2048,
           responseMimeType: 'application/json',
         },
       }),
