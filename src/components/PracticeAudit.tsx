@@ -240,6 +240,12 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
       return;
     }
 
+    const turnstileOn = Boolean((import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_TURNSTILE_SITE_KEY);
+    if (turnstileOn && !turnstileToken) {
+      setSubmitError('Please wait a moment for the security check to finish, then try again.');
+      return;
+    }
+
     setSubmitError('');
     setSubmitting(true);
     setCompleted(true);
