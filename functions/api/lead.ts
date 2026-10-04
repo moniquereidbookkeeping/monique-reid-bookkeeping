@@ -73,11 +73,11 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
 
     // Run Gemini + tier detection in parallel
     const tier = detectTier(pos, packages, accounts, revenue);
+    const cleanup = getCleanupRec(status);
     const briefResult = await generateExpertBrief(
-      ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge, tier,
+      ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge, tier, cleanup,
     );
     const expert = briefResult.brief;
-    const cleanup = getCleanupRec(status);
     const autoNote = getAutoNote(status);
 
     // The plan emailed to the prospect is built here on the server. Nothing the
@@ -192,7 +192,7 @@ function getCleanupRec(status: string): Cleanup {
   if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
     return { needed: true, label: '🟡 LIGHT CATCH-UP', tier: '1–3 Months Behind → Light Catch-Up',
       price: '$597 (fixed fee)',
-      note: 'Quick catch-up — most clients are current within 2–3 weeks. Move to monthly immediately after.' };
+      note: 'Quick catch-up — confirm scope and timeline on the call after reviewing their books. Move to monthly immediately after.' };
   }
   if (s.includes('new') || s.includes('not') || s.includes('set up')) {
     return { needed: false, label: '🔵 NEW SETUP NEEDED', tier: 'No QuickBooks Yet / Not Set Up',
@@ -225,7 +225,7 @@ interface ExpertBrief {
 
 async function generateExpertBrief(
   env: Env, pos: string, status: string, packages: string,
-  accounts: string, revenue: string, timeInBusiness: string, challenge: string, tier: Tier,
+  accounts: string, revenue: string, timeInBusiness: string, challenge: string, tier: Tier, cleanup: Cleanup,
 ): Promise<{ brief: ExpertBrief | null; reason: string }> {
   if (!env.GEMINI_API_KEY) return { brief: null, reason: 'GEMINI_API_KEY is not set in Cloudflare' };
 
@@ -243,7 +243,7 @@ async function generateExpertBrief(
     'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "1099 vs W-2 misclassification," "service-line margin tracking").\n\n' +
     'SOLUTION PLAN: 3 steps. Each step: title (5-7 words) + body (2-3 sentences). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
     'DISCOVERY CALL QUESTIONS: 4 sharp questions Monique should ask — specific to this platform, revenue model, practice age, and stated challenge. Not generic — make them sound like a specialist who already knows their world.\n\n' +
-    'RECOMMENDED PACKAGE: One sentence. Our system has already matched this prospect to the ' + tier.name + ' tier (' + tier.price + '). Recommend exactly that tier, do not name any other tier or price, and say why it fits. Note if a one-time cleanup is likely needed first based on their QB status.\n\n' +
+    'RECOMMENDED PACKAGE: One sentence. Our system has already matched this prospect to the ' + tier.name + ' tier (' + tier.price + '). Recommend exactly that tier, do not name any other tier or price, and say why it fits. Our system\'s cleanup assessment for this prospect is: ' + cleanup.label + ' (' + cleanup.note + '). Your package sentence must agree with that assessment: mention a one-time cleanup only if it says one is needed, and never promise how long anything will take.\n\n' +
     'Return ONLY valid JSON, no markdown wrapper:\n' +
     '{"diagnosis":"string","steps":[{"title":"string","body":"string"},{"title":"string","body":"string"},{"title":"string","body":"string"}],"questions":["string","string","string","string"],"recommendedPackage":"string"}';
 
