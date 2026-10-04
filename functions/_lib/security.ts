@@ -138,9 +138,13 @@ export async function verifyTurnstile(
   }
 }
 
+export const FALLBACK_GEMINI_MODEL = 'gemini-3.5-flash-lite';
+
 /**
- * Calls Gemini with low "thinking" effort so replies come back in a few seconds.
- * If Google rejects the thinking setting (HTTP 400), it retries once without it.
+ * Calls Gemini and keeps going if Google is busy.
+ *  - low "thinking" effort so replies come back in a few seconds
+ *    (retried without it if Google rejects the setting with HTTP 400)
+ *  - if the model is overloaded (429/500/503/504): one quick retry, then a backup model
  */
 export async function callGemini(
   model: string,
@@ -148,14 +152,23 @@ export async function callGemini(
   prompt: string,
   generationConfig: Record<string, unknown>,
 ): Promise<Response> {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-  const send = (cfg: Record<string, unknown>) =>
-    fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: cfg }),
-    });
-  const res = await send({ ...generationConfig, thinkingConfig: { thinkingLevel: 'low' } });
-  if (res.status === 400) return send(generationConfig);
-  return res;
+  const attempt = async (m: string): Promise<Response> => {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`;
+    const send = (cfg: Record<string, unknown>) =>
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: cfg }),
+      });
+    const res = await send({ ...generationConfig, thinkingConfig: { thinkingLevel: 'low' } });
+    return res.status === 400 ? send(generationConfig) : res;
+  };
+  const busy = (r: Response) => [429, 500, 503, 504].includes(r.status);
+
+  let res = await attempt(model);
+  if (!busy(res)) return res;
+  await new Promise((r) => setTimeout(r, 600));
+  res = await attempt(model);
+  if (!busy(res) || model === FALLBACK_GEMINI_MODEL) return res;
+  return attempt(FALLBACK_GEMINI_MODEL);
 }
