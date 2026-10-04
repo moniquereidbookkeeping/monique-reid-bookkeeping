@@ -137,3 +137,25 @@ export async function verifyTurnstile(
     return false;
   }
 }
+
+/**
+ * Calls Gemini with low "thinking" effort so replies come back in a few seconds.
+ * If Google rejects the thinking setting (HTTP 400), it retries once without it.
+ */
+export async function callGemini(
+  model: string,
+  apiKey: string,
+  prompt: string,
+  generationConfig: Record<string, unknown>,
+): Promise<Response> {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+  const send = (cfg: Record<string, unknown>) =>
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: cfg }),
+    });
+  const res = await send({ ...generationConfig, thinkingConfig: { thinkingLevel: 'low' } });
+  if (res.status === 400) return send(generationConfig);
+  return res;
+}

@@ -15,7 +15,7 @@
 //    GEMINI_MODEL         — optional; defaults to the model set in _lib/security.ts
 // ============================================================
 
-import { DEFAULT_GEMINI_MODEL, allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
+import { callGemini, DEFAULT_GEMINI_MODEL, allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
 
 export interface Env {
   GEMINI_API_KEY: string;
@@ -248,17 +248,11 @@ async function generateExpertBrief(
     '{"diagnosis":"string","steps":[{"title":"string","body":"string"},{"title":"string","body":"string"},{"title":"string","body":"string"}],"questions":["string","string","string","string"],"recommendedPackage":"string"}';
 
   try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL}:generateContent`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          // Generous limit: newer Gemini models spend part of it on internal "thinking".
-          generationConfig: { temperature: 0.7, maxOutputTokens: 4096, responseMimeType: 'application/json' },
-        }),
-      }
+    const res = await callGemini(
+      env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL,
+      env.GEMINI_API_KEY,
+      prompt,
+      { temperature: 0.7, maxOutputTokens: 4096, responseMimeType: 'application/json' },
     );
     const json = await res.json().catch(() => ({})) as {
       candidates?: { finishReason?: string; content?: { parts?: { text?: string }[] } }[];

@@ -4,7 +4,7 @@
 //  Calls Gemini API to generate unique 3-step plans
 // ============================================================
 
-import { DEFAULT_GEMINI_MODEL, allowedOrigin, clean, corsHeaders, json, rateLimited, readJsonBody } from '../_lib/security';
+import { callGemini, DEFAULT_GEMINI_MODEL, allowedOrigin, clean, corsHeaders, json, rateLimited, readJsonBody } from '../_lib/security';
 
 export interface Env {
   GEMINI_API_KEY: string;
@@ -58,21 +58,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     const prompt = buildPrompt(status, pos, packages, accounts);
 
-    const geminiUrl =
-      `https://generativelanguage.googleapis.com/v1beta/models/${context.env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL}:generateContent`;
-
-    const geminiRes = await fetch(geminiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.75,
-          maxOutputTokens: 4096,
-          responseMimeType: 'application/json',
-        },
-      }),
-    });
+    const geminiRes = await callGemini(
+      context.env.GEMINI_MODEL || DEFAULT_GEMINI_MODEL,
+      apiKey,
+      prompt,
+      { temperature: 0.75, maxOutputTokens: 4096, responseMimeType: 'application/json' },
+    );
 
     if (!geminiRes.ok) {
       const errText = await geminiRes.text().catch(() => '');
