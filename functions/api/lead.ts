@@ -265,7 +265,7 @@ async function generateExpertBrief(
       error?: { message?: string };
     };
     if (!res.ok) {
-      const msg = (json.error?.message ?? '').replace(/AIza[\w-]+/g, '[key]').slice(0, 160);
+      const msg = (json.error?.message ?? '').replace(/(AIza|AQ\.)[\w.-]+/g, '[key]').slice(0, 160);
       console.error('Gemini expert brief HTTP error:', res.status, msg);
       return { brief: null, reason: `Gemini returned HTTP ${res.status}${msg ? ': ' + msg : ''}` };
     }
