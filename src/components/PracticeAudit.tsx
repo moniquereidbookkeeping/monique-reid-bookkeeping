@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Lock, Loader2 } from 'lucide-react';
 
-const APPS_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbyCB1po9zvFdyjLYeU_6dQ2VEtQn6-mX7qbQ4x06Mf_L0TkbvXnGA8rQ90ErocyANBi/exec';
+const LEAD_URL = '/api/lead';
 
 const DIAGNOSTIC_URL = '/api/diagnostic';
 
@@ -244,9 +243,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     const stepsForEmail = aiSteps ?? getFallbackPlan(answers.status, answers.pos);
     const aiSucceeded = aiSteps !== null;
 
-    fetch(APPS_SCRIPT_URL, {
+    fetch(LEAD_URL, {
       method: 'POST',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name,
