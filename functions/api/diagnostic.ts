@@ -68,7 +68,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.75,
-          maxOutputTokens: 2048,
+          maxOutputTokens: 4096,
           responseMimeType: 'application/json',
         },
       }),
@@ -77,20 +77,22 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     if (!geminiRes.ok) {
       const errText = await geminiRes.text().catch(() => '');
       console.error('Gemini API error:', geminiRes.status, errText);
-      return json({ error: 'AI service unavailable' }, 502, origin);
+      return json({ error: 'AI service unavailable', reason: `gemini-http-${geminiRes.status}` }, 502, origin);
     }
 
     const geminiData = await geminiRes.json() as {
-      candidates?: { content?: { parts?: { text?: string }[] } }[];
+      candidates?: { finishReason?: string; content?: { parts?: { text?: string }[] } }[];
     };
 
-    const rawText = geminiData.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+    // Newer Gemini models can return several parts; join them all.
+    const cand = geminiData.candidates?.[0];
+    const rawText = cand?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
 
     // Parse the JSON array out of the response
     const steps = parseSteps(rawText);
     if (!steps) {
-      console.error('Failed to parse steps from Gemini response:', rawText);
-      return json({ error: 'Unexpected AI response format' }, 500, origin);
+      console.error('Failed to parse steps from Gemini response:', cand?.finishReason, rawText);
+      return json({ error: 'Unexpected AI response format', reason: `finish:${cand?.finishReason ?? 'none'} len:${rawText.length}` }, 500, origin);
     }
 
     return json({ steps }, 200, origin);

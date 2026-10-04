@@ -208,7 +208,11 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const info = await res.json().catch(() => ({})) as { reason?: string };
+        console.warn('AI plan unavailable:', res.status, info.reason ?? '');
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json() as { steps?: Step[] };
       if (data.steps && data.steps.length === 3) {
         setAiPlan(data.steps);
