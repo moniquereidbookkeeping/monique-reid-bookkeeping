@@ -20,7 +20,7 @@ interface ServicesSectionProps {
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) => {
   const [activeTab, setActiveTab] = useState<string>('all');
-  type PricingTier = { label: string; price: string };
+  type PricingTier = { label: string; price: string; desc: string; badge?: string; color: string };
 
   const services = [
     {
@@ -42,10 +42,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       ],
       startingPrice: 'From $597 (1–3 months)',
       pricingTiers: [
-        { label: '1–3 months behind', price: '$597' },
-        { label: '4–6 months behind', price: '$1,297' },
-        { label: '7–12 months behind', price: '$1,997' },
-        { label: '2+ years / multi-entity', price: 'Custom quote' },
+        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Most clients are fully current within 2–3 weeks.', color: '#16A34A' },
+        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Most Common', color: '#D97706' },
+        { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full audit trail.', color: '#DC2626' },
+        { label: '2+ years / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Multi-year and multi-entity engagements quoted after assessment.', color: '#6B7280' },
       ],
       noticeTitle: 'Cleanup Pricing Guide',
       notice: 'All cleanup projects include a complimentary preliminary review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',
@@ -301,12 +301,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <div className="mb-4 rounded-xl border border-[#D4AF37]/30 overflow-hidden">
                       <div className="px-3.5 py-2 bg-[#FAF8F5] border-b border-[#D4AF37]/20 flex items-center gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37]" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1A2E40]">Cleanup Pricing</span>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1A2E40]">Cleanup Pricing — Fixed Fee by Backlog Size</span>
                       </div>
                       {(svc as { pricingTiers: PricingTier[] }).pricingTiers.map((tier, i) => (
-                        <div key={i} className={`flex items-center justify-between px-3.5 py-2.5 text-xs ${i % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'} border-b border-[#E2E8F0] last:border-b-0`}>
-                          <span className="text-[#4A5568]">{tier.label}</span>
-                          <span className="font-bold text-[#1A2E40]">{tier.price}</span>
+                        <div key={i} className={`px-3.5 py-3 border-b border-[#E2E8F0] last:border-b-0 ${i % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}`}>
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
+                              <span className="text-xs font-semibold text-[#1A2E40] truncate">{tier.label}</span>
+                              {tier.badge && (
+                                <span className="text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#D97706]/10 text-[#D97706] shrink-0">{tier.badge}</span>
+                              )}
+                            </div>
+                            <span className="text-xs font-bold shrink-0" style={{ color: tier.color }}>{tier.price}</span>
+                          </div>
+                          <p className="text-[10px] text-[#64748B] mt-1 ml-4 leading-relaxed">{tier.desc}</p>
                         </div>
                       ))}
                     </div>
