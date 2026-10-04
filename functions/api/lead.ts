@@ -1,0 +1,512 @@
+// ============================================================
+//  Monique Reid Bookkeeping — Lead Capture Worker
+//  Cloudflare Pages Function: POST /api/lead
+//
+//  Replaces Google Apps Script entirely.
+//  Handles: Gemini expert brief · Resend emails · Sheets logging
+//
+//  Env vars (set in Cloudflare Pages → Settings → Environment Variables):
+//    GEMINI_API_KEY   — already set
+//    RESEND_API_KEY   — from resend.com
+//    GOOGLE_SA_KEY    — service account JSON (full text, single line)
+//    SPREADSHEET_ID   — 1BcekbZli5VRJroBvCtTxUin4o5baaFAoe0MAKXs3wLw
+// ============================================================
+
+export interface Env {
+  GEMINI_API_KEY: string;
+  RESEND_API_KEY: string;
+  GOOGLE_SA_KEY: string;
+  SPREADSHEET_ID: string;
+}
+
+const FROM_EMAIL   = 'monique@moniquereidbookkeeping.com';
+const FROM_NAME    = 'Monique Reid';
+const NOTIFY_EMAIL = 'moniquethebookkeeper@gmail.com';
+const CALENDLY     = 'https://calendly.com/moniquethebookkeeper/20min';
+const SHEET_NAME   = 'Leads';
+
+const CORS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+export const onRequestOptions: PagesFunction = async () =>
+  new Response(null, { status: 204, headers: CORS });
+
+// ─────────────────────────────────────────────
+//  Main handler
+// ─────────────────────────────────────────────
+export const onRequestPost: PagesFunction<Env> = async (ctx) => {
+  try {
+    const data = await ctx.request.json() as Record<string, unknown>;
+
+    const name           = String(data.name           ?? '');
+    const email          = String(data.email          ?? '');
+    const pos            = String(data.pos            ?? '');
+    const status         = String(data.status         ?? '');
+    const packages       = String(data.packages       ?? '');
+    const accounts       = String(data.accounts       ?? '');
+    const revenue        = String(data.revenue        ?? '');
+    const timeInBusiness = String(data.timeInBusiness ?? '');
+    const challenge      = String(data.challenge      ?? '');
+    const steps          = Array.isArray(data.steps) ? data.steps as {title:string;body:string}[] : [];
+    const aiError        = data.aiError === true;
+
+    if (!name || !email) {
+      return Response.json({ error: 'Missing name or email' }, { status: 400, headers: CORS });
+    }
+
+    // Run Gemini + tier detection in parallel
+    const [expert, tier] = await Promise.all([
+      generateExpertBrief(ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge),
+      Promise.resolve(detectTier(pos, packages, accounts, revenue)),
+    ]);
+    const cleanup = getCleanupRec(status);
+    const autoNote = getAutoNote(status);
+
+    // Emails — fire both, don't block on sheet
+    const emailPromises = [
+      sendNotifyEmail(ctx.env, { name, email, pos, status, packages, accounts,
+        revenue, timeInBusiness, challenge, tier, cleanup, autoNote, aiError, expert }),
+      sendThankYouEmail(ctx.env, { name, email, pos, status, steps, aiError }),
+    ];
+
+    // Sheet append — fire & forget (don't fail the response if sheet is slow)
+    const sheetPromise = appendToSheet(ctx.env, {
+      name, email, pos, status, packages, accounts, revenue, timeInBusiness,
+      challenge, autoNote, tier, cleanup, expert,
+    }).catch(err => console.error('Sheet append failed:', err));
+
+    await Promise.all([...emailPromises, sheetPromise]);
+
+    return Response.json({ success: true }, { headers: CORS });
+
+  } catch (err) {
+    console.error('Lead handler error:', err);
+    return Response.json({ success: false, error: String(err) }, { status: 500, headers: CORS });
+  }
+};
+
+// ─────────────────────────────────────────────
+//  Tier detection
+// ─────────────────────────────────────────────
+interface Tier { name: string; price: string; flag: string; priority: string }
+
+function detectTier(pos: string, packages: string, accounts: string, revenue: string): Tier {
+  const pkg = packages.toLowerCase();
+  const acct = accounts.toLowerCase();
+  const p = pos.toLowerCase();
+  const rev = revenue.toLowerCase();
+
+  if (p.includes('multiple') || p.includes('multi') ||
+      /[5-9]|10\+|more/.test(acct) ||
+      rev.includes('75,000') || rev.includes('75k')) {
+    return { name: 'Full-Spectrum', price: '$1,197/mo', flag: '🔴', priority: 'HIGH-VALUE' };
+  }
+  if (pkg.includes('member') || pkg.includes('subscription') ||
+      pkg.includes('cherry') || pkg.includes('carecredit') || pkg.includes('patientfi') ||
+      pkg.includes('package') || pkg.includes('prepaid') ||
+      rev.includes('30,000') || rev.includes('30k')) {
+    return { name: 'Growth', price: '$797/mo', flag: '🟡', priority: 'STRONG FIT' };
+  }
+  return { name: 'Entry', price: '$497/mo', flag: '🟢', priority: 'MAINTENANCE' };
+}
+
+// ─────────────────────────────────────────────
+//  Cleanup recommendation
+// ─────────────────────────────────────────────
+interface Cleanup { needed: boolean; label: string; tier: string; price: string; note: string }
+
+function getCleanupRec(status: string): Cleanup {
+  const s = status.toLowerCase();
+  if (s.includes('cleanup') || s.includes('4 to 12')) {
+    return { needed: true, label: '🔴 CLEANUP REQUIRED', tier: '4–12 Months Behind → Full Cleanup',
+      price: '$1,297 (4–6 months)  ·  $1,997 (7–12 months)',
+      note: 'Full cleanup engagement needed BEFORE starting monthly bookkeeping.' };
+  }
+  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
+    return { needed: true, label: '🟡 LIGHT CATCH-UP', tier: '1–3 Months Behind → Light Catch-Up',
+      price: '$597 (fixed fee)',
+      note: 'Quick catch-up — most clients are current within 2–3 weeks. Move to monthly immediately after.' };
+  }
+  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
+    return { needed: false, label: '🔵 NEW SETUP NEEDED', tier: 'No QuickBooks Yet / Not Set Up',
+      price: 'QBO Setup — project-based pricing',
+      note: 'Recommend the QBO Setup service first. No cleanup needed.' };
+  }
+  return { needed: false, label: '✅ NO CLEANUP NEEDED', tier: 'Books Are Current',
+    price: 'N/A — ready for Monthly Bookkeeping',
+    note: 'Books are current. Can start monthly bookkeeping immediately.' };
+}
+
+function getAutoNote(status: string): string {
+  const s = status.toLowerCase();
+  if (s.includes('cleanup') || s.includes('4 to 12')) return '🚨 Full cleanup required — priority outreach';
+  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) return '🔄 Light catchup needed — catchup + monthly package';
+  if (s.includes('current') || s.includes('ongoing')) return '✅ Books current — maintenance + reporting plan';
+  if (s.includes('new') || s.includes('not') || s.includes('set up')) return '🆕 New setup — QBO onboarding package';
+  return '📋 Review needed';
+}
+
+// ─────────────────────────────────────────────
+//  Gemini — private expert brief for Monique
+// ─────────────────────────────────────────────
+interface ExpertBrief {
+  diagnosis: string;
+  steps: { title: string; body: string }[];
+  questions: string[];
+  recommendedPackage: string;
+}
+
+async function generateExpertBrief(
+  env: Env, pos: string, status: string, packages: string,
+  accounts: string, revenue: string, timeInBusiness: string, challenge: string,
+): Promise<ExpertBrief | null> {
+  if (!env.GEMINI_API_KEY) return null;
+
+  const prompt =
+    'You are the expert AI advisor for Monique Reid, a Certified QuickBooks ProAdvisor specializing exclusively in MedSpas, aesthetic clinics, and wellness practices. A prospect just submitted a bookkeeping health-check. Write Monique\'s private pre-call brief.\n\n' +
+    'PROSPECT PROFILE:\n' +
+    '- POS / Software: ' + (pos || 'not specified') + '\n' +
+    '- QuickBooks Status: ' + (status || 'not specified') + '\n' +
+    '- Revenue Model: ' + (packages || 'not specified') + '\n' +
+    '- Bank/Card/Financing Accounts: ' + (accounts || 'not specified') + '\n' +
+    '- Monthly Revenue: ' + (revenue || 'not specified') + '\n' +
+    '- Practice Age: ' + (timeInBusiness || 'not specified') + '\n' +
+    '- Biggest Challenge Stated: ' + (challenge || 'not specified') + '\n\n' +
+    'Write four sections:\n\n' +
+    'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "1099 vs W-2 misclassification," "service-line margin tracking").\n\n' +
+    'SOLUTION PLAN: 3 steps. Each step: title (5-7 words) + body (2-3 sentences). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
+    'DISCOVERY CALL QUESTIONS: 4 sharp questions Monique should ask — specific to this platform, revenue model, practice age, and stated challenge. Not generic — make them sound like a specialist who already knows their world.\n\n' +
+    'RECOMMENDED PACKAGE: One sentence naming the tier (Entry $497/mo, Growth $797/mo, or Full-Spectrum $1,197/mo) and why. Note if a one-time cleanup is likely needed first based on their QB status.\n\n' +
+    'Return ONLY valid JSON, no markdown wrapper:\n' +
+    '{"diagnosis":"string","steps":[{"title":"string","body":"string"},{"title":"string","body":"string"},{"title":"string","body":"string"}],"questions":["string","string","string","string"],"recommendedPackage":"string"}';
+
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${env.GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 1400, responseMimeType: 'application/json' },
+        }),
+      }
+    );
+    const json = await res.json() as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
+    const text = json.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+    return JSON.parse(text.trim()) as ExpertBrief;
+  } catch (err) {
+    console.error('Gemini expert brief error:', err);
+    return null;
+  }
+}
+
+// ─────────────────────────────────────────────
+//  Email helpers (same copy as AppScript)
+// ─────────────────────────────────────────────
+function getStatusParagraph(status: string, pos: string): string {
+  const s = status.toLowerCase();
+  const platform = pos || 'your platform';
+  if (s.includes('cleanup') || s.includes('4 to 12')) {
+    return `A practice on ${platform} with books that need a full cleanup is exactly where I specialize. The longer that sits, the harder it is to pull accurate revenue numbers — and that affects everything from pricing your packages to tax season. The good news: most cleanups are fully resolved within 30–60 days.`;
+  }
+  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
+    return `Being a few months behind on ${platform} is more common than you'd think — and more fixable than it feels. Most practices like yours are fully caught up within 30 days, with clean monthly reporting going forward from there.`;
+  }
+  if (s.includes('current') || s.includes('ongoing')) {
+    return `Your books being current puts you ahead of most practices I speak with. The opportunity now is making sure your reports are actually telling you something useful — revenue per service line, provider productivity, membership revenue vs. retail. That's where the real growth decisions live.`;
+  }
+  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
+    return `Getting your QuickBooks set up correctly from the start is one of the best investments a new practice can make. Done right, you'll have clean books, accurate reporting, and a tax-ready file from day one — instead of spending thousands on cleanup later.`;
+  }
+  return `Based on what you shared, I can already see the type of support your practice needs. I'd love to walk you through a clear plan and what it would take to get everything current and organized.`;
+}
+
+function getPSLine(status: string): string {
+  const s = status.toLowerCase();
+  if (s.includes('cleanup') || s.includes('4 to 12')) {
+    return `P.S. — Most practices with a backlog like yours are fully caught up within 30–60 days. The longer it sits, the harder it gets. Let's put an end date on it.`;
+  }
+  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
+    return `P.S. — A 1–3 month catchup is one of the quickest fixes in bookkeeping. Most clients are fully current within 2–3 weeks of our first session together.`;
+  }
+  if (s.includes('current') || s.includes('ongoing')) {
+    return `P.S. — Being current is a great foundation. The next level is having reports that actually tell you which services drive your margins — so every business decision is backed by real numbers, not guesswork.`;
+  }
+  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
+    return `P.S. — Getting it right from day one is always cheaper than cleaning it up later. I've seen new practices spend $3,000+ on cleanup that a proper setup at the start would have prevented entirely.`;
+  }
+  return `P.S. — If you have a specific question before we meet, just reply to this email. I read every one.`;
+}
+
+function formatStepsBlock(steps: { title: string; body: string }[]): string {
+  if (!steps.length) return '';
+  let block = 'Here is the 3-step plan I put together specifically for your practice:\n\n';
+  steps.forEach((s, i) => {
+    block += `STEP ${i + 1}: ${s.title.toUpperCase()}\n${s.body}\n\n`;
+  });
+  return block;
+}
+
+// ─────────────────────────────────────────────
+//  Resend email sender
+// ─────────────────────────────────────────────
+async function sendViaResend(env: Env, opts: {
+  to: string; subject: string; text: string;
+  from?: string; fromName?: string; replyTo?: string;
+}): Promise<void> {
+  const from = `${opts.fromName ?? FROM_NAME} <${opts.from ?? FROM_EMAIL}>`;
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from,
+      to: [opts.to],
+      subject: opts.subject,
+      text: opts.text,
+      ...(opts.replyTo ? { reply_to: opts.replyTo } : {}),
+    }),
+  });
+  if (!res.ok) {
+    const txt = await res.text().catch(() => '');
+    throw new Error(`Resend ${res.status}: ${txt}`);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  Notification email → Monique
+// ─────────────────────────────────────────────
+async function sendNotifyEmail(env: Env, d: {
+  name: string; email: string; pos: string; status: string; packages: string;
+  accounts: string; revenue: string; timeInBusiness: string; challenge: string;
+  tier: Tier; cleanup: Cleanup; autoNote: string; aiError: boolean;
+  expert: ExpertBrief | null;
+}): Promise<void> {
+  const cleanupBlock =
+    '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+    '🧹 CLEANUP / SETUP RECOMMENDATION\n' +
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+    d.cleanup.label             + '\n' +
+    'Tier:  ' + d.cleanup.tier  + '\n' +
+    'Price: ' + d.cleanup.price + '\n' +
+    'Note:  ' + d.cleanup.note  + '\n';
+
+  const aiNote = d.aiError
+    ? '\n⚠️  AI DIAGNOSTIC FAILED — template steps were sent to client.\n'
+    : '\n✅  AI-generated plan was included in the thank-you email.\n';
+
+  let expertBlock = '';
+  if (d.expert) {
+    expertBlock =
+      '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+      '🤖 AI EXPERT BRIEF — FOR YOUR EYES ONLY\n' +
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' +
+      '📋 DIAGNOSIS\n' + (d.expert.diagnosis ?? '') + '\n\n' +
+      '📌 SOLUTION PLAN\n' +
+      (d.expert.steps ?? []).map((s, i) => `Step ${i + 1}: ${s.title}\n${s.body}`).join('\n\n') + '\n\n' +
+      '💬 DISCOVERY CALL QUESTIONS\n' +
+      (d.expert.questions ?? []).map(q => '• ' + q).join('\n') + '\n\n' +
+      '💼 RECOMMENDED PACKAGE\n' + (d.expert.recommendedPackage ?? '') + '\n' +
+      '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
+  } else {
+    expertBlock = '\n[AI expert brief unavailable — check GEMINI_API_KEY]';
+  }
+
+  await sendViaResend(env, {
+    to: NOTIFY_EMAIL,
+    from: FROM_EMAIL,
+    fromName: 'MR Bookkeeping Leads',
+    subject: `${d.tier.flag} New Lead [${d.tier.priority}]: ${d.name} (${d.pos || 'unknown platform'})`,
+    text:
+      'New lead from the website diagnostic.\n\n' +
+      'Name:             ' + d.name           + '\n' +
+      'Email:            ' + d.email          + '\n' +
+      'Platform:         ' + d.pos            + '\n' +
+      'QB Status:        ' + d.status         + '\n' +
+      'Packages:         ' + d.packages       + '\n' +
+      'Accounts:         ' + d.accounts       + '\n' +
+      'Monthly Revenue:  ' + d.revenue        + '\n' +
+      'Time in Business: ' + d.timeInBusiness + '\n' +
+      'Biggest Challenge: ' + d.challenge     + '\n\n' +
+      'Tier Match: ' + d.tier.name + ' — ' + d.tier.price + '\n' +
+      'Auto Note:  ' + d.autoNote + '\n' +
+      cleanupBlock +
+      aiNote +
+      expertBlock + '\n\n' +
+      'Reply: ' + d.email + '\n' +
+      'Book:  ' + CALENDLY,
+  });
+}
+
+// ─────────────────────────────────────────────
+//  Thank-you email → prospect
+// ─────────────────────────────────────────────
+async function sendThankYouEmail(env: Env, d: {
+  name: string; email: string; pos: string; status: string;
+  steps: { title: string; body: string }[]; aiError: boolean;
+}): Promise<void> {
+  const firstName = d.name.split(' ')[0] || d.name;
+  const subjectLine = d.pos
+    ? `Your ${d.pos} bookkeeping plan, ${firstName}`
+    : `Your MedSpa bookkeeping plan, ${firstName}`;
+
+  const body =
+    `Hi ${firstName},\n\n` +
+    getStatusParagraph(d.status, d.pos) + '\n\n' +
+    formatStepsBlock(d.steps) +
+    `I'd love to walk through this with you — 20 minutes, no sales pitch, just a clear picture of where your books stand and exactly what it takes to get them right.\n\n` +
+    '──────────────────────────────\n' +
+    '→ Book your free 20-minute call:\n' +
+    CALENDLY + '\n' +
+    '──────────────────────────────\n\n' +
+    `I have a few spots open this week — grab one before they go.\n\n` +
+    `— Monique Reid\n` +
+    `Certified QuickBooks ProAdvisor\n` +
+    `MedSpa, Aesthetic & Wellness Practices\n` +
+    `Monique Reid Bookkeeping | ${FROM_EMAIL}\n\n` +
+    getPSLine(d.status);
+
+  await sendViaResend(env, {
+    to: d.email,
+    from: FROM_EMAIL,
+    fromName: FROM_NAME,
+    replyTo: FROM_EMAIL,
+    subject: subjectLine,
+    text: body,
+  });
+}
+
+// ─────────────────────────────────────────────
+//  Google Sheets append via service account JWT
+// ─────────────────────────────────────────────
+async function appendToSheet(env: Env, d: {
+  name: string; email: string; pos: string; status: string; packages: string;
+  accounts: string; revenue: string; timeInBusiness: string; challenge: string;
+  autoNote: string; tier: Tier; cleanup: Cleanup; expert: ExpertBrief | null;
+}): Promise<void> {
+  if (!env.GOOGLE_SA_KEY || !env.SPREADSHEET_ID) {
+    console.warn('Sheet logging skipped — GOOGLE_SA_KEY or SPREADSHEET_ID not set');
+    return;
+  }
+
+  const accessToken = await getGoogleAccessToken(env.GOOGLE_SA_KEY);
+  const now = new Date().toISOString();
+
+  const row = [
+    now,
+    d.name,
+    d.email,
+    d.pos,
+    d.status,
+    d.packages,
+    d.accounts,
+    d.revenue,
+    d.timeInBusiness,
+    d.challenge,
+    d.autoNote,
+    d.tier.name,
+    d.tier.price,
+    d.expert?.diagnosis ?? '',
+    d.expert?.steps?.[0] ? `${d.expert.steps[0].title}: ${d.expert.steps[0].body}` : '',
+    d.expert?.steps?.[1] ? `${d.expert.steps[1].title}: ${d.expert.steps[1].body}` : '',
+    d.expert?.steps?.[2] ? `${d.expert.steps[2].title}: ${d.expert.steps[2].body}` : '',
+    d.expert?.questions?.[0] ?? '',
+    d.expert?.questions?.[1] ?? '',
+    d.expert?.questions?.[2] ?? '',
+    d.expert?.questions?.[3] ?? '',
+    d.expert?.recommendedPackage ?? '',
+    '❌ Not Yet',
+  ];
+
+  const url =
+    `https://sheets.googleapis.com/v4/spreadsheets/${env.SPREADSHEET_ID}/values/` +
+    `${encodeURIComponent(SHEET_NAME)}!A1:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ values: [row] }),
+  });
+
+  if (!res.ok) {
+    const txt = await res.text().catch(() => '');
+    throw new Error(`Sheets API ${res.status}: ${txt}`);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  Google Service Account JWT
+// ─────────────────────────────────────────────
+async function getGoogleAccessToken(saKeyJson: string): Promise<string> {
+  const sa = JSON.parse(saKeyJson) as {
+    client_email: string;
+    private_key: string;
+  };
+  const now = Math.floor(Date.now() / 1000);
+
+  const headerB64  = toBase64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
+  const claimB64   = toBase64url(JSON.stringify({
+    iss:   sa.client_email,
+    scope: 'https://www.googleapis.com/auth/spreadsheets',
+    aud:   'https://oauth2.googleapis.com/token',
+    exp:   now + 3600,
+    iat:   now,
+  }));
+
+  const sigInput = `${headerB64}.${claimB64}`;
+
+  const pemBody = sa.private_key
+    .replace(/-----BEGIN PRIVATE KEY-----/g, '')
+    .replace(/-----END PRIVATE KEY-----/g, '')
+    .replace(/\s/g, '');
+
+  const binaryKey = Uint8Array.from(atob(pemBody), c => c.charCodeAt(0));
+
+  const cryptoKey = await crypto.subtle.importKey(
+    'pkcs8',
+    binaryKey.buffer as ArrayBuffer,
+    { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
+    false,
+    ['sign'],
+  );
+
+  const sigBytes = await crypto.subtle.sign(
+    'RSASSA-PKCS1-v1_5',
+    cryptoKey,
+    new TextEncoder().encode(sigInput),
+  );
+
+  const jwt = `${sigInput}.${arrayBufferToBase64url(sigBytes)}`;
+
+  const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=${jwt}`,
+  });
+
+  const tokenData = await tokenRes.json() as { access_token?: string; error?: string };
+  if (!tokenData.access_token) {
+    throw new Error(`Google token error: ${JSON.stringify(tokenData)}`);
+  }
+  return tokenData.access_token;
+}
+
+function toBase64url(str: string): string {
+  return btoa(str).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+}
+
+function arrayBufferToBase64url(buf: ArrayBuffer): string {
+  const bytes = new Uint8Array(buf);
+  let str = '';
+  for (const b of bytes) str += String.fromCharCode(b);
+  return btoa(str).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+}
