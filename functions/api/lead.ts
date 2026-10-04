@@ -72,10 +72,10 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     }
 
     // Run Gemini + tier detection in parallel
-    const [briefResult, tier] = await Promise.all([
-      generateExpertBrief(ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge),
-      Promise.resolve(detectTier(pos, packages, accounts, revenue)),
-    ]);
+    const tier = detectTier(pos, packages, accounts, revenue);
+    const briefResult = await generateExpertBrief(
+      ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge, tier,
+    );
     const expert = briefResult.brief;
     const cleanup = getCleanupRec(status);
     const autoNote = getAutoNote(status);
@@ -225,7 +225,7 @@ interface ExpertBrief {
 
 async function generateExpertBrief(
   env: Env, pos: string, status: string, packages: string,
-  accounts: string, revenue: string, timeInBusiness: string, challenge: string,
+  accounts: string, revenue: string, timeInBusiness: string, challenge: string, tier: Tier,
 ): Promise<{ brief: ExpertBrief | null; reason: string }> {
   if (!env.GEMINI_API_KEY) return { brief: null, reason: 'GEMINI_API_KEY is not set in Cloudflare' };
 
@@ -243,7 +243,7 @@ async function generateExpertBrief(
     'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "1099 vs W-2 misclassification," "service-line margin tracking").\n\n' +
     'SOLUTION PLAN: 3 steps. Each step: title (5-7 words) + body (2-3 sentences). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
     'DISCOVERY CALL QUESTIONS: 4 sharp questions Monique should ask — specific to this platform, revenue model, practice age, and stated challenge. Not generic — make them sound like a specialist who already knows their world.\n\n' +
-    'RECOMMENDED PACKAGE: One sentence naming the tier (Entry $497/mo, Growth $797/mo, or Full-Spectrum $1,197/mo) and why. Note if a one-time cleanup is likely needed first based on their QB status.\n\n' +
+    'RECOMMENDED PACKAGE: One sentence. Our system has already matched this prospect to the ' + tier.name + ' tier (' + tier.price + '). Recommend exactly that tier, do not name any other tier or price, and say why it fits. Note if a one-time cleanup is likely needed first based on their QB status.\n\n' +
     'Return ONLY valid JSON, no markdown wrapper:\n' +
     '{"diagnosis":"string","steps":[{"title":"string","body":"string"},{"title":"string","body":"string"},{"title":"string","body":"string"}],"questions":["string","string","string","string"],"recommendedPackage":"string"}';
 
@@ -290,10 +290,10 @@ function getStatusParagraph(status: string, pos: string): string {
   const s = status.toLowerCase();
   const platform = pos || 'your platform';
   if (s.includes('cleanup') || s.includes('4 to 12')) {
-    return `A practice on ${platform} with books that need a full cleanup is exactly where I specialize. The longer that sits, the harder it is to pull accurate revenue numbers — and that affects everything from pricing your packages to tax season. The good news: most cleanups are fully resolved within 30–60 days.`;
+    return `A practice on ${platform} with books that need a full cleanup is exactly where I specialize. The longer that sits, the harder it is to pull accurate revenue numbers — and that affects everything from pricing your packages to tax season. The good news: cleanups are very doable, and once I see your books I'll give you a clear timeline and a fixed scope.`;
   }
   if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
-    return `Being a few months behind on ${platform} is more common than you'd think — and more fixable than it feels. Most practices like yours are fully caught up within 30 days, with clean monthly reporting going forward from there.`;
+    return `Being a few months behind on ${platform} is more common than you'd think — and more fixable than it feels. Catching up a few months is quick work, and I'll give you a clear timeline once I see your books, with clean monthly reporting going forward from there.`;
   }
   if (s.includes('current') || s.includes('ongoing')) {
     return `Your books being current puts you ahead of most practices I speak with. The opportunity now is making sure your reports are actually telling you something useful — revenue per service line, provider productivity, membership revenue vs. retail. That's where the real growth decisions live.`;
@@ -307,10 +307,10 @@ function getStatusParagraph(status: string, pos: string): string {
 function getPSLine(status: string): string {
   const s = status.toLowerCase();
   if (s.includes('cleanup') || s.includes('4 to 12')) {
-    return `P.S. — Most practices with a backlog like yours are fully caught up within 30–60 days. The longer it sits, the harder it gets. Let's put an end date on it.`;
+    return `P.S. — The longer a backlog sits, the harder it gets. On our call I'll give you a clear scope and an end date for getting caught up.`;
   }
   if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
-    return `P.S. — A 1–3 month catchup is one of the quickest fixes in bookkeeping. Most clients are fully current within 2–3 weeks of our first session together.`;
+    return `P.S. — A 1–3 month catchup is one of the quickest fixes in bookkeeping. It's usually quick work, and I'll give you a clear timeline on our call.`;
   }
   if (s.includes('current') || s.includes('ongoing')) {
     return `P.S. — Being current is a great foundation. The next level is having reports that actually tell you which services drive your margins — so every business decision is backed by real numbers, not guesswork.`;
