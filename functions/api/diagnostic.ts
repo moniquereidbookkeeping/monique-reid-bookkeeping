@@ -4,6 +4,7 @@
 //  Calls Gemini API to generate unique 3-step plans
 // ============================================================
 
+import { OFFERINGS_TEXT, breaksOfferRules } from '../_lib/offerings';
 import { callGemini, DEFAULT_GEMINI_MODEL, allowedOrigin, clean, corsHeaders, json, rateLimited, readJsonBody } from '../_lib/security';
 
 export interface Env {
@@ -81,6 +82,10 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     // Parse the JSON array out of the response
     const steps = parseSteps(rawText);
+    if (steps && steps.some((s) => breaksOfferRules(s.title + ' ' + s.body))) {
+      console.error('AI steps rejected by offer rules');
+      return json({ error: 'Unexpected AI response format', reason: 'offer-rules' }, 500, origin);
+    }
     if (!steps) {
       console.error('Failed to parse steps from Gemini response:', cand?.finishReason, rawText);
       return json({ error: 'Unexpected AI response format', reason: `finish:${cand?.finishReason ?? 'none'} len:${rawText.length}` }, 500, origin);
@@ -113,6 +118,10 @@ Write a personalized 3-step action plan for this exact practice. Rules:
 5. Write in Monique's voice: direct, expert, confident. No fluff. No generic advice.
 6. Use real bookkeeping terminology: reconciliation, chart of accounts, P&L, journal entry, clearing account, deferred revenue, etc.
 7. Each step title is 4–8 words. Each body is 2–3 specific sentences.
+8. Describe only work that Monique actually offers (catalog below). Do not quote prices and do not promise how long anything takes.
+
+CATALOG AND RULES:
+${OFFERINGS_TEXT}
 
 Return ONLY a JSON array with exactly 3 objects, no markdown, no wrapper text:
 [{"title":"...","body":"..."},{"title":"...","body":"..."},{"title":"...","body":"..."}]`;

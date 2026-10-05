@@ -15,6 +15,7 @@
 //    GEMINI_MODEL         — optional; defaults to the model set in _lib/security.ts
 // ============================================================
 
+import { OFFERINGS_TEXT, breaksOfferRules } from '../_lib/offerings';
 import { callGemini, DEFAULT_GEMINI_MODEL, allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
 
 export interface Env {
@@ -78,6 +79,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
       ctx.env, pos, status, packages, accounts, revenue, timeInBusiness, challenge, tier, cleanup,
     );
     const expert = briefResult.brief;
+    if (expert) expert.recommendedPackage = enforcePackage(expert.recommendedPackage, tier, cleanup);
     const autoNote = getAutoNote(status);
 
     // The plan emailed to the prospect is built here on the server. Nothing the
@@ -89,7 +91,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     // Emails — fire both, don't block on sheet
     const emailPromises = [
       sendNotifyEmail(ctx.env, { name, email, pos, status, packages, accounts,
-        revenue, timeInBusiness, challenge, tier, cleanup, autoNote, aiError, expert, aiFailure: briefResult.reason }),
+        revenue, timeInBusiness, challenge, tier, cleanup, autoNote, aiError, expert, aiFailure: briefResult.reason || (aiError ? 'AI steps did not pass the price/timeline check, so the template plan was sent' : '') }),
       sendThankYouEmail(ctx.env, { name, email, pos, status, steps, aiError }),
     ];
 
@@ -118,7 +120,21 @@ function safeSteps(raw: unknown): { title: string; body: string }[] | null {
     title: clean((s as { title?: unknown })?.title, 80),
     body: clean((s as { body?: unknown })?.body, 420),
   }));
-  return out.every((s) => s.title && s.body) ? out : null;
+  if (!out.every((s) => s.title && s.body)) return null;
+  // Reject anything that quotes an unknown price or promises a timeline.
+  return out.some((s) => breaksOfferRules(s.title + ' ' + s.body)) ? null : out;
+}
+
+/** The package line must name exactly the tier our system matched. If the AI got it wrong, use our own sentence. */
+function enforcePackage(text: unknown, tier: Tier, cleanup: Cleanup): string {
+  const own = `Recommend the ${tier.name} plan (${tier.price}). ` +
+    (cleanup.needed ? `A one-time engagement comes first: ${cleanup.tier} (${cleanup.price}).` : 'No cleanup is needed first.');
+  const t = typeof text === 'string' ? text : '';
+  if (!t || breaksOfferRules(t) || !t.includes(tier.price.replace('/mo', ''))) return own;
+  const other = ['$497', '$797', '$1,197'].filter((x) => x !== tier.price.replace('/mo', ''));
+  if (other.some((x) => t.includes(x))) return own;
+  if (!cleanup.needed && /clean-?up/i.test(t)) return own;
+  return t;
 }
 
 function getFallbackSteps(status: string, pos: string): { title: string; body: string }[] {
@@ -158,22 +174,28 @@ function getFallbackSteps(status: string, pos: string): { title: string; body: s
 interface Tier { name: string; price: string; flag: string; priority: string }
 
 function detectTier(pos: string, packages: string, accounts: string, revenue: string): Tier {
+  // Mirrors the plans on the website: Entry up to 3 accounts / under ~$25K a month,
+  // Growth up to 6 accounts / ~$25K-$75K or memberships, financing, multiple systems,
+  // Full-Spectrum 7+ accounts / $75K+ or multi-location.
   const pkg = packages.toLowerCase();
-  const acct = accounts.toLowerCase();
   const p = pos.toLowerCase();
   const rev = revenue.toLowerCase();
+  const acct = parseInt(accounts, 10) || 0; // lower bound of "1 - 2", "3 - 4", "5 - 7", "8+"
 
-  if (p.includes('multiple') || p.includes('multi') ||
-      /[5-9]|10\+|more/.test(acct) ||
-      rev.includes('75,000') || rev.includes('75k')) {
-    return { name: 'Full-Spectrum', price: '$1,197/mo', flag: '🔴', priority: 'HIGH-VALUE' };
-  }
-  if (pkg.includes('member') || pkg.includes('subscription') ||
-      pkg.includes('cherry') || pkg.includes('carecredit') || pkg.includes('patientfi') ||
-      pkg.includes('package') || pkg.includes('prepaid') ||
-      rev.includes('30,000') || rev.includes('30k')) {
-    return { name: 'Growth', price: '$797/mo', flag: '🟡', priority: 'STRONG FIT' };
-  }
+  const underTen = rev.includes('under');
+  const over75 = rev.includes('75,000+');
+  const over30 = rev.startsWith('$30,000');
+  const sellsMemberships = /member|package|cherry|carecredit|patientfi/.test(pkg);
+
+  let level = 0; // 0 Entry, 1 Growth, 2 Full-Spectrum
+  if (over75 || acct >= 8) level = 2;
+  else if (over30 || acct >= 5) level = 1;
+  // Memberships, packages or financing point to Growth, unless the practice is tiny.
+  if (sellsMemberships && (!underTen || acct >= 3)) level = Math.max(level, 1);
+  if (p.includes('multiple') || p.includes('multi')) level = Math.max(level, 1);
+
+  if (level === 2) return { name: 'Full-Spectrum', price: '$1,197/mo', flag: '🔴', priority: 'HIGH-VALUE' };
+  if (level === 1) return { name: 'Growth', price: '$797/mo', flag: '🟡', priority: 'STRONG FIT' };
   return { name: 'Entry', price: '$497/mo', flag: '🟢', priority: 'MAINTENANCE' };
 }
 
@@ -239,6 +261,7 @@ async function generateExpertBrief(
     '- Monthly Revenue: ' + (revenue || 'not specified') + '\n' +
     '- Practice Age: ' + (timeInBusiness || 'not specified') + '\n' +
     '- Biggest Challenge Stated: ' + (challenge || 'not specified') + '\n\n' +
+    'Everything you write must follow this catalog and these rules:\n' + OFFERINGS_TEXT + '\n\n' +
     'Write four sections:\n\n' +
     'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "1099 vs W-2 misclassification," "service-line margin tracking").\n\n' +
     'SOLUTION PLAN: 3 steps. Each step: title (5-7 words) + body (2-3 sentences). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
