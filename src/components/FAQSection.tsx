@@ -30,18 +30,19 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showAll, setShowAll] = useState<boolean>(!featuredLimit);
   // Only one open accordion at a time; first item open by default
-  const [openId, setOpenId] = useState<string | null>('faq-p1');
+  const [openId, setOpenId] = useState<string | null>(null);
 
   const categories = [
     { id: 'all', label: 'All Questions' },
-    { id: 'pain-points', label: 'Sound Familiar?' },
     { id: 'getting-started', label: 'Getting Started' },
     { id: 'quickbooks-systems', label: 'QuickBooks & Systems' },
     { id: 'cleanup-catchup', label: 'Cleanup & Catch-Up' },
     { id: 'financial-operations', label: 'Financial Operations' },
+    { id: 'pain-points', label: 'Sound Familiar?' },
   ];
+  const ORDER = ['getting-started', 'quickbooks-systems', 'cleanup-catchup', 'financial-operations', 'pain-points'];
 
-  const faqs: FAQItem[] = [
+  const rawFaqs: FAQItem[] = [
     {
       id: 'faq-p1',
       category: 'pain-points',
@@ -278,6 +279,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
     },
   ];
 
+  // Show questions grouped in a logical order; "Sound Familiar?" stays in its own tab.
+  const faqs: FAQItem[] = [...rawFaqs].sort((a, b) => ORDER.indexOf(a.category) - ORDER.indexOf(b.category));
+
   const toggleItem = (id: string) => {
     // Only one open accordion at a time
     setOpenId((prev) => (prev === id ? null : id));
@@ -327,7 +331,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
   return (
     <section
       id="medspa-bookkeeping-faq"
-      className="py-16 lg:py-24 bg-[#FDFCFA] border-t border-b border-[#E2E8F0] relative overflow-hidden"
+      className="py-14 lg:py-20 bg-[#FDFCFA] border-t border-b border-[#E2E8F0] relative overflow-hidden"
     >
       {/* Schema.org FAQPage Structured Data */}
       <script
@@ -341,17 +345,14 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-10">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-xs font-bold uppercase tracking-widest text-[#7A6200]">
-            <HelpCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
-            BOOKKEEPING QUESTIONS, CLEAR ANSWERS
-          </span>
+          <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Questions, clear answers</p>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
             Real Questions From Practice Owners Like You
           </h2>
 
-          <p className="text-base sm:text-lg text-[#57534E] font-light leading-relaxed">
-            Start with <strong className="font-semibold text-[#1A2E40]">"Sound Familiar?"</strong> — questions written around the exact frustrations MedSpa, aesthetic clinic, IV hydration, and wellness practice owners experienced. Or browse by topic below.
+          <p className="text-lg text-[#4A5568] leading-relaxed">
+            Search or browse by topic. The "Sound Familiar?" tab covers the most common frustrations practice owners tell us about.
           </p>
         </div>
 
@@ -369,7 +370,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search bookkeeping questions…"
               aria-label="Search bookkeeping questions"
-              className="w-full pl-10 pr-10 py-3 rounded-xl bg-white border border-[#E2E8F0] focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-sm text-[#1A2E40] placeholder-[#A0AEC0] shadow-xs outline-none transition-all"
+              className="w-full pl-10 pr-10 py-3 rounded-xl bg-white border border-[#E2E8F0] focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-base text-[#1A2E40] placeholder-[#6B7280] shadow-xs outline-none transition-all"
             />
             {searchQuery && (
               <button
@@ -399,7 +400,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                   id={`faq-tab-${cat.id}`}
                   type="button"
                   onClick={() => { setSelectedCategory(cat.id); setOpenId(null); }}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#1A2E40] text-white shadow-sm font-semibold'
                       : 'bg-white text-[#57534E] border border-[#E2E8F0] hover:border-[#D4AF37]/50 hover:text-[#1A2E40]'
@@ -407,7 +408,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                 >
                   <span>{cat.label}</span>
                   <span
-                    className={`text-xs px-1.5 py-0.5 rounded-full ${
+                    className={`text-sm px-1.5 py-0.5 rounded-full ${
                       isSelected
                         ? 'bg-[#D4AF37] text-[#1A2E40] font-bold'
                         : 'bg-[#F2EFE9] text-[#5A6578]'
@@ -468,10 +469,10 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                       className="w-full text-left p-5 sm:p-6 flex items-start justify-between gap-4 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
                     >
                       <div className="space-y-1.5 pr-2">
-                        <span className="inline-block text-xs font-semibold text-[#7A6200] bg-[#D4AF37]/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        <span className="inline-block text-sm font-semibold text-[#7A6200] bg-[#D4AF37]/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                           {faq.categoryLabel}
                         </span>
-                        <h3 className="font-serif font-bold text-base sm:text-lg text-[#1A2E40] leading-snug">
+                        <h3 className="font-serif font-bold text-lg sm:text-xl text-[#1A2E40] leading-snug">
                           {faq.question}
                         </h3>
                       </div>
@@ -494,13 +495,13 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                         aria-labelledby={`faq-btn-${faq.id}`}
                         className="px-5 sm:px-6 pb-6 pt-1 text-[#57534E] border-t border-[#F2EFE9] space-y-4 text-base leading-relaxed animate-in fade-in duration-150"
                       >
-                        <div className="space-y-3 font-light text-[#57534E] whitespace-pre-line">
+                        <div className="space-y-3 text-[#4A5568] whitespace-pre-line">
                           {faq.answer}
                         </div>
 
                         {faq.takeaways && faq.takeaways.length > 0 && (
                           <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-2.5">
-                            <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40] flex items-center gap-1.5">
+                            <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40] flex items-center gap-1.5">
                               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
                               KEY TAKEAWAYS FOR MEDSPA AND AESTHETIC PRACTICES
                             </p>
@@ -508,7 +509,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                               {faq.takeaways.map((takeaway, tIdx) => (
                                 <li
                                   key={tIdx}
-                                  className="flex items-start gap-2 text-sm sm:text-base text-[#57534E]"
+                                  className="flex items-start gap-2 text-base text-[#4A5568]"
                                 >
                                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                                   <span>{takeaway}</span>
@@ -530,7 +531,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                     <button
                       type="button"
                       onClick={() => setShowAll(true)}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#D4AF37]/50 text-[#1A2E40] hover:bg-[#FAF8F5] text-sm font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#D4AF37]/50 text-[#1A2E40] hover:bg-[#FAF8F5] text-base font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
                     >
                       <span>View All {faqs.length} Frequently Asked Questions</span>
                       <ChevronDown className="w-4 h-4 text-[#D4AF37]" />

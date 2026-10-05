@@ -159,7 +159,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </section>
 
-            <AboutSection onBookCall={handleBookCall} showPortrait={false} />
+            <AboutSection onBookCall={handleBookCall} />
 
             <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} />
 

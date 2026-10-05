@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Left Column: Value Proposition & Copy */}
           <div className="lg:col-span-7 space-y-6 text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/15 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/15 text-sm font-semibold tracking-wider text-[#1A2E40] uppercase">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Intuit Certified QuickBooks ProAdvisor · MedSpa, Aesthetic &amp; Wellness Practices</span>
             </div>
@@ -60,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({
             </p>
 
             {/* Strategic Segments Mention */}
-            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-[#64748B]">
+            <div className="flex flex-wrap items-center gap-2 pt-1 text-sm text-[#4A5568]">
               <span className="font-semibold text-[#1A2E40]">Specialized in:</span>
               <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">MedSpas &amp; Aesthetic Practices</span>
               <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">IV Hydration &amp; Wellness</span>
@@ -93,20 +93,20 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Tech Stack Integration Strip */}
             <div className="pt-6 border-t border-[#1A2E40]/10 space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#57534E]/70">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#4A5568]">
                 Reconciling Payouts From Your Practice Software &amp; Patient Financing:
               </p>
               <div className="space-y-2">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Practice Management:</span>
+                  <span className="text-sm font-semibold uppercase tracking-wider text-[#4A5568] w-full sm:w-auto shrink-0">Practice Management:</span>
                   {['Boulevard', 'Vagaro', 'Jane', 'Mindbody', 'Zenoti'].map(name => (
-                    <span key={name} className="px-2.5 py-1 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-medium text-[#1A2E40]">{name}</span>
+                    <span key={name} className="px-2.5 py-1 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-medium text-[#1A2E40]">{name}</span>
                   ))}
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Payments &amp; Financing:</span>
+                  <span className="text-sm font-semibold uppercase tracking-wider text-[#4A5568] w-full sm:w-auto shrink-0">Payments &amp; Financing:</span>
                   {['Stripe', 'Square', 'Cherry', 'CareCredit', 'PatientFi'].map(name => (
-                    <span key={name} className="px-2.5 py-1 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-xs font-medium text-[#1A2E40]">{name}</span>
+                    <span key={name} className="px-2.5 py-1 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-sm font-medium text-[#1A2E40]">{name}</span>
                   ))}
                 </div>
               </div>
@@ -122,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Portrait Container */}
               <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#F5F3EE] to-[#EAE6DE] border-2 border-[#D4AF37]/50 shadow-xl group">
                 {/* Subtle top badge */}
-                <div className="absolute top-3 left-3 z-20 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A2E40]/90 backdrop-blur-sm text-white text-xs font-medium border border-[#D4AF37]/40 shadow-sm">
+                <div className="absolute top-3 left-3 z-20 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A2E40]/90 backdrop-blur-sm text-white text-sm font-medium border border-[#D4AF37]/40 shadow-sm">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
                   <span>Monique Reid · Founder</span>
                 </div>
@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({
                     <TrendingUp className="w-5 h-5 text-[#D4AF37]" />
                   </div>
                   <div className="text-left">
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#8A6A00]">
+                    <p className="text-sm font-bold uppercase tracking-wider text-[#8A6A00]">
                       Specialized Bookkeeping
                     </p>
                     <p className="text-sm font-bold text-[#1A2E40]">

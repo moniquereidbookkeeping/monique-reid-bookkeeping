@@ -318,25 +318,23 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const showProgress = !completed && isQuestionStep;
 
   return (
-    <section id="health-check" className="py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-8 sm:p-10">
+    <section id="health-check" className="py-14 lg:py-20 bg-[#FDFCFA] border-b border-[#E2E8F0]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-6 sm:p-10">
 
           {/* Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E2E8F0] pb-6 mb-8">
-            <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/15 text-[#1A2E40] text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-                Interactive Diagnostic · MedSpas, Wellness &amp; Clinics
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] mt-2 leading-snug">
-                Bookkeeping Health Check for Your Practice
-              </h3>
-            </div>
+          <div className="border-b border-[#E2E8F0] pb-8 mb-8"><div className="text-center max-w-2xl mx-auto">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Free interactive diagnostic</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
+              Bookkeeping Health Check for Your Practice
+            </h2>
+            <p className="mt-3 text-lg text-[#4A5568] leading-relaxed">
+              Answer 7 quick questions to get a personalized plan for your MedSpa, wellness practice or clinic.
+            </p>
             {showProgress && (
-              <div className="flex items-center gap-1 text-sm font-semibold text-[#57534E]">
+              <div className="mt-5 flex items-center justify-center gap-3 text-sm font-semibold text-[#4A5568]">
                 <span>Question {step} of {TOTAL_QUESTIONS}</span>
-                <div className="w-28 h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden ml-2" aria-hidden="true">
+                <div className="w-32 h-2.5 bg-[#E2E8F0] rounded-full overflow-hidden" aria-hidden="true">
                   <div
                     className="h-full bg-[#D4AF37] transition-all duration-300"
                     style={{ width: `${(step / TOTAL_QUESTIONS) * 100}%` }}
@@ -344,7 +342,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 </div>
               </div>
             )}
-          </div>
+          </div></div>
 
           {/* ── Questions 1–7 ── */}
           {!completed && isQuestionStep && (
@@ -353,7 +351,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q1 — QB Status */}
               {step === 1 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     1. What is the current status of your QuickBooks accounts?
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -367,7 +365,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={opt.val}
                         onClick={() => (opt.val === 'other' ? setShowOtherStatus(true) : (setShowOtherStatus(false), handleSelect('status', opt.label)))}
-                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {opt.label}
                       </button>
@@ -375,7 +373,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                   {showOtherStatus && (
                     <div className="mt-2 space-y-3">
-                      <label htmlFor="audit-other-status" className="block text-sm font-semibold text-[#1A2E40]">
+                      <label htmlFor="audit-other-status" className="block text-base font-semibold text-[#1A2E40]">
                         Please tell us your situation:
                       </label>
                       <div className="flex gap-3">
@@ -403,7 +401,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q2 — POS Platform */}
               {step === 2 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     2. Which Point-of-Sale or practice-management platform does your clinic use?
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -423,7 +421,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                   {showOtherPos && (
                     <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <label htmlFor="audit-other-platform" className="block text-sm font-semibold text-[#1A2E40]">
+                      <label htmlFor="audit-other-platform" className="block text-base font-semibold text-[#1A2E40]">
                         Please enter your platform name:
                       </label>
                       <div className="flex gap-3">
@@ -451,7 +449,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q3 — Packages */}
               {step === 3 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     3. Do you offer memberships, treatment packages, or patient financing?
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -465,7 +463,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={pkg.val}
                         onClick={() => (pkg.val === 'other' ? setShowOtherPkg(true) : (setShowOtherPkg(false), handleSelect('packages', pkg.label)))}
-                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {pkg.label}
                       </button>
@@ -473,7 +471,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                   {showOtherPkg && (
                     <div className="mt-2 space-y-3">
-                      <label htmlFor="audit-other-packages" className="block text-sm font-semibold text-[#1A2E40]">
+                      <label htmlFor="audit-other-packages" className="block text-base font-semibold text-[#1A2E40]">
                         Please describe how you bring in revenue:
                       </label>
                       <div className="flex gap-3">
@@ -501,7 +499,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q4 — Accounts */}
               {step === 4 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     4. How many bank, card, and financing accounts does your practice use?
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -521,10 +519,10 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q5 — Monthly Revenue Range (NEW) */}
               {step === 5 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     5. What is your practice's approximate monthly revenue?
                   </h4>
-                  <p className="text-sm text-[#57534E]">This helps us recommend the right service tier for your size.</p>
+                  <p className="text-base text-[#4A5568]">This helps us recommend the right service tier for your size.</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       'Under $10,000 / month',
@@ -535,7 +533,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <button
                         key={rev}
                         onClick={() => handleSelect('revenue', rev)}
-                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
+                        className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {rev}
                       </button>
@@ -547,7 +545,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q6 — Time in Business (NEW) */}
               {step === 6 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     6. How long has your practice been open?
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -572,7 +570,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q7 — Biggest Challenge (NEW) */}
               {step === 7 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
+                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     7. What is your biggest bookkeeping challenge right now?
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -599,7 +597,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                   {showOtherChallenge && (
                     <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <label htmlFor="audit-other-challenge" className="block text-sm font-semibold text-[#1A2E40]">
+                      <label htmlFor="audit-other-challenge" className="block text-base font-semibold text-[#1A2E40]">
                         Describe your challenge:
                       </label>
                       <div className="flex gap-3">
@@ -629,7 +627,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 <div className="pt-2">
                   <button
                     onClick={goBack}
-                    className="inline-flex items-center gap-1.5 text-sm text-[#57534E] hover:text-[#1A2E40] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-base text-[#4A5568] hover:text-[#1A2E40] transition-colors cursor-pointer"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     Back
@@ -645,22 +643,22 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               <div className="flex items-center gap-3 p-4 rounded-xl bg-[#1A2E40] text-white">
                 <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
                 <div>
-                  <p className="text-sm font-bold">All {TOTAL_QUESTIONS} questions answered — your plan is ready.</p>
-                  <p className="text-xs text-white/70 mt-0.5">Enter your details below to see your personalized results.</p>
+                  <p className="text-base font-bold">All {TOTAL_QUESTIONS} questions answered — your plan is ready.</p>
+                  <p className="text-sm text-white/80 mt-0.5">Enter your details below to see your personalized results.</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <h4 className="text-xl sm:text-2xl font-bold text-[#1A2E40]">
-                  Where should I send your personalized plan?
+                <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  Where should we send your personalized plan?
                 </h4>
-                <p className="text-sm text-[#57534E]">
-                  I'll review your practice profile and follow up with specific guidance — no obligation.
+                <p className="text-base text-[#4A5568]">
+                  We will review your practice profile and follow up with specific guidance — no obligation.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label htmlFor="audit-first-name" className="block text-sm font-semibold text-[#1A2E40]">First Name</label>
+                    <label htmlFor="audit-first-name" className="block text-base font-semibold text-[#1A2E40]">First Name</label>
                     <input data-clarity-mask="True"
                       id="audit-first-name" autoComplete="given-name" type="text"
                       value={leadName}
@@ -672,7 +670,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label htmlFor="audit-email" className="block text-sm font-semibold text-[#1A2E40]">Email Address</label>
+                    <label htmlFor="audit-email" className="block text-base font-semibold text-[#1A2E40]">Email Address</label>
                     <input data-clarity-mask="True"
                       id="audit-email" autoComplete="email" type="email"
                       value={leadEmail}
@@ -694,12 +692,12 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <div className="flex items-center gap-4">
                     <button
                       onClick={goBack}
-                      className="inline-flex items-center gap-1.5 text-sm text-[#57534E] hover:text-[#1A2E40] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 text-base text-[#4A5568] hover:text-[#1A2E40] transition-colors cursor-pointer"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       Back
                     </button>
-                    <p className="flex items-center gap-1.5 text-xs text-[#57534E]">
+                    <p className="flex items-center gap-1.5 text-sm text-[#4A5568]">
                       <Lock className="w-3 h-3 text-[#D4AF37]" />
                       Your info is private — never shared or sold.
                     </p>
@@ -707,7 +705,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <button
                     onClick={handleLeadSubmit}
                     disabled={submitting}
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] border border-[#FFF5DE]/60 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] border border-[#FFF5DE]/60 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
                     {submitting ? 'Sending…' : 'See My Results'}
@@ -724,10 +722,10 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               <div className="p-4 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/50 flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-base font-bold text-[#1A2E40]">
+                  <h4 className="text-xl font-serif font-bold text-[#1A2E40]">
                     Diagnostic Complete: Recommended Plan of Action
                   </h4>
-                  <p className="text-xs sm:text-sm text-[#57534E] mt-1">
+                  <p className="text-base text-[#4A5568] mt-1">
                     Based on your practice profile ({answers.pos}, {answers.status}), here is how Monique Reid Bookkeeping organizes your records:
                   </p>
                 </div>
@@ -739,7 +737,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     <div key={i} className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm space-y-3">
                       <div className="flex items-center gap-2">
                         <Loader2 className="w-4 h-4 text-[#D4AF37] animate-spin shrink-0" />
-                        <p className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
+                        <p className="text-sm font-bold text-[#8A6A00] uppercase tracking-wider">
                           Analyzing…
                         </p>
                       </div>
@@ -753,14 +751,14 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   ))}
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-base">
                   {activePlan.map((s, i) => (
                     <div key={i} className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
-                      <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-xs">
+                      <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-sm">
                         Step {i + 1}
                       </p>
-                      <p className="font-bold text-[#1A2E40] text-sm mb-1.5">{s.title}</p>
-                      <p className="text-[#57534E] leading-relaxed">{s.body}</p>
+                      <p className="font-bold text-[#1A2E40] text-lg mb-1.5 font-serif">{s.title}</p>
+                      <p className="text-[#4A5568] text-base leading-relaxed">{s.body}</p>
                     </div>
                   ))}
                 </div>
@@ -769,7 +767,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2E8F0]">
                 <button
                   onClick={resetAudit}
-                  className="flex items-center gap-1.5 text-xs text-[#57534E] hover:text-[#1A2E40] cursor-pointer"
+                  className="flex items-center gap-1.5 text-sm text-[#4A5568] hover:text-[#1A2E40] cursor-pointer"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                   <span>Start over</span>
@@ -777,7 +775,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
 
                 <button
                   onClick={onBookCall}
-                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-xs sm:text-sm transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 flex items-center gap-2.5 active:scale-[0.99] group cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 flex items-center gap-2.5 active:scale-[0.99] group cursor-pointer"
                 >
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-3.5 h-3.5" />

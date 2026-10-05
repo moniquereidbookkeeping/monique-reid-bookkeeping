@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, AlertCircle, CheckCircle2, Calendar } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
 
 interface WhySpecializedSectionProps {
   onBookCall: () => void;
@@ -24,9 +24,9 @@ const problems = [
   },
   {
     number: '03',
-    title: 'Prepaid Packages and Memberships Are a Liability Until Services Are Delivered',
+    title: 'Prepaid Packages and Memberships Are Deferred Revenue',
     problem:
-      `When a client pays upfront for a package or membership, that money isn't fully earned yet—it's deferred revenue until the service is actually provided. Without consistent tracking, your reports can show cash you've collected as income you haven't earned, which distorts your monthly picture and can create problems at tax time.`,
+      `When a client pays upfront for a package or membership, that money is not fully earned until the service is delivered. Without consistent tracking, your reports can show cash you have collected as income you have not yet earned, which distorts your monthly picture. How it is treated for tax depends on your accounting method, so we coordinate with your CPA.`,
     help:
       'We help structure your QuickBooks records so collected payments, earned revenue, and outstanding balances are tracked separately and consistently—so your monthly reports reflect what you\'ve actually earned, not just what came in.',
   },
@@ -42,54 +42,39 @@ const problems = [
 
 export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ onBookCall }) => {
   return (
-    <section className="py-10 lg:py-14 bg-[#F8F9FA] border-b border-[#E2E8F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-14 lg:py-20 bg-[#F8F9FA] border-b border-[#E2E8F0]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="max-w-3xl mb-7">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-4">
-            <AlertCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Why It Matters</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight text-wrap-balance">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Why it matters</p>
+          <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
             You Know What Came In. Do You Know What You Actually Made?
           </h2>
-          <p className="mt-3 text-lg text-[#57534E] leading-relaxed max-w-2xl">
-            You're booking treatments, running memberships, and selling packages — and the revenue looks real. But at the end of the month, you're still not sure which services are actually making money, where the cash is going, or whether what's on paper reflects what your practice truly earned. Getting those answers requires books built around how your practice actually operates.
+          <p className="mt-3 text-lg text-[#4A5568] leading-relaxed">
+            You are booking treatments, running memberships and selling packages, and the revenue looks real. But at the end of the month, it is hard to tell which services make money, where the cash went, or whether your reports show what the practice truly earned. Answering those questions takes books built around how your practice operates.
           </p>
         </div>
 
         {/* Four Problem Cards */}
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {problems.map((item) => (
-            <div
-              key={item.number}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm"
-            >
-              {/* Number tab */}
-              <div className="lg:col-span-1 flex items-center justify-center bg-[#1A2E40] px-3 py-4 lg:py-0">
-                <span className="font-serif font-bold text-xl text-[#D4AF37]">{item.number}</span>
+            <div key={item.number} className="rounded-2xl bg-white border border-[#E2E8F0] shadow-sm p-6 flex flex-col">
+              <div className="flex items-start gap-3">
+                <span className="shrink-0 w-10 h-10 rounded-full bg-[#1A2E40] text-[#D4AF37] font-serif font-bold text-base flex items-center justify-center">
+                  {item.number}
+                </span>
+                <h3 className="text-xl font-serif font-bold text-[#1A2E40] leading-snug">{item.title}</h3>
               </div>
-
-              {/* Title */}
-              <div className="lg:col-span-3 flex items-center bg-[#1A2E40]/5 px-5 py-4 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
-                <h3 className="font-serif font-bold text-base text-[#1A2E40] leading-snug">
-                  {item.title}
-                </h3>
+              <div className="mt-4">
+                <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">The problem</p>
+                <p className="mt-1.5 text-base text-[#4A5568] leading-relaxed">{item.problem}</p>
               </div>
-
-              {/* Problem */}
-              <div className="lg:col-span-4 bg-white px-5 py-4 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#8A6A00] mb-1.5">The Problem</p>
-                <p className="text-sm text-[#57534E] leading-relaxed">{item.problem}</p>
-              </div>
-
-              {/* How We Help */}
-              <div className="lg:col-span-4 bg-white px-5 py-4">
-                <p className="text-xs font-semibold uppercase tracking-widest text-emerald-600 mb-1.5">How We Help</p>
-                <div className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <p className="text-sm text-[#57534E] leading-relaxed">{item.help}</p>
+              <div className="mt-4 pt-4 border-t border-[#E2E8F0]">
+                <p className="text-sm font-bold uppercase tracking-widest text-[#15803D]">How we help</p>
+                <div className="mt-1.5 flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" aria-hidden="true" />
+                  <p className="text-base text-[#4A5568] leading-relaxed">{item.help}</p>
                 </div>
               </div>
             </div>
@@ -97,24 +82,22 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
         </div>
 
         {/* Closing statement + CTA */}
-        <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20">
-          <div className="max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">The Result</p>
-            <p className="text-lg font-serif font-bold text-white leading-snug">
+        <div className="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 sm:p-8 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20">
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">The result</p>
+            <p className="mt-2 text-xl sm:text-2xl font-serif font-bold text-white leading-snug">
               Finally Know Whether Your Practice Is Actually Profitable
             </p>
-            <p className="mt-2 text-sm text-white/70 leading-relaxed">
-              When your books are structured around how your practice actually operates—not just what hit the bank account—your monthly reports tell you which services are earning, where costs are running high, and whether the revenue you're seeing is money you've actually made.
+            <p className="mt-2 text-base text-white/80 leading-relaxed">
+              When your books follow how your practice operates, not just what hit the bank account, your monthly reports show which services earn, where costs run high, and whether the revenue you see is money you have actually made.
             </p>
           </div>
           <button
             onClick={onBookCall}
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-sm font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] transition-all duration-200 shadow-[0_4px_16px_rgba(212,175,55,0.3)] shrink-0 cursor-pointer group"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-base font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] shrink-0 cursor-pointer group"
           >
-            <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
-              <Calendar className="w-3.5 h-3.5" />
-            </span>
-            <span>Book Your 20-Min Financial Clarity Call</span>
+            <Calendar className="w-5 h-5" aria-hidden="true" />
+            <span>Book Your Free Clarity Call</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
