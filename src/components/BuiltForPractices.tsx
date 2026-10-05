@@ -17,7 +17,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
   return (
     <section
       id="practice-focus-section"
-      className="py-16 lg:py-24 bg-[#1A2E40] text-white relative overflow-hidden"
+      className="py-14 lg:py-20 bg-[#1A2E40] text-white relative overflow-hidden"
     >
       {/* Background ambient gold accents */}
       <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none" />
@@ -27,12 +27,12 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold tracking-wider text-[#D4AF37] uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-sm font-semibold tracking-wider text-[#D4AF37] uppercase">
               <Stethoscope className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Built For Growing Practices</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
               Financial organization that grows with your practice.
             </h2>
 
@@ -44,7 +44,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
 
             {/* Practice Types Pills Grid */}
             <div className="pt-2">
-              <p className="text-xs uppercase tracking-wider text-[#D4AF37] font-semibold mb-3">
+              <p className="text-sm uppercase tracking-wider text-[#D4AF37] font-semibold mb-3">
                 Who We Serve:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -65,7 +65,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-white">{pt.title}</p>
-                        <p className="text-xs text-[#E2E8F0]/80 mt-0.5">{pt.desc}</p>
+                        <p className="text-sm text-[#E2E8F0]/80 mt-0.5">{pt.desc}</p>
                       </div>
                     </div>
                   );
@@ -77,7 +77,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
           {/* Right Column: Standards Card */}
           <div className="lg:col-span-5">
             <div className="bg-[#122332] p-6 sm:p-8 rounded-2xl border border-[#D4AF37]/30 shadow-2xl relative">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-2">
+              <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-2">
                 <ShieldCheck className="w-4 h-4" />
                 <span>The Standard of Care</span>
               </div>
@@ -105,12 +105,12 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                   },
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[#D4AF37] text-[#1A2E40] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                    <span className="w-5 h-5 rounded-full bg-[#D4AF37] text-[#1A2E40] flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">
                       ✓
                     </span>
                     <div>
                       <p className="text-sm font-semibold text-white">{item.title}</p>
-                      <p className="text-xs text-[#E2E8F0]/80 mt-0.5 leading-relaxed">
+                      <p className="text-sm text-[#E2E8F0]/80 mt-0.5 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -120,12 +120,12 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
 
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-[#E2E8F0]">Ready for clarity?</p>
+                  <p className="text-sm text-[#E2E8F0]">Ready for clarity?</p>
                   <p className="text-sm font-bold text-[#D4AF37]">Complimentary 20-Min Call</p>
                 </div>
                 <button
                   onClick={onBookCall}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-xs transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
                   <span>Book a Free Call</span>

@@ -10,7 +10,6 @@ import {
   Layers,
   LineChart,
   Info,
-  CheckCircle2
 } from 'lucide-react';
 import { BOOKING_URL } from '../constants/booking';
 
@@ -40,14 +39,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Merchant and POS payout reconciliation for Boulevard, Vagaro, Stripe, Square, and connected gateways',
         'Clear separation and documentation of owner, personal, and intercompany transactions',
       ],
-      startingPrice: 'From $597 (1–3 months)',
+      startingPrice: 'From $597',
       pricingTiers: [
-        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#15803D' },
-        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Most Common', color: '#B45309' },
-        { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full audit trail.', color: '#DC2626' },
-        { label: '2+ years / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Multi-year and multi-entity engagements quoted after assessment.', color: '#6B7280' },
+        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#8A6A00' },
+        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Most Common', color: '#8A6A00' },
+        { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full audit trail.', color: '#8A6A00' },
+        { label: '2+ years / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Multi-year and multi-entity engagements quoted after assessment.', color: '#8A6A00' },
       ],
-      noticeTitle: 'Cleanup Pricing Guide',
+      noticeTitle: 'Fixed-fee pricing',
       notice: 'All cleanup projects include a complimentary preliminary review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',
     },
     {
@@ -67,7 +66,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Executive Financial Summary delivered in plain English highlighting notable trends and key variances',
         'Organized year-end financial handoff package prepared for your CPA or tax professional',
       ],
-      startingPrice: 'Starting at $497/mo',
+      startingPrice: 'From $497/mo',
       monthlyTiers: [
         { tier: 'Essential', price: '$497/mo', desc: 'Solo practitioners or new clinics with a straightforward account structure and clean transaction history.', highlights: ['Up to 3 accounts', 'Monthly reconciliation', 'P&L + Balance Sheet', 'Year-end CPA package'] },
         { tier: 'Growth', price: '$797/mo', desc: 'Expanding practices running memberships, patient financing platforms, or multiple POS integrations.', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
@@ -93,7 +92,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Plain-language executive summary outlining notable changes, overhead ratios, and actionable focus areas',
         'Cash-flow visibility to support strategic decisions around hiring, provider compensation, equipment leases, and suite expansion',
       ],
-      startingPrice: 'Starting at $797/mo',
+      startingPrice: 'From $797/mo',
       noticeTitle: 'Reporting Integration',
       notice: 'Available as an enhanced advisory layer paired with ongoing monthly bookkeeping engagements, structured around your practice’s management platforms and data availability.',
     },
@@ -115,7 +114,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Dedicated tracking for IV hydration, vitamin shot bars, and medical weight-loss (GLP-1/peptides) revenue streams',
         'Multi-location and provider-level performance tracking for expanding practices',
       ],
-      startingPrice: 'Starting at $1,197/mo',
+      startingPrice: 'Included in monthly plans',
       noticeTitle: 'Professional Coordination',
       notice: 'Specialized regulatory, medical director compensation legalities, and corporate entity compliance are coordinated with your licensed legal and CPA advisors.',
     },
@@ -136,7 +135,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Product and service item catalog setup with accurate tax mapping based on client guidance and applicable rules',
         'Owner initial equity contributions, capital funding, and fixed-asset scheduling',
       ],
-      startingPrice: 'Project-based pricing',
+      startingPrice: 'Project-based',
       noticeTitle: 'Setup Deliverable',
       notice: 'Includes an initial architecture build, feed validation, and an administrative walkthrough for the practice owner or clinic manager.',
     },
@@ -157,7 +156,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Historical trend modeling across revenue growth, clinical supply cost ratios, and operational overhead',
         'Clear documentation: Monique Reid Bookkeeping provides bookkeeping organization and does not render formal valuation opinions, audit opinions, or tax filings',
       ],
-      startingPrice: 'Project-based pricing',
+      startingPrice: 'Project-based',
       noticeTitle: 'Engagement Scope',
       notice: 'Scoped as a project engagement based on the number of historical fiscal years, document completeness, entity structure, and level of reconstruction required.',
     },
@@ -168,36 +167,33 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
     : services.filter(s => s.id === activeTab);
 
   return (
-    <section id="services-section" className="py-16 lg:py-24 bg-[#FDFCFA] border-b border-[#E2E8F0]">
+    <section id="services-section" className="py-14 lg:py-20 bg-[#FDFCFA] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Specialized Scope of Services</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Bookkeeping &amp; Financial Operations Architecture
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Six services</span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
+            Bookkeeping Services for MedSpas and Wellness Practices
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#4A5568] leading-relaxed">
-            From thorough QuickBooks cleanups and routine monthly closes to specialized Chart of Accounts design and multi-year historical reconstruction—my six services are built around the clinical workflows of aesthetic and wellness practices.
+          <p className="mt-4 text-lg text-[#4A5568] leading-relaxed">
+            From QuickBooks cleanup and monthly bookkeeping to reporting, setup and historical records, each service is built around how aesthetic and wellness practices actually run.
           </p>
 
           {/* Filter Pills */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
             {[
               { id: 'all', label: 'All Services (6)' },
-              { id: 'cleanup', label: '01. Repair' },
-              { id: 'monthly', label: '02. Maintain' },
-              { id: 'reporting', label: '03. Grow' },
-              { id: 'focus', label: '04. Specialized' },
-              { id: 'setup', label: '05. Build' },
-              { id: 'scale', label: '06. Scale' },
+              { id: 'cleanup', label: 'Cleanup' },
+              { id: 'monthly', label: 'Monthly' },
+              { id: 'reporting', label: 'Reporting' },
+              { id: 'focus', label: 'Specialization' },
+              { id: 'setup', label: 'Setup' },
+              { id: 'scale', label: 'Historical' },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-[#1A2E40] text-[#D4AF37] shadow-sm'
                     : 'bg-white text-[#4A5568] border border-[#E2E8F0] hover:border-[#CBD5E1]'
@@ -222,13 +218,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               >
                 {/* Gold top accent bar */}
                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[#D4AF37]/30 via-[#D4AF37] to-[#D4AF37]/30 group-hover:from-[#D4AF37]/70 group-hover:via-[#E5C765] group-hover:to-[#D4AF37]/70 transition-all duration-300" />
-                {/* Ghost number watermark */}
-                <span className="absolute top-2 right-4 text-[#1A2E40]/[0.04] text-[80px] font-serif font-bold leading-none pointer-events-none select-none group-hover:text-[#D4AF37]/[0.07] transition-colors duration-300">{svc.num}</span>
                 <div className="flex flex-col flex-1">
                   {/* Card Header */}
                   <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="text-xs font-bold tracking-widest text-[#8A6A00] uppercase">
-                      {svc.num}. {svc.phase.toUpperCase()}
+                    <span className="text-sm font-bold tracking-widest text-[#8A6A00] uppercase">
+                      {svc.num} · {svc.phase}
                     </span>
                     <div className="w-10 h-10 rounded-xl bg-[#FDFCFA] border border-[#E2E8F0] flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors shrink-0">
                       <Icon className="w-5 h-5" />
@@ -236,41 +230,41 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-serif font-bold text-[#1A2E40] mb-2 leading-snug md:min-h-[3.25rem] flex items-start">
+                  <h3 className="text-xl font-serif font-bold text-[#1A2E40] mb-2 leading-snug md:min-h-[3.5rem] flex items-start">
                     {svc.title}
                   </h3>
 
                   {/* Tagline */}
-                  <p className="text-sm font-semibold text-[#1A2E40]/85 mb-3 md:min-h-[2.5rem] flex items-start leading-snug">
+                  <p className="text-base font-semibold text-[#1A2E40] mb-3 md:min-h-[3.5rem] flex items-start leading-snug">
                     {svc.tagline}
                   </p>
 
                   {/* Lead / Description */}
-                  <p className="text-sm text-[#4A5568] leading-relaxed mb-4 md:min-h-[4.5rem] flex items-start">
+                  <p className="text-base text-[#4A5568] leading-relaxed mb-4 md:min-h-[5.5rem] flex items-start">
                     {svc.lead}
                   </p>
 
                   {/* Key Benefit Box */}
-                  <div className="mb-5 p-4 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 md:min-h-[5rem] flex flex-col justify-center">
-                    <p className="text-xs uppercase font-bold tracking-wider text-[#8A6A00] mb-1.5 flex items-center gap-1.5">
-                      <Sparkles className="w-3 h-3 text-[#D4AF37]" />
-                      <span>Key Strategic Value</span>
+                  <div className="mb-5 p-4 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 md:min-h-[6.5rem] flex flex-col justify-center">
+                    <p className="text-sm uppercase font-bold tracking-wider text-[#8A6A00] mb-1.5 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-[#8A6A00]" />
+                      <span>Key benefit</span>
                     </p>
-                    <p className="text-sm text-[#1A2E40] font-semibold leading-relaxed">
+                    <p className="text-base text-[#1A2E40] font-semibold leading-relaxed">
                       {svc.highlight}
                     </p>
                   </div>
 
                   {/* Deliverables checklist */}
                   <div className="pt-4 border-t border-[#E2E8F0] mb-3">
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">
-                      Substantive Deliverables:
+                    <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40]">
+                      What's included
                     </p>
                   </div>
                   <ul className="space-y-2.5 flex-1 mb-6">
                     {svc.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-sm text-[#4A5568] leading-relaxed">
-                        <span className="w-4 h-4 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      <li key={idx} className="flex items-start gap-2.5 text-base text-[#4A5568] leading-relaxed">
+                        <span className="w-5 h-5 rounded-full bg-[#D4AF37]/20 text-[#8A6A00] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
                           ✓
                         </span>
                         <span>{item}</span>
@@ -280,50 +274,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 </div>
 
                 <div className="mt-auto">
-                  {/* Cleanup pricing tiers */}
-                  {'pricingTiers' in svc && Array.isArray((svc as { pricingTiers: PricingTier[] }).pricingTiers) && (
-                    <div className="mb-4 rounded-xl border border-[#D4AF37]/30 overflow-hidden">
-                      <div className="px-4 py-2.5 bg-[#FAF8F5] border-b border-[#D4AF37]/20 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37]" />
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">Cleanup Pricing — Fixed Fee by Backlog Size</span>
-                      </div>
-                      {(svc as { pricingTiers: PricingTier[] }).pricingTiers.map((tier, i) => (
-                        <div key={i} className={`px-4 py-3.5 border-b border-[#E2E8F0] last:border-b-0 ${i % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}`}>
-                          <div className="flex items-center justify-between gap-2 mb-1">
-                            <div className="flex items-center gap-2 min-w-0">
-                              <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
-                              <span className="text-sm font-semibold text-[#1A2E40]">{tier.label}</span>
-                              {tier.badge && (
-                                <span className="text-xs font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#B45309]/10 text-[#B45309] shrink-0">{tier.badge}</span>
-                              )}
-                            </div>
-                            <span className="text-sm font-bold shrink-0" style={{ color: tier.color }}>{tier.price}</span>
-                          </div>
-                          <p className="text-xs text-[#64748B] ml-4.5 leading-relaxed">{tier.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Cleanup → Monthly bridge */}
-                  {svc.id === 'cleanup' && (
-                    <p className="text-xs text-[#64748B] mt-2 mb-4 flex items-start gap-1.5">
-                      <span className="text-[#D4AF37] shrink-0 font-bold">→</span>
-                      <span>Most cleanup clients transition directly to Monthly Bookkeeping once the backlog is cleared.</span>
-                    </p>
-                  )}
-
                   {/* Notice footnote */}
                   {svc.notice && (
-                    <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#4A5568] mb-5 flex items-start gap-2.5 leading-relaxed">
+                    <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-sm text-[#4A5568] mb-5 flex items-start gap-2.5 leading-relaxed">
                       <Info className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                       <div className="space-y-1">
                         {svc.noticeTitle && (
-                          <span className="font-bold text-[#1A2E40] block text-sm tracking-wide">
+                          <span className="font-bold text-[#1A2E40] block text-base">
                             {svc.noticeTitle}
                           </span>
                         )}
-                        <span className="text-[#64748B] leading-relaxed block">{svc.notice}</span>
+                        <span className="text-[#4A5568] leading-relaxed block">{svc.notice}</span>
                       </div>
                     </div>
                   )}
@@ -332,14 +293,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0]">
                     <button
                       onClick={onBookCall}
-                      className="text-sm font-bold text-[#1A2E40] group-hover:text-[#D4AF37] flex items-center gap-1.5 transition-colors cursor-pointer"
+                      className="text-base font-bold text-[#1A2E40] group-hover:text-[#8A6A00] flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
-                      <span>Book a 20-Min Clarity Call</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>Book Your Free Clarity Call</span>
+                      <ArrowRight className="w-4 h-4" />
                     </button>
 
                     {svc.startingPrice && (
-                      <span className="text-xs font-semibold text-[#8A6A00]">
+                      <span className="text-sm font-bold text-[#8A6A00]">
                         {svc.startingPrice}
                       </span>
                     )}
@@ -350,11 +311,34 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
           })}
         </div>
 
-        {/* RESTORED TECHNOLOGY AND BOTTLENECK SECTION (Per Screenshots & Specifications) */}
+
+        {/* Cleanup pricing band */}
+        <div className="mt-8 max-w-6xl mx-auto rounded-2xl bg-white border border-[#E2E8F0] shadow-sm p-6 sm:p-8">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Cleanup pricing</p>
+            <h3 className="mt-2 text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Fixed fee, set by how far behind your books are</h3>
+            <p className="mt-2 text-base text-[#4A5568] leading-relaxed">Every cleanup starts with a complimentary review to confirm scope. The price is fixed once scope is agreed, with no hourly surprises.</p>
+          </div>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {(services[0] as { pricingTiers: PricingTier[] }).pricingTiers.map((tier) => (
+              <div key={tier.label} className={`rounded-xl border p-5 flex flex-col ${tier.badge ? 'border-[#D4AF37] bg-[#FAF8F5]' : 'border-[#E2E8F0] bg-[#FDFCFA]'}`}>
+                <div className="min-h-[3.5rem]">
+                  <p className="text-sm font-bold uppercase tracking-wider text-[#4A5568]">{tier.label}</p>
+                  {tier.badge && <span className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#1A2E40] text-[#D4AF37]">{tier.badge}</span>}
+                </div>
+                <p className="mt-2 text-3xl font-serif font-bold text-[#1A2E40]">{tier.price}</p>
+                <p className="mt-2 text-base text-[#4A5568] leading-relaxed">{tier.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-center text-base text-[#4A5568]">Most cleanup clients move straight to monthly bookkeeping once the backlog is cleared.</p>
+        </div>
+
+        {/* Practice software and POS integration */}
         <section
           id="practice-software-pos-integration"
           aria-labelledby="pos-integration-heading"
-          className="mt-16 bg-[#1A2E40] text-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden border border-[#D4AF37]/30"
+          className="mt-12 bg-[#1A2E40] text-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl relative overflow-hidden border border-[#D4AF37]/30"
         >
           {/* Subtle gold ambient glow */}
           <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none" />
@@ -364,14 +348,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             {/* Top Technology Reconciliation Header */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                  PRACTICE SOFTWARE &amp; POS INTEGRATION
+                <span className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+                  Practice software &amp; POS integration
                 </span>
-                <h3 id="pos-integration-heading" className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight">
+                <h3 id="pos-integration-heading" className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
                   I Reconcile Your Aesthetic &amp; Wellness Technology Stack
                 </h3>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl leading-relaxed font-light">
-                  You don't need to change your booking or POS system. Monique’s bookkeeping process is designed to reconcile settlements, provider tips, merchant processing fees, patient financing transactions, and package sales from your booking platform straight into QuickBooks Online.
+                <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl leading-relaxed">
+                  You don't need to change your booking or POS system. I reconcile settlements, provider tips, merchant processing fees, patient financing transactions, and package sales from your booking platform straight into QuickBooks Online.
                 </p>
 
                 {/* The Technology Integration Grid */}
@@ -395,7 +379,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span
                       key={tech}
                       role="listitem"
-                      className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-medium text-white border border-white/15 transition-colors shadow-sm"
+                      className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-sm font-medium text-white border border-white/15 transition-colors shadow-sm"
                     >
                       {tech}
                     </span>
@@ -407,15 +391,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               <div className="lg:col-span-4 flex flex-col items-center lg:items-end justify-center">
                 <button
                   onClick={onBookCall}
-                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm sm:text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.35)] hover:shadow-[0_6px_24px_rgba(212,175,55,0.5)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 active:scale-[0.99] group cursor-pointer"
+                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.35)] hover:shadow-[0_6px_24px_rgba(212,175,55,0.5)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 active:scale-[0.99] group cursor-pointer"
                 >
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-4 h-4" />
                   </span>
-                  <span>Schedule 20–Min Clarity Call</span>
+                  <span>Book Your Free Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </button>
-                <p className="text-xs text-[#E2E8F0]/80 mt-2.5 text-center lg:text-right font-light">
+                <p className="text-sm text-[#E2E8F0] mt-2.5 text-center lg:text-right">
                   20-minute private consultation on Zoom
                 </p>
               </div>
@@ -425,25 +409,25 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
             <div className="bg-[#FDFCFA] text-[#4A5568] rounded-2xl p-6 sm:p-8 lg:p-10 border border-[#E2E8F0] shadow-md space-y-6">
               {/* Heading */}
               <div>
-                <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40] tracking-tight">
-                  Stop letting your software break your books.
+                <h4 className="text-2xl font-serif font-bold text-[#1A2E40] tracking-tight">
+                  Keep your software from breaking your books.
                 </h4>
-                <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed mt-2.5 font-normal">
-                  Most standard bookkeepers turn on an automated POS sync tool and walk away. Without customized reconciliation, this can fill QuickBooks with un-reconciled transactions, create duplicate entries, obscure merchant processing deductions, and produce misleading financial reports that distort your true cash flow metrics.
+                <p className="text-base text-[#4A5568] leading-relaxed mt-2.5">
+                  Relying on an automated POS sync alone can fill QuickBooks with un-reconciled transactions, create duplicate entries, obscure merchant processing deductions, and produce misleading financial reports that distort your true cash flow metrics.
                 </p>
               </div>
 
               {/* Three Core Bottlenecks */}
               <div className="pt-3 border-t border-[#E2E8F0] space-y-5">
-                <h5 className="text-base sm:text-lg font-bold text-[#1A2E40]">
-                  The Three Core Bottlenecks I Fix For Your Practice:
+                <h5 className="text-lg font-serif font-bold text-[#1A2E40]">
+                  Three problems I fix in your practice
                 </h5>
 
-                <ul className="space-y-4 text-sm sm:text-base text-[#4A5568] leading-relaxed">
+                <ul className="space-y-4 text-base text-[#4A5568] leading-relaxed">
                   <li className="flex items-start gap-3">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#1A2E40] font-bold">1. Package, Gift Card &amp; Membership Liability Tracking:</strong>{' '}
+                      <strong className="text-[#1A2E40] font-bold">1. Package, gift card and membership liability tracking:</strong>{' '}
                       When you sell high-value treatment packages, gift cards, or prepaid memberships, recording full payments immediately as earned income can distort monthly profitability and cash visibility. I track unearned balances systematically as liabilities and record earned revenue as services are completed, aligned with your practice accounting policies and CPA guidance.
                     </div>
                   </li>
@@ -451,7 +435,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <li className="flex items-start gap-3">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#1A2E40] font-bold">2. Merchant &amp; Financing Fee Splits:</strong>{' '}
+                      <strong className="text-[#1A2E40] font-bold">2. Merchant and financing fee splits:</strong>{' '}
                       Platforms like Stripe, Square, Cherry Financing, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. I cleanly isolate those deductions as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
                     </div>
                   </li>
@@ -459,7 +443,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <li className="flex items-start gap-3">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
-                      <strong className="text-[#1A2E40] font-bold">3. Provider Payout &amp; Tip Isolation:</strong>{' '}
+                      <strong className="text-[#1A2E40] font-bold">3. Provider payout and tip isolation:</strong>{' '}
                       I build clean clearing workflows to separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
                     </div>
                   </li>
@@ -469,8 +453,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               {/* In Summary Callout */}
               <div className="pt-4 border-t border-[#E2E8F0]">
                 <div className="p-4 sm:p-5 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35">
-                  <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
-                    <strong className="text-[#1A2E40] font-bold">In Summary:</strong>{' '}
+                  <p className="text-base text-[#4A5568] leading-relaxed">
+                    <strong className="text-[#1A2E40] font-bold">In summary:</strong>{' '}
                     You don't need to change the booking platform, POS, or patient financing software you love. I step in to clean up the backend data flow, reconcile your software reporting against your bank feeds, and deliver clear, reliable financial statements every month.
                   </p>
                 </div>

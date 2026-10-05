@@ -147,7 +147,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
             <Sparkles className="w-3.5 h-3.5" />
             Transparent, Complexity-Based Pricing
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
             Your Fee Reflects Your Practice's Complexity
           </h2>
           <p className="text-base sm:text-lg text-[#374151] leading-relaxed">
