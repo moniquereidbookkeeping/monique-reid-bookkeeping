@@ -174,7 +174,7 @@ function getFallbackSteps(status: string, pos: string): { title: string; body: s
 interface Tier { name: string; price: string; flag: string; priority: string }
 
 function detectTier(pos: string, packages: string, accounts: string, revenue: string): Tier {
-  // Mirrors the plans on the website: Entry up to 3 accounts / under ~$25K a month,
+  // Mirrors the plans on the website: Essential up to 3 accounts / under ~$25K a month,
   // Growth up to 6 accounts / ~$25K-$75K or memberships, financing, multiple systems,
   // Full-Spectrum 7+ accounts / $75K+ or multi-location.
   const pkg = packages.toLowerCase();
@@ -187,7 +187,7 @@ function detectTier(pos: string, packages: string, accounts: string, revenue: st
   const over30 = rev.startsWith('$30,000');
   const sellsMemberships = /member|package|cherry|carecredit|patientfi/.test(pkg);
 
-  let level = 0; // 0 Entry, 1 Growth, 2 Full-Spectrum
+  let level = 0; // 0 Essential, 1 Growth, 2 Full-Spectrum
   if (over75 || acct >= 8) level = 2;
   else if (over30 || acct >= 5) level = 1;
   // Memberships, packages or financing point to Growth, unless the practice is tiny.
@@ -196,7 +196,7 @@ function detectTier(pos: string, packages: string, accounts: string, revenue: st
 
   if (level === 2) return { name: 'Full-Spectrum', price: '$1,197/mo', flag: '🔴', priority: 'HIGH-VALUE' };
   if (level === 1) return { name: 'Growth', price: '$797/mo', flag: '🟡', priority: 'STRONG FIT' };
-  return { name: 'Entry', price: '$497/mo', flag: '🟢', priority: 'MAINTENANCE' };
+  return { name: 'Essential', price: '$497/mo', flag: '🟢', priority: 'MAINTENANCE' };
 }
 
 // ─────────────────────────────────────────────

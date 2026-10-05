@@ -24,7 +24,7 @@ interface PricingSectionProps {
 const monthlyPlans = [
   {
     id: 'entry',
-    name: 'Entry',
+    name: 'Essential',
     revenueRange: 'Under $25K / month',
     tagline: 'Solo providers and single-location practices with one POS and a straightforward payment setup.',
     startingAt: '$497',
@@ -54,7 +54,7 @@ const monthlyPlans = [
     featured: true,
     badge: 'Most Popular' as string | null,
     features: [
-      'Everything in Entry',
+      'Everything in Essential',
       'Multiple POS & payment systems',
       'Memberships & prepaid packages',
       'Patient financing (Cherry, CareCredit, PatientFi)',

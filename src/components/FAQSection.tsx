@@ -472,7 +472,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                         <span className="inline-block text-sm font-semibold text-[#7A6200] bg-[#D4AF37]/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                           {faq.categoryLabel}
                         </span>
-                        <h3 className="font-serif font-bold text-lg sm:text-xl text-[#1A2E40] leading-snug">
+                        <h3 className="font-serif font-bold text-base sm:text-lg text-[#1A2E40] leading-snug">
                           {faq.question}
                         </h3>
                       </div>

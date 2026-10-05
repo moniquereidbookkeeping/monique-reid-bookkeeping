@@ -118,7 +118,7 @@ Write a personalized 3-step action plan for this exact practice. Rules:
 5. Write in Monique's voice: direct, expert, confident. No fluff. No generic advice.
 6. Use real bookkeeping terminology: reconciliation, chart of accounts, P&L, journal entry, clearing account, deferred revenue, etc.
 7. Each step title is 4–8 words. Each body is ONE short sentence, 15 words maximum. Describe the OUTCOME the practice gets, not how it is done: no account names, no step-by-step workflows, no setup mechanics, no chart-of-accounts details.
-8. Never name a plan tier (Entry, Growth, Full-Spectrum) or a price; the plan is chosen on the call. Describe only work that Monique actually offers (catalog below). Do not quote prices and do not promise how long anything takes.
+8. Never name a plan tier (Essential, Growth, Full-Spectrum) or a price; the plan is chosen on the call. Describe only work that Monique actually offers (catalog below). Do not quote prices and do not promise how long anything takes.
 
 CATALOG AND RULES:
 ${OFFERINGS_TEXT}

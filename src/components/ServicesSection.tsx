@@ -69,7 +69,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       ],
       startingPrice: 'Starting at $497/mo',
       monthlyTiers: [
-        { tier: 'Entry', price: '$497/mo', desc: 'Solo practitioners or new clinics with a straightforward account structure and clean transaction history.', highlights: ['Up to 3 accounts', 'Monthly reconciliation', 'P&L + Balance Sheet', 'Year-end CPA package'] },
+        { tier: 'Essential', price: '$497/mo', desc: 'Solo practitioners or new clinics with a straightforward account structure and clean transaction history.', highlights: ['Up to 3 accounts', 'Monthly reconciliation', 'P&L + Balance Sheet', 'Year-end CPA package'] },
         { tier: 'Growth', price: '$797/mo', desc: 'Expanding practices running memberships, patient financing platforms, or multiple POS integrations.', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
         { tier: 'Full-Spectrum', price: '$1,197/mo', desc: 'High-volume or multi-location practices requiring provider-level, modality-level, and multi-account tracking.', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
       ],
