@@ -125,7 +125,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   className="hover:text-[#D4AF37] transition-colors flex items-center gap-2.5 text-[#E2E8F0]/90"
                 >
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span className="font-bold text-xs whitespace-nowrap">{CONTACT_EMAIL}</span>
+                  <span className="font-bold text-xs break-all">{CONTACT_EMAIL}</span>
                 </a>
               </li>
               <li>
