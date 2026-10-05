@@ -106,9 +106,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
             <div className="p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20 shadow-lg">
               <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3">✦ Founder-Led Bookkeeping</p>
               <p className="text-xl font-serif font-bold text-white leading-snug mb-2">
-                Founder-led, from the first call to the monthly close.</p>
+                You work directly with the person who does the work.</p>
               <p className="text-base text-[#E2E8F0] leading-relaxed">
-                You work with me directly. I personally review your reconciliations and answer your questions, so you always know who is accountable for your books.</p>
+                I review your reconciliations and answer your questions myself, so you always know who is accountable for your books.</p>
             </div>
 
             {/* Core Values / Commitments */}
