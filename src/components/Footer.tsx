@@ -2,7 +2,7 @@ import React from 'react';
 import { Logo } from './Logo';
 import { PageView } from '../types';
 import { pathFor } from '../router';
-import { Calendar, ArrowUp, ExternalLink, Mail } from 'lucide-react';
+import { Calendar, ArrowUp, Mail } from 'lucide-react';
 import { CONTACT_EMAIL } from '../constants/booking';
 
 interface FooterProps {
@@ -126,22 +126,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 >
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
                   <span className="font-bold text-xs break-all">{CONTACT_EMAIL}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://getbillforge.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block"
-                >
-                  <div className="flex items-center gap-2.5 text-white group-hover:text-[#D4AF37] transition-colors">
-                    <ExternalLink className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                    <span>Shop Our Business Templates</span>
-                  </div>
-                  <div className="text-white text-xs mt-0.5 pl-6.5 group-hover:text-[#D4AF37] transition-colors">
-                    GetBillForge.com
-                  </div>
                 </a>
               </li>
             </ul>

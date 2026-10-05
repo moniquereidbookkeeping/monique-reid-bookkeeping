@@ -106,6 +106,12 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
               We use this information to respond to your inquiry, schedule and conduct consultations, evaluate whether our services are appropriate for your needs, and communicate with you.
             </p>
           </div>
+          <div className="space-y-2 pt-1">
+            <h4 className="text-sm font-bold text-[#1A2E40]">B. Bookkeeping Health Check</h4>
+            <p className="text-sm leading-relaxed">
+              If you use the free Bookkeeping Health Check, we collect your name, email address, and your answers: your QuickBooks status, booking or point-of-sale platform, number of accounts, revenue model and range, practice age, and any challenge you describe in your own words. We use your answers to create a general plan for you and to prepare for a call with you. Your name and email address are not used to create the plan. Your plan is emailed to the address you provide, and your details are stored securely so we can follow up with you. Please do not enter patient names, patient health information, or account numbers in the free-text fields.
+            </p>
+          </div>
         </div>
 
         {/* 2. Client and Financial Information */}
@@ -276,6 +282,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <ul className="list-disc list-inside space-y-1.5 text-sm pl-2">
             <li><strong>QuickBooks Online / Intuit</strong> — bookkeeping and accounting platform</li>
             <li><strong>Calendly</strong> — scheduling</li>
+            <li><strong>Zoom</strong> — video consultations</li>
             <li><strong>Google Workspace</strong> — business email, calendar, documents, and collaboration</li>
             <li><strong>Stripe or other payment processors</strong> — payment processing</li>
             <li><strong>Google Analytics</strong> and <strong>Microsoft Clarity</strong> — understanding how visitors use our website (only if you accept cookies)</li>
@@ -346,7 +353,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             Where required by applicable law, appropriate consent mechanisms will be provided for non-essential cookies or tracking technologies. You can also control certain cookies through your browser settings.
           </p>
           <p className="text-sm leading-relaxed">
-            Analytics cookies are off by default. If you click Accept on our cookie banner, we use Google Analytics to measure which pages are visited and how visitors reach us, and we may use Microsoft Clarity to view anonymous session recordings with form fields masked. If you click Decline, neither is loaded. You can change your choice at any time using Cookie Settings in the footer. We do not send the answers you give in the Bookkeeping Health Check to these analytics tools.
+            Analytics cookies are off by default. If you click Accept on our privacy choices banner, we use Google Analytics to measure which pages are visited and how visitors reach us, and we may use Microsoft Clarity to view anonymous session recordings with form fields masked. If you click Decline, neither is loaded. You can change your choice at any time using Cookie Settings in the footer. We do not send the answers you give in the Bookkeeping Health Check to these analytics tools.
           </p>
         </div>
 
@@ -516,38 +523,18 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <span>16. Third-Party Websites</span>
           </h3>
           <p className="text-sm leading-relaxed">
-            Our website may contain links to third-party websites and services, including software providers, scheduling platforms, GetBillForge, and other resources.
+            Our website may contain links to third-party websites and services, including software providers, scheduling platforms, and other resources.
           </p>
           <p className="text-sm leading-relaxed">
             We are not responsible for the privacy practices, security, content, or policies of those third-party websites. Please review their privacy policies before providing information to them.
           </p>
         </div>
 
-        {/* 17. GetBillForge */}
-        <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] shadow-sm space-y-3">
-          <h3 className="text-lg sm:text-xl font-serif font-bold text-[#1A2E40] flex items-center gap-2">
-            <ExternalLink className="w-5 h-5 text-[#D4AF37]" />
-            <span>17. GetBillForge</span>
-          </h3>
-          <p className="text-sm leading-relaxed">
-            Monique Reid Bookkeeping may contain links to <a href="https://getbillforge.com" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline">GetBillForge (getbillforge.com)</a>, a separate digital-product business that sells professionally designed invoice and billing template kits for MedSpas, aesthetic clinics, IV hydration centers, and wellness practices.
-          </p>
-          <p className="text-sm leading-relaxed">
-            GetBillForge products are downloadable business tools — not bookkeeping or financial reporting services. If you visit GetBillForge or purchase products through that site, your interactions are governed by GetBillForge&apos;s own terms and privacy practices.
-          </p>
-          <p className="text-sm leading-relaxed">
-            Although both businesses are owned by Monique Reid, they operate independently. Information you provide to Monique Reid Bookkeeping as a bookkeeping client is not shared with or used by GetBillForge for marketing or product purposes, and vice versa.
-          </p>
-          <p className="text-xs sm:text-sm text-[#1A2E40] font-medium bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
-            We maintain this separation so that client financial records handled through Monique Reid Bookkeeping remain completely separate from the product and marketing operations of GetBillForge.
-          </p>
-        </div>
-
-        {/* 18. Updates to This Privacy Policy */}
+        {/* 17. Updates to This Privacy Policy */}
         <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] shadow-sm space-y-3">
           <h3 className="text-lg sm:text-xl font-serif font-bold text-[#1A2E40] flex items-center gap-2">
             <Clock className="w-5 h-5 text-[#D4AF37]" />
-            <span>18. Updates to This Privacy Policy</span>
+            <span>17. Updates to This Privacy Policy</span>
           </h3>
           <p className="text-sm leading-relaxed">
             We may update this Privacy Policy from time to time. When changes are made, we will update the &ldquo;Last Updated&rdquo; date at the top of this Policy.
@@ -557,10 +544,10 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           </p>
         </div>
 
-        {/* 19. Contact Us */}
+        {/* 18. Contact Us */}
         <div className="bg-[#1A2E40] p-6 sm:p-8 rounded-2xl text-white space-y-4 border border-[#D4AF37]/30 shadow-lg">
           <h3 className="text-xl font-serif font-bold text-white">
-            19. Contact Us
+            18. Contact Us
           </h3>
           <div className="space-y-1 text-sm text-[#E2E8F0]">
             <p className="font-bold text-white text-base">Monique Reid Bookkeeping</p>

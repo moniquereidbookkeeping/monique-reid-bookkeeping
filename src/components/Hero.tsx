@@ -35,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({
             <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#1A2E40] tracking-tight leading-[1.12]">
               Stop Guessing Your True Profit.{' '}
               <br />
-              <span className="text-[#D4AF37] relative inline-block">
+              <span className="text-[#A67C00] relative inline-block">
                 Get Clean, Tax-Ready QuickBooks for Your Practice.
                 <svg
                   className="absolute -bottom-2 left-0 w-full h-2.5 text-[#D4AF37]/40"
@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({
               <button
                 id="hero-explore-services-btn"
                 onClick={() => {
-                  const el = document.getElementById('services-section');
+                  const el = document.getElementById('how-it-works');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-[#1A2E40] bg-transparent border-2 border-[#1A2E40] hover:bg-[#1A2E40] hover:text-white transition-all duration-200 cursor-pointer"
@@ -93,18 +93,18 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Tech Stack Integration Strip */}
             <div className="pt-6 border-t border-[#1A2E40]/10 space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-[#57534E]/70">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#57534E]/70">
                 Reconciling Payouts From Your Practice Software &amp; Patient Financing:
               </p>
               <div className="space-y-2">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Practice Management:</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Practice Management:</span>
                   {['Boulevard', 'Vagaro', 'Jane', 'Mindbody', 'Zenoti'].map(name => (
                     <span key={name} className="px-2.5 py-1 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-medium text-[#1A2E40]">{name}</span>
                   ))}
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Payments &amp; Financing:</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#57534E]/60 w-full sm:w-auto shrink-0">Payments &amp; Financing:</span>
                   {['Stripe', 'Square', 'Cherry', 'CareCredit', 'PatientFi'].map(name => (
                     <span key={name} className="px-2.5 py-1 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-xs font-medium text-[#1A2E40]">{name}</span>
                   ))}
@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({
                     <TrendingUp className="w-5 h-5 text-[#D4AF37]" />
                   </div>
                   <div className="text-left">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#8A6A00]">
                       Specialized Bookkeeping
                     </p>
                     <p className="text-sm font-bold text-[#1A2E40]">

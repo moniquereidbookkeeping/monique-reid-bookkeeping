@@ -42,8 +42,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       ],
       startingPrice: 'From $597 (1–3 months)',
       pricingTiers: [
-        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#16A34A' },
-        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Most Common', color: '#D97706' },
+        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#15803D' },
+        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Most Common', color: '#B45309' },
         { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full audit trail.', color: '#DC2626' },
         { label: '2+ years / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Multi-year and multi-entity engagements quoted after assessment.', color: '#6B7280' },
       ],
@@ -209,26 +209,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
           </div>
         </div>
 
-        {/* Audit Bridge Banner */}
-        <div className="max-w-6xl mx-auto mb-8 flex flex-col sm:flex-row items-center justify-between gap-3 px-5 py-4 rounded-2xl bg-[#1A2E40]/[0.04] border border-[#1A2E40]/10">
-          <div className="flex items-start sm:items-center gap-3">
-            <span className="text-xl mt-0.5 sm:mt-0" aria-hidden="true">🩺</span>
-            <p className="text-sm text-[#1A2E40] leading-snug">
-              <strong className="font-bold">Completed the Practice Audit?</strong> Your personalized plan is ready. Book your call and reference your audit results — I'll pick up exactly where the diagnostic left off.{' '}
-              <a href="#practice-audit" className="text-[#D4AF37] font-semibold hover:underline whitespace-nowrap">
-                Take the free audit →
-              </a>
-            </p>
-          </div>
-          <button
-            onClick={onBookCall}
-            className="shrink-0 px-4 py-2.5 rounded-xl bg-[#1A2E40] text-[#D4AF37] text-xs font-bold flex items-center gap-2 hover:bg-[#243B55] transition-colors cursor-pointer whitespace-nowrap shadow-sm"
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            Book My Call
-          </button>
-        </div>
-
         {/* Services Grid (All 6 Distinct Services) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch max-w-6xl mx-auto">
           {filteredServices.map((svc) => {
@@ -247,7 +227,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 <div className="flex flex-col flex-1">
                   {/* Card Header */}
                   <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="text-xs font-bold tracking-widest text-[#D4AF37] uppercase">
+                    <span className="text-xs font-bold tracking-widest text-[#8A6A00] uppercase">
                       {svc.num}. {svc.phase.toUpperCase()}
                     </span>
                     <div className="w-10 h-10 rounded-xl bg-[#FDFCFA] border border-[#E2E8F0] flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors shrink-0">
@@ -272,7 +252,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
 
                   {/* Key Benefit Box */}
                   <div className="mb-5 p-4 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 md:min-h-[5rem] flex flex-col justify-center">
-                    <p className="text-xs uppercase font-bold tracking-wider text-[#D4AF37] mb-1.5 flex items-center gap-1.5">
+                    <p className="text-xs uppercase font-bold tracking-wider text-[#8A6A00] mb-1.5 flex items-center gap-1.5">
                       <Sparkles className="w-3 h-3 text-[#D4AF37]" />
                       <span>Key Strategic Value</span>
                     </p>
@@ -290,7 +270,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <ul className="space-y-2.5 flex-1 mb-6">
                     {svc.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-sm text-[#4A5568] leading-relaxed">
-                        <span className="w-4 h-4 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
+                        <span className="w-4 h-4 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
                           ✓
                         </span>
                         <span>{item}</span>
@@ -314,7 +294,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                               <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
                               <span className="text-sm font-semibold text-[#1A2E40]">{tier.label}</span>
                               {tier.badge && (
-                                <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#D97706]/10 text-[#D97706] shrink-0">{tier.badge}</span>
+                                <span className="text-xs font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#B45309]/10 text-[#B45309] shrink-0">{tier.badge}</span>
                               )}
                             </div>
                             <span className="text-sm font-bold shrink-0" style={{ color: tier.color }}>{tier.price}</span>
@@ -331,40 +311,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                       <span className="text-[#D4AF37] shrink-0 font-bold">→</span>
                       <span>Most cleanup clients transition directly to Monthly Bookkeeping once the backlog is cleared.</span>
                     </p>
-                  )}
-
-                  {/* Monthly tier comparison table */}
-                  {'monthlyTiers' in svc && Array.isArray((svc as any).monthlyTiers) && (
-                    <div className="mb-4 rounded-xl border border-[#D4AF37]/30 overflow-hidden">
-                      <div className="px-4 py-2.5 bg-[#FAF8F5] border-b border-[#D4AF37]/20 flex items-center gap-1.5">
-                        <Layers className="w-3.5 h-3.5 text-[#D4AF37]" />
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">Monthly Plan Comparison</span>
-                      </div>
-                      <div className="divide-y divide-[#E2E8F0]">
-                        {(svc as any).monthlyTiers.map((mt: {tier: string; price: string; desc: string; highlights: string[]}, i: number) => (
-                          <div key={i} className={`px-4 py-4 ${i === 1 ? 'bg-[#FAF8F5]' : i === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}`}>
-                            <div className="flex items-start justify-between gap-3 mb-1.5">
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <span className={`text-sm font-bold ${i === 1 ? 'text-[#D4AF37]' : 'text-[#1A2E40]'}`}>{mt.tier}</span>
-                                {i === 1 && (
-                                  <span className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37]">Most Popular</span>
-                                )}
-                              </div>
-                              <span className={`text-sm font-bold shrink-0 ${i === 1 ? 'text-[#D4AF37]' : 'text-[#1A2E40]'}`}>{mt.price}</span>
-                            </div>
-                            <p className="text-xs text-[#64748B] leading-snug mb-2.5">{mt.desc}</p>
-                            <div className="flex flex-wrap gap-x-4 gap-y-1">
-                              {mt.highlights.map((h: string, j: number) => (
-                                <span key={j} className="text-xs text-[#4A5568] flex items-center gap-1">
-                                  <span className="text-[#D4AF37] font-bold">✓</span>
-                                  {h}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   )}
 
                   {/* Notice footnote */}
@@ -393,7 +339,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     </button>
 
                     {svc.startingPrice && (
-                      <span className="text-xs font-semibold text-[#D4AF37]">
+                      <span className="text-xs font-semibold text-[#8A6A00]">
                         {svc.startingPrice}
                       </span>
                     )}
@@ -470,7 +416,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </button>
                 <p className="text-xs text-[#E2E8F0]/80 mt-2.5 text-center lg:text-right font-light">
-                  20–minute private consultation via Calendly
+                  20-minute private consultation on Zoom
                 </p>
               </div>
             </div>

@@ -1,4 +1,4 @@
-export type PageView = 'home' | 'services' | 'dashboard' | 'about' | 'calculator' | 'contact' | 'terms' | 'privacy' | 'booked' | 'blog' | 'blog-post';
+export type PageView = 'home' | 'services' | 'dashboard' | 'about' | 'calculator' | 'contact' | 'terms' | 'privacy' | 'booked' | 'blog' | 'blog-post' | 'notfound';
 
 export interface BlogSection {
   type: 'intro' | 'heading' | 'paragraph' | 'list' | 'callout' | 'tip' | 'cta-inline';

@@ -80,13 +80,13 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
 
               {/* Problem */}
               <div className="lg:col-span-4 bg-white px-5 py-4 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#D4AF37] mb-1.5">The Problem</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#8A6A00] mb-1.5">The Problem</p>
                 <p className="text-sm text-[#57534E] leading-relaxed">{item.problem}</p>
               </div>
 
               {/* How We Help */}
               <div className="lg:col-span-4 bg-white px-5 py-4">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-emerald-600 mb-1.5">How We Help</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-emerald-600 mb-1.5">How We Help</p>
                 <div className="flex gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                   <p className="text-sm text-[#57534E] leading-relaxed">{item.help}</p>
@@ -99,7 +99,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
         {/* Closing statement + CTA */}
         <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20">
           <div className="max-w-xl">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">The Result</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37] mb-2">The Result</p>
             <p className="text-lg font-serif font-bold text-white leading-snug">
               Finally Know Whether Your Practice Is Actually Profitable
             </p>

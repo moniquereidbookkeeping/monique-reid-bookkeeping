@@ -10,6 +10,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { getBlogPostBySlug } from '../data/blogPosts';
+import { BlogCover } from './BlogCover';
 import { BlogSection } from '../types';
 
 interface BlogPostPageProps {
@@ -74,7 +75,7 @@ const renderSection = (section: BlogSection, index: number) => {
             <div className="w-7 h-7 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
               <Info className="w-3.5 h-3.5 text-[#D4AF37]" />
             </div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#8A6A00]">
               {section.heading}
             </span>
           </div>
@@ -92,7 +93,7 @@ const renderSection = (section: BlogSection, index: number) => {
             <div className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center shrink-0">
               <Lightbulb className="w-3.5 h-3.5 text-[#D4AF37]" />
             </div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#1A2E40]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">
               {section.heading}
             </span>
           </div>
@@ -106,7 +107,7 @@ const renderSection = (section: BlogSection, index: number) => {
           key={index}
           className="rounded-xl border border-[#D4AF37]/30 bg-[#1A2E40] p-5 sm:p-6 text-center space-y-2 my-2"
         >
-          <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">{section.heading}</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">{section.heading}</p>
           <p className="text-sm text-white/80 leading-relaxed">{section.text}</p>
         </div>
       );
@@ -168,7 +169,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
       datePublished: post.publishedDate,
       dateModified: post.publishedDate,
       mainEntityOfPage: url,
-      image: post.coverImage,
+      image: `${origin}/og-image.png`,
       author: { '@id': `${origin}/#person` },
       publisher: { '@id': `${origin}/#organization` },
     });
@@ -177,7 +178,6 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
     return () => {
       restore.forEach((fn) => fn());
       ld.remove();
-      document.title = 'Monique Reid Bookkeeping | MedSpa & Aesthetic Practice QuickBooks Specialist';
     };
   }, [post]);
 
@@ -197,12 +197,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
 
       {/* ── Hero cover image with overlay ── */}
       <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[500px] overflow-hidden">
-        <img
-          src={`${post.coverImage}?auto=format&fit=crop&w=1600&q=85`}
-          alt={post.coverAlt}
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
+        <BlogCover category={post.category} className="absolute inset-0 w-full h-full" />
         {/* Layered gradient: transparent top → dark navy bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/60 to-[#0D1B2A]/15" />
 
@@ -221,7 +216,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
         <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-8 lg:px-0 pb-8 sm:pb-10">
           <div className="max-w-3xl lg:mx-auto space-y-3">
             {/* Category chip */}
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#D4AF37]/90 text-[#1A2E40] text-[10px] font-bold uppercase tracking-widest">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#D4AF37]/90 text-[#1A2E40] text-xs font-bold uppercase tracking-widest">
               {post.category}
             </span>
 
@@ -231,7 +226,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
             </h1>
 
             {/* Meta row */}
-            <div className="flex flex-wrap items-center gap-4 text-[11px] text-white/70">
+            <div className="flex flex-wrap items-center gap-4 text-xs text-white/70">
               <span className="flex items-center gap-1.5">
                 <BookOpen className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span className="text-white font-semibold">Monique Reid</span>
@@ -260,7 +255,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#1A2E40]/6 border border-[#1A2E40]/10 text-[11px] font-semibold text-[#1A2E40]"
+                className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#1A2E40]/6 border border-[#1A2E40]/10 text-xs font-semibold text-[#1A2E40]"
               >
                 <ChevronRight className="w-2.5 h-2.5 text-[#D4AF37]" />
                 {tag}
@@ -277,7 +272,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
           <div className="mt-12 pt-8 border-t border-[#E2E8F0] flex items-center gap-4">
             <div className="w-12 h-12 rounded-full overflow-hidden bg-[#1A2E40] shrink-0 border-2 border-[#D4AF37]/40">
               <img
-                src="/monique-reid-headshot.png"
+                src="/monique-reid-headshot.webp"
                 alt="Monique Reid"
                 className="w-full h-full object-cover object-top"
               />
@@ -293,7 +288,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
           {/* End CTA */}
           <div className="mt-10">
             <div className="rounded-2xl bg-gradient-to-br from-[#1A2E40] to-[#0D1B2A] p-6 sm:p-8 text-white text-center space-y-4 border border-[#D4AF37]/20 shadow-xl">
-              <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
                 ✦ Ready to Talk About Your Practice?
               </p>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">

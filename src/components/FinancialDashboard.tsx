@@ -276,7 +276,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
               We organize the financial side of your practice so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice really is.
             </p>
-            <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 text-xs text-[#718096] flex items-center gap-2">
+            <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 text-xs text-[#5A6578] flex items-center gap-2">
               <Info className="w-4 h-4 text-[#D4AF37] shrink-0" />
               <span>All benchmarks, percentages, and outputs in this model are illustrative examples only, not guarantees or specific practice projections.</span>
             </div>
@@ -286,7 +286,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 onClick={onExploreServices}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A2E40] hover:text-[#D4AF37] transition-colors group cursor-pointer"
               >
-                <span>Explore Our Four Bookkeeping Services</span>
+                <span>Explore Our Bookkeeping Services</span>
                 <ArrowUpRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
@@ -325,14 +325,14 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     >
                       {sc.id === 'boutique' ? 'Boutique' : sc.id === 'established' ? 'Growing' : 'High-Volume'}
                     </p>
-                    <p className="text-[11px] opacity-85 truncate mt-0.5">{sc.stage}</p>
+                    <p className="text-xs opacity-85 truncate mt-0.5">{sc.stage}</p>
                     <p
                       className={`font-bold mt-1.5 text-sm sm:text-base ${
                         isSelected ? 'text-white' : 'text-[#1A2E40]'
                       }`}
                     >
                       {formatCurrency(sc.monthlyRevenue)}
-                      <span className="text-[10px] font-normal opacity-70">/mo</span>
+                      <span className="text-xs font-normal opacity-70">/mo</span>
                     </p>
                   </button>
                 );
@@ -376,7 +376,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   }}
                 />
               </div>
-              <div className="flex justify-between text-[10px] text-[#57534E] mt-1">
+              <div className="flex justify-between text-xs text-[#57534E] mt-1">
                 <span>$30k/mo</span>
                 <span>$140k/mo</span>
                 <span>$250k/mo</span>
@@ -437,7 +437,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                       P&amp;L
                     </span>
                   </h3>
-                  <span className="text-[11px] text-[#57534E] bg-[#F1F5F9] px-2.5 py-0.5 rounded-md border border-[#E2E8F0] font-medium">
+                  <span className="text-xs text-[#57534E] bg-[#F1F5F9] px-2.5 py-0.5 rounded-md border border-[#E2E8F0] font-medium">
                     Practice Revenue Analysis
                   </span>
                 </div>
@@ -457,7 +457,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   Where Every $100 Collected Actually Goes in This Practice:
                 </p>
               </div>
-              <span className="text-[11px] text-[#57534E]">
+              <span className="text-xs text-[#57534E]">
                 Click any metric below for plain-English practice clarity
               </span>
             </div>
@@ -551,7 +551,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
                 {formatCurrency(animTotalRev)}
               </p>
-              <div className="flex items-center gap-1 mt-2 text-[11px] text-[#1A2E40]/80 font-medium">
+              <div className="flex items-center gap-1 mt-2 text-xs text-[#1A2E40]/80 font-medium">
                 <Info className="w-3 h-3 text-[#D4AF37]" />
                 <span className="truncate">Reconciled to POS and payment records</span>
               </div>
@@ -577,7 +577,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
                 {formatCurrency(animCogs)}
               </p>
-              <p className="text-[11px] text-[#57534E] mt-2 truncate">
+              <p className="text-xs text-[#57534E] mt-2 truncate">
                 Direct clinical products &amp; supplies
               </p>
             </button>
@@ -602,7 +602,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
                 {formatCurrency(animProviderPay)}
               </p>
-              <p className="text-[11px] text-[#57534E] mt-2 truncate">
+              <p className="text-xs text-[#57534E] mt-2 truncate">
                 Clinical provider compensation
               </p>
             </button>
@@ -628,7 +628,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-white mt-1 tabular-nums">
                   {formatCurrency(animSurplus)}
                 </p>
-                <p className="text-[11px] text-[#E2E8F0]/90 mt-2 line-clamp-2">
+                <p className="text-xs text-[#E2E8F0]/90 mt-2 line-clamp-2">
                   Amount remaining after the expenses included in this simplified model.
                 </p>
               </button>
@@ -656,12 +656,12 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     <p className="font-semibold text-[#D4AF37] mb-1">Model Surplus Notice</p>
                     <button 
                       onClick={() => setShowSurplusTooltip(false)}
-                      className="text-gray-400 hover:text-white text-[10px]"
+                      className="text-gray-400 hover:text-white text-xs"
                     >
                       ✕
                     </button>
                   </div>
-                  <p className="text-gray-200 text-[11px]">
+                  <p className="text-gray-200 text-xs">
                     This figure represents the simplified arithmetic surplus ({formatCurrency(animTotalRev)} collections − {formatCurrency(animCogs)} COGS − {formatCurrency(animProviderPay)} Provider Pay − {formatCurrency(animOpex)} Operating Expenses = {formatCurrency(animSurplus)}). It is not cash available for owner distributions, and does not account for income taxes, debt service, capital expenditures, or working capital reserves.
                   </p>
                 </div>
@@ -719,11 +719,11 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#E2E8F0] pb-2">
                   <h4 className="text-sm font-bold text-[#1A2E40] flex items-center gap-2">
                     <span>{metricExplanations[activeMetric].title}</span>
-                    <span className="text-[11px] font-normal text-[#57534E] bg-white px-2 py-0.5 rounded border border-[#E2E8F0]">
+                    <span className="text-xs font-normal text-[#57534E] bg-white px-2 py-0.5 rounded border border-[#E2E8F0]">
                       Model Context: {metricExplanations[activeMetric].benchmark}
                     </span>
                   </h4>
-                  <span className="text-[11px] text-[#57534E]">
+                  <span className="text-xs text-[#57534E]">
                     Selected for {periodLabel} Model
                   </span>
                 </div>
@@ -750,14 +750,14 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 </div>
 
                 {activeMetric === 'surplus' && (
-                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-[11px] text-[#57534E] leading-relaxed">
+                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-xs text-[#57534E] leading-relaxed">
                     <strong className="text-[#1A2E40]">Operating Surplus &amp; Owner Distributions Distinction:</strong>{' '}
                     This illustrative operating surplus reflects the simplified arithmetic remaining after the specific expenses included in this model. It is not cash available for owner distributions. Cash available for owner distributions depends on income taxes, debt principal payments, capital expenditures, working capital requirements, and unmodeled expenses.
                   </div>
                 )}
 
                 {activeMetric === 'opex' && (
-                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-[11px] text-[#57534E] leading-relaxed">
+                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-xs text-[#57534E] leading-relaxed">
                     <strong className="text-[#1A2E40]">Operating Expenses Classification:</strong>{' '}
                     Routine operating expenses include clinic facility rent, utilities, insurance, merchant processing fees, and software subscriptions. Loan principal payments and certain equipment lease or financing commitments represent balance sheet liabilities and financing items, not operating expenses.
                   </div>
@@ -1074,7 +1074,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           )}
 
           {/* Subtle Illustrative Disclaimer Footnote */}
-          <p className="mt-4 text-center text-[11px] sm:text-xs text-[#57534E]/70 italic">
+          <p className="mt-4 text-center text-xs sm:text-xs text-[#57534E]/70 italic">
             *Estimates reflect common MedSpa industry cost structures and service-line benchmarks. Your practice results will differ based on your actual revenue mix, provider compensation model, and operating expenses — which is precisely what structured bookkeeping tracks and reports each month.
           </p>
         </div>

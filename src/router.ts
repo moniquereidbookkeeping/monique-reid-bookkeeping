@@ -1,7 +1,7 @@
 import { PageView } from './types';
 
 /** Real URL for each page, so pages and blog posts can be linked, shared and indexed. */
-export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post'>, string> = {
+export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post' | 'notfound'>, string> = {
   home: '/',
   services: '/services',
   dashboard: '/dashboard',
@@ -18,6 +18,7 @@ export const SITE_ORIGIN = 'https://moniquereidbookkeeping.com';
 
 export function pathFor(page: PageView, slug = ''): string {
   if (page === 'blog-post') return slug ? `/blog/${slug}` : '/blog';
+  if (page === 'notfound') return '/404';
   return PAGE_PATHS[page];
 }
 
@@ -30,11 +31,20 @@ export function parsePath(pathname: string): { page: PageView; slug: string } {
   const hit = (Object.keys(PAGE_PATHS) as Array<keyof typeof PAGE_PATHS>).find(
     (p) => PAGE_PATHS[p] === clean,
   );
-  return { page: hit ?? 'home', slug: '' };
+  return { page: hit ?? 'notfound', slug: '' };
 }
 
 /** Titles/descriptions for non-home pages. Blog posts set their own. */
 export const PAGE_META: Partial<Record<PageView, { title: string; description: string }>> = {
+  home: {
+    title: 'MedSpa Bookkeeper | Monique Reid Bookkeeping',
+    description:
+      'Specialized QuickBooks bookkeeping for MedSpas, aesthetic clinics and IV hydration practices. Clean books and clear P&Ls from a certified ProAdvisor.',
+  },
+  notfound: {
+    title: 'Page Not Found | Monique Reid Bookkeeping',
+    description: 'This page could not be found.',
+  },
   booked: {
     title: 'You\'re Booked | Monique Reid Bookkeeping',
     description: 'Your free 20-minute Financial Clarity Call is confirmed.',

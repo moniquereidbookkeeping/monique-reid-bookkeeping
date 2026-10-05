@@ -4,9 +4,10 @@ import { FounderPortrait } from './FounderPortrait';
 
 interface AboutSectionProps {
   onBookCall: () => void;
+  showPortrait?: boolean;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
+export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPortrait = true }) => {
   return (
     <section id="about-section" className="py-16 lg:py-24 bg-[#FDFCFA] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,11 +17,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
             <div className="relative w-full max-w-sm">
               <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#D4AF37]/30 to-[#1A2E40]/20 rotate-1 blur-xs pointer-events-none" />
 
+              {showPortrait && (
               <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#F9F7F4] to-[#E5DDD0] border-2 border-[#D4AF37]/60 shadow-xl group">
                 <FounderPortrait variant="about" />
 
                 <div className="p-4 bg-white border-t border-[#E2E8F0] text-center">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] mb-1">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#8A6A00] mb-1">
                     Specialized Bookkeeping
                   </p>
                   <h3 className="font-serif font-bold text-xl text-[#1A2E40]">
@@ -31,9 +33,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
                   </p>
                 </div>
               </div>
+              )}
 
               {/* Intuit Certified ProAdvisor Credentials Badges */}
-              <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-md">
+              <div className={`${showPortrait ? 'mt-4 ' : ''}p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-md`}>
                 <div className="mb-4 pb-2.5 border-b border-[#E2E8F0] text-center">
                   <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">
                     Intuit Certified ProAdvisor Credentials
@@ -71,10 +74,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
                 {/* Credential labels */}
                 <div className="mt-3 pt-3 border-t border-[#E2E8F0] space-y-1">
-                  <p className="text-[10px] text-[#57534E] text-center leading-snug">Intuit Certified QuickBooks ProAdvisor</p>
-                  <p className="text-[10px] text-[#57534E] text-center leading-snug">QuickBooks Online Level 2</p>
-                  <p className="text-[10px] text-[#57534E] text-center leading-snug">QuickBooks Payroll Certified</p>
-                  <p className="text-[10px] text-[#57534E] text-center leading-snug">Bachelor of Business Administration</p>
+                  <p className="text-xs text-[#57534E] text-center leading-snug">Intuit Certified QuickBooks ProAdvisor</p>
+                  <p className="text-xs text-[#57534E] text-center leading-snug">QuickBooks Online Level 2</p>
+                  <p className="text-xs text-[#57534E] text-center leading-snug">QuickBooks Payroll Certified</p>
+                  <p className="text-xs text-[#57534E] text-center leading-snug">Bachelor of Business Administration</p>
                 </div>
               </div>
             </div>
@@ -84,7 +87,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
           <div className="lg:col-span-7 space-y-6 text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
               Clean Books. Clearer Numbers.{' '}
-              <span className="text-[#D4AF37] block mt-1">More Confident Decisions.</span>
+              <span className="text-[#A67C00] block mt-1">More Confident Decisions.</span>
             </h2>
 
             <div className="space-y-4 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
@@ -101,7 +104,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
 
             {/* Founder-Led Bookkeeping */}
             <div className="p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20 shadow-lg">
-              <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37] mb-3">✦ Founder-Led Bookkeeping</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37] mb-3">✦ Founder-Led Bookkeeping</p>
               <p className="text-lg font-serif font-semibold text-white leading-snug mb-2">
                 When you hire this practice, you work with me directly — not a junior associate or an outsourced team.
               </p>

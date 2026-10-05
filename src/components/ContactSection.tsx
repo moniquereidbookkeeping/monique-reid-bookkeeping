@@ -27,7 +27,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             Book Your Complimentary <span className="whitespace-nowrap">20-Minute</span> Financial Clarity Call
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
-            Select a convenient time on Calendly. I'll discuss your practice's current bookkeeping setup, identify immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
+            Select a convenient time below. I'll discuss your practice's current bookkeeping setup, identify immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-xs font-bold text-[#1A2E40]">20-Minute Private Zoom Call</p>
-              <p className="text-[11px] text-[#57534E]">Complimentary review, no obligation</p>
+              <p className="text-xs text-[#57534E]">Complimentary review, no obligation</p>
             </div>
           </div>
 
@@ -49,7 +49,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-xs font-bold text-[#1A2E40]">Client Financial Privacy</p>
-              <p className="text-[11px] text-[#57534E]">Strict confidentiality and data security</p>
+              <p className="text-xs text-[#57534E]">Strict confidentiality and data security</p>
             </div>
           </div>
 
@@ -59,7 +59,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-xs font-bold text-[#1A2E40]">Intuit Certified QuickBooks ProAdvisor</p>
-              <p className="text-[11px] text-[#57534E]">MedSpas, Aesthetic Clinics &amp; Wellness Practices</p>
+              <p className="text-xs text-[#57534E]">MedSpas, Aesthetic Clinics &amp; Wellness Practices</p>
             </div>
           </div>
         </div>

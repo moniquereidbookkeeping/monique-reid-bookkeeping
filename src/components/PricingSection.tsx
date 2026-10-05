@@ -197,7 +197,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+                      <p className={`text-sm font-bold uppercase tracking-widest ${plan.featured ? 'text-[#D4AF37]' : 'text-[#8A6A00]'}`}>
                         {plan.name}
                       </p>
                       {/* Revenue range badge */}
@@ -224,7 +224,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                     plan.featured ? 'border-white/15' : 'border-[#E2E8F0]'
                   }`}>
                     <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${
-                      plan.featured ? 'text-white/50' : 'text-[#94A3B8]'
+                      plan.featured ? 'text-white/50' : 'text-[#5A6578]'
                     }`}>
                       Starting At
                     </p>
@@ -235,7 +235,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                         {plan.startingAt}
                       </span>
                       <span className={`text-base mb-1.5 font-semibold ${
-                        plan.featured ? 'text-white/60' : 'text-[#94A3B8]'
+                        plan.featured ? 'text-white/60' : 'text-[#5A6578]'
                       }`}>{plan.period}</span>
                     </div>
                   </div>
@@ -373,7 +373,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           })}
         </div>
 
-        <p className="mt-5 text-center text-base text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
+        <p className="mt-5 text-center text-base text-[#5A6578] max-w-xl mx-auto leading-relaxed">
           No obligation. We'll determine whether we're a good fit before recommending a service.
         </p>
       </div>

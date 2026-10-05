@@ -9,7 +9,7 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
   variant = 'hero',
   className = '',
 }) => {
-  const [imageSrc, setImageSrc] = useState('/monique-reid-headshot.png');
+  const [imageSrc, setImageSrc] = useState('/monique-reid-headshot.webp');
 
   const handleImageError = () => {
     if (imageSrc !== '/assets/monique-reid.png') {

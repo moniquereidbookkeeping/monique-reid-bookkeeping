@@ -739,7 +739,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     <div key={i} className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm space-y-3">
                       <div className="flex items-center gap-2">
                         <Loader2 className="w-4 h-4 text-[#D4AF37] animate-spin shrink-0" />
-                        <p className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-wider">
+                        <p className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">
                           Analyzing…
                         </p>
                       </div>
@@ -756,7 +756,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                   {activePlan.map((s, i) => (
                     <div key={i} className="p-4 rounded-xl bg-white border border-[#D4AF37]/40 shadow-sm">
-                      <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-[10px]">
+                      <p className="font-bold text-[#D4AF37] uppercase tracking-wider mb-2 text-xs">
                         Step {i + 1}
                       </p>
                       <p className="font-bold text-[#1A2E40] text-sm mb-1.5">{s.title}</p>

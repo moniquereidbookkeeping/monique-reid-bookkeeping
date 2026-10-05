@@ -38,7 +38,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             Terms of Service
           </h1>
           <p className="text-xs sm:text-sm text-[#E2E8F0] font-light">
-            Last Updated: September 2026 · Monique Reid Bookkeeping
+            Last Updated: October 2026 · Monique Reid Bookkeeping
           </p>
         </div>
       </div>
@@ -452,6 +452,9 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
               <li>a substitute for advice from an appropriately licensed professional.</li>
             </ul>
           </div>
+          <p className="text-sm leading-relaxed">
+            The Bookkeeping Health Check, example dashboard, and calculators on this website are general and illustrative. They use the answers or numbers you enter, and any plan or result they produce is created with the help of automated tools. They are not tailored advice, a quote, or a guarantee, and your specific services and fees are confirmed only in a written service agreement.
+          </p>
           <p className="text-xs sm:text-sm text-[#57534E]">
             Information on this website may be updated or changed without notice.
           </p>

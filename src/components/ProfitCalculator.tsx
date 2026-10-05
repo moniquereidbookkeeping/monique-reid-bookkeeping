@@ -56,7 +56,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
             <div>
               <div className="flex justify-between items-center text-sm font-semibold text-[#1A2E40] mb-2">
                 <label htmlFor="input-treatment-price">Patient Treatment Price (Per Service)</label>
-                <span className="text-[#D4AF37] font-bold text-base">
+                <span className="text-[#8A6A00] font-bold text-base">
                   {formatCurrency(treatmentPrice)}
                 </span>
               </div>
@@ -71,7 +71,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Patient Treatment Price"
                 className="w-full accent-[#D4AF37] cursor-pointer"
               />
-              <div className="flex justify-between text-[11px] text-[#57534E] mt-1">
+              <div className="flex justify-between text-xs text-[#57534E] mt-1">
                 <span>$100 (e.g. Wellness Infusion/Botox)</span>
                 <span>$1,200 (Full Facial Balancing)</span>
                 <span>$2,500</span>
@@ -97,7 +97,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Product and Consumables Cost"
                 className="w-full accent-[#1A2E40] cursor-pointer"
               />
-              <p className="text-[11px] text-[#57534E] mt-1">
+              <p className="text-xs text-[#57534E] mt-1">
                 Vials, syringes, IV kits, wellness supplies, topical numbing, and disposables
               </p>
             </div>
@@ -121,7 +121,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Provider Commission Rate Percentage"
                 className="w-full accent-[#D4AF37] cursor-pointer"
               />
-              <div className="flex justify-between text-[11px] text-[#57534E] mt-1">
+              <div className="flex justify-between text-xs text-[#57534E] mt-1">
                 <span>0% (Solo Owner)</span>
                 <span>25% - 30% (Typical Clinician Tier)</span>
                 <span>50%</span>
@@ -147,7 +147,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                 aria-label="Merchant Processing Fee Percentage"
                 className="w-full accent-[#1A2E40] cursor-pointer"
               />
-              <div className="flex justify-between text-[11px] text-[#57534E] mt-1">
+              <div className="flex justify-between text-xs text-[#57534E] mt-1">
                 <span>2.6% (Standard Card)</span>
                 <span>5.9% (Cherry / CareCredit tier)</span>
                 <span>10%</span>
@@ -158,7 +158,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
             <div>
               <div className="flex justify-between items-center text-sm font-semibold text-[#1A2E40] mb-2">
                 <label htmlFor="input-weekly-volume">Estimated Weekly Treatment Volume</label>
-                <span className="text-[#D4AF37] font-bold text-base">
+                <span className="text-[#8A6A00] font-bold text-base">
                   {weeklyVolume} sessions/wk
                 </span>
               </div>
@@ -223,7 +223,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
               {/* Volume Projection */}
               <div className="pt-4 border-t border-white/10 grid grid-cols-2 gap-4">
                 <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-center">
-                  <span className="text-[11px] text-[#E2E8F0] uppercase tracking-wider block">
+                  <span className="text-xs text-[#E2E8F0] uppercase tracking-wider block">
                     Est. Monthly Contribution
                   </span>
                   <span className="text-xl sm:text-2xl font-serif font-bold text-white mt-1 block">
@@ -231,7 +231,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-center">
-                  <span className="text-[11px] text-[#E2E8F0] uppercase tracking-wider block">
+                  <span className="text-xs text-[#E2E8F0] uppercase tracking-wider block">
                     Est. Annual Contribution
                   </span>
                   <span className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37] mt-1 block">
@@ -252,7 +252,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
               </div>
             </div>
 
-            <p className="text-xs text-[#718096] italic text-center leading-relaxed">
+            <p className="text-xs text-[#5A6578] italic text-center leading-relaxed">
               *Illustrative model for educational and planning purposes only. Operating overhead, suite rent, marketing, general liability insurance, software licenses, and taxes are not deducted from unit contribution figures.
             </p>
           </div>

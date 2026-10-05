@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ExternalLink, Calendar } from 'lucide-react';
 import { BOOKING_URL } from '../constants/booking';
 
@@ -6,47 +6,67 @@ interface CalendlyBookingCardProps {
   onOpenPrivacy?: () => void;
 }
 
+type CalendlyWindow = Window & {
+  Calendly?: { initInlineWidget: (o: { url: string; parentElement: HTMLElement }) => void };
+};
+
+const SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js';
+/** If the calendar has not reported in by then, show the direct link prominently. */
+const SLOW_AFTER_MS = 8000;
+
 export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+  const [slow, setSlow] = useState(false);
 
   useEffect(() => {
+    const w = window as CalendlyWindow;
+    let cancelled = false;
+
     const initWidget = () => {
-      if ((window as any).Calendly && containerRef.current) {
-        // Clear container to prevent duplicate iframes on re-renders
-        containerRef.current.innerHTML = '';
-        (window as any).Calendly.initInlineWidget({
-          url: BOOKING_URL,
-          parentElement: containerRef.current,
-        });
-      }
+      if (cancelled || !w.Calendly || !containerRef.current) return;
+      containerRef.current.innerHTML = '';
+      w.Calendly.initInlineWidget({ url: BOOKING_URL, parentElement: containerRef.current });
     };
 
-    if ((window as any).Calendly) {
+    // Calendly's embed talks to this page; any of its messages means the calendar is up.
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin !== 'https://calendly.com') return;
+      const data = e.data as { event?: string } | null;
+      if (data && typeof data.event === 'string' && data.event.startsWith('calendly.')) setReady(true);
+    };
+    window.addEventListener('message', onMessage);
+
+    if (w.Calendly) {
       initWidget();
     } else {
-      const existingScript = document.querySelector(
-        'script[src*="calendly.com/assets/external/widget.js"]'
-      ) as HTMLScriptElement | null;
-
-      if (existingScript) {
-        existingScript.addEventListener('load', initWidget);
+      const existing = document.querySelector(`script[src="${SCRIPT_SRC}"]`) as HTMLScriptElement | null;
+      if (existing) {
+        existing.addEventListener('load', initWidget);
       } else {
         const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.type = 'text/javascript';
+        script.src = SCRIPT_SRC;
         script.async = true;
         script.onload = initWidget;
         document.body.appendChild(script);
       }
     }
+
+    const timer = window.setTimeout(() => setSlow(true), SLOW_AFTER_MS);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+      window.removeEventListener('message', onMessage);
+    };
   }, []);
+
+  const showFallback = slow && !ready;
 
   return (
     <div className="w-full max-w-5xl mx-auto">
-      {/* Top Bar with Direct Links */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-3 px-1">
         <div className="flex items-center gap-2 text-xs font-semibold text-[#1A2E40]">
-          <Calendar className="w-4 h-4 text-[#D4AF37]" />
+          <Calendar className="w-4 h-4 text-[#8A6A00]" />
           <span>Select an available day and time on the calendar below</span>
         </div>
 
@@ -54,32 +74,38 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
           href={BOOKING_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Open 20-minute consultation directly on Calendly in a new tab"
-          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-[#FAF8F5] border border-[#CBD5E1] text-xs font-bold text-[#1A2E40] hover:text-[#D4AF37] transition-all shadow-xs group"
+          aria-label="Open the booking calendar in a new tab"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-[#FAF8F5] border border-[#CBD5E1] text-xs font-bold text-[#1A2E40] transition-all shadow-xs group"
         >
-          <span>Open directly on Calendly</span>
-          <ExternalLink className="w-3.5 h-3.5 text-[#D4AF37] group-hover:translate-x-0.5 transition-transform" />
+          <span>Open calendar in a new tab</span>
+          <ExternalLink className="w-3.5 h-3.5 text-[#8A6A00]" />
         </a>
       </div>
 
-      {/* Main Card holding Calendly Inline Widget */}
+      {showFallback && (
+        <div role="status" className="mb-3 rounded-xl border border-[#D4AF37]/50 bg-[#FAF8F5] p-4 text-center">
+          <p className="text-sm text-[#1A2E40] font-semibold">The calendar is taking a while to load.</p>
+          <p className="text-sm text-[#4A5568] mt-1">
+            Some browsers and private windows block the embedded calendar. You can book on the same calendar here:
+          </p>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1A2E40] text-[#D4AF37] text-sm font-bold"
+          >
+            Book your free call
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      )}
+
       <div className="relative w-full bg-white rounded-2xl border border-[#E2E8F0] shadow-xl overflow-hidden min-h-[700px]">
-        {/* Calendly inline widget container */}
         <div
           ref={containerRef}
           className="calendly-inline-widget w-full"
-          data-url={BOOKING_URL}
           style={{ minWidth: '320px', height: '700px', width: '100%' }}
-        >
-          {/* Fallback accessible iframe rendered while script loads */}
-          <iframe
-            src={BOOKING_URL}
-            width="100%"
-            height="700"
-            title="Schedule 20-Minute Financial Clarity Call with Monique Reid"
-            className="w-full h-[700px] border-0 rounded-2xl"
-          />
-        </div>
+        />
       </div>
 
       <div className="mt-3 text-center text-xs text-[#64748B]">
