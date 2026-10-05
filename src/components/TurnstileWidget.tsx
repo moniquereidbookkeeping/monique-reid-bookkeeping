@@ -54,6 +54,8 @@ export const TurnstileWidget: React.FC<{ onToken: (token: string) => void }> = (
           'expired-callback': () => onToken(''),
           'error-callback': () => onToken(''),
           'refresh-expired': 'auto',
+          appearance: 'interaction-only',
+          size: 'flexible',
         });
       })
       .catch(() => onToken(''));

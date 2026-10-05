@@ -224,6 +224,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     setLoadingPlan(true);
     try {
       const res = await fetch(DIAGNOSTIC_URL, {
+        signal: AbortSignal.timeout(12000),
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -271,7 +272,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     setCompleted(true);
 
     const diagPayload = { ...answers };
-    await fetchAIPlan(diagPayload);
+    const planPromise = fetchAIPlan(diagPayload);
 
     fetch(LEAD_URL, {
       method: 'POST',
@@ -290,6 +291,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
       }),
     }).catch(() => {/* silent */});
 
+    await planPromise;
     setSubmitting(false);
   };
 
