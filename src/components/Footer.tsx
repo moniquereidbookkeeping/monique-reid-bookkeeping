@@ -128,7 +128,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   className="hover:text-[#D4AF37] transition-colors flex items-center gap-2.5 text-left font-semibold text-white cursor-pointer"
                 >
                   <Calendar className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>Schedule 20-Min Clarity Call</span>
+                  <span>Book Your Free Clarity Call</span>
                 </button>
               </li>
               <li>

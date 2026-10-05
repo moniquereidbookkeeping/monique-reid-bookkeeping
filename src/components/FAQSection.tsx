@@ -137,7 +137,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
     {
       id: 'faq-3',
       category: 'quickbooks-systems',
-      categoryLabel: 'QUICKBOOKS & PRACTICE SYSTEMS',
+      categoryLabel: 'QUICKBOOKS & SYSTEMS',
       question: 'Why does my aesthetic or wellness practice need a customized QuickBooks setup?',
       answer:
         'Generic QuickBooks categories often make it difficult to understand where your practice is earning—or losing—money. Injectables, skincare inventory, treatment supplies, merchant fees, provider compensation, memberships, and equipment expenses may all require separate tracking.\n\nYour Chart of Accounts is customized around your services and financial structure, helping you produce clearer reports and better understand revenue, costs, and profitability across your practice.',
@@ -150,7 +150,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
     {
       id: 'faq-4',
       category: 'quickbooks-systems',
-      categoryLabel: 'QUICKBOOKS & PRACTICE SYSTEMS',
+      categoryLabel: 'QUICKBOOKS & SYSTEMS',
       question: 'How do you reconcile software such as Boulevard, Vagaro, Jane, Mangomint, Square, or Stripe with QuickBooks?',
       answer:
         'Practice-management and payment platforms frequently combine service revenue, product sales, client tips, memberships, processing fees, refunds, and other activity into a single bank deposit.\n\nPlatform reports, merchant statements, and bank deposits are compared to properly record the underlying activity in QuickBooks. Depending on your systems and workflow, clearing accounts or summarized entries may also be used to make monthly reconciliation more accurate and manageable.',
@@ -189,7 +189,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
     {
       id: 'faq-7',
       category: 'financial-operations',
-      categoryLabel: 'PRACTICE FINANCIAL OPERATIONS',
+      categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'How do you record sales tax for treatments, products, memberships, and packages?',
       answer:
         'Sales-tax requirements vary by state, location, and the type of product or service being sold. Your CPA, attorney, or sales-tax advisor should determine which transactions are taxable and which rates apply to your practice.\n\nOnce those requirements are established, we organize QuickBooks to separate sales-tax activity from operating revenue, reconcile amounts recorded through your payment or practice-management platforms, and prepare clear reports for you or your tax professional.',
@@ -202,7 +202,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
     {
       id: 'faq-8',
       category: 'financial-operations',
-      categoryLabel: 'PRACTICE FINANCIAL OPERATIONS',
+      categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'How do you track payments to employees, independent contractors, and Medical Directors?',
       answer:
         'Dedicated accounts are created for payroll, contractor payments, provider commissions, bonuses, and Medical Director fees based on the classifications and compensation structure established by you and your professional advisors.\n\nThose payments are then reconciled to the available payroll reports, contractor records, bank activity, and QuickBooks. Your CPA, payroll professional, or employment attorney should determine the appropriate worker classification and reporting requirements.',
@@ -215,7 +215,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
     {
       id: 'faq-9',
       category: 'financial-operations',
-      categoryLabel: 'PRACTICE FINANCIAL OPERATIONS',
+      categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'How should gift cards, treatment packages, and memberships be tracked?',
       answer:
         'Gift cards, prepaid treatment packages, and memberships can create timing differences between when cash is received and when services are provided.\n\nI help organize these transactions in QuickBooks based on your accounting method, platform reports, redemption activity, and the accounting policies established with your CPA. This can provide clearer visibility into cash received, outstanding obligations, redemptions, and recognized revenue.',
@@ -228,7 +228,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
     {
       id: 'faq-10',
       category: 'financial-operations',
-      categoryLabel: 'PRACTICE FINANCIAL OPERATIONS',
+      categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'Do you replace my CPA, or do you collaborate with them?',
       answer:
         'Monique Reid Bookkeeping collaborates with your CPA or tax professional rather than replacing them.\n\nThe ongoing bookkeeping process may include account reconciliations, transaction categorization, merchant activity, inventory and cost tracking, provider payments, and monthly financial reports.\n\nYour CPA or tax professional remains responsible for services such as tax advice, tax planning, tax-return preparation, and other work included in your engagement with them. When authorized, organized records can be provided and bookkeeping-related questions answered during the year-end process.',

@@ -78,7 +78,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
             <div className="bg-[#122332] p-6 sm:p-8 rounded-2xl border border-[#D4AF37]/30 shadow-2xl relative">
               <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-2">
                 <ShieldCheck className="w-4 h-4" />
-                <span>The Standard of Care</span>
+                <span>Every month</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-6">
                 What You Get Every Month
