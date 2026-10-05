@@ -118,7 +118,7 @@ function safeSteps(raw: unknown): { title: string; body: string }[] | null {
   if (!Array.isArray(raw) || raw.length !== 3) return null;
   const out = raw.map((s) => ({
     title: clean((s as { title?: unknown })?.title, 80),
-    body: clean((s as { body?: unknown })?.body, 220),
+    body: clean((s as { body?: unknown })?.body, 160),
   }));
   if (!out.every((s) => s.title && s.body)) return null;
   // Reject anything that quotes an unknown price or promises a timeline.
@@ -264,7 +264,7 @@ async function generateExpertBrief(
     'Everything you write must follow this catalog and these rules:\n' + OFFERINGS_TEXT + '\n\n' +
     'Write four sections:\n\n' +
     'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "1099 vs W-2 misclassification," "service-line margin tracking").\n\n' +
-    'SOLUTION PLAN: 3 steps. Each step: title (5-7 words) + body (ONE or TWO short sentences, about 25 words maximum, describing the OUTCOME for the client, not how it is done: no account names, workflows or setup mechanics; those belong on the call). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
+    'SOLUTION PLAN: 3 steps. Each step: title (3-6 words) + body (ONE short sentence, 15 words maximum, describing the OUTCOME for the client, not how it is done: no account names, workflows or setup mechanics; those belong on the call). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
     'DISCOVERY CALL QUESTIONS: 4 sharp questions Monique should ask — specific to this platform, revenue model, practice age, and stated challenge. Not generic — make them sound like a specialist who already knows their world.\n\n' +
     'RECOMMENDED PACKAGE: One sentence. Our system has already matched this prospect to the ' + tier.name + ' tier (' + tier.price + '). Recommend exactly that tier, do not name any other tier or price, and say why it fits. Our system\'s cleanup assessment for this prospect is: ' + cleanup.label + ' (' + cleanup.note + '). Your package sentence must agree with that assessment: mention a one-time cleanup only if it says one is needed, and never promise how long anything will take.\n\n' +
     'Return ONLY valid JSON, no markdown wrapper:\n' +
@@ -307,20 +307,21 @@ function getStatusParagraph(status: string, pos: string): string {
   const s = status.toLowerCase();
   const platform = pos || 'your platform';
   if (s.includes('cleanup') || s.includes('4 to 12')) {
-    return `A practice on ${platform} with books that need a full cleanup is exactly where I specialize. The longer that sits, the harder it is to pull accurate revenue numbers — and that affects everything from pricing your packages to tax season. The good news: cleanups are very doable, and once I see your books I'll give you a clear timeline and a fixed scope.`;
+    return `A full cleanup is exactly where I specialize. Once I see your books, I'll give you a clear scope and timeline.`;
   }
   if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
-    return `Being a few months behind on ${platform} is more common than you'd think — and more fixable than it feels. Catching up a few months is quick work, and I'll give you a clear timeline once I see your books, with clean monthly reporting going forward from there.`;
+    return `Being a few months behind is common and very fixable. I'll give you a clear timeline once I see your books.`;
   }
   if (s.includes('current') || s.includes('ongoing')) {
-    return `Your books being current puts you ahead of most practices I speak with. The opportunity now is making sure your reports are actually telling you something useful — revenue per service line, provider productivity, membership revenue vs. retail. That's where the real growth decisions live.`;
+    return `Current books put you ahead of most practices. The next step is reports that actually guide your decisions.`;
   }
   if (s.includes('new') || s.includes('not') || s.includes('set up')) {
-    return `Getting your QuickBooks set up correctly from the start is one of the best investments a new practice can make. Done right, you'll have clean books, accurate reporting, and a tax-ready file from day one — instead of spending thousands on cleanup later.`;
+    return `Setting up QuickBooks correctly from day one saves you from costly cleanup later.`;
   }
-  return `Based on what you shared, I can already see the type of support your practice needs. I'd love to walk you through a clear plan and what it would take to get everything current and organized.`;
+  return `Based on what you shared, here is a short plan for your practice.`;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getPSLine(status: string): string {
   const s = status.toLowerCase();
   if (s.includes('cleanup') || s.includes('4 to 12')) {
@@ -461,12 +462,10 @@ async function sendThankYouEmail(env: Env, d: {
     '→ Book your free 20-minute call:\n' +
     CALENDLY + '\n' +
     '──────────────────────────────\n\n' +
-    `I have a few spots open this week — grab one before they go.\n\n` +
     `— Monique Reid\n` +
     `Certified QuickBooks ProAdvisor\n` +
     `MedSpa, Aesthetic & Wellness Practices\n` +
-    `Monique Reid Bookkeeping | ${FROM_EMAIL}\n\n` +
-    getPSLine(d.status);
+    `Monique Reid Bookkeeping | ${FROM_EMAIL}`;
 
   await sendViaResend(env, {
     to: d.email,
