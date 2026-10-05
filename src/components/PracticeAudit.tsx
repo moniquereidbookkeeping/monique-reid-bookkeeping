@@ -115,6 +115,10 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const [completed, setCompleted] = useState<boolean>(false);
   const [showOtherPos, setShowOtherPos] = useState<boolean>(false);
   const [otherPosValue, setOtherPosValue] = useState<string>('');
+  const [showOtherStatus, setShowOtherStatus] = useState<boolean>(false);
+  const [otherStatusValue, setOtherStatusValue] = useState<string>('');
+  const [showOtherPkg, setShowOtherPkg] = useState<boolean>(false);
+  const [otherPkgValue, setOtherPkgValue] = useState<string>('');
   const [showOtherChallenge, setShowOtherChallenge] = useState<boolean>(false);
   const [otherChallengeValue, setOtherChallengeValue] = useState<string>('');
 
@@ -132,6 +136,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   // ── Navigation ────────────────────────────────────────────
   const goBack = () => {
     if (step === 2) {
+      setShowOtherStatus(false);
+      setOtherStatusValue('');
       setAnswers((a) => ({ ...a, status: '' }));
       setShowOtherPos(false);
       setStep(1);
@@ -141,6 +147,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
       setOtherPosValue('');
       setStep(2);
     } else if (step === 4) {
+      setShowOtherPkg(false);
+      setOtherPkgValue('');
       setAnswers((a) => ({ ...a, packages: '' }));
       setStep(3);
     } else if (step === 5) {
@@ -174,6 +182,18 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
       setShowOtherPos(false);
       handleSelect('pos', pos);
     }
+  };
+
+  const handleOtherStatusSubmit = () => {
+    const value = otherStatusValue.trim() || 'Other situation (not listed)';
+    setShowOtherStatus(false);
+    handleSelect('status', value);
+  };
+
+  const handleOtherPkgSubmit = () => {
+    const value = otherPkgValue.trim() || 'Other revenue model (not listed)';
+    setShowOtherPkg(false);
+    handleSelect('packages', value);
   };
 
   const handleOtherPosSubmit = () => {
@@ -303,10 +323,10 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
             <div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/15 text-[#1A2E40] text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-                Interactive Diagnostic
+                Interactive Diagnostic · MedSpas, Wellness &amp; Clinics
               </span>
               <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] mt-2 leading-snug">
-                MedSpa &amp; Aesthetic Practice Bookkeeping Health Check
+                Bookkeeping Health Check for Your Practice
               </h3>
             </div>
             {showProgress && (
@@ -338,16 +358,41 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       { label: '1 to 3 months behind on reconciliations', val: 'slightly_behind' },
                       { label: '4 to 12+ months behind (Cleanup needed)', val: 'cleanup_needed' },
                       { label: 'I do not have QuickBooks set up yet', val: 'new_setup' },
+                      { label: 'Other', val: 'other' },
                     ].map((opt) => (
                       <button
                         key={opt.val}
-                        onClick={() => handleSelect('status', opt.label)}
+                        onClick={() => (opt.val === 'other' ? setShowOtherStatus(true) : (setShowOtherStatus(false), handleSelect('status', opt.label)))}
                         className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {opt.label}
                       </button>
                     ))}
                   </div>
+                  {showOtherStatus && (
+                    <div className="mt-2 space-y-3">
+                      <label htmlFor="audit-other-status" className="block text-sm font-semibold text-[#1A2E40]">
+                        Please tell us your situation:
+                      </label>
+                      <div className="flex gap-3">
+                        <input
+                          id="audit-other-status" type="text" maxLength={120}
+                          value={otherStatusValue}
+                          onChange={(e) => setOtherStatusValue(e.target.value)}
+                          onKeyDown={(e) => e.key === 'Enter' && handleOtherStatusSubmit()}
+                          placeholder="e.g. Using Xero, bookkeeper left, switching systems…"
+                          autoFocus
+                          className="flex-1 px-4 py-3 rounded-xl border border-[#D4AF37] bg-[#FAF8F5] text-base text-[#1A2E40] placeholder:text-[#57534E]/50 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
+                        />
+                        <button
+                          onClick={handleOtherStatusSubmit}
+                          className="px-5 py-3 rounded-xl bg-[#1A2E40] text-white text-sm font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
+                        >
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -411,16 +456,41 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       { label: 'Yes, multi-session packages only', val: 'packages' },
                       { label: 'Yes, monthly membership dues only', val: 'memberships' },
                       { label: 'Pay-per-treatment or per-visit only', val: 'none' },
+                      { label: 'Other', val: 'other' },
                     ].map((pkg) => (
                       <button
                         key={pkg.val}
-                        onClick={() => handleSelect('packages', pkg.label)}
+                        onClick={() => (pkg.val === 'other' ? setShowOtherPkg(true) : (setShowOtherPkg(false), handleSelect('packages', pkg.label)))}
                         className="p-5 rounded-xl border border-[#E2E8F0] text-left hover:border-[#D4AF37] hover:bg-[#FAF8F5] transition-all text-base sm:text-lg font-medium text-[#1A2E40] leading-snug cursor-pointer"
                       >
                         {pkg.label}
                       </button>
                     ))}
                   </div>
+                  {showOtherPkg && (
+                    <div className="mt-2 space-y-3">
+                      <label htmlFor="audit-other-packages" className="block text-sm font-semibold text-[#1A2E40]">
+                        Please describe how you bring in revenue:
+                      </label>
+                      <div className="flex gap-3">
+                        <input
+                          id="audit-other-packages" type="text" maxLength={120}
+                          value={otherPkgValue}
+                          onChange={(e) => setOtherPkgValue(e.target.value)}
+                          onKeyDown={(e) => e.key === 'Enter' && handleOtherPkgSubmit()}
+                          placeholder="e.g. Prepaid wallets, gift cards, retail products only…"
+                          autoFocus
+                          className="flex-1 px-4 py-3 rounded-xl border border-[#D4AF37] bg-[#FAF8F5] text-base text-[#1A2E40] placeholder:text-[#57534E]/50 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
+                        />
+                        <button
+                          onClick={handleOtherPkgSubmit}
+                          className="px-5 py-3 rounded-xl bg-[#1A2E40] text-white text-sm font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
+                        >
+                          Continue
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
