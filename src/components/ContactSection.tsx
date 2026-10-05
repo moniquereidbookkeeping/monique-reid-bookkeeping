@@ -58,8 +58,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <Award className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#1A2E40]">Intuit Certified QuickBooks ProAdvisor</p>
-              <p className="text-[11px] text-[#57534E]">Aesthetic &amp; Wellness Specialized</p>
+              <p className="text-xs font-bold text-[#1A2E40]">Certified QuickBooks ProAdvisor</p>
+              <p className="text-[11px] text-[#57534E]">Specializing in MedSpas, Wellness &amp; Clinics</p>
             </div>
           </div>
         </div>
