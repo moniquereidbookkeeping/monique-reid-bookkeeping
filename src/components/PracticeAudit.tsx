@@ -316,7 +316,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const showProgress = !completed && isQuestionStep;
 
   return (
-    <section className="py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
+    <section id="health-check" className="py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFC] to-[#FDFCFA] border-b border-[#E2E8F0]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-8 sm:p-10">
 

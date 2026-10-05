@@ -38,7 +38,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <Clock className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#1A2E40]">20-Minute Private Video Call</p>
+              <p className="text-xs font-bold text-[#1A2E40]">20-Minute Private Zoom Call</p>
               <p className="text-[11px] text-[#57534E]">Complimentary review, no obligation</p>
             </div>
           </div>
@@ -68,6 +68,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
         <div className="mb-12">
           <CalendlyBookingCard onOpenPrivacy={() => { if (onNavigate) { onNavigate('privacy'); } }} />
         </div>
+
+        {/* Not ready to book */}
+        <p className="max-w-5xl mx-auto mb-6 text-center text-sm sm:text-base text-[#57534E]">
+          Not ready to book yet?{' '}
+          <button
+            type="button"
+            onClick={() => {
+              onNavigate?.('home');
+              setTimeout(() => document.getElementById('health-check')?.scrollIntoView({ behavior: 'smooth' }), 200);
+            }}
+            className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#D4AF37] cursor-pointer"
+          >
+            Take the free 60-second Bookkeeping Health Check first
+          </button>
+          .
+        </p>
 
         {/* Contact Direct Strip */}
         <div className="max-w-5xl mx-auto rounded-2xl p-6 bg-[#1A2E40] text-white border border-[#D4AF37]/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
