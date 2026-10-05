@@ -1,0 +1,94 @@
+import React from 'react';
+import { CheckCircle2, Mail, Video, FileText, Sparkles } from 'lucide-react';
+import { CONTACT_EMAIL } from '../constants/booking';
+import { PageView } from '../types';
+
+interface BookedPageProps {
+  onNavigate: (page: PageView) => void;
+}
+
+const PREP = [
+  'A recent Profit & Loss from QuickBooks, if you have one',
+  'The name of your practice platform (Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Stripe or another)',
+  'A rough idea of how many bank, card and financing accounts you use',
+  'Your biggest question about your numbers right now',
+];
+
+export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
+  <section className="py-14 lg:py-20 bg-[#FDFCFA]">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="mx-auto w-16 h-16 rounded-full bg-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] mb-5">
+        <CheckCircle2 className="w-9 h-9" />
+      </div>
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
+        You're booked. I look forward to talking.
+      </h1>
+      <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
+        Your free 20-minute Financial Clarity Call is confirmed. No pressure. Just clarity.
+      </p>
+
+      <div className="mt-10 grid gap-4 text-left">
+        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] flex gap-4">
+          <Mail className="w-6 h-6 text-[#D4AF37] shrink-0 mt-0.5" />
+          <div>
+            <h2 className="font-bold text-[#1A2E40]">Check your email</h2>
+            <p className="text-sm sm:text-base text-[#57534E] mt-1">
+              A confirmation with your calendar invite and Zoom link is on its way. If you don't see it in a few minutes, check your spam or promotions folder. You can reschedule from that same email.
+            </p>
+          </div>
+        </div>
+
+        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] flex gap-4">
+          <Video className="w-6 h-6 text-[#D4AF37] shrink-0 mt-0.5" />
+          <div>
+            <h2 className="font-bold text-[#1A2E40]">What we'll cover</h2>
+            <p className="text-sm sm:text-base text-[#57534E] mt-1">
+              Where your books stand today, what is getting in the way of clear reports, and the best next step for your practice. Everything you share stays confidential.
+            </p>
+          </div>
+        </div>
+
+        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] flex gap-4">
+          <FileText className="w-6 h-6 text-[#D4AF37] shrink-0 mt-0.5" />
+          <div>
+            <h2 className="font-bold text-[#1A2E40]">Helpful to have handy (optional)</h2>
+            <ul className="mt-2 space-y-1.5 text-sm sm:text-base text-[#57534E] list-disc pl-5">
+              {PREP.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+        <button
+          type="button"
+          onClick={() => onNavigate('services')}
+          className="px-6 py-3 rounded-xl bg-[#1A2E40] text-white font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
+        >
+          See how I work
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            onNavigate('home');
+            setTimeout(() => document.getElementById('health-check')?.scrollIntoView({ behavior: 'smooth' }), 200);
+          }}
+          className="px-6 py-3 rounded-xl border border-[#1A2E40] text-[#1A2E40] font-bold hover:bg-[#1A2E40]/5 transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
+        >
+          <Sparkles className="w-4 h-4 text-[#D4AF37]" />
+          Take the 60-second Health Check
+        </button>
+      </div>
+
+      <p className="mt-8 text-sm text-[#57534E]">
+        Questions before we meet? Email{' '}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4">
+          {CONTACT_EMAIL}
+        </a>
+        .
+      </p>
+    </div>
+  </section>
+);

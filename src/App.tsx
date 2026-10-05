@@ -11,6 +11,7 @@ import { Hero } from './components/Hero';
 import { FinancialDashboard } from './components/FinancialDashboard';
 import { ServicesSection } from './components/ServicesSection';
 import { BuiltForPractices } from './components/BuiltForPractices';
+import { BookedPage } from './components/BookedPage';
 import { PracticeAudit } from './components/PracticeAudit';
 import { GetBillForgeSection } from './components/GetBillForgeSection';
 import { AboutSection } from './components/AboutSection';
@@ -56,6 +57,7 @@ export default function App() {
     };
     setTag('link[rel="canonical"]', () => Object.assign(document.createElement('link'), { rel: 'canonical' }), 'href', url);
     setTag('meta[property="og:url"]', () => { const m = document.createElement('meta'); m.setAttribute('property', 'og:url'); return m; }, 'content', url);
+    setTag('meta[name="robots"]', () => Object.assign(document.createElement('meta'), { name: 'robots' }), 'content', currentPage === 'booked' ? 'noindex, nofollow' : 'index, follow');
     const meta = PAGE_META[currentPage];
     if (meta) {
       document.title = meta.title;
@@ -292,6 +294,8 @@ export default function App() {
             onBookCall={handleBookCall}
           />
         )}
+
+        {currentPage === 'booked' && <BookedPage onNavigate={handleNavigate} />}
 
         {currentPage === 'terms' && (
           <TermsPage onNavigate={handleNavigate} onBookCall={handleBookCall} />

@@ -10,6 +10,7 @@ export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post'>, string> = {
   contact: '/contact',
   terms: '/terms',
   privacy: '/privacy',
+  booked: '/booked',
   blog: '/blog',
 };
 
@@ -34,6 +35,10 @@ export function parsePath(pathname: string): { page: PageView; slug: string } {
 
 /** Titles/descriptions for non-home pages. Blog posts set their own. */
 export const PAGE_META: Partial<Record<PageView, { title: string; description: string }>> = {
+  booked: {
+    title: 'You\'re Booked | Monique Reid Bookkeeping',
+    description: 'Your free 20-minute Financial Clarity Call is confirmed.',
+  },
   services: {
     title: 'MedSpa Bookkeeping Services & Pricing | Monique Reid Bookkeeping',
     description:
