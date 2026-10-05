@@ -104,7 +104,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
 
           <div className="text-xs text-[#E2E8F0]/80 text-center sm:text-right">
             <p>Specialized Bookkeeping for MedSpas, Aesthetic Clinics &amp; Wellness Practices Nationwide</p>
-            <p className="text-[#D4AF37] font-medium mt-0.5">Response within 1 business day</p>
+            <p className="text-[#D4AF37] font-medium mt-0.5">Replies within 1–2 business days</p>
           </div>
         </div>
       </div>
