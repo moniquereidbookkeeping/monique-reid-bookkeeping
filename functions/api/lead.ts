@@ -463,7 +463,7 @@ async function sendThankYouEmail(env: Env, d: {
     CALENDLY + '\n' +
     '──────────────────────────────\n\n' +
     `— Monique Reid\n` +
-    `Certified QuickBooks ProAdvisor\n` +
+    `Intuit Certified QuickBooks ProAdvisor\n` +
     `MedSpa, Aesthetic & Wellness Practices\n` +
     `Monique Reid Bookkeeping | ${FROM_EMAIL}`;
 
