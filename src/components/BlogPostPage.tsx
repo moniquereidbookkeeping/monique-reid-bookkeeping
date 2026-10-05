@@ -295,7 +295,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
                 Book a Complimentary 20-Minute Financial Clarity Call
               </h3>
               <p className="text-sm text-[#E2E8F0] font-light leading-relaxed max-w-md mx-auto">
-                Tell me what's happening with your books and I'll outline a clear path forward — no obligation.
+                Share what's happening with your books and get a clear path forward — no obligation.
               </p>
               <button
                 onClick={onBookCall}

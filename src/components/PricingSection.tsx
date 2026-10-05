@@ -305,7 +305,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
               <p className="text-sm text-white/70 leading-relaxed max-w-3xl">
                 Your monthly fee is set by the number and type of financial systems your practice uses.
                 More systems, platforms, and revenue types mean more reconciliation work — and a higher starting rate.
-                Here's exactly what we assess before quoting your plan:
+                Here is exactly what is assessed before your plan is quoted:
               </p>
             </div>
 
@@ -346,8 +346,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
               Start with a Free 20-Minute Clarity Call
             </p>
             <p className="text-sm text-white/70 leading-relaxed">
-              You don't need to diagnose your own bookkeeping problems first. We'll talk through your
-              systems, identify where things are breaking down, and tell you exactly what we'd recommend — no pressure, no obligation.
+              You don't need to diagnose your own bookkeeping problems first. The call walks through your
+              systems, identifies where things are breaking down, and covers exactly what is recommended — no pressure, no obligation.
             </p>
           </div>
           <button
@@ -374,7 +374,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         </div>
 
         <p className="mt-5 text-center text-base text-[#5A6578] max-w-xl mx-auto leading-relaxed">
-          No obligation. We'll determine whether we're a good fit before recommending a service.
+          No obligation. The call also confirms the practice is a good fit before any service is recommended.
         </p>
       </div>
     </section>

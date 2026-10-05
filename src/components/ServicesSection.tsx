@@ -100,8 +100,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       id: 'focus',
       num: '04',
       phase: 'Specialized',
-      title: 'Aesthetic & Wellness Practice Specialization',
-      tagline: 'Bookkeeping methodologies built specifically for the clinical and operational realities of self-pay healthcare.',
+      title: 'Practice-Specific Bookkeeping',
+      tagline: 'Bookkeeping methods built for the clinical and operational realities of self-pay healthcare.',
       lead: 'Bridges the critical operational gap between clinical scheduling software, inventory carrying costs, tiered provider pay structures, and QuickBooks Online.',
       icon: HeartHandshake,
       highlight: 'Industry-specific workflows that reflect clinical inventory, patient financing, and recurring membership models.',
@@ -186,7 +186,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               { id: 'cleanup', label: 'Cleanup' },
               { id: 'monthly', label: 'Monthly' },
               { id: 'reporting', label: 'Reporting' },
-              { id: 'focus', label: 'Specialization' },
+              { id: 'focus', label: 'Practice-Specific' },
               { id: 'setup', label: 'Setup' },
               { id: 'scale', label: 'Historical' },
             ].map((tab) => (
@@ -352,10 +352,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   Practice software &amp; POS integration
                 </span>
                 <h3 id="pos-integration-heading" className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
-                  I Reconcile Your Aesthetic &amp; Wellness Technology Stack
+                  Your Booking and Payment Software, Reconciled to QuickBooks
                 </h3>
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl leading-relaxed">
-                  You don't need to change your booking or POS system. I reconcile settlements, provider tips, merchant processing fees, patient financing transactions, and package sales from your booking platform straight into QuickBooks Online.
+                  You don't need to change your booking or POS system. Settlements, provider tips, merchant processing fees, patient financing transactions, and package sales are reconciled from your booking platform straight into QuickBooks Online.
                 </p>
 
                 {/* The Technology Integration Grid */}
@@ -420,7 +420,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               {/* Three Core Bottlenecks */}
               <div className="pt-3 border-t border-[#E2E8F0] space-y-5">
                 <h5 className="text-lg font-serif font-bold text-[#1A2E40]">
-                  Three problems I fix in your practice
+                  Three problems fixed in your books
                 </h5>
 
                 <ul className="space-y-4 text-base text-[#4A5568] leading-relaxed">
@@ -428,7 +428,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">1. Package, gift card and membership liability tracking:</strong>{' '}
-                      When you sell high-value treatment packages, gift cards, or prepaid memberships, recording full payments immediately as earned income can distort monthly profitability and cash visibility. I track unearned balances systematically as liabilities and record earned revenue as services are completed, aligned with your practice accounting policies and CPA guidance.
+                      When you sell high-value treatment packages, gift cards, or prepaid memberships, recording full payments immediately as earned income can distort monthly profitability and cash visibility. Unearned balances are tracked systematically as liabilities and revenue is recorded as services are completed, aligned with your practice accounting policies and CPA guidance.
                     </div>
                   </li>
 
@@ -436,7 +436,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">2. Merchant and financing fee splits:</strong>{' '}
-                      Platforms like Stripe, Square, Cherry Financing, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. I cleanly isolate those deductions as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
+                      Platforms like Stripe, Square, Cherry Financing, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. Those deductions are cleanly isolated as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
                     </div>
                   </li>
 
@@ -444,7 +444,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">3. Provider payout and tip isolation:</strong>{' '}
-                      I build clean clearing workflows to separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
+                      Clean clearing workflows separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
                     </div>
                   </li>
                 </ul>
@@ -455,7 +455,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                 <div className="p-4 sm:p-5 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35">
                   <p className="text-base text-[#4A5568] leading-relaxed">
                     <strong className="text-[#1A2E40] font-bold">In summary:</strong>{' '}
-                    You don't need to change the booking platform, POS, or patient financing software you love. I step in to clean up the backend data flow, reconcile your software reporting against your bank feeds, and deliver clear, reliable financial statements every month.
+                    You don't need to change the booking platform, POS, or patient financing software you love. The backend data flow is cleaned up, your software reporting is reconciled against your bank feeds, and clear, reliable financial statements are delivered every month.
                   </p>
                 </div>
               </div>

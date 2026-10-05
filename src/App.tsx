@@ -175,7 +175,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Let's talk about your practice.
                 </h2>
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
-                  Book a complimentary 20-minute Financial Clarity Call on Zoom and tell me what is happening with your books. I'll outline your options and discuss a clear path to organized financial records.
+                  Book a complimentary 20-minute Financial Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                   <button

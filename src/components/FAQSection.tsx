@@ -49,7 +49,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'My Boulevard or Square deposit never matches my gross sales. I have no idea where the money went.',
       answer:
-        'This is one of the most common frustrations we hear from practice owners — and it is completely fixable.\n\nPlatforms like Boulevard, Vagaro, Square, Mindbody, and Mangomint deposit net amounts, not your total sales. By the time the money hits your bank, it has already had processing fees, refunds, tips, chargebacks, and sometimes reserves deducted from it. If your books only record what deposited, that missing money disappears — and you lose visibility into real costs.\n\nWe reconcile your platform reports against your actual bank deposits line by line. Every fee and adjustment gets its own category, so you can finally see where the gap came from and what running your payment processing actually costs your practice.',
+        'This is one of the most common frustrations practice owners describe — and it is completely fixable.\n\nPlatforms like Boulevard, Vagaro, Square, Mindbody, and Mangomint deposit net amounts, not your total sales. By the time the money hits your bank, it has already had processing fees, refunds, tips, chargebacks, and sometimes reserves deducted from it. If your books only record what deposited, that missing money disappears — and you lose visibility into real costs.\n\nPlatform reports are reconciled against your actual bank deposits line by line. Every fee and adjustment gets its own category, so you can finally see where the gap came from and what running your payment processing actually costs your practice.',
       takeaways: [
         'Platform net deposits compared against gross sales reports',
         'Processing fees, refunds, and adjustments tracked separately',
@@ -62,7 +62,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'I offer Cherry or CareCredit and my CPA said I\'m recording patient financing wrong. I don\'t know how to fix it.',
       answer:
-        'You are not alone — patient financing is one of the most consistently mishandled areas in aesthetic and wellness bookkeeping.\n\nHere is what typically happens: a patient finances a $1,200 treatment through Cherry or CareCredit. The financing company deposits $1,080 into your bank after deducting their merchant fee. If your books record $1,080 as the revenue, you have understated income AND hidden a real cost of doing business.\n\nWe record the full patient-charged amount as revenue, then separately categorize the financing merchant fee as an operating expense. Your reports then reflect what patients actually paid and what it cost you to offer financing — which is information you need to understand your real margins.',
+        'You are not alone — patient financing is one of the most consistently mishandled areas in aesthetic and wellness bookkeeping.\n\nHere is what typically happens: a patient finances a $1,200 treatment through Cherry or CareCredit. The financing company deposits $1,080 into your bank after deducting their merchant fee. If your books record $1,080 as the revenue, you have understated income AND hidden a real cost of doing business.\n\nThe full patient-charged amount is recorded as revenue, and the financing merchant fee is categorized separately as an operating expense. Your reports then reflect what patients actually paid and what it cost you to offer financing — which is information you need to understand your real margins.',
       takeaways: [
         'Full patient charge recorded as revenue, not just the deposited amount',
         'Cherry, CareCredit, and PatientFi fees tracked as separate operating costs',
@@ -88,7 +88,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'I already have a bookkeeper, but the reports I get don\'t tell me anything useful. I can\'t see which services are worth keeping.',
       answer:
-        'A generalist bookkeeper can reconcile your accounts and keep your books from falling apart — but if they do not understand how aesthetic and wellness practices operate, the reports they produce will not help you make decisions.\n\nIf your revenue from injectables, skincare, IV drips, memberships, medical weight-loss programs, and treatment packages is all collapsed into one income line, you will never know which services are driving profitability and which ones are draining it.\n\nWe restructure your QuickBooks chart of accounts around your actual service lines and cost structure, so your financial reports show you where the revenue is coming from, what it cost to produce it, and where the real margin is in your practice.',
+        'A generalist bookkeeper can reconcile your accounts and keep your books from falling apart — but if they do not understand how aesthetic and wellness practices operate, the reports they produce will not help you make decisions.\n\nIf your revenue from injectables, skincare, IV drips, memberships, medical weight-loss programs, and treatment packages is all collapsed into one income line, you will never know which services are driving profitability and which ones are draining it.\n\nYour QuickBooks chart of accounts is restructured around your actual service lines and cost structure, so your financial reports show you where the revenue is coming from, what it cost to produce it, and where the real margin is in your practice.',
       takeaways: [
         'Revenue tracked by service category or treatment type',
         'Product, supply, and provider costs matched to the services they support',
@@ -101,7 +101,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'Every tax season is a disaster. My CPA says my books are a mess and the bill is higher because of it.',
       answer:
-        'When your books arrive at your CPA\'s desk in rough shape, they have to spend their billable time reconstructing what should have been organized throughout the year. That adds to your tax prep invoice, delays your filing, and increases the chance that deductible expenses get missed because documentation was never gathered.\n\nOur goal is to hand your CPA clean, reconciled QuickBooks records by January — organized the way they need them. Every account reconciled. Every transaction categorized. Supporting documentation noted. Questions flagged and answered before they have to ask.\n\nYour CPA does the tax strategy and filing. We do the year-round record-keeping that makes it possible to do that efficiently.',
+        'When your books arrive at your CPA\'s desk in rough shape, they have to spend their billable time reconstructing what should have been organized throughout the year. That adds to your tax prep invoice, delays your filing, and increases the chance that deductible expenses get missed because documentation was never gathered.\n\nThe goal is to hand your CPA clean, reconciled QuickBooks records by January — organized the way they need them. Every account reconciled. Every transaction categorized. Supporting documentation noted. Questions flagged and answered before they have to ask.\n\nYour CPA does the tax strategy and filing. Monique Reid Bookkeeping handles the year-round record-keeping that makes it possible to do that efficiently.',
       takeaways: [
         'Month-by-month records your CPA can use without reconstruction',
         'Deductions documented and categorized throughout the year',
@@ -114,7 +114,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'What types of aesthetic and wellness practices do you serve?',
       answer:
-        'I provide specialized bookkeeping support for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related businesses.\n\nMy bookkeeping approach is customized to your services, payment platforms, provider-compensation structure, inventory, memberships, treatment packages, and number of locations.',
+        'Monique Reid Bookkeeping provides specialized bookkeeping support for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related businesses.\n\nThe bookkeeping approach is customized to your services, payment platforms, provider-compensation structure, inventory, memberships, treatment packages, and number of locations.',
       takeaways: [
         'Specialized support for aesthetic and wellness businesses',
         'Bookkeeping customized to your practice’s operations',
@@ -127,7 +127,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'What is included in monthly bookkeeping?',
       answer:
-        'Monthly bookkeeping may include bank and credit-card reconciliations, transaction categorization, merchant-deposit reconciliation, review of outstanding items, and preparation of your Profit and Loss and Balance Sheet reports.\n\nDepending on your service plan, I may also track inventory and treatment costs, memberships, packages, provider payments, financing activity, or revenue by service category.',
+        'Monthly bookkeeping may include bank and credit-card reconciliations, transaction categorization, merchant-deposit reconciliation, review of outstanding items, and preparation of your Profit and Loss and Balance Sheet reports.\n\nDepending on your service plan, monthly bookkeeping may also include tracking inventory and treatment costs, memberships, packages, provider payments, financing activity, or revenue by service category.',
       takeaways: [
         'Monthly reconciliation and transaction review',
         'Profit and Loss and Balance Sheet reports',
@@ -140,7 +140,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'QUICKBOOKS & PRACTICE SYSTEMS',
       question: 'Why does my aesthetic or wellness practice need a customized QuickBooks setup?',
       answer:
-        'Generic QuickBooks categories often make it difficult to understand where your practice is earning—or losing—money. Injectables, skincare inventory, treatment supplies, merchant fees, provider compensation, memberships, and equipment expenses may all require separate tracking.\n\nI customize your Chart of Accounts around your services and financial structure, helping you produce clearer reports and better understand revenue, costs, and profitability across your practice.',
+        'Generic QuickBooks categories often make it difficult to understand where your practice is earning—or losing—money. Injectables, skincare inventory, treatment supplies, merchant fees, provider compensation, memberships, and equipment expenses may all require separate tracking.\n\nYour Chart of Accounts is customized around your services and financial structure, helping you produce clearer reports and better understand revenue, costs, and profitability across your practice.',
       takeaways: [
         'Organized tracking for products, supplies, and operating expenses',
         'Clearer visibility into gross profit by service or treatment category',
@@ -153,7 +153,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'QUICKBOOKS & PRACTICE SYSTEMS',
       question: 'How do you reconcile software such as Boulevard, Vagaro, Jane, Mangomint, Square, or Stripe with QuickBooks?',
       answer:
-        'Practice-management and payment platforms frequently combine service revenue, product sales, client tips, memberships, processing fees, refunds, and other activity into a single bank deposit.\n\nI compare platform reports, merchant statements, and bank deposits to properly record the underlying activity in QuickBooks. Depending on your systems and workflow, I may also use clearing accounts or summarized entries to make monthly reconciliation more accurate and manageable.',
+        'Practice-management and payment platforms frequently combine service revenue, product sales, client tips, memberships, processing fees, refunds, and other activity into a single bank deposit.\n\nPlatform reports, merchant statements, and bank deposits are compared to properly record the underlying activity in QuickBooks. Depending on your systems and workflow, clearing accounts or summarized entries may also be used to make monthly reconciliation more accurate and manageable.',
       takeaways: [
         'Reconciliation of platform activity to bank deposits',
         'Separate tracking of merchant fees, tips, refunds, and revenue',
@@ -166,7 +166,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'CLEANUP & CATCH-UP',
       question: 'My books are 6 to 24 months behind or disorganized. What does the cleanup process involve?',
       answer:
-        'I begin with a Diagnostic File Review of your QuickBooks account, bank and credit-card activity, merchant statements, loans, and available supporting records.\n\nI then work through the affected periods to reconcile accounts, review transaction classifications, identify duplicates or missing activity, and document items requiring your input. At completion, you receive updated financial reports and a list of any remaining questions or adjustments to review with your CPA.',
+        'The process begins with a Diagnostic File Review of your QuickBooks account, bank and credit-card activity, merchant statements, loans, and available supporting records.\n\nNext, the affected periods are worked through to reconcile accounts, review transaction classifications, identify duplicates or missing activity, and document items requiring your input. At completion, you receive updated financial reports and a list of any remaining questions or adjustments to review with your CPA.',
       takeaways: [
         'Diagnostic review before the cleanup begins',
         'Month-by-month reconciliation of relevant accounts',
@@ -179,7 +179,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'CLEANUP & CATCH-UP',
       question: 'I mixed personal and business transactions. Can my books still be cleaned up?',
       answer:
-        'Yes. This is common, particularly during startup, expansion, equipment purchases, or staffing transitions.\n\nI review the available documentation and separate personal and business activity in QuickBooks. Transactions are categorized based on the information you provide and the accounting treatment established with your CPA. I may also identify business expenses paid personally and personal expenses paid from business accounts for proper review.',
+        'Yes. This is common, particularly during startup, expansion, equipment purchases, or staffing transitions.\n\nThe available documentation is reviewed and personal and business activity is separated in QuickBooks. Transactions are categorized based on the information you provide and the accounting treatment established with your CPA. Business expenses paid personally and personal expenses paid from business accounts are also identified for proper review.',
       takeaways: [
         'Separates personal and business activity',
         'Identifies transactions requiring clarification or documentation',
@@ -205,7 +205,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'PRACTICE FINANCIAL OPERATIONS',
       question: 'How do you track payments to employees, independent contractors, and Medical Directors?',
       answer:
-        'I create dedicated accounts for payroll, contractor payments, provider commissions, bonuses, and Medical Director fees based on the classifications and compensation structure established by you and your professional advisors.\n\nI then reconcile those payments to the available payroll reports, contractor records, bank activity, and QuickBooks. Your CPA, payroll professional, or employment attorney should determine the appropriate worker classification and reporting requirements.',
+        'Dedicated accounts are created for payroll, contractor payments, provider commissions, bonuses, and Medical Director fees based on the classifications and compensation structure established by you and your professional advisors.\n\nThose payments are then reconciled to the available payroll reports, contractor records, bank activity, and QuickBooks. Your CPA, payroll professional, or employment attorney should determine the appropriate worker classification and reporting requirements.',
       takeaways: [
         'Separate tracking for payroll, contractors, commissions, and Medical Director fees',
         'Reconciliation of payroll and provider-payment activity',
@@ -231,7 +231,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'PRACTICE FINANCIAL OPERATIONS',
       question: 'Do you replace my CPA, or do you collaborate with them?',
       answer:
-        'I collaborate with your CPA or tax professional rather than replace them.\n\nI manage the ongoing bookkeeping process, which may include account reconciliations, transaction categorization, merchant activity, inventory and cost tracking, provider payments, and monthly financial reports.\n\nYour CPA or tax professional remains responsible for services such as tax advice, tax planning, tax-return preparation, and other work included in your engagement with them. When authorized, I can provide organized records and respond to bookkeeping-related questions during the year-end process.',
+        'Monique Reid Bookkeeping collaborates with your CPA or tax professional rather than replacing them.\n\nThe ongoing bookkeeping process may include account reconciliations, transaction categorization, merchant activity, inventory and cost tracking, provider payments, and monthly financial reports.\n\nYour CPA or tax professional remains responsible for services such as tax advice, tax planning, tax-return preparation, and other work included in your engagement with them. When authorized, organized records can be provided and bookkeeping-related questions answered during the year-end process.',
       takeaways: [
         'Ongoing bookkeeping coordinated with your existing CPA',
         'Organized financial reports and supporting records',
@@ -244,7 +244,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'What do you need from me to get started?',
       answer:
-        'I typically begin with access to your QuickBooks Online file and the financial records relevant to your engagement. These may include bank and credit-card statements, merchant-processing reports, loan documents, payroll summaries, and reports from your practice-management software.\n\nAfter the initial review, I provide a clear list of any additional records or questions needed to begin the cleanup or monthly bookkeeping process.',
+        'Work typically begins with access to your QuickBooks Online file and the financial records relevant to your engagement. These may include bank and credit-card statements, merchant-processing reports, loan documents, payroll summaries, and reports from your practice-management software.\n\nAfter the initial review, you receive a clear list of any additional records or questions needed to begin the cleanup or monthly bookkeeping process.',
       takeaways: [
         'A straightforward onboarding process',
         'A customized records checklist',
@@ -270,7 +270,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'Do you need access to patient medical records?',
       answer:
-        'Our bookkeeping work generally focuses on financial records, transaction summaries, payment-platform reports, and accounting documents—not clinical treatment notes or unnecessary patient medical information.\n\nWe request only the information reasonably needed to complete the agreed bookkeeping services and coordinate appropriate access with the practice.',
+        'Bookkeeping work generally focuses on financial records, transaction summaries, payment-platform reports, and accounting documents—not clinical treatment notes or unnecessary patient medical information.\n\nOnly the information reasonably needed to complete the agreed bookkeeping services is requested, and appropriate access is coordinated with the practice.',
       takeaways: [
         'Financial information is prioritized over clinical information',
         'Only relevant records are requested',
@@ -352,7 +352,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
           </h2>
 
           <p className="text-lg text-[#4A5568] leading-relaxed">
-            Search or browse by topic. The "Sound Familiar?" tab covers the most common frustrations practice owners tell us about.
+            Search or browse by topic. The "Sound Familiar?" tab covers the most common frustrations practice owners describe.
           </p>
         </div>
 
@@ -574,7 +574,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
             className="shrink-0 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-md hover:shadow-lg border border-[#FFF5DE]/60 flex items-center justify-center gap-2 group active:scale-[0.99] cursor-pointer"
           >
             <Calendar className="w-4 h-4 text-[#1A2E40]" />
-            <span>Book My Financial Clarity Call</span>
+            <span>Book Your Free Clarity Call</span>
             <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>

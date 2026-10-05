@@ -56,7 +56,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-[#57534E] leading-relaxed max-w-2xl font-normal">
-              We reconcile payouts from Boulevard, Vagaro, Square, and Cherry; properly account for memberships, packages, and patient financing; and track your inventory and treatment costs—so you clearly see where your money is going and what your practice is actually earning.
+              Payouts from Boulevard, Vagaro, Square, and Cherry are reconciled, memberships, packages, and patient financing are accounted for correctly, and inventory and treatment costs are tracked, so you clearly see where your money is going and what your practice is actually earning.
             </p>
 
             {/* Strategic Segments Mention */}

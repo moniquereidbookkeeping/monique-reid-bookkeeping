@@ -38,8 +38,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
 
             <p className="text-base sm:text-lg text-[#E2E8F0] leading-relaxed max-w-2xl font-light">
               Whether you are launching your first solo treatment suite or operating a multi-provider
-              aesthetic and wellness clinic with medical directors and clinical staff, I keep the financial side
-              of your business organized, dependable, and understandable.
+              aesthetic and wellness clinic with medical directors and clinical staff, the financial side of your business stays organized, dependable, and understandable.
             </p>
 
             {/* Practice Types Pills Grid */}

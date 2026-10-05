@@ -9,7 +9,7 @@ const steps = [
   {
     icon: Calendar,
     title: 'Free 20-minute call',
-    body: 'We talk through your practice, your software and where your books stand. No pressure.',
+    body: 'A free call covers your practice, your software and where your books stand. No pressure.',
   },
   {
     icon: FileText,

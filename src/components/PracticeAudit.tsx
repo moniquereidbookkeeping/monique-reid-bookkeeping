@@ -374,7 +374,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   {showOtherStatus && (
                     <div className="mt-2 space-y-3">
                       <label htmlFor="audit-other-status" className="block text-base font-semibold text-[#1A2E40]">
-                        Please tell us your situation:
+                        Please describe your situation:
                       </label>
                       <div className="flex gap-3">
                         <input data-clarity-mask="True"
@@ -606,7 +606,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                           value={otherChallengeValue}
                           onChange={(e) => setOtherChallengeValue(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && handleOtherChallengeSubmit()}
-                          placeholder="Tell us what's going on with your books…"
+                          placeholder="Describe what's going on with your books…"
                           autoFocus
                           className="flex-1 px-4 py-3 rounded-xl border border-[#D4AF37] bg-[#FAF8F5] text-base text-[#1A2E40] placeholder:text-[#57534E]/50 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
                         />
@@ -650,10 +650,10 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
 
               <div className="space-y-4">
                 <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
-                  Where should we send your personalized plan?
+                  Where should your personalized plan be sent?
                 </h4>
                 <p className="text-base text-[#4A5568]">
-                  We will review your practice profile and follow up with specific guidance — no obligation.
+                  Your practice profile is reviewed personally, followed by specific guidance — no obligation.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

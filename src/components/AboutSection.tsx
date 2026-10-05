@@ -139,7 +139,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                   <span>You're Not Alone in This</span>
                 </div>
                 <p className="text-sm text-[#4A5568]">
-                  Most practice owners come to us frustrated, behind, or just unsure. That's exactly what we're here for.
+                  Most practice owners arrive frustrated, behind, or just unsure. This practice is built for exactly that.
                 </p>
               </div>
             </div>

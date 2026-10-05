@@ -24,7 +24,7 @@ export const ServicesSummary: React.FC<ServicesSummaryProps> = ({ onNavigate }) 
           Six services built around how your practice runs
         </h2>
         <p className="mt-3 text-lg text-[#4A5568] leading-relaxed">
-          You keep your booking and payment software. We make sure it ties out to QuickBooks.
+          You keep your booking and payment software. Everything ties out to QuickBooks.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

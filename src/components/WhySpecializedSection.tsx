@@ -12,7 +12,7 @@ const problems = [
     problem:
       'Platforms like Boulevard, Vagaro, Square, and Mindbody deposit net amounts after processing fees, refunds, tips, and other adjustments. When only the deposited amount is recorded, your books may not clearly reflect gross sales—or the fees and liabilities tied to those transactions.',
     help:
-      'We reconcile platform activity against bank deposits and separately account for processing fees, refunds, tips, and adjustments—giving you cleaner QuickBooks records and a clearer picture of practice revenue.',
+      'Platform activity is reconciled against bank deposits, with processing fees, refunds, tips, and adjustments accounted for separately, giving you cleaner QuickBooks records and a clearer picture of practice revenue.',
   },
   {
     number: '02',
@@ -20,15 +20,15 @@ const problems = [
     problem:
       `When patients use Cherry, CareCredit, or PatientFi, the amount deposited into your bank is lower than the original transaction because merchant fees are deducted first. If those amounts aren't separated, it's hard to understand the true economics of each sale.`,
     help:
-      'We identify and categorize applicable financing costs separately from the related revenue—so your reports reflect what patients paid and what it cost you to accept that payment.',
+      'Applicable financing costs are identified and categorized separately from the related revenue, so your reports reflect what patients paid and what it cost you to accept that payment.',
   },
   {
     number: '03',
     title: 'Prepaid Packages and Memberships Are Deferred Revenue',
     problem:
-      `When a client pays upfront for a package or membership, that money is not fully earned until the service is delivered. Without consistent tracking, your reports can show cash you have collected as income you have not yet earned, which distorts your monthly picture. How it is treated for tax depends on your accounting method, so we coordinate with your CPA.`,
+      `When a client pays upfront for a package or membership, that money is not fully earned until the service is delivered. Without consistent tracking, your reports can show cash you have collected as income you have not yet earned, which distorts your monthly picture. How it is treated for tax depends on your accounting method, so this is coordinated with your CPA.`,
     help:
-      'We help structure your QuickBooks records so collected payments, earned revenue, and outstanding balances are tracked separately and consistently—so your monthly reports reflect what you\'ve actually earned, not just what came in.',
+      'Your QuickBooks records are structured so collected payments, earned revenue, and outstanding balances are tracked separately and consistently—so your monthly reports reflect what you\'ve actually earned, not just what came in.',
   },
   {
     number: '04',
@@ -36,7 +36,7 @@ const problems = [
     problem:
       `Neurotoxin, filler, skincare retail, IV supplies, and weight-loss medications are direct costs tied to specific services—not generic overhead. When they're lumped into broad expense categories, you lose visibility into what each service line actually costs to deliver, making it nearly impossible to know which treatments are worth your chair time.`,
     help:
-      'We separate product and supply costs from operating overhead and categorize treatment-related expenses so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins actually are.',
+      'Product and supply costs are separated from operating overhead, and treatment-related expenses are categorized so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins actually are.',
   },
 ];
 
@@ -71,7 +71,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
                 <p className="mt-1.5 text-base text-[#4A5568] leading-relaxed">{item.problem}</p>
               </div>
               <div className="mt-4 pt-4 border-t border-[#E2E8F0]">
-                <p className="text-sm font-bold uppercase tracking-widest text-[#15803D]">How we help</p>
+                <p className="text-sm font-bold uppercase tracking-widest text-[#15803D]">The solution</p>
                 <div className="mt-1.5 flex gap-2">
                   <CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" aria-hidden="true" />
                   <p className="text-base text-[#4A5568] leading-relaxed">{item.help}</p>
