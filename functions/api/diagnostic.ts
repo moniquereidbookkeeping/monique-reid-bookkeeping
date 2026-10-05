@@ -117,7 +117,7 @@ Write a personalized 3-step action plan for this exact practice. Rules:
 4. The account count (${accounts}) should inform step complexity — more accounts = more reconciliation detail.
 5. Write in Monique's voice: direct, expert, confident. No fluff. No generic advice.
 6. Use real bookkeeping terminology: reconciliation, chart of accounts, P&L, journal entry, clearing account, deferred revenue, etc.
-7. Each step title is 4–8 words. Each body is 2–3 specific sentences.
+7. Each step title is 4–8 words. Each body is ONE or TWO short sentences, about 25 words maximum. Describe the OUTCOME the practice gets, not how it is done: no account names, no step-by-step workflows, no setup mechanics, no chart-of-accounts details.
 8. Describe only work that Monique actually offers (catalog below). Do not quote prices and do not promise how long anything takes.
 
 CATALOG AND RULES:
@@ -147,7 +147,7 @@ function parseSteps(raw: string): Step[] | null {
 }
 
 function tidy(steps: Step[]): Step[] {
-  return steps.map((s) => ({ title: clean(s.title, 80), body: clean(s.body, 420) }));
+  return steps.map((s) => ({ title: clean(s.title, 80), body: clean(s.body, 220) }));
 }
 
 function isValidSteps(val: unknown): val is Step[] {

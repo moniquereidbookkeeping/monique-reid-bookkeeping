@@ -42,7 +42,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       ],
       startingPrice: 'From $597 (1–3 months)',
       pricingTiers: [
-        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Most clients are fully current within 2–3 weeks.', color: '#16A34A' },
+        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#16A34A' },
         { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Most Common', color: '#D97706' },
         { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full audit trail.', color: '#DC2626' },
         { label: '2+ years / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Multi-year and multi-entity engagements quoted after assessment.', color: '#6B7280' },

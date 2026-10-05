@@ -118,7 +118,7 @@ function safeSteps(raw: unknown): { title: string; body: string }[] | null {
   if (!Array.isArray(raw) || raw.length !== 3) return null;
   const out = raw.map((s) => ({
     title: clean((s as { title?: unknown })?.title, 80),
-    body: clean((s as { body?: unknown })?.body, 420),
+    body: clean((s as { body?: unknown })?.body, 220),
   }));
   if (!out.every((s) => s.title && s.body)) return null;
   // Reject anything that quotes an unknown price or promises a timeline.
@@ -264,7 +264,7 @@ async function generateExpertBrief(
     'Everything you write must follow this catalog and these rules:\n' + OFFERINGS_TEXT + '\n\n' +
     'Write four sections:\n\n' +
     'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "1099 vs W-2 misclassification," "service-line margin tracking").\n\n' +
-    'SOLUTION PLAN: 3 steps. Each step: title (5-7 words) + body (2-3 sentences). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
+    'SOLUTION PLAN: 3 steps. Each step: title (5-7 words) + body (ONE or TWO short sentences, about 25 words maximum, describing the OUTCOME for the client, not how it is done: no account names, workflows or setup mechanics; those belong on the call). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
     'DISCOVERY CALL QUESTIONS: 4 sharp questions Monique should ask — specific to this platform, revenue model, practice age, and stated challenge. Not generic — make them sound like a specialist who already knows their world.\n\n' +
     'RECOMMENDED PACKAGE: One sentence. Our system has already matched this prospect to the ' + tier.name + ' tier (' + tier.price + '). Recommend exactly that tier, do not name any other tier or price, and say why it fits. Our system\'s cleanup assessment for this prospect is: ' + cleanup.label + ' (' + cleanup.note + '). Your package sentence must agree with that assessment: mention a one-time cleanup only if it says one is needed, and never promise how long anything will take.\n\n' +
     'Return ONLY valid JSON, no markdown wrapper:\n' +
