@@ -27,7 +27,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             Book Your Complimentary <span className="whitespace-nowrap">20-Minute</span> Financial Clarity Call
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
-            Select a convenient time below. The call covers your practice's current bookkeeping setup, identifies immediate areas for cleanup or optimization, and outlines a clear path to accurate numbers.
+            Select a convenient time below. I will review your practice's current bookkeeping setup, point out immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
           </p>
         </div>
 

@@ -653,7 +653,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   Where should your personalized plan be sent?
                 </h4>
                 <p className="text-base text-[#4A5568]">
-                  Your practice profile is reviewed personally, followed by specific guidance — no obligation.
+                  I will review your practice profile personally and follow up with specific guidance — no obligation.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

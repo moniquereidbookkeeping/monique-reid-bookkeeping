@@ -192,7 +192,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'How do you record sales tax for treatments, products, memberships, and packages?',
       answer:
-        'Sales-tax requirements vary by state, location, and the type of product or service being sold. Your CPA, attorney, or sales-tax advisor should determine which transactions are taxable and which rates apply to your practice.\n\nOnce those requirements are established, we organize QuickBooks to separate sales-tax activity from operating revenue, reconcile amounts recorded through your payment or practice-management platforms, and prepare clear reports for you or your tax professional.',
+        'Sales-tax requirements vary by state, location, and the type of product or service being sold. Your CPA, attorney, or sales-tax advisor should determine which transactions are taxable and which rates apply to your practice.\n\nOnce those requirements are established, QuickBooks is organized to separate sales-tax activity from operating revenue, amounts recorded through your payment or practice-management platforms are reconciled, and clear reports are prepared for you or your tax professional.',
       takeaways: [
         'Separate tracking for sales tax and operating revenue',
         'Reconciliation of sales-tax activity from connected platforms',
