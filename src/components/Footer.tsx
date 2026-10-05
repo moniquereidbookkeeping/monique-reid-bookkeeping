@@ -163,6 +163,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer">
                 Privacy Policy
               </a>
+              <span className="text-white/30">·</span>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('mr-open-cookie-settings'))}
+                className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer"
+              >
+                Cookie Settings
+              </button>
             </div>
           </div>
 

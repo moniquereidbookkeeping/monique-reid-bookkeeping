@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackEvent } from '../lib/analytics';
 import { TurnstileWidget } from './TurnstileWidget';
 import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Lock, Loader2 } from 'lucide-react';
 
@@ -270,6 +271,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     setSubmitError('');
     setSubmitting(true);
     setCompleted(true);
+    trackEvent('health_check_complete');
 
     const diagPayload = { ...answers };
     const planPromise = fetchAIPlan(diagPayload);
@@ -377,7 +379,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                         Please tell us your situation:
                       </label>
                       <div className="flex gap-3">
-                        <input
+                        <input data-clarity-mask="True"
                           id="audit-other-status" type="text" maxLength={120}
                           value={otherStatusValue}
                           onChange={(e) => setOtherStatusValue(e.target.value)}
@@ -425,7 +427,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                         Please enter your platform name:
                       </label>
                       <div className="flex gap-3">
-                        <input
+                        <input data-clarity-mask="True"
                           id="audit-other-platform" type="text"
                           value={otherPosValue}
                           onChange={(e) => setOtherPosValue(e.target.value)}
@@ -475,7 +477,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                         Please describe how you bring in revenue:
                       </label>
                       <div className="flex gap-3">
-                        <input
+                        <input data-clarity-mask="True"
                           id="audit-other-packages" type="text" maxLength={120}
                           value={otherPkgValue}
                           onChange={(e) => setOtherPkgValue(e.target.value)}
@@ -601,7 +603,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                         Describe your challenge:
                       </label>
                       <div className="flex gap-3">
-                        <input
+                        <input data-clarity-mask="True"
                           id="audit-other-challenge" type="text"
                           value={otherChallengeValue}
                           onChange={(e) => setOtherChallengeValue(e.target.value)}
@@ -659,7 +661,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label htmlFor="audit-first-name" className="block text-sm font-semibold text-[#1A2E40]">First Name</label>
-                    <input
+                    <input data-clarity-mask="True"
                       id="audit-first-name" autoComplete="given-name" type="text"
                       value={leadName}
                       onChange={(e) => setLeadName(e.target.value)}
@@ -671,7 +673,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   </div>
                   <div className="space-y-1.5">
                     <label htmlFor="audit-email" className="block text-sm font-semibold text-[#1A2E40]">Email Address</label>
-                    <input
+                    <input data-clarity-mask="True"
                       id="audit-email" autoComplete="email" type="email"
                       value={leadEmail}
                       onChange={(e) => setLeadEmail(e.target.value)}

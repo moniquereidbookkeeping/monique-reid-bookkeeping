@@ -11,6 +11,8 @@ import { Hero } from './components/Hero';
 import { FinancialDashboard } from './components/FinancialDashboard';
 import { ServicesSection } from './components/ServicesSection';
 import { BuiltForPractices } from './components/BuiltForPractices';
+import { CookieBanner } from './components/CookieBanner';
+import { trackPageView, trackEvent } from './lib/analytics';
 import { BookedPage } from './components/BookedPage';
 import { PracticeAudit } from './components/PracticeAudit';
 import { GetBillForgeSection } from './components/GetBillForgeSection';
@@ -59,6 +61,8 @@ export default function App() {
     setTag('meta[property="og:url"]', () => { const m = document.createElement('meta'); m.setAttribute('property', 'og:url'); return m; }, 'content', url);
     setTag('meta[name="robots"]', () => Object.assign(document.createElement('meta'), { name: 'robots' }), 'content', currentPage === 'booked' ? 'noindex, nofollow' : 'index, follow');
     const meta = PAGE_META[currentPage];
+    trackPageView();
+    if (currentPage === 'booked') trackEvent('booking_confirmed');
     if (meta) {
       document.title = meta.title;
       setTag('meta[name="description"]', () => Object.assign(document.createElement('meta'), { name: 'description' }), 'content', meta.description);
@@ -305,6 +309,8 @@ export default function App() {
           <PrivacyPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
         )}
       </main>
+
+      <CookieBanner onNavigate={handleNavigate} />
 
       {/* Global Footer (Without obsolete logo modal) */}
       <Footer
