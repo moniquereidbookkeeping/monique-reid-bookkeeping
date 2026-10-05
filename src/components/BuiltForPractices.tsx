@@ -44,7 +44,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
             {/* Practice Types Pills Grid */}
             <div className="pt-2">
               <p className="text-sm uppercase tracking-wider text-[#D4AF37] font-semibold mb-3">
-                Who We Serve:
+                Who this is for:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {practiceTypes.map((pt, idx) => {

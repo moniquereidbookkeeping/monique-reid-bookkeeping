@@ -41,7 +41,7 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
         <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] flex gap-4">
           <Video className="w-6 h-6 text-[#D4AF37] shrink-0 mt-0.5" />
           <div>
-            <h2 className="font-bold text-[#1A2E40]">What we'll cover</h2>
+            <h2 className="font-bold text-[#1A2E40]">What the call covers</h2>
             <p className="text-sm sm:text-base text-[#57534E] mt-1">
               Where your books stand today, what is getting in the way of clear reports, and the best next step for your practice. Everything you share stays confidential.
             </p>
@@ -58,7 +58,7 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
               ))}
             </ul>
             <p className="mt-3 text-sm text-[#57534E]">
-              Please don't email financial statements or logins before the call. We'll cover what is needed together.
+              Please don't email financial statements or logins before the call. What is needed will be covered together on the call.
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
       </div>
 
       <p className="mt-8 text-sm text-[#57534E]">
-        Questions before we meet? Email{' '}
+        Questions before the call? Email{' '}
         <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4">
           {CONTACT_EMAIL}
         </a>

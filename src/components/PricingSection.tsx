@@ -153,7 +153,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           <p className="text-base sm:text-lg text-[#374151] leading-relaxed">
             A solo provider with Square doesn't have the same bookkeeping needs as a multi-provider MedSpa
             running Boulevard, Cherry, memberships, and provider compensation.
-            Our fees match the <strong className="text-[#1A2E40]">financial complexity of your practice</strong> — nothing more.
+            Fees match the <strong className="text-[#1A2E40]">financial complexity of your practice</strong> — nothing more.
           </p>
         </div>
 
