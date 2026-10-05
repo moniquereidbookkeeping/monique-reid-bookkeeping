@@ -9,7 +9,7 @@ interface AboutSectionProps {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPortrait = true }) => {
   return (
-    <section id="about-section" className="py-14 lg:py-20 bg-[#FDFCFA] border-b border-[#E2E8F0]">
+    <section id="about-section" className="py-14 lg:py-20 bg-white border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Portrait & Credentials */}
@@ -105,10 +105,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
             {/* Founder-Led Bookkeeping */}
             <div className="p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20 shadow-lg">
               <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3">✦ Founder-Led Bookkeeping</p>
-              <p className="text-xl font-serif font-semibold text-white leading-snug mb-2">
+              <p className="text-xl sm:text-2xl font-serif font-bold text-white leading-snug mb-3">
                 When you hire this practice, you work with me directly — not a junior associate or an outsourced team.
               </p>
-              <p className="text-base text-[#E2E8F0] leading-relaxed">
+              <p className="text-lg text-[#E2E8F0] leading-relaxed">
                 Every reconciliation, every QuickBooks cleanup, every financial question you send me gets handled by the same person who built this practice. That's not a perk — it's the entire model.
               </p>
             </div>

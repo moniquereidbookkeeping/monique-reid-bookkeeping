@@ -24,10 +24,10 @@ const steps = [
 ];
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onBookCall }) => (
-  <section id="how-it-works" className="py-14 lg:py-20 bg-white border-b border-[#E2E8F0]">
+  <section id="how-it-works" className="py-14 lg:py-20 bg-[#FAF8F5] border-b border-[#E2E8F0]">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">How it works</p>
+        <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">How it works</span>
         <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
           Three simple steps
         </h2>
@@ -36,7 +36,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onBookCall }) => (
         {steps.map((s, i) => {
           const Icon = s.icon;
           return (
-            <li key={s.title} className="relative rounded-2xl border border-[#E2E8F0] bg-[#FDFCFA] p-6">
+            <li key={s.title} className="relative rounded-2xl border border-[#E2E8F0] bg-white p-6">
               <span className="absolute -top-3 left-6 px-2.5 py-0.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold">
                 Step {i + 1}
               </span>

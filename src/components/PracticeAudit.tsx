@@ -318,13 +318,13 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const showProgress = !completed && isQuestionStep;
 
   return (
-    <section id="health-check" className="py-14 lg:py-20 bg-[#FDFCFA] border-b border-[#E2E8F0]">
+    <section id="health-check" className="py-14 lg:py-20 bg-[#FAF8F5] border-b border-[#E2E8F0]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-6 sm:p-10">
 
           {/* Header */}
           <div className="border-b border-[#E2E8F0] pb-8 mb-8"><div className="text-center max-w-2xl mx-auto">
-            <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Free interactive diagnostic</p>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Free interactive diagnostic</span>
             <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
               Bookkeeping Health Check for Your Practice
             </h2>

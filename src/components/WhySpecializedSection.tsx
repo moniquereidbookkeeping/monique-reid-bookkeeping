@@ -42,12 +42,12 @@ const problems = [
 
 export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ onBookCall }) => {
   return (
-    <section className="py-14 lg:py-20 bg-[#F8F9FA] border-b border-[#E2E8F0]">
+    <section className="py-14 lg:py-20 bg-white border-b border-[#E2E8F0]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Why it matters</p>
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Why it matters</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
             You Know What Came In. Do You Know What You Actually Made?
           </h2>
@@ -59,7 +59,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
         {/* Four Problem Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {problems.map((item) => (
-            <div key={item.number} className="rounded-2xl bg-white border border-[#E2E8F0] shadow-sm p-6 flex flex-col">
+            <div key={item.number} className="rounded-2xl bg-[#FAF8F5] border border-[#E2E8F0] shadow-sm p-6 flex flex-col">
               <div className="flex items-start gap-3">
                 <span className="shrink-0 w-10 h-10 rounded-full bg-[#1A2E40] text-[#D4AF37] font-serif font-bold text-base flex items-center justify-center">
                   {item.number}

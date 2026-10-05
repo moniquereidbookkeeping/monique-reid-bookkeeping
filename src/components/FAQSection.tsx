@@ -345,7 +345,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-10">
-          <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Questions, clear answers</p>
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Questions, clear answers</span>
 
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
             Real Questions From Practice Owners Like You

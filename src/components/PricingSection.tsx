@@ -143,7 +143,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1A2E40] text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold tracking-widest uppercase mb-6">
             <Sparkles className="w-3.5 h-3.5" />
             Transparent, Complexity-Based Pricing
           </div>
@@ -201,12 +201,12 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                         {plan.name}
                       </p>
                       {/* Revenue range badge */}
-                      <span className={`inline-flex items-center gap-1 mt-1 px-2.5 py-0.5 rounded-full text-xs font-bold ${
+                      <span className={`inline-flex items-center gap-1 mt-1 px-3 py-1 rounded-full text-sm font-bold ${
                         plan.featured
                           ? 'bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30'
                           : 'bg-[#1A2E40] text-[#D4AF37]'
                       }`}>
-                        <TrendingUp className="w-3 h-3" />
+                        <TrendingUp className="w-3.5 h-3.5" />
                         {plan.revenueRange}
                       </span>
                     </div>
@@ -223,7 +223,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   <div className={`mb-5 pb-5 border-b ${
                     plan.featured ? 'border-white/15' : 'border-[#E2E8F0]'
                   }`}>
-                    <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${
+                    <p className={`text-sm font-bold uppercase tracking-widest mb-2 ${
                       plan.featured ? 'text-white/50' : 'text-[#5A6578]'
                     }`}>
                       Starting At
@@ -241,7 +241,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                   </div>
 
                   {/* Features */}
-                  <p className={`text-xs font-bold uppercase tracking-widest mb-4 ${
+                  <p className={`text-sm font-bold uppercase tracking-widest mb-4 ${
                     plan.featured ? 'text-[#D4AF37]/70' : 'text-[#1A2E40]/50'
                   }`}>
                     What's Included
@@ -327,7 +327,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
                     </div>
                     <div>
                       <p className="text-sm font-bold text-[#1A2E40] leading-snug mb-1">{factor.label}</p>
-                      <p className="text-xs text-[#57534E] leading-relaxed">{factor.detail}</p>
+                      <p className="text-sm text-[#4A5568] leading-relaxed">{factor.detail}</p>
                     </div>
                   </div>
                 );

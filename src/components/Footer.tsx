@@ -25,17 +25,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
             <p className="text-sm text-[#E2E8F0] max-w-sm leading-relaxed mt-2 font-light">
               Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
             </p>
-            <p className="text-xs font-serif italic text-[#D4AF37]">
+            <p className="text-sm font-serif italic text-[#D4AF37]">
               Clean Books. Clearer Numbers.
             </p>
           </div>
 
           {/* Col 2: Services (All 6 Distinct Services) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Services
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#E2E8F0]/90">
+            <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
                 <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
@@ -45,7 +45,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
               <li>
                 <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
-                  Specialized Monthly Bookkeeping
+                  Monthly Bookkeeping
                 </a>
               </li>
               <li>
@@ -57,7 +57,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
               <li>
                 <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
-                  QuickBooks Setup &amp; Restructuring
+                  Practice-Specific Bookkeeping
+                </a>
+              </li>
+              <li>
+                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
+                  QuickBooks Setup &amp; Chart of Accounts
+                </a>
+              </li>
+              <li>
+                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
+                  Historical Records &amp; Reporting
                 </a>
               </li>
             </ul>
@@ -65,10 +77,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
 
           {/* Col 3: Practice Tools */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Practice Tools
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#E2E8F0]/90">
+            <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
                 <a href={pathFor('dashboard')} onClick={(e) => { e.preventDefault(); onNavigate('dashboard'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
@@ -106,10 +118,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
 
           {/* Col 4: Get In Touch */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               GET IN TOUCH
             </h4>
-            <ul className="space-y-3 text-xs sm:text-sm text-[#E2E8F0]/90">
+            <ul className="space-y-3 text-sm text-sm text-[#E2E8F0]/90">
               <li>
                 <button
                   onClick={onBookCall}
@@ -125,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   className="hover:text-[#D4AF37] transition-colors flex items-center gap-2.5 text-[#E2E8F0]/90"
                 >
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span className="font-bold text-xs break-all">{CONTACT_EMAIL}</span>
+                  <span className="font-bold text-sm break-all">{CONTACT_EMAIL}</span>
                 </a>
               </li>
             </ul>
@@ -133,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#E2E8F0]/70 border-t border-white/10 mt-8">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#E2E8F0]/70 border-t border-white/10 mt-8">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
             <p>© 2026 Monique Reid Bookkeeping • Fort Lauderdale, FL • All rights reserved.</p>
             <span className="hidden sm:inline text-white/30">·</span>
