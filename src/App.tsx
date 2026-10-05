@@ -81,6 +81,19 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Calendly (free plan) cannot redirect after booking, but its embedded widget tells this page
+  // when a booking is scheduled, so we show our own confirmation page.
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin !== 'https://calendly.com') return;
+      const data = e.data as { event?: string } | null;
+      if (data && data.event === 'calendly.event_scheduled') go('booked');
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleNavigate = (page: PageView) => go(page);
 
   const handleBookCall = () => go('contact');
