@@ -106,11 +106,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
             <div className="p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20 shadow-lg">
               <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3">✦ Founder-Led Bookkeeping</p>
               <p className="text-xl font-serif font-bold text-white leading-snug mb-2">
-                You work with me directly, not a junior associate or an outsourced team.
-              </p>
+                Founder-led, from the first call to the monthly close.</p>
               <p className="text-base text-[#E2E8F0] leading-relaxed">
-                Every reconciliation, every QuickBooks cleanup, every financial question you send me gets handled by the same person who built this practice. That's not a perk — it's the entire model.
-              </p>
+                You work with me directly. I personally review your reconciliations and answer your questions, so your books are never handed off to an outsourced team.</p>
             </div>
 
             {/* Core Values / Commitments */}
