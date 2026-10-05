@@ -8,9 +8,9 @@ interface BookedPageProps {
 }
 
 const PREP = [
-  'A recent Profit & Loss from QuickBooks, if you have one',
-  'The name of your practice platform (Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Stripe or another)',
-  'A rough idea of how many bank, card and financing accounts you use',
+  'Roughly how much revenue your practice brings in each month',
+  'How current your QuickBooks is, or whether you are not using it yet',
+  'The platform your practice runs on (Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Stripe or another)',
   'Your biggest question about your numbers right now',
 ];
 
@@ -51,12 +51,15 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
         <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] flex gap-4">
           <FileText className="w-6 h-6 text-[#D4AF37] shrink-0 mt-0.5" />
           <div>
-            <h2 className="font-bold text-[#1A2E40]">Helpful to have handy (optional)</h2>
+            <h2 className="font-bold text-[#1A2E40]">Nothing to prepare, but it helps to think about</h2>
             <ul className="mt-2 space-y-1.5 text-sm sm:text-base text-[#57534E] list-disc pl-5">
               {PREP.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <p className="mt-3 text-sm text-[#57534E]">
+              Please don't email financial statements or logins before the call. We'll cover what is needed together.
+            </p>
           </div>
         </div>
       </div>
