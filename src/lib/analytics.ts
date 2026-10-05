@@ -5,7 +5,7 @@
  */
 export const GA_ID = 'G-5YJE6T34BE';
 /** Paste the Clarity Project ID here to switch Clarity on. Leave empty to keep it off. */
-export const CLARITY_ID = '';
+export const CLARITY_ID = 'yszjql4cbo';
 
 const KEY = 'mr-cookie-consent';
 export type Consent = 'accepted' | 'declined' | null;
