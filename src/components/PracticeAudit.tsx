@@ -724,7 +724,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     Diagnostic Complete: Recommended Plan of Action
                   </h4>
                   <p className="text-xs sm:text-sm text-[#57534E] mt-1">
-                    Based on your practice profile ({answers.pos}, {answers.status.toLowerCase()}), here is how Monique Reid Bookkeeping organizes your records:
+                    Based on your practice profile ({answers.pos}, {answers.status}), here is how Monique Reid Bookkeeping organizes your records:
                   </p>
                 </div>
               </div>
