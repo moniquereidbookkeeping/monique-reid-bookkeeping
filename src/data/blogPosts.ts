@@ -9,13 +9,13 @@ export const blogPosts: BlogPost[] = [
     metaDescription:
       'Is your MedSpa QuickBooks behind on reconciliations? Learn what cleanup bookkeeping involves, how long it takes, and what it costs for aesthetic and wellness practices.',
     excerpt:
-      'Behind on QuickBooks? You are not alone. Most aesthetic practice owners do not realize how far behind they are until tax season hits. Here is exactly what cleanup bookkeeping involves and how to know if you need it.',
+      'Behind on QuickBooks? You are not alone. Many aesthetic practice owners do not realize how far behind they are until tax season hits. Here is exactly what cleanup bookkeeping involves and how to know if you need it.',
     category: 'QuickBooks & Cleanup',
     tags: ['QuickBooks', 'Cleanup', 'MedSpa', 'Catch-Up Bookkeeping', 'Aesthetic Practice'],
     publishedDate: '2026-10-01',
     readingTime: 6,
-    coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
-    coverAlt: 'Financial records and QuickBooks accounting on a desk',
+    coverImage: '',
+    coverAlt: 'Illustration of a messy ledger page becoming a clean, reconciled one',
     featured: true,
     content: [
       {
@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Most aesthetic practices actually need both: the books have been partially touched but incorrectly handled. The goal of a proper cleanup is a set of financials your CPA can use to file taxes without corrections and that you can actually read to understand how your practice is performing.',
+        text: 'Many aesthetic practices need both: the books have been partially touched but incorrectly handled. The goal of a proper cleanup is a set of financials your CPA can use to file taxes without corrections and that you can actually read to understand how your practice is performing.',
       },
       {
         type: 'heading',
@@ -113,12 +113,12 @@ export const blogPosts: BlogPost[] = [
     tags: ['Boulevard', 'Vagaro', 'QuickBooks', 'Reconciliation', 'MedSpa', 'POS Deposits'],
     publishedDate: '2026-10-01',
     readingTime: 5,
-    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80',
-    coverAlt: 'Payment terminal and POS system in a modern clinic',
+    coverImage: '',
+    coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
     content: [
       {
         type: 'intro',
-        text: 'If you use Boulevard or Vagaro to book appointments and collect payments, you already know the system works beautifully for scheduling and client management. What most practice owners do not realize is that the deposit hitting your business checking account from these platforms is not your revenue — it is your revenue minus merchant processing fees, minus any chargebacks or refunds, possibly minus tips that will be paid out to staff. Recording that deposit directly as income in QuickBooks is one of the most common and consequential mistakes aesthetic practice owners make.',
+        text: 'If you use Boulevard or Vagaro to book appointments and collect payments, you already know the system works beautifully for scheduling and client management. What most practice owners do not realize is that the deposit hitting your business checking account from these platforms is not your revenue — it is your revenue minus merchant processing fees, minus any chargebacks or refunds, possibly minus tips that will be paid out to staff. Recording that deposit directly as income in QuickBooks is a common and costly mistake for aesthetic practice owners.',
       },
       {
         type: 'heading',
@@ -165,7 +165,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Many practices skip this step and either ignore tips entirely or run them through as income and then as an expense, which creates an unnecessary tax and payroll reporting issue.',
+        text: 'Many practices skip this step and either ignore tips entirely or run them through as income and then as an expense, which can create avoidable tax and payroll reporting problems.',
       },
       {
         type: 'heading',
@@ -202,22 +202,22 @@ export const blogPosts: BlogPost[] = [
   {
     id: 'post-003',
     slug: 'medspa-membership-revenue-quickbooks',
-    title: 'MedSpa Membership Revenue in QuickBooks: Why Most Practices Account for It Wrong',
+    title: 'MedSpa Membership Revenue in QuickBooks: Why So Many Practices Get It Wrong',
     metaTitle: 'MedSpa Membership Revenue in QuickBooks | Correct Accounting',
     metaDescription:
       'Monthly membership dues are not revenue until the service is delivered. Learn how to correctly account for MedSpa and aesthetic clinic membership revenue in QuickBooks Online.',
     excerpt:
-      'Collecting a monthly membership fee and posting it straight to income is the most common MedSpa accounting error — and it overstates your revenue every single month. Here is the correct approach.',
+      'Collecting a monthly membership fee and posting it straight to income is a common MedSpa accounting error, and it can overstate your revenue every month. Here is the correct approach.',
     category: 'Revenue & Memberships',
     tags: ['Memberships', 'Deferred Revenue', 'QuickBooks', 'Revenue Recognition', 'MedSpa', 'Packages'],
     publishedDate: '2026-10-05',
     readingTime: 5,
-    coverImage: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1400&q=80',
-    coverAlt: 'MedSpa treatment room and wellness clinic interior',
+    coverImage: '',
+    coverAlt: 'Illustration of a calendar and recurring membership payments',
     content: [
       {
         type: 'intro',
-        text: 'Membership programs have become one of the most powerful growth tools for MedSpas and aesthetic clinics — predictable recurring revenue, improved patient retention, and a steady cash flow that does not depend entirely on appointment volume. But almost every practice that runs memberships accounts for them incorrectly in QuickBooks. The result is financial statements that overstate income, a Balance Sheet that does not reflect outstanding obligations to members, and potential problems at tax time. Here is what is actually happening and how to fix it.',
+        text: 'Membership programs have become one of the most powerful growth tools for MedSpas and aesthetic clinics — predictable recurring revenue, improved patient retention, and a steady cash flow that does not depend entirely on appointment volume. But many practices that run memberships account for them incorrectly in QuickBooks. The result is financial statements that overstate income, a Balance Sheet that does not reflect outstanding obligations to members, and potential problems at tax time. Here is what is actually happening and how to fix it.',
       },
       {
         type: 'heading',
@@ -250,7 +250,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'The correct method is a two-step process. When you collect membership dues, you post the amount to a Deferred Revenue account (a current liability on your Balance Sheet). When a member visits and receives their included service, you move the corresponding amount from Deferred Revenue to Service Revenue on your P&L. This is called revenue recognition — you recognize income in the period the service is earned, not when the cash is received.',
+        text: 'The correct method is a two-step process. When you collect membership dues, you post the amount to a Deferred Revenue account (a current liability on your Balance Sheet). When a member visits and receives their included service, you move the corresponding amount from Deferred Revenue to Service Revenue on your P&L. This is called revenue recognition — you recognize income in the period the service is earned, not when the cash is received. If unused membership benefits expire, how and when that balance is recognized depends on your membership terms and your CPA’s guidance.',
       },
       {
         type: 'callout',
@@ -293,6 +293,121 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         text: 'Correcting membership accounting is one of the highest-value improvements a MedSpa can make to its books. It takes some initial setup and a consistent month-end process, but the result is a financial picture you can actually trust — which is the whole point of keeping books in the first place.',
+      },
+    ],
+  },
+
+  {
+    id: 'post-004',
+    slug: 'track-neurotoxin-filler-costs-quickbooks',
+    title: 'How to Track Neurotoxin and Filler Costs in QuickBooks (and See Your Real Margins)',
+    metaTitle: 'Track Neurotoxin & Filler Costs in QuickBooks | MedSpa Bookkeeping',
+    metaDescription:
+      'Injectable costs buried in one Supplies account hide your true margins. Learn three ways to track neurotoxin and filler costs in QuickBooks for a MedSpa or aesthetic clinic.',
+    excerpt:
+      'If every neurotoxin and filler purchase lands in one Supplies account, you cannot see what each treatment really earns. Here are three practical ways to track injectable costs in QuickBooks and a simple month-end routine.',
+    category: 'Costs & Inventory',
+    tags: ['COGS', 'Inventory', 'Neurotoxin', 'Fillers', 'QuickBooks', 'MedSpa', 'Margins'],
+    publishedDate: '2026-10-05',
+    readingTime: 5,
+    coverImage: '',
+    coverAlt: 'Illustration of a vial, syringe and a cost versus revenue bar chart',
+    content: [
+      {
+        type: 'intro',
+        text: 'For many MedSpas, injectables are one of the largest direct costs in the business. Yet in a lot of QuickBooks files, every neurotoxin and filler order sits in one expense account called "Supplies," next to paper towels and gloves. The practice looks busy, the bank balance looks fine, and nobody can say what a unit of product really costs or which treatments earn the best margin. Here is how to separate those costs and what to track each month.',
+      },
+      {
+        type: 'heading',
+        heading: 'Why Treatment Costs Do Not Belong in "Supplies"',
+      },
+      {
+        type: 'paragraph',
+        text: 'Product that is used in a treatment is a direct cost of delivering that service. Gloves, gauze and cleaning products are overhead. When both sit in the same account, your Profit & Loss cannot show gross profit, which is the money left from a service after the product used to deliver it. Without gross profit by category, decisions about pricing, packages and which services to promote are guesses.',
+      },
+      {
+        type: 'heading',
+        heading: 'Three Ways to Track Injectable Costs',
+      },
+      {
+        type: 'list',
+        items: [
+          'Expense when purchased — the simplest method. Product orders go straight to an expense account. The weakness is timing: a large order in one month makes that month look unprofitable and the next month look unusually strong.',
+          'Inventory on hand with a monthly count — purchases go to an Inventory Asset account on your Balance Sheet. Each month you count what is on the shelf and move the cost of product used into Cost of Goods Sold. This evens out the swings and is a practical middle ground for many single-location practices.',
+          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online depends on your plan, so check what yours includes.',
+        ],
+      },
+      {
+        type: 'callout',
+        heading: 'Which method should you choose?',
+        text: 'Match the method to your volume and your systems. A new practice with a few injectors may be fine with the monthly count. A multi-location practice with high volume usually benefits from item-level tracking. How inventory is treated on your tax return can differ from how you view it for management reports, so confirm the approach with your CPA before you change anything.',
+      },
+      {
+        type: 'heading',
+        heading: 'Set Up the Accounts',
+      },
+      {
+        type: 'list',
+        items: [
+          'Inventory Asset — Injectables (a current asset on the Balance Sheet, if you track inventory on hand)',
+          'Cost of Goods Sold — Neurotoxin',
+          'Cost of Goods Sold — Fillers',
+          'Cost of Goods Sold — Retail Skincare, and IV or wellness supplies if you offer them',
+          'Product Waste and Expired Product (so you can see what is lost, separate from product used)',
+          'Medical Supplies — Overhead (gloves, gauze, disinfectants and other items not tied to one treatment)',
+        ],
+      },
+      {
+        type: 'heading',
+        heading: 'Know Your Cost Per Unit',
+      },
+      {
+        type: 'paragraph',
+        text: 'Neurotoxin is typically bought in vials that contain a set number of units, and fillers by the syringe. Divide the price you paid by the units or syringes you received to get your cost per unit. That number is the starting point for every margin calculation.',
+      },
+      {
+        type: 'tip',
+        heading: 'Example only (not typical pricing)',
+        text: 'Say a 100-unit vial costs $600, so each unit costs $6. A patient receives 40 units, charged at $13 per unit. Revenue is $520. Product cost is $240. Gross profit is $280, which is a gross margin of about 54%. Use your own purchase prices and your own fees. The point is that you can only see this number if the product cost is tracked separately.',
+      },
+      {
+        type: 'heading',
+        heading: 'Do Not Forget Waste, Expiry and Credits',
+      },
+      {
+        type: 'paragraph',
+        text: 'Opened product has a limited shelf life, so some product will be wasted, expire or be used for training. Those are real costs. Track them in their own account so you can see how much product is lost and whether ordering or scheduling needs to change. If you receive manufacturer rebates, loyalty-program credits or supplier credits, they usually reduce your product cost rather than count as sales income. Record them according to the terms of the program and your CPA’s guidance.',
+      },
+      {
+        type: 'heading',
+        heading: 'Keep Patient Information Out of Your Books',
+      },
+      {
+        type: 'paragraph',
+        text: 'Bookkeeping needs totals and product counts, not patient names or clinical notes. Record product use by date, product and quantity, and avoid putting patient names or treatment details in QuickBooks memos, attachments or reports. The privacy rules that apply to your practice, such as HIPAA or state law, are set by your attorney or compliance advisor.',
+      },
+      {
+        type: 'heading',
+        heading: 'A Simple Month-End Routine',
+      },
+      {
+        type: 'list',
+        items: [
+          'Enter every product purchase to the correct account, not to Supplies',
+          'Count the vials and syringes on hand at month end',
+          'Compare the count to what your books show and record the difference as Cost of Goods Sold',
+          'Record any waste or expired product separately',
+          'Review gross profit by category on your Profit & Loss and compare it to last month',
+        ],
+      },
+      {
+        type: 'tip',
+        heading: 'Quick Check',
+        text: 'Run last month’s Profit & Loss. If you see a large "Supplies" line and no Cost of Goods Sold section, your product costs are almost certainly not separated, and your margins cannot be read from your books.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Separating treatment costs is one of the most useful changes a MedSpa can make to its books. It takes some setup and a steady month-end routine, but it turns the Profit & Loss from a record of spending into a tool for pricing and planning. If your product costs have been buried in general expenses for a while, a cleanup can restate past months so your history is comparable.',
       },
     ],
   },

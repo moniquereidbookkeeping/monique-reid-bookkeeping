@@ -15,7 +15,7 @@ const formatDate = (dateStr: string): string => {
 };
 
 const CategoryBadge: React.FC<{ category: string }> = ({ category }) => (
-  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#D4AF37]/90 text-[#1A2E40] text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
+  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#D4AF37]/90 text-[#1A2E40] text-sm font-bold uppercase tracking-widest backdrop-blur-sm">
     {category}
   </span>
 );
@@ -27,7 +27,7 @@ const FeaturedCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, 
     className="relative rounded-2xl overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-500 min-h-[440px] sm:min-h-[520px] flex flex-col justify-end"
   >
     {/* Full-bleed image */}
-    <BlogCover category={post.category} className="absolute inset-0 w-full h-full" />
+    <BlogCover category={post.category} wide className="absolute inset-0 w-full h-full" />
     {/* Gradient overlay */}
     <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/70 to-[#0D1B2A]/10" />
 
@@ -35,7 +35,7 @@ const FeaturedCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, 
     <div className="relative z-10 p-6 sm:p-8 space-y-3">
       <div className="flex items-center gap-3">
         <CategoryBadge category={post.category} />
-        <span className="flex items-center gap-1 text-[#D4AF37]/80 text-xs font-semibold uppercase tracking-wider">
+        <span className="flex items-center gap-1 text-[#D4AF37]/80 text-sm font-semibold uppercase tracking-wider">
           <TrendingUp className="w-3 h-3" />
           Featured
         </span>
@@ -54,7 +54,7 @@ const FeaturedCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, 
       </p>
 
       <div className="flex items-center justify-between pt-2">
-        <div className="flex items-center gap-4 text-xs text-white/60">
+        <div className="flex items-center gap-4 text-sm text-white/60">
           <span className="flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
             {formatDate(post.publishedDate)}
@@ -64,7 +64,7 @@ const FeaturedCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, 
             {post.readingTime} min read
           </span>
         </div>
-        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] group-hover:text-[#E5C765] transition-colors">
+        <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#D4AF37] group-hover:text-[#E5C765] transition-colors">
           Read Article
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
         </span>
@@ -107,7 +107,7 @@ const PostCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, onRe
         {post.tags.slice(0, 2).map((tag) => (
           <span
             key={tag}
-            className="px-2 py-0.5 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold text-[#1A2E40]"
+            className="px-2 py-0.5 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-semibold text-[#1A2E40]"
           >
             {tag}
           </span>
@@ -117,7 +117,7 @@ const PostCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, onRe
 
     {/* Footer row */}
     <div className="px-5 py-3.5 border-t border-[#E2E8F0] flex items-center justify-between mt-auto">
-      <div className="flex items-center gap-3 text-xs text-[#57534E]">
+      <div className="flex items-center gap-3 text-sm text-[#57534E]">
         <span className="flex items-center gap-1">
           <Calendar className="w-3 h-3 text-[#D4AF37]" />
           {formatDate(post.publishedDate)}
@@ -127,7 +127,7 @@ const PostCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, onRe
           {post.readingTime} min
         </span>
       </div>
-      <span className="flex items-center gap-1 text-xs font-bold text-[#1A2E40] group-hover:text-[#D4AF37] transition-colors">
+      <span className="flex items-center gap-1 text-sm font-bold text-[#1A2E40] group-hover:text-[#D4AF37] transition-colors">
         Read
         <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
       </span>
@@ -148,7 +148,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
       {/* ── Page hero header ── */}
       <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] text-xs font-bold uppercase tracking-widest border border-[#D4AF37]/30">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] text-sm font-bold uppercase tracking-widest border border-[#D4AF37]/30">
             <BookOpen className="w-3.5 h-3.5" />
             Intuit Certified QuickBooks ProAdvisor · MedSpa, Aesthetic &amp; Wellness Practices
           </span>
@@ -169,7 +169,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
           {/* Featured hero */}
           {featured && (
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#8A6A00] mb-4">
+              <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-4">
                 ✦ Latest Featured Article
               </p>
               <FeaturedCard post={featured} onRead={() => onReadPost(featured.slug)} />
@@ -179,7 +179,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
           {/* Grid of remaining articles */}
           {rest.length > 0 && (
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#1A2E40]/50 mb-5">
+              <p className="text-sm font-bold uppercase tracking-widest text-[#1A2E40]/50 mb-5">
                 More Articles
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl">
@@ -199,7 +199,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
       {/* ── CTA strip ── */}
       <section className="py-14 bg-[#1A2E40] text-white border-t border-[#D4AF37]/30 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-4">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
             ✦ Get Expert Eyes On Your Books
           </p>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
