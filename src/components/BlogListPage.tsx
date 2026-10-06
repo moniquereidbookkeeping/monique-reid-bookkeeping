@@ -182,7 +182,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
               <p className="text-sm font-bold uppercase tracking-widest text-[#1A2E40]/50 mb-5">
                 More Articles
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {rest.map((post) => (
                   <PostCard key={post.id} post={post} onRead={() => onReadPost(post.slug)} />
                 ))}
