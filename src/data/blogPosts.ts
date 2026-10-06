@@ -299,6 +299,88 @@ export const blogPosts: BlogPost[] = [
       }
     ]
   },
+  {
+    "id": "post-009",
+    "slug": "medspa-month-end-close-checklist-quickbooks",
+    "title": "A MedSpa Month-End Close Checklist for QuickBooks",
+    "metaTitle": "MedSpa Month-End Close Checklist | QuickBooks Bookkeeping",
+    "metaDescription": "A simple month-end routine keeps a MedSpa’s QuickBooks accurate all year. Use this checklist to reconcile accounts, match deposits, review costs and check your reports.",
+    "excerpt": "Books that are only touched at tax time are rarely accurate. This month-end checklist shows what to review in QuickBooks each month so problems are caught while they are small.",
+    "category": "QuickBooks & Cleanup",
+    "tags": [
+      "Month-End Close",
+      "Checklist",
+      "QuickBooks",
+      "MedSpa",
+      "Reconciliation"
+    ],
+    "publishedDate": "2026-10-01",
+    "readingTime": 5,
+    "coverImage": "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&w=1400&q=80",
+    "coverAlt": "A laptop and notebook on a desk, representing a month-end routine",
+    "content": [
+      {
+        "type": "intro",
+        "text": "Most bookkeeping problems start small and grow quietly. A missed deposit, a miscategorized purchase or an unreconciled card is easy to fix in the month it happens. Six months later it is a cleanup project. A consistent month-end routine is the simplest way to prevent that."
+      },
+      {
+        "type": "heading",
+        "heading": "What a Month-End Close Is"
+      },
+      {
+        "type": "paragraph",
+        "text": "A close is a repeatable set of checks done after the month ends so that the numbers for that month can be trusted. It does not need to be complicated, but it needs to happen every month, in the same order."
+      },
+      {
+        "type": "heading",
+        "heading": "The Checklist"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Reconcile every bank account and credit card to the statement for the month",
+          "Match payment-processor and financing payouts to the sales they cover, and record the fees",
+          "Review uncategorized transactions and assign each to the right account",
+          "Check that product purchases went to the correct accounts and not to a general Supplies account",
+          "Record any adjustment for product on hand, if you use the monthly count method",
+          "Review memberships, packages and gift cards sold and used during the month",
+          "Confirm payroll and any provider compensation were recorded",
+          "Separate any personal spending from business spending",
+          "Review the Profit & Loss and compare it to the prior month"
+        ]
+      },
+      {
+        "type": "heading",
+        "heading": "Reading the Result"
+      },
+      {
+        "type": "paragraph",
+        "text": "After the checklist, look at the Profit & Loss for anything that does not fit. A large jump in one expense, revenue that moved far more than bookings did, or an account that is unusually empty each deserve a second look. The cause is often an entry in the wrong place, not a real change in the business."
+      },
+      {
+        "type": "callout",
+        "heading": "Consistency Beats Perfection",
+        "text": "A simple close done every month is worth more than a thorough one done twice a year. Choose a date, such as the 10th, and treat it as fixed."
+      },
+      {
+        "type": "heading",
+        "heading": "Who Should Do It"
+      },
+      {
+        "type": "paragraph",
+        "text": "Some owners do their own close, and some hand it to a bookkeeper. Either works as long as it is done on a schedule, with the same steps, and someone checks the result. If the owner is also the person entering the data, an outside review can catch things that are easy to overlook."
+      },
+      {
+        "type": "tip",
+        "heading": "Quick Check",
+        "text": "Is last month reconciled and reviewed? If not, start there before looking at this month. Each unreconciled month makes the next one harder."
+      },
+      {
+        "type": "paragraph",
+        "text": "Exact steps vary with your accounting method, software and practice size, so adjust the checklist to fit your setup."
+      }
+    ]
+  },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
