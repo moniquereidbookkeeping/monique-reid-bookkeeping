@@ -9,7 +9,7 @@ const ORIGIN = 'https://moniquereidbookkeeping.com';
 const today = new Date().toISOString().slice(0, 10);
 
 const src = readFileSync(join(root, 'src/data/blogPosts.ts'), 'utf8');
-const posts = [...src.matchAll(/slug:\s*'([^']+)'[\s\S]*?publishedDate:\s*'(\d{4}-\d{2}-\d{2})'/g)]
+const posts = [...src.matchAll(/["']?slug["']?:\s*["']([^"']+)["'][\s\S]*?["']?publishedDate["']?:\s*["'](\d{4}-\d{2}-\d{2})["']/g)]
   .map((m) => ({ slug: m[1], date: m[2] }));
 
 const pages = [
