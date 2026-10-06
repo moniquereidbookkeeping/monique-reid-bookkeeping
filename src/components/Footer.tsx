@@ -21,8 +21,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.2fr_1.1fr_0.8fr_1.3fr] gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Logo */}
           <div className="space-y-4">
-            <Logo variant="light" size="lg" onClick={() => onNavigate('home')} />
-            <p className="text-sm text-[#E2E8F0] max-w-sm leading-relaxed mt-2 font-light">
+            <Logo variant="light" size="lg" className="-ml-2 -mt-3 -mb-3" onClick={() => onNavigate('home')} />
+            <p className="text-sm text-[#E2E8F0] max-w-xs leading-relaxed font-light">
               Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
             </p>
             <p className="text-sm font-serif italic text-[#D4AF37]">
@@ -169,9 +169,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="font-serif italic text-white/90">
-              Clean Books. Clearer Numbers.
-            </span>
             <button
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#1A2E40] transition-colors cursor-pointer"

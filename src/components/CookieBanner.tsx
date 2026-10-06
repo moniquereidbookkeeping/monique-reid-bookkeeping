@@ -28,8 +28,17 @@ export const CookieBanner: React.FC<{ onNavigate: (p: PageView) => void }> = ({ 
       aria-label="Privacy choices"
       className="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-md z-50 rounded-2xl bg-[#1A2E40] text-white p-5 shadow-2xl border border-[#D4AF37]/30"
     >
-      <p className="text-sm leading-relaxed text-[#E2E8F0]">
-        Optional analytics (Google Analytics and Microsoft Clarity, which includes anonymous session recordings) help show how visitors use this site. Nothing is collected unless you accept.{' '}
+      <p className="text-base font-bold text-white">Your privacy choices</p>
+      <ul className="mt-2 space-y-2 text-sm leading-relaxed text-[#E2E8F0]">
+        <li>
+          <span className="font-semibold text-white">Google Analytics</span> shows which pages are viewed and how visitors find this site.
+        </li>
+        <li>
+          <span className="font-semibold text-white">Microsoft Clarity</span> records anonymous visits, including clicks and scrolling, with form fields hidden, so the site can be improved.
+        </li>
+      </ul>
+      <p className="mt-2 text-sm leading-relaxed text-[#E2E8F0]">
+        Nothing is collected unless you accept. You can change your choice any time under Cookie Settings in the footer.{' '}
         <a
           href="/privacy"
           onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}
