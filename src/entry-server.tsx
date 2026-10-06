@@ -2,6 +2,7 @@ import { renderToString } from 'react-dom/server';
 import App from './App';
 import { PAGE_META, SITE_ORIGIN, PAGE_PATHS } from './router';
 import { blogPosts } from './data/blogPosts';
+import { cleanupTiers } from './data/cleanupPricing';
 
 export interface PrerenderRoute {
   path: string;
@@ -27,6 +28,16 @@ const CRUMB: Partial<Record<keyof typeof PAGE_PATHS, string>> = {
   dashboard: 'Example Dashboard',
   calculator: 'Treatment Profit Calculator',
   'south-florida': 'South Florida',
+  'quickbooks-cleanup': 'QuickBooks Cleanup',
+  'iv-hydration': 'IV Hydration Bookkeeping',
+  'medical-weight-loss': 'Medical Weight Loss Bookkeeping',
+};
+
+/** Service structured data for the service and practice-type pages. */
+const SERVICE_LD: Partial<Record<keyof typeof PAGE_PATHS, { name: string; serviceType: string }>> = {
+  'quickbooks-cleanup': { name: 'QuickBooks Cleanup for Med Spas', serviceType: 'QuickBooks Cleanup and Catch-Up Bookkeeping' },
+  'iv-hydration': { name: 'IV Hydration Bookkeeping', serviceType: 'IV Hydration Bookkeeping' },
+  'medical-weight-loss': { name: 'Medical Weight Loss and GLP-1 Clinic Bookkeeping', serviceType: 'Medical Weight Loss Bookkeeping' },
 };
 
 const breadcrumb = (items: Array<{ name: string; url: string }>) => ({
@@ -77,7 +88,7 @@ export function renderRoute(path: string): PrerenderRoute {
       {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: 'MedSpa Bookkeeping in Fort Lauderdale & South Florida',
+        name: 'Med Spa Bookkeeping in Fort Lauderdale & South Florida',
         serviceType: 'MedSpa Bookkeeping',
         url: canonical,
         description: meta.description,
@@ -86,6 +97,25 @@ export function renderRoute(path: string): PrerenderRoute {
           ...cities.map((name) => ({ '@type': 'City', name: `${name}, FL` })),
           ...['Broward County', 'Miami-Dade County', 'Palm Beach County'].map((name) => ({ '@type': 'AdministrativeArea', name: `${name}, FL` })),
         ],
+      },
+      breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
+    );
+  } else if (key && SERVICE_LD[key]) {
+    const offers = key === 'quickbooks-cleanup'
+      ? cleanupTiers
+          .filter((t) => /^\$[\d,]+$/.test(t.price))
+          .map((t) => ({ '@type': 'Offer', name: `Cleanup: ${t.label}`, price: t.price.replace(/[$,]/g, ''), priceCurrency: 'USD' }))
+      : undefined;
+    jsonLd.push(
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        ...SERVICE_LD[key],
+        url: canonical,
+        description: meta.description,
+        provider: { '@id': `${SITE_ORIGIN}/#organization` },
+        areaServed: [{ '@type': 'State', name: 'Florida' }, { '@type': 'Country', name: 'United States' }],
+        ...(offers ? { offers } : {}),
       },
       breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
     );

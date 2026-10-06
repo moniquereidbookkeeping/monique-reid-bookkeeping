@@ -478,6 +478,523 @@ export const blogPosts: BlogPost[] = [
           }
       ]
   },
+  {
+    id: 'post-011',
+    slug: 'reconcile-boulevard-vagaro-quickbooks',
+    title: 'Reconciling Boulevard and Vagaro Deposits in QuickBooks: The Right Way for Aesthetic Practices',
+    metaTitle: 'Boulevard & Vagaro QuickBooks Reconciliation for Med Spas',
+    metaDescription:
+      'Boulevard and Vagaro pay out in batches, net of fees. How to reconcile those deposits in QuickBooks so a med spa records true gross revenue and visible fees.',
+    excerpt:
+      'If you are recording the deposit that hits your bank account as your revenue, your books are understating your true income and hiding your processing costs. Here is how Boulevard and Vagaro reconciliation should actually work in QuickBooks.',
+    category: 'POS & Reconciliation',
+    tags: ['Boulevard', 'Vagaro', 'QuickBooks', 'Reconciliation', 'MedSpa', 'POS Deposits'],
+    publishedDate: '2026-10-06',
+    readingTime: 5,
+    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80',
+    coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
+    content: [
+      {
+        type: 'intro',
+        text: 'If you use Boulevard or Vagaro to book appointments and collect payments, you already know the system works beautifully for scheduling and client management. What most practice owners do not realize is that the deposit hitting your business checking account from these platforms is not your revenue — it is your revenue minus merchant processing fees, minus any chargebacks or refunds, possibly minus tips that will be paid out to staff. Recording that deposit directly as income in QuickBooks is a common and costly mistake for aesthetic practice owners.',
+      },
+      {
+        type: 'heading',
+        heading: 'Why the Bank Deposit Is Not Your Revenue',
+      },
+      {
+        type: 'paragraph',
+        text: 'Platforms like Boulevard and Vagaro batch your transactions and send a deposit to your bank account on a payout schedule that depends on your processor and settings, usually a day or more after the transactions occur. By the time that deposit lands in your account, the platform has already deducted its processing fees. Card processing fees vary by plan and card type, so check the rate on your own statements. It may also have applied refunds issued during that period.',
+      },
+      {
+        type: 'paragraph',
+        text: 'When you record that net deposit as income, two things go wrong: your revenue is understated (you are only reporting the net, not what patients actually paid), and your merchant processing fees become invisible in your books. Those fees are a real operating cost. For a practice doing $80,000 a month in card volume, a 2.9% processing rate (an example, not your rate) is $2,320 per month in fees — $27,840 per year. That is a significant line item that should appear on your Profit & Loss.',
+      },
+      {
+        type: 'heading',
+        heading: 'The Correct Method: Gross Up and Separate',
+      },
+      {
+        type: 'paragraph',
+        text: 'The correct approach has three components. First, your revenue entries should reflect gross collections — what patients paid before any platform deductions. Second, the processing fees should be recorded as a separate expense. Third, the bank deposit (the net amount) ties everything together in reconciliation.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Download the payout or deposit report from your platform. It should show gross sales, processing fees, refunds, and the net deposit for each payout',
+          'In QuickBooks, record an income entry for the gross sales amount against your Service Revenue account (or your specific revenue accounts by service type)',
+          'Record the processing fee as a separate expense — typically to a "Merchant Processing Fees" or "Payment Processing Fees" account under Operating Expenses',
+          'Record any refunds as a deduction from revenue in the period they were issued',
+          'Reconcile the net deposit that arrives in your bank account against your bank feed',
+        ],
+      },
+      {
+        type: 'callout',
+        heading: 'Use the payout report, not the sales summary',
+        text: 'Whatever platform you use, work from its payout or deposit report rather than the sales summary. The sales summary shows when transactions were collected, not when they were paid out, which creates timing differences in reconciliation. If you have more than one location, expect separate payouts for each. Report names and menu locations differ by platform and change over time, so check your platform for the current names.',
+      },
+      {
+        type: 'heading',
+        heading: 'Handling Tips Through Boulevard and Vagaro',
+      },
+      {
+        type: 'paragraph',
+        text: 'Tips collected through your POS system pass through your bank account but belong to your staff members. They are not your income: they are money you collect on behalf of your staff and pay out. A common treatment is to record tips received as a current liability (a "Tips Payable" account on your Balance Sheet) and then clear that liability when you pay tips to staff through payroll or direct payment. How tips are paid out and reported depends on how your staff are classified, so confirm the details with your CPA or payroll provider.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Many practices skip this step and either ignore tips entirely or run them through as income and then as an expense, which can create avoidable tax and payroll reporting problems.',
+      },
+      {
+        type: 'heading',
+        heading: 'What About Vagaro Marketplace vs. Direct Payments?',
+      },
+      {
+        type: 'paragraph',
+        text: 'If some of your bookings come through a marketplace feature on your platform (where clients discover and book you through the platform consumer app), the fees on those bookings may differ from fees on clients who book you directly. Check your fee statements or payout detail to see the breakdown by transaction type. This matters if you want accurate cost-per-booking data.',
+      },
+      {
+        type: 'heading',
+        heading: 'Setting Up QuickBooks for Correct POS Reconciliation',
+      },
+      {
+        type: 'paragraph',
+        text: 'If you are starting from scratch or correcting a messy setup, the chart of accounts for a MedSpa should have at minimum: separate revenue accounts for Services and Retail Products, a Merchant Processing Fees expense account, a Tips Payable liability account, and a clearing account (in QuickBooks Online, Payments to deposit, formerly called Undeposited Funds) that holds your POS collections until the batch deposit posts.',
+      },
+      {
+        type: 'paragraph',
+        text: 'The undeposited funds approach mirrors what actually happens — you earn revenue at the point of service, it sits in a clearing account representing "money collected but not yet in the bank," and then when the batch deposit arrives, it clears that account and matches the bank deposit. This is cleaner than recording income only when the deposit arrives, because the timing difference can cause month-end discrepancies.',
+      },
+      {
+        type: 'tip',
+        heading: 'Quick Check',
+        text: 'In QuickBooks, run a Profit & Loss for last month and look at your Total Income line. Then look at your bank statement deposits from Boulevard or Vagaro for that same month. If the income number in QuickBooks is the same as what was deposited, your books are recording net deposits as revenue. The income number in QuickBooks should generally be higher than what was deposited. The difference is mostly your processing fees, and may also include refunds and tips.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Getting POS reconciliation right is foundational work. Everything else in your books — service-line profitability, provider performance, tax filing — depends on this being done correctly. If you inherited a QuickBooks file where this has been handled incorrectly, a cleanup is the only way to correct the historical record and get to reliable numbers.',
+      },
+    ],
+  },
+  {
+    id: 'post-012',
+    slug: 'medspa-membership-revenue-quickbooks',
+    title: 'MedSpa Membership and Package Revenue in QuickBooks: Why So Many Practices Get It Wrong',
+    metaTitle: 'Med Spa Membership & Package Bookkeeping in QuickBooks',
+    metaDescription:
+      'Membership dues and prepaid packages are not revenue until the treatment is delivered. How a med spa should record them in QuickBooks Online.',
+    excerpt:
+      'Collecting a monthly membership fee and posting it straight to income is a common MedSpa accounting error, and it can overstate your revenue every month. Here is the correct approach.',
+    category: 'Revenue & Memberships',
+    tags: ['Memberships', 'Deferred Revenue', 'QuickBooks', 'Revenue Recognition', 'MedSpa', 'Packages'],
+    publishedDate: '2026-10-06',
+    readingTime: 5,
+    coverImage: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1400&q=80',
+    coverAlt: 'Illustration of a calendar and recurring membership payments',
+    content: [
+      {
+        type: 'intro',
+        text: 'Membership programs have become one of the most powerful growth tools for MedSpas and aesthetic clinics — predictable recurring revenue, improved patient retention, and a steady cash flow that does not depend entirely on appointment volume. But many practices that run memberships account for them incorrectly in QuickBooks. The result is financial statements that overstate income, a Balance Sheet that does not reflect outstanding obligations to members, and potential problems at tax time. Here is what is actually happening and how to fix it.',
+      },
+      {
+        type: 'heading',
+        heading: 'The Problem: Recording Membership Dues as Income When Collected',
+      },
+      {
+        type: 'paragraph',
+        text: 'Here is the scenario: your practice has 60 members paying $199 per month for a membership that includes one neurotoxin treatment and 15% off additional services. On the first of the month, $11,940 hits your bank account. You open QuickBooks, match the deposit, and post it to Service Revenue. It looks like $11,940 in income. The problem is that this is not income yet.',
+      },
+      {
+        type: 'paragraph',
+        text: 'What you have actually received is a payment for a service you have not yet delivered. Until each of those 60 members comes in and receives their monthly treatment, you owe them that service. In accounting terms, collected but unearned revenue is a liability — specifically, deferred revenue. It belongs on your Balance Sheet under Current Liabilities, not on your Profit & Loss as earned income.',
+      },
+      {
+        type: 'heading',
+        heading: 'Why This Matters More Than It Might Seem',
+      },
+      {
+        type: 'list',
+        items: [
+          'Overstated income — your P&L shows more income than you have actually earned, making your practice appear more profitable than it is in any given month',
+          'Understated liabilities — your Balance Sheet does not reflect what you owe members, so if you ever sell the practice or seek financing, your financial picture is misleading',
+          'Tax questions — how and when membership income is taxed depends on your tax accounting method, so ask your CPA how your memberships should be handled',
+          'No visibility into utilization — if you do not track when members redeem their treatments, you cannot measure how many members are actually using their memberships (a critical performance metric)',
+        ],
+      },
+      {
+        type: 'heading',
+        heading: 'The Correct Approach: Deferred Revenue',
+      },
+      {
+        type: 'paragraph',
+        text: 'The correct method is a two-step process. When you collect membership dues, you post the amount to a Deferred Revenue account (a current liability on your Balance Sheet). When a member visits and receives their included service, you move the corresponding amount from Deferred Revenue to Service Revenue on your P&L. This is called revenue recognition — you recognize income in the period the service is earned, not when the cash is received. If unused membership benefits expire, how and when that balance is recognized depends on your membership terms and your CPA’s guidance.',
+      },
+      {
+        type: 'callout',
+        heading: 'In QuickBooks Online: Setting Up Deferred Revenue',
+        text: 'In your Chart of Accounts, add a new account and choose a current liability type (such as Other Current Liabilities). Name it "Membership Deferred Revenue" or "Prepaid Membership Dues." Your CPA can confirm the right setup for your file. When you collect monthly dues, create an invoice or sales receipt that posts to this liability account. When a member redeems their service, create a journal entry or a credit memo that reduces the liability and increases your Service Revenue account by the corresponding amount.',
+      },
+      {
+        type: 'heading',
+        heading: 'What About Prepaid Treatment Packages?',
+      },
+      {
+        type: 'paragraph',
+        text: 'The same principle applies to prepaid treatment packages — a patient who pays $1,500 for a package of six laser sessions has not yet received all six sessions. The full $1,500 should not post to income when collected. The correct treatment is to post the full payment to Deferred Revenue, then move $250 (one-sixth of the package price) to Service Revenue each time the patient completes a session.',
+      },
+      {
+        type: 'paragraph',
+        text: 'In practice, many practices track sessions in their POS system (booking platforms such as Boulevard, Vagaro and Jane can track package sessions) and use end-of-month POS reports to calculate how many sessions were redeemed and how much deferred revenue to recognize that month.',
+      },
+      {
+        type: 'heading',
+        heading: 'What About Patient Financing Through Cherry or CareCredit?',
+      },
+      {
+        type: 'paragraph',
+        text: 'When a patient finances a single treatment through Cherry or CareCredit, the service is delivered at the time of the procedure, so the revenue is earned then. The financing provider pays you (net of their discount or merchant fee) on their own schedule. The common error is posting income when the financing company pays you rather than when the service was delivered. If a patient receives a $2,000 treatment in October and Cherry sends you payment in November, the income belongs in October under accrual accounting, and the financing fee is recorded as a separate cost. If the patient finances a multi-session package, the earlier deferred revenue rules still apply to the sessions not yet delivered.',
+      },
+      {
+        type: 'heading',
+        heading: 'A Note on Cash vs. Accrual Accounting',
+      },
+      {
+        type: 'paragraph',
+        text: 'Everything above reflects accrual accounting, which gives a more accurate picture of performance for a practice with memberships and prepaid packages. Cash accounting, which records income when received and expenses when paid, is simpler but can make a membership-based practice look better or worse than it really is in a given month. Your tax accounting method and the way you view your books for management can be different, and small businesses are often allowed to use cash for taxes. Talk with your CPA about which method applies to your tax return and whether your management reports should be on an accrual basis.',
+      },
+      {
+        type: 'tip',
+        heading: 'Practical Starting Point',
+        text: 'Run a report in your POS system that shows your outstanding package balances — the total of treatments sold but not yet redeemed. That number represents your approximate Deferred Revenue balance and should appear on your Balance Sheet. If it does not, your books are likely recognizing all membership and package income upfront.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Correcting membership accounting is one of the highest-value improvements a MedSpa can make to its books. It takes some initial setup and a consistent month-end process, but the result is a financial picture you can actually trust — which is the whole point of keeping books in the first place.',
+      },
+    ],
+  },
+  {
+    id: 'post-013',
+    slug: 'track-neurotoxin-filler-costs-quickbooks',
+    title: 'How to Track Neurotoxin and Filler Costs in QuickBooks (and See Your Real Margins)',
+    metaTitle: 'Med Spa Inventory Bookkeeping: Neurotoxin & Filler Costs',
+    metaDescription:
+      'Botox, other neurotoxin and filler costs buried in one Supplies account hide your margins. Three ways a med spa can track injectable inventory in QuickBooks.',
+    excerpt:
+      'If every neurotoxin and filler purchase lands in one Supplies account, you cannot see what each treatment really earns. Here are three practical ways to track injectable costs in QuickBooks and a simple month-end routine.',
+    category: 'Costs & Inventory',
+    tags: ['COGS', 'Inventory', 'Neurotoxin', 'Fillers', 'QuickBooks', 'MedSpa', 'Margins'],
+    publishedDate: '2026-10-06',
+    readingTime: 5,
+    coverImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1400&q=80',
+    coverAlt: 'Illustration of a vial, syringe and a cost versus revenue bar chart',
+    content: [
+      {
+        type: 'intro',
+        text: 'For many MedSpas, injectables are one of the largest direct costs in the business. Yet in a lot of QuickBooks files, every neurotoxin (Botox, Dysport and similar) and filler order sits in one expense account called "Supplies," next to paper towels and gloves. The practice looks busy, the bank balance looks fine, and nobody can say what a unit of product really costs or which treatments earn the best margin. Here is how to separate those costs and what to track each month.',
+      },
+      {
+        type: 'heading',
+        heading: 'Why Treatment Costs Do Not Belong in "Supplies"',
+      },
+      {
+        type: 'paragraph',
+        text: 'Product that is used in a treatment is a direct cost of delivering that service. Gloves, gauze and cleaning products are overhead. When both sit in the same account, your Profit & Loss cannot show gross profit, which is the money left from a service after the product used to deliver it. Without gross profit by category, decisions about pricing, packages and which services to promote are guesses.',
+      },
+      {
+        type: 'heading',
+        heading: 'Three Ways to Track Injectable Costs',
+      },
+      {
+        type: 'list',
+        items: [
+          'Expense when purchased — the simplest method. Product orders go straight to an expense account. The weakness is timing: a large order in one month makes that month look unprofitable and the next month look unusually strong.',
+          'Inventory on hand with a monthly count — purchases go to an Inventory Asset account on your Balance Sheet. Each month you count what is on the shelf and move the cost of product used into Cost of Goods Sold. This evens out the swings and is a practical middle ground for many single-location practices.',
+          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online is included in the Plus and Advanced plans, but not in Simple Start or Essentials, so check your plan on Intuit’s current pricing page.',
+        ],
+      },
+      {
+        type: 'callout',
+        heading: 'Which method should you choose?',
+        text: 'Match the method to your volume and your systems. A new practice with a few injectors may be fine with the monthly count. A multi-location practice with high volume usually benefits from item-level tracking. How inventory is treated on your tax return can differ from how you view it for management reports, so confirm the approach with your CPA before you change anything.',
+      },
+      {
+        type: 'heading',
+        heading: 'Set Up the Accounts',
+      },
+      {
+        type: 'list',
+        items: [
+          'Inventory Asset — Injectables (a current asset on the Balance Sheet, if you track inventory on hand)',
+          'Cost of Goods Sold — Neurotoxin',
+          'Cost of Goods Sold — Fillers',
+          'Cost of Goods Sold — Retail Skincare, and IV or wellness supplies if you offer them',
+          'Product Waste and Expired Product (so you can see what is lost, separate from product used)',
+          'Medical Supplies — Overhead (gloves, gauze, disinfectants and other items not tied to one treatment)',
+        ],
+      },
+      {
+        type: 'heading',
+        heading: 'Know Your Cost Per Unit',
+      },
+      {
+        type: 'paragraph',
+        text: 'Neurotoxin is typically bought in vials that contain a set number of units, and fillers by the syringe. Divide the price you paid by the units or syringes you received to get your cost per unit. That number is the starting point for every margin calculation.',
+      },
+      {
+        type: 'tip',
+        heading: 'Example only (not typical pricing)',
+        text: 'Say a 100-unit vial costs $600, so each unit costs $6. A patient receives 40 units, charged at $13 per unit. Revenue is $520. Product cost is $240. Gross profit is $280, which is a gross margin of about 54%. Use your own purchase prices and your own fees. The point is that you can only see this number if the product cost is tracked separately.',
+      },
+      {
+        type: 'heading',
+        heading: 'Do Not Forget Waste, Expiry and Credits',
+      },
+      {
+        type: 'paragraph',
+        text: 'Opened product has a limited shelf life, so some product will be wasted, expire or be used for training. Those are real costs. Track them in their own account so you can see how much product is lost and whether ordering or scheduling needs to change. If you receive manufacturer rebates, loyalty-program credits or supplier credits, they usually reduce your product cost rather than count as sales income. Record them according to the terms of the program and your CPA’s guidance.',
+      },
+      {
+        type: 'heading',
+        heading: 'Keep Patient Information Out of Your Books',
+      },
+      {
+        type: 'paragraph',
+        text: 'Bookkeeping needs totals and product counts, not patient names or clinical notes. Record product use by date, product and quantity, and avoid putting patient names or treatment details in QuickBooks memos, attachments or reports. For questions about the privacy rules that apply to your practice, ask your attorney or compliance advisor.',
+      },
+      {
+        type: 'heading',
+        heading: 'A Simple Month-End Routine',
+      },
+      {
+        type: 'list',
+        items: [
+          'Enter every product purchase to the correct account, not to Supplies',
+          'Count the vials and syringes on hand at month end',
+          'Compare the count to what your books show and record the difference as Cost of Goods Sold',
+          'Record any waste or expired product separately',
+          'Review gross profit by category on your Profit & Loss and compare it to last month',
+        ],
+      },
+      {
+        type: 'tip',
+        heading: 'Quick Check',
+        text: 'Run last month’s Profit & Loss. If you see a large "Supplies" line and no Cost of Goods Sold section, your product costs are almost certainly not separated, and your margins cannot be read from your books.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Separating treatment costs is one of the most useful changes a MedSpa can make to its books. It takes some setup and a steady month-end routine, but it turns the Profit & Loss from a record of spending into a tool for pricing and planning. If your product costs have been buried in general expenses for a while, a cleanup can restate past months so your history is comparable.',
+      },
+    ],
+  },
+  {
+    id: 'post-014',
+    slug: 'record-cherry-carecredit-affirm-financing-quickbooks',
+    title: 'How to Record Cherry, CareCredit and Affirm Financing Payouts in QuickBooks',
+    metaTitle: 'Cherry & CareCredit Payouts in QuickBooks for Med Spas',
+    metaDescription:
+      'Patient financing payouts arrive net of fees. How a med spa should record and reconcile Cherry, CareCredit and Affirm payouts in QuickBooks.',
+    excerpt:
+      'When a patient finances a treatment, the payout that reaches your bank is smaller than the treatment price. Here is how to record financing payouts in QuickBooks so revenue and fees both appear correctly.',
+    category: 'POS & Reconciliation',
+    tags: ['Patient Financing', 'Cherry', 'CareCredit', 'Affirm', 'QuickBooks', 'MedSpa', 'Reconciliation'],
+    publishedDate: '2026-10-06',
+    readingTime: 5,
+    coverImage: '',
+    coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
+    content: [
+      {
+        type: 'intro',
+        text: 'Patient financing helps more treatments get booked, but it often leaves a gap in the books. A patient finances a $2,000 treatment, and a smaller amount reaches your bank account a few days later. If that smaller deposit is recorded as the sale, revenue is understated and the financing fee never appears anywhere.',
+      },
+      {
+        type: 'heading',
+        heading: 'What Actually Happens When a Patient Finances',
+      },
+      {
+        type: 'paragraph',
+        text: 'With most patient financing programs, including Cherry, CareCredit and Affirm, the patient finances the treatment with the lender, and the lender pays the practice. The practice generally receives the treatment price minus a fee. The fee rate depends on the program and on your agreement with the lender, so check your own statements rather than assuming a number.',
+      },
+      {
+        type: 'callout',
+        heading: 'The Core Idea',
+        text: 'Revenue is the full price of the treatment. The financing fee is a cost of getting paid. The bank deposit is only the difference between the two.',
+      },
+      {
+        type: 'heading',
+        heading: 'A Simple Example',
+      },
+      {
+        type: 'paragraph',
+        text: 'A patient finances a $2,000 treatment and the lender keeps a 6% fee, which is $120. Your deposit is $1,880. The correct entry records $2,000 of service revenue, $120 of financing fees as an expense, and $1,880 received in the bank. The 6% here is only an illustration. Use the rate on your own payout reports.',
+      },
+      {
+        type: 'heading',
+        heading: 'How to Record It in QuickBooks',
+      },
+      {
+        type: 'list',
+        items: [
+          'Record the sale at the full treatment price when the service is delivered, through your sales receipt or invoice.',
+          'Create a separate expense account for patient financing fees so the cost is visible on its own line.',
+          'When the payout arrives, match it to the lender’s payout report, not just to the bank line.',
+          'Record the fee for each payout, so that sale, fee and deposit add up exactly.',
+          'Keep each lender separate. Cherry, CareCredit and Affirm have different payout schedules, so combining them hides which program costs what.',
+        ],
+      },
+      {
+        type: 'heading',
+        heading: 'Common Mistakes',
+      },
+      {
+        type: 'list',
+        items: [
+          'Recording the net deposit as revenue, which understates income and hides the fee.',
+          'Posting the fee to a general account such as Bank Charges, where it gets lost among small items.',
+          'Not matching payouts to individual treatments, so a missing or short payout goes unnoticed.',
+          'Treating a financed sale as a patient receivable you are still waiting to collect, when the lender is the one paying you.',
+        ],
+      },
+      {
+        type: 'heading',
+        heading: 'Why the Fee Is Worth Tracking',
+      },
+      {
+        type: 'paragraph',
+        text: 'Financing fees can add up across a busy month. Seeing them as their own line lets you compare what financing costs against the extra treatments it helps close. That is a business decision you cannot make if the fees are buried in other expenses.',
+      },
+      {
+        type: 'tip',
+        heading: 'Quick Check',
+        text: 'Pick one financed treatment from last month. Find the sale, the lender payout and the fee in QuickBooks. If you cannot find all three, the financing entries need to be reviewed.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Details vary by lender and by how your practice management software syncs sales, so confirm the specifics for your setup. For how fees and treatment of financed sales affect your taxes, ask your CPA.',
+      },
+    ],
+  },
+  {
+    "id": "post-015",
+    "slug": "medspa-provider-commission-bookkeeping",
+    "title": "Med Spa Provider Commission Bookkeeping: How to Record Injector Pay in QuickBooks",
+    "metaTitle": "Med Spa Provider Commission Bookkeeping in QuickBooks",
+    "metaDescription": "How a med spa should record injector and provider commissions in QuickBooks: employees and 1099 providers, monthly accruals, tips and medical director fees.",
+    "excerpt": "Commission pay is often calculated in the booking software and lands in QuickBooks as one lump payroll line. Here is how to record provider pay so each month shows what your treatments really cost to deliver.",
+    "category": "Costs & Inventory",
+    "tags": [
+      "Provider Pay",
+      "Commissions",
+      "Payroll",
+      "1099",
+      "QuickBooks",
+      "MedSpa"
+    ],
+    "publishedDate": "2026-10-06",
+    "readingTime": 6,
+    "coverImage": "",
+    "coverAlt": "Illustration of treatment costs compared with revenue",
+    "content": [
+      {
+        "type": "intro",
+        "text": "Provider pay is one of the largest costs in many med spas, and commission plans make it one of the hardest to read. The commission is calculated in the booking software, paid through payroll or as a contractor payment, and lands in QuickBooks as a single \"Payroll\" or \"Contract Labor\" line. The Profit & Loss can then say what you spent, but not what each treatment cost to deliver or whether your commission rates fit your prices."
+      },
+      {
+        "type": "heading",
+        "heading": "Start With How Each Provider Is Paid"
+      },
+      {
+        "type": "paragraph",
+        "text": "Whether a provider is an employee or an independent contractor is a legal and tax decision for your CPA, payroll provider or employment attorney. Bookkeeping does not decide it. Its job is to record each arrangement correctly once it is set, because each one is recorded differently."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Employees (W-2): commission is paid through payroll, with tax withholding and employer payroll taxes. Record commission as its own payroll expense, separate from hourly or salary pay, so you can see each part.",
+          "Independent contractors (1099): payments go through Vendors, not payroll, with no withholding. Turn on 1099 tracking in QuickBooks Online and map contractor payments to the right category so year-end forms are accurate. The reporting threshold changed for payments made from 2026, so confirm the current amount with your CPA.",
+          "Medical director: record the fee on its own line, whether it is paid through payroll or to a contractor. It is an oversight cost, not a per-treatment cost.",
+          "Space or booth renters: if a provider rents space and keeps their own revenue, the rent they pay you is income, not a commission you owe."
+        ]
+      },
+      {
+        "type": "heading",
+        "heading": "Accounts to Set Up"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Provider Commissions, Employees",
+          "Provider Commissions, Contractors",
+          "Provider Base Pay (hourly or salary)",
+          "Employer Payroll Taxes",
+          "Medical Director Fees",
+          "Commissions Payable (a current liability for commission earned but not yet paid)",
+          "Tips Payable (a current liability for tips collected for staff)"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Many practices place provider commissions in Cost of Goods Sold (sometimes labelled Cost of Services), next to product cost, so gross profit reflects the full direct cost of a treatment. Others keep them in operating expenses. Choose one approach with your CPA and use it every month, so one month can be compared with the next."
+      },
+      {
+        "type": "heading",
+        "heading": "Record Commission in the Month It Is Earned"
+      },
+      {
+        "type": "paragraph",
+        "text": "Commission is usually calculated after a pay period ends and paid in the next payroll. If it is only recorded when it is paid, each month carries the previous month's commission, and a busy month looks more profitable than it was. In books kept on the accrual basis, the commission earned during the month is recorded at month end as an expense and as Commissions Payable, and the liability is cleared when payroll runs. Ask your CPA which basis your tax return and your monthly reports use."
+      },
+      {
+        "type": "tip",
+        "heading": "Example Only",
+        "text": "A provider earns a 30% commission on $20,000 of March treatments, paid as $6,000 with the April 5 payroll. On accrual books, March shows $6,000 of commission expense and a $6,000 Commissions Payable balance at March 31. The April payroll clears it. Use your own rates and pay dates."
+      },
+      {
+        "type": "heading",
+        "heading": "Tie the Commission Report to Payroll Every Month"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Export the provider commission or payroll report from Boulevard, Vagaro, Zenoti or your booking platform for the period.",
+          "Check that the sales it is based on agree with the revenue recorded in QuickBooks for the same period. Commission plans differ on whether discounts, refunds or product cost come off first.",
+          "Compare the report with the payroll register and contractor payments for that period.",
+          "Look into any difference: refunds after payout, manual adjustments or bonuses entered outside the platform.",
+          "Record the month-end accrual for commission earned but not yet paid."
+        ]
+      },
+      {
+        "type": "heading",
+        "heading": "Keep Tips Separate From Commission"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tips collected through your booking platform belong to the provider. They are not commission and they are not your income. Record them as a liability when collected and clear that liability when they are paid out through payroll or to a contractor. Mixing tips into commission or into revenue makes both numbers wrong."
+      },
+      {
+        "type": "heading",
+        "heading": "What to Review Each Month"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Provider pay as a share of service revenue, in total and by provider if your platform reports it",
+          "Whether that share is changing as prices, discounts or the service mix change",
+          "The Commissions Payable and Tips Payable balances, which should return close to zero after each payroll",
+          "Medical director fees and contractor totals, so year-end 1099 reporting holds no surprises"
+        ]
+      },
+      {
+        "type": "callout",
+        "heading": "Quick Check",
+        "text": "Open last month's Profit & Loss. If provider commission is not its own line, or if it does not roughly match what your booking platform says was earned that month, provider pay needs to be separated and tied to the commission report."
+      },
+      {
+        "type": "paragraph",
+        "text": "This article is general information, not tax, payroll or legal advice. Worker classification, payroll taxes and 1099 requirements depend on your situation, so confirm them with your CPA, payroll provider or employment attorney."
+      }
+    ]
+  },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {

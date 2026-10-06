@@ -30,6 +30,8 @@ import { PricingSection } from './components/PricingSection';
 import { WhySpecializedSection } from './components/WhySpecializedSection';
 import { Footer } from './components/Footer';
 import { SouthFloridaPage } from './components/SouthFloridaPage';
+import { QuickBooksCleanupPage } from './components/QuickBooksCleanupPage';
+import { PracticeTypePage, IV_HYDRATION, MEDICAL_WEIGHT_LOSS } from './components/PracticeTypePage';
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function App({ initialPath }: { initialPath?: string } = {}) {
@@ -124,6 +126,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               onBookCall={handleBookCall}
               onExploreServices={() => handleNavigate('services')}
               onViewDashboard={() => handleNavigate('dashboard')}
+              onNavigate={handleNavigate}
             />
 
             {/* The problem, in the owner's words */}
@@ -210,7 +213,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </div>
 
-            <ServicesSection onBookCall={handleBookCall} />
+            <ServicesSection onBookCall={handleBookCall} onNavigate={handleNavigate} />
 
             {/* Pointer to the separate pricing page */}
             <section className="py-12 bg-[#F4F6F8] border-b border-[#E2E8F0]">
@@ -225,7 +228,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                 </button>
               </div>
             </section>
-            <BuiltForPractices onBookCall={handleBookCall} />
+            <BuiltForPractices onBookCall={handleBookCall} onNavigate={handleNavigate} />
           </>
         )}
 
@@ -240,7 +243,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   See Where Your Practice&apos;s Revenue Goes
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  See how well-organized books separate treatment costs, provider compensation and operating expenses, and show what is left. All figures are examples.
+                  Med spa financial reporting in practice: the monthly reports and KPIs clients receive, shown with an example. See how organized books separate treatment costs, provider pay and operating expenses, and show what is left. All figures are examples.
                 </p>
               </div>
             </div>
@@ -322,7 +325,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </div>
 
-            <PricingSection onBookCall={handleBookCall} />
+            <PricingSection onBookCall={handleBookCall} onViewCleanup={() => handleNavigate('quickbooks-cleanup')} />
 
             <section className="py-12 bg-white border-b border-[#E2E8F0]">
               <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
@@ -361,6 +364,18 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
         {currentPage === 'south-florida' && (
           <SouthFloridaPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
+        )}
+
+        {currentPage === 'quickbooks-cleanup' && (
+          <QuickBooksCleanupPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
+        )}
+
+        {currentPage === 'iv-hydration' && (
+          <PracticeTypePage content={IV_HYDRATION} onNavigate={handleNavigate} onBookCall={handleBookCall} />
+        )}
+
+        {currentPage === 'medical-weight-loss' && (
+          <PracticeTypePage content={MEDICAL_WEIGHT_LOSS} onNavigate={handleNavigate} onBookCall={handleBookCall} />
         )}
 
         {currentPage === 'blog' && (

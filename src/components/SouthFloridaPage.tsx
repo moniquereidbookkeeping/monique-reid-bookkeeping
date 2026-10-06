@@ -54,10 +54,10 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
             Fort Lauderdale · Miami · Boca Raton · West Palm Beach
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-            MedSpa Bookkeeping in Fort Lauderdale &amp; South Florida
+            Med Spa Bookkeeping in Fort Lauderdale &amp; South Florida
           </h1>
           <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-            QuickBooks bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices from a local Intuit Certified QuickBooks ProAdvisor.
+            A local QuickBooks bookkeeper and Intuit Certified QuickBooks ProAdvisor for med spas, medical spas, aesthetic clinics, IV hydration and wellness practices.
           </p>
         </div>
       </div>
@@ -65,7 +65,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
       <section className="py-14 lg:py-16 bg-[#FDFCFA] border-b border-[#E2E8F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5 text-base sm:text-lg text-[#4A5568] leading-relaxed">
           <p>
-            Monique Reid Bookkeeping is based in Fort Lauderdale and works with aesthetic and wellness practices across
+            Monique Reid Bookkeeping is based in Fort Lauderdale and works with med spas, medical spas and other aesthetic and wellness practices across
             Broward, Miami-Dade and Palm Beach counties, as well as practices nationwide. If your Boulevard, Vagaro or
             Square deposits never match your gross sales, your memberships and packages are booked as income the day
             they are paid, or your CPA keeps asking for the same corrections, the books can be fixed and then kept
@@ -74,7 +74,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
           <p>
             The work is done in QuickBooks and on Zoom, so you never need to take time out of a clinic day for a
             meeting. You get reconciled accounts, a Profit &amp; Loss that separates injectables, treatments, retail and
-            memberships, and reports you can actually use. See the full list of {link('services', 'bookkeeping services')},
+            memberships, and reports you can actually use. See the full list of {link('services', 'bookkeeping services')}, how a {link('quickbooks-cleanup', 'QuickBooks cleanup')} works,
             or compare {link('pricing', 'monthly plans and cleanup pricing')}.
           </p>
         </div>
@@ -115,7 +115,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
               Areas served in South Florida
             </h2>
             <p className="mt-3 text-lg text-[#4A5568] leading-relaxed">
-              Practices outside South Florida are welcome too. Everything works the same way, wherever you are.
+              Med spas elsewhere in Florida, from Tampa and Orlando to Jacksonville, and practices nationwide are welcome too. Everything works the same way, wherever you are.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Wrench, Clock, TrendingUp, HeartPulse, Layers, LineChart, ArrowRight } from 'lucide-react';
 import { PageView } from '../types';
+import { pathFor } from '../router';
 
 interface ServicesSummaryProps {
   onNavigate: (page: PageView) => void;
 }
 
 const services = [
-  { icon: Wrench, title: 'QuickBooks Cleanup & Catch-Up', body: 'Bring months or years of messy books up to date and CPA-ready.', price: 'From $597' },
+  { icon: Wrench, title: 'QuickBooks Cleanup & Catch-Up', body: 'Bring months or years of messy books up to date and CPA-ready.', price: 'From $597', page: 'quickbooks-cleanup' as PageView },
   { icon: Clock, title: 'Monthly Bookkeeping', body: 'Reconciliations, P&L and Balance Sheet, every month.', price: 'From $497/mo' },
   { icon: TrendingUp, title: 'Financial Reporting & KPIs', body: 'Plain-English reports on margins, revenue mix and cash flow.', price: 'From $797/mo' },
   { icon: HeartPulse, title: 'Practice-Specific Bookkeeping', body: 'Memberships, packages, financing and provider pay handled correctly.', price: 'In monthly plans' },
@@ -24,7 +25,7 @@ export const ServicesSummary: React.FC<ServicesSummaryProps> = ({ onNavigate }) 
           Six services built around how your practice runs
         </h2>
         <p className="mt-3 text-lg text-[#4A5568] leading-relaxed">
-          You keep your booking and payment software. Everything ties out to QuickBooks.
+          Built for med spas, medical spas and wellness practices. You keep your booking and payment software. Everything ties out to QuickBooks.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -33,7 +34,14 @@ export const ServicesSummary: React.FC<ServicesSummaryProps> = ({ onNavigate }) 
           return (
             <div key={s.title} className="rounded-2xl bg-[#FDFCFA] border border-[#E2E8F0] p-6 flex flex-col">
               <Icon className="w-6 h-6 text-[#8A6A00]" aria-hidden="true" />
-              <h3 className="mt-3 text-xl font-serif font-bold text-[#1A2E40]">{s.title}</h3>
+              <h3 className="mt-3 text-xl font-serif font-bold text-[#1A2E40]">
+                {'page' in s && s.page ? (
+                  <a href={pathFor(s.page)} onClick={(e) => { e.preventDefault(); onNavigate(s.page!); }}
+                    className="hover:text-[#8A6A00] underline decoration-[#D4AF37]/60 underline-offset-4">
+                    {s.title}
+                  </a>
+                ) : s.title}
+              </h3>
               <p className="mt-2 text-base text-[#4A5568] leading-relaxed flex-1">{s.body}</p>
               <p className="mt-3 text-sm font-bold text-[#8A6A00]">{s.price}</p>
             </div>

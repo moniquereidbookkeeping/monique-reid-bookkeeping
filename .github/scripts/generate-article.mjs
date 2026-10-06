@@ -19,54 +19,13 @@ const BLOG_POSTS_PATH = join(__dirname, '../../src/data/blogPosts.ts');
 // Pick a topic not already covered. The script reads existing slugs to avoid
 // repeating a topic. Do not add a topic a live article already answers (for example a second
 // chart-of-accounts or month-end-close guide): two pages chasing the same search compete with each other.
+// docs/keyword-map.md lists which page owns which search term; check it before adding a topic.
 const TOPIC_POOL = [
-  {
-    slug: 'medspa-payroll-bookkeeping-quickbooks',
-    title: 'MedSpa Payroll & Provider Compensation: How to Set It Up Correctly in QuickBooks',
-    category: 'Payroll & Compensation',
-    hint: 'Cover 1099 vs W2 providers, commission-based pay, QuickBooks payroll setup for MedSpas, tip tracking through Boulevard/Vagaro, and common payroll mistakes that cause IRS issues.',
-  },
-  {
-    slug: 'boulevard-payout-reconciliation-guide',
-    title: 'How to Reconcile Boulevard Payouts in QuickBooks (Step-by-Step)',
-    category: 'Platform Reconciliation',
-    hint: 'Detail the exact process: batch reports, net deposits vs gross collections, processing fees as COGS vs operating expense, how to handle partial-week batches, and what Boulevard\'s payout report actually means.',
-  },
   {
     slug: 'medspa-tax-deductions-cpa-checklist',
     title: 'MedSpa Tax Deductions: What Your CPA Needs and What Practices Miss Every Year',
     category: 'Tax & CPA Prep',
     hint: 'Cover common missed deductions (equipment depreciation, clinical supplies, continuing education), why clean QuickBooks = lower CPA bill, Section 179, and what a tax-ready file looks like for an aesthetic practice.',
-  },
-  {
-    slug: 'deferred-revenue-medspa-packages-memberships',
-    title: 'Deferred Revenue in MedSpas: Why Your Memberships & Packages Are Overstating Income',
-    category: 'Revenue Recognition',
-    hint: 'Deep dive into how prepaid packages and monthly memberships should be accounted for under accrual accounting. Include journal entry examples for QuickBooks, why cash-basis MedSpas get surprises at tax time, and redemption tracking.',
-  },
-  {
-    slug: 'cost-of-goods-sold-medspa-injectables',
-    title: 'How to Track Cost of Goods Sold for Injectables, Fillers, and Retail Products',
-    category: 'COGS & Inventory',
-    hint: 'Explain COGS vs operating expenses for a MedSpa. Cover Botox/Dysport unit costing, filler by syringe cost, skincare retail margin calculation, how to set this up in QuickBooks without a full inventory system.',
-  },
-  {
-    slug: 'cherry-carecredit-financing-bookkeeping',
-    title: 'Cherry, CareCredit & PatientFi in QuickBooks: The Right Way to Record Patient Financing',
-    category: 'Platform Reconciliation',
-    hint: 'Explain the net-funding vs gross revenue issue with patient financing. How to record the discount fee, why some practices accidentally double-count income, correct QuickBooks journal entries for each provider.',
-  },
-  {
-    slug: 'vagaro-quickbooks-integration-bookkeeping',
-    title: 'Vagaro + QuickBooks Integration: What It Actually Does and What You Still Have to Fix',
-    category: 'Platform Reconciliation',
-    hint: 'Cover Vagaro\'s QuickBooks sync: what it syncs, what it gets wrong (double-counting, tip misclassification, net vs gross), how to supplement the integration with manual reconciliation, and common Vagaro reporting errors.',
-  },
-  {
-    slug: 'glp1-weight-loss-practice-financial-tracking',
-    title: 'Financial Tracking for GLP-1 & Medical Weight Loss Programs: The Bookkeeping Setup',
-    category: 'Specialty Programs',
-    hint: 'Address the unique bookkeeping needs of practices adding Semaglutide/Tirzepatide programs: subscription vs per-injection billing, compound pharmacy cost tracking, how to separate this revenue line, lab fee pass-throughs.',
   },
   {
     slug: 'opening-medspa-bookkeeping-setup-checklist',
