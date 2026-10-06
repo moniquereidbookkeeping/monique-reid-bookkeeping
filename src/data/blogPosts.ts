@@ -1,6 +1,8 @@
 import { BlogPost } from '../types';
+import { BUILD_DATE } from '../buildDate';
 
-export const blogPosts: BlogPost[] = [
+/** Every article, including scheduled ones. Only `blogPosts` (below) is shown on the site. */
+const allBlogPosts: BlogPost[] = [
   {
     "id": "post-006",
     "slug": "medspa-chart-of-accounts-quickbooks",
@@ -16,7 +18,7 @@ export const blogPosts: BlogPost[] = [
       "Setup",
       "Reporting"
     ],
-    "publishedDate": "2026-10-05",
+    "publishedDate": "2026-10-20",
     "readingTime": 5,
     "coverImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80",
     "coverAlt": "Documents and a pen on a desk, representing an organized set of books",
@@ -134,7 +136,7 @@ export const blogPosts: BlogPost[] = [
       "MedSpa",
       "Reporting"
     ],
-    "publishedDate": "2026-10-05",
+    "publishedDate": "2026-10-27",
     "readingTime": 5,
     "coverImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
     "coverAlt": "A laptop showing charts and financial reports",
@@ -224,7 +226,7 @@ export const blogPosts: BlogPost[] = [
       "MedSpa",
       "Year-End"
     ],
-    "publishedDate": "2026-10-01",
+    "publishedDate": "2027-01-05",
     "readingTime": 5,
     "coverImage": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1400&q=80",
     "coverAlt": "A desk with a calculator and paperwork, representing year-end tax preparation",
@@ -313,7 +315,7 @@ export const blogPosts: BlogPost[] = [
       "MedSpa",
       "Reconciliation"
     ],
-    "publishedDate": "2026-10-01",
+    "publishedDate": "2026-11-10",
     "readingTime": 5,
     "coverImage": "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&w=1400&q=80",
     "coverAlt": "A laptop and notebook on a desk, representing a month-end routine",
@@ -395,9 +397,9 @@ export const blogPosts: BlogPost[] = [
           "QuickBooks",
           "MedSpa"
       ],
-      "publishedDate": "2026-10-06",
+      "publishedDate": "2026-11-17",
       "readingTime": 5,
-    "featured": true,
+    "featured": false,
       "coverImage": "https://images.unsplash.com/photo-1625225233840-695456021cde?auto=format&fit=crop&w=1400&q=80",
       "coverAlt": "A calculator beside a pen on printed financial papers, representing rebates and product cost",
       "content": [
@@ -490,6 +492,7 @@ export const blogPosts: BlogPost[] = [
     category: 'POS & Reconciliation',
     tags: ['Boulevard', 'Vagaro', 'QuickBooks', 'Reconciliation', 'MedSpa', 'POS Deposits'],
     publishedDate: '2026-10-06',
+    featured: true,
     readingTime: 5,
     coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
@@ -602,7 +605,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Here is the scenario: your practice has 60 members paying $199 per month for a membership that includes one neurotoxin treatment and 15% off additional services. On the first of the month, $11,940 hits your bank account. You open QuickBooks, match the deposit, and post it to Service Revenue. It looks like $11,940 in income. The problem is that this is not income yet.',
+        text: 'For example, say your practice has 60 members paying $199 per month for a membership that includes one neurotoxin treatment and 15% off additional services. On the first of the month, $11,940 hits your bank account. You open QuickBooks, match the deposit, and post it to Service Revenue. It looks like $11,940 in income. The problem is that this is not income yet.',
       },
       {
         type: 'paragraph',
@@ -640,7 +643,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'The same principle applies to prepaid treatment packages — a patient who pays $1,500 for a package of six laser sessions has not yet received all six sessions. The full $1,500 should not post to income when collected. The correct treatment is to post the full payment to Deferred Revenue, then move $250 (one-sixth of the package price) to Service Revenue each time the patient completes a session.',
+        text: 'The same principle applies to prepaid treatment packages — for example, a patient who pays $1,500 for a package of six laser sessions has not yet received all six sessions. The full $1,500 should not post to income when collected. The correct treatment is to post the full payment to Deferred Revenue, then move $250 (one-sixth of the package price) to Service Revenue each time the patient completes a session.',
       },
       {
         type: 'paragraph',
@@ -798,7 +801,7 @@ export const blogPosts: BlogPost[] = [
       'When a patient finances a treatment, the payout that reaches your bank is smaller than the treatment price. Here is how to record financing payouts in QuickBooks so revenue and fees both appear correctly.',
     category: 'POS & Reconciliation',
     tags: ['Patient Financing', 'Cherry', 'CareCredit', 'Affirm', 'QuickBooks', 'MedSpa', 'Reconciliation'],
-    publishedDate: '2026-10-06',
+    publishedDate: '2026-10-13',
     readingTime: 5,
     coverImage: '',
     coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
@@ -890,7 +893,7 @@ export const blogPosts: BlogPost[] = [
       "QuickBooks",
       "MedSpa"
     ],
-    "publishedDate": "2026-10-06",
+    "publishedDate": "2026-11-03",
     "readingTime": 6,
     "coverImage": "",
     "coverAlt": "Illustration of treatment costs compared with revenue",
@@ -996,6 +999,13 @@ export const blogPosts: BlogPost[] = [
     ]
   },
 ];
+
+/**
+ * Published articles: those dated on or before the day the site was built. An article with a future
+ * publishedDate stays hidden (no page, not listed, not in the sitemap) until a build on or after that date.
+ * .github/workflows/publish-scheduled.yml rebuilds the site on each scheduled date.
+ */
+export const blogPosts: BlogPost[] = allBlogPosts.filter((p) => p.publishedDate <= BUILD_DATE);
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find((post) => post.slug === slug);

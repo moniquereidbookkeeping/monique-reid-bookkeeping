@@ -8,8 +8,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://moniquereidbookkeeping.com';
 
 const src = readFileSync(join(root, 'src/data/blogPosts.ts'), 'utf8');
+// Scheduled articles (dated after today) are left out until the build on their date.
+const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 const posts = [...src.matchAll(/["']?slug["']?:\s*["']([^"']+)["'][\s\S]*?["']?publishedDate["']?:\s*["'](\d{4}-\d{2}-\d{2})["']/g)]
-  .map((m) => ({ slug: m[1], date: m[2] }));
+  .map((m) => ({ slug: m[1], date: m[2] }))
+  .filter((p) => p.date <= buildDate);
 
 // Only blog posts carry a <lastmod>: their publish date is real. Stamping every page with the build date
 // on each deploy tells search engines everything changed when it did not, so they learn to ignore it.

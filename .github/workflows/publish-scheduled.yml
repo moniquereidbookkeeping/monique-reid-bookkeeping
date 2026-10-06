@@ -1,0 +1,49 @@
+name: Publish Scheduled Articles
+
+# The site is built ahead of time, so an article with a future publishedDate stays hidden until the site is
+# rebuilt on or after that date. This checks every morning and, when an article is due today, asks
+# Cloudflare Pages to rebuild the live site.
+#
+# One-time setup: Cloudflare dashboard > Workers & Pages > mr-bookkeeping > Settings > Builds > Deploy hooks >
+# Add deploy hook (branch: main). Copy the URL and save it in GitHub > Settings > Secrets and variables >
+# Actions as CLOUDFLARE_PAGES_DEPLOY_HOOK.
+
+on:
+  schedule:
+    # Every day at 11:07 UTC (7:07 AM Eastern in summer, 6:07 AM in winter).
+    - cron: '7 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Check for an article dated today
+        id: due
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          if grep -qE "[\"']?publishedDate[\"']?:[[:space:]]*[\"']${TODAY}[\"']" src/data/blogPosts.ts; then
+            echo "An article is scheduled for ${TODAY}."
+            echo "due=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Nothing scheduled for ${TODAY}."
+            echo "due=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Rebuild the live site
+        if: steps.due.outputs.due == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_PAGES_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$DEPLOY_HOOK" ]; then
+            echo "::error::The CLOUDFLARE_PAGES_DEPLOY_HOOK secret is missing, so today's article was not published. See the setup note at the top of this file."
+            exit 1
+          fi
+          curl -fsS -X POST "$DEPLOY_HOOK" > /dev/null
+          echo "Rebuild requested. The article is live once Cloudflare finishes the build (a few minutes)."
