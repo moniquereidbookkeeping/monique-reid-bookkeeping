@@ -104,6 +104,7 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
         <div
           ref={containerRef}
           className="calendly-inline-widget w-full"
+          data-url={BOOKING_URL}
           style={{ minWidth: '320px', height: '700px', width: '100%' }}
         />
       </div>
