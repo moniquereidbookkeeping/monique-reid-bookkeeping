@@ -42,8 +42,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       startingPrice: 'From $597',
       pricingTiers: [
         { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#8A6A00' },
-        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Most Common', color: '#8A6A00' },
-        { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full audit trail.', color: '#8A6A00' },
+        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Typical scope', color: '#8A6A00' },
+        { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full documentation trail.', color: '#8A6A00' },
         { label: '2+ years / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Multi-year and multi-entity engagements quoted after assessment.', color: '#8A6A00' },
       ],
       noticeTitle: 'Fixed-fee pricing',
@@ -54,17 +54,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       num: '02',
       phase: 'Maintain',
       title: 'Monthly Bookkeeping',
-      tagline: 'Dependable, recurring monthly close process keeping your practice books current and audit-ready.',
-      lead: 'Consistent monthly management of all operating accounts, providing practice owners with reliable financial visibility to make confident operational decisions.',
+      tagline: 'A dependable monthly close that keeps your practice books current and organized.',
+      lead: 'Consistent monthly management of your operating accounts, giving practice owners reliable financial visibility for everyday decisions.',
       icon: Clock,
-      highlight: 'A structured monthly close routine delivering clear statements and proactive review of uncleared items.',
+      highlight: 'A structured monthly close with clear statements and proactive follow-up on uncleared items.',
       deliverables: [
         'Monthly reconciliations across all operating bank, credit card, and active financing accounts',
         'Systematic transaction categorization and recurring expense verification',
-        'Ongoing review of uncleared items, outstanding checks, and items requiring practice follow-up',
+        'Ongoing review of uncleared items, outstanding checks, and anything that needs follow-up from your practice',
         'Preparation of monthly Balance Sheet and Profit & Loss statements',
-        'Plain-English financial summary highlighting notable trends and key variances',
-        'Organized year-end financial handoff package prepared for your CPA or tax professional',
+        'Plain-English summary of notable trends and key variances (depending on plan)',
+        'Organized year-end package prepared for your CPA or tax professional',
       ],
       startingPrice: 'From $497/mo',
       monthlyTiers: [
@@ -83,12 +83,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       tagline: 'Plain-language reports on the numbers that drive practice growth and profitability.',
       lead: 'Turns accounting entries into clear reports that help owners understand treatment margins, revenue mix, and cash flow.',
       icon: TrendingUp,
-      highlight: 'Reports designed for healthcare and aesthetic practice owners, not just compliance accountants.',
+      highlight: 'Reports designed for healthcare and aesthetic practice owners, not just for tax preparation.',
       deliverables: [
-        'Treatment and service-line margin analysis where clinical cost records and inventory data permit',
-        'Monthly Balance Sheet reporting providing transparent visibility into assets, liabilities, and retained earnings',
-        'Period-over-period performance comparisons, including Month-over-Month and Quarter-over-Quarter trends',
-        'Revenue segmentation by modality (injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare, and memberships)',
+        'Treatment and service-line margin reporting where cost records and inventory data allow',
+        'Monthly Balance Sheet reporting with clear visibility into assets, liabilities, and retained earnings',
+        'Period-over-period performance comparisons, including month-over-month and quarter-over-quarter trends',
+        'Revenue by treatment type (injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare, and memberships)',
         'Plain-language summary of notable changes, overhead ratios, and areas to watch',
         'Cash-flow reporting you can use when planning hiring, provider compensation, equipment leases, and expansion',
       ],
@@ -116,7 +116,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       ],
       startingPrice: 'Scope varies by plan',
       noticeTitle: 'Professional Coordination',
-      notice: 'Specialized regulatory, medical director compensation legalities, and corporate entity compliance are coordinated with your licensed legal and CPA advisors.',
+      notice: 'Regulatory questions, medical director compensation rules, and corporate entity compliance are handled by your licensed legal and CPA advisors. Bookkeeping is coordinated with them.',
     },
     {
       id: 'setup',
@@ -126,35 +126,35 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       tagline: 'A tailored QuickBooks setup for newly launching or restructured practices.',
       lead: 'Designed for practitioners launching a new aesthetic clinic, wellness suite, or medical weight-loss clinic, or established practices outgrowing a generic off-the-shelf setup.',
       icon: Layers,
-      highlight: 'An aesthetic-native Chart of Accounts configured to capture revenue modalities and clinical costs from Day One.',
+      highlight: 'A Chart of Accounts built for aesthetic practices, capturing treatment revenue and clinical costs from day one.',
       deliverables: [
         'Complete QuickBooks Online company file setup, preferences, and permissions configuration',
         'Specialized Chart of Accounts organized across clinical treatments, medical consumables, operating overhead, and administrative tiers',
-        'Direct bank, credit card, and merchant gateway feed integration and rules setup',
+        'Bank, credit card, and merchant gateway feed connections, with categorization rules',
         'Practice-management and POS mapping (Boulevard, Vagaro, Jane, Mindbody, Square, Stripe) to support clean reconciliation',
         'Product and service item catalog setup with accurate tax mapping based on client guidance and applicable rules',
         'Owner initial equity contributions, capital funding, and fixed-asset scheduling',
       ],
       startingPrice: 'Project-based',
       noticeTitle: 'Setup Deliverable',
-      notice: 'Includes the initial setup, bank-feed validation, and an administrative walkthrough for the practice owner or clinic manager.',
+      notice: 'Includes the initial setup, bank-feed validation, and a walkthrough for the practice owner or clinic manager.',
     },
     {
       id: 'scale',
       num: '06',
       phase: 'Scale',
       title: 'Historical Financial Records & Reporting',
-      tagline: 'Multi-year financial reconstruction and normalization for lending, succession, or practice expansion.',
+      tagline: 'Multi-year financial reconstruction for lending, succession, or practice expansion.',
       lead: 'Designed for established aesthetic and wellness practices preparing for bank financing, partnership buy-ins, clinical expansion, or practice valuation review.',
       icon: LineChart,
-      highlight: 'Standardized multi-year financial schedules that provide lenders, CPAs, or advisors with an organized historical record.',
+      highlight: 'Standardized multi-year financial schedules that give lenders, CPAs, or advisors an organized historical record.',
       deliverables: [
         'Multi-year financial record reconstruction, standardization, and normalization based on available records',
         'Historical multi-period Profit & Loss and Balance Sheet standardization for clear multi-year comparative analysis',
         'Organization and scheduling of non-recurring, discretionary, and owner transactions for review by qualified CPAs or transaction advisors',
         'Structured financial packages assembled to support financing applications and lender underwriting inquiries',
-        'Historical trend modeling across revenue growth, clinical supply cost ratios, and operational overhead',
-        'Clear documentation: Monique Reid Bookkeeping provides bookkeeping organization and does not render formal valuation opinions, audit opinions, or tax filings',
+        'Historical trend schedules for revenue growth, clinical supply cost ratios, and operating overhead',
+        'Scope note: this service organizes bookkeeping records. It does not include valuation opinions, audit opinions, or tax filings',
       ],
       startingPrice: 'Project-based',
       noticeTitle: 'Engagement Scope',
@@ -331,7 +331,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
               </div>
             ))}
           </div>
-          <p className="mt-5 text-center text-base text-[#4A5568]">Most cleanup clients move straight to monthly bookkeeping once the backlog is cleared.</p>
+          <p className="mt-5 text-center text-base text-[#4A5568]">Once the backlog is cleared, monthly bookkeeping keeps your books current.</p>
         </div>
 
         {/* Practice software and POS integration */}
@@ -372,7 +372,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     'Zenoti',
                     'Stripe',
                     'Square',
-                    'Cherry Financing',
+                    'Cherry',
                     'CareCredit',
                     'PatientFi',
                   ].map((tech) => (
@@ -413,7 +413,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   Keep your software from breaking your books.
                 </h4>
                 <p className="text-base text-[#4A5568] leading-relaxed mt-2.5">
-                  Relying on an automated POS sync alone can fill QuickBooks with un-reconciled transactions, create duplicate entries, obscure merchant processing deductions, and produce misleading financial reports that distort your true cash flow metrics.
+                  Relying on an automated POS sync alone can fill QuickBooks with unreconciled transactions, create duplicate entries, obscure merchant processing deductions, and produce misleading financial reports that distort your true cash flow metrics.
                 </p>
               </div>
 
@@ -436,7 +436,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">2. Merchant and financing fee splits:</strong>{' '}
-                      Platforms like Stripe, Square, Cherry Financing, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. Those deductions are cleanly isolated as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
+                      Platforms like Stripe, Square, Cherry, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. Those deductions are cleanly isolated as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
                     </div>
                   </li>
 

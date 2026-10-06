@@ -62,7 +62,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'I offer Cherry or CareCredit and my CPA said I\'m recording patient financing wrong. I don\'t know how to fix it.',
       answer:
-        'You are not alone — patient financing is one of the most consistently mishandled areas in aesthetic and wellness bookkeeping.\n\nHere is what typically happens: a patient finances a $1,200 treatment through Cherry or CareCredit. The financing company deposits $1,080 into your bank after deducting their merchant fee. If your books record $1,080 as the revenue, you have understated income AND hidden a real cost of doing business.\n\nThe full patient-charged amount is recorded as revenue, and the financing merchant fee is categorized separately as an operating expense. Your reports then reflect what patients actually paid and what it cost you to offer financing — which is information you need to understand your real margins.',
+        'You are not alone — patient financing is one of the easier areas to get wrong in aesthetic and wellness bookkeeping.\n\nHere is an example with illustrative numbers: a patient finances a $1,200 treatment through Cherry or CareCredit. The financing company deposits $1,080 into your bank after deducting their merchant fee. If your books record $1,080 as the revenue, you have understated income and hidden a real cost of doing business.\n\nThe full patient-charged amount is recorded as revenue, and the financing merchant fee is categorized separately as an operating expense. Your reports then reflect what patients actually paid and what it cost you to offer financing — which is information you need to understand your real margins.',
       takeaways: [
         'Full patient charge recorded as revenue, not just the deposited amount',
         'Cherry, CareCredit, and PatientFi fees tracked as separate operating costs',
@@ -257,7 +257,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'How much do your bookkeeping services cost?',
       answer:
-        'Pricing depends on the condition of your books, monthly transaction volume, number of bank and credit-card accounts, practice-management platforms, locations, and the level of reporting you need.\n\nAfter a complimentary Financial Clarity Call and initial review, you will receive a clearly defined scope and customized proposal before work begins.',
+        'Monthly bookkeeping plans start at $497 per month, and cleanup projects start at $597. Your price depends on the condition of your books, monthly transaction volume, number of bank and credit-card accounts, practice-management platforms, locations, and the level of reporting you need.\n\nAfter a complimentary Financial Clarity Call and initial review, you will receive a clearly defined scope and customized proposal before work begins.',
       takeaways: [
         'Customized pricing based on your bookkeeping needs',
         'A clearly defined scope before work begins',

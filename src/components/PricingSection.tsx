@@ -52,7 +52,7 @@ const monthlyPlans = [
     period: '/month',
     icon: Sparkles,
     featured: true,
-    badge: 'Most Popular' as string | null,
+    badge: 'Recommended' as string | null,
     features: [
       'Everything in Essential',
       'Multiple POS & payment systems',
@@ -132,7 +132,7 @@ const complexityFactors = [
 
 const trustItems = [
   { icon: ShieldCheck, text: 'No long-term contracts' },
-  { icon: ShieldCheck, text: 'Cancel with 30 days notice' },
+  { icon: ShieldCheck, text: 'Cancel with 30 days’ notice' },
   { icon: ShieldCheck, text: 'Intuit Certified QBO ProAdvisor' },
 ];
 

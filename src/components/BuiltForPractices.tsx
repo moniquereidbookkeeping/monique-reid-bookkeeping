@@ -7,7 +7,7 @@ interface BuiltForPracticesProps {
 
 export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall }) => {
   const practiceTypes = [
-    { title: 'MedSpas', desc: 'Full-service med spas offering injectables, energy devices, facials, and retail skincare', icon: Syringe },
+    { title: 'MedSpas', desc: 'Full-service MedSpas offering injectables, energy devices, facials, and retail skincare', icon: Syringe },
     { title: 'Aesthetic Clinics', desc: 'Cosmetic-focused clinics led by MDs, NPs, PAs, and RNs delivering advanced aesthetic treatments', icon: Sparkles },
     { title: 'IV Hydration & Wellness Practices', desc: 'Concierge infusion lounges, mobile drip services, and integrated wellness studios', icon: HeartPulse },
     { title: 'Medical Weight-Loss Practices', desc: 'GLP-1 prescription clinics, metabolic health programs, and peptide therapy providers', icon: Scale },
