@@ -234,7 +234,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'How do you record manufacturer rebates and rewards programs?',
       answer:
-        'Manufacturer rebates, practice rewards, and reimbursements for patient loyalty discounts often arrive as deposits with no clear label. When they are booked as sales, income and margins look better than they are.\n\nI review your program statements and record this money against the product cost it relates to, so your margins on injectables and other products reflect what you actually paid. The exact treatment depends on the program terms and your accounting method, and it is coordinated with your CPA.',
+        'Manufacturer rebates, practice rewards, and reimbursements for patient loyalty discounts often arrive as deposits, credits, or replacement product with no clear label. When they are booked as sales, income and margins look better than they are.\n\nI review your program statements and record this money against the product cost it relates to, so your margins on injectables and other products reflect what you actually paid. The exact treatment depends on the program terms and your accounting method, and it is coordinated with your CPA.',
       takeaways: [
         'Rebates recorded against product cost, not as extra sales',
         'Program statements kept with the entries',

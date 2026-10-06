@@ -398,12 +398,12 @@ export const blogPosts: BlogPost[] = [
       ],
       "publishedDate": "2026-10-06",
       "readingTime": 5,
-      "coverImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80",
+      "coverImage": "",
       "coverAlt": "A calculator and financial papers on a desk, representing rebates and product cost",
       "content": [
           {
               "type": "intro",
-              "text": "Many MedSpas take part in manufacturer programs: volume rebates, practice rewards, and patient loyalty programs where the manufacturer funds a discount. The money is real, but it often arrives as a deposit with no clear label. If it is recorded in the wrong place, your income looks higher, your product cost looks higher, and neither tells you what a treatment really earns."
+              "text": "Many MedSpas take part in manufacturer programs: volume rebates, practice rewards, and patient loyalty programs where the manufacturer funds the reward. The value is real, but it often arrives as a deposit, a credit, or free replacement product with no clear label. If it is recorded in the wrong place, your income and product cost both look wrong, and neither tells you what a treatment really earns."
           },
           {
               "type": "heading",
@@ -411,7 +411,7 @@ export const blogPosts: BlogPost[] = [
           },
           {
               "type": "paragraph",
-              "text": "A rebate check or a program deposit looks like any other deposit. Without a clear rule, it is usually booked as sales, left in an uncategorized account, or netted against something it does not belong to. Each choice changes your reports in a different way, and the effect is hard to see until someone compares product purchases to what the practice actually paid."
+              "text": "A rebate check or a program deposit looks like any other deposit, and a credit or replacement vial may not show up in the bank at all. Without a clear rule, the money is usually booked as sales, left in an uncategorized account, or missed entirely. Each choice changes your reports in a different way, and the effect is hard to see until someone compares product purchases to what the practice actually paid."
           },
           {
               "type": "heading",
@@ -422,13 +422,13 @@ export const blogPosts: BlogPost[] = [
               "items": [
                   "Volume or purchase rebates paid back after you buy a certain amount of product",
                   "Practice rewards or points earned for your purchases",
-                  "Reimbursements for discounts a patient received through a manufacturer loyalty program",
+                  "Reimbursements for rewards a patient redeemed through a manufacturer loyalty program, which some programs pay as product credits or replacement product instead of cash",
                   "Promotional pricing or free product tied to a purchase"
               ]
           },
           {
               "type": "paragraph",
-              "text": "Programs differ, and the terms are set by each manufacturer and your agreement with them. Read your program statements before deciding how to record anything."
+              "text": "Programs differ, and how a practice is paid back is usually set in the terms you accept when you enroll, which are not always public. Ask your manufacturer representative who funds the reward and what the practice receives, and read your program statements before deciding how to record anything."
           },
           {
               "type": "heading",
@@ -445,7 +445,7 @@ export const blogPosts: BlogPost[] = [
                   "Record a manufacturer-funded discount or reimbursement against the matching product cost, not as extra income",
                   "Record a rebate check as a reduction of product cost in the period it relates to",
                   "Track any rewards balance you are owed separately until it is paid or used",
-                  "Keep the program statement with the entry so the amount can be explained later"
+                  "If you are reimbursed in product instead of cash, track the units so replacement product is not counted twice or left at full cost","Keep the program statement with the entry so the amount can be explained later"
               ]
           },
           {
@@ -462,7 +462,7 @@ export const blogPosts: BlogPost[] = [
               "items": [
                   "Open the manufacturer program statement for the month",
                   "Match each payment or credit to the product purchases it relates to",
-                  "Record the amount against product cost, not sales",
+                  "Record the amount or credit against product cost, not sales",
                   "Note any balance still owed to you",
                   "Confirm the result in your Profit & Loss against the prior month"
               ]
