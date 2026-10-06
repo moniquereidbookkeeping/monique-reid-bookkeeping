@@ -15,6 +15,8 @@ interface FAQSectionProps {
   featuredLimit?: number;
   showCta?: boolean;
   onViewAll?: () => void;
+  /** Hide the section heading when a page title already sits above it. */
+  hideHeading?: boolean;
 }
 
 interface FAQItem {
@@ -26,7 +28,7 @@ interface FAQItem {
   takeaways: string[];
 }
 
-export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimit, showCta = true, onViewAll }) => {
+export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimit, showCta = true, onViewAll, hideHeading = false }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showAll, setShowAll] = useState<boolean>(!featuredLimit);
@@ -346,11 +348,15 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-10">
-          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Questions, clear answers</span>
+          {!hideHeading && (
+            <>
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Questions, clear answers</span>
 
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Real Questions From Practice Owners Like You
-          </h2>
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
+                Common Questions From Practice Owners
+              </h2>
+            </>
+          )}
 
           <p className="text-lg text-[#4A5568] leading-relaxed">
             Search or browse by topic. The "Sound Familiar?" tab covers the most common frustrations practice owners describe.

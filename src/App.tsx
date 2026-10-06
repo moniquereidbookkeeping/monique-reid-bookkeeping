@@ -225,7 +225,6 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </section>
             <BuiltForPractices onBookCall={handleBookCall} />
-            <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} onViewAll={() => handleNavigate('faq')} />
           </>
         )}
 
@@ -314,7 +313,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Plans &amp; Pricing
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Bookkeeping Pricing for Aesthetic &amp; Wellness Practices
+                  Bookkeeping Plans &amp; Pricing
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
                   Flat monthly plans and fixed-fee cleanup projects, with a free call to find the right fit.
@@ -355,7 +354,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </div>
 
-            <FAQSection onBookCall={handleBookCall} />
+            <FAQSection onBookCall={handleBookCall} hideHeading />
           </>
         )}
 
