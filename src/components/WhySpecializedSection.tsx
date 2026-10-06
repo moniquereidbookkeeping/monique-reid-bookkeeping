@@ -38,6 +38,22 @@ const problems = [
     help:
       'Product and supply costs are separated from operating overhead, and treatment-related expenses are categorized so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins actually are.',
   },
+  {
+    number: '05',
+    title: 'Provider Commissions and Pay Calculated Off the Books',
+    problem:
+      `Injector and provider pay is often a percentage of treatment revenue, tracked in a separate spreadsheet. When that spreadsheet does not agree with your books, it is hard to know what each provider really costs and earns for the practice.`,
+    help:
+      'Provider compensation is recorded consistently and tied back to the revenue it relates to, so you can see provider cost alongside service-line results. Payroll itself stays with your payroll provider.',
+  },
+  {
+    number: '06',
+    title: 'Equipment Purchases Treated Like Everyday Expenses',
+    problem:
+      `Lasers, body-contouring devices and build-out costs are large purchases. When they are coded as ordinary expenses, a single month can look like a loss, and your reports stop reflecting how the practice is really performing.`,
+    help:
+      'Larger purchases are separated from day-to-day operating costs and flagged for your CPA, who decides how they are depreciated for tax. Your monthly reports stay easier to read.',
+  },
 ];
 
 export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ onBookCall }) => {

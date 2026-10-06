@@ -91,6 +91,10 @@ export const Hero: React.FC<HeroProps> = ({
               </button>
             </div>
 
+            <p className="text-base text-[#4A5568]">
+              Monthly plans from <span className="font-bold text-[#1A2E40]">$497</span> · Cleanup projects from <span className="font-bold text-[#1A2E40]">$597</span>
+            </p>
+
             {/* Tech Stack Integration Strip */}
             <div className="pt-6 border-t border-[#1A2E40]/10 space-y-3">
               <p className="text-sm font-semibold uppercase tracking-widest text-[#4A5568]">
