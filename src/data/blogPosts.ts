@@ -411,6 +411,94 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+
+  {
+    id: 'post-005',
+    slug: 'record-cherry-carecredit-affirm-financing-quickbooks',
+    title: 'How to Record Cherry, CareCredit and Affirm Financing Payouts in QuickBooks',
+    metaTitle: 'Record Cherry, CareCredit & Affirm in QuickBooks | MedSpa Bookkeeping',
+    metaDescription:
+      'Patient financing payouts arrive net of fees. Learn how a MedSpa should record Cherry, CareCredit and Affirm payments in QuickBooks so revenue and fees both show correctly.',
+    excerpt:
+      'When a patient finances a treatment, the payout that reaches your bank is smaller than the treatment price. Here is how to record financing payouts in QuickBooks so revenue and fees both appear correctly.',
+    category: 'POS & Reconciliation',
+    tags: ['Patient Financing', 'Cherry', 'CareCredit', 'Affirm', 'QuickBooks', 'MedSpa', 'Reconciliation'],
+    publishedDate: '2026-10-05',
+    readingTime: 5,
+    coverImage: '',
+    coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
+    content: [
+      {
+        type: 'intro',
+        text: 'Patient financing helps more treatments get booked, but it often leaves a gap in the books. A patient finances a $2,000 treatment, and a smaller amount reaches your bank account a few days later. If that smaller deposit is recorded as the sale, revenue is understated and the financing fee never appears anywhere.',
+      },
+      {
+        type: 'heading',
+        heading: 'What Actually Happens When a Patient Finances',
+      },
+      {
+        type: 'paragraph',
+        text: 'With most patient financing programs, including Cherry, CareCredit and Affirm, the patient finances the treatment with the lender, and the lender pays the practice. The practice generally receives the treatment price minus a fee. The fee rate depends on the program and on your agreement with the lender, so check your own statements rather than assuming a number.',
+      },
+      {
+        type: 'callout',
+        heading: 'The Core Idea',
+        text: 'Revenue is the full price of the treatment. The financing fee is a cost of getting paid. The bank deposit is only the difference between the two.',
+      },
+      {
+        type: 'heading',
+        heading: 'A Simple Example',
+      },
+      {
+        type: 'paragraph',
+        text: 'A patient finances a $2,000 treatment and the lender keeps a 6% fee, which is $120. Your deposit is $1,880. The correct entry records $2,000 of service revenue, $120 of financing fees as an expense, and $1,880 received in the bank. The 6% here is only an illustration. Use the rate on your own payout reports.',
+      },
+      {
+        type: 'heading',
+        heading: 'How to Record It in QuickBooks',
+      },
+      {
+        type: 'list',
+        items: [
+          'Record the sale at the full treatment price when the service is delivered, through your sales receipt or invoice.',
+          'Create a separate expense account for patient financing fees so the cost is visible on its own line.',
+          'When the payout arrives, match it to the lender’s payout report, not just to the bank line.',
+          'Record the fee for each payout, so that sale, fee and deposit add up exactly.',
+          'Keep each lender separate. Cherry, CareCredit and Affirm have different payout schedules, so combining them hides which program costs what.',
+        ],
+      },
+      {
+        type: 'heading',
+        heading: 'Common Mistakes',
+      },
+      {
+        type: 'list',
+        items: [
+          'Recording the net deposit as revenue, which understates income and hides the fee.',
+          'Posting the fee to a general account such as Bank Charges, where it gets lost among small items.',
+          'Not matching payouts to individual treatments, so a missing or short payout goes unnoticed.',
+          'Treating a financed sale as a patient receivable you are still waiting to collect, when the lender is the one paying you.',
+        ],
+      },
+      {
+        type: 'heading',
+        heading: 'Why the Fee Is Worth Tracking',
+      },
+      {
+        type: 'paragraph',
+        text: 'Financing fees can add up across a busy month. Seeing them as their own line lets you compare what financing costs against the extra treatments it helps close. That is a business decision you cannot make if the fees are buried in other expenses.',
+      },
+      {
+        type: 'tip',
+        heading: 'Quick Check',
+        text: 'Pick one financed treatment from last month. Find the sale, the lender payout and the fee in QuickBooks. If you cannot find all three, the financing entries need to be reviewed.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Details vary by lender and by how your practice management software syncs sales, so confirm the specifics for your setup. For how fees and treatment of financed sales affect your taxes, ask your CPA.',
+      },
+    ],
+  },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
