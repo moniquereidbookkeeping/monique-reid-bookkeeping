@@ -18,11 +18,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
   return (
     <footer id="site-footer" className="bg-[#1A2E40] text-white pt-16 pb-12 border-t border-[#D4AF37]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.2fr_1.1fr_0.8fr_1.3fr] gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.3fr_1.2fr_0.8fr_1.5fr] gap-y-10 gap-x-12 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Logo */}
           <div className="space-y-4">
             <Logo variant="light" size="lg" className="-ml-2 -mt-3 -mb-3" onClick={() => onNavigate('home')} />
-            <p className="text-sm text-[#E2E8F0] max-w-xs leading-relaxed font-light">
+            <p className="text-sm text-[#E2E8F0] max-w-[17rem] leading-relaxed font-light pr-2">
               Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
             </p>
             <p className="text-sm font-serif italic text-[#D4AF37]">
