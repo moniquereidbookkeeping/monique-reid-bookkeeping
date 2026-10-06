@@ -55,7 +55,7 @@ jobs:
             --base main \
             --head "$BRANCH" \
             --title "New blog article for review — $(date '+%Y-%m-%d')" \
-            --body "An AI-drafted article is ready for review. Please read it for accuracy (especially any tax, payroll or accounting details) before merging. Merging publishes it to the live site."
+            --body "An AI-drafted article is ready for review. Please read it for accuracy (especially any tax, payroll or accounting details) before merging. It is scheduled for the publishedDate in the diff (the next free Tuesday) and goes live on that date after merging."
 
   notify-failure:
     name: Notify on failure

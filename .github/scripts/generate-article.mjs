@@ -101,6 +101,13 @@ async function main() {
   }
 
   const today = new Date().toISOString().split('T')[0];
+  // Schedule the draft for the first free Tuesday after today (one article per Tuesday). It stays hidden on the
+  // site until that date, so merging the pull request early is safe.
+  const takenDates = new Set([...existingContent.matchAll(/["']?publishedDate["']?:\s*["'](\d{4}-\d{2}-\d{2})["']/g)].map((m) => m[1]));
+  const slot = new Date(`${today}T00:00:00Z`);
+  do slot.setUTCDate(slot.getUTCDate() + 1); while (slot.getUTCDay() !== 2);
+  while (takenDates.has(slot.toISOString().slice(0, 10))) slot.setUTCDate(slot.getUTCDate() + 7);
+  const publishDate = slot.toISOString().slice(0, 10);
   const coverImg = COVER_IMAGES[Math.floor(Math.random() * COVER_IMAGES.length)];
 
   const newPost = {
@@ -112,7 +119,7 @@ async function main() {
     excerpt: article.excerpt || '',
     category: topic.category,
     tags: article.tags || ['QuickBooks', 'MedSpa', 'Bookkeeping'],
-    publishedDate: today,
+    publishedDate: publishDate,
     readingTime: article.readingTime || 6,
     coverImage: coverImg.url,
     coverAlt: coverImg.alt,
@@ -131,7 +138,7 @@ async function main() {
   const updatedContent = `${existingContent.slice(0, arrayEnd)}  ${newPostTs},\n${existingContent.slice(arrayEnd)}`;
 
   writeFileSync(BLOG_POSTS_PATH, updatedContent, 'utf8');
-  console.log(`✅ Article "${newPost.title}" written as ${nextId} (${today})`);
+  console.log(`✅ Article "${newPost.title}" written as ${nextId}, scheduled for ${publishDate}`);
 }
 
 // ── Gemini call ──────────────────────────────────────────────────────────────

@@ -6,6 +6,10 @@ import { defineConfig } from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    define: {
+      // One build date for the browser and prerender bundles: articles dated after it stay hidden.
+      __BUILD_DATE__: JSON.stringify(process.env.BUILD_DATE || new Date().toISOString().slice(0, 10)),
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
