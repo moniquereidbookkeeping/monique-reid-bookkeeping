@@ -77,7 +77,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                   <p className="text-sm text-[#4A5568] text-center leading-snug">Intuit Certified QuickBooks ProAdvisor</p>
                   <p className="text-sm text-[#4A5568] text-center leading-snug">QuickBooks Online Level 2</p>
                   <p className="text-sm text-[#4A5568] text-center leading-snug">QuickBooks Payroll Certified</p>
-                  <p className="text-sm text-[#4A5568] text-center leading-snug">Bachelor of Business Administration</p>
                 </div>
               </div>
             </div>
@@ -100,15 +99,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               <p>
                 My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can actually use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
               </p>
-            </div>
-
-            {/* Founder-Led Bookkeeping */}
-            <div className="p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20 shadow-lg">
-              <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3">✦ Founder-Led Bookkeeping</p>
-              <p className="text-xl font-serif font-bold text-white leading-snug mb-2">
-                One bookkeeper, start to finish.</p>
-              <p className="text-base text-[#E2E8F0] leading-relaxed">
-                You work directly with me, from setup to month-end. Your questions go straight to the person who knows your books, with no handoffs.</p>
             </div>
 
             {/* Core Values / Commitments */}
