@@ -50,6 +50,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                       src="/assets/badges/gold-badge.svg"
                       alt="Intuit Certified QuickBooks ProAdvisor"
                       className="w-full h-full object-contain filter drop-shadow-md"
+                      loading="lazy"
                     />
                   </div>
 
@@ -59,6 +60,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                       src="/assets/badges/level2-badge.svg"
                       alt="QuickBooks Online Level 2 Certified"
                       className="w-full h-full object-contain filter drop-shadow-md"
+                      loading="lazy"
                     />
                   </div>
 
@@ -68,6 +70,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                       src="/assets/badges/payroll-badge.svg"
                       alt="QuickBooks Payroll Certified"
                       className="w-full h-full object-contain filter drop-shadow-md"
+                      loading="lazy"
                     />
                   </div>
                 </div>

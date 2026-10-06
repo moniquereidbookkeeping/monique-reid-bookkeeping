@@ -45,7 +45,7 @@ export const Logo: React.FC<LogoProps> = ({
           height={265}
           style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
           className="object-contain block transition-transform duration-300 group-hover:scale-[1.02]"
-          loading="eager"
+          loading="lazy"
           draggable={false}
         />
       ) : (
