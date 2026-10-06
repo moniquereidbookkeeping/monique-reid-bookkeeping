@@ -21,8 +21,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.3fr_1.2fr_0.8fr_1.5fr] gap-y-10 gap-x-12 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Logo */}
           <div className="space-y-4">
-            <Logo variant="light" size="lg" className="-ml-2 -mt-3 -mb-3" onClick={() => onNavigate('home')} />
-            <p className="text-sm text-[#E2E8F0] max-w-[17rem] leading-relaxed font-light pr-2">
+            <Logo variant="light" size="footer" className="-ml-2 -mt-3 -mb-3" onClick={() => onNavigate('home')} />
+            <p className="text-sm text-[#E2E8F0] max-w-[15rem] leading-relaxed font-light pr-2">
               Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
             </p>
             <p className="text-sm font-serif italic text-[#D4AF37]">

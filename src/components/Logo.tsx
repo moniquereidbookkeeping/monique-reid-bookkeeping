@@ -2,7 +2,7 @@ import React from 'react';
 
 interface LogoProps {
   variant?: 'dark' | 'light';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'footer';
   showSubtitle?: boolean;
   className?: string;
   onClick?: () => void;
@@ -18,8 +18,8 @@ export const Logo: React.FC<LogoProps> = ({
   const isFooter = variant === 'light'; // footer sits on dark navy bg
 
   // Header: tall enough to read clearly at a glance
-  const logoHeight = size === 'sm' ? 70 : size === 'lg' ? 110 : 56;
-  const logoMaxWidth = size === 'sm' ? 220 : size === 'lg' ? 380 : 220;
+  const logoHeight = size === 'sm' ? 70 : size === 'lg' ? 110 : size === 'footer' ? 90 : 56;
+  const logoMaxWidth = size === 'sm' ? 220 : size === 'lg' ? 380 : size === 'footer' ? 260 : 220;
 
   return (
     <div
