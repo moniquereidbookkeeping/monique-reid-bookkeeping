@@ -12,6 +12,7 @@ export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post' | 'notfound'>, str
   privacy: '/privacy',
   booked: '/booked',
   blog: '/blog',
+  faq: '/faq',
 };
 
 export const SITE_ORIGIN = 'https://moniquereidbookkeeping.com';
@@ -55,9 +56,9 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
       'Monthly bookkeeping, QuickBooks cleanup and financial reporting for MedSpas, aesthetic clinics, IV hydration and wellness practices. Flat-rate plans from $497/mo.',
   },
   dashboard: {
-    title: 'MedSpa Financial Dashboard Example | Monique Reid Bookkeeping',
+    title: 'Example Practice Financial Dashboard | Monique Reid Bookkeeping',
     description:
-      'See how properly categorized books separate treatment COGS, provider compensation and net operating surplus for an aesthetic practice.',
+      'See an interactive example of how well-organized books separate treatment costs, provider compensation and operating expenses for an aesthetic or wellness practice.',
   },
   about: {
     title: 'About Monique Reid | QuickBooks ProAdvisor for MedSpas',
@@ -65,14 +66,19 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
       'Meet Monique Reid, a QuickBooks ProAdvisor focused on bookkeeping and financial reporting for MedSpas, aesthetic clinics and wellness practices nationwide.',
   },
   calculator: {
-    title: 'Treatment Margin Calculator for MedSpas | Monique Reid Bookkeeping',
+    title: 'Treatment Profit Calculator for MedSpas | Monique Reid Bookkeeping',
     description:
-      'Model unit economics for neurotoxins, fillers, IV drips and laser sessions with real provider compensation and financing fees.',
+      'Estimate what a single treatment contributes after product cost, provider pay and payment fees.',
   },
   contact: {
     title: 'Book a Free 20-Minute Clarity Call | Monique Reid Bookkeeping',
     description:
       'Book a complimentary 20-minute call to talk through your practice books and the clearest path to organized financial records.',
+  },
+  faq: {
+    title: 'MedSpa Bookkeeping FAQ | Monique Reid Bookkeeping',
+    description:
+      'Answers to common questions about QuickBooks cleanup, monthly bookkeeping, pricing, patient financing, memberships and working with a bookkeeper for your MedSpa or aesthetic practice.',
   },
   terms: {
     title: 'Terms of Service | Monique Reid Bookkeeping',

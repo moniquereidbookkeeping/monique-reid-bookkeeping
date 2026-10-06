@@ -100,18 +100,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 </a>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    onNavigate('home');
-                    setTimeout(() => {
-                      const el = document.getElementById('medspa-bookkeeping-faq');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                  }}
-                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer"
-                >
+                <a href={pathFor('faq')} onClick={(e) => { e.preventDefault(); onNavigate('faq'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Bookkeeping FAQ
-                </button>
+                </a>
               </li>
             </ul>
           </div>

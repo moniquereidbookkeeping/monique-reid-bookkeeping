@@ -21,6 +21,8 @@ interface PricingSectionProps {
   onBookCall: () => void;
 }
 
+import { cleanupTiers } from '../data/cleanupPricing';
+
 const monthlyPlans = [
   {
     id: 'entry',
@@ -157,6 +159,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           </p>
         </div>
 
+        <p className="text-center text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-6">Monthly bookkeeping plans</p>
+
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-7 max-w-6xl mx-auto mb-16">
           {monthlyPlans.map((plan) => {
@@ -285,6 +289,29 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
             );
           })}
         </div>
+
+        {/* Cleanup pricing band */}
+        <div className="mb-16 max-w-6xl mx-auto rounded-2xl bg-white border border-[#E2E8F0] shadow-sm p-6 sm:p-8">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Cleanup pricing</p>
+            <h3 className="mt-2 text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Fixed fee, set by how far behind your books are</h3>
+            <p className="mt-2 text-base text-[#4A5568] leading-relaxed">Every cleanup starts with a complimentary review to confirm scope. The price is fixed once scope is agreed, with no hourly surprises.</p>
+          </div>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {cleanupTiers.map((tier) => (
+              <div key={tier.label} className={`rounded-xl border p-5 flex flex-col ${tier.badge ? 'border-[#D4AF37] bg-[#FAF8F5]' : 'border-[#E2E8F0] bg-[#FDFCFA]'}`}>
+                <div className="min-h-[3.5rem]">
+                  <p className="text-sm font-bold uppercase tracking-wider text-[#4A5568]">{tier.label}</p>
+                  {tier.badge && <span className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#1A2E40] text-[#D4AF37]">{tier.badge}</span>}
+                </div>
+                <p className="mt-2 text-3xl font-serif font-bold text-[#1A2E40]">{tier.price}</p>
+                <p className="mt-2 text-base text-[#4A5568] leading-relaxed">{tier.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-center text-base text-[#4A5568]">Once the backlog is cleared, monthly bookkeeping keeps your books current.</p>
+        </div>
+
 
         {/* What Determines Your Fee — dark navy treatment */}
         <div className="max-w-6xl mx-auto mb-16">

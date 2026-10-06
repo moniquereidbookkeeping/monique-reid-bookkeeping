@@ -14,6 +14,7 @@ interface FAQSectionProps {
   onBookCall: () => void;
   featuredLimit?: number;
   showCta?: boolean;
+  onViewAll?: () => void;
 }
 
 interface FAQItem {
@@ -25,7 +26,7 @@ interface FAQItem {
   takeaways: string[];
 }
 
-export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimit, showCta = true }) => {
+export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimit, showCta = true, onViewAll }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showAll, setShowAll] = useState<boolean>(!featuredLimit);
@@ -530,7 +531,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                   {!showAll ? (
                     <button
                       type="button"
-                      onClick={() => setShowAll(true)}
+                      onClick={() => (onViewAll ? onViewAll() : setShowAll(true))}
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#D4AF37]/50 text-[#1A2E40] hover:bg-[#FAF8F5] text-base font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
                     >
                       <span>View All {faqs.length} Frequently Asked Questions</span>

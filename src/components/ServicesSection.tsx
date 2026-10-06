@@ -19,7 +19,6 @@ interface ServicesSectionProps {
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) => {
   const [activeTab, setActiveTab] = useState<string>('all');
-  type PricingTier = { label: string; price: string; desc: string; badge?: string; color: string };
 
   const services = [
     {
@@ -40,12 +39,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         'Clear separation and documentation of owner, personal, and intercompany transactions',
       ],
       startingPrice: 'From $597',
-      pricingTiers: [
-        { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#8A6A00' },
-        { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Typical scope', color: '#8A6A00' },
-        { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full documentation trail.', color: '#8A6A00' },
-        { label: '13+ months / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Longer histories and multi-entity engagements are quoted after assessment.', color: '#8A6A00' },
-      ],
       noticeTitle: 'Fixed-fee pricing',
       notice: 'All cleanup projects include a complimentary preliminary review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',
     },
@@ -299,11 +292,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                       <ArrowRight className="w-4 h-4" />
                     </button>
 
-                    {svc.startingPrice && (
-                      <span className="text-sm font-bold text-[#8A6A00]">
-                        {svc.startingPrice}
-                      </span>
-                    )}
                   </div>
                 </div>
               </div>
@@ -311,28 +299,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
           })}
         </div>
 
-
-        {/* Cleanup pricing band */}
-        <div className="mt-8 max-w-6xl mx-auto rounded-2xl bg-white border border-[#E2E8F0] shadow-sm p-6 sm:p-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Cleanup pricing</p>
-            <h3 className="mt-2 text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Fixed fee, set by how far behind your books are</h3>
-            <p className="mt-2 text-base text-[#4A5568] leading-relaxed">Every cleanup starts with a complimentary review to confirm scope. The price is fixed once scope is agreed, with no hourly surprises.</p>
-          </div>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {(services[0] as { pricingTiers: PricingTier[] }).pricingTiers.map((tier) => (
-              <div key={tier.label} className={`rounded-xl border p-5 flex flex-col ${tier.badge ? 'border-[#D4AF37] bg-[#FAF8F5]' : 'border-[#E2E8F0] bg-[#FDFCFA]'}`}>
-                <div className="min-h-[3.5rem]">
-                  <p className="text-sm font-bold uppercase tracking-wider text-[#4A5568]">{tier.label}</p>
-                  {tier.badge && <span className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#1A2E40] text-[#D4AF37]">{tier.badge}</span>}
-                </div>
-                <p className="mt-2 text-3xl font-serif font-bold text-[#1A2E40]">{tier.price}</p>
-                <p className="mt-2 text-base text-[#4A5568] leading-relaxed">{tier.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-5 text-center text-base text-[#4A5568]">Once the backlog is cleared, monthly bookkeeping keeps your books current.</p>
-        </div>
 
         {/* Practice software and POS integration */}
         <section
