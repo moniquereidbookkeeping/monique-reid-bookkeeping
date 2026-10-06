@@ -52,7 +52,7 @@ const scenarios: PracticeScenario[] = [
   },
   {
     id: 'established',
-    name: 'Growing Multi-Provider MedSpa',
+    name: 'Growing Multi-Provider Practice',
     stage: '3–5 providers plus estheticians',
     monthlyRevenue: 92500,
     injectables: 41625,

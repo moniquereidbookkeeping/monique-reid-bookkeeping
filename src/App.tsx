@@ -225,7 +225,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Interactive Example
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Example MedSpa Financial Dashboard
+                  See Where Your Practice&apos;s Revenue Goes
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
                   See how well-organized books separate treatment costs, provider compensation and operating expenses, and show what is left. All figures are examples.
