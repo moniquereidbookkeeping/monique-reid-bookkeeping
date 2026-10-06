@@ -6,25 +6,28 @@ import { dirname, join } from 'path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://moniquereidbookkeeping.com';
-const today = new Date().toISOString().slice(0, 10);
 
 const src = readFileSync(join(root, 'src/data/blogPosts.ts'), 'utf8');
 const posts = [...src.matchAll(/["']?slug["']?:\s*["']([^"']+)["'][\s\S]*?["']?publishedDate["']?:\s*["'](\d{4}-\d{2}-\d{2})["']/g)]
   .map((m) => ({ slug: m[1], date: m[2] }));
 
+// Only blog posts carry a <lastmod>: their publish date is real. Stamping every page with the build date
+// on each deploy tells search engines everything changed when it did not, so they learn to ignore it.
+// (Google ignores <changefreq> and <priority>, so they are left out.)
+const newest = posts.map((p) => p.date).sort().pop();
 const pages = [
-  { path: '/', freq: 'monthly', priority: '1.0' },
-  { path: '/services', freq: 'monthly', priority: '0.8' },
-  { path: '/about', freq: 'monthly', priority: '0.7' },
-  { path: '/contact', freq: 'monthly', priority: '0.7' },
-  { path: '/pricing', freq: 'monthly', priority: '0.8' },
-  { path: '/faq', freq: 'monthly', priority: '0.8' },
-  { path: '/dashboard', freq: 'monthly', priority: '0.6' },
-  { path: '/calculator', freq: 'monthly', priority: '0.6' },
-  { path: '/blog', freq: 'weekly', priority: '0.8' },
-  ...posts.map((p) => ({ path: `/blog/${p.slug}`, freq: 'monthly', priority: '0.7', lastmod: p.date })),
-  { path: '/terms', freq: 'yearly', priority: '0.3' },
-  { path: '/privacy', freq: 'yearly', priority: '0.3' },
+  { path: '/' },
+  { path: '/services' },
+  { path: '/pricing' },
+  { path: '/about' },
+  { path: '/faq' },
+  { path: '/contact' },
+  { path: '/blog', lastmod: newest },
+  ...posts.map((p) => ({ path: `/blog/${p.slug}`, lastmod: p.date })),
+  { path: '/calculator' },
+  { path: '/dashboard' },
+  { path: '/terms' },
+  { path: '/privacy' },
 ];
 
 const xml =
@@ -32,8 +35,9 @@ const xml =
   pages
     .map(
       (p) =>
-        `  <url>\n    <loc>${ORIGIN}${p.path === '/' ? '' : p.path}${p.path === '/' ? '/' : ''}</loc>\n` +
-        `    <lastmod>${p.lastmod ?? today}</lastmod>\n    <changefreq>${p.freq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${ORIGIN}${p.path}</loc>\n` +
+        (p.lastmod ? `    <lastmod>${p.lastmod}</lastmod>\n` : '') +
+        '  </url>',
     )
     .join('\n') +
   '\n</urlset>\n';

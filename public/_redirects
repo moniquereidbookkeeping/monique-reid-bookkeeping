@@ -1,0 +1,11 @@
+# Permanent redirects for article addresses that were briefly live and then archived
+# (src/data/archivedBlogPosts.ts), so any saved link or early index entry lands on the closest live page.
+# If one of these articles is brought back, delete its line here first: a redirect wins over the page.
+/blog/iv-hydration-business-bookkeeping                  /services                                          301
+/blog/medical-weight-loss-practice-bookkeeping           /services                                          301
+/blog/quickbooks-cleanup-for-medspas                     /services                                          301
+/blog/reconcile-boulevard-vagaro-quickbooks              /services                                          301
+/blog/medspa-membership-revenue-quickbooks               /faq                                               301
+/blog/track-neurotoxin-filler-costs-quickbooks           /blog/medspa-chart-of-accounts-quickbooks          301
+/blog/record-cherry-carecredit-affirm-financing-quickbooks /faq                                             301
+

@@ -123,8 +123,6 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
   useEffect(() => {
     if (!post) return;
 
-    const origin = 'https://moniquereidbookkeeping.com';
-    const url = `${origin}/blog/${post.slug}`;
     const restore: Array<() => void> = [];
 
     // Set a <meta> value and remember how to put the old one back.
@@ -157,27 +155,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
     setMeta('meta[name="twitter:title"]', named('twitter:title'), post.metaTitle);
     setMeta('meta[name="twitter:description"]', named('twitter:description'), post.metaDescription);
 
-    // Article structured data for this post.
-    const ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.id = 'post-jsonld';
-    ld.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: post.title,
-      description: post.metaDescription,
-      datePublished: post.publishedDate,
-      dateModified: post.publishedDate,
-      mainEntityOfPage: url,
-      image: `${origin}/og-image.png`,
-      author: { '@id': `${origin}/#person` },
-      publisher: { '@id': `${origin}/#organization` },
-    });
-    document.head.appendChild(ld);
-
     return () => {
       restore.forEach((fn) => fn());
-      ld.remove();
     };
   }, [post]);
 
@@ -274,6 +253,9 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               <img
                 src="/monique-reid-headshot.webp"
                 alt="Monique Reid"
+                width={48}
+                height={48}
+                loading="lazy"
                 className="w-full h-full object-cover object-top"
               />
             </div>

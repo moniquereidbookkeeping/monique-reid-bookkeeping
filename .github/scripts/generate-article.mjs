@@ -17,19 +17,14 @@ const BLOG_POSTS_PATH = join(__dirname, '../../src/data/blogPosts.ts');
 
 // ── Topic pool ──────────────────────────────────────────────────────────────
 // Pick a topic not already covered. The script reads existing slugs to avoid
-// repeating a topic.
+// repeating a topic. Do not add a topic a live article already answers (for example a second
+// chart-of-accounts or month-end-close guide): two pages chasing the same search compete with each other.
 const TOPIC_POOL = [
   {
     slug: 'medspa-payroll-bookkeeping-quickbooks',
     title: 'MedSpa Payroll & Provider Compensation: How to Set It Up Correctly in QuickBooks',
     category: 'Payroll & Compensation',
     hint: 'Cover 1099 vs W2 providers, commission-based pay, QuickBooks payroll setup for MedSpas, tip tracking through Boulevard/Vagaro, and common payroll mistakes that cause IRS issues.',
-  },
-  {
-    slug: 'chart-of-accounts-medspa-aesthetic-practice',
-    title: 'The Right Chart of Accounts for a MedSpa or Aesthetic Practice (With Examples)',
-    category: 'QuickBooks & Cleanup',
-    hint: 'Explain why generic QuickBooks chart of accounts fails MedSpas. Give a recommended COA structure with specific accounts for injectables, laser, retail, memberships, clinical supplies, and provider payroll. Include real account names.',
   },
   {
     slug: 'boulevard-payout-reconciliation-guide',
@@ -62,12 +57,6 @@ const TOPIC_POOL = [
     hint: 'Explain the net-funding vs gross revenue issue with patient financing. How to record the discount fee, why some practices accidentally double-count income, correct QuickBooks journal entries for each provider.',
   },
   {
-    slug: 'monthly-close-process-medspa-bookkeeping',
-    title: 'The Monthly Close Process Every MedSpa Should Follow (But Most Skip)',
-    category: 'Monthly Bookkeeping',
-    hint: 'Lay out a step-by-step monthly close: bank reconciliation, POS payout reconciliation, credit card reconciliation, P&L review, balance sheet check, CPA-ready reports. Include a checklist table.',
-  },
-  {
     slug: 'vagaro-quickbooks-integration-bookkeeping',
     title: 'Vagaro + QuickBooks Integration: What It Actually Does and What You Still Have to Fix',
     category: 'Platform Reconciliation',
@@ -86,10 +75,10 @@ const TOPIC_POOL = [
     hint: 'A practical guide for new MedSpa owners: QBO account setup, entity type implications, opening balance sheet, connecting your POS, setting up bank rules, what to do before you see your first patient.',
   },
   {
-    slug: 'medspa-profit-margins-benchmarks-2025',
-    title: 'MedSpa Profit Margins: What the Numbers Should Look Like and What to Do When They Don\'t',
+    slug: 'medspa-profit-margins-benchmarks',
+    title: 'MedSpa Profit Margins: Which Numbers to Track in QuickBooks and What to Do When They Slip',
     category: 'Financial Performance',
-    hint: 'Share realistic benchmarks: gross margin by service line, payroll as % of revenue, COGS targets, owner take-home expectations. Explain how to use QuickBooks P&L to identify where margin is leaking.',
+    hint: 'Explain which margins to calculate (gross margin by service line, provider pay as a share of revenue, product cost as a share of revenue) and how to read them in the QuickBooks P&L to find where margin is leaking. Do not quote industry benchmark percentages.',
   },
 ];
 
@@ -114,8 +103,9 @@ async function main() {
 
   // Read existing posts to find next ID and avoid duplicate slugs
   const existingContent = readFileSync(BLOG_POSTS_PATH, 'utf8');
-  const existingSlugs = [...existingContent.matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]);
-  const existingIds = [...existingContent.matchAll(/id:\s*'post-(\d+)'/g)].map((m) => parseInt(m[1], 10));
+  // Keys may be quoted ("slug": "...") or bare (slug: '...'); match both.
+  const existingSlugs = [...existingContent.matchAll(/["']?slug["']?:\s*["']([^"']+)["']/g)].map((m) => m[1]);
+  const existingIds = [...existingContent.matchAll(/["']?id["']?:\s*["']post-(\d+)["']/g)].map((m) => parseInt(m[1], 10));
   const nextNum = (Math.max(0, ...existingIds) + 1).toString().padStart(3, '0');
   const nextId = `post-${nextNum}`;
 
@@ -171,16 +161,15 @@ async function main() {
     content: article.content,
   };
 
-  // Append to blogPosts.ts — insert before the closing `];`
-  const newPostTs = JSON.stringify(newPost, null, 2)
-    .replace(/"([^"]+)":/g, '$1:')         // remove quotes from keys
-    .replace(/"/g, "'")                     // double → single quotes
-    .replace(/\\'/g, "\\'");                // preserve escaped single quotes
-
-  const updatedContent = existingContent.replace(
-    /(\];\s*)$/,
-    `,\n  ${newPostTs}\n];\n`,
-  );
+  // Append to the blogPosts array: insert before the `];` that closes it (helper functions follow it in the
+  // file, so the end of the file is not the end of the array). JSON keeps apostrophes in the text safe.
+  const arrayEnd = existingContent.lastIndexOf('];', existingContent.indexOf('export const getBlogPostBySlug'));
+  if (arrayEnd === -1 || !existingContent.includes('export const getBlogPostBySlug')) {
+    console.error('ERROR: could not find the end of the blogPosts array in src/data/blogPosts.ts');
+    process.exit(1);
+  }
+  const newPostTs = JSON.stringify(newPost, null, 2).replace(/\n/g, '\n  ');
+  const updatedContent = `${existingContent.slice(0, arrayEnd)}  ${newPostTs},\n${existingContent.slice(arrayEnd)}`;
 
   writeFileSync(BLOG_POSTS_PATH, updatedContent, 'utf8');
   console.log(`✅ Article "${newPost.title}" written as ${nextId} (${today})`);
@@ -224,13 +213,13 @@ async function callGemini(apiKey, prompt) {
 
 // ── Prompt ───────────────────────────────────────────────────────────────────
 function buildPrompt(topic) {
-  return `You are Monique Reid, a Certified QuickBooks ProAdvisor who specializes exclusively in MedSpa, aesthetic, and wellness practices. Write a complete, SEO-optimized blog article for your bookkeeping practice website.
+  return `You are Monique Reid, an Intuit Certified QuickBooks ProAdvisor who specializes exclusively in MedSpa, aesthetic, and wellness practices. Write a complete, SEO-optimized blog article for your bookkeeping practice website.
 
 ARTICLE TOPIC: ${topic.title}
 WRITING DIRECTION: ${topic.hint}
 
 REQUIREMENTS:
-- Voice: Direct, expert, no-nonsense. Write like a specialist, not a generalist. Use real QuickBooks terminology, real platform names (Boulevard, Vagaro, Jane App, Mindbody, Zenoti, etc.), and real numbers/benchmarks where possible.
+- Voice: Direct, expert, no-nonsense. Write like a specialist, not a generalist. Use real QuickBooks terminology, real platform names (Boulevard, Vagaro, Jane App, Mindbody, Zenoti, etc.). Never invent statistics, benchmarks, dollar figures or study results: use only clearly labelled illustrative examples ("for example, if a practice...").
 - Length: 900–1,400 words of body content (not counting title/meta fields)
 - Target reader: MedSpa owner or aesthetic practice manager who handles their own books or just hired a bookkeeper
 - SEO: Naturally include the topic's main keyword phrase in the intro and at least one subheading. No keyword stuffing.

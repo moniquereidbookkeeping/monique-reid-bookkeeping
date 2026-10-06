@@ -50,7 +50,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
   // Per-page canonical URL, title and description (blog posts set their own title/description).
   useEffect(() => {
     const path = pathFor(currentPage, currentBlogSlug);
-    const url = SITE_ORIGIN + (path === '/' ? '' : path);
+    const url = SITE_ORIGIN + path;
     const setTag = (selector: string, create: () => HTMLElement, attr: string, value: string) => {
       let el = document.head.querySelector(selector) as HTMLElement | null;
       if (!el) {
@@ -160,7 +160,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
             <AboutSection onBookCall={handleBookCall} />
 
-            <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} onViewAll={() => handleNavigate('faq')} />
+            <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} includeSchema={false} onViewAll={() => handleNavigate('faq')} />
 
             {/* Final call-to-action */}
             <section className="py-20 bg-[#1A2E40] text-white border-t border-[#D4AF37]/30 text-center relative overflow-hidden">

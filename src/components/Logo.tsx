@@ -41,6 +41,8 @@ export const Logo: React.FC<LogoProps> = ({
         <img
           src="/mr-logo-footer.png"
           alt="Monique Reid Bookkeeping"
+          width={720}
+          height={265}
           style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
           className="object-contain block transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
@@ -51,6 +53,8 @@ export const Logo: React.FC<LogoProps> = ({
         <img
           src="/mr-logo-full.png"
           alt="Monique Reid Bookkeeping"
+          width={720}
+          height={265}
           style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
           className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
