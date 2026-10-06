@@ -283,13 +283,9 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <li><strong>QuickBooks Online / Intuit</strong> — bookkeeping and accounting platform</li>
             <li><strong>Calendly</strong> — scheduling</li>
             <li><strong>Zoom</strong> — video consultations</li>
-            <li><strong>Google Workspace</strong> — business email, calendar, documents, and collaboration</li>
-            <li><strong>Payment processors</strong> — processing payments once you become a client</li>
+            <li><strong>Stripe</strong> and other payment processors — payment processing once you become a client</li>
             <li><strong>Google Analytics</strong> and <strong>Microsoft Clarity</strong> — understanding how visitors use our website (only if you accept cookies)</li>
-            <li><strong>Cloudflare</strong> — website hosting, security and spam protection</li>
-            <li><strong>Resend</strong> — email delivery</li>
-            <li><strong>Google Sheets and Google Gemini</strong> — storing your Health Check details and helping prepare your Health Check plan</li>
-            <li><strong>Other providers</strong> — other tools reasonably necessary to operate the business</li>
+            <li><strong>Other providers</strong> — business email and documents, website hosting and security, spam protection, email delivery, secure data storage, and automated tools that help prepare your Health Check plan, as reasonably necessary to operate the business</li>
           </ul>
           <p className="text-sm leading-relaxed">
             These providers may process information on our behalf according to their own terms and privacy policies.
@@ -412,7 +408,6 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
                 'Appropriate device security',
                 'Restricted access to client information',
                 'Secure cloud services',
-                'Regular review of access permissions',
                 'Secure handling and disposal practices',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">

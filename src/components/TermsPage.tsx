@@ -75,7 +75,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             <span>1. About Monique Reid Bookkeeping</span>
           </h3>
           <p className="text-sm leading-relaxed">
-            Monique Reid Bookkeeping is an independent bookkeeping and financial reporting practice operated by Monique Reid, an Intuit Certified QuickBooks Online ProAdvisor.
+            Monique Reid Bookkeeping is an independent bookkeeping and financial reporting practice operated by Monique Reid, an Intuit QuickBooks Online ProAdvisor.
           </p>
           <p className="text-sm leading-relaxed">
             We specialize in bookkeeping and financial organization for MedSpas, aesthetic clinics, IV hydration/wellness practices, medical weight-loss practices, and related businesses.
