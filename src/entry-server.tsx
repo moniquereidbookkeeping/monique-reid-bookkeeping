@@ -26,6 +26,7 @@ const CRUMB: Partial<Record<keyof typeof PAGE_PATHS, string>> = {
   blog: 'Blog',
   dashboard: 'Example Dashboard',
   calculator: 'Treatment Profit Calculator',
+  'south-florida': 'South Florida',
 };
 
 const breadcrumb = (items: Array<{ name: string; url: string }>) => ({
@@ -69,6 +70,24 @@ export function renderRoute(path: string): PrerenderRoute {
         publisher: { '@id': `${SITE_ORIGIN}/#organization` },
       },
       breadcrumb([home, { name: 'Blog', url: `${SITE_ORIGIN}/blog` }, { name: post.title, url: canonical }]),
+    );
+  } else if (key === 'south-florida') {
+    const cities = ['Fort Lauderdale', 'Miami', 'Boca Raton', 'West Palm Beach', 'Hollywood', 'Coral Springs', 'Delray Beach', 'Coral Gables'];
+    jsonLd.push(
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'MedSpa Bookkeeping in Fort Lauderdale & South Florida',
+        serviceType: 'MedSpa Bookkeeping',
+        url: canonical,
+        description: meta.description,
+        provider: { '@id': `${SITE_ORIGIN}/#organization` },
+        areaServed: [
+          ...cities.map((name) => ({ '@type': 'City', name: `${name}, FL` })),
+          ...['Broward County', 'Miami-Dade County', 'Palm Beach County'].map((name) => ({ '@type': 'AdministrativeArea', name: `${name}, FL` })),
+        ],
+      },
+      breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
     );
   } else if (key && CRUMB[key]) {
     jsonLd.push(breadcrumb([home, { name: CRUMB[key]!, url: canonical }]));

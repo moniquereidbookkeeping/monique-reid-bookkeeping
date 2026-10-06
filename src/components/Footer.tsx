@@ -72,6 +72,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   Historical Records &amp; Reporting
                 </a>
               </li>
+              <li>
+                <a href={pathFor('south-florida')} onClick={(e) => { e.preventDefault(); onNavigate('south-florida'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
+                  South Florida MedSpa Bookkeeping
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -145,7 +151,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#E2E8F0]/70">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
-            <p>© 2026 Monique Reid Bookkeeping • Fort Lauderdale, FL • All rights reserved.</p>
+            <p>
+              © 2026 Monique Reid Bookkeeping •{' '}
+              <a href={pathFor('south-florida')} onClick={(e) => { e.preventDefault(); onNavigate('south-florida'); }}
+                className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer">
+                Fort Lauderdale, FL
+              </a>{' '}
+              • All rights reserved.
+            </p>
             <span className="hidden sm:inline text-white/30">·</span>
             <div className="flex items-center gap-3">
               <a href={pathFor('terms')} onClick={(e) => { e.preventDefault(); onNavigate('terms'); }}

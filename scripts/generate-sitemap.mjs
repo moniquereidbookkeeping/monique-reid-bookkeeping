@@ -22,6 +22,7 @@ const pages = [
   { path: '/about' },
   { path: '/faq' },
   { path: '/contact' },
+  { path: '/medspa-bookkeeping-south-florida' },
   { path: '/blog', lastmod: newest },
   ...posts.map((p) => ({ path: `/blog/${p.slug}`, lastmod: p.date })),
   { path: '/calculator' },

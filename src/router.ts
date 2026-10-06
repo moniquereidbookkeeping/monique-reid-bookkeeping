@@ -14,6 +14,7 @@ export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post' | 'notfound'>, str
   blog: '/blog',
   faq: '/faq',
   pricing: '/pricing',
+  'south-florida': '/medspa-bookkeeping-south-florida',
 };
 
 export const SITE_ORIGIN = 'https://moniquereidbookkeeping.com';
@@ -41,7 +42,7 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   home: {
     title: 'MedSpa Bookkeeper | Monique Reid Bookkeeping',
     description:
-      'Specialized QuickBooks bookkeeping for MedSpas, aesthetic clinics and IV hydration practices. Clean books and clear P&Ls from an Intuit Certified QuickBooks ProAdvisor.',
+      'QuickBooks bookkeeping for MedSpas, aesthetic clinics and IV hydration practices. Clean books and clear P&Ls from an Intuit Certified QuickBooks ProAdvisor.',
   },
   notfound: {
     title: 'Page Not Found | Monique Reid Bookkeeping',
@@ -80,6 +81,11 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
     title: 'MedSpa Bookkeeping Pricing | Monique Reid Bookkeeping',
     description:
       'Flat monthly bookkeeping plans from $497 and fixed-fee QuickBooks cleanup from $597 for MedSpas, aesthetic clinics, IV hydration and wellness practices.',
+  },
+  'south-florida': {
+    title: 'MedSpa Bookkeeper in Fort Lauderdale & South Florida',
+    description:
+      'QuickBooks bookkeeping for MedSpas and aesthetic clinics in Fort Lauderdale, Miami, Boca Raton and West Palm Beach from a local Intuit Certified ProAdvisor.',
   },
   faq: {
     title: 'MedSpa Bookkeeping FAQ | Monique Reid Bookkeeping',

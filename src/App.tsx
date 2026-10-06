@@ -29,6 +29,7 @@ import { BlogPostPage } from './components/BlogPostPage';
 import { PricingSection } from './components/PricingSection';
 import { WhySpecializedSection } from './components/WhySpecializedSection';
 import { Footer } from './components/Footer';
+import { SouthFloridaPage } from './components/SouthFloridaPage';
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function App({ initialPath }: { initialPath?: string } = {}) {
@@ -259,7 +260,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Meet Monique Reid
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Specialized bookkeeping for MedSpa, aesthetic clinic, and wellness practice founders nationwide.
+                  Specialized bookkeeping for MedSpa, aesthetic clinic, and wellness practice founders, based in Fort Lauderdale and serving practices nationwide.
                 </p>
               </div>
             </div>
@@ -358,6 +359,10 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
           </>
         )}
 
+        {currentPage === 'south-florida' && (
+          <SouthFloridaPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
+        )}
+
         {currentPage === 'blog' && (
           <BlogListPage
             onReadPost={(slug) => go('blog-post', slug)}
@@ -370,6 +375,8 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             slug={currentBlogSlug}
             onBack={() => handleNavigate('blog')}
             onBookCall={handleBookCall}
+            onReadPost={(slug) => go('blog-post', slug)}
+            onNavigate={handleNavigate}
           />
         )}
 
