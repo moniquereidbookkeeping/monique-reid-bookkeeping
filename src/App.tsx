@@ -323,6 +323,19 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             </div>
 
             <PricingSection onBookCall={handleBookCall} />
+
+            <section className="py-12 bg-white border-b border-[#E2E8F0]">
+              <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Questions about pricing?</h2>
+                <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Read answers about what affects your fee, how cleanup works, and what happens on the free call.</p>
+                <button
+                  onClick={() => handleNavigate('faq')}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white font-bold text-base transition-all shadow-md cursor-pointer"
+                >
+                  <span>Read the FAQ</span>
+                </button>
+              </div>
+            </section>
           </>
         )}
 
