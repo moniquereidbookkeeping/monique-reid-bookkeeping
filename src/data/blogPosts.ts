@@ -398,8 +398,8 @@ export const blogPosts: BlogPost[] = [
       "publishedDate": "2026-10-06",
       "readingTime": 5,
     "featured": true,
-      "coverImage": "",
-      "coverAlt": "A calculator and financial papers on a desk, representing rebates and product cost",
+      "coverImage": "https://images.unsplash.com/photo-1625225233840-695456021cde?auto=format&fit=crop&w=1400&q=80",
+      "coverAlt": "A calculator beside a pen on printed financial papers, representing rebates and product cost",
       "content": [
           {
               "type": "intro",
