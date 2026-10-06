@@ -10,7 +10,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
     { title: 'MedSpas', desc: 'Full-service MedSpas offering injectables, energy devices, facials, and retail skincare', icon: Syringe },
     { title: 'Aesthetic Clinics', desc: 'Cosmetic-focused clinics led by MDs, NPs, PAs, and RNs delivering advanced aesthetic treatments', icon: Sparkles },
     { title: 'IV Hydration & Wellness Practices', desc: 'Concierge infusion lounges, mobile drip services, and integrated wellness studios', icon: HeartPulse },
-    { title: 'Medical Weight-Loss Practices', desc: 'GLP-1 prescription clinics, metabolic health programs, and peptide therapy providers', icon: Scale },
+    { title: 'Medical Weight-Loss Practices', desc: 'GLP-1 prescription clinics, metabolic health programs, and supervised weight-management practices', icon: Scale },
     { title: 'Related Self-Pay Healthcare', desc: 'Hormone replacement therapy, functional medicine, regenerative aesthetics, and concierge care', icon: Stethoscope },
   ];
 
@@ -117,14 +117,14 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                 ))}
               </ul>
 
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+              <div className="mt-8 pt-6 border-t border-white/10 space-y-4">
                 <div>
                   <p className="text-base text-[#E2E8F0]">Ready for clarity?</p>
-                  <p className="text-base font-bold text-[#D4AF37]">Free 20-minute Zoom call</p>
+                  <p className="text-base font-bold text-[#D4AF37]">A free 20-minute private Zoom call</p>
                 </div>
                 <button
                   onClick={onBookCall}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
+                  className="w-full justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
                   <span>Book Your Free 20-Min Clarity Call</span>

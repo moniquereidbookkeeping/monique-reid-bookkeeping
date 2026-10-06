@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Logo */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <Logo variant="light" size="lg" onClick={() => onNavigate('home')} />
             <p className="text-sm text-[#E2E8F0] max-w-sm leading-relaxed mt-2 font-light">
               Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           </div>
 
           {/* Col 4: Get In Touch */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-4 space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               GET IN TOUCH
             </h4>
@@ -135,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   className="hover:text-[#D4AF37] transition-colors flex items-center gap-2.5 text-[#E2E8F0]/90"
                 >
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span className="font-bold text-sm break-all">{CONTACT_EMAIL}</span>
+                  <span className="font-bold text-sm whitespace-nowrap">{CONTACT_EMAIL}</span>
                 </a>
               </li>
             </ul>

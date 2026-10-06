@@ -88,7 +88,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <p className="text-sm text-[#E2E8F0]">Direct Inquiries</p>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors"
+                className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors whitespace-nowrap"
               >
                 {CONTACT_EMAIL}
               </a>

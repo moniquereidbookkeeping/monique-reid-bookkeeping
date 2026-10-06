@@ -29,7 +29,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <button
             onClick={() => onNavigate('home')}
-            className="inline-flex items-center gap-1.5 text-xs text-[#D4AF37] hover:text-[#E5C765] transition-colors mb-2 group"
+            className="inline-flex items-center gap-1.5 text-sm text-[#D4AF37] hover:text-[#E5C765] transition-colors mb-2 group"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
             <span>Back to Home</span>
@@ -37,7 +37,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
             Terms of Service
           </h1>
-          <p className="text-xs sm:text-sm text-[#E2E8F0] font-light">
+          <p className="text-sm text-[#E2E8F0] font-light">
             Last Updated: October 2026 · Monique Reid Bookkeeping
           </p>
         </div>
@@ -59,9 +59,9 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 Welcome to Monique Reid Bookkeeping (&ldquo;Monique Reid Bookkeeping,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of our website and related online services.
               </p>
               <p className="text-sm leading-relaxed">
-                By accessing or using this website, requesting an initial consultation, or submitting information through our website, you agree to these Terms.
+                By accessing or using this website, booking a free Financial Clarity Call, or submitting information through our website, you agree to these Terms.
               </p>
-              <p className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] text-xs sm:text-sm text-[#1A2E40] font-medium">
+              <p className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] text-sm text-[#1A2E40] font-medium">
                 These website Terms are intended to govern use of the website and general online interactions. Specific bookkeeping and financial reporting engagements are governed by a separate written service agreement or statement of work.
               </p>
             </div>
@@ -75,7 +75,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             <span>1. About Monique Reid Bookkeeping</span>
           </h3>
           <p className="text-sm leading-relaxed">
-            Monique Reid Bookkeeping is an independent bookkeeping and financial reporting practice operated by Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor&apos;s degree in Business Administration.
+            Monique Reid Bookkeeping is an independent bookkeeping and financial reporting practice operated by Monique Reid, an Intuit Certified QuickBooks Online ProAdvisor.
           </p>
           <p className="text-sm leading-relaxed">
             We specialize in bookkeeping and financial organization for MedSpas, aesthetic clinics, IV hydration/wellness practices, medical weight-loss practices, and related businesses.
@@ -87,12 +87,11 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 'QuickBooks Online setup and organization',
                 'Chart-of-accounts support',
                 'QuickBooks cleanup and catch-up bookkeeping',
-                'Historical bookkeeping cleanup',
                 'Monthly bookkeeping',
                 'Bank and credit-card reconciliations',
                 'Financial reporting',
                 'Agreed-upon key performance indicator (KPI) reporting',
-                'Financial record organization and historical reporting',
+                'Financial record organization',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
@@ -101,7 +100,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
               ))}
             </ul>
           </div>
-          <p className="text-xs sm:text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
+          <p className="text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
             The specific services, deliverables, timing, fees and responsibilities for a client engagement will be defined in the applicable service agreement or statement of work.
           </p>
         </div>
@@ -133,7 +132,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <p className="text-sm leading-relaxed">
             We do not guarantee that our services will result in any particular tax, profitability, financing, investment, revenue, or other business outcome.
           </p>
-          <p className="text-xs sm:text-sm text-[#1A2E40] font-medium bg-[#1A2E40]/5 p-3 rounded-lg border-l-4 border-[#D4AF37]">
+          <p className="text-sm text-[#1A2E40] font-medium bg-[#1A2E40]/5 p-3 rounded-lg border-l-4 border-[#D4AF37]">
             Financial reports and KPIs are intended to support business decision-making and should not be interpreted as a guarantee of future performance.
           </p>
         </div>
@@ -190,7 +189,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <p className="text-sm leading-relaxed">
             Where available, clients should provide appropriate delegated, accountant or user access through the relevant third-party platform rather than sharing passwords.
           </p>
-          <p className="text-xs sm:text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30 font-medium">
+          <p className="text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30 font-medium">
             Clients remain responsible for their business decisions and for legal, tax, payroll, licensing, regulatory and operational requirements applicable to their business.
           </p>
         </div>
@@ -203,7 +202,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           </h3>
           <div>
             <p className="text-sm leading-relaxed mb-2">Clients may use third-party platforms such as:</p>
-            <div className="flex flex-wrap gap-2 text-xs font-semibold text-[#1A2E40]">
+            <div className="flex flex-wrap gap-2 text-sm font-semibold text-[#1A2E40]">
               {[
                 'QuickBooks Online',
                 'Square',
@@ -238,10 +237,10 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             Because many of our clients operate healthcare-related or wellness businesses, clients should provide only the financial and business information reasonably necessary for the agreed bookkeeping services.
           </p>
           <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-2">
-            <p className="text-xs sm:text-sm font-bold text-amber-900">
+            <p className="text-sm font-bold text-amber-900">
               Do not submit through ordinary website forms or unsecured email:
             </p>
-            <ul className="list-disc list-inside text-xs sm:text-sm text-amber-900/90 space-y-1 pl-2">
+            <ul className="list-disc list-inside text-sm text-amber-900/90 space-y-1 pl-2">
               <li>patient medical records</li>
               <li>treatment notes</li>
               <li>diagnoses</li>
@@ -313,7 +312,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <p className="text-sm leading-relaxed">
             No system or method of electronic transmission can be guaranteed to be completely secure.
           </p>
-          <p className="text-xs sm:text-sm text-red-900 bg-red-50/70 p-3 rounded-lg border border-red-200">
+          <p className="text-sm text-red-900 bg-red-50/70 p-3 rounded-lg border border-red-200">
             Clients should not send passwords, authentication codes, or other sensitive credentials through ordinary email or website contact forms.
           </p>
         </div>
@@ -428,7 +427,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
               <li>circumstances outside our reasonable control.</li>
             </ul>
           </div>
-          <p className="text-xs sm:text-sm text-[#57534E]">
+          <p className="text-sm text-[#57534E]">
             Any specific limitation of liability applicable to a paid engagement will be stated in the applicable client service agreement.
           </p>
         </div>
@@ -455,7 +454,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <p className="text-sm leading-relaxed">
             The Bookkeeping Health Check, example dashboard, and calculators on this website are general and illustrative. They use the answers or numbers you enter, and any plan or result they produce is created with the help of automated tools. They are not tailored advice, a quote, or a guarantee, and your specific services and fees are confirmed only in a written service agreement.
           </p>
-          <p className="text-xs sm:text-sm text-[#57534E]">
+          <p className="text-sm text-[#57534E]">
             Information on this website may be updated or changed without notice.
           </p>
         </div>
@@ -472,7 +471,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <p className="text-sm leading-relaxed">
             You may not reproduce, modify, redistribute, sell, or commercially exploit our website content or proprietary materials without written permission.
           </p>
-          <p className="text-xs sm:text-sm text-[#57534E]">
+          <p className="text-sm text-[#57534E]">
             This does not restrict materials that are expressly offered by us for licensed or permitted client use.
           </p>
         </div>
@@ -572,21 +571,21 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             </p>
           </div>
 
-          <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-[#E2E8F0]/70">
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-4">
+            <p className="text-sm text-[#E2E8F0]/70">
               Questions regarding these Terms or our bookkeeping services?
             </p>
-            <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
                 href="mailto:monique@moniquereidbookkeeping.com"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all whitespace-nowrap"
               >
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Email Us</span>
               </a>
               <button
                 onClick={onBookCall}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-xs transition-all shadow-md w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-md whitespace-nowrap"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Book Your Free 20-Min Clarity Call</span>

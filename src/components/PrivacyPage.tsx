@@ -32,7 +32,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <button
             onClick={() => onNavigate('home')}
-            className="inline-flex items-center gap-1.5 text-xs text-[#D4AF37] hover:text-[#E5C765] transition-colors mb-2 group"
+            className="inline-flex items-center gap-1.5 text-sm text-[#D4AF37] hover:text-[#E5C765] transition-colors mb-2 group"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
             <span>Back to Home</span>
@@ -40,7 +40,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
             Privacy Policy
           </h1>
-          <p className="text-xs sm:text-sm text-[#E2E8F0] font-light">
+          <p className="text-sm text-[#E2E8F0] font-light">
             Last Updated: October 2026 · Monique Reid Bookkeeping
           </p>
         </div>
@@ -64,7 +64,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
               <p className="text-sm leading-relaxed">
                 This Privacy Policy explains how we collect, use, disclose, retain, and protect information when you visit our website, contact us, schedule a consultation, submit information through our website, or engage our bookkeeping and financial reporting services.
               </p>
-              <p className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] text-xs sm:text-sm text-[#1A2E40] font-medium">
+              <p className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] text-sm text-[#1A2E40] font-medium">
                 This Policy applies to information collected through our website and related business interactions. Specific client information-handling obligations may also be governed by the applicable client service agreement and other written agreements.
               </p>
             </div>
@@ -147,7 +147,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
               ))}
             </ul>
           </div>
-          <p className="text-xs sm:text-sm text-[#1A2E40] font-medium bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
+          <p className="text-sm text-[#1A2E40] font-medium bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
             We seek to access and retain only information reasonably necessary to provide the contracted services. This approach is consistent with FTC guidance encouraging businesses to limit the sensitive information they collect and retain to what they actually need.
           </p>
         </div>
@@ -165,10 +165,10 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             Our ordinary bookkeeping services are designed to work with financial and business information, not patient medical records.
           </p>
           <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-2">
-            <p className="text-xs sm:text-sm font-bold text-amber-900">
+            <p className="text-sm font-bold text-amber-900">
               Please do not submit the following through our website, ordinary email, or other unsecured communication methods:
             </p>
-            <ul className="list-disc list-inside text-xs sm:text-sm text-amber-900/90 space-y-1 pl-2">
+            <ul className="list-disc list-inside text-sm text-amber-900/90 space-y-1 pl-2">
               <li>Patient medical records</li>
               <li>Diagnoses</li>
               <li>Treatment notes</li>
@@ -184,7 +184,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             For example, depending on the client&apos;s systems and agreed scope, this may include aggregate revenue totals, settlement batches, transaction summaries, or other financial reports.
           </p>
-          <div className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] space-y-1 text-xs sm:text-sm">
+          <div className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] space-y-1 text-sm">
             <p className="font-bold text-[#1A2E40]">HIPAA</p>
             <p className="text-[#57534E]">
               If a particular engagement involves creating, receiving, maintaining, or transmitting PHI and Monique Reid Bookkeeping is acting as a HIPAA business associate, the parties will address applicable HIPAA requirements through appropriate written agreements and safeguards before such information is handled. HHS explains that accounting services can fall within the business-associate framework when they involve PHI.
@@ -284,14 +284,17 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <li><strong>Calendly</strong> — scheduling</li>
             <li><strong>Zoom</strong> — video consultations</li>
             <li><strong>Google Workspace</strong> — business email, calendar, documents, and collaboration</li>
-            <li><strong>Stripe or other payment processors</strong> — payment processing</li>
+            <li><strong>Payment processors</strong> — processing payments once you become a client</li>
             <li><strong>Google Analytics</strong> and <strong>Microsoft Clarity</strong> — understanding how visitors use our website (only if you accept cookies)</li>
-            <li><strong>Other providers</strong> — website hosting and security, email delivery, data storage, and tools that help prepare your Health Check plan, as reasonably necessary to operate the business</li>
+            <li><strong>Cloudflare</strong> — website hosting, security and spam protection</li>
+            <li><strong>Resend</strong> — email delivery</li>
+            <li><strong>Google Sheets and Google Gemini</strong> — storing your Health Check details and helping prepare your Health Check plan</li>
+            <li><strong>Other providers</strong> — other tools reasonably necessary to operate the business</li>
           </ul>
           <p className="text-sm leading-relaxed">
             These providers may process information on our behalf according to their own terms and privacy policies.
           </p>
-          <p className="text-xs sm:text-sm text-[#57534E]">
+          <p className="text-sm text-[#57534E]">
             We encourage you to review the privacy and security practices of third-party services you use.
           </p>
         </div>
@@ -307,7 +310,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           </p>
           <div>
             <p className="text-sm font-semibold text-[#1A2E40] mb-2">Depending on the services enabled, this may include:</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-semibold text-[#1A2E40]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm font-semibold text-[#1A2E40]">
               {[
                 'IP address',
                 'Browser type',
@@ -335,7 +338,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
               <li>Understanding general website usage</li>
             </ul>
           </div>
-          <p className="text-xs sm:text-sm font-medium text-[#1A2E40] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
+          <p className="text-sm font-medium text-[#1A2E40] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
             We do not use technical information to create a financial profile of visitors.
           </p>
         </div>
@@ -422,7 +425,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             The specific safeguards used may vary depending on the system, information, service provider, and nature of the engagement.
           </p>
-          <p className="text-xs sm:text-sm text-[#1A2E40] font-medium bg-[#1A2E40]/5 p-3 rounded-lg border-l-4 border-[#D4AF37]">
+          <p className="text-sm text-[#1A2E40] font-medium bg-[#1A2E40]/5 p-3 rounded-lg border-l-4 border-[#D4AF37]">
             No method of electronic transmission or storage can be guaranteed to be completely secure. The FTC recommends that businesses scale their security measures to the sensitivity of the information they maintain.
           </p>
         </div>
@@ -439,7 +442,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             We do not intentionally request patient medical information when it is not necessary for the agreed bookkeeping services. Clients should not provide unnecessary sensitive information through ordinary website forms or email.
           </p>
-          <p className="text-xs sm:text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
+          <p className="text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
             This approach follows the FTC&apos;s guidance to take stock of sensitive information, keep only what is needed, protect it appropriately, and securely dispose of information that is no longer necessary.
           </p>
         </div>
@@ -479,7 +482,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <p className="text-sm leading-relaxed">
             Where notification is legally required, we will provide notice in the manner and within the timeframe required by applicable law.
           </p>
-          <p className="text-xs sm:text-sm text-[#57534E]">
+          <p className="text-sm text-[#57534E]">
             The FTC recommends that businesses maintain a plan for responding to security incidents rather than assuming a breach will never occur.
           </p>
         </div>
@@ -500,7 +503,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <li>Withdraw certain communications preferences</li>
             <li>Ask questions about this Privacy Policy</li>
           </ul>
-          <p className="text-xs sm:text-sm text-[#57534E] pt-1">
+          <p className="text-sm text-[#57534E] pt-1">
             Requests may be subject to identity verification and applicable legal exceptions.
           </p>
         </div>
@@ -573,24 +576,24 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             </p>
           </div>
 
-          <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-[#E2E8F0]/70">
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-4">
+            <p className="text-sm text-[#E2E8F0]/70">
               Questions regarding this Privacy Policy or your data?
             </p>
-            <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
                 href="mailto:monique@moniquereidbookkeeping.com"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all whitespace-nowrap"
               >
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Email Us</span>
               </a>
               <button
                 onClick={onBookCall}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-xs transition-all shadow-md w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-md whitespace-nowrap"
               >
                 <Calendar className="w-3.5 h-3.5" />
-                <span>Schedule Call</span>
+                <span>Book Your Free 20-Min Clarity Call</span>
               </button>
             </div>
           </div>
