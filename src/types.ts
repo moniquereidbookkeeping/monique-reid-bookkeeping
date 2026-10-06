@@ -1,4 +1,4 @@
-export type PageView = 'home' | 'services' | 'dashboard' | 'about' | 'calculator' | 'contact' | 'terms' | 'privacy' | 'booked' | 'blog' | 'faq' | 'pricing' | 'south-florida' | 'blog-post' | 'notfound';
+export type PageView = 'home' | 'services' | 'dashboard' | 'about' | 'calculator' | 'contact' | 'terms' | 'privacy' | 'booked' | 'blog' | 'faq' | 'pricing' | 'south-florida' | 'quickbooks-cleanup' | 'iv-hydration' | 'medical-weight-loss' | 'blog-post' | 'notfound';
 
 export interface BlogSection {
   type: 'intro' | 'heading' | 'paragraph' | 'list' | 'callout' | 'tip' | 'cta-inline';

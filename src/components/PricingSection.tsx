@@ -21,6 +21,8 @@ interface PricingSectionProps {
   onBookCall: () => void;
   /** Home page version: plans and call to action only, with a link to the full pricing page. */
   onViewPricing?: () => void;
+  /** Full pricing page: link the cleanup band to the cleanup page. */
+  onViewCleanup?: () => void;
 }
 
 import { cleanupTiers } from '../data/cleanupPricing';
@@ -135,7 +137,7 @@ const complexityFactors = [
 ];
 
 
-export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onViewPricing }) => {
+export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onViewPricing, onViewCleanup }) => {
   const compact = !!onViewPricing;
   return (
     <section id="pricing-section" className="py-10 lg:py-16 bg-[#F4F6F8] border-b border-[#E2E8F0]">
@@ -317,7 +319,18 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               </div>
             ))}
           </div>
-          <p className="mt-5 text-center text-base text-[#4A5568]">Once the backlog is cleared, monthly bookkeeping keeps your books current.</p>
+          <p className="mt-5 text-center text-base text-[#4A5568]">
+            Once the backlog is cleared, monthly bookkeeping keeps your books current.
+            {onViewCleanup && (
+              <>
+                {' '}
+                <a href="/quickbooks-cleanup" onClick={(e) => { e.preventDefault(); onViewCleanup(); }}
+                  className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
+                  How a QuickBooks cleanup works
+                </a>
+              </>
+            )}
+          </p>
         </div>
 
 

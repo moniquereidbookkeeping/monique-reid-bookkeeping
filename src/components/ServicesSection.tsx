@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { PageView } from '../types';
+import { pathFor } from '../router';
 import { 
   Sparkles, 
   ArrowRight, 
@@ -15,9 +17,10 @@ import { BOOKING_URL } from '../constants/booking';
 
 interface ServicesSectionProps {
   onBookCall: () => void;
+  onNavigate?: (page: PageView) => void;
 }
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) => {
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, onNavigate }) => {
   const [activeTab, setActiveTab] = useState<string>('all');
 
   const services = [
@@ -41,6 +44,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
       startingPrice: 'From $597',
       noticeTitle: 'Fixed-fee pricing',
       notice: 'All cleanup projects include a complimentary preliminary review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',
+      detailPage: 'quickbooks-cleanup' as PageView,
+      detailLabel: 'See how a med spa cleanup works',
     },
     {
       id: 'monthly',
@@ -166,10 +171,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Six services</span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Bookkeeping Services for MedSpas and Wellness Practices
+            Bookkeeping Services for Med Spas, Medical Spas and Wellness Practices
           </h2>
           <p className="mt-4 text-lg text-[#4A5568] leading-relaxed">
-            From QuickBooks cleanup and monthly bookkeeping to reporting, setup and historical records, each service is built around how aesthetic and wellness practices actually run.
+            From QuickBooks cleanup and monthly bookkeeping to reporting, setup and historical records, each service is built around how med spas, medical spas, aesthetic clinics and wellness practices actually run.
           </p>
 
           {/* Filter Pills */}
@@ -278,6 +283,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                           </span>
                         )}
                         <span className="text-[#4A5568] leading-relaxed block">{svc.notice}</span>
+                        {'detailPage' in svc && svc.detailPage && onNavigate && (
+                          <a href={pathFor(svc.detailPage)} onClick={(e) => { e.preventDefault(); onNavigate(svc.detailPage!); }}
+                            className="inline-block pt-1 font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
+                            {svc.detailLabel}
+                          </a>
+                        )}
                       </div>
                     </div>
                   )}

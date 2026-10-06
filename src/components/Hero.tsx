@@ -1,17 +1,31 @@
 import React from 'react';
 import { Calendar, ArrowRight, ShieldCheck, Sparkles, TrendingUp } from 'lucide-react';
 import { FounderPortrait } from './FounderPortrait';
+import { PageView } from '../types';
+import { pathFor } from '../router';
 
 interface HeroProps {
   onBookCall: () => void;
   onExploreServices: () => void;
   onViewDashboard?: () => void;
+  onNavigate?: (page: PageView) => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   onBookCall,
   onExploreServices,
+  onNavigate,
 }) => {
+  const chip = 'px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium';
+  const chipLink = (page: PageView, label: string) =>
+    onNavigate ? (
+      <a href={pathFor(page)} onClick={(e) => { e.preventDefault(); onNavigate(page); }}
+        className={`${chip} hover:border-[#D4AF37] hover:text-[#8A6A00] transition-colors`}>
+        {label}
+      </a>
+    ) : (
+      <span className={chip}>{label}</span>
+    );
   return (
     <section
       id="hero-section"
@@ -63,8 +77,8 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex flex-wrap items-center gap-2 pt-1 text-sm text-[#4A5568]">
               <span className="font-semibold text-[#1A2E40]">Specialized in:</span>
               <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">MedSpas &amp; Aesthetic Practices</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">IV Hydration &amp; Wellness</span>
-              <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">Medical Weight-Loss</span>
+              {chipLink('iv-hydration', 'IV Hydration & Wellness')}
+              {chipLink('medical-weight-loss', 'Medical Weight-Loss')}
               <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">Related Self-Pay Healthcare</span>
             </div>
 

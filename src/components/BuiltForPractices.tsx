@@ -1,16 +1,19 @@
 import React from 'react';
+import { PageView } from '../types';
+import { pathFor } from '../router';
 import { ShieldCheck, Stethoscope, Syringe, HeartPulse, Scale, Sparkles, Calendar, ArrowRight } from 'lucide-react';
 
 interface BuiltForPracticesProps {
   onBookCall: () => void;
+  onNavigate?: (page: PageView) => void;
 }
 
-export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall }) => {
+export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall, onNavigate }) => {
   const practiceTypes = [
     { title: 'MedSpas', desc: 'Full-service MedSpas offering injectables, energy devices, facials, and retail skincare', icon: Syringe },
     { title: 'Aesthetic Clinics', desc: 'Cosmetic-focused clinics led by MDs, NPs, PAs, and RNs delivering advanced aesthetic treatments', icon: Sparkles },
-    { title: 'IV Hydration & Wellness Practices', desc: 'Concierge infusion lounges, mobile drip services, and integrated wellness studios', icon: HeartPulse },
-    { title: 'Medical Weight-Loss Practices', desc: 'GLP-1 prescription clinics, metabolic health programs, and supervised weight-management practices', icon: Scale },
+    { title: 'IV Hydration & Wellness Practices', desc: 'Concierge infusion lounges, mobile drip services, and integrated wellness studios', icon: HeartPulse, page: 'iv-hydration' as PageView },
+    { title: 'Medical Weight-Loss Practices', desc: 'GLP-1 prescription clinics, metabolic health programs, and supervised weight-management practices', icon: Scale, page: 'medical-weight-loss' as PageView },
     { title: 'Related Self-Pay Healthcare', desc: 'Hormone replacement therapy, functional medicine, regenerative aesthetics, and concierge care', icon: Stethoscope },
   ];
 
@@ -63,7 +66,14 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                         <Icon className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-base font-semibold text-white">{pt.title}</p>
+                        <p className="text-base font-semibold text-white">
+                          {'page' in pt && pt.page && onNavigate ? (
+                            <a href={pathFor(pt.page)} onClick={(e) => { e.preventDefault(); onNavigate(pt.page!); }}
+                              className="underline decoration-[#D4AF37]/60 underline-offset-4 hover:text-[#D4AF37]">
+                              {pt.title}
+                            </a>
+                          ) : pt.title}
+                        </p>
                         <p className="text-base text-[#E2E8F0]/80 mt-0.5">{pt.desc}</p>
                       </div>
                     </div>

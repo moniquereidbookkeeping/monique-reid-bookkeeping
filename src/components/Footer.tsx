@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
             </h4>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
-                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                <a href={pathFor('quickbooks-cleanup')} onClick={(e) => { e.preventDefault(); onNavigate('quickbooks-cleanup'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   QuickBooks Cleanup &amp; Catch-Up
                 </a>
