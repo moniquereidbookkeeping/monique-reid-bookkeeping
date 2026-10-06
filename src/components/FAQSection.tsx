@@ -164,7 +164,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       id: 'faq-5',
       category: 'cleanup-catchup',
       categoryLabel: 'CLEANUP & CATCH-UP',
-      question: 'My books are 6 to 24 months behind or disorganized. What does the cleanup process involve?',
+      question: 'My books are many months behind or disorganized. What does the cleanup process involve?',
       answer:
         'The process begins with a Diagnostic File Review of your QuickBooks account, bank and credit-card activity, merchant statements, loans, and available supporting records.\n\nNext, the affected periods are worked through to reconcile accounts, review transaction classifications, identify duplicates or missing activity, and document items requiring your input. At completion, you receive updated financial reports and a list of any remaining questions or adjustments to review with your CPA.',
       takeaways: [

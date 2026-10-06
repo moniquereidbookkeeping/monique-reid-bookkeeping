@@ -18,7 +18,7 @@ Monthly Bookkeeping (flat monthly plans, QuickBooks Online):
 - Full-Spectrum, $1,197/mo: practices $75K+/month, multi-location or 7+ accounts; adds multi-location tracking, inventory and treatment-cost (COGS) tracking, provider payout reconciliation, revenue by service category, plain-language commentary, priority response.
 
 QuickBooks Cleanup and Catch-Up (one-time, fixed price once scope is agreed, free preliminary review):
-- 1-3 months behind: $597. 4-6 months behind: $1,297. 7-12 months behind: $1,997. 2+ years or multi-entity: custom quote.
+- 1-3 months behind: $597. 4-6 months behind: $1,297. 7-12 months behind: $1,997. 13+ months or multi-entity: custom quote.
 
 Other services: Financial Reporting and KPIs (from $797/mo, paired with monthly bookkeeping); Aesthetic and Wellness specialization (treatment COGS, unearned revenue for packages, gift cards and memberships, provider commission and 1099 payout clearing, financing fee reconciliation, IV hydration and GLP-1 revenue tracking); QuickBooks Setup and Chart of Accounts (project-based pricing); Historical Financial Records and Reporting (project-based pricing).
 

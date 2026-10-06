@@ -6,7 +6,7 @@ export const NotFoundPage: React.FC<{ onNavigate: (p: PageView) => void }> = ({ 
   <section className="py-24 bg-[#FDFCFA]">
     <div className="max-w-xl mx-auto px-4 text-center space-y-5">
       <p className="text-xs font-bold uppercase tracking-widest text-[#8A6A00]">Page not found</p>
-      <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40]">We could not find that page.</h1>
+      <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40]">That page could not be found.</h1>
       <p className="text-base text-[#4A5568] leading-relaxed">
         The address may be mistyped or the page may have moved. Here are the most useful places to start.
       </p>

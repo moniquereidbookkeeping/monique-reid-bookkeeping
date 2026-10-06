@@ -180,18 +180,18 @@ function detectTier(pos: string, packages: string, accounts: string, revenue: st
   const pkg = packages.toLowerCase();
   const p = pos.toLowerCase();
   const rev = revenue.toLowerCase();
-  const acct = parseInt(accounts, 10) || 0; // lower bound of "1 - 2", "3 - 4", "5 - 7", "8+"
+  const acct = parseInt(accounts, 10) || 0; // lower bound of "1 - 3", "4 - 6", "7+"
 
   const underTen = rev.includes('under');
   const over75 = rev.includes('75,000+');
-  const over30 = rev.startsWith('$30,000');
+  const over25 = rev.startsWith('$25,000');
   const sellsMemberships = /member|package|cherry|carecredit|patientfi/.test(pkg);
 
   let level = 0; // 0 Essential, 1 Growth, 2 Full-Spectrum
-  if (over75 || acct >= 8) level = 2;
-  else if (over30 || acct >= 5) level = 1;
+  if (over75 || acct >= 7) level = 2;
+  else if (over25 || acct >= 4) level = 1;
   // Memberships, packages or financing point to Growth, unless the practice is tiny.
-  if (sellsMemberships && (!underTen || acct >= 3)) level = Math.max(level, 1);
+  if (sellsMemberships && (!underTen || acct >= 4)) level = Math.max(level, 1);
   if (p.includes('multiple') || p.includes('multi')) level = Math.max(level, 1);
 
   if (level === 2) return { name: 'Full-Spectrum', price: '$1,197/mo', flag: '🔴', priority: 'HIGH-VALUE' };

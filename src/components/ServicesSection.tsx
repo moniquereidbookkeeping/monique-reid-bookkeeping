@@ -44,7 +44,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
         { label: '1–3 months behind', price: '$597', desc: 'Bank + CC reconciliation. Timeline confirmed after a free review of your books.', color: '#8A6A00' },
         { label: '4–6 months behind', price: '$1,297', desc: 'Full recategorization, vendor cleanup, POS payout reconciliation, CPA-ready file.', badge: 'Typical scope', color: '#8A6A00' },
         { label: '7–12 months behind', price: '$1,997', desc: 'Deep reconstruction, suspense resolution, Chart of Accounts rebuild, full documentation trail.', color: '#8A6A00' },
-        { label: '2+ years / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Multi-year and multi-entity engagements quoted after assessment.', color: '#8A6A00' },
+        { label: '13+ months / multi-entity', price: 'Custom quote', desc: 'Complimentary scope review included. Longer histories and multi-entity engagements are quoted after assessment.', color: '#8A6A00' },
       ],
       noticeTitle: 'Fixed-fee pricing',
       notice: 'All cleanup projects include a complimentary preliminary review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',

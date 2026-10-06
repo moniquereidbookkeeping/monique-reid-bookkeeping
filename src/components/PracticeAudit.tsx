@@ -502,8 +502,8 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     4. How many bank, card, and financing accounts does your practice use?
                   </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {['1 - 2 Accounts', '3 - 4 Accounts', '5 - 7 Accounts', '8+ Accounts'].map((acc) => (
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {['1 - 3 Accounts', '4 - 6 Accounts', '7+ Accounts'].map((acc) => (
                       <button
                         key={acc}
                         onClick={() => handleSelect('accounts', acc)}
@@ -522,12 +522,12 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     5. What is your practice's approximate monthly revenue?
                   </h4>
-                  <p className="text-base text-[#4A5568]">This helps us recommend the right service tier for your size.</p>
+                  <p className="text-base text-[#4A5568]">This helps match you with the right service tier for your size.</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       'Under $10,000 / month',
-                      '$10,000 – $30,000 / month',
-                      '$30,000 – $75,000 / month',
+                      '$10,000 – $25,000 / month',
+                      '$25,000 – $75,000 / month',
                       '$75,000+ / month',
                     ].map((rev) => (
                       <button
