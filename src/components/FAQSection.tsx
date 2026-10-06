@@ -229,6 +229,45 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       ],
     },
     {
+      id: 'faq-9a',
+      category: 'financial-operations',
+      categoryLabel: 'FINANCIAL OPERATIONS',
+      question: 'How do you record manufacturer rebates and rewards programs?',
+      answer:
+        'Manufacturer rebates, practice rewards, and reimbursements for patient loyalty discounts often arrive as deposits with no clear label. When they are booked as sales, income and margins look better than they are.\n\nI review your program statements and record this money against the product cost it relates to, so your margins on injectables and other products reflect what you actually paid. The exact treatment depends on the program terms and your accounting method, and it is coordinated with your CPA.',
+      takeaways: [
+        'Rebates recorded against product cost, not as extra sales',
+        'Program statements kept with the entries',
+        'Treatment coordinated with your CPA',
+      ],
+    },
+    {
+      id: 'faq-9b',
+      category: 'financial-operations',
+      categoryLabel: 'FINANCIAL OPERATIONS',
+      question: 'I own the practice personally and also have a management company. Can my books handle that?',
+      answer:
+        'Many practices run more than one entity, such as a practice entity and a separate management or holding company. When the money moving between them and the owner is not tracked clearly, owner pay, personal spending, and transfers get mixed together.\n\nEach entity can be kept in its own set of books, with owner pay and transfers recorded consistently so your CPA can follow them. How the entities should be structured is a decision for your attorney and CPA, not something I advise on. Multi-entity work is quoted individually.',
+      takeaways: [
+        'Separate books for each entity',
+        'Owner pay and transfers recorded consistently',
+        'Structure decisions stay with your attorney and CPA',
+      ],
+    },
+    {
+      id: 'faq-9c',
+      category: 'financial-operations',
+      categoryLabel: 'FINANCIAL OPERATIONS',
+      question: 'Will my books be ready if I need a loan, want to sell, or open a second location?',
+      answer:
+        'Lenders, buyers, and landlords usually ask for clean financial statements, and they are hard to produce on short notice when the books are behind.\n\nWith reconciled books and monthly reports, the numbers are ready when the question comes. I cannot promise any lender or buyer will approve or agree to anything, since they make their own decisions, but readable statements put you in a stronger position for the conversation.',
+      takeaways: [
+        'Monthly reconciled books and readable reports',
+        'Statements ready when a lender or buyer asks',
+        'No promise of approval or sale terms',
+      ],
+    },
+    {
       id: 'faq-10',
       category: 'financial-operations',
       categoryLabel: 'FINANCIAL OPERATIONS',
