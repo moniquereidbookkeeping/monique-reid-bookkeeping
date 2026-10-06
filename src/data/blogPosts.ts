@@ -381,6 +381,103 @@ export const blogPosts: BlogPost[] = [
       }
     ]
   },
+  {
+      "id": "post-010",
+      "slug": "medspa-manufacturer-rebates-rewards-quickbooks",
+      "title": "How to Record Manufacturer Rebates and Rewards Programs in QuickBooks",
+      "metaTitle": "MedSpa Manufacturer Rebates in QuickBooks | MedSpa Bookkeeping",
+      "metaDescription": "Manufacturer loyalty and rebate programs can distort a MedSpa's income and product cost. Learn how to record rebates, rewards and reimbursements in QuickBooks.",
+      "excerpt": "Rebate checks and rewards reimbursements from product manufacturers are easy to book as income, or to miss entirely. Here is how to keep product cost, margins and your reports accurate.",
+      "category": "Costs & Inventory",
+      "tags": [
+          "Rebates",
+          "Manufacturer Programs",
+          "Product Cost",
+          "QuickBooks",
+          "MedSpa"
+      ],
+      "publishedDate": "2026-10-06",
+      "readingTime": 5,
+      "coverImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80",
+      "coverAlt": "A calculator and financial papers on a desk, representing rebates and product cost",
+      "content": [
+          {
+              "type": "intro",
+              "text": "Many MedSpas take part in manufacturer programs: volume rebates, practice rewards, and patient loyalty programs where the manufacturer funds a discount. The money is real, but it often arrives as a deposit with no clear label. If it is recorded in the wrong place, your income looks higher, your product cost looks higher, and neither tells you what a treatment really earns."
+          },
+          {
+              "type": "heading",
+              "heading": "Why These Payments Get Recorded Wrong"
+          },
+          {
+              "type": "paragraph",
+              "text": "A rebate check or a program deposit looks like any other deposit. Without a clear rule, it is usually booked as sales, left in an uncategorized account, or netted against something it does not belong to. Each choice changes your reports in a different way, and the effect is hard to see until someone compares product purchases to what the practice actually paid."
+          },
+          {
+              "type": "heading",
+              "heading": "Common Types of Manufacturer Money"
+          },
+          {
+              "type": "list",
+              "items": [
+                  "Volume or purchase rebates paid back after you buy a certain amount of product",
+                  "Practice rewards or points earned for your purchases",
+                  "Reimbursements for discounts a patient received through a manufacturer loyalty program",
+                  "Promotional pricing or free product tied to a purchase"
+              ]
+          },
+          {
+              "type": "paragraph",
+              "text": "Programs differ, and the terms are set by each manufacturer and your agreement with them. Read your program statements before deciding how to record anything."
+          },
+          {
+              "type": "heading",
+              "heading": "A Common Approach in QuickBooks"
+          },
+          {
+              "type": "paragraph",
+              "text": "Money a vendor gives back because you bought its product is generally treated as a reduction of what that product cost you, not as new sales. Record it so that your product cost, and the margin on injectables, reflects the net amount you really paid."
+          },
+          {
+              "type": "list",
+              "items": [
+                  "Record the full treatment price as revenue when the service is performed",
+                  "Record a manufacturer-funded discount or reimbursement against the matching product cost, not as extra income",
+                  "Record a rebate check as a reduction of product cost in the period it relates to",
+                  "Track any rewards balance you are owed separately until it is paid or used",
+                  "Keep the program statement with the entry so the amount can be explained later"
+              ]
+          },
+          {
+              "type": "callout",
+              "heading": "Why It Matters",
+              "text": "If rebates are booked as income, your revenue and margins look better than they are. If they are ignored, you may be paying tax on a cost that was partly refunded. Either way, the numbers you use to price treatments are off."
+          },
+          {
+              "type": "heading",
+              "heading": "A Simple Monthly Habit"
+          },
+          {
+              "type": "list",
+              "items": [
+                  "Open the manufacturer program statement for the month",
+                  "Match each payment or credit to the product purchases it relates to",
+                  "Record the amount against product cost, not sales",
+                  "Note any balance still owed to you",
+                  "Confirm the result in your Profit & Loss against the prior month"
+              ]
+          },
+          {
+              "type": "tip",
+              "heading": "Quick Check",
+              "text": "Look at your last three manufacturer deposits. Are they in sales, in an uncategorized account, or against product cost? If you cannot tell, that is the place to start."
+          },
+          {
+              "type": "paragraph",
+              "text": "How a rebate is treated for tax can depend on your accounting method and the terms of the program, so confirm the approach with your CPA. This article is general information, not tax or accounting advice for your practice."
+          }
+      ]
+  },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {

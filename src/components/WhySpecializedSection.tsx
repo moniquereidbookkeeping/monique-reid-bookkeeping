@@ -38,6 +38,14 @@ const problems = [
     help:
       'Product and supply costs are separated from operating overhead, and treatment-related expenses are categorized so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins actually are.',
   },
+  {
+    number: '05',
+    title: "Books That Can't Support a Loan, a Sale or a New Location",
+    problem:
+      `Lenders, buyers and landlords ask for clean financial statements. When the books are behind or categorized loosely, owners scramble to produce numbers that someone else has to trust, often at the moment the opportunity is open.`,
+    help:
+      'Monthly reconciled books and readable financial statements are ready when the question comes. They give you a solid footing for the conversation, though lenders and buyers make their own decisions.',
+  },
 ];
 
 export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ onBookCall }) => {
@@ -59,7 +67,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
         {/* Four Problem Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {problems.map((item) => (
-            <div key={item.number} className="rounded-2xl bg-[#FAF8F5] border border-[#E2E8F0] shadow-sm p-6 flex flex-col">
+            <div key={item.number} className={`${item.number === '05' ? 'md:col-span-2 ' : ''}rounded-2xl bg-[#FAF8F5] border border-[#E2E8F0] shadow-sm p-6 flex flex-col`}>
               <div className="flex items-start gap-3">
                 <span className="shrink-0 w-10 h-10 rounded-full bg-[#1A2E40] text-[#D4AF37] font-serif font-bold text-base flex items-center justify-center">
                   {item.number}
