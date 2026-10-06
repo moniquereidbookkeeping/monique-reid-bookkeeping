@@ -18,7 +18,6 @@ export const blogPosts: BlogPost[] = [
     ],
     "publishedDate": "2026-10-05",
     "readingTime": 5,
-    "featured": true,
     "coverImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80",
     "coverAlt": "Documents and a pen on a desk, representing an organized set of books",
     "content": [
@@ -398,6 +397,7 @@ export const blogPosts: BlogPost[] = [
       ],
       "publishedDate": "2026-10-06",
       "readingTime": 5,
+    "featured": true,
       "coverImage": "",
       "coverAlt": "A calculator and financial papers on a desk, representing rebates and product cost",
       "content": [
