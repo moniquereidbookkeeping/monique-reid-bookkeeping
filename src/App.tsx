@@ -222,13 +222,13 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
                 <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Executive Visibility &amp; Analytics
+                  Interactive Example
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Interactive Practice Numbers &amp; Benchmarks
+                  Example MedSpa Financial Dashboard
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Explore how properly categorized aesthetic and wellness books isolate treatment COGS, provider compensation, and net operating surplus.
+                  See how well-organized books separate treatment costs, provider compensation and operating expenses, and show what is left. All figures are examples.
                 </p>
               </div>
             </div>

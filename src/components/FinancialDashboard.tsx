@@ -40,7 +40,7 @@ const scenarios: PracticeScenario[] = [
   {
     id: 'boutique',
     name: 'Boutique Aesthetic Practice',
-    stage: '1-2 Injectors',
+    stage: '1–2 injectors',
     monthlyRevenue: 48000,
     injectables: 26400,
     laser: 11520,
@@ -53,7 +53,7 @@ const scenarios: PracticeScenario[] = [
   {
     id: 'established',
     name: 'Growing Multi-Provider MedSpa',
-    stage: '3-5 Providers + Estheticians',
+    stage: '3–5 providers plus estheticians',
     monthlyRevenue: 92500,
     injectables: 48100,
     laser: 24050,
@@ -65,8 +65,8 @@ const scenarios: PracticeScenario[] = [
   },
   {
     id: 'expansion',
-    name: 'High-Volume / Multi-Location',
-    stage: 'Full Service Medical Aesthetics',
+    name: 'High-Volume, Multi-Location Practice',
+    stage: 'Full-service medical aesthetics',
     monthlyRevenue: 175000,
     injectables: 87500,
     laser: 47250,
@@ -89,64 +89,97 @@ interface MetricExplanation {
   solution: string;
 }
 
-const metricExplanations: Record<MetricKey, MetricExplanation> = {
+interface ExplanationInput {
+  totalRev: number;
+  cogsAmount: number;
+  providerPayAmount: number;
+  opexAmount: number;
+  surplusAmount: number;
+  cogsPercent: number;
+  providerPayPercent: number;
+  opexPercent: number;
+  surplusPercent: number;
+}
+
+const money = (val: number) =>
+  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+
+const buildExplanations = (v: ExplanationInput): Record<MetricKey, MetricExplanation> => ({
   revenue: {
     title: 'Gross Collections',
-    plainEnglish: 'Total cash and patient financing receipts collected during the period before merchant and processing fees are deducted. Gross collections is distinct from gross billings (total charges before discounts) and recognized revenue (earned value of completed services under accrual accounting).',
-    benchmark: 'User-defined illustrative baseline: $92,500 in this scenario. Not a verified industry standard.',
-    commonTrap: 'Treating gross collections, gross billings, and recognized revenue as interchangeable can distort practice reporting—particularly when patient financing holdbacks, prepaid packages, or gift card deposits are involved.',
-    solution: 'Reconciliations between your POS/booking platform and merchant bank deposits isolate merchant fee deductions so gross collections and merchant fees are both tracked transparently.',
+    plainEnglish:
+      'Everything the practice collected from patients in the period, including card payments and patient financing, before processing fees are taken out. It is not the same as what you billed, and it is not the same as revenue earned for treatments already delivered.',
+    benchmark: `${money(v.totalRev)} in this example.`,
+    commonTrap:
+      'Billings, collections and earned revenue are often treated as the same number. They differ when there are financing fees, prepaid packages or gift cards, and mixing them up makes reports unreliable.',
+    solution:
+      'Your booking and payment software is reconciled to your bank deposits, so gross collections and processing fees each show up on their own line.',
   },
   cogs: {
     title: 'Treatment COGS (Direct Clinical Supplies)',
-    plainEnglish: 'Direct clinical costs of products administered to patients (such as neurotoxins and dermal fillers) plus consumable treatment supplies. Treatment cost reporting depends on available inventory counts and whether the practice operates on cash or accrual accounting.',
-    benchmark: 'User-defined illustrative target: 23% ($21,275) in this scenario. Universal benchmarks do not apply across different treatment mixes.',
-    commonTrap: 'Expensing all inventory purchases immediately upon payment rather than recognizing costs as products are actually used or sold creates artificial monthly profit volatility.',
-    solution: 'Dedicated Chart of Accounts categories for clinical inventory and supplies distinguish inventory on hand from products used in treatments, based on your available records.',
+    plainEnglish:
+      'The direct cost of what is used in treatments: neurotoxin, filler and consumable supplies. This is separate from rent, software and other overhead.',
+    benchmark: `${v.cogsPercent}% of collections (${money(v.cogsAmount)}) in this example.`,
+    commonTrap:
+      'Expensing every product order the day it is paid makes a month with a large order look unprofitable and the next month look unusually strong.',
+    solution:
+      'Separate accounts for product on hand and product used in treatments keep costs matched to the period in which they were used, based on the records available.',
   },
   providerPay: {
     title: 'Provider Compensation',
-    plainEnglish: 'Direct compensation paid to clinical service providers, including injectors and aestheticians (hourly, commission, or base salary). Where practice records permit, direct provider compensation is distinguished from administrative, front-desk, and clinical-support payroll.',
-    benchmark: 'User-defined illustrative target: 32% ($29,600) in this scenario. Compensation structures vary widely by practice model and market.',
-    commonTrap: 'Calculating provider compensation on gross billed charges before merchant financing fees are deducted, or calculating commissions on unearned package balances, can misalign payroll with actual practice collections.',
-    solution: 'Revenue reporting is organized against provider compensation schedules so that compensation calculations align cleanly with collected receipts and practice policies. (Note: Worker classification and payroll processing are determined by the practice and its payroll/legal advisors.)',
+    plainEnglish:
+      'What the practice pays the people who perform treatments, such as injectors and aestheticians, whether hourly, by commission or by salary. Front-desk and administrative pay are tracked separately where records allow.',
+    benchmark: `${v.providerPayPercent}% of collections (${money(v.providerPayAmount)}) in this example.`,
+    commonTrap:
+      'Commissions calculated on billed charges, or on packages not yet delivered, can pay out more than the practice has actually collected.',
+    solution:
+      'Collections are organized to line up with your compensation plan, so provider pay is calculated from the same numbers as your reports. Worker classification and payroll rules are for the practice and its payroll or legal advisors to decide.',
   },
   opex: {
     title: 'Operating Expenses & Overhead',
-    plainEnglish: 'Routine administrative and operational costs required to maintain clinic operations—such as clinic suite rent, utilities, general liability insurance, software subscriptions, and merchant processing fees. Excludes debt principal repayments and capital asset investments.',
-    benchmark: 'User-defined illustrative target: 16% ($14,800) in this scenario. Operating ratios depend on clinic footprint, lease terms, and local overhead.',
-    commonTrap: 'Classifying loan principal repayments, owner disbursements, or capital equipment leases as operating expenses distorts operational margins and creates misleading P&L trends.',
-    solution: 'An organized Chart of Accounts cleanly separates operational overhead from balance-sheet liabilities and financing payments, keeping your operational P&L accurate.',
+    plainEnglish:
+      'The routine costs of running the clinic: rent, utilities, insurance, software subscriptions and merchant processing fees. Loan principal payments and equipment purchases are not included.',
+    benchmark: `${v.opexPercent}% of collections (${money(v.opexAmount)}) in this example.`,
+    commonTrap:
+      'Counting loan principal, owner draws or equipment payments as operating expenses makes the practice look less profitable than it is.',
+    solution:
+      'A clear chart of accounts keeps day-to-day overhead apart from loans and owner activity, so the Profit & Loss reflects how the practice is actually operating.',
   },
   surplus: {
-    title: 'Illustrative Operating Surplus',
-    plainEnglish: 'Amount remaining after the expenses included in this simplified model ($21,275 Treatment COGS + $29,600 Provider Compensation + $14,800 Operating Expenses = $26,825). This figure represents the mathematical surplus of the specific illustrative items shown.',
-    benchmark: 'User-defined illustrative outcome: 29% ($26,825) in this simplified scenario. Not a verified industry standard.',
-    commonTrap: 'Operating surplus is not identical to net profit, EBITDA, or cash available for owner distributions. Cash available for owner distributions also depends on income taxes, debt principal payments, working capital reserves, capital expenditures, and unmodeled expenses.',
-    solution: 'Structured monthly financial statements, including reconciled Profit & Loss and Balance Sheet reporting, help practice owners understand both operating performance and balance sheet obligations.',
+    title: 'Operating Surplus',
+    plainEnglish: `What is left after the three expense groups in this example: ${money(v.totalRev)} collected, minus ${money(v.cogsAmount)} treatment COGS, ${money(v.providerPayAmount)} provider compensation and ${money(v.opexAmount)} operating expenses, leaves ${money(v.surplusAmount)}.`,
+    benchmark: `${v.surplusPercent}% of collections (${money(v.surplusAmount)}) in this example.`,
+    commonTrap:
+      'Operating surplus is not net profit and it is not cash available to the owner. Taxes, loan payments, equipment, cash reserves and expenses not shown here all come out of it.',
+    solution:
+      'Reconciled monthly Profit & Loss and Balance Sheet reports show both how the practice performed and what it owes.',
   },
-};
+});
 
 const serviceInsights: Record<ServiceKey, { name: string; margin: string; explanation: string }> = {
   injectables: {
     name: 'Injectables (Neurotoxins & Dermal Fillers)',
-    margin: 'Service-Line Gross Margin Analysis',
-    explanation: 'Calculating actual gross margin for injectables requires tracking direct product costs (vials of neurotoxin, syringes of filler) plus clinical disposables against service revenue. Accurate service-line margins require consistent cost allocation and reliable inventory records.',
+    margin: 'Margin by service',
+    explanation:
+      'To see the true margin on injectables, the cost of product and disposables has to be matched to the revenue those treatments produced. That takes consistent cost tracking and reliable inventory records.',
   },
   laser: {
-    name: 'Laser, RF & Body Contouring',
-    margin: 'Service-Line Gross Margin Analysis',
-    explanation: 'Calculating actual gross margin for energy-based treatments requires tracking disposable treatment tips, topical consumables, and direct provider treatment costs against device revenue. Equipment financing or capital lease payments are accounted for separately according to practice accounting policies.',
+    name: 'Laser, RF Microneedling & Body Contouring',
+    margin: 'Margin by service',
+    explanation:
+      'For energy-based treatments, margin depends on disposable tips, topical products and direct provider cost compared with treatment revenue. Equipment financing and lease payments are recorded separately.',
   },
   memberships: {
     name: 'Membership Revenue & Recurring Packages',
-    margin: 'Collections & Revenue Recognition Timing',
-    explanation: 'Membership and package activity can involve timing differences between collections and recognized revenue. Evaluating margin contribution requires matching the cost of services delivered with the portion of package or membership fees recognized during that period.',
+    margin: 'Timing of cash vs. revenue',
+    explanation:
+      'Memberships and packages are often paid before treatments are delivered. Revenue and margin are measured by matching the cost of services delivered to the portion of the fee earned in that period. Ask your CPA how this applies to your tax method.',
   },
   skincare: {
     name: 'Medical-Grade Skincare Retail',
-    margin: 'Retail Gross Margin Tracking',
-    explanation: 'Calculating retail skincare gross margin requires tracking the wholesale acquisition cost of inventory sold (COGS) separately from internal clinical back-bar supplies. Product costs should be recognized consistently with the practice’s established accounting method rather than assuming a static markup.',
+    margin: 'Retail margin',
+    explanation:
+      'Retail margin comes from the wholesale cost of products sold, tracked apart from back-bar supplies used in treatments. Cost should follow the practice’s accounting method rather than an assumed markup.',
   },
 };
 
@@ -222,6 +255,14 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
   const surplusAmount = totalRev - cogsAmount - providerPayAmount - opexAmount;
   const surplusPercent = Math.max(0, Math.round((surplusAmount / totalRev) * 100));
 
+  const metricExplanations = buildExplanations({
+    totalRev, cogsAmount, providerPayAmount, opexAmount, surplusAmount,
+    cogsPercent: currentScenario.cogsPercent,
+    providerPayPercent: currentScenario.providerPayPercent,
+    opexPercent: currentScenario.opexPercent,
+    surplusPercent,
+  });
+
   // Service line proportions based on current scenario
   const injectablesShare = currentScenario.injectables / currentScenario.monthlyRevenue;
   const laserShare = currentScenario.laser / currentScenario.monthlyRevenue;
@@ -266,9 +307,9 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-10">
           <div className="lg:col-span-6 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-semibold tracking-wider text-[#1A2E40] uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-semibold tracking-wider text-[#1A2E40] uppercase">
               <PieChart className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Aesthetic &amp; Wellness Practice Intelligence</span>
+              <span>Interactive Example</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
               Your books should tell you more than whether your bank account went up.
@@ -276,9 +317,9 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
               The financial side of your practice is organized so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice really is.
             </p>
-            <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 text-xs text-[#5A6578] flex items-center gap-2">
+            <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 text-sm text-[#5A6578] flex items-center gap-2">
               <Info className="w-4 h-4 text-[#D4AF37] shrink-0" />
-              <span>All benchmarks, percentages, and outputs in this model are illustrative examples only, not guarantees or specific practice projections.</span>
+              <span>All figures on this page are an illustrative example, not industry benchmarks, guarantees or projections for your practice.</span>
             </div>
             <div className="pt-2 flex items-center gap-4">
               <button
@@ -286,7 +327,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 onClick={onExploreServices}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A2E40] hover:text-[#D4AF37] transition-colors group cursor-pointer"
               >
-                <span>Explore the Bookkeeping Services</span>
+                <span>Explore bookkeeping services</span>
                 <ArrowUpRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
@@ -295,12 +336,12 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           {/* Interactive Scenario Switcher & Controls */}
           <div className="lg:col-span-6 bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-sm">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">
-                SELECT PRACTICE SCALE TO MODEL:
+              <span className="text-sm font-bold uppercase tracking-wider text-[#1A2E40]">
+                Choose a practice size
               </span>
-              <span className="text-xs text-[#1A2E40] font-semibold flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#D4AF37]/15 to-[#D4AF37]/10 border border-[#D4AF37]/40">
+              <span className="text-sm text-[#1A2E40] font-semibold flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#D4AF37]/15 to-[#D4AF37]/10 border border-[#D4AF37]/40">
                 <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse shrink-0" />
-                <Sliders className="w-3.5 h-3.5 text-[#D4AF37]" /> Live Interactive
+                <Sliders className="w-3.5 h-3.5 text-[#D4AF37]" /> Interactive
               </span>
             </div>
 
@@ -312,7 +353,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <button
                     key={sc.id}
                     onClick={() => handleScenarioSelect(sc.id)}
-                    className={`p-3.5 rounded-xl text-left border-2 transition-all text-xs cursor-pointer ${
+                    className={`p-3.5 rounded-xl text-left border-2 transition-all text-sm cursor-pointer ${
                       isSelected
                         ? 'bg-[#1A2E40] border-[#D4AF37] text-white shadow-md ring-2 ring-[#D4AF37]/50'
                         : 'bg-white border-[#CBD5E1] text-[#57534E] hover:border-[#1A2E40]/40 hover:shadow-sm hover:bg-[#FDFCFA]'
@@ -325,14 +366,14 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     >
                       {sc.id === 'boutique' ? 'Boutique' : sc.id === 'established' ? 'Growing' : 'High-Volume'}
                     </p>
-                    <p className="text-xs opacity-85 truncate mt-0.5">{sc.stage}</p>
+                    <p className="text-sm opacity-85 mt-0.5">{sc.stage}</p>
                     <p
                       className={`font-bold mt-1.5 text-sm sm:text-base ${
                         isSelected ? 'text-white' : 'text-[#1A2E40]'
                       }`}
                     >
                       {formatCurrency(sc.monthlyRevenue)}
-                      <span className="text-xs font-normal opacity-70">/mo</span>
+                      <span className="text-sm font-normal opacity-70">/mo</span>
                     </p>
                   </button>
                 );
@@ -341,10 +382,10 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
 
             {/* Live Interactive Revenue Slider / Adjuster */}
             <div className="mt-4 pt-3.5 border-t border-[#E2E8F0]">
-              <div className="flex items-center justify-between text-xs mb-1.5">
+              <div className="flex items-center justify-between text-sm mb-1.5">
                 <span className="text-[#1A2E40] font-semibold flex items-center gap-1.5">
                   <Activity className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  <span>Adjust Monthly Collections:</span>
+                  <span>Adjust monthly collections</span>
                 </span>
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-sm text-[#1A2E40]">
@@ -367,7 +408,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   type="range"
                   min="30000"
                   max="250000"
-                  step="2500"
+                  step="500"
                   value={baseRevenue}
                   onChange={(e) => setCustomRevenue(Number(e.target.value))}
                   className="w-full h-2.5 bg-[#E2E8F0] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
@@ -376,7 +417,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   }}
                 />
               </div>
-              <div className="flex justify-between text-xs text-[#57534E] mt-1">
+              <div className="flex justify-between text-sm text-[#57534E] mt-1">
                 <span>$30k/mo</span>
                 <span>$140k/mo</span>
                 <span>$250k/mo</span>
@@ -384,34 +425,34 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             </div>
 
             {/* Quick Reporting Period Filter */}
-            <div className="mt-3.5 pt-3 border-t border-[#E2E8F0] flex items-center justify-between text-xs">
-              <span className="text-[#57534E] font-medium">Reporting Period:</span>
+            <div className="mt-3.5 pt-3 border-t border-[#E2E8F0] flex items-center justify-between text-sm">
+              <span className="text-[#57534E] font-medium">Reporting period:</span>
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => {
                     setPeriodMultiplier(1);
                     setPeriodLabel('Monthly');
                   }}
-                  className={`px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-lg text-sm transition-all cursor-pointer ${
                     periodMultiplier === 1
                       ? 'bg-gradient-to-r from-[#D4AF37] to-[#C8A02A] text-[#1A2E40] font-bold shadow-xs'
                       : 'text-[#57534E] hover:text-[#1A2E40] hover:bg-[#F1F5F9]'
                   }`}
                 >
-                  Monthly View
+                  Monthly
                 </button>
                 <button
                   onClick={() => {
                     setPeriodMultiplier(3);
-                    setPeriodLabel('Q1 Cumulative');
+                    setPeriodLabel('Quarterly');
                   }}
-                  className={`px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-lg text-sm transition-all cursor-pointer ${
                     periodMultiplier === 3
                       ? 'bg-gradient-to-r from-[#D4AF37] to-[#C8A02A] text-[#1A2E40] font-bold shadow-xs'
                       : 'text-[#57534E] hover:text-[#1A2E40] hover:bg-[#F1F5F9]'
                   }`}
                 >
-                  Q1 Summary (3 Months)
+                  Quarterly (3 Months)
                 </button>
               </div>
             </div>
@@ -433,19 +474,17 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-lg font-bold text-[#1A2E40] flex items-center gap-2">
                     <span>{currentScenario.name}</span>
-                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#1A2E40]/5 text-[#1A2E40] border border-[#1A2E40]/10 font-semibold">
+                    <span className="text-sm px-2.5 py-0.5 rounded-full bg-[#1A2E40]/5 text-[#1A2E40] border border-[#1A2E40]/10 font-semibold">
                       P&amp;L
                     </span>
                   </h3>
-                  <span className="text-xs text-[#57534E] bg-[#F1F5F9] px-2.5 py-0.5 rounded-md border border-[#E2E8F0] font-medium">
-                    Practice Revenue Analysis
+                  <span className="text-sm text-[#57534E] bg-[#F1F5F9] px-2.5 py-0.5 rounded-md border border-[#E2E8F0] font-medium">
+                    Example practice
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 text-xs">
-            </div>
           </div>
 
           {/* "Where Every $100 Goes" Visual Allocation Strip */}
@@ -453,12 +492,12 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2.5">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
-                <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E40]">
-                  Where Every $100 Collected Actually Goes in This Practice:
+                <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40]">
+                  Where each $100 collected goes in this example
                 </p>
               </div>
-              <span className="text-xs text-[#57534E]">
-                Click any metric below for plain-English practice clarity
+              <span className="text-sm text-[#57534E]">
+                Click any item to see what it means
               </span>
             </div>
 
@@ -486,12 +525,12 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 style={{ width: `${surplusPercent}%` }} 
                 className="bg-emerald-600 h-full transition-all duration-300 relative group cursor-pointer"
                 onClick={() => setActiveMetric('surplus')}
-                title={`Illustrative Operating Surplus: $${surplusPercent} per $100`}
+                title={`Operating Surplus: $${surplusPercent} per $100`}
               />
             </div>
 
             {/* Legend Labels */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-2.5 text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-2.5 text-sm">
               <button 
                 onClick={() => setActiveMetric('cogs')}
                 className={`flex items-center gap-1.5 p-1.5 rounded-lg text-left transition-all cursor-pointer ${
@@ -526,7 +565,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0" />
-                <span className="truncate"><strong>${surplusPercent}</strong> Illustrative Operating Surplus</span>
+                <span className="truncate"><strong>${surplusPercent}</strong> Operating Surplus</span>
               </button>
             </div>
           </div>
@@ -543,7 +582,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               }`}
             >
               <div className="flex items-center justify-between">
-                <p className="text-xs uppercase tracking-wider text-[#57534E] font-semibold">
+                <p className="text-sm uppercase tracking-wider text-[#57534E] font-semibold">
                   Gross Collections
                 </p>
                 <Info className="w-3.5 h-3.5 text-[#57534E]/60" />
@@ -551,9 +590,9 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
                 {formatCurrency(animTotalRev)}
               </p>
-              <div className="flex items-center gap-1 mt-2 text-xs text-[#1A2E40]/80 font-medium">
+              <div className="flex items-center gap-1 mt-2 text-sm text-[#1A2E40]/80 font-medium">
                 <Info className="w-3 h-3 text-[#D4AF37]" />
-                <span className="truncate">Reconciled to POS and payment records</span>
+                <span className="truncate">Matched to payment records</span>
               </div>
             </button>
 
@@ -567,17 +606,17 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               }`}
             >
               <div className="flex items-center justify-between">
-                <p className="text-xs uppercase tracking-wider text-[#57534E] font-semibold">
+                <p className="text-sm uppercase tracking-wider text-[#57534E] font-semibold">
                   Treatment COGS
                 </p>
-                <span className="text-xs font-bold px-1.5 py-0.5 rounded bg-[#D4AF37]/20 text-[#1A2E40]">
+                <span className="text-sm font-bold px-1.5 py-0.5 rounded bg-[#D4AF37]/20 text-[#1A2E40]">
                   {currentScenario.cogsPercent}%
                 </span>
               </div>
               <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
                 {formatCurrency(animCogs)}
               </p>
-              <p className="text-xs text-[#57534E] mt-2 truncate">
+              <p className="text-sm text-[#57534E] mt-2 truncate">
                 Direct clinical products &amp; supplies
               </p>
             </button>
@@ -592,17 +631,17 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               }`}
             >
               <div className="flex items-center justify-between">
-                <p className="text-xs uppercase tracking-wider text-[#57534E] font-semibold">
+                <p className="text-sm uppercase tracking-wider text-[#57534E] font-semibold">
                   Provider Compensation
                 </p>
-                <span className="text-xs font-bold px-1.5 py-0.5 rounded bg-[#E2E8F0] text-[#1A2E40]">
+                <span className="text-sm font-bold px-1.5 py-0.5 rounded bg-[#E2E8F0] text-[#1A2E40]">
                   {currentScenario.providerPayPercent}%
                 </span>
               </div>
               <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-[#1A2E40] mt-1 tabular-nums">
                 {formatCurrency(animProviderPay)}
               </p>
-              <p className="text-xs text-[#57534E] mt-2 truncate">
+              <p className="text-sm text-[#57534E] mt-2 truncate">
                 Clinical provider compensation
               </p>
             </button>
@@ -618,18 +657,18 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 }`}
               >
                 <div className="flex items-center justify-between pr-7">
-                  <p className="text-xs uppercase tracking-wider text-[#D4AF37] font-bold">
-                    Illustrative Operating Surplus
+                  <p className="text-sm uppercase tracking-wider text-[#D4AF37] font-bold">
+                    Operating Surplus
                   </p>
-                  <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#D4AF37] text-[#1A2E40]">
+                  <span className="text-sm font-bold px-2 py-0.5 rounded bg-[#D4AF37] text-[#1A2E40]">
                     {surplusPercent}%
                   </span>
                 </div>
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif text-white mt-1 tabular-nums">
                   {formatCurrency(animSurplus)}
                 </p>
-                <p className="text-xs text-[#E2E8F0]/90 mt-2 line-clamp-2">
-                  Amount remaining after the expenses included in this simplified model.
+                <p className="text-sm text-[#E2E8F0]/90 mt-2 line-clamp-2">
+                  What remains after the expenses shown in this example.
                 </p>
               </button>
 
@@ -643,26 +682,26 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 onMouseEnter={() => setShowSurplusTooltip(true)}
                 onMouseLeave={() => setShowSurplusTooltip(false)}
                 className="absolute top-3.5 right-3 p-1 rounded-full text-[#D4AF37] hover:bg-white/10 transition-colors cursor-pointer z-10"
-                title="Learn about illustrative operating surplus"
-                aria-label="Learn about illustrative operating surplus"
+                title="How operating surplus is calculated"
+                aria-label="How operating surplus is calculated"
               >
                 <Info className="w-3.5 h-3.5" />
               </button>
 
               {/* Accessible Tooltip for Surplus Card */}
               {showSurplusTooltip && (
-                <div className="absolute z-20 bottom-full left-0 right-0 mb-2 p-3 bg-[#0F172A] text-white text-xs rounded-xl shadow-xl border border-[#D4AF37]/40 leading-relaxed animate-in fade-in">
+                <div className="absolute z-20 bottom-full left-0 right-0 mb-2 p-3 bg-[#0F172A] text-white text-sm rounded-xl shadow-xl border border-[#D4AF37]/40 leading-relaxed animate-in fade-in">
                   <div className="flex items-start justify-between gap-2">
-                    <p className="font-semibold text-[#D4AF37] mb-1">Model Surplus Notice</p>
+                    <p className="font-semibold text-[#D4AF37] mb-1">How this is calculated</p>
                     <button 
                       onClick={() => setShowSurplusTooltip(false)}
-                      className="text-gray-400 hover:text-white text-xs"
+                      className="text-gray-400 hover:text-white text-sm"
                     >
                       ✕
                     </button>
                   </div>
-                  <p className="text-gray-200 text-xs">
-                    This figure represents the simplified arithmetic surplus ({formatCurrency(animTotalRev)} collections − {formatCurrency(animCogs)} COGS − {formatCurrency(animProviderPay)} Provider Pay − {formatCurrency(animOpex)} Operating Expenses = {formatCurrency(animSurplus)}). It is not cash available for owner distributions, and does not account for income taxes, debt service, capital expenditures, or working capital reserves.
+                  <p className="text-gray-200 text-sm">
+                    {formatCurrency(totalRev)} collections − {formatCurrency(cogsAmount)} COGS − {formatCurrency(providerPayAmount)} provider compensation − {formatCurrency(opexAmount)} operating expenses = {formatCurrency(surplusAmount)}. This is not cash available to the owner. It does not account for income taxes, loan payments, equipment purchases or cash reserves.
                   </p>
                 </div>
               )}
@@ -670,12 +709,12 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           </div>
 
           {/* Prominent Operating Expenses ($14,800 • 16%) Reconciliation Bar */}
-          <div className="mt-4 p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+          <div className="mt-4 p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-sm">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
-              <span className="text-[#1A2E40] font-semibold">Model Expense Allocation ($92,500 Baseline):</span>
+              <span className="text-[#1A2E40] font-semibold">Example breakdown of {formatCurrency(totalRev)} collected:</span>
             </div>
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-sm">
               <button 
                 onClick={() => setActiveMetric('cogs')} 
                 className="font-medium text-[#57534E] hover:text-[#1A2E40] transition-colors cursor-pointer"
@@ -687,7 +726,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 onClick={() => setActiveMetric('providerPay')} 
                 className="font-medium text-[#57534E] hover:text-[#1A2E40] transition-colors cursor-pointer"
               >
-                Provider Pay: <strong className="text-[#1A2E40] tabular-nums">{formatCurrency(animProviderPay)}</strong> ({currentScenario.providerPayPercent}%)
+                Provider compensation: <strong className="text-[#1A2E40] tabular-nums">{formatCurrency(animProviderPay)}</strong> ({currentScenario.providerPayPercent}%)
               </button>
               <span className="text-[#CBD5E1] hidden sm:inline">•</span>
               <button 
@@ -719,30 +758,30 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#E2E8F0] pb-2">
                   <h4 className="text-sm font-bold text-[#1A2E40] flex items-center gap-2">
                     <span>{metricExplanations[activeMetric].title}</span>
-                    <span className="text-xs font-normal text-[#57534E] bg-white px-2 py-0.5 rounded border border-[#E2E8F0]">
-                      Model Context: {metricExplanations[activeMetric].benchmark}
+                    <span className="text-sm font-normal text-[#57534E] bg-white px-2 py-0.5 rounded border border-[#E2E8F0]">
+                      Example: {metricExplanations[activeMetric].benchmark}
                     </span>
                   </h4>
-                  <span className="text-xs text-[#57534E]">
-                    Selected for {periodLabel} Model
+                  <span className="text-sm text-[#57534E]">
+                    {periodLabel} view
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
                   <div className="p-3 bg-white rounded-lg border border-[#E2E8F0]">
-                    <p className="font-bold text-[#1A2E40] mb-1">What It Means Simply</p>
+                    <p className="font-bold text-[#1A2E40] mb-1">What it means</p>
                     <p className="text-[#57534E] leading-relaxed">
                       {metricExplanations[activeMetric].plainEnglish}
                     </p>
                   </div>
                   <div className="p-3 bg-white rounded-lg border border-amber-200 bg-amber-50/30">
-                    <p className="font-bold text-amber-900 mb-1">Where the Numbers Can Be Misunderstood</p>
+                    <p className="font-bold text-amber-900 mb-1">Where it goes wrong</p>
                     <p className="text-[#57534E] leading-relaxed">
                       {metricExplanations[activeMetric].commonTrap}
                     </p>
                   </div>
                   <div className="p-3 bg-white rounded-lg border border-emerald-200 bg-emerald-50/30">
-                    <p className="font-bold text-emerald-900 mb-1">How Monique Reid Helps</p>
+                    <p className="font-bold text-emerald-900 mb-1">How bookkeeping helps</p>
                     <p className="text-[#57534E] leading-relaxed">
                       {metricExplanations[activeMetric].solution}
                     </p>
@@ -750,16 +789,16 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 </div>
 
                 {activeMetric === 'surplus' && (
-                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-xs text-[#57534E] leading-relaxed">
-                    <strong className="text-[#1A2E40]">Operating Surplus &amp; Owner Distributions Distinction:</strong>{' '}
-                    This illustrative operating surplus reflects the simplified arithmetic remaining after the specific expenses included in this model. It is not cash available for owner distributions. Cash available for owner distributions depends on income taxes, debt principal payments, capital expenditures, working capital requirements, and unmodeled expenses.
+                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-sm text-[#57534E] leading-relaxed">
+                    <strong className="text-[#1A2E40]">Surplus is not owner cash:</strong>{' '}
+                    This is the amount remaining after only the expenses shown in this example. What the owner can take out also depends on income taxes, loan payments, equipment purchases, cash reserves and other expenses not shown.
                   </div>
                 )}
 
                 {activeMetric === 'opex' && (
-                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-xs text-[#57534E] leading-relaxed">
-                    <strong className="text-[#1A2E40]">Operating Expenses Classification:</strong>{' '}
-                    Routine operating expenses include clinic facility rent, utilities, insurance, merchant processing fees, and software subscriptions. Loan principal payments and certain equipment lease or financing commitments represent balance sheet liabilities and financing items, not operating expenses.
+                  <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-sm text-[#57534E] leading-relaxed">
+                    <strong className="text-[#1A2E40]">What counts as operating expense:</strong>{' '}
+                    Rent, utilities, insurance, merchant processing fees and software subscriptions. Loan principal payments and equipment financing are balance sheet items, not operating expenses.
                   </div>
                 )}
               </div>
@@ -772,12 +811,12 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <button
                 type="button"
                 onClick={() => setShowDetailedBreakdown(!showDetailedBreakdown)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1A2E40] text-[#D4AF37] hover:text-white text-xs font-semibold hover:bg-[#122230] transition-all cursor-pointer shadow-xs border border-[#D4AF37]/35 active:scale-[0.99]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1A2E40] text-[#D4AF37] hover:text-white text-sm font-semibold hover:bg-[#122230] transition-all cursor-pointer shadow-xs border border-[#D4AF37]/35 active:scale-[0.99]"
               >
                 <span>
                   {showDetailedBreakdown
-                    ? 'Hide Deep-Dive Line Item Tables'
-                    : 'Explore Detailed Practice Line-Item Breakdowns'}
+                    ? 'Hide detailed breakdown'
+                    : 'Show detailed breakdown'}
                 </span>
                 {showDetailedBreakdown ? (
                   <ChevronUp className="w-3.5 h-3.5 text-[#D4AF37]" />
@@ -795,41 +834,41 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             <div className="flex items-center gap-2 border-b border-[#E2E8F0] pb-3 mb-4 overflow-x-auto">
               <button
                 onClick={() => setActiveTab('overview')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'overview'
                     ? 'bg-[#1A2E40] text-[#D4AF37] shadow-xs'
                     : 'text-[#57534E] hover:text-[#1A2E40] hover:bg-[#F8FAFC]'
                 }`}
               >
-                Revenue Mix Categorization
+                Revenue Mix
               </button>
               <button
                 onClick={() => setActiveTab('expenses')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'expenses'
                     ? 'bg-[#1A2E40] text-[#D4AF37] shadow-xs'
                     : 'text-[#57534E] hover:text-[#1A2E40] hover:bg-[#F8FAFC]'
                 }`}
               >
-                Clinic Expense Breakdown
+                Expense Breakdown
               </button>
               <button
                 onClick={() => setActiveTab('benchmarks')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer ${
                   activeTab === 'benchmarks'
                     ? 'bg-[#1A2E40] text-[#D4AF37] shadow-xs'
                     : 'text-[#57534E] hover:text-[#1A2E40] hover:bg-[#F8FAFC]'
                 }`}
               >
-                Key Practice Considerations
+                What to Watch For
               </button>
             </div>
 
             {/* TAB 1: Service Line Revenue Mix Breakdown */}
             {activeTab === 'overview' && (
               <div className="space-y-4">
-                <p className="text-xs text-[#57534E] mb-3">
-                  Click any service line below to see its gross margin profile and how it is recorded in QuickBooks:
+                <p className="text-sm text-[#57534E] mb-3">
+                  Select a service line to see how it is tracked in QuickBooks:
                 </p>
 
                 {/* Injectables */}
@@ -837,7 +876,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   onClick={() => setActiveService(activeService === 'injectables' ? null : 'injectables')}
                   className="p-3 rounded-xl hover:bg-[#FAF8F5] transition-colors cursor-pointer border border-transparent hover:border-[#E2E8F0]"
                 >
-                  <div className="flex justify-between text-xs font-semibold mb-1.5">
+                  <div className="flex justify-between text-sm font-semibold mb-1.5">
                     <span className="text-[#1A2E40] flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#1A2E40]" />
                       Injectables (Neurotoxins &amp; Dermal Fillers)
@@ -856,7 +895,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     />
                   </div>
                   {activeService === 'injectables' && (
-                    <div className="mt-2 text-xs bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
+                    <div className="mt-2 text-sm bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
                       <span className="font-bold text-[#1A2E40]">{serviceInsights.injectables.margin}: </span>
                       {serviceInsights.injectables.explanation}
                     </div>
@@ -868,7 +907,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   onClick={() => setActiveService(activeService === 'laser' ? null : 'laser')}
                   className="p-3 rounded-xl hover:bg-[#FAF8F5] transition-colors cursor-pointer border border-transparent hover:border-[#E2E8F0]"
                 >
-                  <div className="flex justify-between text-xs font-semibold mb-1.5">
+                  <div className="flex justify-between text-sm font-semibold mb-1.5">
                     <span className="text-[#1A2E40] flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37]" />
                       Laser, RF Microneedling &amp; Body Contouring
@@ -887,7 +926,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     />
                   </div>
                   {activeService === 'laser' && (
-                    <div className="mt-2 text-xs bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
+                    <div className="mt-2 text-sm bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
                       <span className="font-bold text-[#1A2E40]">{serviceInsights.laser.margin}: </span>
                       {serviceInsights.laser.explanation}
                     </div>
@@ -899,7 +938,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   onClick={() => setActiveService(activeService === 'memberships' ? null : 'memberships')}
                   className="p-3 rounded-xl hover:bg-[#FAF8F5] transition-colors cursor-pointer border border-transparent hover:border-[#E2E8F0]"
                 >
-                  <div className="flex justify-between text-xs font-semibold mb-1.5">
+                  <div className="flex justify-between text-sm font-semibold mb-1.5">
                     <span className="text-[#1A2E40] flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#57534E]" />
                       Membership Revenue &amp; Recurring Packages
@@ -918,7 +957,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     />
                   </div>
                   {activeService === 'memberships' && (
-                    <div className="mt-2 text-xs bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
+                    <div className="mt-2 text-sm bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
                       <span className="font-bold text-[#1A2E40]">{serviceInsights.memberships.margin}: </span>
                       {serviceInsights.memberships.explanation}
                     </div>
@@ -930,10 +969,10 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   onClick={() => setActiveService(activeService === 'skincare' ? null : 'skincare')}
                   className="p-3 rounded-xl hover:bg-[#FAF8F5] transition-colors cursor-pointer border border-transparent hover:border-[#E2E8F0]"
                 >
-                  <div className="flex justify-between text-xs font-semibold mb-1.5">
+                  <div className="flex justify-between text-sm font-semibold mb-1.5">
                     <span className="text-[#1A2E40] flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#94A3B8]" />
-                      Medical-Grade Skincare Retail (SkinCeuticals, ZO, Alastin)
+                      Medical-Grade Skincare Retail
                     </span>
                     <span className="text-[#1A2E40] font-bold tabular-nums">
                       {formatCurrency(animSkincare)} (
@@ -949,7 +988,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     />
                   </div>
                   {activeService === 'skincare' && (
-                    <div className="mt-2 text-xs bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
+                    <div className="mt-2 text-sm bg-white p-2.5 rounded-lg border border-[#E2E8F0] text-[#57534E]">
                       <span className="font-bold text-[#1A2E40]">{serviceInsights.skincare.margin}: </span>
                       {serviceInsights.skincare.explanation}
                     </div>
@@ -969,11 +1008,11 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <p className="text-xl font-bold text-[#1A2E40] mb-2 tabular-nums">
                     {formatCurrency(animCogs)}
                   </p>
-                  <ul className="text-xs text-[#57534E] space-y-1.5">
-                    <li>• Direct clinical products administered (neurotoxins, dermal fillers)</li>
-                    <li>• Consumable treatment supplies (syringes, cannulas, sterile gloves)</li>
-                    <li>• Distinguishes products purchased from products used or sold</li>
-                    <li>• Reporting depends on available inventory counts &amp; accounting method</li>
+                  <ul className="text-sm text-[#57534E] space-y-1.5">
+                    <li>• Neurotoxin and dermal filler used in treatments</li>
+                    <li>• Consumable supplies such as syringes, cannulas and gloves</li>
+                    <li>• Separates product purchased from product used or sold</li>
+                    <li>• Depends on inventory counts and your accounting method</li>
                   </ul>
                 </div>
 
@@ -985,11 +1024,11 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <p className="text-xl font-bold text-[#1A2E40] mb-2 tabular-nums">
                     {formatCurrency(animProviderPay)}
                   </p>
-                  <ul className="text-xs text-[#57534E] space-y-1.5">
-                    <li>• Direct clinical provider compensation (hourly, commission, or salary)</li>
-                    <li>• Distinguished from administrative and front-desk payroll where data permits</li>
-                    <li>• Reconciled against collected receipts and practice compensation policy</li>
-                    <li>• Note: Worker classification &amp; payroll processing determined by practice advisors</li>
+                  <ul className="text-sm text-[#57534E] space-y-1.5">
+                    <li>• Pay for injectors and aestheticians: hourly, commission or salary</li>
+                    <li>• Kept apart from front-desk and administrative payroll where records allow</li>
+                    <li>• Checked against collections and your compensation plan</li>
+                    <li>• Worker classification and payroll rules are set with your advisors</li>
                   </ul>
                 </div>
 
@@ -1001,46 +1040,46 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <p className="text-xl font-bold text-[#1A2E40] mb-2 tabular-nums">
                     {formatCurrency(animOpex)}
                   </p>
-                  <ul className="text-xs text-[#57534E] space-y-1.5">
-                    <li>• Clinic suite lease, routine utilities, and liability insurance</li>
-                    <li>• Practice management, scheduling, and POS software subscriptions</li>
-                    <li>• Credit card processing and patient financing platform fees</li>
-                    <li>• Excludes loan principal payments and capital equipment acquisitions</li>
+                  <ul className="text-sm text-[#57534E] space-y-1.5">
+                    <li>• Rent, utilities and liability insurance</li>
+                    <li>• Booking, scheduling and payment software</li>
+                    <li>• Card processing and patient financing fees</li>
+                    <li>• Excludes loan principal and equipment purchases</li>
                   </ul>
                 </div>
               </div>
             )}
 
-            {/* TAB 3: Key Practice Considerations */}
+            {/* TAB 3: What to Watch For */}
             {activeTab === 'benchmarks' && (
               <div className="space-y-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-amber-50/60 border border-amber-200/80 flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
-                  <div className="text-xs text-[#1A2E40] leading-relaxed">
+                  <div className="text-sm text-[#1A2E40] leading-relaxed">
                     <strong className="text-amber-900 block text-sm mb-1">
                       Consideration #1: Patient Financing &amp; Merchant Fees
                     </strong>
-                    When patients pay via credit cards or financing platforms (such as Cherry or CareCredit), processor fees and financing deductions are withheld before net funds deposit into the practice bank account. Recording only net deposits without accounting for gross transaction activity, processor fees, refunds, and financing deductions distorts gross collections and can lead to double-counting or inaccurate provider compensation reporting.
+                    When patients pay by card or through financing such as Cherry or CareCredit, fees are taken out before the money reaches your bank account. Recording only the net deposit understates collections, hides the fees, and can throw off provider compensation.
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-amber-50/60 border border-amber-200/80 flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
-                  <div className="text-xs text-[#1A2E40] leading-relaxed">
+                  <div className="text-sm text-[#1A2E40] leading-relaxed">
                     <strong className="text-amber-900 block text-sm mb-1">
                       Consideration #2: Retail Inventory vs. Clinical Supplies
                     </strong>
-                    Skincare products purchased for patient retail resale should be tracked distinctly from internal clinical back-bar supplies used during treatments. Distinguishing inventory purchased from inventory actually sold ensures that cost of goods sold is recognized consistently with the practice&apos;s applicable accounting method, rather than causing artificial monthly profit swings.
+                    Skincare bought to resell should be tracked apart from back-bar supplies used in treatments. Recording cost when products are sold, not when they are ordered, avoids artificial swings in monthly profit.
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-amber-50/60 border border-amber-200/80 flex items-start gap-3">
                   <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
-                  <div className="text-xs text-[#1A2E40] leading-relaxed">
+                  <div className="text-sm text-[#1A2E40] leading-relaxed">
                     <strong className="text-amber-900 block text-sm mb-1">
                       Consideration #3: Prepaid Packages &amp; Memberships
                     </strong>
-                    Membership and package activity can involve timing differences between collections and recognized revenue. When patients purchase multi-treatment packages or monthly memberships, tracking cash collected, outstanding treatment obligations (prepaid balances), and services delivered ensures revenue and provider commissions are recognized in accordance with the practice&apos;s established accounting policies.
+                    Packages and memberships are usually paid before treatments are delivered. Tracking cash collected, treatments still owed and services delivered keeps revenue and provider commissions accurate.
                   </div>
                 </div>
               </div>
@@ -1052,21 +1091,21 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             <div className="flex items-start gap-3">
               <Sparkles className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" />
               <div className="text-left">
-                <p className="text-xs font-bold text-[#1A2E40] uppercase tracking-wider">
-                  Reports Built for Practice Owners, Not Just Accountants
+                <p className="text-sm font-bold text-[#1A2E40] uppercase tracking-wider">
+                  Reports built for practice owners, not just accountants
                 </p>
-                <p className="text-xs sm:text-sm text-[#57534E] mt-1 leading-relaxed">
-                  Your practice&apos;s financial records are organized and reporting is made clearer across treatment revenue, product costs, provider compensation and operating expenses, so you can better understand your practice&apos;s financial performance.
+                <p className="text-sm sm:text-sm text-[#57534E] mt-1 leading-relaxed">
+                  Clear reports on treatment revenue, product costs, provider compensation and operating expenses, so you can see how your practice is really performing.
                 </p>
               </div>
             </div>
 
             <button
               onClick={onBookCall}
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] text-xs sm:text-sm font-bold transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 active:scale-[0.98] group cursor-pointer"
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] text-sm sm:text-sm font-bold transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 active:scale-[0.98] group cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
-              <span>Schedule a Clarity Call</span>
+              <span>Book a Clarity Call</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#1A2E40] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>
@@ -1074,8 +1113,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           )}
 
           {/* Subtle Illustrative Disclaimer Footnote */}
-          <p className="mt-4 text-center text-xs sm:text-xs text-[#57534E]/70 italic">
-            *Estimates reflect common MedSpa industry cost structures and service-line benchmarks. Your practice results will differ based on your actual revenue mix, provider compensation model, and operating expenses — which is precisely what structured bookkeeping tracks and reports each month.
+          <p className="mt-4 text-center text-sm text-[#57534E]/70 italic">
+            This dashboard is an illustrative example. The percentages are sample figures, not industry benchmarks or predictions. Your results will differ based on your revenue mix, provider compensation model and expenses, which is what monthly bookkeeping tracks and reports.
           </p>
         </div>
       </div>
