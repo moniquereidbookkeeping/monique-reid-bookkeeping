@@ -42,39 +42,39 @@ const scenarios: PracticeScenario[] = [
     name: 'Boutique Aesthetic Practice',
     stage: '1–2 injectors',
     monthlyRevenue: 48000,
-    injectables: 26400,
-    laser: 11520,
-    skincare: 4320,
-    memberships: 5760,
-    cogsPercent: 25,
-    providerPayPercent: 28,
-    opexPercent: 18,
+    injectables: 24000,
+    laser: 9600,
+    skincare: 7200,
+    memberships: 7200,
+    cogsPercent: 18,
+    providerPayPercent: 30,
+    opexPercent: 33,
   },
   {
     id: 'established',
     name: 'Growing Multi-Provider MedSpa',
     stage: '3–5 providers plus estheticians',
     monthlyRevenue: 92500,
-    injectables: 48100,
-    laser: 24050,
-    skincare: 8325,
-    memberships: 12025,
-    cogsPercent: 23,
+    injectables: 41625,
+    laser: 23125,
+    skincare: 13875,
+    memberships: 13875,
+    cogsPercent: 17,
     providerPayPercent: 32,
-    opexPercent: 16,
+    opexPercent: 33,
   },
   {
     id: 'expansion',
     name: 'High-Volume, Multi-Location Practice',
     stage: 'Full-service medical aesthetics',
     monthlyRevenue: 175000,
-    injectables: 87500,
-    laser: 47250,
-    skincare: 15750,
-    memberships: 24500,
-    cogsPercent: 21,
-    providerPayPercent: 33,
-    opexPercent: 15,
+    injectables: 73500,
+    laser: 49000,
+    skincare: 26250,
+    memberships: 26250,
+    cogsPercent: 16,
+    providerPayPercent: 31,
+    opexPercent: 31,
   },
 ];
 
@@ -138,7 +138,7 @@ const buildExplanations = (v: ExplanationInput): Record<MetricKey, MetricExplana
   opex: {
     title: 'Operating Expenses & Overhead',
     plainEnglish:
-      'The routine costs of running the clinic: rent, utilities, insurance, software subscriptions and merchant processing fees. Loan principal payments and equipment purchases are not included.',
+      'The routine costs of running the clinic: rent, utilities, insurance, marketing, software, front-desk and administrative staff, and merchant processing fees. Loan principal payments and equipment purchases are not included.',
     benchmark: `${v.opexPercent}% of collections (${money(v.opexAmount)}) in this example.`,
     commonTrap:
       'Counting loan principal, owner draws or equipment payments as operating expenses makes the practice look less profitable than it is.',
@@ -798,7 +798,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 {activeMetric === 'opex' && (
                   <div className="p-2.5 rounded-lg bg-white border border-[#D4AF37]/30 text-sm text-[#57534E] leading-relaxed">
                     <strong className="text-[#1A2E40]">What counts as operating expense:</strong>{' '}
-                    Rent, utilities, insurance, merchant processing fees and software subscriptions. Loan principal payments and equipment financing are balance sheet items, not operating expenses.
+                    Rent, utilities, insurance, marketing, software subscriptions, front-desk staff and merchant processing fees. Loan principal payments and equipment financing are balance sheet items, not operating expenses.
                   </div>
                 )}
               </div>
@@ -1041,8 +1041,8 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     {formatCurrency(animOpex)}
                   </p>
                   <ul className="text-sm text-[#57534E] space-y-1.5">
-                    <li>• Rent, utilities and liability insurance</li>
-                    <li>• Booking, scheduling and payment software</li>
+                    <li>• Rent, utilities, liability insurance and marketing</li>
+                    <li>• Front-desk and administrative staff, plus booking and payment software</li>
                     <li>• Card processing and patient financing fees</li>
                     <li>• Excludes loan principal and equipment purchases</li>
                   </ul>
