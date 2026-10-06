@@ -334,7 +334,7 @@ export const blogPosts: BlogPost[] = [
         items: [
           'Expense when purchased — the simplest method. Product orders go straight to an expense account. The weakness is timing: a large order in one month makes that month look unprofitable and the next month look unusually strong.',
           'Inventory on hand with a monthly count — purchases go to an Inventory Asset account on your Balance Sheet. Each month you count what is on the shelf and move the cost of product used into Cost of Goods Sold. This evens out the swings and is a practical middle ground for many single-location practices.',
-          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online depends on your plan, so check what yours includes.',
+          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online is included in the Plus and Advanced plans, but not in Simple Start or Essentials, so check your plan on Intuit’s current pricing page.',
         ],
       },
       {
@@ -384,7 +384,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Bookkeeping needs totals and product counts, not patient names or clinical notes. Record product use by date, product and quantity, and avoid putting patient names or treatment details in QuickBooks memos, attachments or reports. The privacy rules that apply to your practice, such as HIPAA or state law, are set by your attorney or compliance advisor.',
+        text: 'Bookkeeping needs totals and product counts, not patient names or clinical notes. Record product use by date, product and quantity, and avoid putting patient names or treatment details in QuickBooks memos, attachments or reports. For questions about the privacy rules that apply to your practice, ask your attorney or compliance advisor.',
       },
       {
         type: 'heading',
