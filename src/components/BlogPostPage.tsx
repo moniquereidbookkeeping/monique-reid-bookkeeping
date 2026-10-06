@@ -282,7 +282,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               <p className="text-sm text-[#57534E] leading-snug">
                 QuickBooks Bookkeeper for MedSpas &amp; Aesthetic Practices
               </p>
-              <p className="text-sm text-[#78716C] leading-snug">Intuit Certified QBO ProAdvisor · Fort Lauderdale, FL</p>
+              <p className="text-sm text-[#78716C] leading-snug">Intuit Certified QuickBooks ProAdvisor · Fort Lauderdale, FL</p>
             </div>
           </div>
 

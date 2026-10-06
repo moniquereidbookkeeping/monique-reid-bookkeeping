@@ -19,7 +19,7 @@ export const ServicesSummary: React.FC<ServicesSummaryProps> = ({ onNavigate }) 
   <section id="services-summary" className="py-14 lg:py-20 bg-white border-b border-[#E2E8F0]">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Our services</span>
+        <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Services</span>
         <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
           Six services built around how your practice runs
         </h2>

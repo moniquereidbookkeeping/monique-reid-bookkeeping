@@ -59,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       }`}
     >
       {/* Top micro announcement bar */}
-      <div className="bg-[#1A2E40] text-white py-2 px-4 text-xs font-medium border-b border-white/10">
+      <div className="bg-[#1A2E40] text-white py-2 px-4 text-sm font-medium border-b border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-4 text-center sm:text-left">
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse shrink-0" aria-hidden="true" />
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   id={item.id}
                   href={item.scrollTo ? `/#${item.scrollTo}` : pathFor(item.page)}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.page, item.scrollTo); }}
-                  className={`px-3 py-2 xl:px-3.5 xl:py-2 text-[13.5px] xl:text-[14px] tracking-[0.01em] transition-all duration-200 rounded-lg relative cursor-pointer ${
+                  className={`px-3 py-2 xl:px-3.5 xl:py-2 text-[14px] tracking-[0.01em] transition-all duration-200 rounded-lg relative cursor-pointer ${
                     isActive
                       ? 'text-[#1A2E40] font-semibold bg-[#FAF8F5]'
                       : 'text-[#1A2E40]/80 font-medium hover:text-[#1A2E40] hover:bg-[#FAF8F5]/80'
@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="header-clarity-call-btn"
               onClick={onBookCall}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.98] transition-all duration-200 shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.38)] border border-[#FFF5DE]/60 group cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.98] transition-all duration-200 shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.38)] border border-[#FFF5DE]/60 group cursor-pointer"
             >
               <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
                 <Calendar className="w-3.5 h-3.5" />
