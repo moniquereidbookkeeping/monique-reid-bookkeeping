@@ -334,7 +334,7 @@ function getPSLine(status: string): string {
     return `P.S. — Being current is a great foundation. The next level is having reports that actually tell you which services drive your margins — so every business decision is backed by real numbers, not guesswork.`;
   }
   if (s.includes('new') || s.includes('not') || s.includes('set up')) {
-    return `P.S. — Getting it right from day one is always cheaper than cleaning it up later. I've seen new practices spend $3,000+ on cleanup that a proper setup at the start would have prevented entirely.`;
+    return `P.S. — Getting the setup right from day one is usually much cheaper than cleaning it up later.`;
   }
   return `P.S. — If you have a specific question before we meet, just reply to this email. I read every one.`;
 }
