@@ -137,8 +137,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             {/* Free 60-second Health Check: the main lead magnet */}
             <PracticeAudit onBookCall={handleBookCall} />
 
-            {/* Pricing (one place only) */}
-            <PricingSection onBookCall={handleBookCall} />
+            <PricingSection onBookCall={handleBookCall} onViewPricing={() => handleNavigate('pricing')} />
 
             {/* Dashboard teaser */}
             <section className="py-12 bg-[#FDFCFA] border-b border-[#E2E8F0]">
@@ -211,7 +210,20 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             </div>
 
             <ServicesSection onBookCall={handleBookCall} />
-            <PricingSection onBookCall={handleBookCall} />
+
+            {/* Pointer to the separate pricing page */}
+            <section className="py-12 bg-[#F4F6F8] border-b border-[#E2E8F0]">
+              <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
+                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Ready to see what it costs?</h2>
+                <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Monthly plans start at $497 and cleanup projects start at $597. Full details are on the pricing page.</p>
+                <button
+                  onClick={() => handleNavigate('pricing')}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white font-bold text-base transition-all shadow-md cursor-pointer"
+                >
+                  <span>View Pricing</span>
+                </button>
+              </div>
+            </section>
             <BuiltForPractices onBookCall={handleBookCall} />
             <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} onViewAll={() => handleNavigate('faq')} />
           </>
@@ -291,6 +303,26 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             </div>
 
             <ContactSection onNavigate={handleNavigate} />
+          </>
+        )}
+
+        {currentPage === 'pricing' && (
+          <>
+            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+                <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+                  Plans &amp; Pricing
+                </p>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
+                  Bookkeeping Pricing for Aesthetic &amp; Wellness Practices
+                </h1>
+                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
+                  Flat monthly plans and fixed-fee cleanup projects, with a free call to find the right fit.
+                </p>
+              </div>
+            </div>
+
+            <PricingSection onBookCall={handleBookCall} />
           </>
         )}
 

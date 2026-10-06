@@ -13,6 +13,7 @@ export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post' | 'notfound'>, str
   booked: '/booked',
   blog: '/blog',
   faq: '/faq',
+  pricing: '/pricing',
 };
 
 export const SITE_ORIGIN = 'https://moniquereidbookkeeping.com';
@@ -51,9 +52,9 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
     description: 'Your free 20-minute Financial Clarity Call is confirmed.',
   },
   services: {
-    title: 'MedSpa Bookkeeping Services & Pricing | Monique Reid Bookkeeping',
+    title: 'MedSpa Bookkeeping Services | Monique Reid Bookkeeping',
     description:
-      'Monthly bookkeeping, QuickBooks cleanup and financial reporting for MedSpas, aesthetic clinics, IV hydration and wellness practices. Flat-rate plans from $497/mo.',
+      'Monthly bookkeeping, QuickBooks cleanup and financial reporting for MedSpas, aesthetic clinics, IV hydration and wellness practices.',
   },
   dashboard: {
     title: 'Example Practice Financial Dashboard | Monique Reid Bookkeeping',
@@ -74,6 +75,11 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
     title: 'Book a Free 20-Minute Clarity Call | Monique Reid Bookkeeping',
     description:
       'Book a complimentary 20-minute call to talk through your practice books and the clearest path to organized financial records.',
+  },
+  pricing: {
+    title: 'MedSpa Bookkeeping Pricing | Monique Reid Bookkeeping',
+    description:
+      'Flat monthly bookkeeping plans from $497 and fixed-fee QuickBooks cleanup from $597 for MedSpas, aesthetic clinics, IV hydration and wellness practices.',
   },
   faq: {
     title: 'MedSpa Bookkeeping FAQ | Monique Reid Bookkeeping',

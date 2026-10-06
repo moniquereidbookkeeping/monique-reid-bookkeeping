@@ -82,6 +82,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
             </h4>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
+                <a href={pathFor('pricing')} onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
+                  Pricing
+                </a>
+              </li>
+              <li>
                 <a href={pathFor('dashboard')} onClick={(e) => { e.preventDefault(); onNavigate('dashboard'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Financial Dashboard

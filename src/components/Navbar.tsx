@@ -29,7 +29,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navItems: { label: string; page: PageView; id: string; scrollTo?: string }[] = [
     { label: 'Home', page: 'home', id: 'nav-home' },
     { label: 'Services', page: 'services', id: 'nav-services' },
-    { label: 'Pricing', page: 'home', id: 'nav-pricing', scrollTo: 'pricing-section' },
+    { label: 'Pricing', page: 'pricing', id: 'nav-pricing' },
     { label: 'Blog', page: 'blog', id: 'nav-blog' },
     { label: 'About', page: 'about', id: 'nav-about' },
     { label: 'Contact', page: 'contact', id: 'nav-contact' },

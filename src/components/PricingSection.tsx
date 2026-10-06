@@ -19,6 +19,8 @@ import {
 
 interface PricingSectionProps {
   onBookCall: () => void;
+  /** Home page version: plans and call to action only, with a link to the full pricing page. */
+  onViewPricing?: () => void;
 }
 
 import { cleanupTiers } from '../data/cleanupPricing';
@@ -133,7 +135,8 @@ const complexityFactors = [
 ];
 
 
-export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) => {
+export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onViewPricing }) => {
+  const compact = !!onViewPricing;
   return (
     <section id="pricing-section" className="py-10 lg:py-16 bg-[#F4F6F8] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -285,7 +288,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           })}
         </div>
 
+        {compact && (
+          <div className="text-center mb-12">
+            <button type="button" onClick={onViewPricing} className="inline-flex items-center gap-2 text-base font-bold text-[#1A2E40] hover:text-[#8A6A00] transition-colors cursor-pointer group">
+              <span>See full pricing, including cleanup projects</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        )}
+
         {/* Cleanup pricing band */}
+        {!compact && (
         <div className="mb-16 max-w-6xl mx-auto rounded-2xl bg-white border border-[#E2E8F0] shadow-sm p-6 sm:p-8">
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Cleanup pricing</p>
@@ -308,7 +321,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         </div>
 
 
+        )}
+
         {/* What affects your plan */}
+        {!compact && (
         <div className="max-w-6xl mx-auto mb-12 rounded-2xl bg-white border border-[#E2E8F0] p-5 sm:p-6 text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-3">What affects your plan</p>
           <div className="flex flex-wrap items-center justify-center gap-2">
@@ -320,6 +336,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
           </div>
           <p className="mt-3 text-base text-[#4A5568]">More accounts, systems and revenue types mean more reconciliation work, so they raise the starting rate.</p>
         </div>
+
+        )}
 
         {/* Bottom CTA Banner */}
         <div className="max-w-6xl mx-auto rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/30 p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-xl">

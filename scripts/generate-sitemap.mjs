@@ -17,6 +17,7 @@ const pages = [
   { path: '/services', freq: 'monthly', priority: '0.8' },
   { path: '/about', freq: 'monthly', priority: '0.7' },
   { path: '/contact', freq: 'monthly', priority: '0.7' },
+  { path: '/pricing', freq: 'monthly', priority: '0.8' },
   { path: '/faq', freq: 'monthly', priority: '0.8' },
   { path: '/dashboard', freq: 'monthly', priority: '0.6' },
   { path: '/calculator', freq: 'monthly', priority: '0.6' },
