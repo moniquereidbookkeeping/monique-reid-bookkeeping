@@ -36,7 +36,7 @@ export const Hero: React.FC<HeroProps> = ({
               Stop Guessing Your True Profit.{' '}
               <br />
               <span className="text-[#A67C00] relative inline-block">
-                Get Clean, Tax-Ready QuickBooks for Your Practice.
+                Get Clean, Tax-Ready QuickBooks for Your MedSpa.
                 <svg
                   className="absolute -bottom-2 left-0 w-full h-2.5 text-[#D4AF37]/40"
                   viewBox="0 0 200 8"

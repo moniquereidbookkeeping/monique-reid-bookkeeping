@@ -9,7 +9,9 @@ import {
   BookOpen,
   ChevronRight,
 } from 'lucide-react';
-import { getBlogPostBySlug } from '../data/blogPosts';
+import { blogPosts, getBlogPostBySlug } from '../data/blogPosts';
+import { pathFor } from '../router';
+import { PageView } from '../types';
 import { BlogCover } from './BlogCover';
 import { BlogSection } from '../types';
 
@@ -17,7 +19,19 @@ interface BlogPostPageProps {
   slug: string;
   onBack: () => void;
   onBookCall: () => void;
+  onReadPost: (slug: string) => void;
+  onNavigate: (page: PageView) => void;
 }
+
+/** Two other articles to read next: same category first, then the newest. */
+const relatedPosts = (slug: string, category: string) =>
+  blogPosts
+    .filter((p) => p.slug !== slug)
+    .sort((a, b) =>
+      Number(b.category === category) - Number(a.category === category) ||
+      b.publishedDate.localeCompare(a.publishedDate),
+    )
+    .slice(0, 2);
 
 const formatDate = (dateStr: string): string => {
   const date = new Date(dateStr + 'T12:00:00');
@@ -117,14 +131,12 @@ const renderSection = (section: BlogSection, index: number) => {
   }
 };
 
-export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBookCall }) => {
+export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBookCall, onReadPost, onNavigate }) => {
   const post = getBlogPostBySlug(slug);
 
   useEffect(() => {
     if (!post) return;
 
-    const origin = 'https://moniquereidbookkeeping.com';
-    const url = `${origin}/blog/${post.slug}`;
     const restore: Array<() => void> = [];
 
     // Set a <meta> value and remember how to put the old one back.
@@ -157,27 +169,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
     setMeta('meta[name="twitter:title"]', named('twitter:title'), post.metaTitle);
     setMeta('meta[name="twitter:description"]', named('twitter:description'), post.metaDescription);
 
-    // Article structured data for this post.
-    const ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.id = 'post-jsonld';
-    ld.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: post.title,
-      description: post.metaDescription,
-      datePublished: post.publishedDate,
-      dateModified: post.publishedDate,
-      mainEntityOfPage: url,
-      image: `${origin}/og-image.png`,
-      author: { '@id': `${origin}/#person` },
-      publisher: { '@id': `${origin}/#organization` },
-    });
-    document.head.appendChild(ld);
-
     return () => {
       restore.forEach((fn) => fn());
-      ld.remove();
     };
   }, [post]);
 
@@ -203,13 +196,14 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
 
         {/* Breadcrumb nav inside image */}
         <div className="absolute top-5 left-4 sm:left-8">
-          <button
-            onClick={onBack}
+          <a
+            href={pathFor('blog')}
+            onClick={(e) => { e.preventDefault(); onBack(); }}
             className="flex items-center gap-1.5 text-sm text-white/80 hover:text-[#D4AF37] transition-colors cursor-pointer bg-black/25 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/15"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             All Articles
-          </button>
+          </a>
         </div>
 
         {/* Title + meta overlaid on image bottom */}
@@ -274,6 +268,9 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               <img
                 src="/monique-reid-headshot.webp"
                 alt="Monique Reid"
+                width={48}
+                height={48}
+                loading="lazy"
                 className="w-full h-full object-cover object-top"
               />
             </div>
@@ -285,6 +282,40 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               <p className="text-sm text-[#78716C] leading-snug">Intuit Certified QuickBooks ProAdvisor · Fort Lauderdale, FL</p>
             </div>
           </div>
+
+          {/* Keep reading: related articles and the pages this topic leads to */}
+          <nav aria-label="Keep reading" className="mt-10 pt-8 border-t border-[#E2E8F0] space-y-4">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Keep reading</p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {relatedPosts(post.slug, post.category).map((p) => (
+                <li key={p.slug}>
+                  <a
+                    href={`/blog/${p.slug}`}
+                    onClick={(e) => { e.preventDefault(); onReadPost(p.slug); }}
+                    className="group block h-full rounded-xl border border-[#E2E8F0] bg-white p-4 hover:border-[#D4AF37] transition-colors"
+                  >
+                    <span className="block text-base font-serif font-bold text-[#1A2E40] leading-snug group-hover:text-[#8A6A00]">{p.title}</span>
+                    <span className="mt-1.5 inline-flex items-center gap-1 text-sm font-semibold text-[#57534E]">
+                      Read article <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="text-[15px] text-[#57534E] leading-relaxed">
+              Want this handled for you? See the{' '}
+              <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
+                MedSpa bookkeeping services
+              </a>{' '}
+              and{' '}
+              <a href={pathFor('pricing')} onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
+                className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
+                flat monthly pricing
+              </a>
+              .
+            </p>
+          </nav>
 
           {/* End CTA */}
           <div className="mt-10">
@@ -310,13 +341,14 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
 
           {/* Back link */}
           <div className="mt-8 text-center">
-            <button
-              onClick={onBack}
+            <a
+              href={pathFor('blog')}
+              onClick={(e) => { e.preventDefault(); onBack(); }}
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1A2E40]/60 hover:text-[#D4AF37] transition-colors cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Back to All Articles
-            </button>
+            </a>
           </div>
         </div>
       </article>

@@ -6,7 +6,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "medspa-chart-of-accounts-quickbooks",
     "title": "A MedSpa Chart of Accounts for QuickBooks: What to Set Up and Why",
     "metaTitle": "MedSpa Chart of Accounts for QuickBooks | MedSpa Bookkeeping",
-    "metaDescription": "A generic chart of accounts hides what a MedSpa really earns. See how to organize income, cost of goods sold and expense accounts in QuickBooks for an aesthetic practice.",
+    "metaDescription": "A generic chart of accounts hides what a MedSpa earns. How to set up income, cost of goods sold and expense accounts in QuickBooks for an aesthetic practice.",
     "excerpt": "A default QuickBooks chart of accounts was not built for injectables, memberships or patient financing. Here is how to organize income, direct costs and expenses so your reports answer real questions.",
     "category": "QuickBooks & Cleanup",
     "tags": [
@@ -124,7 +124,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "is-my-medspa-profitable-quickbooks-reports",
     "title": "Is Your MedSpa Actually Profitable? The QuickBooks Reports That Show You",
     "metaTitle": "Is My MedSpa Profitable? | QuickBooks Reports",
-    "metaDescription": "Revenue is not profit. Learn which QuickBooks reports a MedSpa owner should read each month to see real profitability, and what to check before trusting the numbers.",
+    "metaDescription": "Revenue is not profit. The QuickBooks reports a MedSpa owner should read each month to see real profitability, and what to check before trusting the numbers.",
     "excerpt": "Strong bookings do not guarantee profit. Here are the reports a MedSpa owner can use to see how much the practice really keeps, and what has to be true of the books first.",
     "category": "Costs & Inventory",
     "tags": [
@@ -303,7 +303,7 @@ export const blogPosts: BlogPost[] = [
     "slug": "medspa-month-end-close-checklist-quickbooks",
     "title": "A MedSpa Month-End Close Checklist for QuickBooks",
     "metaTitle": "MedSpa Month-End Close Checklist | QuickBooks Bookkeeping",
-    "metaDescription": "A simple month-end routine keeps a MedSpa’s QuickBooks accurate all year. Use this checklist to reconcile accounts, match deposits, review costs and check your reports.",
+    "metaDescription": "A month-end routine keeps a MedSpa’s QuickBooks accurate all year. Use this checklist to reconcile accounts, match deposits, review costs and check reports.",
     "excerpt": "Books that are only touched at tax time are rarely accurate. This month-end checklist shows what to review in QuickBooks each month so problems are caught while they are small.",
     "category": "QuickBooks & Cleanup",
     "tags": [

@@ -17,6 +17,8 @@ interface FAQSectionProps {
   onViewAll?: () => void;
   /** Hide the section heading when a page title already sits above it. */
   hideHeading?: boolean;
+  /** FAQPage structured data belongs on one page only (the FAQ page), not on every page that shows a few questions. */
+  includeSchema?: boolean;
 }
 
 interface FAQItem {
@@ -28,7 +30,7 @@ interface FAQItem {
   takeaways: string[];
 }
 
-export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimit, showCta = true, onViewAll, hideHeading = false }) => {
+export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimit, showCta = true, onViewAll, hideHeading = false, includeSchema = true }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showAll, setShowAll] = useState<boolean>(!featuredLimit);
@@ -376,10 +378,12 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       className="py-14 lg:py-20 bg-[#FDFCFA] border-t border-b border-[#E2E8F0] relative overflow-hidden"
     >
       {/* Schema.org FAQPage Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {includeSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* Background subtle ambient accents */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
