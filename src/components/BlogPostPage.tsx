@@ -197,7 +197,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
 
       {/* ── Hero cover image with overlay ── */}
       <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[500px] overflow-hidden">
-        <BlogCover category={post.category} wide className="absolute inset-0 w-full h-full" />
+        <BlogCover category={post.category} image={post.coverImage} wide className="absolute inset-0 w-full h-full" />
         {/* Layered gradient: transparent top → dark navy bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/60 to-[#0D1B2A]/15" />
 

@@ -27,7 +27,7 @@ const FeaturedCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, 
     className="relative rounded-2xl overflow-hidden cursor-pointer group shadow-xl hover:shadow-2xl transition-all duration-500 min-h-[440px] sm:min-h-[520px] flex flex-col justify-end"
   >
     {/* Full-bleed image */}
-    <BlogCover category={post.category} wide className="absolute inset-0 w-full h-full" />
+    <BlogCover category={post.category} image={post.coverImage} wide className="absolute inset-0 w-full h-full" />
     {/* Gradient overlay */}
     <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/70 to-[#0D1B2A]/10" />
 
@@ -81,7 +81,7 @@ const PostCard: React.FC<{ post: BlogPost; onRead: () => void }> = ({ post, onRe
   >
     {/* Cover image */}
     <div className="relative overflow-hidden h-48 sm:h-52 shrink-0">
-      <BlogCover category={post.category} className="w-full h-full" />
+      <BlogCover category={post.category} image={post.coverImage} className="w-full h-full" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/60 via-transparent to-transparent" />
       <div className="absolute bottom-3 left-3">
         <CategoryBadge category={post.category} />

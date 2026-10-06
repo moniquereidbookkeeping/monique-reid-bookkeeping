@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BookOpen } from 'lucide-react';
 
 /* Original on-brand illustrations, drawn as inline SVG so they never break, load instantly, and need no licenses. */
@@ -122,8 +122,19 @@ const ART: Record<string, React.FC> = {
   'Costs & Inventory': Inventory,
 };
 
-export const BlogCover: React.FC<{ category: string; className?: string; wide?: boolean }> = ({ category, className = '', wide = false }) => {
+export const BlogCover: React.FC<{ category: string; image?: string; className?: string; wide?: boolean }> = ({ category, image = '', className = '', wide = false }) => {
   const Art = ART[category];
+  const [photoOk, setPhotoOk] = useState(true);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // New image URL -> try again. Also catches images that failed before React hydrated.
+  useEffect(() => {
+    setPhotoOk(true);
+    const el = imgRef.current;
+    if (el && el.complete && el.naturalWidth === 0) setPhotoOk(false);
+  }, [image]);
+
+  const showPhoto = !!image && photoOk;
   return (
     <div
       aria-hidden="true"
@@ -137,6 +148,22 @@ export const BlogCover: React.FC<{ category: string; className?: string; wide?: 
         </svg>
       ) : (
         <BookOpen className="absolute right-6 top-1/2 -translate-y-1/2 w-28 h-28 text-[#D4AF37]/25" />
+      )}
+      {/* Photo sits on top of the illustration. If it is removed or fails, it hides itself and the illustration shows. */}
+      {showPhoto && (
+        <>
+          <img
+            ref={imgRef}
+            src={image}
+            alt=""
+            loading={wide ? 'eager' : 'lazy'}
+            decoding="async"
+            referrerPolicy="no-referrer"
+            onError={() => setPhotoOk(false)}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/80 via-[#1A2E40]/35 to-[#1A2E40]/20" />
+        </>
       )}
     </div>
   );

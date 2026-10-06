@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['QuickBooks', 'Cleanup', 'MedSpa', 'Catch-Up Bookkeeping', 'Aesthetic Practice'],
     publishedDate: '2026-10-01',
     readingTime: 6,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of a messy ledger page becoming a clean, reconciled one',
     featured: true,
     content: [
@@ -113,7 +113,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Boulevard', 'Vagaro', 'QuickBooks', 'Reconciliation', 'MedSpa', 'POS Deposits'],
     publishedDate: '2026-10-01',
     readingTime: 5,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
     content: [
       {
@@ -212,7 +212,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Memberships', 'Deferred Revenue', 'QuickBooks', 'Revenue Recognition', 'MedSpa', 'Packages'],
     publishedDate: '2026-10-05',
     readingTime: 5,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of a calendar and recurring membership payments',
     content: [
       {
