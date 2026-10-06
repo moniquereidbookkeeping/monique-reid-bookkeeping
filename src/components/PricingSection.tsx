@@ -132,11 +132,6 @@ const complexityFactors = [
   },
 ];
 
-const trustItems = [
-  { icon: ShieldCheck, text: 'Free 20-minute call' },
-  { icon: ShieldCheck, text: 'No obligation to proceed' },
-  { icon: ShieldCheck, text: 'Intuit Certified QBO ProAdvisor' },
-];
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) => {
   return (
@@ -147,15 +142,15 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold tracking-widest uppercase mb-6">
             <Sparkles className="w-3.5 h-3.5" />
-            Transparent, Complexity-Based Pricing
+            Transparent Pricing
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight mb-4">
-            Your Fee Reflects Your Practice's Complexity
+            Pricing Based on Your Practice's Size and Systems
           </h2>
           <p className="text-base sm:text-lg text-[#374151] leading-relaxed">
             A solo provider with Square doesn't have the same bookkeeping needs as a multi-provider MedSpa
-            running Boulevard, Cherry, memberships, and provider compensation.
-            Fees match the <strong className="text-[#1A2E40]">financial complexity of your practice</strong> — nothing more.
+            running Boulevard, Cherry, memberships, and provider compensation. Your plan depends on your
+            monthly revenue and on how many accounts, payment systems and locations you have.
           </p>
         </div>
 
@@ -313,54 +308,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
         </div>
 
 
-        {/* What Determines Your Fee — dark navy treatment */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <div className="rounded-3xl overflow-hidden shadow-xl border border-[#D4AF37]/25">
-            {/* Header */}
-            <div className="bg-[#1A2E40] px-5 sm:px-7 py-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center shrink-0">
-                  <Info className="w-5 h-5 text-[#D4AF37]" />
-                </div>
-                <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                  Complexity-Based Pricing
-                </p>
-              </div>
-              <h3 className="text-lg sm:text-xl font-serif font-bold text-white leading-snug mb-2">
-                What Determines Your Monthly Fee
-              </h3>
-              <p className="text-sm text-white/70 leading-relaxed max-w-3xl">
-                Your monthly fee is set by the number and type of financial systems your practice uses.
-                More systems, platforms, and revenue types mean more reconciliation work — and a higher starting rate.
-                Here is exactly what is assessed before your plan is quoted:
-              </p>
-            </div>
-
-            {/* Factors Grid */}
-            <div className="bg-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-              {complexityFactors.map((factor, idx) => {
-                const FIcon = factor.icon;
-                const isLastRow = idx >= 4;
-                const isLastCol = (idx + 1) % 4 === 0;
-                return (
-                  <div
-                    key={factor.label}
-                    className={`p-4 flex flex-col gap-2 hover:bg-[#FDFAF4] transition-colors border-b border-r border-[#E2E8F0] ${
-                      isLastRow ? 'border-b-0' : ''
-                    } ${isLastCol ? 'border-r-0' : ''}`}
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-[#1A2E40] flex items-center justify-center shrink-0">
-                      <FIcon className="w-4 h-4 text-[#D4AF37]" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-[#1A2E40] leading-snug mb-1">{factor.label}</p>
-                      <p className="text-sm text-[#4A5568] leading-relaxed">{factor.detail}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+        {/* What affects your plan */}
+        <div className="max-w-6xl mx-auto mb-12 rounded-2xl bg-white border border-[#E2E8F0] p-5 sm:p-6 text-center">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-3">What affects your plan</p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {complexityFactors.map((factor) => (
+              <span key={factor.label} className="px-3.5 py-1.5 rounded-full bg-[#F4F6F8] border border-[#E2E8F0] text-sm font-semibold text-[#1A2E40]">
+                {factor.label}
+              </span>
+            ))}
           </div>
+          <p className="mt-3 text-base text-[#4A5568]">More accounts, systems and revenue types mean more reconciliation work, so they raise the starting rate.</p>
         </div>
 
         {/* Bottom CTA Banner */}
@@ -386,23 +344,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall }) =>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
-
-        {/* Trust Bar */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-          {trustItems.map((item) => {
-            const TIcon = item.icon;
-            return (
-              <div key={item.text} className="flex items-center gap-2.5 text-base text-[#374151] font-medium">
-                <TIcon className="w-5 h-5 text-[#D4AF37] shrink-0" />
-                <span>{item.text}</span>
-              </div>
-            );
-          })}
-        </div>
-
-        <p className="mt-5 text-center text-base text-[#5A6578] max-w-xl mx-auto leading-relaxed">
-          No obligation. The call also confirms the practice is a good fit before any service is recommended.
-        </p>
       </div>
     </section>
   );
