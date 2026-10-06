@@ -131,8 +131,8 @@ const complexityFactors = [
 ];
 
 const trustItems = [
-  { icon: ShieldCheck, text: 'No long-term contracts' },
-  { icon: ShieldCheck, text: 'Cancel with 30 days’ notice' },
+  { icon: ShieldCheck, text: 'Free 20-minute call' },
+  { icon: ShieldCheck, text: 'No obligation to proceed' },
   { icon: ShieldCheck, text: 'Intuit Certified QBO ProAdvisor' },
 ];
 

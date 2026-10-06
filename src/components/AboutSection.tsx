@@ -129,7 +129,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                   <span>No Tax Season Surprises</span>
                 </div>
                 <p className="text-sm text-[#4A5568]">
-                  Your CPA gets clean, reconciled records by January — organized the way they need them, every year.
+                  Your CPA receives clean, reconciled records organized the way they need them, ready when tax season starts.
                 </p>
               </div>
 
