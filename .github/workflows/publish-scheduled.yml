@@ -4,7 +4,7 @@ name: Publish Scheduled Articles
 # rebuilt on or after that date. This checks every morning and, when an article is due today, asks
 # Cloudflare Pages to rebuild the live site.
 #
-# One-time setup: Cloudflare dashboard > Workers & Pages > mr-bookkeeping > Settings > Builds > Deploy hooks >
+# One-time setup: Cloudflare dashboard > Workers & Pages > monique-reid-bookkeeping > Settings > Builds > Deploy hooks >
 # Add deploy hook (branch: main). Copy the URL and save it in GitHub > Settings > Secrets and variables >
 # Actions as CLOUDFLARE_PAGES_DEPLOY_HOOK.
 
