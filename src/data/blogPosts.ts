@@ -310,7 +310,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['COGS', 'Inventory', 'Neurotoxin', 'Fillers', 'QuickBooks', 'MedSpa', 'Margins'],
     publishedDate: '2026-10-05',
     readingTime: 5,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of a vial, syringe and a cost versus revenue bar chart',
     content: [
       {

@@ -279,9 +279,10 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
             </div>
             <div>
               <p className="text-sm font-bold text-[#1A2E40]">Monique Reid</p>
-              <p className="text-sm text-[#57534E]">
-                MedSpa &amp; Aesthetic Practice Bookkeeping Specialist · Fort Lauderdale, FL
+              <p className="text-sm text-[#57534E] leading-snug">
+                QuickBooks Bookkeeper for MedSpas &amp; Aesthetic Practices
               </p>
+              <p className="text-sm text-[#78716C] leading-snug">Fort Lauderdale, FL</p>
             </div>
           </div>
 
