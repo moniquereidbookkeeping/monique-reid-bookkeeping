@@ -29,7 +29,7 @@ export const CookieBanner: React.FC<{ onNavigate: (p: PageView) => void }> = ({ 
       className="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-md z-50 rounded-2xl bg-[#1A2E40] text-white p-5 shadow-2xl border border-[#D4AF37]/30"
     >
       <p className="text-sm leading-relaxed text-[#E2E8F0]">
-        Optional analytics (Google Analytics and Microsoft Clarity) help show how visitors use this site. Nothing is collected unless you accept.{' '}
+        Optional analytics (Google Analytics and Microsoft Clarity, which includes anonymous session recordings) help show how visitors use this site. Nothing is collected unless you accept.{' '}
         <a
           href="/privacy"
           onClick={(e) => { e.preventDefault(); onNavigate('privacy'); }}

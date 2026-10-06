@@ -352,7 +352,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             Where required by applicable law, appropriate consent mechanisms will be provided for non-essential cookies or tracking technologies. You can also control certain cookies through your browser settings.
           </p>
           <p className="text-sm leading-relaxed">
-            Analytics cookies are off by default. If you click Accept on our privacy choices banner, we use Google Analytics to measure which pages are visited and how visitors reach us, and we may use Microsoft Clarity to view anonymous session recordings with form fields masked. If you click Decline, neither is loaded. You can change your choice at any time using Cookie Settings in the footer. We do not send the answers you give in the Bookkeeping Health Check to these analytics tools.
+            Analytics cookies are off by default. If you click Accept on our privacy choices banner, we use Google Analytics to measure which pages are visited and how visitors reach us, and we may use Microsoft Clarity to view anonymous session recordings with form fields masked. If you click Decline, neither is loaded. You can change your choice at any time using Cookie Settings in the footer. We do not send the answers you give in the Bookkeeping Health Check to these analytics tools. When you open the booking calendar, Calendly sets its own cookies and shows its own privacy choices. Those are controlled through Calendly and are not covered by our Cookie Settings.
           </p>
         </div>
 
