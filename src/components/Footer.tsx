@@ -18,9 +18,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
   return (
     <footer id="site-footer" className="bg-[#1A2E40] text-white pt-16 pb-12 border-t border-[#D4AF37]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.2fr_1.1fr_0.8fr_1.3fr] gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Logo */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="space-y-4">
             <Logo variant="light" size="lg" onClick={() => onNavigate('home')} />
             <p className="text-sm text-[#E2E8F0] max-w-sm leading-relaxed mt-2 font-light">
               Precise, practice-ready bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           </div>
 
           {/* Col 2: Services (All 6 Distinct Services) */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Services
             </h4>
@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           </div>
 
           {/* Col 3: Practice Tools */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Practice Tools
             </h4>
@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           </div>
 
           {/* Col 4: Get In Touch */}
-          <div className="lg:col-span-4 space-y-3">
+          <div className="space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               GET IN TOUCH
             </h4>
@@ -143,7 +143,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#E2E8F0]/70 border-t border-white/10 mt-8">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#E2E8F0]/70">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
             <p>© 2026 Monique Reid Bookkeeping • Fort Lauderdale, FL • All rights reserved.</p>
             <span className="hidden sm:inline text-white/30">·</span>
