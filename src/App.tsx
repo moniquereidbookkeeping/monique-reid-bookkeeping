@@ -254,7 +254,6 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             </div>
 
             <AboutSection onBookCall={handleBookCall} />
-            <BuiltForPractices onBookCall={handleBookCall} />
           </>
         )}
 

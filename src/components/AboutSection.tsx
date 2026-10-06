@@ -39,7 +39,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               <div className={`${showPortrait ? 'mt-4 ' : ''}p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-md`}>
                 <div className="mb-4 pb-2.5 border-b border-[#E2E8F0] text-center">
                   <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40]">
-                    Intuit Certified ProAdvisor Credentials
+                    Credentials
                   </p>
                 </div>
 
@@ -95,7 +95,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                 Hi, I'm Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
               </p>
               <p>
-                I chose to focus on this industry because I recognized how underserved these practices are by generalist bookkeepers. The financial workflows here are genuinely more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and most bookkeepers aren't structured to handle that complexity well. I built my QuickBooks approach around how these practices actually operate, not around a generic small-business model.
+                I chose to focus on this industry because its books are harder than most generalist bookkeepers are set up for. The financial workflows here are genuinely more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and a generic small-business approach often handles them poorly. I built my QuickBooks approach around how these practices actually operate, not around a generic small-business model.
               </p>
               <p>
                 My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can actually use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
@@ -106,9 +106,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
             <div className="p-6 rounded-2xl bg-[#1A2E40] border border-[#D4AF37]/20 shadow-lg">
               <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37] mb-3">✦ Founder-Led Bookkeeping</p>
               <p className="text-xl font-serif font-bold text-white leading-snug mb-2">
-                You work directly with the person who does the work.</p>
+                One bookkeeper, start to finish.</p>
               <p className="text-base text-[#E2E8F0] leading-relaxed">
-                I review your reconciliations and answer your questions myself, so you always know who is accountable for your books.</p>
+                You work directly with me, from setup to month-end. Your questions go straight to the person who knows your books, with no handoffs.</p>
             </div>
 
             {/* Core Values / Commitments */}
@@ -126,10 +126,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
                 <div className="flex items-center gap-2 text-base font-bold text-[#1A2E40] mb-1">
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
-                  <span>No Tax Season Surprises</span>
+                  <span>Ready for Tax Season</span>
                 </div>
                 <p className="text-sm text-[#4A5568]">
-                  Your CPA receives clean, reconciled records organized the way they need them, ready when tax season starts.
+                  Your CPA gets clean, reconciled records, so tax preparation starts from accurate books.
                 </p>
               </div>
 
@@ -139,7 +139,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                   <span>You're Not Alone in This</span>
                 </div>
                 <p className="text-sm text-[#4A5568]">
-                  Most practice owners arrive frustrated, behind, or just unsure. This practice is built for exactly that.
+                  Many practice owners come to bookkeeping help frustrated, behind, or unsure. This practice is built for exactly that.
                 </p>
               </div>
             </div>
