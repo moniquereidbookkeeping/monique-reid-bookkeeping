@@ -30,7 +30,7 @@ const HeroPhoto: React.FC = () => {
           {/* Bio copy */}
           <div className="text-center lg:text-left max-w-xl">
             {/* Eyebrow */}
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37] mb-3">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#D4AF37] mb-3">
               Meet Your Bookkeeper
             </p>
 

@@ -33,11 +33,11 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
     <section id="calculator-section" className="py-16 lg:py-24 bg-[#FDFCFA] border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-semibold tracking-wider text-[#1A2E40] uppercase mb-3">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest mb-3">
             <Calculator className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>Free Interactive Tool</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40]">
             See What Each Treatment Contributes
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#57534E]">
@@ -252,7 +252,7 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
                   className="w-full py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg border border-[#FFF5DE]/60 flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <Calendar className="w-4 h-4 text-[#1A2E40]" />
-                  <span>Review Your Numbers on a Free Call</span>
+                  <span>Book Your Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

@@ -27,7 +27,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-sm font-semibold tracking-wider text-[#D4AF37] uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
               <Stethoscope className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Built For Growing Practices</span>
             </div>
@@ -36,7 +36,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
               Financial organization that grows with your practice.
             </h2>
 
-            <p className="text-base sm:text-lg text-[#E2E8F0] leading-relaxed max-w-2xl font-light">
+            <p className="text-lg text-[#E2E8F0] leading-relaxed max-w-2xl font-light">
               Whether you are launching your first solo treatment suite or operating a multi-provider
               aesthetic and wellness clinic with medical directors and clinical staff, the financial side of your business stays organized, dependable, and understandable.
             </p>
@@ -63,8 +63,8 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                         <Icon className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-white">{pt.title}</p>
-                        <p className="text-sm text-[#E2E8F0]/80 mt-0.5">{pt.desc}</p>
+                        <p className="text-base font-semibold text-white">{pt.title}</p>
+                        <p className="text-base text-[#E2E8F0]/80 mt-0.5">{pt.desc}</p>
                       </div>
                     </div>
                   );
@@ -108,8 +108,8 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                       ✓
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-white">{item.title}</p>
-                      <p className="text-sm text-[#E2E8F0]/80 mt-0.5 leading-relaxed">
+                      <p className="text-base font-semibold text-white">{item.title}</p>
+                      <p className="text-base text-[#E2E8F0]/80 mt-0.5 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -119,15 +119,15 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
 
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#E2E8F0]">Ready for clarity?</p>
-                  <p className="text-sm font-bold text-[#D4AF37]">Complimentary 20-Min Call</p>
+                  <p className="text-base text-[#E2E8F0]">Ready for clarity?</p>
+                  <p className="text-base font-bold text-[#D4AF37]">Free 20-minute Zoom call</p>
                 </div>
                 <button
                   onClick={onBookCall}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
-                  <span>Book a Free Call</span>
+                  <span>Book Your Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-3 h-3 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </div>

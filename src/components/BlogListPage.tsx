@@ -148,7 +148,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
       {/* ── Page hero header ── */}
       <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] text-sm font-bold uppercase tracking-widest border border-[#D4AF37]/30">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
             <BookOpen className="w-3.5 h-3.5" />
             Intuit Certified QuickBooks ProAdvisor · MedSpa, Aesthetic &amp; Wellness Practices
           </span>
@@ -202,7 +202,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
           <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
             ✦ Get Expert Eyes On Your Books
           </p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
             Ready to get your practice books in order?
           </h2>
           <p className="text-sm text-[#E2E8F0] font-light leading-relaxed max-w-xl mx-auto">

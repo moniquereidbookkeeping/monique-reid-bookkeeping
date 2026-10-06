@@ -19,15 +19,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-xs font-bold text-[#1A2E40] uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Direct Practice Consultation</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-            Book Your Complimentary <span className="whitespace-nowrap">20-Minute</span> Financial Clarity Call
-          </h2>
-          <p className="mt-3 text-base sm:text-lg text-[#57534E] leading-relaxed font-normal">
-            Select a convenient time below. I will review your practice's current bookkeeping setup, point out immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
+          <p className="text-lg text-[#57534E] leading-relaxed font-normal">
+            This is a private 20-minute video call on Zoom. Select a convenient time below. I will review your practice's current bookkeeping setup, point out immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
           </p>
         </div>
 
@@ -38,8 +31,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <Clock className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#1A2E40]">20-Minute Private Zoom Call</p>
-              <p className="text-xs text-[#57534E]">Complimentary review, no obligation</p>
+              <p className="text-sm font-bold text-[#1A2E40]">20-Minute Private Zoom Call</p>
+              <p className="text-sm text-[#57534E]">Complimentary review, no obligation</p>
             </div>
           </div>
 
@@ -48,8 +41,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <ShieldCheck className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#1A2E40]">Client Financial Privacy</p>
-              <p className="text-xs text-[#57534E]">Strict confidentiality and data security</p>
+              <p className="text-sm font-bold text-[#1A2E40]">Client Financial Privacy</p>
+              <p className="text-sm text-[#57534E]">Strict confidentiality and data security</p>
             </div>
           </div>
 
@@ -58,8 +51,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <Award className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#1A2E40]">Intuit Certified QuickBooks ProAdvisor</p>
-              <p className="text-xs text-[#57534E]">MedSpas, Aesthetic Clinics &amp; Wellness Practices</p>
+              <p className="text-sm font-bold text-[#1A2E40]">Intuit Certified QuickBooks ProAdvisor</p>
+              <p className="text-sm text-[#57534E]">MedSpas, Aesthetic Clinics &amp; Wellness Practices</p>
             </div>
           </div>
         </div>
@@ -70,7 +63,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
         </div>
 
         {/* Not ready to book */}
-        <p className="max-w-5xl mx-auto mb-6 text-center text-sm sm:text-base text-[#57534E]">
+        <p className="max-w-5xl mx-auto mb-6 text-center text-base sm:text-lg text-[#57534E]">
           Not ready to book yet?{' '}
           <button
             type="button"
@@ -92,7 +85,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <Mail className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs text-[#E2E8F0]">Direct Inquiries</p>
+              <p className="text-sm text-[#E2E8F0]">Direct Inquiries</p>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors"
@@ -102,7 +95,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
           </div>
 
-          <div className="text-xs text-[#E2E8F0]/80 text-center sm:text-right">
+          <div className="text-sm text-[#E2E8F0]/80 text-center sm:text-right">
             <p>Specialized Bookkeeping for MedSpas, Aesthetic Clinics &amp; Wellness Practices Nationwide</p>
             <p className="text-[#D4AF37] font-medium mt-0.5">Replies within 1–2 business days</p>
           </div>

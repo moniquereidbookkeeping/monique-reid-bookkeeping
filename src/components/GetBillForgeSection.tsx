@@ -12,12 +12,12 @@ export const GetBillForgeSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Left Column: Copy */}
             <div className="lg:col-span-7 space-y-4 text-left">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
                 <Receipt className="w-3.5 h-3.5" />
                 Also from Monique Reid
               </span>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
                 Practical tools for small-business owners.
               </h2>
 
@@ -55,10 +55,10 @@ export const GetBillForgeSection: React.FC = () => {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">{item.title}</p>
-                      <p className="text-xs text-[#E2E8F0]/70">{item.desc}</p>
+                      <p className="text-sm text-[#E2E8F0]/70">{item.desc}</p>
                     </div>
                   </div>
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30">
+                  <span className="text-sm font-semibold px-2.5 py-1 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/30">
                     {item.status}
                   </span>
                 </div>

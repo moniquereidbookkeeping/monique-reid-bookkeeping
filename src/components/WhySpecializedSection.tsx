@@ -97,7 +97,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
             className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-base font-bold text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] shrink-0 cursor-pointer group"
           >
             <Calendar className="w-5 h-5" aria-hidden="true" />
-            <span>Book Your Free Clarity Call</span>
+            <span>Book Your Free 20-Min Clarity Call</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>

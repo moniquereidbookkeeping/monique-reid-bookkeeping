@@ -142,7 +142,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             {/* Dashboard teaser */}
             <section className="py-12 bg-[#FDFCFA] border-b border-[#E2E8F0]">
               <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-3">
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40]">
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40]">
                   See what clean books can tell you
                 </h2>
                 <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
@@ -166,11 +166,11 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             <section className="py-20 bg-[#1A2E40] text-white border-t border-[#D4AF37]/30 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
               <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-[#D4AF37] border border-white/10">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
                   <Sparkles className="w-3.5 h-3.5" />
                   Let's Get Started
                 </span>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
                   Let's talk about your practice.
                 </h2>
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
@@ -184,7 +184,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                     <span className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] shrink-0">
                       <Calendar className="w-4 h-4" />
                     </span>
-                    <span>Book Your Free Clarity Call</span>
+                    <span>Book Your Free 20-Min Clarity Call</span>
                     <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -197,7 +197,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
           <>
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
                   Focused Support for Growing Practices
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
@@ -214,7 +214,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             {/* Pointer to the separate pricing page */}
             <section className="py-12 bg-[#F4F6F8] border-b border-[#E2E8F0]">
               <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Ready to see what it costs?</h2>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">Ready to see what it costs?</h2>
                 <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Monthly plans start at $497 and cleanup projects start at $597. Full details are on the pricing page.</p>
                 <button
                   onClick={() => handleNavigate('pricing')}
@@ -232,7 +232,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
           <>
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
                   Interactive Example
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
@@ -272,7 +272,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
           <>
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
                   Free Practice Tool
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
@@ -292,11 +292,11 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
           <>
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Direct Practice Consultation
+                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
+                  Free 20-Minute Zoom Call
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Schedule Your Financial Clarity Call
+                  Book Your Free Clarity Call
                 </h1>
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
           <>
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
                   Plans &amp; Pricing
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
@@ -325,7 +325,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
             <section className="py-12 bg-white border-b border-[#E2E8F0]">
               <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Questions about pricing?</h2>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">Questions about pricing?</h2>
                 <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Read answers about what affects your fee, how cleanup works, and what happens on the free call.</p>
                 <button
                   onClick={() => handleNavigate('faq')}
@@ -342,7 +342,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
           <>
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
+                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
                   Questions &amp; Answers
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">

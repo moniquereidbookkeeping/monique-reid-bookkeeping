@@ -307,11 +307,11 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-10">
           <div className="lg:col-span-6 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-semibold tracking-wider text-[#1A2E40] uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
               <PieChart className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Interactive Example</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">
               Your books should tell you more than whether your bank account went up.
             </h2>
             <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
@@ -1105,7 +1105,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] text-sm sm:text-sm font-bold transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 active:scale-[0.98] group cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
-              <span>Book a Clarity Call</span>
+              <span>Book Your Free 20-Min Clarity Call</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#1A2E40] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>

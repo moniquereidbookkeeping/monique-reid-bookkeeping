@@ -257,7 +257,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <ul className="space-y-2.5 flex-1 mb-6">
                     {svc.deliverables.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-base text-[#4A5568] leading-relaxed">
-                        <span className="w-5 h-5 rounded-full bg-[#D4AF37]/20 text-[#8A6A00] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                        <span className="w-5 h-5 rounded-full bg-[#D4AF37]/20 text-[#8A6A00] flex items-center justify-center shrink-0 mt-0.5 font-bold text-sm">
                           ✓
                         </span>
                         <span>{item}</span>
@@ -288,7 +288,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                       onClick={onBookCall}
                       className="text-base font-bold text-[#1A2E40] group-hover:text-[#8A6A00] flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
-                      <span>Book Your Free Clarity Call</span>
+                      <span>Book Your Free 20-Min Clarity Call</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
 
@@ -362,7 +362,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall }) 
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-4 h-4" />
                   </span>
-                  <span>Book Your Free Clarity Call</span>
+                  <span>Book Your Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </button>
                 <p className="text-sm text-[#E2E8F0] mt-2.5 text-center lg:text-right">

@@ -45,7 +45,7 @@ const monthlyPlans = [
       'Year-end CPA reporting package',
     ],
     complexityNote: 'Best for solo providers or boutique practices with one bank account and a single POS platform.',
-    cta: 'Book Your Free Clarity Call',
+    cta: 'Book Your Free 20-Min Clarity Call',
   },
   {
     id: 'growth',
@@ -66,7 +66,7 @@ const monthlyPlans = [
       'Month-over-month revenue reporting',
     ],
     complexityNote: 'Best for MedSpas with 2–4 providers running Boulevard, Cherry, or CareCredit.',
-    cta: 'Book Your Free Clarity Call',
+    cta: 'Book Your Free 20-Min Clarity Call',
   },
   {
     id: 'full-spectrum',
@@ -87,7 +87,7 @@ const monthlyPlans = [
       'Plain-language financial commentary',
     ],
     complexityNote: 'Best for established practices doing $75K+/month with complex multi-system workflows.',
-    cta: 'Book Your Free Clarity Call',
+    cta: 'Book Your Free 20-Min Clarity Call',
   },
 ];
 
@@ -180,7 +180,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
                 {/* Badge for featured */}
                 {plan.badge && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 px-5 py-1.5 rounded-b-xl bg-[#D4AF37] text-[#1A2E40] text-xs font-bold uppercase tracking-wider shadow-md">
+                    <span className="inline-flex items-center gap-1.5 px-5 py-1.5 rounded-b-xl bg-[#D4AF37] text-[#1A2E40] text-sm font-bold uppercase tracking-wider shadow-md">
                       <Sparkles className="w-3 h-3" />
                       {plan.badge}
                     </span>
@@ -272,13 +272,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
                   {/* CTA */}
                   <button
                     onClick={onBookCall}
-                    className={`w-full flex items-center justify-center gap-2.5 py-4 px-5 rounded-xl font-bold text-base transition-all active:scale-[0.98] cursor-pointer group mt-auto ${
+                    className={`w-full flex items-center justify-center gap-2 py-4 px-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all active:scale-[0.98] cursor-pointer group mt-auto ${
                       plan.featured
                         ? 'bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] shadow-[0_4px_20px_rgba(212,175,55,0.45)]'
                         : 'bg-[#1A2E40] hover:bg-[#253E52] text-white shadow-md'
                     }`}
                   >
-                    <Calendar className="w-5 h-5 shrink-0" />
+                    <Calendar className="w-4 h-4 shrink-0" />
                     <span>{plan.cta}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </button>
@@ -310,7 +310,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               <div key={tier.label} className={`rounded-xl border p-5 flex flex-col ${tier.badge ? 'border-[#D4AF37] bg-[#FAF8F5]' : 'border-[#E2E8F0] bg-[#FDFCFA]'}`}>
                 <div className="min-h-[3.5rem]">
                   <p className="text-sm font-bold uppercase tracking-wider text-[#4A5568]">{tier.label}</p>
-                  {tier.badge && <span className="mt-1.5 inline-block text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#1A2E40] text-[#D4AF37]">{tier.badge}</span>}
+                  {tier.badge && <span className="mt-1.5 inline-block text-sm font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-[#1A2E40] text-[#D4AF37]">{tier.badge}</span>}
                 </div>
                 <p className="mt-2 text-3xl font-serif font-bold text-[#1A2E40]">{tier.price}</p>
                 <p className="mt-2 text-base text-[#4A5568] leading-relaxed">{tier.desc}</p>
@@ -349,7 +349,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               Start with a Free 20-Minute Clarity Call
             </p>
             <p className="text-sm text-white/70 leading-relaxed">
-              You don't need to diagnose your own bookkeeping problems first. The call walks through your
+              You don't need to diagnose your own bookkeeping problems first. The 20-minute Zoom call walks through your
               systems, identifies where things are breaking down, and covers exactly what is recommended — no pressure, no obligation.
             </p>
           </div>
@@ -358,7 +358,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
             className="inline-flex items-center gap-3 px-8 py-5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_24px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 shrink-0 cursor-pointer group whitespace-nowrap"
           >
             <Calendar className="w-5 h-5" />
-            <span>Book Your Free Call</span>
+            <span>Book Your Free 20-Min Clarity Call</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>

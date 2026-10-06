@@ -447,7 +447,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                   setSelectedCategory('all');
                   setOpenId(null);
                 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FAF8F5] border border-[#E2E8F0] text-xs font-semibold text-[#1A2E40] hover:bg-[#F2EFE9] cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FAF8F5] border border-[#E2E8F0] text-sm font-semibold text-[#1A2E40] hover:bg-[#F2EFE9] cursor-pointer"
               >
                 Reset Filters
               </button>
@@ -547,7 +547,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                     <button
                       type="button"
                       onClick={() => setShowAll(false)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-[#5A6578] hover:text-[#1A2E40] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold text-[#5A6578] hover:text-[#1A2E40] transition-colors cursor-pointer"
                     >
                       <span>Show Fewer Questions</span>
                     </button>
@@ -562,7 +562,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
         {showCta && (
         <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#1A2E40] to-[#122230] text-white border border-[#D4AF37]/30 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
-            <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#D4AF37] uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
               FINANCIAL CLARITY STARTS HERE
             </span>
@@ -581,7 +581,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
             className="shrink-0 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-md hover:shadow-lg border border-[#FFF5DE]/60 flex items-center justify-center gap-2 group active:scale-[0.99] cursor-pointer"
           >
             <Calendar className="w-4 h-4 text-[#1A2E40]" />
-            <span>Book Your Free Clarity Call</span>
+            <span>Book Your Free 20-Min Clarity Call</span>
             <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
