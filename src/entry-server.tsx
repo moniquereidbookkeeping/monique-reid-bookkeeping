@@ -5,6 +5,9 @@ import { blogPosts } from './data/blogPosts';
 import { cleanupTiers } from './data/cleanupPricing';
 import { FORT_LAUDERDALE_AREAS } from './components/FortLauderdalePage';
 
+/** Re-exported so the prerender step can check index.html's business data uses the same phone and email. */
+export { CONTACT_EMAIL, CONTACT_PHONE_TEL } from './constants/booking';
+
 export interface PrerenderRoute {
   path: string;
   title: string;

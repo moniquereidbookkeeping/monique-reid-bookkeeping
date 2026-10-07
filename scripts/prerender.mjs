@@ -10,8 +10,27 @@ const ssrDir = join(root, '.ssr');
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-const { renderRoute, allPaths } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
+const { renderRoute, allPaths, CONTACT_EMAIL, CONTACT_PHONE_TEL } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
 const template = readFileSync(join(dist, 'index.html'), 'utf8');
+
+// The business structured data in index.html is static JSON, so it cannot read src/constants/booking.ts.
+// Stop the build if its phone or email drifts from the ones shown on the Contact and Fort Lauderdale pages:
+// Google compares these with the Google Business Profile listing.
+{
+  const digits = (s) => String(s ?? '').replace(/\D/g, '');
+  const graph = [...template.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .flatMap((m) => JSON.parse(m[1])['@graph'] ?? []);
+  const org = graph.find((n) => n['@id']?.endsWith('/#organization'));
+  const checks = [
+    ['telephone', digits(org?.telephone), digits(CONTACT_PHONE_TEL)],
+    ['contactPoint.telephone', digits(org?.contactPoint?.telephone), digits(CONTACT_PHONE_TEL)],
+    ['email', org?.email, CONTACT_EMAIL],
+    ['contactPoint.email', org?.contactPoint?.email, CONTACT_EMAIL],
+  ];
+  for (const [field, found, expected] of checks) {
+    if (found !== expected) throw new Error(`index.html business data ${field} is "${found}", expected "${expected}" (src/constants/booking.ts)`);
+  }
+}
 
 function build(path, outFile) {
   const r = renderRoute(path);
