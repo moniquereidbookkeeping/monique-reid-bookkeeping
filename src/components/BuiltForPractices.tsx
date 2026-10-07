@@ -132,14 +132,14 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                   <p className="text-base text-[#E2E8F0]">Ready for clarity?</p>
                   <p className="text-base font-bold text-[#D4AF37]">A free 20-minute private Zoom call</p>
                 </div>
-                <button
-                  onClick={onBookCall}
-                  className="w-full justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
+                <a href="/contact"
+                  onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                  className="w-full justify-center inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-base transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/50 active:scale-[0.98] group cursor-pointer"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
                   <span>Book Your Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-3 h-3 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

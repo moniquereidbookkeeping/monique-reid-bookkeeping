@@ -178,9 +178,9 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
     return (
       <div className="py-20 text-center">
         <p className="text-[#57534E]">Article not found.</p>
-        <button onClick={onBack} className="mt-4 text-[#D4AF37] font-semibold underline cursor-pointer">
+        <a href="/blog" onClick={(e) => { e.preventDefault(); onBack(); }} className="inline-block text-center mt-4 text-[#D4AF37]! font-semibold underline cursor-pointer">
           Back to Blog
-        </button>
+        </a>
       </div>
     );
   }
@@ -334,13 +334,13 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               <p className="text-sm text-[#E2E8F0] font-light leading-relaxed max-w-md mx-auto">
                 Share what's happening with your books and get a clear path forward — no obligation.
               </p>
-              <button
-                onClick={onBookCall}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-[0_4px_14px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60 cursor-pointer"
+              <a href="/contact"
+                onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-sm transition-all shadow-[0_4px_14px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60 cursor-pointer"
               >
                 Book Your Free 20-Min Clarity Call
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
 

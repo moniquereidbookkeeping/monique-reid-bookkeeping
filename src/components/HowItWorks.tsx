@@ -48,13 +48,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onBookCall }) => (
         })}
       </ol>
       <div className="mt-8 text-center">
-        <button
-          onClick={onBookCall}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1A2E40] text-[#D4AF37] font-bold text-base hover:bg-[#243B55] transition-colors cursor-pointer"
+        <a href="/contact"
+          onClick={(e) => { e.preventDefault(); onBookCall(); }}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1A2E40] text-[#D4AF37]! font-bold text-base hover:bg-[#243B55] transition-colors cursor-pointer"
         >
           Book Your Free 20-Min Clarity Call
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </a>
       </div>
     </div>
   </section>

@@ -65,24 +65,23 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
       </div>
 
       <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-        <button
-          type="button"
-          onClick={() => onNavigate('services')}
-          className="px-6 py-3 rounded-xl bg-[#1A2E40] text-white font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
+        <a href="/services"
+          onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+          className="inline-block text-center px-6 py-3 rounded-xl bg-[#1A2E40] text-white! font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
         >
           See how it works
-        </button>
-        <button
-          type="button"
-          onClick={() => {
+        </a>
+        <a href="/#health-check"
+          onClick={(e) => {
+            e.preventDefault();
             onNavigate('home');
             setTimeout(() => document.getElementById('health-check')?.scrollIntoView({ behavior: 'smooth' }), 200);
           }}
-          className="px-6 py-3 rounded-xl border border-[#1A2E40] text-[#1A2E40] font-bold hover:bg-[#1A2E40]/5 transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
+          className="px-6 py-3 rounded-xl border border-[#1A2E40] text-[#1A2E40]! font-bold hover:bg-[#1A2E40]/5 transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
         >
           <Sparkles className="w-4 h-4 text-[#D4AF37]" />
           Take the 60-second Health Check
-        </button>
+        </a>
       </div>
 
       <p className="mt-8 text-sm text-[#57534E]">

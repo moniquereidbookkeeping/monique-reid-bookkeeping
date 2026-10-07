@@ -174,20 +174,21 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
 
             <div className="pt-4 border-t border-[#E2E8F0] px-2">
-              <button
+              <a href="/contact"
                 id="mobile-menu-calendly-btn"
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   setMobileMenuOpen(false);
                   onBookCall();
                 }}
-                className="w-full flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm shadow-[0_2px_10px_rgba(212,175,55,0.25)] border border-[#FFF5DE]/60 transition-all active:scale-[0.98] group cursor-pointer"
+                className="w-full flex items-center justify-center gap-2.5 py-3.5 px-5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-sm shadow-[0_2px_10px_rgba(212,175,55,0.25)] border border-[#FFF5DE]/60 transition-all active:scale-[0.98] group cursor-pointer"
               >
                 <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
                   <Calendar className="w-3.5 h-3.5" />
                 </span>
                 <span>Book Your Free 20-Min Clarity Call</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
         )}
