@@ -19,14 +19,19 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
   const [ready, setReady] = useState(false);
   const [slow, setSlow] = useState(false);
 
+  // This component is the only thing that starts the calendar. The container below deliberately has no
+  // "calendly-inline-widget" class and no data-url: Calendly's script scans the page for that class when it
+  // loads and starts its own copy, which gave two calendars (with data-url) or a crash (without it).
   useEffect(() => {
     const w = window as CalendlyWindow;
     let cancelled = false;
+    let pendingScript: HTMLScriptElement | null = null;
 
     const initWidget = () => {
-      if (cancelled || !w.Calendly || !containerRef.current) return;
-      containerRef.current.innerHTML = '';
-      w.Calendly.initInlineWidget({ url: BOOKING_URL, parentElement: containerRef.current });
+      const el = containerRef.current;
+      if (cancelled || !w.Calendly || !el) return;
+      el.innerHTML = '';
+      w.Calendly.initInlineWidget({ url: BOOKING_URL, parentElement: el });
     };
 
     // Calendly's embed talks to this page; any of its messages means the calendar is up.
@@ -40,16 +45,14 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
     if (w.Calendly) {
       initWidget();
     } else {
-      const existing = document.querySelector(`script[src="${SCRIPT_SRC}"]`) as HTMLScriptElement | null;
-      if (existing) {
-        existing.addEventListener('load', initWidget);
-      } else {
-        const script = document.createElement('script');
-        script.src = SCRIPT_SRC;
-        script.async = true;
-        script.onload = initWidget;
-        document.body.appendChild(script);
+      pendingScript = document.querySelector(`script[src="${SCRIPT_SRC}"]`) as HTMLScriptElement | null;
+      if (!pendingScript) {
+        pendingScript = document.createElement('script');
+        pendingScript.src = SCRIPT_SRC;
+        pendingScript.async = true;
+        document.body.appendChild(pendingScript);
       }
+      pendingScript.addEventListener('load', initWidget);
     }
 
     const timer = window.setTimeout(() => setSlow(true), SLOW_AFTER_MS);
@@ -57,6 +60,7 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
       cancelled = true;
       window.clearTimeout(timer);
       window.removeEventListener('message', onMessage);
+      pendingScript?.removeEventListener('load', initWidget);
     };
   }, []);
 
@@ -103,8 +107,7 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
       <div className="relative w-full bg-white rounded-2xl border border-[#E2E8F0] shadow-xl overflow-hidden min-h-[700px]">
         <div
           ref={containerRef}
-          className="calendly-inline-widget w-full"
-          data-url={BOOKING_URL}
+          className="w-full"
           style={{ minWidth: '320px', height: '700px', width: '100%' }}
         />
       </div>
