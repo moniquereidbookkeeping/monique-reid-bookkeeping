@@ -12,26 +12,26 @@ Works fully remote (Zoom, QuickBooks Online, phone, email): no office visits and
 | # | Pain point | Pain | Ease | Where it lives on the site |
 |---|---|---|---|---|
 | 1 | Behind or messy books, months uncategorized (cleanup) | 5 | 3 | Pricing page cleanup tiers; FAQ |
-| 2 | Prepaid packages, memberships and gift cards booked as income (deferred revenue) | 5 | 3 | Home problem card 03; FAQ faq-9 |
-| 3 | POS payouts that do not match gross sales | 5 | 4 | Home problem card 01; FAQ |
-| 4 | Treatment cost and inventory buried in generic expenses | 5 | 3 | Home problem card 04; blog chart of accounts |
-| 5 | Owner is a physician or NP, multi-entity, owner pay mixed in | 4 | 3 | FAQ faq-9b (no article yet) |
-| 6 | Books that cannot support a loan, a sale or a new location | 3 | 4 | Home problem card 05; FAQ faq-9c (no article yet) |
-| 7 | Patient financing fees (Cherry, CareCredit, PatientFi) hidden in deposits | 3 | 5 | Home problem card 02 |
-| 8 | Tips, refunds, no-show fees, chargebacks | 3 | 4 | FAQ (payout question) |
-| 9 | Manufacturer rebates and rewards (Allē, ASPIRE) | 3 | 4 | Blog post-010; FAQ faq-9a |
-| 10 | 1099 injectors, medical director fees, booth rent | 3 | 5 | FAQ (contractors and Medical Directors) |
+| 2 | Prepaid packages, memberships and gift cards booked as income (deferred revenue) | 5 | 3 | Home problem card 03; FAQ faq-9; blog membership and package revenue (live) |
+| 3 | POS payouts that do not match gross sales | 5 | 4 | Home problem card 01; FAQ; blog Boulevard and Vagaro reconciliation (live) |
+| 4 | Treatment cost and inventory buried in generic expenses | 5 | 3 | Home problem card 04; blog neurotoxin/filler cost (live); blog chart of accounts (scheduled 2026-10-20) |
+| 5 | Owner is a physician or NP, multi-entity, owner pay mixed in | 4 | 3 | FAQ faq-9b; article scheduled 2026-12-08 (not live yet) |
+| 6 | Books that cannot support a loan, a sale or a new location | 3 | 4 | Home problem card 05; FAQ faq-9c; article scheduled 2026-12-01 (not live yet) |
+| 7 | Patient financing fees (Cherry, CareCredit, PatientFi) hidden in deposits | 3 | 5 | Home problem card 02; article scheduled 2026-10-13 (not live yet) |
+| 8 | Tips, refunds, no-show fees, chargebacks | 3 | 4 | FAQ (payout question); article scheduled 2026-11-24 (not live yet) |
+| 9 | Manufacturer rebates and rewards (Allē, ASPIRE) | 3 | 4 | FAQ faq-9a; blog post-010 rebates (scheduled 2026-11-17) |
+| 10 | 1099 injectors, medical director fees, booth rent | 3 | 5 | FAQ (contractors and Medical Directors); provider-commission article scheduled 2026-11-03 covers part of it |
 | 11 | Product waste and expiry (vials) | 2 | 2 | Not promised on site (needs owner stock counts) |
 
 ## Ideas not yet written (good for new posts)
 - 1099 injectors, medical director fees and booth rent: coding and year-end
-- Patient financing fees: Cherry, CareCredit, PatientFi in QuickBooks
-- Deferred revenue for packages and memberships (check tax claims with CPA wording)
 - Product waste and expiry (only if a monthly inventory process exists)
 
-Scheduled (written October 2026): tips, refunds, no-shows and chargebacks (2026-11-24); lender-ready financials (2026-12-01); physician-owned and multi-entity books (2026-12-08).
+Status is set by `publishedDate` in `src/data/blogPosts.ts`: a post goes live with the first build on or after that date. Check there before relying on this list.
 
-Published posts: chart of accounts; is my MedSpa profitable (QuickBooks reports); what your CPA needs; month-end close checklist; manufacturer rebates and rewards. Archived older posts live in `src/data/archivedBlogPosts.ts` (hidden; re-check facts before restoring).
+Published (live): Boulevard and Vagaro reconciliation; membership and package revenue; neurotoxin and filler cost (all 2026-10-06).
+
+Scheduled (written, not live yet): Cherry, CareCredit and Affirm financing (2026-10-13); chart of accounts (2026-10-20); is my MedSpa profitable (2026-10-27); provider commission (2026-11-03); month-end close checklist (2026-11-10); manufacturer rebates and rewards (2026-11-17); tips, refunds, no-shows and chargebacks (2026-11-24); lender-ready financials (2026-12-01); physician-owned and multi-entity books (2026-12-08); what your CPA needs (2027-01-05). Archived older posts live in `src/data/archivedBlogPosts.ts` (hidden; re-check facts before restoring).
 
 ## Rules for any new content
 - Voice: no "we/our" on marketing pages. "I" only where Monique speaks (About, Contact intro, booking emails). Privacy and Terms keep "we".
