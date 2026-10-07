@@ -9,10 +9,10 @@ interface ServicesSummaryProps {
 
 const services = [
   { icon: Wrench, title: 'QuickBooks Cleanup & Catch-Up', body: 'Bring months or years of messy books up to date and CPA-ready.', price: 'From $597', page: 'quickbooks-cleanup' as PageView },
-  { icon: Clock, title: 'Monthly Bookkeeping', body: 'Reconciliations, P&L and Balance Sheet, every month.', price: 'From $497/mo' },
-  { icon: TrendingUp, title: 'Financial Reporting & KPIs', body: 'Plain-English reports on margins, revenue mix and cash flow.', price: 'From $797/mo' },
+  { icon: Clock, title: 'Monthly Bookkeeping', body: 'Reconciliations, P&L and Balance Sheet, every month.', price: 'From $497/mo', page: 'monthly-bookkeeping' as PageView },
+  { icon: TrendingUp, title: 'Financial Reporting & KPIs', body: 'Plain-English reports on margins, revenue mix and cash flow.', price: 'From $797/mo', page: 'financial-reporting' as PageView },
   { icon: HeartPulse, title: 'Practice-Specific Bookkeeping', body: 'Memberships, packages, financing and provider pay handled correctly.', price: 'In monthly plans' },
-  { icon: Layers, title: 'QuickBooks Setup & Chart of Accounts', body: 'A setup built for aesthetic and wellness practices from day one.', price: 'Project-based' },
+  { icon: Layers, title: 'QuickBooks Setup & Chart of Accounts', body: 'A setup built for aesthetic and wellness practices from day one.', price: 'Project-based', page: 'quickbooks-setup' as PageView },
   { icon: LineChart, title: 'Historical Records & Reporting', body: 'Multi-year records organized for lenders, buyers or CPAs.', price: 'Project-based' },
 ];
 

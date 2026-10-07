@@ -18,6 +18,9 @@ export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post' | 'notfound'>, str
   'quickbooks-cleanup': '/quickbooks-cleanup',
   'iv-hydration': '/iv-hydration-bookkeeping',
   'medical-weight-loss': '/medical-weight-loss-bookkeeping',
+  'monthly-bookkeeping': '/monthly-bookkeeping',
+  'quickbooks-setup': '/quickbooks-setup-medspa',
+  'financial-reporting': '/medspa-financial-reporting',
 };
 
 export const SITE_ORIGIN = 'https://moniquereidbookkeeping.com';
@@ -56,14 +59,29 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
     description: 'Your free 20-minute Financial Clarity Call is confirmed.',
   },
   services: {
-    title: 'Monthly Med Spa Bookkeeping Services | Monique Reid',
+    title: 'Med Spa Bookkeeping Services | Monique Reid Bookkeeping',
     description:
-      'Monthly bookkeeping, QuickBooks cleanup and financial reporting for med spas, medical spas, aesthetic clinics, IV hydration and wellness practices.',
+      'Every service for med spas, medical spas and wellness practices in one place: monthly bookkeeping, QuickBooks cleanup and setup, reporting and more.',
   },
   dashboard: {
-    title: 'Med Spa Financial Reporting & KPI Dashboard Example',
+    title: 'Example Med Spa P&L Dashboard | Monique Reid Bookkeeping',
     description:
-      'Med spa financial reporting and KPIs, explained with an interactive example: revenue by service, treatment costs, provider pay and profit for a practice.',
+      'An interactive example of a med spa P&L: revenue by service, treatment costs, provider pay and what is left. All figures are examples, not benchmarks.',
+  },
+  'monthly-bookkeeping': {
+    title: 'Monthly Bookkeeping for Med Spas | Monique Reid',
+    description:
+      'Monthly QuickBooks bookkeeping for med spas and aesthetic clinics: reconciliations, POS payouts, memberships, provider pay and clear monthly reports.',
+  },
+  'quickbooks-setup': {
+    title: 'QuickBooks Setup for Med Spas | Monique Reid Bookkeeping',
+    description:
+      'QuickBooks Online setup for new and growing med spas: a chart of accounts built for treatments and clinical costs, bank feeds, POS mapping and a walkthrough.',
+  },
+  'financial-reporting': {
+    title: 'Financial Reporting for Med Spas | Monique Reid',
+    description:
+      'Monthly financial reporting for med spas: revenue by treatment, treatment costs, provider pay, margins and cash flow in plain English, with an example.',
   },
   about: {
     title: 'Monique Reid | Intuit Certified QuickBooks ProAdvisor, FL',

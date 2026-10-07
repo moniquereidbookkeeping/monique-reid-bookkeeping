@@ -50,13 +50,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 </a>
               </li>
               <li>
-                <a href={`${pathFor('services')}#service-card-monthly`} onClick={(e) => goToService(e, 'monthly')}
+                <a href={pathFor('monthly-bookkeeping')} onClick={(e) => { e.preventDefault(); onNavigate('monthly-bookkeeping'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Monthly Bookkeeping
                 </a>
               </li>
               <li>
-                <a href={`${pathFor('services')}#service-card-reporting`} onClick={(e) => goToService(e, 'reporting')}
+                <a href={pathFor('financial-reporting')} onClick={(e) => { e.preventDefault(); onNavigate('financial-reporting'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Financial Reporting &amp; KPIs
                 </a>
@@ -68,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 </a>
               </li>
               <li>
-                <a href={`${pathFor('services')}#service-card-setup`} onClick={(e) => goToService(e, 'setup')}
+                <a href={pathFor('quickbooks-setup')} onClick={(e) => { e.preventDefault(); onNavigate('quickbooks-setup'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   QuickBooks Setup &amp; Chart of Accounts
                 </a>

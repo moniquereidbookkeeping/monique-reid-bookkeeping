@@ -71,6 +71,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
         { tier: 'Full-Spectrum', price: '$1,197/mo', desc: 'High-volume or multi-location practices requiring provider-level, modality-level, and multi-account tracking.', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
       ],
       noticeTitle: 'Customized Retainer',
+      detailPage: 'monthly-bookkeeping' as PageView,
+      detailLabel: 'How monthly bookkeeping for med spas works',
       notice: 'Monthly bookkeeping retainers are tailored to your practice’s transaction volume, active bank/credit accounts, POS integrations, and reporting depth.',
     },
     {
@@ -92,6 +94,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
       ],
       startingPrice: 'From $797/mo',
       noticeTitle: 'Reporting Integration',
+      detailPage: 'financial-reporting' as PageView,
+      detailLabel: 'See what med spa financial reports show',
       notice: 'Reporting is paired with ongoing monthly bookkeeping and built around your practice’s management platforms and available data.',
     },
     {
@@ -135,6 +139,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
       ],
       startingPrice: 'Project-based',
       noticeTitle: 'Setup Deliverable',
+      detailPage: 'quickbooks-setup' as PageView,
+      detailLabel: 'How a QuickBooks setup for med spas works',
       notice: 'Includes the initial setup, bank-feed validation, and a walkthrough for the practice owner or clinic manager.',
     },
     {
