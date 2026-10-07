@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Calendar, CheckCircle2 } from 'lucide-react';
 import { PageView } from '../types';
 import { pathFor } from '../router';
+import { RelatedArticles } from './RelatedArticles';
 
 /** One practice type (IV hydration, medical weight loss) with what its books need to get right. */
 export interface PracticeTypeContent {
@@ -15,6 +16,8 @@ export interface PracticeTypeContent {
   accountsIntro: string;
   accounts: { group: string; items: string[] }[];
   note: string;
+  /** Article slugs to suggest, in order; only published ones are shown. */
+  related: string[];
 }
 
 export const IV_HYDRATION: PracticeTypeContent = {
@@ -60,6 +63,7 @@ export const IV_HYDRATION: PracticeTypeContent = {
     { group: 'Cost of goods sold', items: ['IV fluids and supplies', 'Vitamins and additives', 'Medications given under protocol'] },
     { group: 'Expenses', items: ['Nurse payroll', 'Contract nursing', 'Medical director fees', 'Mobile service costs', 'Payment processing fees'] },
   ],
+  related: ['medspa-membership-revenue-quickbooks', 'track-neurotoxin-filler-costs-quickbooks', 'medspa-provider-commission-bookkeeping'],
   note: 'Opening or in your first year? Setting this up before the first patient costs far less than correcting a year of mixed-up entries later.',
 };
 
@@ -106,6 +110,7 @@ export const MEDICAL_WEIGHT_LOSS: PracticeTypeContent = {
     { group: 'Cost of goods sold', items: ['GLP-1 medication', 'Other medications and injectables', 'Pharmacy shipping and cold-chain'] },
     { group: 'Expenses', items: ['Medical director fees', 'Provider payroll', 'Contract providers', 'Billing platform and processing fees'] },
   ],
+  related: ['medspa-membership-revenue-quickbooks', 'track-neurotoxin-filler-costs-quickbooks', 'medspa-provider-commission-bookkeeping'],
   note: 'Medication sourcing and pricing in this field change often. Books that show medication margin clearly let you respond to those changes with numbers, not guesses.',
 };
 
@@ -115,9 +120,10 @@ interface PracticeTypePageProps {
   content: PracticeTypeContent;
   onNavigate: (page: PageView) => void;
   onBookCall: () => void;
+  onReadPost: (slug: string) => void;
 }
 
-export const PracticeTypePage: React.FC<PracticeTypePageProps> = ({ content, onNavigate, onBookCall }) => {
+export const PracticeTypePage: React.FC<PracticeTypePageProps> = ({ content, onNavigate, onBookCall, onReadPost }) => {
   const link = (page: PageView, label: string) => (
     <a href={pathFor(page)} onClick={(e) => { e.preventDefault(); onNavigate(page); }} className={linkClass}>
       {label}
@@ -202,6 +208,8 @@ export const PracticeTypePage: React.FC<PracticeTypePageProps> = ({ content, onN
           </button>
         </div>
       </section>
+
+      <RelatedArticles heading="Related guides" slugs={content.related} onReadPost={onReadPost} />
     </>
   );
 };

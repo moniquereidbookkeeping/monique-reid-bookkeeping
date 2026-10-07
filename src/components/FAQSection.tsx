@@ -391,6 +391,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-10">
+          {/* The page title sits above when hideHeading is set; keep a heading level between it and the questions. */}
+          {hideHeading && <h2 className="sr-only">Frequently asked questions</h2>}
           {!hideHeading && (
             <>
               <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1A2E40] text-[#D4AF37] text-sm font-bold uppercase tracking-widest">Questions, clear answers</span>
@@ -538,38 +540,39 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                       </div>
                     </button>
 
-                    {isOpen && (
-                      <div
-                        id={`faq-answer-${faq.id}`}
-                        role="region"
-                        aria-labelledby={`faq-btn-${faq.id}`}
-                        className="px-5 sm:px-6 pb-6 pt-1 text-[#57534E] border-t border-[#F2EFE9] space-y-4 text-base leading-relaxed animate-in fade-in duration-150"
-                      >
-                        <div className="space-y-3 text-[#4A5568] whitespace-pre-line">
-                          {faq.answer}
-                        </div>
-
-                        {faq.takeaways && faq.takeaways.length > 0 && (
-                          <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-2.5">
-                            <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40] flex items-center gap-1.5">
-                              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-                              KEY TAKEAWAYS FOR MEDSPA AND AESTHETIC PRACTICES
-                            </p>
-                            <ul className="space-y-1.5">
-                              {faq.takeaways.map((takeaway, tIdx) => (
-                                <li
-                                  key={tIdx}
-                                  className="flex items-start gap-2 text-base text-[#4A5568]"
-                                >
-                                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                                  <span>{takeaway}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
+                    {/* Always in the page (closed answers are hidden), so search engines can read every answer
+                        and the FAQPage structured data matches what is on the page. */}
+                    <div
+                      id={`faq-answer-${faq.id}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${faq.id}`}
+                      hidden={!isOpen}
+                      className="px-5 sm:px-6 pb-6 pt-1 text-[#57534E] border-t border-[#F2EFE9] space-y-4 text-base leading-relaxed animate-in fade-in duration-150"
+                    >
+                      <div className="space-y-3 text-[#4A5568] whitespace-pre-line">
+                        {faq.answer}
                       </div>
-                    )}
+
+                      {faq.takeaways && faq.takeaways.length > 0 && (
+                        <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-2.5">
+                          <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40] flex items-center gap-1.5">
+                            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+                            KEY TAKEAWAYS FOR MEDSPA AND AESTHETIC PRACTICES
+                          </p>
+                          <ul className="space-y-1.5">
+                            {faq.takeaways.map((takeaway, tIdx) => (
+                              <li
+                                key={tIdx}
+                                className="flex items-start gap-2 text-base text-[#4A5568]"
+                              >
+                                <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                                <span>{takeaway}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 );
               })}

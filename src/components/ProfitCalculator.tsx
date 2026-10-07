@@ -247,14 +247,15 @@ export const ProfitCalculator: React.FC<ProfitCalculatorProps> = ({ onBookCall }
               </div>
 
               <div className="pt-2">
-                <button
-                  onClick={onBookCall}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg border border-[#FFF5DE]/60 flex items-center justify-center gap-2 group cursor-pointer"
+                <a
+                  href="/contact"
+                  onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg border border-[#FFF5DE]/60 flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <Calendar className="w-4 h-4 text-[#1A2E40]" />
                   <span>Book Your Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
 

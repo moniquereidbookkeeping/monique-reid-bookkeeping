@@ -179,7 +179,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
           {/* Grid of remaining articles */}
           {rest.length > 0 && (
             <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-[#1A2E40]/50 mb-5">
+              <p className="text-sm font-bold uppercase tracking-widest text-[#1A2E40]/70 mb-5">
                 More Articles
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">

@@ -4,3 +4,7 @@
 /blog/iv-hydration-business-bookkeeping                  /iv-hydration-bookkeeping                          301
 /blog/medical-weight-loss-practice-bookkeeping           /medical-weight-loss-bookkeeping                   301
 /blog/quickbooks-cleanup-for-medspas                     /quickbooks-cleanup                                301
+
+# The custom not-found page is built as 404.html, which Cloudflare would also serve at /404 with a 200.
+# Unknown addresses still get the real 404 page; this only stops /404 itself from looking like a live page.
+/404                                                     /                                                  301

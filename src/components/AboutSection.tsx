@@ -25,9 +25,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                   <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-1">
                     Specialized Bookkeeping
                   </p>
-                  <h3 className="font-serif font-bold text-xl text-[#1A2E40]">
+                  <p className="font-serif font-bold text-xl text-[#1A2E40]">
                     Monique Reid
-                  </h3>
+                  </p>
                   <p className="text-sm font-semibold text-[#4A5568] mt-0.5">
                     Clean books. Clearer decisions.
                   </p>
@@ -139,16 +139,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
 
             {/* Action CTA */}
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <button
-                onClick={onBookCall}
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 group active:scale-[0.99] cursor-pointer"
+              <a
+                href="/contact"
+                onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 group active:scale-[0.99] cursor-pointer"
               >
                 <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                   <Calendar className="w-3.5 h-3.5" />
                 </span>
                 <span>Book Your Free 20-Min Clarity Call</span>
                 <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
 
               <span className="text-sm text-[#4A5568] flex items-center justify-center sm:justify-start gap-1">
                 <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />

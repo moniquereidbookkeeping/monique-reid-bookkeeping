@@ -3,10 +3,12 @@ import { ArrowRight, CheckCircle2, AlertTriangle, Search, FileCheck2, Calendar, 
 import { PageView } from '../types';
 import { pathFor } from '../router';
 import { cleanupTiers } from '../data/cleanupPricing';
+import { RelatedArticles } from './RelatedArticles';
 
 interface QuickBooksCleanupPageProps {
   onNavigate: (page: PageView) => void;
   onBookCall: () => void;
+  onReadPost: (slug: string) => void;
 }
 
 const SIGNS = [
@@ -64,7 +66,7 @@ const NEEDED = [
 
 const linkClass = 'font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]';
 
-export const QuickBooksCleanupPage: React.FC<QuickBooksCleanupPageProps> = ({ onNavigate, onBookCall }) => {
+export const QuickBooksCleanupPage: React.FC<QuickBooksCleanupPageProps> = ({ onNavigate, onBookCall, onReadPost }) => {
   const link = (page: PageView, label: string) => (
     <a href={pathFor(page)} onClick={(e) => { e.preventDefault(); onNavigate(page); }} className={linkClass}>
       {label}
@@ -230,6 +232,12 @@ export const QuickBooksCleanupPage: React.FC<QuickBooksCleanupPageProps> = ({ on
           </div>
         </div>
       </section>
+
+      <RelatedArticles
+        heading="Guides to the problems a cleanup fixes"
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        onReadPost={onReadPost}
+      />
     </>
   );
 };

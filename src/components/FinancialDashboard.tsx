@@ -322,14 +322,14 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <span>All figures on this page are an illustrative example, not industry benchmarks, guarantees or projections for your practice.</span>
             </div>
             <div className="pt-2 flex items-center gap-4">
-              <button
-                type="button"
-                onClick={onExploreServices}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A2E40] hover:text-[#D4AF37] transition-colors group cursor-pointer"
+              <a
+                href="/services"
+                onClick={(e) => { e.preventDefault(); onExploreServices(); }}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A2E40]! hover:text-[#D4AF37]! transition-colors group cursor-pointer"
               >
                 <span>Explore bookkeeping services</span>
                 <ArrowUpRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -406,6 +406,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <div className="flex items-center gap-3">
                 <input
                   type="range"
+                  aria-label="Example monthly revenue"
                   min="30000"
                   max="250000"
                   step="500"
@@ -1100,20 +1101,21 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               </div>
             </div>
 
-            <button
-              onClick={onBookCall}
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] text-sm sm:text-sm font-bold transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 active:scale-[0.98] group cursor-pointer"
+            <a
+              href="/contact"
+              onClick={(e) => { e.preventDefault(); onBookCall(); }}
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! text-sm sm:text-sm font-bold transition-all shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 active:scale-[0.98] group cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5 text-[#1A2E40]" />
               <span>Book Your Free 20-Min Clarity Call</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#1A2E40] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </button>
+            </a>
           </div>
           </>
           )}
 
           {/* Subtle Illustrative Disclaimer Footnote */}
-          <p className="mt-4 text-center text-sm text-[#57534E]/70 italic">
+          <p className="mt-4 text-center text-sm text-[#57534E] italic">
             This dashboard is an illustrative example. The percentages are sample figures, not industry benchmarks or predictions. Your results will differ based on your revenue mix, provider compensation model and expenses, which is what monthly bookkeeping tracks and reports.
           </p>
         </div>

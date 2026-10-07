@@ -2,10 +2,12 @@ import React from 'react';
 import { Calendar, ArrowRight, MapPin, Video, FileCheck2, Receipt, Users, Building2 } from 'lucide-react';
 import { PageView } from '../types';
 import { pathFor } from '../router';
+import { RelatedArticles } from './RelatedArticles';
 
 interface SouthFloridaPageProps {
   onNavigate: (page: PageView) => void;
   onBookCall: () => void;
+  onReadPost: (slug: string) => void;
 }
 
 const AREAS: { county: string; cities: string[] }[] = [
@@ -39,7 +41,7 @@ const FLORIDA_ITEMS = [
 
 const linkClass = 'font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]';
 
-export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, onBookCall }) => {
+export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, onBookCall, onReadPost }) => {
   const link = (page: PageView, label: string) => (
     <a href={pathFor(page)} onClick={(e) => { e.preventDefault(); onNavigate(page); }} className={linkClass}>
       {label}
@@ -171,6 +173,12 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
           </div>
         </div>
       </section>
+
+      <RelatedArticles
+        heading="Guides for South Florida practice owners"
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        onReadPost={onReadPost}
+      />
     </>
   );
 };

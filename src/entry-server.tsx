@@ -34,8 +34,9 @@ const CRUMB: Partial<Record<keyof typeof PAGE_PATHS, string>> = {
 };
 
 /** Service structured data for the service and practice-type pages. */
-const SERVICE_LD: Partial<Record<keyof typeof PAGE_PATHS, { name: string; serviceType: string }>> = {
-  'quickbooks-cleanup': { name: 'QuickBooks Cleanup for Med Spas', serviceType: 'QuickBooks Cleanup and Catch-Up Bookkeeping' },
+const SERVICE_LD: Partial<Record<keyof typeof PAGE_PATHS, { '@id'?: string; name: string; serviceType: string }>> = {
+  // Same @id as the cleanup Service in index.html, so the two describe one service, not two.
+  'quickbooks-cleanup': { '@id': `${SITE_ORIGIN}/#service-cleanup`, name: 'QuickBooks Cleanup for Med Spas', serviceType: 'QuickBooks Cleanup and Catch-Up Bookkeeping' },
   'iv-hydration': { name: 'IV Hydration Bookkeeping', serviceType: 'IV Hydration Bookkeeping' },
   'medical-weight-loss': { name: 'Medical Weight Loss and GLP-1 Clinic Bookkeeping', serviceType: 'Medical Weight Loss Bookkeeping' },
 };
@@ -77,8 +78,13 @@ export function renderRoute(path: string): PrerenderRoute {
         articleSection: post.category,
         keywords: post.tags.join(', '),
         inLanguage: 'en-US',
-        author: { '@id': `${SITE_ORIGIN}/#person` },
-        publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+        author: { '@type': 'Person', '@id': `${SITE_ORIGIN}/#person`, name: 'Monique Reid', url: `${SITE_ORIGIN}/about` },
+        publisher: {
+          '@type': 'Organization',
+          '@id': `${SITE_ORIGIN}/#organization`,
+          name: 'Monique Reid Bookkeeping',
+          logo: { '@type': 'ImageObject', url: `${SITE_ORIGIN}/mr-logo-512.png` },
+        },
       },
       breadcrumb([home, { name: 'Blog', url: `${SITE_ORIGIN}/blog` }, { name: post.title, url: canonical }]),
     );
@@ -116,6 +122,17 @@ export function renderRoute(path: string): PrerenderRoute {
         provider: { '@id': `${SITE_ORIGIN}/#organization` },
         areaServed: [{ '@type': 'State', name: 'Florida' }, { '@type': 'Country', name: 'United States' }],
         ...(offers ? { offers } : {}),
+      },
+      breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
+    );
+  } else if (key === 'about') {
+    jsonLd.push(
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage',
+        url: canonical,
+        name: meta.title,
+        mainEntity: { '@id': `${SITE_ORIGIN}/#person` },
       },
       breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
     );

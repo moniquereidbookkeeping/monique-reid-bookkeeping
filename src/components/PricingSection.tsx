@@ -246,7 +246,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
 
                   {/* Features */}
                   <p className={`text-sm font-bold uppercase tracking-widest mb-4 ${
-                    plan.featured ? 'text-[#D4AF37]/70' : 'text-[#1A2E40]/50'
+                    plan.featured ? 'text-[#D4AF37]' : 'text-[#1A2E40]/70'
                   }`}>
                     What's Included
                   </p>

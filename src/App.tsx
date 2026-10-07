@@ -30,6 +30,7 @@ import { PricingSection } from './components/PricingSection';
 import { WhySpecializedSection } from './components/WhySpecializedSection';
 import { Footer } from './components/Footer';
 import { SouthFloridaPage } from './components/SouthFloridaPage';
+import { RelatedArticles } from './components/RelatedArticles';
 import { QuickBooksCleanupPage } from './components/QuickBooksCleanupPage';
 import { PracticeTypePage, IV_HYDRATION, MEDICAL_WEIGHT_LOSS } from './components/PracticeTypePage';
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
@@ -101,6 +102,8 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
   const handleBookCall = () => go('contact');
 
+  const readPost = (slug: string) => go('blog-post', slug);
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#57534E]">
       {/* Accessible Skip Link */}
@@ -152,17 +155,24 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                 <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
                   Explore an interactive example of how a MedSpa's revenue, treatment costs and provider pay look once they are categorized correctly.
                 </p>
-                <button
-                  onClick={() => handleNavigate('dashboard')}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#1A2E40] text-[#1A2E40] font-bold text-sm hover:bg-[#1A2E40] hover:text-white transition-colors cursor-pointer"
+                <a
+                  href="/dashboard"
+                  onClick={(e) => { e.preventDefault(); handleNavigate('dashboard'); }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#1A2E40] text-[#1A2E40]! font-bold text-sm hover:bg-[#1A2E40] hover:text-white! transition-colors cursor-pointer"
                 >
                   Open the example dashboard
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </section>
 
             <AboutSection onBookCall={handleBookCall} />
+
+            <RelatedArticles
+              heading="Latest guides for practice owners"
+              intro="Practical QuickBooks guides for MedSpas, aesthetic clinics and wellness practices."
+              onReadPost={readPost}
+            />
 
             <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} includeSchema={false} onViewAll={() => handleNavigate('faq')} />
 
@@ -205,7 +215,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Focused Support for Growing Practices
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Bookkeeping Built Around Your Practice
+                  Med Spa Bookkeeping Services Built Around Your Practice
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
                   Specialized bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
@@ -214,6 +224,12 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             </div>
 
             <ServicesSection onBookCall={handleBookCall} onNavigate={handleNavigate} />
+
+            <RelatedArticles
+              heading="Guides to how the work is done"
+              slugs={['medspa-membership-revenue-quickbooks', 'reconcile-boulevard-vagaro-quickbooks', 'track-neurotoxin-filler-costs-quickbooks', 'medspa-provider-commission-bookkeeping', 'medspa-chart-of-accounts-quickbooks']}
+              onReadPost={readPost}
+            />
 
             {/* Pointer to the separate pricing page */}
             <section className="py-12 bg-[#F4F6F8] border-b border-[#E2E8F0]">
@@ -240,7 +256,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Interactive Example
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  See Where Your Practice&apos;s Revenue Goes
+                  Med Spa Financial Reporting: See Where Your Revenue Goes
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
                   Med spa financial reporting in practice: the monthly reports and KPIs clients receive, shown with an example. See how organized books separate treatment costs, provider pay and operating expenses, and show what is left. All figures are examples.
@@ -317,7 +333,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Plans &amp; Pricing
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Bookkeeping Plans &amp; Pricing
+                  Med Spa Bookkeeping Plans &amp; Pricing
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
                   Flat monthly plans and fixed-fee cleanup projects, with a free call to find the right fit.
@@ -331,12 +347,13 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">Questions about pricing?</h2>
                 <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Read answers about what affects your fee, how cleanup works, and what happens on the free call.</p>
-                <button
-                  onClick={() => handleNavigate('faq')}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white font-bold text-base transition-all shadow-md cursor-pointer"
+                <a
+                  href="/faq"
+                  onClick={(e) => { e.preventDefault(); handleNavigate('faq'); }}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white! font-bold text-base transition-all shadow-md cursor-pointer"
                 >
                   <span>Read the FAQ</span>
-                </button>
+                </a>
               </div>
             </section>
           </>
@@ -363,19 +380,19 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
         )}
 
         {currentPage === 'south-florida' && (
-          <SouthFloridaPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
+          <SouthFloridaPage onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
         )}
 
         {currentPage === 'quickbooks-cleanup' && (
-          <QuickBooksCleanupPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
+          <QuickBooksCleanupPage onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
         )}
 
         {currentPage === 'iv-hydration' && (
-          <PracticeTypePage content={IV_HYDRATION} onNavigate={handleNavigate} onBookCall={handleBookCall} />
+          <PracticeTypePage content={IV_HYDRATION} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
         )}
 
         {currentPage === 'medical-weight-loss' && (
-          <PracticeTypePage content={MEDICAL_WEIGHT_LOSS} onNavigate={handleNavigate} onBookCall={handleBookCall} />
+          <PracticeTypePage content={MEDICAL_WEIGHT_LOSS} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
         )}
 
         {currentPage === 'blog' && (
