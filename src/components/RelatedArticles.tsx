@@ -27,9 +27,9 @@ export const RelatedArticles: React.FC<RelatedArticlesProps> = ({ slugs, limit =
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">{heading}</h2>
           {intro && <p className="mt-2 text-base sm:text-lg text-[#4A5568] leading-relaxed">{intro}</p>}
         </div>
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <ul className="flex flex-wrap justify-center gap-4">
           {shown.map((p) => (
-            <li key={p.slug}>
+            <li key={p.slug} className="w-full md:w-[calc((100%-2rem)/3)]">
               <a
                 href={`/blog/${p.slug}`}
                 onClick={(e) => { e.preventDefault(); onReadPost(p.slug); }}
