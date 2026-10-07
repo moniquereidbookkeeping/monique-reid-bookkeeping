@@ -52,16 +52,19 @@ jobs:
           git add src/data/blogPosts.ts
           git commit -m "content: draft article — $(date '+%Y-%m-%d')"
           git push origin "$BRANCH"
+          cat > /tmp/pr-body.md <<'BODY'
+          An AI-drafted article is ready for your review before it goes live.
+
+          **Before merging, please check:**
+          - [ ] Facts and figures are accurate (especially any tax or accounting details)
+          - [ ] QuickBooks steps match your real workflow
+          - [ ] Tone matches Monique Reid Bookkeeping's voice
+          - [ ] No duplicate topic already covered on the site
+
+          Once merged, the article goes live automatically on its scheduled publishedDate. No further action needed.
+          BODY
           gh pr create \
             --base main \
             --head "$BRANCH" \
-            --title "New blog article for review — $(date '+%Y-%m-%d')" \
-            --body "An AI-drafted article is ready for your review before it goes live.
-
-**Before merging, please check:**
-- [ ] Facts and figures are accurate (especially any tax or accounting details)
-- [ ] QuickBooks steps match your real workflow
-- [ ] Tone matches Monique Reid Bookkeeping's voice
-- [ ] No duplicate topic already covered on the site
-
-Once merged, the article goes live automatically on its scheduled publishedDate — no further action needed."
+            --title "New blog article for review - $(date '+%Y-%m-%d')" \
+            --body-file /tmp/pr-body.md
