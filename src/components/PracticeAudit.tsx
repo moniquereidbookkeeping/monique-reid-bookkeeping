@@ -351,9 +351,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q1 — QB Status */}
               {step === 1 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     1. What is the current status of your QuickBooks accounts?
-                  </h4>
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { label: 'Books are current, but I need ongoing monthly support', val: 'current' },
@@ -401,9 +401,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q2 — POS Platform */}
               {step === 2 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     2. Which Point-of-Sale or practice-management platform does your clinic use?
-                  </h4>
+                  </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {['Boulevard', 'Vagaro', 'Jane App', 'Mindbody', 'Zenoti', 'Square', 'Stripe', 'Other'].map((pos) => (
                       <button
@@ -449,9 +449,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q3 — Packages */}
               {step === 3 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     3. Do you offer memberships, treatment packages, or patient financing?
-                  </h4>
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { label: 'Yes, both memberships & packages + Cherry / CareCredit / PatientFi', val: 'all' },
@@ -499,9 +499,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q4 — Accounts */}
               {step === 4 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     4. How many bank, card, and financing accounts does your practice use?
-                  </h4>
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {['1 - 3 Accounts', '4 - 6 Accounts', '7+ Accounts'].map((acc) => (
                       <button
@@ -519,9 +519,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q5 — Monthly Revenue Range (NEW) */}
               {step === 5 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     5. What is your practice's approximate monthly revenue?
-                  </h4>
+                  </h3>
                   <p className="text-base text-[#4A5568]">This helps match you with the right service tier for your size.</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
@@ -545,9 +545,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q6 — Time in Business (NEW) */}
               {step === 6 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     6. How long has your practice been open?
-                  </h4>
+                  </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     {[
                       'Less than 1 year',
@@ -570,9 +570,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               {/* Q7 — Biggest Challenge (NEW) */}
               {step === 7 && (
                 <div className="space-y-5">
-                  <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                     7. What is your biggest bookkeeping challenge right now?
-                  </h4>
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       "I can't tell which services are actually profitable",
@@ -649,9 +649,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               </div>
 
               <div className="space-y-4">
-                <h4 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#1A2E40]">
                   Where should your personalized plan be sent?
-                </h4>
+                </h3>
                 <p className="text-base text-[#4A5568]">
                   I will review your practice profile personally and follow up with specific guidance — no obligation.
                 </p>
@@ -722,9 +722,9 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
               <div className="p-4 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/50 flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xl font-serif font-bold text-[#1A2E40]">
+                  <h3 className="text-xl font-serif font-bold text-[#1A2E40]">
                     Diagnostic Complete: Recommended Plan of Action
-                  </h4>
+                  </h3>
                   <p className="text-base text-[#4A5568] mt-1">
                     Based on your practice profile ({answers.pos}, {answers.status}), here is how Monique Reid Bookkeeping organizes your records:
                   </p>

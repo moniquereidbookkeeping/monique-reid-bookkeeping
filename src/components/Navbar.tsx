@@ -68,13 +68,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
           </div>
           <div className="flex items-center gap-6">
-            <button
-              onClick={() => handleNavClick('contact')}
-              className="text-white hover:underline flex items-center gap-1 font-semibold transition-colors cursor-pointer"
+            <a
+              href={pathFor('contact')}
+              onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
+              className="text-white! hover:underline flex items-center gap-1 min-h-6 font-semibold transition-colors cursor-pointer"
             >
               <span>Book Your Free 20-Min Clarity Call</span>
               <ChevronRight className="w-3.5 h-3.5 text-white" />
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -117,17 +118,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-3 shrink-0">
-            <button
+            <a
+              href="/contact"
               id="header-clarity-call-btn"
-              onClick={onBookCall}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide text-[#1A2E40] bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.98] transition-all duration-200 shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.38)] border border-[#FFF5DE]/60 group cursor-pointer"
+              onClick={(e) => { e.preventDefault(); onBookCall(); }}
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide text-[#1A2E40]! bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.98] transition-all duration-200 shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.38)] border border-[#FFF5DE]/60 group cursor-pointer"
             >
               <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
                 <Calendar className="w-3.5 h-3.5" />
               </span>
               <span className="font-bold text-[#1A2E40]">Book a Free Call</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#1A2E40]/70 group-hover:text-[#1A2E40] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-            </button>
+            </a>
           </div>
 
           {/* Mobile hamburger menu toggle */}

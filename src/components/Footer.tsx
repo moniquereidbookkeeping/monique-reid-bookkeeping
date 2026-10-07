@@ -15,6 +15,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  /** Go to the Services page and scroll to one service card (its id is service-card-<id>). */
+  const goToService = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    onNavigate('services');
+    setTimeout(() => document.getElementById(`service-card-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+  };
+
   return (
     <footer id="site-footer" className="bg-[#1A2E40] text-white pt-16 pb-12 border-t border-[#D4AF37]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,9 +39,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
 
           {/* Col 2: Services (All 6 Distinct Services) */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Services
-            </h4>
+            </h2>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
                 <a href={pathFor('quickbooks-cleanup')} onClick={(e) => { e.preventDefault(); onNavigate('quickbooks-cleanup'); }}
@@ -43,31 +50,31 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 </a>
               </li>
               <li>
-                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                <a href={`${pathFor('services')}#service-card-monthly`} onClick={(e) => goToService(e, 'monthly')}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Monthly Bookkeeping
                 </a>
               </li>
               <li>
-                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                <a href={`${pathFor('services')}#service-card-reporting`} onClick={(e) => goToService(e, 'reporting')}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Financial Reporting &amp; KPIs
                 </a>
               </li>
               <li>
-                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                <a href={`${pathFor('services')}#service-card-focus`} onClick={(e) => goToService(e, 'focus')}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Practice-Specific Bookkeeping
                 </a>
               </li>
               <li>
-                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                <a href={`${pathFor('services')}#service-card-setup`} onClick={(e) => goToService(e, 'setup')}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   QuickBooks Setup &amp; Chart of Accounts
                 </a>
               </li>
               <li>
-                <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
+                <a href={`${pathFor('services')}#service-card-scale`} onClick={(e) => goToService(e, 'scale')}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   Historical Records &amp; Reporting
                 </a>
@@ -78,14 +85,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                   South Florida MedSpa Bookkeeping
                 </a>
               </li>
+              <li>
+                <a href={pathFor('iv-hydration')} onClick={(e) => { e.preventDefault(); onNavigate('iv-hydration'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
+                  IV Hydration Bookkeeping
+                </a>
+              </li>
+              <li>
+                <a href={pathFor('medical-weight-loss')} onClick={(e) => { e.preventDefault(); onNavigate('medical-weight-loss'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
+                  Medical Weight Loss Bookkeeping
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Col 3: Practice Tools */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Practice Tools
-            </h4>
+            </h2>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
                 <a href={pathFor('pricing')} onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
@@ -122,9 +141,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
 
           {/* Col 4: Get In Touch */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               GET IN TOUCH
-            </h4>
+            </h2>
             <ul className="space-y-3 text-sm text-sm text-[#E2E8F0]/90">
               <li>
                 <button

@@ -307,8 +307,13 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               <a href={pathFor('services')} onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
                 className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
                 MedSpa bookkeeping services
+              </a>
+              , a{' '}
+              <a href={pathFor('quickbooks-cleanup')} onClick={(e) => { e.preventDefault(); onNavigate('quickbooks-cleanup'); }}
+                className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
+                QuickBooks cleanup
               </a>{' '}
-              and{' '}
+              if your books are behind, and{' '}
               <a href={pathFor('pricing')} onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
                 className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
                 flat monthly pricing

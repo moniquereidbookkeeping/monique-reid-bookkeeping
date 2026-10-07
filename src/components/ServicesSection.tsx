@@ -212,7 +212,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
               <div
                 key={svc.id}
                 id={`service-card-${svc.id}`}
-                className="bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#D4AF37]/60 shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group overflow-hidden relative"
+                className="scroll-mt-32 bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#D4AF37]/60 shadow-sm hover:shadow-xl transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group overflow-hidden relative"
               >
                 {/* Gold top accent bar */}
                 <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[#D4AF37]/30 via-[#D4AF37] to-[#D4AF37]/30 group-hover:from-[#D4AF37]/70 group-hover:via-[#E5C765] group-hover:to-[#D4AF37]/70 transition-all duration-300" />
