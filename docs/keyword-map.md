@@ -59,9 +59,9 @@ Existing articles keep their own terms, which are not in the list of 50: chart o
   Services pages.
 - New pages: QuickBooks cleanup, IV hydration, medical weight loss and GLP-1. They are linked from the footer,
   home, Services and Pricing.
-- The four archived articles were reviewed, corrected and restored. The archived cleanup, IV hydration and
+- The four archived articles were reviewed, corrected and put back on the publishing schedule (dates in `docs/niche-pain-points.md`). The archived cleanup, IV hydration and
   weight-loss articles stay archived and redirect to the pages that replaced them (`public/_redirects`).
-- The provider-commission article is live.
+- The provider-commission article is written and scheduled for 2026-11-03; it is not live yet.
 - The blog generator queue no longer holds topics that compete with mapped pages.
 
 ## Service pages and the hub (October 2026)

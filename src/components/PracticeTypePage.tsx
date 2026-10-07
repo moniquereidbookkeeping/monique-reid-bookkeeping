@@ -63,7 +63,12 @@ export const IV_HYDRATION: PracticeTypeContent = {
     { group: 'Cost of goods sold', items: ['IV fluids and supplies', 'Vitamins and additives', 'Medications given under protocol'] },
     { group: 'Expenses', items: ['Nurse payroll', 'Contract nursing', 'Medical director fees', 'Mobile service costs', 'Payment processing fees'] },
   ],
-  related: ['medspa-membership-revenue-quickbooks', 'track-neurotoxin-filler-costs-quickbooks', 'medspa-provider-commission-bookkeeping'],
+  // Only guides whose main subject answers a question this page raises (docs/niche-pain-points.md #2, #3 and #8).
+  // No article yet covers IV supply cost per drip, mobile vs in-clinic margin or nurse pay, so nothing stands in for them.
+  related: [
+    'medspa-membership-revenue-quickbooks', // memberships and drip packages paid in advance
+    'medspa-tips-refunds-chargebacks-quickbooks', // Square and Stripe payouts net of fees and refunds (scheduled)
+  ],
   note: 'Opening or in your first year? Setting this up before the first patient costs far less than correcting a year of mixed-up entries later.',
 };
 
@@ -110,7 +115,12 @@ export const MEDICAL_WEIGHT_LOSS: PracticeTypeContent = {
     { group: 'Cost of goods sold', items: ['GLP-1 medication', 'Other medications and injectables', 'Pharmacy shipping and cold-chain'] },
     { group: 'Expenses', items: ['Medical director fees', 'Provider payroll', 'Contract providers', 'Billing platform and processing fees'] },
   ],
-  related: ['medspa-membership-revenue-quickbooks', 'track-neurotoxin-filler-costs-quickbooks', 'medspa-provider-commission-bookkeeping'],
+  // Only guides whose main subject answers a question this page raises (docs/niche-pain-points.md #2, #3 and #8).
+  // No article yet covers GLP-1 medication cost and margin or medical director and provider pay, so nothing stands in for them.
+  related: [
+    'medspa-membership-revenue-quickbooks', // monthly program fees paid in advance
+    'medspa-tips-refunds-chargebacks-quickbooks', // Stripe and billing-platform payouts net of fees and refunds (scheduled)
+  ],
   note: 'Medication sourcing and pricing in this field change often. Books that show medication margin clearly let you respond to those changes with numbers, not guesses.',
 };
 
