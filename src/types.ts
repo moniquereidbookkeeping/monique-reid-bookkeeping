@@ -5,6 +5,8 @@ export interface BlogSection {
   heading?: string;
   text?: string;
   items?: string[];
+  /** cta-inline only: a link to the page this article leads to (a crawlable <a>, opened in-app). */
+  link?: { page: PageView; label: string };
 }
 
 export interface BlogPost {
