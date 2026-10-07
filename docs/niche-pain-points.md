@@ -41,5 +41,6 @@ Published posts: chart of accounts; is my MedSpa profitable (QuickBooks reports)
 - Software-specific statements (Boulevard, Vagaro, Square, QuickBooks features, Allē, ASPIRE): keep general and hedged unless verified. Programs differ by manufacturer and contract.
 - Figures: examples only, labeled as examples. Plans: Essential $497, Growth $797, Full-Spectrum $1,197. Cleanup $597 (1-3 months), $1,297 (4-6), $1,997 (7-12), custom quote for 13+ months or multiple entities.
 - Call: free 20-minute private Zoom call. Button label exactly: "Book Your Free 20-Min Clarity Call". Name: Financial Clarity Call.
-- Credential: Intuit QuickBooks Online ProAdvisor. No degree claims on the site.
+- Credentials (use only this wording): Intuit Certified QuickBooks ProAdvisor; QuickBooks Online Level 2; QuickBooks Payroll Certified.
+- Degree: Bachelor of Business Administration. Owner-confirmed (October 2026) and allowed on the site, as on the About page. No other degree or license claims.
 - Post format: see `BlogPost` in `src/types.ts`; section types intro, heading, paragraph, list, callout, tip. Add to `src/data/blogPosts.ts`; the sitemap picks up new slugs on build.
