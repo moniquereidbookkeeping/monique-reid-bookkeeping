@@ -1,12 +1,13 @@
 import React from 'react';
 import {
   Mail,
+  Phone,
   ShieldCheck,
   Clock,
   Sparkles,
   Award,
 } from 'lucide-react';
-import { CONTACT_EMAIL } from '../constants/booking';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '../constants/booking';
 import { CalendlyBookingCard } from './CalendlyBookingCard';
 import { pathFor } from '../router';
 import { PageView } from '../types';
@@ -95,18 +96,34 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
 
         {/* Contact Direct Strip */}
         <div className="max-w-5xl mx-auto rounded-2xl p-6 bg-[#1A2E40] text-white border border-[#D4AF37]/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0">
-              <Mail className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0" aria-hidden="true">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-sm text-[#E2E8F0]">Direct Inquiries</p>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors whitespace-nowrap"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-[#E2E8F0]">Direct Inquiries</p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors whitespace-nowrap"
-              >
-                {CONTACT_EMAIL}
-              </a>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0" aria-hidden="true">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-sm text-[#E2E8F0]">Phone</p>
+                <a
+                  href={`tel:${CONTACT_PHONE_TEL}`}
+                  className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors whitespace-nowrap"
+                >
+                  {CONTACT_PHONE}
+                </a>
+              </div>
             </div>
           </div>
 
