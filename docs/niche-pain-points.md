@@ -24,13 +24,12 @@ Works fully remote (Zoom, QuickBooks Online, phone, email): no office visits and
 | 11 | Product waste and expiry (vials) | 2 | 2 | Not promised on site (needs owner stock counts) |
 
 ## Ideas not yet written (good for new posts)
-- Physician-owner and multi-entity books: owner pay, transfers, what to give the CPA
-- Lender-ready financials for a MedSpa: what lenders and buyers ask for
-- Tips, refunds, no-shows and chargebacks: where each belongs
 - 1099 injectors, medical director fees and booth rent: coding and year-end
 - Patient financing fees: Cherry, CareCredit, PatientFi in QuickBooks
 - Deferred revenue for packages and memberships (check tax claims with CPA wording)
 - Product waste and expiry (only if a monthly inventory process exists)
+
+Scheduled (written October 2026): tips, refunds, no-shows and chargebacks (2026-11-24); lender-ready financials (2026-12-01); physician-owned and multi-entity books (2026-12-08).
 
 Published posts: chart of accounts; is my MedSpa profitable (QuickBooks reports); what your CPA needs; month-end close checklist; manufacturer rebates and rewards. Archived older posts live in `src/data/archivedBlogPosts.ts` (hidden; re-check facts before restoring).
 

@@ -38,7 +38,7 @@ const formatDate = (dateStr: string): string => {
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 };
 
-const renderSection = (section: BlogSection, index: number) => {
+const renderSection = (section: BlogSection, index: number, onNavigate: (page: PageView) => void) => {
   switch (section.type) {
     case 'intro':
       return (
@@ -123,6 +123,16 @@ const renderSection = (section: BlogSection, index: number) => {
         >
           <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">{section.heading}</p>
           <p className="text-sm text-white/80 leading-relaxed">{section.text}</p>
+          {section.link && (
+            <a
+              href={pathFor(section.link.page)}
+              onClick={(e) => { e.preventDefault(); onNavigate(section.link!.page); }}
+              className="inline-flex items-center gap-1.5 pt-1 text-sm font-bold text-[#D4AF37]! underline! decoration-[#D4AF37]/60! underline-offset-4 hover:text-white!"
+            >
+              {section.link.label}
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+            </a>
+          )}
         </div>
       );
 
@@ -273,7 +283,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
 
           {/* Content sections */}
           <div className="space-y-5">
-            {post.content.map((section, i) => renderSection(section, i))}
+            {post.content.map((section, i) => renderSection(section, i, onNavigate))}
           </div>
 
           {/* Author byline */}
