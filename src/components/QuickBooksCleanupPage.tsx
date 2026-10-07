@@ -169,7 +169,7 @@ export const QuickBooksCleanupPage: React.FC<QuickBooksCleanupPageProps> = ({ on
             ))}
           </div>
           <p className="mt-6 text-center text-base text-[#4A5568]">
-            Once the backlog is cleared, {link('services', 'monthly bookkeeping')} keeps the books current. Compare all{' '}
+            Once the backlog is cleared, {link('monthly-bookkeeping', 'monthly bookkeeping')} keeps the books current. Compare all{' '}
             {link('pricing', 'plans and pricing')}.
           </p>
         </div>

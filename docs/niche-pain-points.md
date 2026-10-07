@@ -36,7 +36,7 @@ Published posts: chart of accounts; is my MedSpa profitable (QuickBooks reports)
 ## Rules for any new content
 - Voice: no "we/our" on marketing pages. "I" only where Monique speaks (About, Contact intro, booking emails). Privacy and Terms keep "we".
 - No HIPAA compliance claims. Do not say or imply she handles patient medical records.
-- No guarantees of results, approval, savings or timelines. No unconfirmed contract terms (cancellation, notice periods) until the written service agreement exists.
+- No guarantees of results, approval, savings or timelines. One owner-confirmed exception (October 2026): monthly reports are delivered by the 15th of the following month. No unconfirmed contract terms (cancellation, notice periods) until the written service agreement exists.
 - Tax and depreciation treatment: coordinate with the client's CPA. Never give tax advice or tax-return services. Structure decisions go to attorney and CPA.
 - Software-specific statements (Boulevard, Vagaro, Square, QuickBooks features, Allē, ASPIRE): keep general and hedged unless verified. Programs differ by manufacturer and contract.
 - Figures: examples only, labeled as examples. Plans: Essential $497, Growth $797, Full-Spectrum $1,197. Cleanup $597 (1-3 months), $1,297 (4-6), $1,997 (7-12), custom quote for 13+ months or multiple entities.

@@ -35,6 +35,9 @@ const CRUMB: Partial<Record<keyof typeof PAGE_PATHS, string>> = {
   'quickbooks-cleanup': 'QuickBooks Cleanup',
   'iv-hydration': 'IV Hydration Bookkeeping',
   'medical-weight-loss': 'Medical Weight Loss Bookkeeping',
+  'monthly-bookkeeping': 'Monthly Bookkeeping',
+  'quickbooks-setup': 'QuickBooks Setup',
+  'financial-reporting': 'Financial Reporting',
 };
 
 /** Service structured data for the service and practice-type pages. */
@@ -43,6 +46,10 @@ const SERVICE_LD: Partial<Record<keyof typeof PAGE_PATHS, { '@id'?: string; name
   'quickbooks-cleanup': { '@id': `${SITE_ORIGIN}/#service-cleanup`, name: 'QuickBooks Cleanup for Med Spas', serviceType: 'QuickBooks Cleanup and Catch-Up Bookkeeping' },
   'iv-hydration': { name: 'IV Hydration Bookkeeping', serviceType: 'IV Hydration Bookkeeping' },
   'medical-weight-loss': { name: 'Medical Weight Loss and GLP-1 Clinic Bookkeeping', serviceType: 'Medical Weight Loss Bookkeeping' },
+  // Same @id as the monthly Service in index.html (which carries the plan offers), so both describe one service.
+  'monthly-bookkeeping': { '@id': `${SITE_ORIGIN}/#service-monthly`, name: 'Monthly Bookkeeping for Med Spas', serviceType: 'MedSpa Bookkeeping' },
+  'quickbooks-setup': { name: 'QuickBooks Setup for Med Spas', serviceType: 'QuickBooks Setup and Chart of Accounts' },
+  'financial-reporting': { name: 'Financial Reporting for Med Spas', serviceType: 'Financial Reporting' },
 };
 
 const breadcrumb = (items: Array<{ name: string; url: string }>) => ({

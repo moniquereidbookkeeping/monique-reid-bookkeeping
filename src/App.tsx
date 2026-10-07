@@ -33,6 +33,7 @@ import { SouthFloridaPage } from './components/SouthFloridaPage';
 import { RelatedArticles } from './components/RelatedArticles';
 import { QuickBooksCleanupPage } from './components/QuickBooksCleanupPage';
 import { PracticeTypePage, IV_HYDRATION, MEDICAL_WEIGHT_LOSS } from './components/PracticeTypePage';
+import { ServiceDetailPage, MONTHLY_BOOKKEEPING, QUICKBOOKS_SETUP, FINANCIAL_REPORTING } from './components/ServiceDetailPage';
 import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function App({ initialPath }: { initialPath?: string } = {}) {
@@ -223,6 +224,39 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </div>
 
+            {/* Hub: each service with its own page gets a direct link, so this page points to them instead of competing */}
+            <section aria-labelledby="service-pages-heading" className="py-12 lg:py-14 bg-white border-b border-[#E2E8F0]">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 id="service-pages-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight text-center">
+                  Explore each service
+                </h2>
+                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {([
+                    ['monthly-bookkeeping', 'Monthly Bookkeeping', 'Reconciliations, payouts, memberships and provider pay, closed every month.'],
+                    ['quickbooks-cleanup', 'QuickBooks Cleanup & Catch-Up', 'Months or years of books brought up to date at a fixed fee.'],
+                    ['quickbooks-setup', 'QuickBooks Setup', 'A QuickBooks Online file and chart of accounts built for a med spa.'],
+                    ['financial-reporting', 'Financial Reporting', 'Revenue by treatment, margins, provider pay and cash flow in plain English.'],
+                    ['iv-hydration', 'IV Hydration Bookkeeping', 'Supply costs, memberships and nurse pay for IV clinics and drip bars.'],
+                    ['medical-weight-loss', 'Medical Weight Loss Bookkeeping', 'Medication cost, program fees and provider pay for GLP-1 clinics.'],
+                  ] as Array<[PageView, string, string]>).map(([page, title, body]) => (
+                    <li key={page}>
+                      <a
+                        href={pathFor(page)}
+                        onClick={(e) => { e.preventDefault(); handleNavigate(page); }}
+                        className="group flex h-full flex-col rounded-xl border border-[#E2E8F0] bg-[#FDFCFA] p-5 hover:border-[#D4AF37] transition-colors"
+                      >
+                        <span className="text-lg font-serif font-bold text-[#1A2E40] group-hover:text-[#8A6A00]">{title}</span>
+                        <span className="mt-1.5 text-base text-[#4A5568] leading-relaxed flex-1">{body}</span>
+                        <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#1A2E40]">
+                          Learn more <ArrowRight className="w-3.5 h-3.5" />
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
             <ServicesSection onBookCall={handleBookCall} onNavigate={handleNavigate} />
 
             <RelatedArticles
@@ -256,10 +290,13 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Interactive Example
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Med Spa Financial Reporting: See Where Your Revenue Goes
+                  Example Med Spa P&amp;L Dashboard: See Where Revenue Goes
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Med spa financial reporting in practice: the monthly reports and KPIs clients receive, shown with an example. See how organized books separate treatment costs, provider pay and operating expenses, and show what is left. All figures are examples.
+                  An interactive example of a med spa&apos;s monthly numbers. See how organized books separate treatment costs, provider pay and operating expenses, and show what is left. All figures are examples.{' '}
+                  <a href={pathFor('financial-reporting')} onClick={(e) => { e.preventDefault(); handleNavigate('financial-reporting'); }} className="text-white! font-semibold underline! decoration-[#D4AF37]! underline-offset-4">
+                    How financial reporting works
+                  </a>
                 </p>
               </div>
             </div>
@@ -393,6 +430,18 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
         {currentPage === 'medical-weight-loss' && (
           <PracticeTypePage content={MEDICAL_WEIGHT_LOSS} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
+        )}
+
+        {currentPage === 'monthly-bookkeeping' && (
+          <ServiceDetailPage content={MONTHLY_BOOKKEEPING} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
+        )}
+
+        {currentPage === 'quickbooks-setup' && (
+          <ServiceDetailPage content={QUICKBOOKS_SETUP} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
+        )}
+
+        {currentPage === 'financial-reporting' && (
+          <ServiceDetailPage content={FINANCIAL_REPORTING} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
         )}
 
         {currentPage === 'blog' && (

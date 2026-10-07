@@ -25,10 +25,13 @@ Status: **Live** (on the site), **Scheduled** (publishes on that date; see the R
 | `/medspa-bookkeeping-south-florida` | Live | med spa bookkeeping South Florida (#20) | med spa bookkeeper Fort Lauderdale (#1), med spa bookkeeping Fort Lauderdale (#2), med spa bookkeeper South Florida (#5), bookkeeping for med spas Fort Lauderdale (#11), aesthetic practice bookkeeping Fort Lauderdale (#14), med spa bookkeeper Broward County (#15), med spa bookkeeping Broward County (#18), aesthetic practice bookkeeping South Florida (#21), med spa bookkeeper Florida (#6), aesthetic practice bookkeeping Florida (#9), med spa bookkeeping Florida (#24), bookkeeping for med spas Florida (#25), medical spa bookkeeping Florida (#26), aesthetic clinic bookkeeper Florida (#27), QuickBooks bookkeeper Fort Lauderdale (#12), QuickBooks bookkeeper Broward County (#17), QuickBooks bookkeeping South Florida (#22) | Decision |
 | `/quickbooks-cleanup` | Live | QuickBooks cleanup for med spa (#7) | QuickBooks cleanup Fort Lauderdale (#3), QuickBooks cleanup South Florida (#23), QuickBooks cleanup services Florida (#34), catch up bookkeeping Florida (#35), bookkeeping cleanup services Florida (#36) | Decision |
 | `/` (home) | Live | med spa bookkeeper (national) | med spa bookkeeping, medical spa bookkeeping, aesthetic practice bookkeeping (national terms, not in the list of 50) | Decision |
-| `/services` | Live | monthly bookkeeping for med spa (#8) | wellness practice bookkeeping Florida (#28), QuickBooks setup services Florida (#38), QuickBooks setup for med spa (#39) | Consideration |
-| `/pricing` | Live | med spa bookkeeping pricing / cost | monthly bookkeeping services Florida (#37) | Decision |
+| `/services` | Live (hub) | med spa bookkeeping services (overview of every service) | wellness practice bookkeeping Florida (#28) | Consideration |
+| `/monthly-bookkeeping` | Live | monthly bookkeeping for med spa (#8) | monthly bookkeeping services Florida (#37), monthly med spa bookkeeping, ongoing QuickBooks bookkeeping for aesthetic practices | Consideration |
+| `/quickbooks-setup-medspa` | Live | QuickBooks setup for med spa (#39) | QuickBooks setup services Florida (#38), QuickBooks Online setup for aesthetic clinics | Consideration |
+| `/medspa-financial-reporting` | Live | financial reporting for med spas (#10) | med spa KPI reporting (#40), med spa profit and margin reports | Consideration |
+| `/pricing` | Live | med spa bookkeeping pricing / cost | none (#37 moved to `/monthly-bookkeeping`) | Decision |
 | `/about` | Live | QuickBooks ProAdvisor Florida (#33) | QuickBooks bookkeeper Florida (#32) | Decision |
-| `/dashboard` | Live | financial reporting for med spas (#10) | med spa KPI reporting (#40) | Consideration |
+| `/dashboard` | Live (tool) | med spa P&L dashboard example | none (supports `/medspa-financial-reporting`; do not target #10 or #40 here) | Consideration |
 | `/iv-hydration-bookkeeping` | Live | IV hydration bookkeeping Florida (#29) | IV drip / IV therapy business bookkeeping | Consideration |
 | `/medical-weight-loss-bookkeeping` | Live | medical weight loss bookkeeping Florida (#30) | GLP-1 clinic bookkeeping Florida (#31) | Consideration |
 | `/blog/medspa-membership-revenue-quickbooks` | Live | med spa membership bookkeeping (#41) | med spa package bookkeeping (#42), deferred revenue med spa | Awareness |
@@ -39,8 +42,8 @@ Status: **Live** (on the site), **Scheduled** (publishes on that date; see the R
 | Google Business Profile (not a web page) | To set up | bookkeeping services Fort Lauderdale FL (#4) | monthly bookkeeping Fort Lauderdale (#13), bookkeeping services Broward County FL (#16), bookkeeping services South Florida (#19) | Decision |
 
 Existing articles keep their own terms, which are not in the list of 50: chart of accounts
-(`medspa chart of accounts QuickBooks`, and it supports #39), "Is my MedSpa profitable" (`is my med spa profitable`,
-supports #40), CPA at tax time (`what a CPA needs from med spa books`), month-end close
+(`medspa chart of accounts QuickBooks`, and it supports #39 on the QuickBooks setup page), "Is my MedSpa profitable"
+(`is my med spa profitable`, supports #40 on the financial reporting page), CPA at tax time (`what a CPA needs from med spa books`), month-end close
 (`med spa month-end close checklist`), and rebates (`med spa manufacturer rebates QuickBooks`).
 
 ## Done (October 2026)
@@ -53,6 +56,15 @@ supports #40), CPA at tax time (`what a CPA needs from med spa books`), month-en
   weight-loss articles stay archived and redirect to the pages that replaced them (`public/_redirects`).
 - The provider-commission article is live.
 - The blog generator queue no longer holds topics that compete with mapped pages.
+
+## Service pages and the hub (October 2026)
+
+- `/services` is the hub: it lists every service and links to each service that has its own page. Its title and
+  description no longer target #8, #38 or #39, and it should not be rewritten to chase them.
+- Monthly bookkeeping, QuickBooks setup and financial reporting each have their own page and own #8 (with #37), #39 and #10.
+  The Dashboard is the interactive example that supports the financial reporting page; its title says "example".
+- The footer, the home services summary, the service cards on `/services` and in-text "monthly bookkeeping" links
+  point to the new pages.
 
 ## Still to do
 
@@ -75,9 +87,9 @@ supports #40), CPA at tax time (`what a CPA needs from med spa books`), month-en
 | 5 | med spa bookkeeper South Florida | South Florida |
 | 6 | med spa bookkeeper Florida | South Florida |
 | 7 | QuickBooks cleanup for med spa | QuickBooks cleanup (primary) |
-| 8 | monthly bookkeeping for med spa | Services (primary) |
+| 8 | monthly bookkeeping for med spa | Monthly bookkeeping (primary) |
 | 9 | aesthetic practice bookkeeping Florida | South Florida |
-| 10 | financial reporting for med spas | Dashboard (primary) |
+| 10 | financial reporting for med spas | Financial reporting (primary) |
 | 11 | bookkeeping for med spas Fort Lauderdale | South Florida |
 | 12 | QuickBooks bookkeeper Fort Lauderdale | South Florida |
 | 13 | monthly bookkeeping Fort Lauderdale | Google Business Profile |
@@ -104,10 +116,10 @@ supports #40), CPA at tax time (`what a CPA needs from med spa books`), month-en
 | 34 | QuickBooks cleanup services Florida | QuickBooks cleanup |
 | 35 | catch up bookkeeping Florida | QuickBooks cleanup |
 | 36 | bookkeeping cleanup services Florida | QuickBooks cleanup |
-| 37 | monthly bookkeeping services Florida | Pricing |
-| 38 | QuickBooks setup services Florida | Services |
-| 39 | QuickBooks setup for med spa | Services |
-| 40 | med spa KPI reporting | Dashboard |
+| 37 | monthly bookkeeping services Florida | Monthly bookkeeping |
+| 38 | QuickBooks setup services Florida | QuickBooks setup |
+| 39 | QuickBooks setup for med spa | QuickBooks setup (primary) |
+| 40 | med spa KPI reporting | Financial reporting |
 | 41 | med spa membership bookkeeping | Membership article (primary) |
 | 42 | med spa package bookkeeping | Membership article |
 | 43 | med spa provider commission bookkeeping | Provider-commission article (primary) |
