@@ -30,6 +30,7 @@ import { PricingSection } from './components/PricingSection';
 import { WhySpecializedSection } from './components/WhySpecializedSection';
 import { Footer } from './components/Footer';
 import { SouthFloridaPage } from './components/SouthFloridaPage';
+import { FortLauderdalePage } from './components/FortLauderdalePage';
 import { RelatedArticles } from './components/RelatedArticles';
 import { QuickBooksCleanupPage } from './components/QuickBooksCleanupPage';
 import { PracticeTypePage, IV_HYDRATION, MEDICAL_WEIGHT_LOSS } from './components/PracticeTypePage';
@@ -316,7 +317,11 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Meet Monique Reid
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Specialized bookkeeping for MedSpa, aesthetic clinic, and wellness practice founders, based in Fort Lauderdale and serving practices nationwide.
+                  Specialized bookkeeping for MedSpa, aesthetic clinic, and wellness practice founders, based in{' '}
+                  <a href={pathFor('fort-lauderdale')} onClick={(e) => { e.preventDefault(); handleNavigate('fort-lauderdale'); }} className="text-white! font-semibold underline! decoration-[#D4AF37]! underline-offset-4">
+                    Fort Lauderdale
+                  </a>{' '}
+                  and serving practices nationwide.
                 </p>
               </div>
             </div>
@@ -418,6 +423,10 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
         {currentPage === 'south-florida' && (
           <SouthFloridaPage onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
+        )}
+
+        {currentPage === 'fort-lauderdale' && (
+          <FortLauderdalePage onNavigate={handleNavigate} onBookCall={handleBookCall} />
         )}
 
         {currentPage === 'quickbooks-cleanup' && (

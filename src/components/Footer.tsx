@@ -86,6 +86,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 </a>
               </li>
               <li>
+                <a href={pathFor('fort-lauderdale')} onClick={(e) => { e.preventDefault(); onNavigate('fort-lauderdale'); }}
+                  className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
+                  Fort Lauderdale MedSpa Bookkeeping
+                </a>
+              </li>
+              <li>
                 <a href={pathFor('iv-hydration')} onClick={(e) => { e.preventDefault(); onNavigate('iv-hydration'); }}
                   className="hover:text-[#D4AF37] transition-colors text-left cursor-pointer">
                   IV Hydration Bookkeeping
@@ -172,7 +178,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
             <p>
               © 2026 Monique Reid Bookkeeping •{' '}
-              <a href={pathFor('south-florida')} onClick={(e) => { e.preventDefault(); onNavigate('south-florida'); }}
+              <a href={pathFor('fort-lauderdale')} onClick={(e) => { e.preventDefault(); onNavigate('fort-lauderdale'); }}
                 className="hover:text-[#D4AF37] transition-colors underline-offset-4 hover:underline cursor-pointer">
                 Fort Lauderdale, FL
               </a>{' '}

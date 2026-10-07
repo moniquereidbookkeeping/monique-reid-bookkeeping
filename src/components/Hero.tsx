@@ -110,6 +110,16 @@ export const Hero: React.FC<HeroProps> = ({
             <p className="text-base text-[#4A5568]">
               Monthly plans from <span className="font-bold text-[#1A2E40]">$497</span> · Cleanup projects from <span className="font-bold text-[#1A2E40]">$597</span>
             </p>
+            <p className="text-base text-[#4A5568]">
+              Based in{' '}
+              {onNavigate ? (
+                <a href={pathFor('fort-lauderdale')} onClick={(e) => { e.preventDefault(); onNavigate('fort-lauderdale'); }}
+                  className="font-semibold text-[#1A2E40]! underline! decoration-[#D4AF37]! underline-offset-4 hover:text-[#8A6A00]!">
+                  Fort Lauderdale
+                </a>
+              ) : 'Fort Lauderdale'}
+              , working remotely with practices across Florida and nationwide.
+            </p>
 
             {/* Tech Stack Integration Strip */}
             <div className="pt-6 border-t border-[#1A2E40]/10 space-y-3">

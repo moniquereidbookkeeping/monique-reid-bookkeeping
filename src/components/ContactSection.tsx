@@ -1,12 +1,13 @@
 import React from 'react';
 import {
   Mail,
+  Phone,
   ShieldCheck,
   Clock,
   Sparkles,
   Award,
 } from 'lucide-react';
-import { CONTACT_EMAIL } from '../constants/booking';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '../constants/booking';
 import { CalendlyBookingCard } from './CalendlyBookingCard';
 import { pathFor } from '../router';
 import { PageView } from '../types';
@@ -25,7 +26,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             This is a private 20-minute video call on Zoom. Select a convenient time below. I will review your practice's current bookkeeping setup, point out immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
           </p>
           <p className="mt-3 text-base text-[#57534E]">
-            Based in Fort Lauderdale, Florida, working with practices across{' '}
+            Based in{' '}
+            <a href={pathFor('fort-lauderdale')} onClick={(e) => { e.preventDefault(); onNavigate?.('fort-lauderdale'); }}
+              className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
+              Fort Lauderdale, Florida
+            </a>
+            , working with practices across{' '}
             <a href={pathFor('south-florida')} onClick={(e) => { e.preventDefault(); onNavigate?.('south-florida'); }}
               className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
               South Florida
@@ -90,18 +96,34 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
 
         {/* Contact Direct Strip */}
         <div className="max-w-5xl mx-auto rounded-2xl p-6 bg-[#1A2E40] text-white border border-[#D4AF37]/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0">
-              <Mail className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0" aria-hidden="true">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-sm text-[#E2E8F0]">Direct Inquiries</p>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors whitespace-nowrap"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-[#E2E8F0]">Direct Inquiries</p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors whitespace-nowrap"
-              >
-                {CONTACT_EMAIL}
-              </a>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] shrink-0" aria-hidden="true">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-sm text-[#E2E8F0]">Phone</p>
+                <a
+                  href={`tel:${CONTACT_PHONE_TEL}`}
+                  className="text-sm sm:text-base font-semibold text-white hover:text-[#D4AF37] transition-colors whitespace-nowrap"
+                >
+                  {CONTACT_PHONE}
+                </a>
+              </div>
             </div>
           </div>
 

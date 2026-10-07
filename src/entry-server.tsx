@@ -3,6 +3,10 @@ import App from './App';
 import { PAGE_META, SITE_ORIGIN, PAGE_PATHS } from './router';
 import { blogPosts } from './data/blogPosts';
 import { cleanupTiers } from './data/cleanupPricing';
+import { FORT_LAUDERDALE_AREAS } from './components/FortLauderdalePage';
+
+/** Re-exported so the prerender step can check index.html's business data uses the same phone and email. */
+export { CONTACT_EMAIL, CONTACT_PHONE_TEL } from './constants/booking';
 
 export interface PrerenderRoute {
   path: string;
@@ -32,6 +36,7 @@ const CRUMB: Partial<Record<keyof typeof PAGE_PATHS, string>> = {
   dashboard: 'Example Dashboard',
   calculator: 'Treatment Profit Calculator',
   'south-florida': 'South Florida',
+  'fort-lauderdale': 'Fort Lauderdale',
   'quickbooks-cleanup': 'QuickBooks Cleanup',
   'iv-hydration': 'IV Hydration Bookkeeping',
   'medical-weight-loss': 'Medical Weight Loss Bookkeeping',
@@ -106,7 +111,7 @@ export function renderRoute(path: string): PrerenderRoute {
       {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: 'Med Spa Bookkeeping in Fort Lauderdale & South Florida',
+        name: 'Med Spa Bookkeeping in South Florida',
         serviceType: 'MedSpa Bookkeeping',
         url: canonical,
         description: meta.description,
@@ -114,6 +119,24 @@ export function renderRoute(path: string): PrerenderRoute {
         areaServed: [
           ...cities.map((name) => ({ '@type': 'City', name: `${name}, FL` })),
           ...['Broward County', 'Miami-Dade County', 'Palm Beach County'].map((name) => ({ '@type': 'AdministrativeArea', name: `${name}, FL` })),
+        ],
+      },
+      breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
+    );
+  } else if (key === 'fort-lauderdale') {
+    // Service-area business: the work is remote, so no address, geo or opening hours.
+    jsonLd.push(
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Med Spa Bookkeeping in Fort Lauderdale',
+        serviceType: 'MedSpa Bookkeeping',
+        url: canonical,
+        description: meta.description,
+        provider: { '@id': `${SITE_ORIGIN}/#organization` },
+        areaServed: [
+          ...FORT_LAUDERDALE_AREAS.map((name) => ({ '@type': 'City', name: `${name}, FL` })),
+          { '@type': 'AdministrativeArea', name: 'Broward County, FL' },
         ],
       },
       breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
