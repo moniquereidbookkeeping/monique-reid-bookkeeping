@@ -63,9 +63,9 @@ export const IV_HYDRATION: PracticeTypeContent = {
     { group: 'Cost of goods sold', items: ['IV fluids and supplies', 'Vitamins and additives', 'Medications given under protocol'] },
     { group: 'Expenses', items: ['Nurse payroll', 'Contract nursing', 'Medical director fees', 'Mobile service costs', 'Payment processing fees'] },
   ],
-  // Only guides whose main subject answers a question this page raises (docs/niche-pain-points.md #2, #3 and #8).
-  // No article yet covers IV supply cost per drip, mobile vs in-clinic margin or nurse pay, so nothing stands in for them.
+  // Only guides whose main subject answers a question this page raises (docs/niche-pain-points.md #4, #10, #2, #3 and #8).
   related: [
+    'iv-hydration-cost-per-drip-nurse-pay-quickbooks', // supply cost per drip, mobile visit costs, nurse pay
     'medspa-membership-revenue-quickbooks', // memberships and drip packages paid in advance
     'medspa-tips-refunds-chargebacks-quickbooks', // Square and Stripe payouts net of fees and refunds (scheduled)
   ],
@@ -115,9 +115,9 @@ export const MEDICAL_WEIGHT_LOSS: PracticeTypeContent = {
     { group: 'Cost of goods sold', items: ['GLP-1 medication', 'Other medications and injectables', 'Pharmacy shipping and cold-chain'] },
     { group: 'Expenses', items: ['Medical director fees', 'Provider payroll', 'Contract providers', 'Billing platform and processing fees'] },
   ],
-  // Only guides whose main subject answers a question this page raises (docs/niche-pain-points.md #2, #3 and #8).
-  // No article yet covers GLP-1 medication cost and margin or medical director and provider pay, so nothing stands in for them.
+  // Only guides whose main subject answers a question this page raises (docs/niche-pain-points.md #4, #10, #2, #3 and #8).
   related: [
+    'glp1-medication-cost-medical-director-pay-quickbooks', // medication cost and margin, medical director and provider pay
     'medspa-membership-revenue-quickbooks', // monthly program fees paid in advance
     'medspa-tips-refunds-chargebacks-quickbooks', // Stripe and billing-platform payouts net of fees and refunds (scheduled)
   ],
