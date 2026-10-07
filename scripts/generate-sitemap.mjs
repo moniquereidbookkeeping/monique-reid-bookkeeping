@@ -32,6 +32,7 @@ const pages = [
   { path: '/faq' },
   { path: '/contact' },
   { path: '/medspa-bookkeeping-south-florida' },
+  { path: '/fort-lauderdale-med-spa-bookkeeping' },
   { path: '/quickbooks-cleanup' },
   { path: '/iv-hydration-bookkeeping' },
   { path: '/medical-weight-loss-bookkeeping' },

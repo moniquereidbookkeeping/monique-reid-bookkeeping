@@ -53,10 +53,10 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
       <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-            Fort Lauderdale · Miami · Boca Raton · West Palm Beach
+            Broward · Miami-Dade · Palm Beach
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-            Med Spa Bookkeeping in Fort Lauderdale &amp; South Florida
+            Med Spa Bookkeeping in South Florida
           </h1>
           <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
             A local QuickBooks bookkeeper and Intuit Certified QuickBooks ProAdvisor for med spas, medical spas, aesthetic clinics, IV hydration and wellness practices.
@@ -67,7 +67,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
       <section className="py-14 lg:py-16 bg-[#FDFCFA] border-b border-[#E2E8F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5 text-base sm:text-lg text-[#4A5568] leading-relaxed">
           <p>
-            Monique Reid Bookkeeping is based in Fort Lauderdale and works with med spas, medical spas and other aesthetic and wellness practices across
+            Monique Reid Bookkeeping is based in {link('fort-lauderdale', 'Fort Lauderdale')} and works with med spas, medical spas and other aesthetic and wellness practices across
             Broward, Miami-Dade and Palm Beach counties, as well as practices nationwide. If your Boulevard, Vagaro or
             Square deposits never match your gross sales, your memberships and packages are booked as income the day
             they are paid, or your CPA keeps asking for the same corrections, the books can be fixed and then kept

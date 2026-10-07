@@ -25,7 +25,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             This is a private 20-minute video call on Zoom. Select a convenient time below. I will review your practice's current bookkeeping setup, point out immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
           </p>
           <p className="mt-3 text-base text-[#57534E]">
-            Based in Fort Lauderdale, Florida, working with practices across{' '}
+            Based in{' '}
+            <a href={pathFor('fort-lauderdale')} onClick={(e) => { e.preventDefault(); onNavigate?.('fort-lauderdale'); }}
+              className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
+              Fort Lauderdale, Florida
+            </a>
+            , working with practices across{' '}
             <a href={pathFor('south-florida')} onClick={(e) => { e.preventDefault(); onNavigate?.('south-florida'); }}
               className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
               South Florida

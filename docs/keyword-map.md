@@ -11,8 +11,11 @@ indexed, and update this map from what people actually search.
 ## Rules
 
 1. **One primary term per page.** Secondary terms are close variants of the same need.
-2. **No city or county copies.** Fort Lauderdale, Broward, South Florida and Florida all go to the one South
-   Florida page. Near-identical pages per place look like doorway pages to Google.
+2. **No city or county copies.** Near-identical pages per place look like doorway pages to Google. The one
+   exception is Fort Lauderdale, the home base: its page carries the Fort Lauderdale and Broward terms and is built
+   on facts the South Florida page does not have (fully remote service, the owner-confirmed service area, phone
+   and email). South Florida and Florida terms stay on the South Florida page. Do not add more city pages unless
+   each has its own real facts.
 3. **Write the way people search.** Use "med spa", "MedSpa" and "medical spa" naturally on key pages.
 4. **New article? Check here first.** If its main term already belongs to a page, improve that page instead.
 
@@ -22,7 +25,8 @@ Status: **Live** (on the site), **Scheduled** (publishes on that date; see the R
 
 | Page | Status | Primary term | Secondary terms (keyword #) | Stage |
 |---|---|---|---|---|
-| `/medspa-bookkeeping-south-florida` | Live | med spa bookkeeping South Florida (#20) | med spa bookkeeper Fort Lauderdale (#1), med spa bookkeeping Fort Lauderdale (#2), med spa bookkeeper South Florida (#5), bookkeeping for med spas Fort Lauderdale (#11), aesthetic practice bookkeeping Fort Lauderdale (#14), med spa bookkeeper Broward County (#15), med spa bookkeeping Broward County (#18), aesthetic practice bookkeeping South Florida (#21), med spa bookkeeper Florida (#6), aesthetic practice bookkeeping Florida (#9), med spa bookkeeping Florida (#24), bookkeeping for med spas Florida (#25), medical spa bookkeeping Florida (#26), aesthetic clinic bookkeeper Florida (#27), QuickBooks bookkeeper Fort Lauderdale (#12), QuickBooks bookkeeper Broward County (#17), QuickBooks bookkeeping South Florida (#22) | Decision |
+| `/fort-lauderdale-med-spa-bookkeeping` | Live | med spa bookkeeper Fort Lauderdale (#1) | med spa bookkeeping Fort Lauderdale (#2), bookkeeping for med spas Fort Lauderdale (#11), QuickBooks bookkeeper Fort Lauderdale (#12), aesthetic practice bookkeeping Fort Lauderdale (#14), med spa bookkeeper Broward County (#15), QuickBooks bookkeeper Broward County (#17), med spa bookkeeping Broward County (#18) | Decision |
+| `/medspa-bookkeeping-south-florida` | Live | med spa bookkeeping South Florida (#20) | med spa bookkeeper South Florida (#5), aesthetic practice bookkeeping South Florida (#21), QuickBooks bookkeeping South Florida (#22), med spa bookkeeper Florida (#6), aesthetic practice bookkeeping Florida (#9), med spa bookkeeping Florida (#24), bookkeeping for med spas Florida (#25), medical spa bookkeeping Florida (#26), aesthetic clinic bookkeeper Florida (#27) | Decision |
 | `/quickbooks-cleanup` | Live | QuickBooks cleanup for med spa (#7) | QuickBooks cleanup Fort Lauderdale (#3), QuickBooks cleanup South Florida (#23), QuickBooks cleanup services Florida (#34), catch up bookkeeping Florida (#35), bookkeeping cleanup services Florida (#36) | Decision |
 | `/` (home) | Live | med spa bookkeeper (national) | med spa bookkeeping, medical spa bookkeeping, aesthetic practice bookkeeping (national terms, not in the list of 50) | Decision |
 | `/services` | Live (hub) | med spa bookkeeping services (overview of every service) | wellness practice bookkeeping Florida (#28) | Consideration |
@@ -68,8 +72,9 @@ Existing articles keep their own terms, which are not in the list of 50: chart o
 
 ## Still to do
 
-- **Google Business Profile:** set up as a service-area business in Fort Lauderdale, with its website link
-  pointing to the South Florida page. It is the main route to ranking for the general "bookkeeping services"
+- **Google Business Profile:** set up as a service-area business in Fort Lauderdale (no public address, since the
+  work is remote), with its website link pointing to the Fort Lauderdale page. Use the same phone and email as that
+  page. It is the main route to ranking for the general "bookkeeping services"
   terms (#4, #13, #16, #19).
 - **Intuit Find-a-ProAdvisor listing** linking to the About page (#32, #33).
 - **Watch the generator:** `medspa-profit-margins-benchmarks` sits close to the "Is my MedSpa profitable" article.
@@ -80,8 +85,8 @@ Existing articles keep their own terms, which are not in the list of 50: chart o
 
 | # | Keyword | Page |
 |---|---|---|
-| 1 | med spa bookkeeper Fort Lauderdale | South Florida |
-| 2 | med spa bookkeeping Fort Lauderdale | South Florida |
+| 1 | med spa bookkeeper Fort Lauderdale | Fort Lauderdale (primary) |
+| 2 | med spa bookkeeping Fort Lauderdale | Fort Lauderdale |
 | 3 | QuickBooks cleanup Fort Lauderdale | QuickBooks cleanup |
 | 4 | bookkeeping services Fort Lauderdale FL | Google Business Profile |
 | 5 | med spa bookkeeper South Florida | South Florida |
@@ -90,14 +95,14 @@ Existing articles keep their own terms, which are not in the list of 50: chart o
 | 8 | monthly bookkeeping for med spa | Monthly bookkeeping (primary) |
 | 9 | aesthetic practice bookkeeping Florida | South Florida |
 | 10 | financial reporting for med spas | Financial reporting (primary) |
-| 11 | bookkeeping for med spas Fort Lauderdale | South Florida |
-| 12 | QuickBooks bookkeeper Fort Lauderdale | South Florida |
+| 11 | bookkeeping for med spas Fort Lauderdale | Fort Lauderdale |
+| 12 | QuickBooks bookkeeper Fort Lauderdale | Fort Lauderdale |
 | 13 | monthly bookkeeping Fort Lauderdale | Google Business Profile |
-| 14 | aesthetic practice bookkeeping Fort Lauderdale | South Florida |
-| 15 | med spa bookkeeper Broward County | South Florida |
+| 14 | aesthetic practice bookkeeping Fort Lauderdale | Fort Lauderdale |
+| 15 | med spa bookkeeper Broward County | Fort Lauderdale |
 | 16 | bookkeeping services Broward County FL | Google Business Profile |
-| 17 | QuickBooks bookkeeper Broward County | South Florida |
-| 18 | med spa bookkeeping Broward County | South Florida |
+| 17 | QuickBooks bookkeeper Broward County | Fort Lauderdale |
+| 18 | med spa bookkeeping Broward County | Fort Lauderdale |
 | 19 | bookkeeping services South Florida | Google Business Profile |
 | 20 | med spa bookkeeping South Florida | South Florida (primary) |
 | 21 | aesthetic practice bookkeeping South Florida | South Florida |

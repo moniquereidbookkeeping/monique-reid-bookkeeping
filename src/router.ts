@@ -15,6 +15,7 @@ export const PAGE_PATHS: Record<Exclude<PageView, 'blog-post' | 'notfound'>, str
   faq: '/faq',
   pricing: '/pricing',
   'south-florida': '/medspa-bookkeeping-south-florida',
+  'fort-lauderdale': '/fort-lauderdale-med-spa-bookkeeping',
   'quickbooks-cleanup': '/quickbooks-cleanup',
   'iv-hydration': '/iv-hydration-bookkeeping',
   'medical-weight-loss': '/medical-weight-loss-bookkeeping',
@@ -104,9 +105,14 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
       'Flat monthly bookkeeping plans from $497 and fixed-fee QuickBooks cleanup from $597 for MedSpas, aesthetic clinics, IV hydration and wellness practices.',
   },
   'south-florida': {
-    title: 'Med Spa Bookkeeper in Fort Lauderdale & South Florida',
+    title: 'Med Spa Bookkeeping in South Florida | Monique Reid',
     description:
-      'QuickBooks bookkeeping for MedSpas and aesthetic clinics in Fort Lauderdale, Miami, Boca Raton and West Palm Beach from a local Intuit Certified ProAdvisor.',
+      'QuickBooks bookkeeping for med spas and aesthetic clinics across Broward, Miami-Dade and Palm Beach counties from an Intuit Certified QuickBooks ProAdvisor.',
+  },
+  'fort-lauderdale': {
+    title: 'Med Spa Bookkeeper in Fort Lauderdale | Monique Reid',
+    description:
+      'Remote QuickBooks bookkeeping for med spas in Fort Lauderdale, Wilton Manors, Oakland Park, Plantation and Davie. Zoom calls, monthly reports, no office visit.',
   },
   'quickbooks-cleanup': {
     title: 'QuickBooks Cleanup for Med Spas | Fort Lauderdale & Florida',

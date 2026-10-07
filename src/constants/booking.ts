@@ -6,4 +6,7 @@ export const BOOKING_URL = 'https://calendly.com/moniquethebookkeeper/20min?prim
 export const BOOKING_EMBED_URL = 'https://calendly.com/moniquethebookkeeper/20min?primary_color=d4af37';
 
 export const CONTACT_EMAIL = 'monique@moniquereidbookkeeping.com';
+// Owner-provided public phone (October 2026). Shown on the Fort Lauderdale page.
+export const CONTACT_PHONE = '386-297-9815';
+export const CONTACT_PHONE_TEL = '+13862979815';
 export const OFFICIAL_WEBSITE = 'https://moniquereidbookkeeping.com';

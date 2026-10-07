@@ -195,8 +195,8 @@ export const PracticeTypePage: React.FC<PracticeTypePageProps> = ({ content, onN
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">How to get started</h2>
           <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">
             Books already behind? Start with a fixed-fee {link('quickbooks-cleanup', 'QuickBooks cleanup')}. Already current?
-            See {link('monthly-bookkeeping', 'monthly bookkeeping')} and {link('pricing', 'pricing')}, from $497 a month. In
-            Fort Lauderdale or nearby? Read about {link('south-florida', 'bookkeeping in South Florida')}.
+            See {link('monthly-bookkeeping', 'monthly bookkeeping')} and {link('pricing', 'pricing')}, from $497 a month.
+            In Fort Lauderdale? Read about {link('fort-lauderdale', 'bookkeeping for Fort Lauderdale med spas')}, or {link('south-florida', 'across South Florida')}.
           </p>
           <a href="/contact"
             onClick={(e) => { e.preventDefault(); onBookCall(); }}

@@ -5,6 +5,7 @@ Pain and ease scores are the site owner's advisor judgment (not survey data). Sc
 
 ## Audience
 MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, related self-pay healthcare. Fort Lauderdale FL based, serves clients nationwide. QuickBooks Online only.
+Works fully remote (Zoom, QuickBooks Online, phone, email): no office visits and no public street address. Fort Lauderdale service area (owner-confirmed): Fort Lauderdale, Wilton Manors, Oakland Park, Plantation, Davie and greater Broward County. Public phone 386-297-9815; email monique@moniquereidbookkeeping.com.
 
 ## Pain points, ranked by pain
 
