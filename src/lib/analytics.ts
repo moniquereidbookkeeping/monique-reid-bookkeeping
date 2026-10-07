@@ -1,5 +1,6 @@
 /**
- * Privacy-first analytics. Nothing loads until the visitor clicks Accept in the cookie banner.
+ * Privacy-first analytics. Nothing loads until the visitor allows Analytics Cookies in the cookie banner
+ * or Cookie Settings. "accepted" means Analytics Cookies are on; "declined" means only Strictly Necessary.
  * Google Analytics 4 measures traffic and goals; Microsoft Clarity (optional) shows anonymous
  * session replays with form fields masked.
  */
@@ -21,12 +22,39 @@ export function getConsent(): Consent {
   }
 }
 
+let loaded = false;
+
 export function setConsent(v: 'accepted' | 'declined') {
   try { localStorage.setItem(KEY, v); } catch { /* storage blocked: choice lasts for this page view only */ }
-  if (v === 'accepted') loadAnalytics();
+  if (v === 'accepted') {
+    loadAnalytics();
+    return;
+  }
+  // Turning analytics off: remove the analytics cookies left on this site, and if the tools are already
+  // running in this page, stop Google Analytics and reload so Clarity (which has no off switch) is gone too.
+  removeAnalyticsCookies();
+  if (loaded) {
+    (window as unknown as Record<string, boolean>)[`ga-disable-${GA_ID}`] = true;
+    window.location.reload();
+  }
 }
 
-let loaded = false;
+/** First-party cookies set by Google Analytics (_ga, _ga_<id>) and Microsoft Clarity (_clck, _clsk). */
+function removeAnalyticsCookies() {
+  try {
+    const host = window.location.hostname;
+    const root = host.split('.').slice(-2).join('.');
+    const names = document.cookie
+      .split(';')
+      .map((c) => c.split('=')[0].trim())
+      .filter((n) => /^(_ga|_ga_.+|_gid|_clck|_clsk)$/.test(n));
+    for (const name of names) {
+      for (const domain of ['', `; domain=${host}`, `; domain=.${root}`]) {
+        document.cookie = `${name}=; Max-Age=0; path=/${domain}`;
+      }
+    }
+  } catch { /* cookies blocked: nothing to remove */ }
+}
 
 export function loadAnalytics() {
   if (loaded || getConsent() !== 'accepted') return;

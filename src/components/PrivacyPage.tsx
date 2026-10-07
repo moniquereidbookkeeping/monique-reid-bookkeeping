@@ -284,7 +284,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <li><strong>Calendly</strong> — scheduling</li>
             <li><strong>Zoom</strong> — video consultations</li>
             <li><strong>Stripe</strong> and other payment processors — payment processing once you become a client</li>
-            <li><strong>Google Analytics</strong> and <strong>Microsoft Clarity</strong> — understanding how visitors use our website (only if you accept cookies)</li>
+            <li><strong>Google Analytics</strong> and <strong>Microsoft Clarity</strong> — understanding how visitors use our website (only if you allow Analytics Cookies)</li>
             <li><strong>Other providers</strong> — business email and documents, website hosting and security, spam protection, email delivery, secure data storage, and automated tools that help prepare your Health Check plan, as reasonably necessary to operate the business</li>
           </ul>
           <p className="text-sm leading-relaxed">
@@ -346,13 +346,27 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <span>8. Cookies and Similar Technologies</span>
           </h3>
           <p className="text-sm leading-relaxed">
-            Our website may use cookies or similar technologies that are necessary for website operation, security, functionality, analytics, or other legitimate business purposes.
+            Cookies are small files a website saves in your browser. Our website uses two categories of cookies and similar technologies, and you choose whether to allow the second:
+          </p>
+          <div className="space-y-3">
+            <div className="rounded-lg border border-[#E2E8F0] p-3">
+              <p className="text-sm font-bold text-[#1A2E40]">Strictly Necessary Cookies <span className="font-semibold text-[#57534E]">(Always Active)</span></p>
+              <p className="mt-1 text-sm leading-relaxed">
+                These cookies are required for the site to work and can&apos;t be switched off. They&apos;re typically set in response to something you do, like setting your cookie preferences. They don&apos;t store anything that identifies you personally.
+              </p>
+            </div>
+            <div className="rounded-lg border border-[#E2E8F0] p-3">
+              <p className="text-sm font-bold text-[#1A2E40]">Analytics Cookies <span className="font-semibold text-[#57534E]">(off unless you allow them)</span></p>
+              <p className="mt-1 text-sm leading-relaxed">
+                These help us understand how visitors use the site so we can improve it. Google Analytics gives us aggregate traffic numbers — which pages get visited, where visitors come from. Microsoft Clarity records individual visit sessions, including clicks and scrolling, so we can see how people actually move through the site; it automatically hides anything typed into form fields. If you turn these off, we won&apos;t be able to see how the site is being used or where it needs work.
+              </p>
+            </div>
+          </div>
+          <p className="text-sm leading-relaxed">
+            The first time you visit, you can choose Accept All or Reject All, or open Cookie Settings to choose by category. You can reopen Cookie Settings at any time from the footer of any page. If you turn Analytics Cookies off after allowing them, Google Analytics and Microsoft Clarity stop running and their cookies on this site are removed. You can also control cookies through your browser settings.
           </p>
           <p className="text-sm leading-relaxed">
-            Where required by applicable law, appropriate consent mechanisms will be provided for non-essential cookies or tracking technologies. You can also control certain cookies through your browser settings.
-          </p>
-          <p className="text-sm leading-relaxed">
-            Analytics cookies are off by default. If you click Accept on our privacy choices banner, we use Google Analytics to measure which pages are visited and how visitors reach us, and we may use Microsoft Clarity to view anonymous session recordings with form fields masked. If you click Decline, neither is loaded. You can change your choice at any time using Cookie Settings in the footer. We do not send the answers you give in the Bookkeeping Health Check to these analytics tools. When you open the booking calendar, Calendly sets its own cookies and shows its own privacy choices. Those are controlled through Calendly and are not covered by our Cookie Settings.
+            We do not send the answers you give in the Bookkeeping Health Check to these analytics tools. When you open the booking calendar, Calendly sets its own cookies and shows its own privacy choices. Those are controlled through Calendly and are not covered by our Cookie Settings.
           </p>
         </div>
 
