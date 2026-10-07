@@ -15,6 +15,7 @@ export interface PrerenderRoute {
   /** Extra structured data for this page only (the site-wide business data lives in index.html). */
   jsonLd: object[];
   publishedTime?: string;
+  modifiedTime?: string;
 }
 
 /** Breadcrumb names for pages below the home page. */
@@ -24,6 +25,9 @@ const CRUMB: Partial<Record<keyof typeof PAGE_PATHS, string>> = {
   about: 'About',
   faq: 'FAQ',
   contact: 'Contact',
+  terms: 'Terms of Service',
+  privacy: 'Privacy Policy',
+  booked: 'Call Booked',
   blog: 'Blog',
   dashboard: 'Example Dashboard',
   calculator: 'Treatment Profit Calculator',
@@ -63,6 +67,7 @@ export function renderRoute(path: string): PrerenderRoute {
   const home = { name: 'Home', url: `${SITE_ORIGIN}/` };
 
   const jsonLd: object[] = [];
+  const modified = post ? post.updatedDate ?? post.publishedDate : undefined;
   if (post) {
     jsonLd.push(
       {
@@ -71,7 +76,7 @@ export function renderRoute(path: string): PrerenderRoute {
         headline: post.title,
         description: post.metaDescription,
         datePublished: post.publishedDate,
-        dateModified: post.publishedDate,
+        dateModified: modified,
         mainEntityOfPage: canonical,
         url: canonical,
         image: post.coverImage || `${SITE_ORIGIN}/og-image.png`,
@@ -136,6 +141,8 @@ export function renderRoute(path: string): PrerenderRoute {
       },
       breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
     );
+  } else if (key === 'home') {
+    jsonLd.push(breadcrumb([home]));
   } else if (key && CRUMB[key]) {
     jsonLd.push(breadcrumb([home, { name: CRUMB[key]!, url: canonical }]));
   }
@@ -150,6 +157,7 @@ export function renderRoute(path: string): PrerenderRoute {
     ogType: post ? 'article' : 'website',
     jsonLd,
     publishedTime: post?.publishedDate,
+    modifiedTime: modified,
   };
 }
 

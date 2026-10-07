@@ -17,6 +17,9 @@ export interface BlogPost {
   category: string;
   tags: string[];
   publishedDate: string;
+  /** Set when the article's content is changed after it goes live (YYYY-MM-DD). Shown as "Last updated"
+   *  and used for dateModified and the sitemap; without it, the publish date is used. */
+  updatedDate?: string;
   readingTime: number;
   coverImage: string;
   coverAlt: string;
