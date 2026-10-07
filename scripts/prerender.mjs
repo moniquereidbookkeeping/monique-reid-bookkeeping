@@ -29,6 +29,7 @@ function build(path, outFile) {
   // Page-specific structured data (breadcrumbs, article details) goes in the static HTML so every crawler sees it.
   const extraHead = [
     r.publishedTime ? `<meta property="article:published_time" content="${r.publishedTime}" />` : '',
+    r.modifiedTime ? `<meta property="article:modified_time" content="${r.modifiedTime}" />` : '',
     ...r.jsonLd.map((d) => `<script type="application/ld+json">${JSON.stringify(d).replace(/</g, '\\u003c')}</script>`),
   ].filter(Boolean).join('\n    ');
   if (extraHead) html = html.replace('</head>', `    ${extraHead}\n  </head>`);

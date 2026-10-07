@@ -223,12 +223,26 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
             <div className="flex flex-wrap items-center gap-4 text-sm text-white/70">
               <span className="flex items-center gap-1.5">
                 <BookOpen className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span className="text-white font-semibold">Monique Reid</span>
+                <span>
+                  By{' '}
+                  <a
+                    href="/about"
+                    rel="author"
+                    onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
+                    className="text-white! font-semibold underline! decoration-[#D4AF37]/60! underline-offset-4 hover:decoration-[#D4AF37]!"
+                  >
+                    Monique Reid
+                  </a>
+                </span>
               </span>
               <span className="text-white/30">·</span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
-                {formatDate(post.publishedDate)}
+                <span>Published <time dateTime={post.publishedDate}>{formatDate(post.publishedDate)}</time></span>
+              </span>
+              <span className="text-white/30">·</span>
+              <span>
+                Last updated <time dateTime={post.updatedDate ?? post.publishedDate}>{formatDate(post.updatedDate ?? post.publishedDate)}</time>
               </span>
               <span className="text-white/30">·</span>
               <span className="flex items-center gap-1.5">
@@ -275,7 +289,16 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               />
             </div>
             <div>
-              <p className="text-sm font-bold text-[#1A2E40]">Monique Reid</p>
+              <p className="text-sm font-bold text-[#1A2E40]">
+                <a
+                  href="/about"
+                  rel="author"
+                  onClick={(e) => { e.preventDefault(); onNavigate('about'); }}
+                  className="text-[#1A2E40]! underline! decoration-[#D4AF37]! underline-offset-4 hover:text-[#8A6A00]!"
+                >
+                  Monique Reid
+                </a>
+              </p>
               <p className="text-sm text-[#57534E] leading-snug">
                 QuickBooks Bookkeeper for MedSpas &amp; Aesthetic Practices
               </p>
