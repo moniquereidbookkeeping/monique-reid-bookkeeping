@@ -272,18 +272,18 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
                   </div>
 
                   {/* CTA */}
-                  <button
-                    onClick={onBookCall}
+                  <a href="/contact"
+                    onClick={(e) => { e.preventDefault(); onBookCall(); }}
                     className={`w-full flex items-center justify-center gap-2 py-4 px-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all active:scale-[0.98] cursor-pointer group mt-auto ${
                       plan.featured
-                        ? 'bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] shadow-[0_4px_20px_rgba(212,175,55,0.45)]'
-                        : 'bg-[#1A2E40] hover:bg-[#253E52] text-white shadow-md'
+                        ? 'bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! shadow-[0_4px_20px_rgba(212,175,55,0.45)]'
+                        : 'bg-[#1A2E40] hover:bg-[#253E52] text-white! shadow-md'
                     }`}
                   >
                     <Calendar className="w-4 h-4 shrink-0" />
                     <span>{plan.cta}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             );
@@ -292,10 +292,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
 
         {compact && (
           <div className="text-center mb-12">
-            <button type="button" onClick={onViewPricing} className="inline-flex items-center gap-2 text-base font-bold text-[#1A2E40] hover:text-[#8A6A00] transition-colors cursor-pointer group">
+            <a href="/pricing" onClick={(e) => { e.preventDefault(); onViewPricing(); }} className="inline-flex items-center gap-2 text-base font-bold text-[#1A2E40]! hover:text-[#8A6A00]! transition-colors cursor-pointer group">
               <span>See full pricing, including cleanup projects</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </div>
         )}
 
@@ -366,14 +366,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               systems, identifies where things are breaking down, and covers exactly what is recommended — no pressure, no obligation.
             </p>
           </div>
-          <button
-            onClick={onBookCall}
-            className="inline-flex items-center gap-3 px-8 py-5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_24px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 shrink-0 cursor-pointer group whitespace-nowrap"
+          <a href="/contact"
+            onClick={(e) => { e.preventDefault(); onBookCall(); }}
+            className="inline-flex items-center gap-3 px-8 py-5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-base transition-all shadow-[0_4px_24px_rgba(212,175,55,0.4)] border border-[#FFF5DE]/60 shrink-0 cursor-pointer group whitespace-nowrap"
           >
             <Calendar className="w-5 h-5" />
             <span>Book Your Free 20-Min Clarity Call</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

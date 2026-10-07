@@ -94,16 +94,17 @@ export const Hero: React.FC<HeroProps> = ({
                 <ArrowRight className="w-4 h-4 text-[#1A2E40] transition-transform group-hover:translate-x-1" />
               </a>
 
-              <button
+              <a href="#how-it-works"
                 id="hero-explore-services-btn"
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   const el = document.getElementById('how-it-works');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-[#1A2E40] bg-transparent border-2 border-[#1A2E40] hover:bg-[#1A2E40] hover:text-white transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-[#1A2E40]! bg-transparent border-2 border-[#1A2E40] hover:bg-[#1A2E40] hover:text-white! transition-all duration-200 cursor-pointer"
               >
                 <span>See How It Works</span>
-              </button>
+              </a>
             </div>
 
             <p className="text-base text-[#4A5568]">

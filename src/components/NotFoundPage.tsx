@@ -11,18 +11,18 @@ export const NotFoundPage: React.FC<{ onNavigate: (p: PageView) => void }> = ({ 
         The address may be mistyped or the page may have moved. Here are the most useful places to start.
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-        <button
-          onClick={() => onNavigate('home')}
-          className="px-6 py-3 rounded-xl bg-[#1A2E40] text-[#D4AF37] font-bold text-sm cursor-pointer inline-flex items-center gap-2"
+        <a href="/"
+          onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
+          className="px-6 py-3 rounded-xl bg-[#1A2E40] text-[#D4AF37]! font-bold text-sm cursor-pointer inline-flex items-center gap-2"
         >
           Go to the home page <ArrowRight className="w-4 h-4" />
-        </button>
-        <button
-          onClick={() => onNavigate('contact')}
-          className="px-6 py-3 rounded-xl border-2 border-[#1A2E40] text-[#1A2E40] font-bold text-sm cursor-pointer"
+        </a>
+        <a href="/contact"
+          onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
+          className="inline-block text-center px-6 py-3 rounded-xl border-2 border-[#1A2E40] text-[#1A2E40]! font-bold text-sm cursor-pointer"
         >
           Book a free call
-        </button>
+        </a>
       </div>
     </div>
   </section>

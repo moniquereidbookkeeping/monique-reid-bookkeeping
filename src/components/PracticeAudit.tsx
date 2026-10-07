@@ -773,16 +773,16 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <span>Start over</span>
                 </button>
 
-                <button
-                  onClick={onBookCall}
-                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 flex items-center gap-2.5 active:scale-[0.99] group cursor-pointer"
+                <a href="/contact"
+                  onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 flex items-center gap-2.5 active:scale-[0.99] group cursor-pointer"
                 >
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-3.5 h-3.5" />
                   </span>
                   <span>Review Your Results on a Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
           )}

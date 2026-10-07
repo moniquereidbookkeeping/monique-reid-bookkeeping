@@ -191,16 +191,16 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Book a complimentary 20-minute Financial Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <button
-                    onClick={handleBookCall}
-                    className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm sm:text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_22px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 group active:scale-[0.99] cursor-pointer"
+                  <a href="/contact"
+                    onClick={(e) => { e.preventDefault(); handleBookCall(); }}
+                    className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-sm sm:text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_22px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 group active:scale-[0.99] cursor-pointer"
                   >
                     <span className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] shrink-0">
                       <Calendar className="w-4 h-4" />
                     </span>
                     <span>Book Your Free 20-Min Clarity Call</span>
                     <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </section>
@@ -236,12 +236,12 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">Ready to see what it costs?</h2>
                 <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Monthly plans start at $497 and cleanup projects start at $597. Full details are on the pricing page.</p>
-                <button
-                  onClick={() => handleNavigate('pricing')}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white font-bold text-base transition-all shadow-md cursor-pointer"
+                <a href="/pricing"
+                  onClick={(e) => { e.preventDefault(); handleNavigate('pricing'); }}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white! font-bold text-base transition-all shadow-md cursor-pointer"
                 >
                   <span>View Pricing</span>
-                </button>
+                </a>
               </div>
             </section>
             <BuiltForPractices onBookCall={handleBookCall} onNavigate={handleNavigate} />

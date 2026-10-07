@@ -295,13 +295,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
 
                   {/* Card Action */}
                   <div className="flex items-center justify-between pt-4 border-t border-[#E2E8F0]">
-                    <button
-                      onClick={onBookCall}
-                      className="text-base font-bold text-[#1A2E40] group-hover:text-[#8A6A00] flex items-center gap-1.5 transition-colors cursor-pointer"
+                    <a href="/contact"
+                      onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                      className="text-base font-bold text-[#1A2E40]! group-hover:text-[#8A6A00]! flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
                       <span>Book Your Free 20-Min Clarity Call</span>
                       <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </a>
 
                   </div>
                 </div>
@@ -366,16 +366,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
 
               {/* Schedule 20-Min Clarity Call CTA Card (Restored from Screenshot 2) */}
               <div className="lg:col-span-4 flex flex-col items-center lg:items-end justify-center">
-                <button
-                  onClick={onBookCall}
-                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.35)] hover:shadow-[0_6px_24px_rgba(212,175,55,0.5)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 active:scale-[0.99] group cursor-pointer"
+                <a href="/contact"
+                  onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.35)] hover:shadow-[0_6px_24px_rgba(212,175,55,0.5)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 active:scale-[0.99] group cursor-pointer"
                 >
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-4 h-4" />
                   </span>
                   <span>Book Your Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
                 <p className="text-sm text-[#E2E8F0] mt-2.5 text-center lg:text-right">
                   20-minute private consultation on Zoom
                 </p>

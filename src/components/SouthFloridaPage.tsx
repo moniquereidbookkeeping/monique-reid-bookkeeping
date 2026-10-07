@@ -163,13 +163,13 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
             Have questions first? Read the {link('faq', 'bookkeeping FAQ')} or learn more {link('about', 'about Monique')}.
           </p>
           <div className="pt-2 text-center">
-            <button
-              onClick={onBookCall}
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60 cursor-pointer"
+            <a href="/contact"
+              onClick={(e) => { e.preventDefault(); onBookCall(); }}
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-base transition-all shadow-[0_4px_14px_rgba(212,175,55,0.35)] border border-[#FFF5DE]/60 cursor-pointer"
             >
               Book Your Free 20-Min Clarity Call
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </section>

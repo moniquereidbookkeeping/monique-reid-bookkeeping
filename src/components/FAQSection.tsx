@@ -580,10 +580,20 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
               {/* Show All / Show Less Controls for Homepage Flow */}
               {featuredLimit && !searchQuery.trim() && selectedCategory === 'all' && (
                 <div className="text-center pt-3">
-                  {!showAll ? (
+                  {!showAll && onViewAll ? (
+                    // Goes to the full FAQ page, so it is a real link.
+                    <a
+                      href="/faq"
+                      onClick={(e) => { e.preventDefault(); onViewAll(); }}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#D4AF37]/50 text-[#1A2E40]! hover:bg-[#FAF8F5] text-base font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
+                    >
+                      <span>View All {faqs.length} Frequently Asked Questions</span>
+                      <ChevronDown className="w-4 h-4 text-[#D4AF37]" />
+                    </a>
+                  ) : !showAll ? (
                     <button
                       type="button"
-                      onClick={() => (onViewAll ? onViewAll() : setShowAll(true))}
+                      onClick={() => setShowAll(true)}
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#D4AF37]/50 text-[#1A2E40] hover:bg-[#FAF8F5] text-base font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
                     >
                       <span>View All {faqs.length} Frequently Asked Questions</span>
@@ -620,16 +630,15 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
             </p>
           </div>
 
-          <button
+          <a href="/contact"
             id="faq-bottom-book-call-btn"
-            type="button"
-            onClick={onBookCall}
-            className="shrink-0 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-md hover:shadow-lg border border-[#FFF5DE]/60 flex items-center justify-center gap-2 group active:scale-[0.99] cursor-pointer"
+            onClick={(e) => { e.preventDefault(); onBookCall(); }}
+            className="shrink-0 w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-sm transition-all shadow-md hover:shadow-lg border border-[#FFF5DE]/60 flex items-center justify-center gap-2 group active:scale-[0.99] cursor-pointer"
           >
             <Calendar className="w-4 h-4 text-[#1A2E40]" />
             <span>Book Your Free 20-Min Clarity Call</span>
             <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-0.5 transition-transform" />
-          </button>
+          </a>
         </div>
         )}
       </div>

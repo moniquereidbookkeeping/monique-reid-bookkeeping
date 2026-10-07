@@ -75,16 +75,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
         {/* Not ready to book */}
         <p className="max-w-5xl mx-auto mb-6 text-center text-base sm:text-lg text-[#57534E]">
           Not ready to book yet?{' '}
-          <button
-            type="button"
-            onClick={() => {
+          <a href="/#health-check"
+            onClick={(e) => {
+              e.preventDefault();
               onNavigate?.('home');
               setTimeout(() => document.getElementById('health-check')?.scrollIntoView({ behavior: 'smooth' }), 200);
             }}
-            className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#D4AF37] cursor-pointer"
+            className="inline-block text-center font-semibold text-[#1A2E40]! underline decoration-[#D4AF37] underline-offset-4 hover:text-[#D4AF37]! cursor-pointer"
           >
             Take the free 60-second Bookkeeping Health Check first
-          </button>
+          </a>
           .
         </p>
 

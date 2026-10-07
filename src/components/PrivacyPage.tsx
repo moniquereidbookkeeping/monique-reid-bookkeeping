@@ -583,13 +583,13 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Email Us</span>
               </a>
-              <button
-                onClick={onBookCall}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40] font-bold text-sm transition-all shadow-md whitespace-nowrap"
+              <a href="/contact"
+                onClick={(e) => { e.preventDefault(); onBookCall(); }}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-sm transition-all shadow-md whitespace-nowrap"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Book Your Free 20-Min Clarity Call</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
