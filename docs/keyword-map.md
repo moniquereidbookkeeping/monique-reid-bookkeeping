@@ -26,10 +26,10 @@ Status: **Live** (on the site), **Scheduled** (publishes on that date; see the R
 | `/quickbooks-cleanup` | Live | QuickBooks cleanup for med spa (#7) | QuickBooks cleanup Fort Lauderdale (#3), QuickBooks cleanup South Florida (#23), QuickBooks cleanup services Florida (#34), catch up bookkeeping Florida (#35), bookkeeping cleanup services Florida (#36) | Decision |
 | `/` (home) | Live | med spa bookkeeper (national) | med spa bookkeeping, medical spa bookkeeping, aesthetic practice bookkeeping (national terms, not in the list of 50) | Decision |
 | `/services` | Live (hub) | med spa bookkeeping services (overview of every service) | wellness practice bookkeeping Florida (#28) | Consideration |
-| `/monthly-bookkeeping` | Live | monthly bookkeeping for med spa (#8) | monthly med spa bookkeeping, ongoing QuickBooks bookkeeping for aesthetic practices | Consideration |
+| `/monthly-bookkeeping` | Live | monthly bookkeeping for med spa (#8) | monthly bookkeeping services Florida (#37), monthly med spa bookkeeping, ongoing QuickBooks bookkeeping for aesthetic practices | Consideration |
 | `/quickbooks-setup-medspa` | Live | QuickBooks setup for med spa (#39) | QuickBooks setup services Florida (#38), QuickBooks Online setup for aesthetic clinics | Consideration |
 | `/medspa-financial-reporting` | Live | financial reporting for med spas (#10) | med spa KPI reporting (#40), med spa profit and margin reports | Consideration |
-| `/pricing` | Live | med spa bookkeeping pricing / cost | monthly bookkeeping services Florida (#37) | Decision |
+| `/pricing` | Live | med spa bookkeeping pricing / cost | none (#37 moved to `/monthly-bookkeeping`) | Decision |
 | `/about` | Live | QuickBooks ProAdvisor Florida (#33) | QuickBooks bookkeeper Florida (#32) | Decision |
 | `/dashboard` | Live (tool) | med spa P&L dashboard example | none (supports `/medspa-financial-reporting`; do not target #10 or #40 here) | Consideration |
 | `/iv-hydration-bookkeeping` | Live | IV hydration bookkeeping Florida (#29) | IV drip / IV therapy business bookkeeping | Consideration |
@@ -61,7 +61,7 @@ Existing articles keep their own terms, which are not in the list of 50: chart o
 
 - `/services` is the hub: it lists every service and links to each service that has its own page. Its title and
   description no longer target #8, #38 or #39, and it should not be rewritten to chase them.
-- Monthly bookkeeping, QuickBooks setup and financial reporting each have their own page and own #8, #39 and #10.
+- Monthly bookkeeping, QuickBooks setup and financial reporting each have their own page and own #8 (with #37), #39 and #10.
   The Dashboard is the interactive example that supports the financial reporting page; its title says "example".
 - The footer, the home services summary, the service cards on `/services` and in-text "monthly bookkeeping" links
   point to the new pages.
@@ -116,7 +116,7 @@ Existing articles keep their own terms, which are not in the list of 50: chart o
 | 34 | QuickBooks cleanup services Florida | QuickBooks cleanup |
 | 35 | catch up bookkeeping Florida | QuickBooks cleanup |
 | 36 | bookkeeping cleanup services Florida | QuickBooks cleanup |
-| 37 | monthly bookkeeping services Florida | Pricing |
+| 37 | monthly bookkeeping services Florida | Monthly bookkeeping |
 | 38 | QuickBooks setup services Florida | QuickBooks setup |
 | 39 | QuickBooks setup for med spa | QuickBooks setup (primary) |
 | 40 | med spa KPI reporting | Financial reporting |

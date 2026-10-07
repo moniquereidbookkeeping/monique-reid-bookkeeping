@@ -164,7 +164,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
   eyebrow: 'Ongoing QuickBooks Online Bookkeeping',
   h1: 'Monthly Bookkeeping for Med Spas',
   heroLine:
-    'A dependable monthly close for med spas, medical spas, aesthetic clinics and wellness practices, so your numbers are current when you need to make a decision.',
+    'A dependable monthly close for med spas, medical spas, aesthetic clinics and wellness practices, with reports by the 15th of the following month. Plans from $497/mo.',
   intro: [
     'Monthly bookkeeping keeps your QuickBooks Online file current: every bank, credit card and financing account reconciled, every transaction categorized, and a Profit & Loss and Balance Sheet you can rely on each month. For a med spa it also means getting right the parts a generalist bookkeeper tends to miss: payouts from booking software, prepaid packages and memberships, treatment product cost and provider pay.',
     'Monique Reid Bookkeeping works only in QuickBooks Online and only with self-pay healthcare practices: med spas, aesthetic clinics, IV hydration and wellness practices, and medical weight-loss clinics. The practice is based in Fort Lauderdale and works with clients in [South Florida](south-florida), across Florida and nationwide.',
@@ -200,7 +200,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     },
     {
       title: 'Monthly statements',
-      body: 'A Profit & Loss and a Balance Sheet every month, with a plain-English summary of notable trends and changes on plans that include it.',
+      body: 'A Profit & Loss and a Balance Sheet for every month, delivered by the 15th of the following month, with a plain-English summary of notable trends and changes on plans that include it.',
     },
     {
       title: 'Year-end package for your CPA',
@@ -251,7 +251,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     },
     {
       title: 'Monthly reports',
-      body: 'Your Profit & Loss and Balance Sheet, plus the summary on plans that include it.',
+      body: 'Your Profit & Loss and Balance Sheet for the month, delivered by the 15th of the following month, plus the summary on plans that include it.',
     },
     {
       title: 'Year-end handover',
@@ -262,7 +262,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     'Getting started typically needs QuickBooks Online access, bank and credit card statements, merchant-processing reports, payroll summaries and reports from your practice-management software. After a first review, you get a clear list of anything else needed.',
   costTitle: 'What monthly bookkeeping costs',
   cost: [
-    'Monthly plans start at $497 per month. Your price depends on monthly transaction volume, the number of bank and credit card accounts, the booking and payment platforms you use, the number of locations, and how much reporting you need.',
+    'Monthly plans start at $497/mo. Your price depends on monthly transaction volume, the number of bank and credit card accounts, the booking and payment platforms you use, the number of locations, and how much reporting you need.',
     'Plans are Essential for solo practitioners and new clinics with a straightforward account structure, Growth for practices running memberships, patient financing or several platforms, and Full-Spectrum for high-volume or multi-location practices. Compare them on the [pricing page](pricing). After a free Financial Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
   ],
   related: {
@@ -485,14 +485,14 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
     },
     {
       title: 'Monthly reports and summary',
-      body: 'You receive the reports and the plain-language summary for the month, with comparisons against earlier periods.',
+      body: 'Reports for each month are delivered by the 15th of the following month, with comparisons against earlier periods.',
     },
   ],
   stepsNote:
     'Reports organize your bookkeeping records. They are not tax advice, valuation opinions or audits; your CPA remains responsible for tax work, and figures shown on this site are examples, not benchmarks for your practice.',
   costTitle: 'What financial reporting costs',
   cost: [
-    'Financial reporting starts from $797 per month and is paired with ongoing monthly bookkeeping. The depth of reporting depends on your plan, your platforms and the data available.',
+    'Financial reporting starts with the Growth plan at $797/month and is always paired with ongoing monthly bookkeeping. Growth includes month-over-month revenue reporting. Revenue by service category and plain-language financial commentary are part of the Full-Spectrum plan at $1,197/month. What each report can show also depends on your platforms and the data available.',
     'See the [pricing page](pricing) for plans. After a free Financial Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
   ],
   related: {
