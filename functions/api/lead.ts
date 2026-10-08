@@ -271,7 +271,7 @@ async function generateExpertBrief(
   if (!env.GEMINI_API_KEY) return { brief: null, reason: 'GEMINI_API_KEY is not set in Cloudflare' };
 
   const prompt =
-    'You are the expert AI advisor for Monique Reid, an Intuit Certified QuickBooks ProAdvisor specializing exclusively in MedSpas, aesthetic clinics, and wellness practices. A prospect just submitted a bookkeeping health-check. Write Monique\'s private pre-call brief.\n\n' +
+    'You are the expert AI advisor for Monique Reid, a Certified Intuit ProAdvisor specializing exclusively in MedSpas, aesthetic clinics, and wellness practices. A prospect just submitted a bookkeeping health-check. Write Monique\'s private pre-call brief.\n\n' +
     'PROSPECT PROFILE:\n' +
     '- POS / Software: ' + (pos || 'not specified') + '\n' +
     '- QuickBooks Status: ' + (status || 'not specified') + '\n' +
@@ -482,7 +482,7 @@ async function sendThankYouEmail(env: Env, d: {
     CALENDLY + '\n' +
     '──────────────────────────────\n\n' +
     `— Monique Reid\n` +
-    `Intuit Certified QuickBooks ProAdvisor\n` +
+    `Certified Intuit ProAdvisor\n` +
     `MedSpa, Aesthetic & Wellness Practices\n` +
     `Monique Reid Bookkeeping | ${FROM_EMAIL}`;
 

@@ -150,7 +150,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
             <BookOpen className="w-3.5 h-3.5" />
-            Intuit Certified QuickBooks ProAdvisor · MedSpa, Aesthetic &amp; Wellness Practices
+            Certified Intuit ProAdvisor · MedSpa, Aesthetic &amp; Wellness Practices
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
             Practice Finance &amp; Bookkeeping Blog

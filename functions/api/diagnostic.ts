@@ -102,7 +102,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 // ─── Helpers ────────────────────────────────────────────────
 
 function buildPrompt(status: string, pos: string, packages: string, accounts: string): string {
-  return `You are Monique Reid, an Intuit Certified QuickBooks ProAdvisor who specializes exclusively in MedSpa, aesthetic, and wellness practices. You have just received a bookkeeping health check submission from a practice owner.
+  return `You are Monique Reid, a Certified Intuit ProAdvisor who specializes exclusively in MedSpa, aesthetic, and wellness practices. You have just received a bookkeeping health check submission from a practice owner.
 
 PRACTICE PROFILE:
 - QuickBooks Status: ${status}

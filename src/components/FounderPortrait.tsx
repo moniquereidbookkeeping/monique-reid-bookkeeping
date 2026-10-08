@@ -39,7 +39,7 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
         {/* Portrait image */}
         <img
           src={imageSrc}
-          alt="Monique Reid, Intuit Certified QuickBooks ProAdvisor for MedSpas, Aesthetic Clinics, and Wellness Practices"
+          alt="Monique Reid, Certified Intuit ProAdvisor for MedSpas, Aesthetic Clinics, and Wellness Practices"
           onError={handleImageError}
           width={600}
           height={767}

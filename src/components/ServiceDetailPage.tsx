@@ -284,7 +284,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
     'A QuickBooks Online setup built around how a med spa earns and spends, for new practices and for practices that have outgrown a generic setup.',
   intro: [
     "QuickBooks Online's default setup is made for a generic small business. A med spa needs more than that. Injectables, laser, memberships and retail skincare earn in different ways, and neurotoxin, filler and medical consumables are costs of delivering treatments, not general overhead. When QuickBooks is set up for that from the start, your reports show what each part of the practice actually earns.",
-    'This setup is for practitioners launching a new med spa, aesthetic clinic, wellness suite or medical weight-loss clinic, and for established practices that have outgrown an off-the-shelf setup. It is done by an Intuit Certified QuickBooks ProAdvisor who works only with self-pay healthcare practices.',
+    'This setup is for practitioners launching a new med spa, aesthetic clinic, wellness suite or medical weight-loss clinic, and for established practices that have outgrown an off-the-shelf setup. It is done by a Certified Intuit ProAdvisor who works only with self-pay healthcare practices.',
     'Setup builds the structure going forward. If your existing file already has months of miscategorized history, that is a [QuickBooks cleanup](quickbooks-cleanup), which includes restructuring the chart of accounts as part of correcting the past.',
   ],
   forTitle: 'When a QuickBooks setup makes sense',

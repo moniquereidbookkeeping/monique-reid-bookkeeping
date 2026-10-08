@@ -35,7 +35,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               </div>
               )}
 
-              {/* Intuit Certified ProAdvisor Credentials Badges */}
+              {/* Certified Intuit ProAdvisor Credentials Badges */}
               <div className={`${showPortrait ? 'mt-4 ' : ''}p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-md`}>
                 <div className="mb-4 pb-2.5 border-b border-[#E2E8F0] text-center">
                   <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40]">
@@ -43,32 +43,32 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                   </p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 items-center justify-items-center">
-                  {/* Badge 1: Gold Tier */}
-                  <div className="w-full aspect-square max-w-[100px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
+                <div className="grid grid-cols-3 gap-2 items-center justify-items-center">
+                  {/* Badge 1: ProAdvisor Gold Tier */}
+                  <div className="w-full aspect-square max-w-[110px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
                     <img
-                      src="/assets/badges/gold-badge.svg"
-                      alt="Intuit Certified QuickBooks ProAdvisor"
+                      src="/assets/badges/gold-badge.png"
+                      alt="QuickBooks ProAdvisor Gold Tier"
                       className="w-full h-full object-contain filter drop-shadow-md"
                       loading="lazy"
                     />
                   </div>
 
-                  {/* Badge 2: Level 2 */}
-                  <div className="w-full aspect-square max-w-[100px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
+                  {/* Badge 2: Workforce Certified */}
+                  <div className="w-full aspect-square max-w-[110px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
                     <img
-                      src="/assets/badges/level2-badge.svg"
+                      src="/assets/badges/workforce-badge.png"
+                      alt="QuickBooks Workforce Certified"
+                      className="w-full h-full object-contain filter drop-shadow-md"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Badge 3: Level 2 */}
+                  <div className="w-full aspect-square max-w-[110px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
+                    <img
+                      src="/assets/badges/level2-badge.png"
                       alt="QuickBooks Online Level 2 Certified"
-                      className="w-full h-full object-contain filter drop-shadow-md"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  {/* Badge 3: Payroll */}
-                  <div className="w-full aspect-square max-w-[100px] flex items-center justify-center transition-transform duration-200 hover:scale-105">
-                    <img
-                      src="/assets/badges/payroll-badge.svg"
-                      alt="QuickBooks Payroll Certified"
                       className="w-full h-full object-contain filter drop-shadow-md"
                       loading="lazy"
                     />
@@ -77,9 +77,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
 
                 {/* Credential labels */}
                 <div className="mt-3 pt-3 border-t border-[#E2E8F0] space-y-1">
-                  <p className="text-sm text-[#4A5568] text-center leading-snug">Intuit Certified QuickBooks ProAdvisor</p>
-                  <p className="text-sm text-[#4A5568] text-center leading-snug">QuickBooks Online Level 2</p>
-                  <p className="text-sm text-[#4A5568] text-center leading-snug">QuickBooks Payroll Certified</p>
+                  <p className="text-sm text-[#4A5568] text-center leading-snug">QuickBooks ProAdvisor Gold Tier</p>
+                  <p className="text-sm text-[#4A5568] text-center leading-snug">QuickBooks Workforce Certified</p>
+                  <p className="text-sm text-[#4A5568] text-center leading-snug">QuickBooks Online Level 2 Certified</p>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
 
             <div className="space-y-4 text-lg text-[#4A5568] leading-relaxed">
               <p>
-                Hi, I'm Monique Reid, an Intuit Certified QuickBooks ProAdvisor with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
+                Hi, I'm Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
               </p>
               <p>
                 I chose to focus on this industry because its books are harder than most generalist bookkeepers are set up for. The financial workflows here are genuinely more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and a generic small-business approach often handles them poorly. I built my QuickBooks approach around how these practices actually operate, not around a generic small-business model.
