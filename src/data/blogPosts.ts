@@ -895,8 +895,8 @@ const allBlogPosts: BlogPost[] = [
     ],
     "publishedDate": "2026-11-03",
     "readingTime": 6,
-    "coverImage": "",
-    "coverAlt": "Illustration of treatment costs compared with revenue",
+    "coverImage": "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?auto=format&fit=crop&w=1400&q=80",
+    "coverAlt": "A person counting cash, representing provider commission pay calculated from treatment revenue",
     "content": [
       {
         "type": "intro",
