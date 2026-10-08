@@ -222,7 +222,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
             well below the full-size brand logo at the top of the footer. QuickBooks logo only (never the
             standalone Intuit logo), referenced from Intuit's own brand site, same as this project's other
             externally-hosted images. */}
-        <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-center gap-2 text-xs text-[#E2E8F0]/50">
+        <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-center gap-2 text-xs text-[#E2E8F0]/70">
           <span>Monique Reid Bookkeeping is an Intuit Solutions Provider</span>
           <img
             src="https://design.intuit.com/wp-content/uploads/2024/06/QBLogo-50-50-white-1600x1200-1-1024x262.png"
