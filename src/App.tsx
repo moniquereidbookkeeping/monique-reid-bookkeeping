@@ -426,7 +426,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
         )}
 
         {currentPage === 'fort-lauderdale' && (
-          <FortLauderdalePage onNavigate={handleNavigate} onBookCall={handleBookCall} />
+          <FortLauderdalePage onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
         )}
 
         {currentPage === 'quickbooks-cleanup' && (
