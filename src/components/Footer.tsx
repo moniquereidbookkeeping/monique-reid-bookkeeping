@@ -2,8 +2,8 @@ import React from 'react';
 import { Logo } from './Logo';
 import { PageView } from '../types';
 import { pathFor } from '../router';
-import { Calendar, ArrowUp, Mail } from 'lucide-react';
-import { CONTACT_EMAIL } from '../constants/booking';
+import { Calendar, ArrowUp, Mail, Phone } from 'lucide-react';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '../constants/booking';
 
 interface FooterProps {
   onNavigate: (page: PageView) => void;
@@ -39,9 +39,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
 
           {/* Col 2: Services (All 6 Distinct Services) */}
           <div className="space-y-3">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Services
-            </h2>
+            </p>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
                 <a href={pathFor('quickbooks-cleanup')} onClick={(e) => { e.preventDefault(); onNavigate('quickbooks-cleanup'); }}
@@ -108,9 +108,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
 
           {/* Col 3: Practice Tools */}
           <div className="space-y-3">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+            <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
               Practice Tools
-            </h2>
+            </p>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/90">
               <li>
                 <a href={pathFor('pricing')} onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
@@ -147,9 +147,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
 
           {/* Col 4: Get In Touch */}
           <div className="space-y-3">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
-              GET IN TOUCH
-            </h2>
+            <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
+              Get in Touch
+            </p>
             <ul className="space-y-3 text-sm text-sm text-[#E2E8F0]/90">
               <li>
                 <a href="/contact"
@@ -167,6 +167,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
                 >
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
                   <span className="font-bold text-sm whitespace-nowrap">{CONTACT_EMAIL}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${CONTACT_PHONE_TEL}`}
+                  className="hover:text-[#D4AF37] transition-colors flex w-fit items-center gap-2.5 text-[#E2E8F0]/90"
+                >
+                  <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                  <span className="font-bold text-sm whitespace-nowrap">{CONTACT_PHONE}</span>
                 </a>
               </li>
             </ul>
