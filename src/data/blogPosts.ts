@@ -803,7 +803,7 @@ const allBlogPosts: BlogPost[] = [
     tags: ['Patient Financing', 'Cherry', 'CareCredit', 'Affirm', 'QuickBooks', 'MedSpa', 'Reconciliation'],
     publishedDate: '2026-10-13',
     readingTime: 5,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1634733988138-bf2c3a2a13fa?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of a card terminal and a payout split into sales, fees and tips',
     content: [
       {
@@ -895,8 +895,8 @@ const allBlogPosts: BlogPost[] = [
     ],
     "publishedDate": "2026-11-03",
     "readingTime": 6,
-    "coverImage": "",
-    "coverAlt": "Illustration of treatment costs compared with revenue",
+    "coverImage": "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?auto=format&fit=crop&w=1400&q=80",
+    "coverAlt": "A person counting cash, representing provider commission pay calculated from treatment revenue",
     "content": [
       {
         "type": "intro",
@@ -1009,7 +1009,7 @@ const allBlogPosts: BlogPost[] = [
     tags: ['Tips', 'Refunds', 'Chargebacks', 'Payouts', 'QuickBooks', 'MedSpa'],
     publishedDate: '2026-11-24',
     readingTime: 5,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1545402138-0c105c73cb4d?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of a payment terminal and payout report',
     content: [
       { type: 'intro', text: 'A payout from your booking or payment software is rarely just treatment revenue. One deposit can include services, retail, card tips, sales tax, refunds, no-show fees and, now and then, a chargeback, all netted against processing fees. If that deposit is posted to QuickBooks as one sales figure, the books are wrong in more than one direction at once. This guide covers where each of those four smaller items belongs, and how they fit into a monthly payout reconciliation.' },
@@ -1076,7 +1076,7 @@ const allBlogPosts: BlogPost[] = [
     tags: ['Lending', 'Financial Statements', 'Balance Sheet', 'Buyers', 'QuickBooks', 'MedSpa'],
     publishedDate: '2026-12-01',
     readingTime: 5,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1762831063004-bbd3ea38ba3a?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of organized financial records',
     content: [
       { type: 'intro', text: `Equipment financing, a loan for a second location, a new lease, a partner buy-in or a sale of the practice all lead to the same request: send your financial statements. When the books are current and reconciled, that request takes a few minutes. When they are behind, it can delay the conversation while the numbers are rebuilt. This guide covers what lenders and buyers commonly ask for, and what makes a med spa's financials credible when they look.` },
@@ -1148,7 +1148,7 @@ const allBlogPosts: BlogPost[] = [
     tags: ['Multi-Entity', 'Owner Pay', 'Intercompany', 'Management Company', 'QuickBooks', 'MedSpa'],
     publishedDate: '2026-12-08',
     readingTime: 5,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1707902665498-a202981fb5ac?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of organized financial records',
     content: [
       { type: 'intro', text: 'Many med spas have a physician or nurse practitioner as owner or medical director, and some operate through more than one entity, such as a practice entity and a separate management or holding company. When money for all of them moves through the same accounts, owner pay, personal spending and transfers get mixed together, and none of the entities has books anyone can rely on. This guide covers how to keep the bookkeeping straight once the structure is in place.' },
@@ -1217,7 +1217,7 @@ const allBlogPosts: BlogPost[] = [
     tags: ['IV Hydration', 'Cost of Goods Sold', 'Nurse Pay', '1099', 'Mobile IV', 'QuickBooks'],
     publishedDate: '2026-10-07',
     readingTime: 6,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1746806942787-947eebe640d6?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of IV supplies and a cost report',
     content: [
       { type: 'intro', text: `In an IV hydration business, the cost of a drip comes mostly from two things: what goes into the bag and who gives it. In many QuickBooks files both are hard to find. Fluids, vitamins and tubing sit in a general Supplies account, and nurse pay sits in one Payroll or Contract Labor line. The Profit & Loss shows what you spent, but it can't tell you what a drip on your menu costs to deliver, or whether mobile visits pay for the extra time they take. This guide covers how to record supply cost, mobile costs and nurse pay so each month answers those questions.` },
@@ -1296,7 +1296,7 @@ const allBlogPosts: BlogPost[] = [
     tags: ['Medical Weight Loss', 'GLP-1', 'Cost of Goods Sold', 'Medical Director', 'Provider Pay', 'QuickBooks'],
     publishedDate: '2026-10-07',
     readingTime: 6,
-    coverImage: '',
+    coverImage: 'https://images.unsplash.com/photo-1752842936201-44291aee473f?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of medication supplies and a cost report',
     content: [
       { type: 'intro', text: `In a medical weight loss program, two costs decide whether a patient month makes money: the medication and the clinical time behind it. Both are easy to lose in the books. Pharmacy invoices land in a general Supplies or Medical Supplies account, shipping and cold packs land somewhere else, and medical director and provider pay sit in one payroll line. The program fee can look healthy while the medication behind it takes a bigger share every month. This guide covers how to record medication cost and provider pay so your books show what each program month really costs.` },
