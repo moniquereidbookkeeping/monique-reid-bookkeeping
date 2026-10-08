@@ -128,7 +128,11 @@ function safeSteps(raw: unknown): { title: string; body: string }[] | null {
 /** The package line must name exactly the tier our system matched. If the AI got it wrong, use our own sentence. */
 function enforcePackage(text: unknown, tier: Tier, cleanup: Cleanup): string {
   const own = `Recommend the ${tier.name} plan (${tier.price}). ` +
-    (cleanup.needed ? `A one-time engagement comes first: ${cleanup.tier} (${cleanup.price}).` : 'No cleanup is needed first.');
+    (cleanup.uncertain
+      ? 'Confirm whether a one-time cleanup is needed after reviewing their books on the call — do not assume either way from the form.'
+      : cleanup.needed
+        ? `A one-time engagement comes first: ${cleanup.tier} (${cleanup.price}).`
+        : 'No cleanup is needed first.');
   const t = typeof text === 'string' ? text : '';
   if (!t || breaksOfferRules(t) || !t.includes(tier.price.replace('/mo', ''))) return own;
   const other = ['$497', '$797', '$1,197'].filter((x) => x !== tier.price.replace('/mo', ''));
@@ -161,10 +165,19 @@ function getFallbackSteps(status: string, pos: string): { title: string; body: s
       { title: `Connect ${p} to QuickBooks`, body: `Set up your ${p} reconciliation workflow so every deposit matches your bank statement automatically from the start.` },
     ];
   }
+  if (s.includes('current') || s.includes('ongoing')) {
+    return [
+      { title: 'Service-Line P&L Report', body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.` },
+      { title: 'Membership Revenue Tracking', body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.' },
+      { title: 'Monthly Financial Review', body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.' },
+    ];
+  }
+
+  // Free-text "Other" status that didn't match a known category: don't assume membership tracking or a clean P&L already exist.
   return [
-    { title: 'Service-Line P&L Report', body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.` },
-    { title: 'Membership Revenue Tracking', body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.' },
-    { title: 'Monthly Financial Review', body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.' },
+    { title: 'Full QuickBooks Review', body: `A complete look at your ${p} data and QuickBooks file to see exactly where things stand.` },
+    { title: 'Clear Scope, Once Reviewed', body: 'A specific plan for your books, defined after seeing what is actually there.' },
+    { title: 'Monthly Reporting, Once Confirmed', body: 'Reliable monthly reports once your books are confirmed accurate and current.' },
   ];
 }
 
@@ -202,7 +215,7 @@ function detectTier(pos: string, packages: string, accounts: string, revenue: st
 // ─────────────────────────────────────────────
 //  Cleanup recommendation
 // ─────────────────────────────────────────────
-interface Cleanup { needed: boolean; label: string; tier: string; price: string; note: string }
+interface Cleanup { needed: boolean; uncertain?: boolean; label: string; tier: string; price: string; note: string }
 
 function getCleanupRec(status: string): Cleanup {
   const s = status.toLowerCase();
@@ -221,9 +234,15 @@ function getCleanupRec(status: string): Cleanup {
       price: 'QBO Setup — project-based pricing',
       note: 'Recommend the QBO Setup service first. No cleanup needed.' };
   }
-  return { needed: false, label: '✅ NO CLEANUP NEEDED', tier: 'Books Are Current',
-    price: 'N/A — ready for Monthly Bookkeeping',
-    note: 'Books are current. Can start monthly bookkeeping immediately.' };
+  if (s.includes('current') || s.includes('ongoing')) {
+    return { needed: false, label: '✅ NO CLEANUP NEEDED', tier: 'Books Are Current',
+      price: 'N/A — ready for Monthly Bookkeeping',
+      note: 'Books are current. Can start monthly bookkeeping immediately.' };
+  }
+  return { needed: true, uncertain: true, label: '📋 STATUS UNCLEAR — CONFIRM ON CALL',
+    tier: `Unclear from form response ("${status}")`,
+    price: 'Confirm scope on the call',
+    note: 'Status text did not match a known category. Do not assume cleanup is or is not needed — confirm after reviewing their books, before quoting a package.' };
 }
 
 function getAutoNote(status: string): string {
