@@ -3,10 +3,12 @@ import { Calendar, ArrowRight, MapPin, Phone, Mail, Video, Search, ClipboardList
 import { PageView } from '../types';
 import { pathFor } from '../router';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '../constants/booking';
+import { RelatedArticles } from './RelatedArticles';
 
 interface FortLauderdalePageProps {
   onNavigate: (page: PageView) => void;
   onBookCall: () => void;
+  onReadPost: (slug: string) => void;
 }
 
 /** Owner-confirmed service area (October 2026). The work is fully remote; there is no office to visit. */
@@ -30,7 +32,7 @@ const SHARE = [
 
 const linkClass = 'font-semibold text-[#1A2E40]! underline! decoration-[#D4AF37]! underline-offset-4 hover:text-[#8A6A00]!';
 
-export const FortLauderdalePage: React.FC<FortLauderdalePageProps> = ({ onNavigate, onBookCall }) => {
+export const FortLauderdalePage: React.FC<FortLauderdalePageProps> = ({ onNavigate, onBookCall, onReadPost }) => {
   const link = (page: PageView, label: string) => (
     <a href={pathFor(page)} onClick={(e) => { e.preventDefault(); onNavigate(page); }} className={linkClass}>
       {label}
@@ -176,6 +178,12 @@ export const FortLauderdalePage: React.FC<FortLauderdalePageProps> = ({ onNaviga
           </a>
         </div>
       </section>
+
+      <RelatedArticles
+        heading="Guides for Fort Lauderdale practice owners"
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        onReadPost={onReadPost}
+      />
     </>
   );
 };
