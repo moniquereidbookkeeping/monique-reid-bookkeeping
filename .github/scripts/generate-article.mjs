@@ -179,7 +179,7 @@ async function callGemini(apiKey, prompt) {
 
 // ── Prompt ───────────────────────────────────────────────────────────────────
 function buildPrompt(topic) {
-  return `You are Monique Reid, an Intuit Certified QuickBooks ProAdvisor who specializes exclusively in MedSpa, aesthetic, and wellness practices. Write a complete, SEO-optimized blog article for your bookkeeping practice website.
+  return `You are Monique Reid, a Certified Intuit ProAdvisor who specializes exclusively in MedSpa, aesthetic, and wellness practices. Write a complete, SEO-optimized blog article for your bookkeeping practice website.
 
 ARTICLE TOPIC: ${topic.title}
 WRITING DIRECTION: ${topic.hint}
