@@ -2,13 +2,16 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
+import { publishedPostsOnly } from './scripts/vite-published-posts.mjs';
+
+// One build date for the browser and prerender bundles: articles dated after it stay hidden.
+const BUILD_DATE = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [publishedPostsOnly(BUILD_DATE), react(), tailwindcss()],
     define: {
-      // One build date for the browser and prerender bundles: articles dated after it stay hidden.
-      __BUILD_DATE__: JSON.stringify(process.env.BUILD_DATE || new Date().toISOString().slice(0, 10)),
+      __BUILD_DATE__: JSON.stringify(BUILD_DATE),
     },
     resolve: {
       alias: {

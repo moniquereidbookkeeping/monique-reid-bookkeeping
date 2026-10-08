@@ -682,7 +682,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 }}
                 onMouseEnter={() => setShowSurplusTooltip(true)}
                 onMouseLeave={() => setShowSurplusTooltip(false)}
-                className="absolute top-3.5 right-3 p-1 rounded-full text-[#D4AF37] hover:bg-white/10 transition-colors cursor-pointer z-10"
+                className="absolute top-3.5 right-3 p-1.5 rounded-full text-[#D4AF37] hover:bg-white/10 transition-colors cursor-pointer z-10"
                 title="How operating surplus is calculated"
                 aria-label="How operating surplus is calculated"
               >

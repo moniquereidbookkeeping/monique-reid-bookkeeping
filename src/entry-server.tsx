@@ -20,7 +20,13 @@ export interface PrerenderRoute {
   jsonLd: object[];
   publishedTime?: string;
   modifiedTime?: string;
+  /** Share image for link previews; pages without one keep the site-wide og-image.png. */
+  image?: { url: string; alt: string };
 }
+
+/** An article's Unsplash cover, cropped to the 1200x630 size link previews expect. */
+const shareImage = (cover: string): string | undefined =>
+  cover.startsWith('https://images.unsplash.com/') ? `${cover.split('?')[0]}?auto=format&fit=crop&w=1200&h=630&q=80` : undefined;
 
 /** Breadcrumb names for pages below the home page. */
 const CRUMB: Partial<Record<keyof typeof PAGE_PATHS, string>> = {
@@ -80,6 +86,7 @@ export function renderRoute(path: string): PrerenderRoute {
 
   const jsonLd: object[] = [];
   const modified = post ? post.updatedDate ?? post.publishedDate : undefined;
+  const coverUrl = post ? shareImage(post.coverImage) : undefined;
   if (post) {
     jsonLd.push(
       {
@@ -188,6 +195,7 @@ export function renderRoute(path: string): PrerenderRoute {
     jsonLd,
     publishedTime: post?.publishedDate,
     modifiedTime: modified,
+    image: post && coverUrl ? { url: coverUrl, alt: post.title } : undefined,
   };
 }
 

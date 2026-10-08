@@ -32,19 +32,31 @@ const template = readFileSync(join(dist, 'index.html'), 'utf8');
   }
 }
 
+/** Replaces one tag in the page template, and fails the build if the tag is missing, so a page can never
+ *  silently keep the site-wide default (as og:description once did when its tag spanned several lines). */
+function swap(html, pattern, replacement, what) {
+  if (!pattern.test(html)) throw new Error(`index.html: could not find ${what} to replace`);
+  return html.replace(pattern, replacement);
+}
+
 function build(path, outFile) {
   const r = renderRoute(path);
   let html = template;
-  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(r.title)}</title>`);
-  html = html.replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(r.description)}$2`);
-  html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${r.canonical}$2`);
-  html = html.replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${r.canonical}$2`);
-  html = html.replace(/(<meta property="og:type" content=")[^"]*(")/, `$1${r.ogType}$2`);
-  html = html.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(r.title)}$2`);
-  html = html.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(r.description)}$2`);
-  html = html.replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(r.title)}$2`);
-  html = html.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(r.description)}$2`);
-  html = html.replace(/<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="${r.noindex ? 'noindex, nofollow' : 'index, follow'}" />`);
+  html = swap(html, /<title>[\s\S]*?<\/title>/, `<title>${esc(r.title)}</title>`, '<title>');
+  html = swap(html, /(<meta name="description" content=")[^"]*(")/, `$1${esc(r.description)}$2`, 'meta description');
+  html = swap(html, /(<link rel="canonical" href=")[^"]*(")/, `$1${r.canonical}$2`, 'canonical');
+  html = swap(html, /(<meta property="og:url" content=")[^"]*(")/, `$1${r.canonical}$2`, 'og:url');
+  html = swap(html, /(<meta property="og:type" content=")[^"]*(")/, `$1${r.ogType}$2`, 'og:type');
+  html = swap(html, /(<meta property="og:title" content=")[^"]*(")/, `$1${esc(r.title)}$2`, 'og:title');
+  html = swap(html, /(<meta property="og:description" content=")[^"]*(")/, `$1${esc(r.description)}$2`, 'og:description');
+  html = swap(html, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(r.title)}$2`, 'twitter:title');
+  html = swap(html, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(r.description)}$2`, 'twitter:description');
+  html = swap(html, /<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="${r.noindex ? 'noindex, nofollow' : 'index, follow'}" />`, 'meta robots');
+  if (r.image) {
+    html = swap(html, /(<meta property="og:image" content=")[^"]*(")/, `$1${esc(r.image.url)}$2`, 'og:image');
+    html = swap(html, /(<meta property="og:image:alt" content=")[^"]*(")/, `$1${esc(r.image.alt)}$2`, 'og:image:alt');
+    html = swap(html, /(<meta name="twitter:image" content=")[^"]*(")/, `$1${esc(r.image.url)}$2`, 'twitter:image');
+  }
   // Page-specific structured data (breadcrumbs, article details) goes in the static HTML so every crawler sees it.
   const extraHead = [
     r.publishedTime ? `<meta property="article:published_time" content="${r.publishedTime}" />` : '',
