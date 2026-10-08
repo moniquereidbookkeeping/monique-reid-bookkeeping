@@ -41,6 +41,6 @@ Scheduled (written, not live yet): Cherry, CareCredit and Affirm financing (2026
 - Software-specific statements (Boulevard, Vagaro, Square, QuickBooks features, Allē, ASPIRE): keep general and hedged unless verified. Programs differ by manufacturer and contract.
 - Figures: examples only, labeled as examples. Plans: Essential $497, Growth $797, Full-Spectrum $1,197. Cleanup $597 (1-3 months), $1,297 (4-6), $1,997 (7-12), custom quote for 13+ months or multiple entities.
 - Call: free 20-minute private Zoom call. Button label exactly: "Book Your Free 20-Min Clarity Call". Name: Financial Clarity Call.
-- Credentials (use only this wording): Intuit Certified QuickBooks ProAdvisor; QuickBooks Online Level 2; QuickBooks Payroll Certified.
+- Credentials (use only this wording): Certified Intuit ProAdvisor; QuickBooks ProAdvisor Gold Tier; QuickBooks Workforce Certified; QuickBooks Online Level 2 Certified. (Owner-confirmed October 2026: the About page badges are Gold Tier, Workforce Certified and Level 2 Certified — Payroll Certified is no longer shown.)
 - Degree: Bachelor of Business Administration. Owner-confirmed (October 2026) and allowed on the site, as on the About page. No other degree or license claims.
 - Post format: see `BlogPost` in `src/types.ts`; section types intro, heading, paragraph, list, callout, tip. Add to `src/data/blogPosts.ts`; the sitemap picks up new slugs on build.

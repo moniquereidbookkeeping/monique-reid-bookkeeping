@@ -49,7 +49,7 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   home: {
     title: 'Med Spa Bookkeeping & QuickBooks | Monique Reid Bookkeeping',
     description:
-      'QuickBooks bookkeeping for med spas, medical spas, aesthetic clinics and IV hydration practices. Clean books and clear P&Ls from an Intuit Certified ProAdvisor.',
+      'QuickBooks bookkeeping for med spas, medical spas, aesthetic clinics and IV hydration practices. Clean books and clear P&Ls from a Certified Intuit ProAdvisor.',
   },
   notfound: {
     title: 'Page Not Found | Monique Reid Bookkeeping',
@@ -85,9 +85,9 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
       'Monthly financial reporting for med spas: revenue by treatment, treatment costs, provider pay, margins and cash flow in plain English, with an example.',
   },
   about: {
-    title: 'Monique Reid | Intuit Certified QuickBooks ProAdvisor, FL',
+    title: 'Monique Reid | Certified Intuit ProAdvisor & QuickBooks Bookkeeper, FL',
     description:
-      'Meet Monique Reid, an Intuit Certified QuickBooks ProAdvisor in Fort Lauderdale, Florida, focused on bookkeeping for med spas and wellness practices.',
+      'Meet Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper in Fort Lauderdale, Florida, focused on bookkeeping for med spas and wellness practices.',
   },
   calculator: {
     title: 'Treatment Profit Calculator | Monique Reid Bookkeeping',
@@ -107,7 +107,7 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   'south-florida': {
     title: 'Med Spa Bookkeeping in South Florida | Monique Reid',
     description:
-      'QuickBooks bookkeeping for med spas and aesthetic clinics across Broward, Miami-Dade and Palm Beach counties from an Intuit Certified QuickBooks ProAdvisor.',
+      'QuickBooks bookkeeping for med spas and aesthetic clinics across Broward, Miami-Dade and Palm Beach counties from a Certified Intuit ProAdvisor.',
   },
   'fort-lauderdale': {
     title: 'Med Spa Bookkeeper in Fort Lauderdale | Monique Reid',

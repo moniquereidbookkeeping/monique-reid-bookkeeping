@@ -24,7 +24,7 @@ export const IV_HYDRATION: PracticeTypeContent = {
   eyebrow: 'IV Hydration & Wellness · Florida & Nationwide',
   h1: 'IV Hydration Bookkeeping',
   subtitle:
-    'QuickBooks bookkeeping for IV hydration clinics, drip bars and mobile IV services, from an Intuit Certified QuickBooks ProAdvisor.',
+    'QuickBooks bookkeeping for IV hydration clinics, drip bars and mobile IV services, from a Certified Intuit ProAdvisor.',
   intro: [
     'IV hydration has its own financial pattern. Every drip uses fluids, vitamins and supplies, memberships are paid before visits happen, mobile visits cost more to deliver than in-clinic ones, and nurses may be employees or contractors. A general small-business setup in QuickBooks hides all of that inside one revenue line and one expense pile.',
     'Monique Reid Bookkeeping is based in Fort Lauderdale and works with IV hydration and wellness practices across Florida and nationwide, so you can see which drips, memberships and services actually make money.',

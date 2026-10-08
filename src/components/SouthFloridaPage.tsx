@@ -59,7 +59,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
             Med Spa Bookkeeping in South Florida
           </h1>
           <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-            A local QuickBooks bookkeeper and Intuit Certified QuickBooks ProAdvisor for med spas, medical spas, aesthetic clinics, IV hydration and wellness practices.
+            A local QuickBooks bookkeeper and Certified Intuit ProAdvisor for med spas, medical spas, aesthetic clinics, IV hydration and wellness practices.
           </p>
         </div>
       </div>
