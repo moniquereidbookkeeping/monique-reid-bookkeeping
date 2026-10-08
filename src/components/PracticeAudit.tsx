@@ -77,18 +77,36 @@ const getFallbackPlan = (status: string, pos: string): Step[] => {
     ];
   }
 
+  if (s.includes('current') || s.includes('ongoing')) {
+    return [
+      {
+        title: 'Service-Line P&L Report',
+        body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.`,
+      },
+      {
+        title: 'Membership Revenue Tracking',
+        body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.',
+      },
+      {
+        title: 'Monthly Financial Review',
+        body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.',
+      },
+    ];
+  }
+
+  // Free-text "Other" status that didn't match a known category: don't assume membership tracking or a clean P&L already exist.
   return [
     {
-      title: 'Service-Line P&L Report',
-      body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.`,
+      title: 'Full QuickBooks Review',
+      body: `A complete look at your ${p} data and QuickBooks file to see exactly where things stand.`,
     },
     {
-      title: 'Membership Revenue Tracking',
-      body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.',
+      title: 'Clear Scope, Once Reviewed',
+      body: 'A specific plan for your books, defined after seeing what is actually there.',
     },
     {
-      title: 'Monthly Financial Review',
-      body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.',
+      title: 'Monthly Reporting, Once Confirmed',
+      body: 'Reliable monthly reports once your books are confirmed accurate and current.',
     },
   ];
 };
