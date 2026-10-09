@@ -1,0 +1,16 @@
+name = "mr-bookkeeping-lead-retention"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+# Runs every Sunday at 10:00 UTC (6:00am Eastern during daylight saving time /
+# 5:00am Eastern in winter — adjust if a different day/time is preferred; cron is always in UTC).
+[triggers]
+crons = ["0 10 * * 0"]
+
+# Secrets — set these with `wrangler secret put <NAME>`, or in the Cloudflare
+# dashboard for this Worker (Settings -> Variables and Secrets). Do NOT put
+# them in this file. Both values already exist as secrets on the main
+# mr-bookkeeping Pages project (Settings -> Environment variables) — copy the
+# same values here, nothing new to generate:
+#   GOOGLE_SA_KEY    the service account JSON key used by functions/api/lead.ts
+#   SPREADSHEET_ID   the same spreadsheet ID used by functions/api/lead.ts

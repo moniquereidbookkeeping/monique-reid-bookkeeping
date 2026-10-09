@@ -1,5 +1,5 @@
 {
-  "exclude": ["functions"],
+  "exclude": ["functions", "workers"],
   "compilerOptions": {
     "target": "ES2022",
     "experimentalDecorators": true,
