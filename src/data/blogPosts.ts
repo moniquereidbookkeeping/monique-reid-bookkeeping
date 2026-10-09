@@ -233,7 +233,7 @@ const allBlogPosts: BlogPost[] = [
     "content": [
       {
         "type": "intro",
-        "text": "A CPA can only prepare an accurate return from accurate books. When the books arrive late or unreconciled, the result is delays, extra fees and avoidable corrections. A few steps taken before year-end make the process much easier."
+        "text": "A CPA can only prepare an accurate return from accurate books. When the books arrive late or unreconciled, the result can be delays, extra fees and avoidable corrections. A few steps taken before year-end make the process much easier."
       },
       {
         "type": "heading",
@@ -1033,7 +1033,7 @@ const allBlogPosts: BlogPost[] = [
       {
         type: 'list',
         items: [
-          'Retail product refunds: if the product comes back unopened and can be resold, its cost goes back into inventory.',
+          'Retail product refunds: if the product comes back unopened and can be resold, and you track inventory on hand, its cost goes back into inventory.',
           'Refunds of prepaid packages or memberships: if unused treatments were being held as a liability until delivered, the refund reduces that liability, not current income, because the unused part was never counted as income.',
           'Partial refunds and courtesy credits: record the amount actually refunded, and keep the reason in the memo so the pattern is visible later.',
         ],
@@ -1120,7 +1120,7 @@ const allBlogPosts: BlogPost[] = [
           `Loan or equipment-financing balances that do not match the lender's statements.`,
           'Large Uncategorized Income, Uncategorized Expense or suspense balances.',
           'Personal spending mixed into operating expenses with no way to separate it.',
-          'Accounts that have not been reconciled, or that show balances that cannot be right, such as a negative bank balance at month end.',
+          'Accounts that have not been reconciled, or that show balances that usually signal an error, such as a negative bank balance at month end.',
         ],
       },
       { type: 'heading', heading: 'Leases and equipment financing' },
@@ -1154,7 +1154,7 @@ const allBlogPosts: BlogPost[] = [
       { type: 'intro', text: 'Many med spas have a physician or nurse practitioner as owner or medical director, and some operate through more than one entity, such as a practice entity and a separate management or holding company. When money for all of them moves through the same accounts, owner pay, personal spending and transfers get mixed together, and none of the entities has books anyone can rely on. This guide covers how to keep the bookkeeping straight once the structure is in place.' },
       { type: 'callout', text: `How your entities should be structured, who may own what, and how the arrangement complies with your state's rules are decisions for your attorney and CPA. Bookkeeping does not decide them. Its job is to record the structure you have, accurately and consistently.` },
       { type: 'heading', heading: 'One entity, one set of books' },
-      { type: 'paragraph', text: 'Each legal entity needs its own QuickBooks Online company and its own bank account. QuickBooks Online keeps one set of books per company, so two entities in one file means one set of statements describing two businesses. Classes and locations are useful for tracking parts of a single business, such as service lines or sites, but they are not a substitute for separate books when there are separate legal entities.' },
+      { type: 'paragraph', text: 'Each legal entity should generally have its own QuickBooks Online company and its own bank account. QuickBooks Online keeps one set of books per company, so two entities in one file means one set of statements describing two businesses. Classes and locations are useful for tracking parts of a single business, such as service lines or sites, but they are not a substitute for separate books when there are separate legal entities. Your attorney and CPA confirm the right structure for your situation.' },
       { type: 'paragraph', text: `Separate books also make each entity's own questions answerable: what the practice earned, what the management company charged, and what each owes the other.` },
       { type: 'heading', heading: 'Recording money that moves between entities' },
       { type: 'paragraph', text: 'Transfers between related entities are not income or expenses on their own. When one entity pays a bill for another, or sends it cash, the books on both sides should show a balance owed: a Due From account in the entity that paid, and a matching Due To account in the entity that received the benefit.' },
