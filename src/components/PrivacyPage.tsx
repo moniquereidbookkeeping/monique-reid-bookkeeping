@@ -109,7 +109,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-2 pt-1">
             <h4 className="text-sm font-bold text-[#1A2E40]">B. Bookkeeping Health Check</h4>
             <p className="text-sm leading-relaxed">
-              If you use the free Bookkeeping Health Check, we collect your name, email address, and your answers: your QuickBooks status, booking or point-of-sale platform, number of accounts, revenue model and range, practice age, and any challenge you describe in your own words. We use your answers to create a general plan for you and to prepare for a call with you. Your answers — never your name or email — are processed by Google's Gemini AI service to help draft that plan. Your plan is emailed to the address you provide, and your name, email and answers are kept in our lead records for up to 24 months so we can follow up with you, then deleted. Contact us any time to have your information deleted sooner. Please do not enter patient names, patient health information, or account numbers in the free-text fields.
+              If you use the free Bookkeeping Health Check, we collect your name, email address, and your answers: your QuickBooks status, booking or point-of-sale platform, number of accounts, revenue model and range, practice age, and any challenge you describe in your own words. We use your answers to create a general plan for you and to prepare for a call with you. Your answers — never your name or email — are processed using automated tools to help draft that plan. Your plan is emailed to the address you provide, and your name, email and answers are kept in our lead records for up to 24 months so we can follow up with you, then deleted. Contact us any time to have your information deleted sooner. Please do not enter patient names, patient health information, or account numbers in the free-text fields.
             </p>
           </div>
         </div>
@@ -285,12 +285,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <li><strong>Zoom</strong> — video consultations</li>
             <li><strong>Stripe</strong> and other payment processors — payment processing once you become a client</li>
             <li><strong>Google Analytics</strong> and <strong>Microsoft Clarity</strong> — understanding how visitors use our website (only if you allow Analytics Cookies)</li>
-            <li><strong>Cloudflare</strong> — website hosting, security, and spam-protection checks on our forms, which receive your IP address</li>
-            <li><strong>Resend</strong> — delivering emails sent from our Health Check and contact forms</li>
-            <li><strong>Google Sheets and Gmail</strong> — storing Health Check lead records</li>
-            <li><strong>Google Gemini</strong> — drafting your Health Check plan from your answers (never your name or email)</li>
-            <li><strong>Unsplash</strong> — stock images used in some blog articles</li>
-            <li><strong>Intuit</strong> — the QuickBooks ProAdvisor credential logo in our footer loads from Intuit's servers</li>
+            <li><strong>Other providers</strong> — business email and documents, website hosting and security, spam protection, email delivery, secure data storage, and automated tools that help prepare your Health Check plan, as reasonably necessary to operate the business</li>
           </ul>
           <p className="text-sm leading-relaxed">
             These providers may process information on our behalf according to their own terms and privacy policies.
