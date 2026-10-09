@@ -1060,7 +1060,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     <strong className="text-amber-900 block text-sm mb-1">
                       Consideration #1: Patient Financing &amp; Merchant Fees
                     </strong>
-                    When patients pay by card or through financing such as Cherry or CareCredit, fees are taken out before the money reaches your bank account. Recording only the net deposit understates collections, hides the fees, and can throw off provider compensation.
+                    When patients pay by card or through financing such as Cherry or CareCredit, fees are often taken out before the money reaches your bank account, depending on your processor or program. Recording only the net deposit understates collections, hides the fees, and can throw off provider compensation.
                   </div>
                 </div>
 

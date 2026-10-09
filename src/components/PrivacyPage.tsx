@@ -83,7 +83,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-2 pt-1">
             <h4 className="text-sm font-bold text-[#1A2E40]">A. Contact and Consultation Information</h4>
             <p className="text-sm leading-relaxed">
-              When you contact us, submit an inquiry, or schedule a Financial Clarity Call, we may collect:
+              When you contact us, submit an inquiry, or schedule a Financial Clarity Call, this may include, depending on how you contact us:
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E] pt-1">
               {[
@@ -109,7 +109,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-2 pt-1">
             <h4 className="text-sm font-bold text-[#1A2E40]">B. Bookkeeping Health Check</h4>
             <p className="text-sm leading-relaxed">
-              If you use the free Bookkeeping Health Check, we collect your name, email address, and your answers: your QuickBooks status, booking or point-of-sale platform, number of accounts, revenue model and range, practice age, and any challenge you describe in your own words. We use your answers to create a general plan for you and to prepare for a call with you. Your name and email address are not used to create the plan. Your plan is emailed to the address you provide, and your details are stored securely so we can follow up with you. Please do not enter patient names, patient health information, or account numbers in the free-text fields.
+              If you use the free Bookkeeping Health Check, we collect your name, email address, and your answers: your QuickBooks status, booking or point-of-sale platform, number of accounts, revenue model and range, practice age, and any challenge you describe in your own words. We use your answers to create a general plan for you and to prepare for a call with you. Your answers — never your name or email — are processed by Google's Gemini AI service to help draft that plan. Your plan is emailed to the address you provide, and your name, email and answers are kept in our lead records so we can follow up with you. Contact us any time to have your information deleted. Please do not enter patient names, patient health information, or account numbers in the free-text fields.
             </p>
           </div>
         </div>
@@ -281,11 +281,16 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           </p>
           <ul className="list-disc list-inside space-y-1.5 text-sm pl-2">
             <li><strong>QuickBooks Online / Intuit</strong> — bookkeeping and accounting platform</li>
-            <li><strong>Calendly</strong> — scheduling</li>
+            <li><strong>Calendly</strong> — scheduling; its calendar loads automatically when you open the Contact page</li>
             <li><strong>Zoom</strong> — video consultations</li>
             <li><strong>Stripe</strong> and other payment processors — payment processing once you become a client</li>
             <li><strong>Google Analytics</strong> and <strong>Microsoft Clarity</strong> — understanding how visitors use our website (only if you allow Analytics Cookies)</li>
-            <li><strong>Other providers</strong> — business email and documents, website hosting and security, spam protection, email delivery, secure data storage, and automated tools that help prepare your Health Check plan, as reasonably necessary to operate the business</li>
+            <li><strong>Cloudflare</strong> — website hosting, security, and spam-protection checks on our forms, which receive your IP address</li>
+            <li><strong>Resend</strong> — delivering emails sent from our Health Check and contact forms</li>
+            <li><strong>Google Sheets and Gmail</strong> — storing Health Check lead records</li>
+            <li><strong>Google Gemini</strong> — drafting your Health Check plan from your answers (never your name or email)</li>
+            <li><strong>Unsplash</strong> — stock images used in some blog articles</li>
+            <li><strong>Intuit</strong> — the QuickBooks ProAdvisor credential logo in our footer loads from Intuit's servers</li>
           </ul>
           <p className="text-sm leading-relaxed">
             These providers may process information on our behalf according to their own terms and privacy policies.
@@ -352,13 +357,13 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <div className="rounded-lg border border-[#E2E8F0] p-3">
               <p className="text-sm font-bold text-[#1A2E40]">Strictly Necessary Cookies <span className="font-semibold text-[#57534E]">(Always Active)</span></p>
               <p className="mt-1 text-sm leading-relaxed">
-                These cookies are required for the site to work and can&apos;t be switched off. They&apos;re typically set in response to something you do, like setting your cookie preferences. They don&apos;t store anything that identifies you personally.
+                Your cookie choice itself is saved in your browser&apos;s local storage, not a cookie. Our security provider, Cloudflare, may set a short-lived security cookie to protect our forms from spam.
               </p>
             </div>
             <div className="rounded-lg border border-[#E2E8F0] p-3">
               <p className="text-sm font-bold text-[#1A2E40]">Analytics Cookies <span className="font-semibold text-[#57534E]">(off unless you allow them)</span></p>
               <p className="mt-1 text-sm leading-relaxed">
-                These help us understand how visitors use the site so we can improve it. Google Analytics gives us aggregate traffic numbers — which pages get visited, where visitors come from. Microsoft Clarity records individual visit sessions, including clicks and scrolling, so we can see how people actually move through the site; it automatically hides anything typed into form fields. If you turn these off, we won&apos;t be able to see how the site is being used or where it needs work.
+                These help us understand how visitors use the site so we can improve it. Google Analytics (cookies <code>_ga</code>, <code>_ga_5YJE6T34BE</code>) gives us aggregate traffic numbers — which pages get visited, where visitors come from. Microsoft Clarity (cookies <code>_clck</code>, <code>_clsk</code>) records individual visit sessions, including clicks and scrolling, so we can see how people actually move through the site; it masks the Bookkeeping Health Check section and anything typed into form fields. If you turn these off, we won&apos;t be able to see how the site is being used or where it needs work.
               </p>
             </div>
           </div>
@@ -366,7 +371,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             The first time you visit, you can choose Accept All or Reject All, or open Cookie Settings to choose by category. You can reopen Cookie Settings at any time from the footer of any page. If you turn Analytics Cookies off after allowing them, Google Analytics and Microsoft Clarity stop running and their cookies on this site are removed. You can also control cookies through your browser settings.
           </p>
           <p className="text-sm leading-relaxed">
-            We do not send the answers you give in the Bookkeeping Health Check to these analytics tools. When you open the booking calendar, Calendly sets its own cookies and shows its own privacy choices. Those are controlled through Calendly and are not covered by our Cookie Settings.
+            We do not send the answers you give in the Bookkeeping Health Check to these analytics tools. When you visit the Contact page, Calendly&apos;s calendar loads automatically and may set its own cookies and show its own privacy choices. Those are controlled through Calendly and are not covered by our Cookie Settings.
           </p>
         </div>
 

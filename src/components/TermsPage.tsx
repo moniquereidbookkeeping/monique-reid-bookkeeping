@@ -329,11 +329,11 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           <div className="space-y-3">
             <div>
               <h4 className="text-sm font-bold text-[#1A2E40]">Monthly Services</h4>
-              <p className="text-sm">Recurring monthly services may be billed in advance according to the applicable service agreement.</p>
+              <p className="text-sm">Billing, deposits and termination terms are set out in your written service agreement.</p>
             </div>
             <div>
               <h4 className="text-sm font-bold text-[#1A2E40]">Cleanup and Project Services</h4>
-              <p className="text-sm">Cleanup, setup, catch-up, and other project-based services may require a deposit or initial payment before work begins.</p>
+              <p className="text-sm">Billing, deposits and termination terms are set out in your written service agreement.</p>
             </div>
             <div>
               <h4 className="text-sm font-bold text-[#1A2E40]">Additional Work</h4>
@@ -356,7 +356,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             The cancellation or termination terms for a specific bookkeeping engagement will be stated in the applicable service agreement.
           </p>
           <p className="text-sm leading-relaxed">
-            Unless otherwise agreed in writing, ongoing monthly services may require written notice before termination. Any fees for services performed or expenses incurred before the effective termination date remain due.
+            Billing, deposits and termination terms are set out in your written service agreement. Any fees for services performed or expenses incurred before the effective termination date remain due.
           </p>
           <div>
             <p className="text-sm font-semibold text-[#1A2E40] mb-2">We may suspend or terminate services when:</p>

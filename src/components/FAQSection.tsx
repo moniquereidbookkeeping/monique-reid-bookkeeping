@@ -54,11 +54,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'My Boulevard or Square deposit never matches my gross sales. I have no idea where the money went.',
       answer:
-        'This is one of the most common frustrations practice owners describe — and it is completely fixable.\n\nPlatforms like Boulevard, Vagaro, Square, Mindbody, and Mangomint deposit net amounts, not your total sales. By the time the money hits your bank, it has already had processing fees, refunds, tips, chargebacks, and sometimes reserves deducted from it. If your books only record what deposited, that missing money disappears — and you lose visibility into real costs.\n\nPlatform reports are reconciled against your actual bank deposits line by line. Every fee and adjustment gets its own category, so you can finally see where the gap came from and what running your payment processing actually costs your practice.',
+        'This is one of the most common frustrations practice owners describe — and it can be fixed.\n\nPlatforms such as Boulevard, Vagaro, Square, Mindbody, and Mangomint often pay out net of processing fees and refunds, depending on your settings and processor, rather than your total sales. Card tips are usually included in the payout and owed to staff. If your books only record what deposited, that missing money disappears — and you lose visibility into real costs.\n\nPlatform reports are reconciled against your actual bank deposits line by line. Every fee and adjustment gets its own category, so you can see where the gap came from and what running your payment processing actually costs your practice.',
       takeaways: [
         'Platform net deposits compared against gross sales reports',
         'Processing fees, refunds, and adjustments tracked separately',
-        'No more unexplained gaps between sales and your bank balance',
+        'Gaps between sales and deposits explained',
       ],
     },
     {
@@ -109,8 +109,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
         'When your books arrive at your CPA\'s desk in rough shape, they have to spend their billable time reconstructing what should have been organized throughout the year. That adds to your tax prep invoice, delays your filing, and increases the chance that deductible expenses get missed because documentation was never gathered.\n\nThe goal is to hand your CPA clean, reconciled QuickBooks records, organized the way they need them. Every account reconciled. Every transaction categorized. Supporting documentation noted. Questions flagged and answered before they have to ask.\n\nYour CPA does the tax strategy and filing. Monique Reid Bookkeeping handles the year-round record-keeping that makes it possible to do that efficiently.',
       takeaways: [
         'Month-by-month records your CPA can use without reconstruction',
-        'Deductions documented and categorized throughout the year',
-        'A faster, smoother, less expensive tax season — every year',
+        'Expenses documented and categorized throughout the year',
+        'Records your CPA can work from with fewer questions',
       ],
     },
     {
@@ -223,7 +223,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'How should gift cards, treatment packages, and memberships be tracked?',
       answer:
-        'Gift cards, prepaid treatment packages, and memberships can create timing differences between when cash is received and when services are provided.\n\nI help organize these transactions in QuickBooks based on your accounting method, platform reports, redemption activity, and the accounting policies established with your CPA. This can provide clearer visibility into cash received, outstanding obligations, redemptions, and recognized revenue.',
+        'Gift cards, prepaid treatment packages, and memberships can create timing differences between when cash is received and when services are provided.\n\nThese transactions are organized in QuickBooks based on your accounting method, platform reports, redemption activity, and the accounting policies established with your CPA. This can provide clearer visibility into cash received, outstanding obligations, redemptions, and recognized revenue.',
       takeaways: [
         'Separate tracking for gift cards, packages, and memberships',
         'Improved visibility into unused balances and redemptions',
@@ -236,7 +236,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'How do you record manufacturer rebates and rewards programs?',
       answer:
-        'Manufacturer rebates, practice rewards, and reimbursements for patient loyalty discounts often arrive as deposits, credits, or replacement product with no clear label. When they are booked as sales, income and margins look better than they are.\n\nI review your program statements and record this money against the product cost it relates to, so your margins on injectables and other products reflect what you actually paid. The exact treatment depends on the program terms and your accounting method, and it is coordinated with your CPA.',
+        'Manufacturer rebates, practice rewards, and reimbursements for patient loyalty discounts often arrive as deposits, credits, or replacement product with no clear label. When they are booked as sales, income and margins look better than they are.\n\nYour program statements are reviewed and this money is recorded against the product cost it relates to, so your margins on injectables and other products reflect what you actually paid. The exact treatment depends on the program terms and your accounting method, and it is coordinated with your CPA.',
       takeaways: [
         'Rebates recorded against product cost, not as extra sales',
         'Program statements kept with the entries',
@@ -249,7 +249,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'I own the practice personally and also have a management company. Can my books handle that?',
       answer:
-        'Many practices run more than one entity, such as a practice entity and a separate management or holding company. When the money moving between them and the owner is not tracked clearly, owner pay, personal spending, and transfers get mixed together.\n\nEach entity can be kept in its own set of books, with owner pay and transfers recorded consistently so your CPA can follow them. How the entities should be structured is a decision for your attorney and CPA, not something I advise on. Multi-entity work is quoted individually.',
+        'Many practices run more than one entity, such as a practice entity and a separate management or holding company. When the money moving between them and the owner is not tracked clearly, owner pay, personal spending, and transfers get mixed together.\n\nEach entity can be kept in its own set of books, with owner pay and transfers recorded consistently so your CPA can follow them. How the entities should be structured is a decision for your attorney and CPA, not something Monique Reid Bookkeeping advises on. Multi-entity work is quoted individually.',
       takeaways: [
         'Separate books for each entity',
         'Owner pay and transfers recorded consistently',
@@ -262,7 +262,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'FINANCIAL OPERATIONS',
       question: 'Will my books be ready if I need a loan, want to sell, or open a second location?',
       answer:
-        'Lenders, buyers, and landlords usually ask for clean financial statements, and they are hard to produce on short notice when the books are behind.\n\nWith reconciled books and monthly reports, the numbers are ready when the question comes. I cannot promise any lender or buyer will approve or agree to anything, since they make their own decisions, but readable statements put you in a stronger position for the conversation.',
+        'Lenders, buyers, and landlords usually ask for clean financial statements, and they are hard to produce on short notice when the books are behind.\n\nWith reconciled books and monthly reports, the numbers are ready when the question comes. Monique Reid Bookkeeping cannot promise any lender or buyer will approve or agree to anything, since they make their own decisions, but readable statements put you in a stronger position for the conversation.',
       takeaways: [
         'Monthly reconciled books and readable reports',
         'Statements ready when a lender or buyer asks',
@@ -314,9 +314,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'Do you need access to patient medical records?',
       answer:
-        'Bookkeeping work generally focuses on financial records, transaction summaries, payment-platform reports, and accounting documents—not clinical treatment notes or unnecessary patient medical information.\n\nOnly the information reasonably needed to complete the agreed bookkeeping services is requested, and appropriate access is coordinated with the practice.',
+        'Bookkeeping uses financial records only: transaction summaries, payment-platform reports, and accounting documents. Patient medical records and clinical notes are not needed and should not be shared.\n\nOnly the information reasonably needed to complete the agreed bookkeeping services is requested, and appropriate access is coordinated with the practice.',
       takeaways: [
-        'Financial information is prioritized over clinical information',
+        'Financial records only. No clinical or patient records.',
         'Only relevant records are requested',
         'Access requirements are discussed during onboarding',
       ],

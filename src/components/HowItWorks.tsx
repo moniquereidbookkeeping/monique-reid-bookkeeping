@@ -19,7 +19,7 @@ const steps = [
   {
     icon: CheckCircle2,
     title: 'Clean books, every month',
-    body: 'Reconciled accounts and plain-English reports from a Certified Intuit ProAdvisor, so you always know where you stand.',
+    body: 'Reconciled accounts and plain-English reports from a Certified Intuit ProAdvisor, so you can see where you stand.',
   },
 ];
 

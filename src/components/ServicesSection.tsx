@@ -419,7 +419,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">2. Merchant and financing fee splits:</strong>{' '}
-                      Platforms like Stripe, Square, Cherry, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. Those deductions are cleanly isolated as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
+                      Platforms such as Stripe, Square, Cherry, CareCredit, and PatientFi often withhold merchant and processing fees before depositing funds into your bank account, depending on your settings and processor. Those deductions are isolated as merchant expense, helping your gross collections and operational metrics reconcile to your bank feeds.
                     </div>
                   </li>
 

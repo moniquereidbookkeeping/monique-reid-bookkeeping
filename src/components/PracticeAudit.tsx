@@ -37,7 +37,7 @@ const getFallbackPlan = (status: string, pos: string): Step[] => {
         body: 'Rebuild your chart of accounts to properly separate clinical supplies, payroll, retail, and operating costs.',
       },
       {
-        title: 'Tax-Ready File Delivery',
+        title: 'CPA-Ready File Delivery',
         body: 'Deliver a clean, fully reconciled QuickBooks file with P&L and Balance Sheet ready for your CPA.',
       },
     ];
@@ -72,7 +72,7 @@ const getFallbackPlan = (status: string, pos: string): Step[] => {
       },
       {
         title: `Connect ${p} to QuickBooks`,
-        body: `Set up your ${p} reconciliation workflow so every deposit matches your bank statement automatically from the start.`,
+        body: `Set up your ${p} reconciliation workflow so deposits can be matched to your bank statement each month.`,
       },
     ];
   }
@@ -89,7 +89,7 @@ const getFallbackPlan = (status: string, pos: string): Step[] => {
       },
       {
         title: 'Monthly Financial Review',
-        body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.',
+        body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income, with reports delivered by the 15th of the following month.',
       },
     ];
   }
@@ -238,7 +238,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
 
   // ── AI plan fetch ─────────────────────────────────────────
   const fetchAIPlan = async (
-    payload: typeof answers,
+    payload: Pick<typeof answers, 'status' | 'pos' | 'packages' | 'accounts'>,
   ): Promise<Step[] | null> => {
     setLoadingPlan(true);
     try {
@@ -291,7 +291,13 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
     setCompleted(true);
     trackEvent('health_check_complete');
 
-    const diagPayload = { ...answers };
+    // Diagnostic endpoint only uses these 4 fields — don't send the rest.
+    const diagPayload = {
+      status: answers.status,
+      pos: answers.pos,
+      packages: answers.packages,
+      accounts: answers.accounts,
+    };
     const planPromise = fetchAIPlan(diagPayload);
 
     fetch(LEAD_URL, {
@@ -336,7 +342,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const showProgress = !completed && isQuestionStep;
 
   return (
-    <section id="health-check" className="py-14 lg:py-20 bg-[#FAF8F5] border-b border-[#E2E8F0]">
+    <section id="health-check" data-clarity-mask="true" className="py-14 lg:py-20 bg-[#FAF8F5] border-b border-[#E2E8F0]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-md p-6 sm:p-10">
 
@@ -671,7 +677,11 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   Where should your personalized plan be sent?
                 </h3>
                 <p className="text-base text-[#4A5568]">
-                  I will review your practice profile personally and follow up with specific guidance — no obligation.
+                  Your profile is reviewed personally before any follow-up guidance — no obligation.
+                </p>
+                <p className="text-sm text-[#4A5568]">
+                  Please don't include patient names or health details. Your answers are processed by an AI service to help draft your plan. See the{' '}
+                  <a href="/privacy" className="underline hover:text-[#1A2E40]">Privacy Policy</a>.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -717,7 +727,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                     </button>
                     <p className="flex items-center gap-1.5 text-sm text-[#4A5568]">
                       <Lock className="w-3 h-3 text-[#D4AF37]" />
-                      Your info is private — never shared or sold.
+                      Your answers are processed by an AI service to draft your plan. Your details go to Monique so she can follow up. Never sold.
                     </p>
                   </div>
                   <button
@@ -798,7 +808,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200 shrink-0">
                     <Calendar className="w-3.5 h-3.5" />
                   </span>
-                  <span>Review Your Results on a Free 20-Min Clarity Call</span>
+                  <span>Book Your Free 20-Min Clarity Call</span>
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>

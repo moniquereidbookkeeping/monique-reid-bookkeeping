@@ -453,7 +453,7 @@ const allBlogPosts: BlogPost[] = [
           {
               "type": "callout",
               "heading": "Why It Matters",
-              "text": "If rebates are booked as income, your revenue and margins look better than they are. If they are ignored, you may be paying tax on a cost that was partly refunded. Either way, the numbers you use to price treatments are off."
+              "text": "If rebates are booked as income, your revenue and margins look better than they are. If they are ignored, your product cost looks higher than what you really paid, and your reported profit is off. Either way, the numbers you use to price treatments are off."
           },
           {
               "type": "heading",
@@ -499,7 +499,7 @@ const allBlogPosts: BlogPost[] = [
     content: [
       {
         type: 'intro',
-        text: 'If you use Boulevard or Vagaro to book appointments and collect payments, you already know the system works beautifully for scheduling and client management. What most practice owners do not realize is that the deposit hitting your business checking account from these platforms is not your revenue — it is your revenue minus merchant processing fees, minus any chargebacks or refunds, possibly minus tips that will be paid out to staff. Recording that deposit directly as income in QuickBooks is a common and costly mistake for aesthetic practice owners.',
+        text: 'If you use Boulevard or Vagaro to book appointments and collect payments, you already know the system handles scheduling and client management. What most practice owners do not realize is that the deposit hitting your business checking account from these platforms is not your revenue — it is your revenue minus merchant processing fees and any chargebacks or refunds. Card tips are usually included in that deposit and owed to your staff, rather than subtracted from it. Recording that deposit directly as income in QuickBooks is a common and costly mistake for aesthetic practice owners.',
       },
       {
         type: 'heading',
@@ -550,7 +550,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'heading',
-        heading: 'What About Vagaro Marketplace vs. Direct Payments?',
+        heading: 'Marketplace Bookings vs. Direct Bookings',
       },
       {
         type: 'paragraph',
@@ -571,11 +571,11 @@ const allBlogPosts: BlogPost[] = [
       {
         type: 'tip',
         heading: 'Quick Check',
-        text: 'In QuickBooks, run a Profit & Loss for last month and look at your Total Income line. Then look at your bank statement deposits from Boulevard or Vagaro for that same month. If the income number in QuickBooks is the same as what was deposited, your books are recording net deposits as revenue. The income number in QuickBooks should generally be higher than what was deposited. The difference is mostly your processing fees, and may also include refunds and tips.',
+        text: 'In QuickBooks, run a Profit & Loss for last month and look at your Total Income line. Then look at your bank statement deposits from Boulevard or Vagaro for that same month. If the income number in QuickBooks is the same as what was deposited, your books are recording net deposits as revenue. The income number in QuickBooks should generally be higher than what was deposited. The difference is mostly your processing fees, and may also include refunds. Card tips collected through the platform are usually included in the deposit and owed separately to staff — they do not explain this gap.',
       },
       {
         type: 'paragraph',
-        text: 'Getting POS reconciliation right is foundational work. Everything else in your books — service-line profitability, provider performance, tax filing — depends on this being done correctly. If you inherited a QuickBooks file where this has been handled incorrectly, a cleanup is the only way to correct the historical record and get to reliable numbers.',
+        text: 'Getting POS reconciliation right is foundational work. Everything else in your books — service-line profitability, provider performance, tax filing — depends on this being done correctly. If you inherited a QuickBooks file where this has been handled incorrectly, a cleanup is usually needed to correct the historical record and get to reliable numbers.',
       },
     ],
   },
@@ -597,7 +597,7 @@ const allBlogPosts: BlogPost[] = [
     content: [
       {
         type: 'intro',
-        text: 'Membership programs have become one of the most powerful growth tools for MedSpas and aesthetic clinics — predictable recurring revenue, improved patient retention, and a steady cash flow that does not depend entirely on appointment volume. But many practices that run memberships account for them incorrectly in QuickBooks. The result is financial statements that overstate income, a Balance Sheet that does not reflect outstanding obligations to members, and potential problems at tax time. Here is what is actually happening and how to fix it.',
+        text: 'Membership programs can be a strong growth tool for MedSpas and aesthetic clinics — predictable recurring revenue, improved patient retention, and a steady cash flow that does not depend entirely on appointment volume. But many practices that run memberships account for them incorrectly in QuickBooks. The result is financial statements that overstate income, a Balance Sheet that does not reflect outstanding obligations to members, and potential problems at tax time. Here is what is actually happening and how to fix it.',
       },
       {
         type: 'heading',
@@ -635,7 +635,7 @@ const allBlogPosts: BlogPost[] = [
       {
         type: 'callout',
         heading: 'In QuickBooks Online: Setting Up Deferred Revenue',
-        text: 'In your Chart of Accounts, add a new account and choose a current liability type (such as Other Current Liabilities). Name it "Membership Deferred Revenue" or "Prepaid Membership Dues." Your CPA can confirm the right setup for your file. When you collect monthly dues, create an invoice or sales receipt that posts to this liability account. When a member redeems their service, create a journal entry or a credit memo that reduces the liability and increases your Service Revenue account by the corresponding amount.',
+        text: 'In your Chart of Accounts, add a new account and choose a current liability type (such as Other Current Liabilities). Name it "Membership Deferred Revenue" or "Prepaid Membership Dues." When you collect monthly dues, use a product or service item mapped to this liability account on the invoice or sales receipt. When a member redeems their service, a journal entry moves that amount from the liability to Service Revenue. Your CPA or bookkeeper can confirm the right setup for your file.',
       },
       {
         type: 'heading',
@@ -647,7 +647,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'In practice, many practices track sessions in their POS system (booking platforms such as Boulevard, Vagaro and Jane can track package sessions) and use end-of-month POS reports to calculate how many sessions were redeemed and how much deferred revenue to recognize that month.',
+        text: 'In practice, many practices track sessions in their POS system (many booking platforms offer package or session tracking, depending on plan and settings) and use end-of-month POS reports to calculate how many sessions were redeemed and how much deferred revenue to recognize that month.',
       },
       {
         type: 'heading',
@@ -655,7 +655,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'When a patient finances a single treatment through Cherry or CareCredit, the service is delivered at the time of the procedure, so the revenue is earned then. The financing provider pays you (net of their discount or merchant fee) on their own schedule. The common error is posting income when the financing company pays you rather than when the service was delivered. If a patient receives a $2,000 treatment in October and Cherry sends you payment in November, the income belongs in October under accrual accounting, and the financing fee is recorded as a separate cost. If the patient finances a multi-session package, the earlier deferred revenue rules still apply to the sessions not yet delivered.',
+        text: 'When a patient finances a single treatment through Cherry or CareCredit, the service is delivered at the time of the procedure, so the revenue is earned then. The financing provider pays you (net of their discount or merchant fee) on their own schedule. The common error is posting income when the financing company pays you rather than when the service was delivered. If a patient receives a $2,000 treatment in October and the financing company\'s payment arrives in November, the income belongs in October under accrual accounting, and the financing fee is recorded as a separate cost. If the patient finances a multi-session package, the earlier deferred revenue rules still apply to the sessions not yet delivered.',
       },
       {
         type: 'heading',
@@ -713,7 +713,7 @@ const allBlogPosts: BlogPost[] = [
         items: [
           'Expense when purchased — the simplest method. Product orders go straight to an expense account. The weakness is timing: a large order in one month makes that month look unprofitable and the next month look unusually strong.',
           'Inventory on hand with a monthly count — purchases go to an Inventory Asset account on your Balance Sheet. Each month you count what is on the shelf and move the cost of product used into Cost of Goods Sold. This evens out the swings and is a practical middle ground for many single-location practices.',
-          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online is included in the Plus and Advanced plans, but not in Simple Start or Essentials, so check your plan on Intuit’s current pricing page.',
+          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online is included in the Plus and Advanced plans at the time of writing, but not in Simple Start or Essentials, so check your plan on Intuit’s current pricing page.',
         ],
       },
       {
@@ -808,7 +808,7 @@ const allBlogPosts: BlogPost[] = [
     content: [
       {
         type: 'intro',
-        text: 'Patient financing helps more treatments get booked, but it often leaves a gap in the books. A patient finances a $2,000 treatment, and a smaller amount reaches your bank account a few days later. If that smaller deposit is recorded as the sale, revenue is understated and the financing fee never appears anywhere.',
+        text: 'Patient financing helps more treatments get booked, but it often leaves a gap in the books. Depending on the program, the practice may pay a fee, so the deposit can be less than the treatment price, on the lender\'s own payout schedule. If that smaller deposit is recorded as the sale, revenue is understated and the financing fee never appears anywhere.',
       },
       {
         type: 'heading',
@@ -842,7 +842,7 @@ const allBlogPosts: BlogPost[] = [
           'Create a separate expense account for patient financing fees so the cost is visible on its own line.',
           'When the payout arrives, match it to the lender’s payout report, not just to the bank line.',
           'Record the fee for each payout, so that sale, fee and deposit add up exactly.',
-          'Keep each lender separate. Cherry, CareCredit and Affirm have different payout schedules, so combining them hides which program costs what.',
+          'Keep each lender separate, since payout schedules and fees can differ by program, and combining them hides which program costs what.',
         ],
       },
       {
@@ -1132,7 +1132,7 @@ const allBlogPosts: BlogPost[] = [
         type: 'cta-inline',
         heading: 'Multi-year records, organized',
         text: 'The historical financial records service standardizes several years of statements and assembles a package for lenders, CPAs or advisors to review.',
-        link: { page: 'services', label: 'See historical records and reporting' },
+        link: { page: 'services', label: 'See all services, including historical records' },
       },
       { type: 'paragraph', text: 'This article is general information, not lending, valuation, tax or legal advice. No lender or buyer approval can be promised, since they make their own decisions. Bookkeeping organizes your records; it does not include valuation opinions, audits or tax filings.' },
     ],

@@ -22,16 +22,18 @@ QuickBooks Cleanup and Catch-Up (one-time, fixed price once scope is agreed, fre
 
 Other services: Financial Reporting and KPIs (from $797/mo, paired with monthly bookkeeping); Aesthetic and Wellness specialization (treatment COGS, unearned revenue for packages, gift cards and memberships, provider commission and 1099 payout clearing, financing fee reconciliation, IV hydration and GLP-1 revenue tracking); QuickBooks Setup and Chart of Accounts (project-based pricing); Historical Financial Records and Reporting (project-based pricing).
 
-Platforms supported: Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Stripe. Patient financing: Cherry, CareCredit, PatientFi.
+Platforms commonly reconciled from their reports (no integration claims): Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Mangomint, Stripe. Patient financing commonly reconciled: Cherry, CareCredit, PatientFi, Affirm.
 
 HARD RULES FOR ANYTHING YOU WRITE:
-- Only name services, plans, features and platforms from the list above. Never invent a service, discount, package or price.
+- Only name services, plans, features and platforms from the list above. Never invent a service, discount, package or price, and never claim a direct software integration with any platform — Monique reconciles from their reports.
 - Only quote a price if it appears above, and never a different price for the same plan.
 - Never promise how long anything will take (no "within 30 days", "2-3 weeks", "fast", "guaranteed"). A clear timeline is given on the call after reviewing their books.
-- Monique does not file taxes, give tax or legal advice, or give audit or valuation opinions.
+- Monique does not file taxes, give tax or legal advice, or give audit or valuation opinions, and is not a CPA or enrolled agent.
+- Never mention HIPAA, patient data, patient records or patient health information — this is bookkeeping on financial records only.
+- Never use "tax-ready", "deductions", "always", "never miss", "without fail", or promise savings.
 `.trim();
 
-/** True when AI text breaks the rules above (unknown price, timeline promise, guarantee). */
+/** True when AI text breaks the rules above (unknown price, timeline promise, guarantee, or an off-limits claim). */
 export function breaksOfferRules(text: string): boolean {
   const amounts = text.match(/\$\s?\d[\d,]*(?:\.\d+)?\s?[kK]?/g) ?? [];
   if (amounts.some((a) => !ALLOWED_AMOUNTS.has(a.replace(/\s/g, '')))) return true;
@@ -39,5 +41,14 @@ export function breaksOfferRules(text: string): boolean {
   if (/\b(?:within|inside|in|under|in just|in about|in only)\s+(?:about\s+|just\s+|only\s+)?\d+\s*(?:(?:-|–|to)\s*\d+\s*)?(?:business\s+)?(?:days?|weeks?)\b/i.test(text)) return true;
   if (/\bwithin\s+(?:about\s+)?\d+\s*(?:(?:-|–|to)\s*\d+\s*)?months?\b/i.test(text)) return true;
   if (/\bguarantee[ds]?\b/i.test(text)) return true;
+  // Content-rule guardrails (docs/niche-pain-points.md): no HIPAA/patient-data implication,
+  // no claimed CPA/EA credential, no tax-prep framing, no absolute promises.
+  if (/\bHIPAA\b/i.test(text)) return true;
+  if (/\bpatients?\s+(data|information|records?|health)\b/i.test(text)) return true;
+  if (/\b(CPA|enrolled agent)\b/i.test(text)) return true;
+  if (/\btax[\s-]?ready\b/i.test(text)) return true;
+  if (/\bdeductions?\b/i.test(text)) return true;
+  if (/\b(always|never miss(es)?|without fail)\b/i.test(text)) return true;
+  if (/\bsavings?\b/i.test(text)) return true;
   return false;
 }

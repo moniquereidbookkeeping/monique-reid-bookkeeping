@@ -148,7 +148,7 @@ function getFallbackSteps(status: string, pos: string): { title: string; body: s
     return [
       { title: 'Historical Transaction Cleanup', body: `Categorize and reconcile all ${p} transactions month by month to rebuild accurate records from the ground up.` },
       { title: 'Correct Chart of Accounts', body: 'Rebuild your chart of accounts to properly separate clinical supplies, payroll, retail, and operating costs.' },
-      { title: 'Tax-Ready File Delivery', body: 'Deliver a clean, fully reconciled QuickBooks file with P&L and Balance Sheet ready for your CPA.' },
+      { title: 'CPA-Ready File Delivery', body: 'Deliver a clean, fully reconciled QuickBooks file with P&L and Balance Sheet ready for your CPA.' },
     ];
   }
   if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
@@ -162,14 +162,14 @@ function getFallbackSteps(status: string, pos: string): { title: string; body: s
     return [
       { title: 'QuickBooks Company File Setup', body: 'Configure your QBO account with the right settings, fiscal year, and industry classification from day one.' },
       { title: 'Chart of Accounts Build', body: 'Build a chart of accounts designed for aesthetic practices — service revenue, clinical supplies, retail, and payroll all properly separated.' },
-      { title: `Connect ${p} to QuickBooks`, body: `Set up your ${p} reconciliation workflow so every deposit matches your bank statement automatically from the start.` },
+      { title: `Connect ${p} to QuickBooks`, body: `Set up your ${p} reconciliation workflow so deposits can be matched to your bank statement each month.` },
     ];
   }
   if (s.includes('current') || s.includes('ongoing')) {
     return [
       { title: 'Service-Line P&L Report', body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.` },
       { title: 'Membership Revenue Tracking', body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.' },
-      { title: 'Monthly Financial Review', body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income — every month without fail.' },
+      { title: 'Monthly Financial Review', body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income, with reports delivered by the 15th of the following month.' },
     ];
   }
 
@@ -282,7 +282,7 @@ async function generateExpertBrief(
     '- Biggest Challenge Stated: ' + (challenge || 'not specified') + '\n\n' +
     'Everything you write must follow this catalog and these rules:\n' + OFFERINGS_TEXT + '\n\n' +
     'Write four sections:\n\n' +
-    'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "1099 vs W-2 misclassification," "service-line margin tracking").\n\n' +
+    'DIAGNOSIS: 2-3 sentences. Name the core bookkeeping problem or opportunity for THIS exact practice. Address their stated challenge directly. Reference their platform and QB status. Use real terminology (e.g. "net-payout reconciliation," "deferred revenue from prepaid packages," "contractor and payroll tracking," "service-line margin tracking").\n\n' +
     'SOLUTION PLAN: 3 steps. Each step: title (3-6 words) + body (ONE short sentence, 15 words maximum, describing the OUTCOME for the client, not how it is done: no account names, workflows or setup mechanics; those belong on the call). Reference ' + (pos || 'their platform') + ' by name at least once. Use QuickBooks terminology throughout. Address their stated revenue level and challenge.\n\n' +
     'DISCOVERY CALL QUESTIONS: 4 sharp questions Monique should ask — specific to this platform, revenue model, practice age, and stated challenge. Not generic — make them sound like a specialist who already knows their world.\n\n' +
     'RECOMMENDED PACKAGE: One sentence. Our system has already matched this prospect to the ' + tier.name + ' tier (' + tier.price + '). Recommend exactly that tier, do not name any other tier or price, and say why it fits. Our system\'s cleanup assessment for this prospect is: ' + cleanup.label + ' (' + cleanup.note + '). Your package sentence must agree with that assessment: mention a one-time cleanup only if it says one is needed, and never promise how long anything will take.\n\n' +
@@ -332,35 +332,17 @@ function getStatusParagraph(status: string, pos: string): string {
     return `Being a few months behind is common and very fixable. I'll give you a clear timeline once I see your books.`;
   }
   if (s.includes('current') || s.includes('ongoing')) {
-    return `Current books put you ahead of most practices. The next step is reports that actually guide your decisions.`;
+    return `Current books are a strong starting point. The next step is reports that actually guide your decisions.`;
   }
   if (s.includes('new') || s.includes('not') || s.includes('set up')) {
-    return `Setting up QuickBooks correctly from day one saves you from costly cleanup later.`;
+    return `Setting up QuickBooks correctly from day one can help you avoid a costly cleanup later.`;
   }
   return `Based on what you shared, here is a short plan for your practice.`;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function getPSLine(status: string): string {
-  const s = status.toLowerCase();
-  if (s.includes('cleanup') || s.includes('4 to 12')) {
-    return `P.S. — The longer a backlog sits, the harder it gets. On our call I'll give you a clear scope and an end date for getting caught up.`;
-  }
-  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
-    return `P.S. — A 1–3 month catchup is one of the quickest fixes in bookkeeping. It's usually quick work, and I'll give you a clear timeline on our call.`;
-  }
-  if (s.includes('current') || s.includes('ongoing')) {
-    return `P.S. — Being current is a great foundation. The next level is having reports that actually tell you which services drive your margins — so every business decision is backed by real numbers, not guesswork.`;
-  }
-  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
-    return `P.S. — Getting the setup right from day one is usually much cheaper than cleaning it up later.`;
-  }
-  return `P.S. — If you have a specific question before we meet, just reply to this email. I read every one.`;
-}
-
 function formatStepsBlock(steps: { title: string; body: string }[]): string {
   if (!steps.length) return '';
-  let block = 'Here is the 3-step plan I put together specifically for your practice:\n\n';
+  let block = "Here is a 3-step starting plan, drafted automatically from your answers. I'll go through it with you on our call:\n\n";
   steps.forEach((s, i) => {
     block += `STEP ${i + 1}: ${s.title.toUpperCase()}\n${s.body}\n\n`;
   });

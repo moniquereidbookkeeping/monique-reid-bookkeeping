@@ -11,13 +11,13 @@ const CATEGORIES = [
     id: 'necessary',
     title: 'Strictly Necessary Cookies',
     description:
-      "These cookies are required for the site to work and can't be switched off. They're typically set in response to something you do, like setting your cookie preferences. They don't store anything that identifies you personally.",
+      "Your cookie choice itself is saved in your browser's local storage, not a cookie. Our security provider, Cloudflare, may set a short-lived security cookie to protect our forms from spam.",
   },
   {
     id: 'analytics',
     title: 'Analytics Cookies',
     description:
-      "These help us understand how visitors use the site so we can improve it. Google Analytics gives us aggregate traffic numbers — which pages get visited, where visitors come from. Microsoft Clarity records individual visit sessions, including clicks and scrolling, so we can see how people actually move through the site; it automatically hides anything typed into form fields. If you turn these off, we won't be able to see how the site is being used or where it needs work.",
+      "These help us understand how visitors use the site so we can improve it. Google Analytics (cookies _ga, _ga_5YJE6T34BE) gives us aggregate traffic numbers — which pages get visited, where visitors come from. Microsoft Clarity (cookies _clck, _clsk) records individual visit sessions, including clicks and scrolling, so we can see how people actually move through the site; it masks the Bookkeeping Health Check section and anything typed into form fields. If you turn these off, we won't be able to see how the site is being used or where it needs work.",
   },
 ] as const;
 
@@ -123,7 +123,7 @@ export const CookieBanner: React.FC<{ onNavigate: (p: PageView) => void }> = ({ 
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
           <p className="flex-1 text-sm sm:text-base leading-relaxed text-[#E2E8F0]">
-            We use cookies to keep this site working and, if you allow it, to understand how visitors use it.
+            This site uses analytics cookies only if you allow them.
             You can change your choice any time.{' '}
             <button
               type="button"

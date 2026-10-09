@@ -87,7 +87,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       return json({ error: 'Unexpected AI response format', reason: 'offer-rules' }, 500, origin);
     }
     if (!steps) {
-      console.error('Failed to parse steps from Gemini response:', cand?.finishReason, rawText);
+      console.error('Failed to parse steps from Gemini response:', cand?.finishReason, 'length:', rawText.length);
       return json({ error: 'Unexpected AI response format', reason: `finish:${cand?.finishReason ?? 'none'} len:${rawText.length}` }, 500, origin);
     }
 

@@ -188,7 +188,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     },
     {
       title: 'Categorization and recurring expenses',
-      body: 'Transactions are categorized to a chart of accounts built for aesthetic practices, and recurring expenses are checked so nothing is missed or counted twice.',
+      body: 'Transactions are categorized to a chart of accounts built for aesthetic practices, and recurring expenses are checked so items aren\'t missed or double-counted.',
     },
     {
       title: 'Booking and payment payouts',
