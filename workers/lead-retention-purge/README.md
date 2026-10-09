@@ -46,10 +46,20 @@ action needed.
 
 - **Logs:** Worker → **Logs** tab in the dashboard shows each run and how
   many rows it deleted (never the row contents — just a count).
-- **Run it right now** instead of waiting for Sunday: find the Worker's
-  `*.workers.dev` URL in the dashboard and send it a POST request, e.g.
-  `curl -X POST https://mr-bookkeeping-lead-retention.<your-subdomain>.workers.dev`.
-  It responds with `{"ok":true,"deleted":N}`.
+- **Run it right now** instead of waiting for Sunday: the deployed Worker
+  deliberately has no public URL (`workers_dev = false` in `wrangler.toml`),
+  so nobody else can trigger it. To run a purge on demand, run it from your
+  own computer against the real sheet:
+  1. In `workers/lead-retention-purge/`, create a file named `.env` with the
+     same two values (`.env` files are git-ignored, so it won't be committed):
+     ```
+     GOOGLE_SA_KEY={"type":"service_account",...the full JSON on one line...}
+     SPREADSHEET_ID=...
+     ```
+  2. Run `npx wrangler dev`, then in another terminal:
+     `curl -X POST http://localhost:8787/`
+     It responds with `{"ok":true,"deleted":N}`.
+  3. Stop `wrangler dev` and delete the `.env` file.
 
 ## What it does NOT do
 

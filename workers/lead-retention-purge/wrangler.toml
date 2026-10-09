@@ -2,6 +2,12 @@ name = "mr-bookkeeping-lead-retention"
 main = "src/index.ts"
 compatibility_date = "2026-10-01"
 
+# No public URL: the Worker only runs on its cron schedule. Without these, anyone who found its
+# *.workers.dev (or version preview) address could trigger a purge with a POST.
+# To run it on demand, see "Run it right now" in README.md.
+workers_dev = false
+preview_urls = false
+
 # Runs every Sunday at 10:00 UTC (6:00am Eastern during daylight saving time /
 # 5:00am Eastern in winter — adjust if a different day/time is preferred; cron is always in UTC).
 [triggers]

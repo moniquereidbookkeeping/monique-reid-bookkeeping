@@ -9,8 +9,9 @@
 // new Google Cloud setup is needed. Just copy the two secret values from the Pages
 // project into this Worker (see ../README.md for exact steps).
 //
-// Runs weekly on a schedule, and can also be triggered on demand with a POST
-// (e.g. from the Cloudflare dashboard's "Trigger" button, or `curl -X POST <url>`).
+// Runs weekly on a schedule. The deployed Worker has no public URL (workers_dev = false in
+// wrangler.toml), so the fetch handler below is only reachable when running it locally with
+// `wrangler dev` — see "Run it right now" in ../README.md.
 
 export interface Env {
   GOOGLE_SA_KEY: string;
