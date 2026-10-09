@@ -252,7 +252,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             Monique Reid Bookkeeping does not request patient medical information as part of ordinary bookkeeping services.
           </p>
           <p className="text-sm leading-relaxed">
-            Where a particular engagement requires handling protected health information and applicable law requires additional contractual or security measures, the parties will address those requirements through appropriate written agreements and secure processes before such information is accessed.
+            Engagements are set up so that only financial reports are shared. If a practice&apos;s systems cannot produce financial reports without patient details, the parties will agree on another way to get the figures before any access is given.
           </p>
         </div>
 

@@ -109,7 +109,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-2 pt-1">
             <h4 className="text-sm font-bold text-[#1A2E40]">B. Bookkeeping Health Check</h4>
             <p className="text-sm leading-relaxed">
-              If you use the free Bookkeeping Health Check, we collect your name, email address, and your answers: your QuickBooks status, booking or point-of-sale platform, number of accounts, revenue model and range, practice age, and any challenge you describe in your own words. We use your answers to create a general plan for you and to prepare for a call with you. Your answers — never your name or email — are processed by Google's Gemini AI service to help draft that plan. Your plan is emailed to the address you provide, and your name, email and answers are kept in our lead records so we can follow up with you. Contact us any time to have your information deleted. Please do not enter patient names, patient health information, or account numbers in the free-text fields.
+              If you use the free Bookkeeping Health Check, we collect your name, email address, and your answers: your QuickBooks status, booking or point-of-sale platform, number of accounts, revenue model and range, practice age, and any challenge you describe in your own words. We use your answers to create a general plan for you and to prepare for a call with you. Your answers — never your name or email — are processed by Google's Gemini AI service to help draft that plan. Your plan is emailed to the address you provide, and your name, email and answers are kept in our lead records for up to 24 months so we can follow up with you, then deleted. Contact us any time to have your information deleted sooner. Please do not enter patient names, patient health information, or account numbers in the free-text fields.
             </p>
           </div>
         </div>
@@ -185,9 +185,9 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             For example, depending on the client&apos;s systems and agreed scope, this may include aggregate revenue totals, settlement batches, transaction summaries, or other financial reports.
           </p>
           <div className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] space-y-1 text-sm">
-            <p className="font-bold text-[#1A2E40]">HIPAA</p>
+            <p className="font-bold text-[#1A2E40]">No Patient Health Information</p>
             <p className="text-[#57534E]">
-              If a particular engagement involves creating, receiving, maintaining, or transmitting PHI and Monique Reid Bookkeeping is acting as a HIPAA business associate, the parties will address applicable HIPAA requirements through appropriate written agreements and safeguards before such information is handled. HHS explains that accounting services can fall within the business-associate framework when they involve PHI.
+              Monique Reid Bookkeeping does not accept or handle patient health information. Engagements are set up so that only financial reports are shared. If a practice&apos;s systems cannot produce financial reports without patient details, we will agree on another way to get the figures before any access is given.
             </p>
           </div>
         </div>

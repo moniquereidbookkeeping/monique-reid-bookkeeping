@@ -378,7 +378,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Med Spa Bookkeeping Plans &amp; Pricing
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Flat monthly plans and fixed-fee cleanup projects, with a free call to find the right fit.
+                  Fixed monthly plans and fixed-fee cleanup projects, with a free call to find the right fit.
                 </p>
               </div>
             </div>

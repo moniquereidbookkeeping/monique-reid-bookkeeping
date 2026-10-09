@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({
               Stop Guessing Your True Profit.{' '}
               <br />
               <span className="text-[#A67C00] relative inline-block">
-                Specialized MedSpa Bookkeeping for Clean, Tax-Ready QuickBooks.
+                Specialized MedSpa Bookkeeping for Clean, CPA-Ready QuickBooks.
                 <svg
                   className="absolute -bottom-2 left-0 w-full h-2.5 text-[#D4AF37]/40"
                   viewBox="0 0 200 8"

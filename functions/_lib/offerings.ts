@@ -12,7 +12,7 @@ const ALLOWED_AMOUNTS = new Set(['$497', '$797', '$1,197', '$597', '$1,297', '$1
 export const OFFERINGS_TEXT = `
 SERVICES AND PRICING (this is the complete, official list. Use only this).
 
-Monthly Bookkeeping (flat monthly plans, QuickBooks Online):
+Monthly Bookkeeping (fixed monthly plans, QuickBooks Online):
 - Essential, $497/mo: solo providers and single-location practices under about $25K/month with a straightforward setup; up to 3 accounts; bank and credit-card reconciliations, POS and merchant payout reconciliation, categorization, monthly P&L and Balance Sheet, year-end CPA package.
 - Growth, $797/mo: practices about $25K to $75K/month, or with memberships, prepaid packages, patient financing (Cherry, CareCredit, PatientFi), multiple POS or payment systems; up to 6 accounts; adds membership and package tracking, financing reconciliation, provider compensation reconciliation, month-over-month revenue reporting, executive financial summary.
 - Full-Spectrum, $1,197/mo: practices $75K+/month, multi-location or 7+ accounts; adds multi-location tracking, inventory and treatment-cost (COGS) tracking, provider payout reconciliation, revenue by service category, plain-language commentary, priority response.

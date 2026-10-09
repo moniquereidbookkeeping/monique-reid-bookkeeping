@@ -70,10 +70,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
         { tier: 'Growth', price: '$797/mo', desc: 'Expanding practices running memberships, patient financing platforms, or multiple POS integrations.', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
         { tier: 'Full-Spectrum', price: '$1,197/mo', desc: 'High-volume or multi-location practices requiring provider-level, modality-level, and multi-account tracking.', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
       ],
-      noticeTitle: 'Customized Retainer',
+      noticeTitle: 'Which Plan Fits',
       detailPage: 'monthly-bookkeeping' as PageView,
       detailLabel: 'How monthly bookkeeping for med spas works',
-      notice: 'Monthly bookkeeping retainers are tailored to your practice’s transaction volume, active bank/credit accounts, POS integrations, and reporting depth.',
+      notice: 'Which monthly plan fits depends on your practice’s transaction volume, active bank/credit accounts, POS systems, and reporting depth.',
     },
     {
       id: 'reporting',

@@ -102,7 +102,7 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   pricing: {
     title: 'Med Spa Bookkeeping Pricing & Monthly Plans | Monique Reid',
     description:
-      'Flat monthly bookkeeping plans from $497 and fixed-fee QuickBooks cleanup from $597 for MedSpas, aesthetic clinics, IV hydration and wellness practices.',
+      'Fixed monthly bookkeeping plans from $497 and fixed-fee QuickBooks cleanup from $597 for MedSpas, aesthetic clinics, IV hydration and wellness practices.',
   },
   'south-florida': {
     title: 'Med Spa Bookkeeping in South Florida | Monique Reid',
