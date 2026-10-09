@@ -45,14 +45,21 @@ export function breaksOfferRules(text: string): boolean {
   // no claimed CPA/EA credential, no tax-prep framing, no absolute promises.
   if (/\bHIPAA\b/i.test(text)) return true;
   if (/\bpatients?\s+(data|information|records?|health)\b/i.test(text)) return true;
-  // Only block CPA/enrolled-agent mentions that claim it as Monique's own credential.
-  // A plain mention ("hand your CPA a clean package", "CPA-Ready") is fine and expected.
-  if (/\b(?:i am|i'm|we are|we're|monique(?: reid)?(?: bookkeeping)?\s+is)\s+(?:a |an )?(?:licensed |certified )?(?:cpa|enrolled agent)\b/i.test(text)) return true;
-  if (/\b(?:licensed|certified)\s+(?:cpa|enrolled agent)\b/i.test(text)) return true;
-  if (/\bcpa\s+firm\b/i.test(text)) return true;
+  // Only block CPA/enrolled-agent wording that claims it as Monique's own credential. Plain mentions
+  // ("hand your CPA a clean package", "CPA-Ready", "talk to a licensed CPA", "your CPA firm") are fine and expected.
+  if (/\b(?:i am|i'm|we are|we're|monique(?: reid)?(?: bookkeeping)?\s+is)\s+(?:a |an |your )?(?:licensed |certified )?(?:cpa|enrolled agent)\b/i.test(text)) return true;
+  if (/\b(?:our|my|in-house)\s+(?:licensed\s+|certified\s+)?(?:cpas?|enrolled agents?)\b(?![\s-]*(?:ready|package|hand-?off|file))/i.test(text)) return true;
+  if (/\bas\s+(?:a|an|your)\s+(?:licensed\s+|certified\s+)?(?:cpa|enrolled agent)\b/i.test(text)) return true;
   if (/\btax[\s-]?ready\b/i.test(text)) return true;
   if (/\bdeductions?\b/i.test(text)) return true;
-  if (/\b(always|never miss(es)?|without fail)\b/i.test(text)) return true;
-  if (/\bsavings?\b/i.test(text)) return true;
+  // Absolute promises. A plain "always" describing how something works ("commissions are always calculated
+  // from the same report") is fine; "you'll always…" or "always on time" is a promise.
+  if (/\b(?:never miss(?:es)?|without fail)\b/i.test(text)) return true;
+  if (/\b(?:we|i|monique|you|you'll|we'll|will)\s+(?:will\s+)?always\b/i.test(text)) return true;
+  if (/\balways\s+(?:be\s+)?(?:on[\s-]time|accurate|correct|error[\s-]free|up[\s-]to[\s-]date|catch(?:es)?|caught)\b/i.test(text)) return true;
+  // Savings promises. A plain mention ("package savings and discounts") is fine.
+  if (/\b(?:save|saves|saving)\s+you\b/i.test(text)) return true;
+  if (/\b(?:you'll|you will|we'll|will)\s+save\b/i.test(text)) return true;
+  if (/\b(?:tax|guaranteed|significant|big|huge|real)\s+savings\b|\bsavings\s+of\b/i.test(text)) return true;
   return false;
 }
