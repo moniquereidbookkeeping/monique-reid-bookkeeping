@@ -45,7 +45,11 @@ export function breaksOfferRules(text: string): boolean {
   // no claimed CPA/EA credential, no tax-prep framing, no absolute promises.
   if (/\bHIPAA\b/i.test(text)) return true;
   if (/\bpatients?\s+(data|information|records?|health)\b/i.test(text)) return true;
-  if (/\b(CPA|enrolled agent)\b/i.test(text)) return true;
+  // Only block CPA/enrolled-agent mentions that claim it as Monique's own credential.
+  // A plain mention ("hand your CPA a clean package", "CPA-Ready") is fine and expected.
+  if (/\b(?:i am|i'm|we are|we're|monique(?: reid)?(?: bookkeeping)?\s+is)\s+(?:a |an )?(?:licensed |certified )?(?:cpa|enrolled agent)\b/i.test(text)) return true;
+  if (/\b(?:licensed|certified)\s+(?:cpa|enrolled agent)\b/i.test(text)) return true;
+  if (/\bcpa\s+firm\b/i.test(text)) return true;
   if (/\btax[\s-]?ready\b/i.test(text)) return true;
   if (/\bdeductions?\b/i.test(text)) return true;
   if (/\b(always|never miss(es)?|without fail)\b/i.test(text)) return true;

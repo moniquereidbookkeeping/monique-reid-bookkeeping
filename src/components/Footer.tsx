@@ -227,7 +227,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           </div>
         </div>
 
-        <p className="pt-5 mt-5 border-t border-white/10 text-center text-xs text-[#E2E8F0]/50 max-w-3xl mx-auto leading-relaxed">
+        <p className="pt-5 mt-5 border-t border-white/10 text-center text-xs text-[#E2E8F0]/70 max-w-3xl mx-auto leading-relaxed">
           {SITE_DISCLAIMER}
         </p>
 
