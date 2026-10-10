@@ -3,6 +3,7 @@ import { Calendar, ArrowRight, MapPin, Phone, Mail, Video, Search, ClipboardList
 import { PageView } from '../types';
 import { pathFor } from '../router';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '../constants/booking';
+import { BROWARD_CITIES } from '../constants/serviceArea';
 import { RelatedArticles } from './RelatedArticles';
 
 interface FortLauderdalePageProps {
@@ -10,9 +11,6 @@ interface FortLauderdalePageProps {
   onBookCall: () => void;
   onReadPost: (slug: string) => void;
 }
-
-/** Owner-confirmed service area (October 2026). The work is fully remote; there is no office to visit. */
-export const FORT_LAUDERDALE_AREAS = ['Fort Lauderdale', 'Wilton Manors', 'Oakland Park', 'Plantation', 'Davie'];
 
 const STEPS: Array<{ icon: typeof Video; title: string; body: string }> = [
   { icon: Video, title: 'A free 20-minute call on Zoom', body: 'Talk through where your books stand and what you need them for. No office visit, and no time out of a clinic day beyond the call itself.' },
@@ -134,7 +132,7 @@ export const FortLauderdalePage: React.FC<FortLauderdalePageProps> = ({ onNaviga
               Fort Lauderdale and nearby
             </p>
             <ul className="mt-4 flex flex-wrap gap-2">
-              {FORT_LAUDERDALE_AREAS.map((c) => (
+              {BROWARD_CITIES.map((c) => (
                 <li key={c} className="px-2.5 py-1 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-medium text-[#1A2E40]">
                   {c}
                 </li>
@@ -181,7 +179,7 @@ export const FortLauderdalePage: React.FC<FortLauderdalePageProps> = ({ onNaviga
 
       <RelatedArticles
         heading="Guides for Fort Lauderdale practice owners"
-        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
         onReadPost={onReadPost}
       />
     </>

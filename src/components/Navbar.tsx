@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   id={item.id}
                   href={item.scrollTo ? `/#${item.scrollTo}` : pathFor(item.page)}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.page, item.scrollTo); }}
-                  className={`px-3 py-2 xl:px-3.5 xl:py-2 text-[14px] tracking-[0.01em] transition-all duration-200 rounded-lg relative cursor-pointer ${
+                  className={`px-3 lg:px-2 py-2 xl:px-3.5 xl:py-2 text-[14px] tracking-[0.01em] transition-all duration-200 rounded-lg relative cursor-pointer ${
                     isActive
                       ? 'text-[#1A2E40] font-semibold bg-[#FAF8F5]'
                       : 'text-[#1A2E40]/80 font-medium hover:text-[#1A2E40] hover:bg-[#FAF8F5]/80'
@@ -116,19 +116,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3 shrink-0">
+          {/* Action CTAs. The full "Book Your Free 20-Min Clarity Call" label does not fit beside the logo below md, or beside the
+              desktop menu between lg and 1120px, so the button is hidden there; the top bar above carries the same call link. */}
+          <div className="hidden md:flex lg:max-[1119px]:hidden items-center gap-3 shrink-0">
             <a
               href="/contact"
               id="header-clarity-call-btn"
               onClick={(e) => { e.preventDefault(); onBookCall(); }}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide text-[#1A2E40]! bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.98] transition-all duration-200 shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.38)] border border-[#FFF5DE]/60 group cursor-pointer"
+              className="inline-flex items-center gap-2.5 px-5 lg:px-3.5 xl:px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide text-[#1A2E40]! bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] active:scale-[0.98] transition-all duration-200 shadow-[0_2px_10px_rgba(212,175,55,0.25)] hover:shadow-[0_4px_16px_rgba(212,175,55,0.38)] border border-[#FFF5DE]/60 group cursor-pointer"
             >
-              <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
+              <span className="w-6 h-6 rounded-lg bg-[#1A2E40]/10 flex lg:hidden xl:flex items-center justify-center text-[#1A2E40] group-hover:bg-[#1A2E40] group-hover:text-[#D4AF37] transition-colors duration-200">
                 <Calendar className="w-3.5 h-3.5" />
               </span>
-              <span className="font-bold text-[#1A2E40]">Book a Free Call</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#1A2E40]/70 group-hover:text-[#1A2E40] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+              <span className="font-bold text-[#1A2E40]">Book Your Free 20-Min Clarity Call</span>
+              <ArrowUpRight className="lg:hidden xl:block w-3.5 h-3.5 text-[#1A2E40]/70 group-hover:text-[#1A2E40] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
             </a>
           </div>
 

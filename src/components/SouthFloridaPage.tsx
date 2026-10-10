@@ -3,18 +3,13 @@ import { Calendar, ArrowRight, MapPin, Video, FileCheck2, Receipt, Users, Buildi
 import { PageView } from '../types';
 import { pathFor } from '../router';
 import { RelatedArticles } from './RelatedArticles';
+import { SOUTH_FLORIDA_AREAS } from '../constants/serviceArea';
 
 interface SouthFloridaPageProps {
   onNavigate: (page: PageView) => void;
   onBookCall: () => void;
   onReadPost: (slug: string) => void;
 }
-
-const AREAS: { county: string; cities: string[] }[] = [
-  { county: 'Broward County', cities: ['Fort Lauderdale', 'Hollywood', 'Pembroke Pines', 'Coral Springs', 'Weston', 'Plantation', 'Davie', 'Pompano Beach'] },
-  { county: 'Miami-Dade County', cities: ['Miami', 'Miami Beach', 'Coral Gables', 'Aventura', 'Doral', 'Kendall'] },
-  { county: 'Palm Beach County', cities: ['Boca Raton', 'Delray Beach', 'Boynton Beach', 'West Palm Beach', 'Palm Beach Gardens', 'Jupiter'] },
-];
 
 const FLORIDA_ITEMS = [
   {
@@ -121,7 +116,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {AREAS.map((a) => (
+            {SOUTH_FLORIDA_AREAS.map((a) => (
               <div key={a.county} className="rounded-2xl bg-white border border-[#E2E8F0] p-6">
                 <h3 className="flex items-center gap-2 text-lg font-serif font-bold text-[#1A2E40]">
                   <MapPin className="w-5 h-5 text-[#8A6A00]" aria-hidden="true" />
@@ -176,7 +171,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
 
       <RelatedArticles
         heading="Guides for South Florida practice owners"
-        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
         onReadPost={onReadPost}
       />
     </>

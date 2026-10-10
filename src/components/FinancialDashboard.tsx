@@ -179,7 +179,7 @@ const serviceInsights: Record<ServiceKey, { name: string; margin: string; explan
     name: 'Medical-Grade Skincare Retail',
     margin: 'Retail margin',
     explanation:
-      'Retail margin comes from the wholesale cost of products sold, tracked apart from back-bar supplies used in treatments. Cost should follow the practice’s accounting method rather than an assumed markup.',
+      'Retail margin comes from the wholesale cost of products sold, tracked apart from back-bar supplies used in treatments. Cost should follow the practice\'s accounting method rather than an assumed markup.',
   },
 };
 

@@ -16,6 +16,7 @@
 // ============================================================
 
 import { OFFERINGS_TEXT, breaksOfferRules } from '../_lib/offerings';
+import { BOOKING_URL } from '../../src/constants/booking';
 import { callGemini, DEFAULT_GEMINI_MODEL, allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
 
 export interface Env {
@@ -30,7 +31,6 @@ export interface Env {
 const FROM_EMAIL   = 'monique@moniquereidbookkeeping.com';
 const FROM_NAME    = 'Monique Reid';
 const NOTIFY_EMAIL = 'moniquethebookkeeper@gmail.com';
-const CALENDLY     = 'https://calendly.com/moniquethebookkeeper/20min';
 const SHEET_NAME   = 'Leads';
 
 export const onRequestOptions: PagesFunction = async (ctx) => {
@@ -153,7 +153,7 @@ function getFallbackSteps(status: string, pos: string): { title: string; body: s
   }
   if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
     return [
-      { title: 'Reconcile Payouts & Fees', body: `Reconcile ${p} batch deposits with merchant processing deductions so net banking activity and gross collections are clearly tracked.` },
+      { title: 'Reconcile Payouts & Fees', body: `Reconcile ${p} batch deposits with merchant processing fees so net banking activity and gross collections are clearly tracked.` },
       { title: 'Clean Chart of Accounts', body: 'Separate clinical supply COGS from general operating expenses for clearer service-line margin visibility.' },
       { title: 'Monthly Close Routine', body: 'Reconcile your accounts systematically each month with an organized Balance Sheet and Profit & Loss.' },
     ];
@@ -162,7 +162,7 @@ function getFallbackSteps(status: string, pos: string): { title: string; body: s
     return [
       { title: 'QuickBooks Company File Setup', body: 'Configure your QBO account with the right settings, fiscal year, and industry classification from day one.' },
       { title: 'Chart of Accounts Build', body: 'Build a chart of accounts designed for aesthetic practices — service revenue, clinical supplies, retail, and payroll all properly separated.' },
-      { title: `Connect ${p} to QuickBooks`, body: `Set up your ${p} reconciliation workflow so deposits can be matched to your bank statement each month.` },
+      { title: `Reconcile ${p} Payouts Monthly`, body: `Set up your ${p} reconciliation workflow so deposits can be matched to your bank statement each month.` },
     ];
   }
   if (s.includes('current') || s.includes('ongoing')) {
@@ -438,7 +438,7 @@ async function sendNotifyEmail(env: Env, d: {
       aiNote +
       expertBlock + '\n\n' +
       'Reply: ' + d.email + '\n' +
-      'Book:  ' + CALENDLY,
+      'Book:  ' + BOOKING_URL,
   });
 }
 
@@ -461,7 +461,7 @@ async function sendThankYouEmail(env: Env, d: {
     `I'd love to walk through this with you — 20 minutes, no sales pitch, just a clear picture of where your books stand and exactly what it takes to get them right.\n\n` +
     '──────────────────────────────\n' +
     '→ Book your free 20-minute call:\n' +
-    CALENDLY + '\n' +
+    BOOKING_URL + '\n' +
     '──────────────────────────────\n\n' +
     `— Monique Reid\n` +
     `Certified Intuit ProAdvisor\n` +

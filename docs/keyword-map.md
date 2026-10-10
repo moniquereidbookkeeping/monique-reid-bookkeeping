@@ -43,7 +43,7 @@ Status: **Live** (on the site), **Scheduled** (publishes on that date; see the R
 | `/blog/iv-hydration-cost-per-drip-nurse-pay-quickbooks` | Live | IV hydration cost per drip | IV drip supply cost QuickBooks, IV nurse pay bookkeeping, mobile IV costs (not #29, which the IV hydration page owns) | Awareness |
 | `/blog/glp1-medication-cost-medical-director-pay-quickbooks` | Live | GLP-1 medication cost bookkeeping | semaglutide / tirzepatide cost of goods sold, medical director fee bookkeeping, weight loss clinic provider pay (not #30 or #31, which the medical weight loss page owns) | Awareness |
 | `/blog/reconcile-boulevard-vagaro-quickbooks` | Live | Boulevard QuickBooks reconciliation (#47) | Vagaro QuickBooks reconciliation (#48) | Awareness |
-| `/blog/record-cherry-carecredit-affirm-financing-quickbooks` | Scheduled 2026-10-13 | Cherry financing bookkeeping med spa (#49) | CareCredit reconciliation med spa (#50) | Awareness |
+| `/blog/record-cherry-carecredit-financing-quickbooks` | Scheduled 2026-10-13 | Cherry financing bookkeeping med spa (#49) | CareCredit reconciliation med spa (#50) | Awareness |
 | `/blog/medspa-provider-commission-bookkeeping` | Scheduled 2026-11-03 | med spa provider commission bookkeeping (#43) | med spa payroll QuickBooks, 1099 vs W-2 providers | Awareness |
 | `/blog/medspa-tips-refunds-chargebacks-quickbooks` | Scheduled 2026-11-24 | med spa tips and chargebacks QuickBooks | refunds and no-show fees in QuickBooks, POS payout breakdown | Awareness |
 | `/blog/medspa-lender-ready-financials` | Scheduled 2026-12-01 | med spa financial statements for a loan | lender-ready books, selling a med spa: what buyers ask for | Awareness |

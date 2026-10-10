@@ -67,13 +67,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
       startingPrice: 'From $497/mo',
       monthlyTiers: [
         { tier: 'Essential', price: '$497/mo', desc: 'Solo practitioners or new clinics with a straightforward account structure and clean transaction history.', highlights: ['Up to 3 accounts', 'Monthly reconciliation', 'P&L + Balance Sheet', 'Year-end CPA package'] },
-        { tier: 'Growth', price: '$797/mo', desc: 'Expanding practices running memberships, patient financing platforms, or multiple POS integrations.', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
+        { tier: 'Growth', price: '$797/mo', desc: 'Expanding practices running memberships, patient financing platforms, or multiple POS or payment systems.', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
         { tier: 'Full-Spectrum', price: '$1,197/mo', desc: 'High-volume or multi-location practices requiring provider-level, modality-level, and multi-account tracking.', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
       ],
       noticeTitle: 'Which Plan Fits',
       detailPage: 'monthly-bookkeeping' as PageView,
       detailLabel: 'How monthly bookkeeping for med spas works',
-      notice: 'Which monthly plan fits depends on your practice’s transaction volume, active bank/credit accounts, POS systems, and reporting depth.',
+      notice: 'Which monthly plan fits depends on your practice\'s transaction volume, active bank/credit accounts, POS systems, and reporting depth.',
     },
     {
       id: 'reporting',
@@ -96,7 +96,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
       noticeTitle: 'Reporting Integration',
       detailPage: 'financial-reporting' as PageView,
       detailLabel: 'See what med spa financial reports show',
-      notice: 'Reporting is paired with ongoing monthly bookkeeping and built around your practice’s management platforms and available data.',
+      notice: 'Reporting is paired with ongoing monthly bookkeeping and built around your practice\'s management platforms and available data.',
     },
     {
       id: 'focus',
@@ -133,7 +133,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
         'Complete QuickBooks Online company file setup, preferences, and permissions configuration',
         'Specialized Chart of Accounts organized across clinical treatments, medical consumables, operating overhead, and administrative tiers',
         'Bank, credit card, and merchant gateway feed connections, with categorization rules',
-        'Practice-management and POS mapping (Boulevard, Vagaro, Jane, Mindbody, Square, Stripe) to support clean reconciliation',
+        'Practice-management and POS mapping (Boulevard, Vagaro, Jane App, Mindbody, Square, Stripe) to support clean reconciliation',
         'Product and service item catalog setup with accurate tax mapping based on client guidance and applicable rules',
         'Owner initial equity contributions, capital funding, and fixed-asset scheduling',
       ],
@@ -427,7 +427,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">3. Provider payout and tip isolation:</strong>{' '}
-                      Clean clearing workflows separate injector tips and provider commissions from your practice’s core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
+                      Clean clearing workflows separate injector tips and provider commissions from your practice's core service revenue. This keeps your overhead transparent and your payroll and 1099 records organized.
                     </div>
                   </li>
                 </ul>

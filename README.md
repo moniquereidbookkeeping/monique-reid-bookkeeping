@@ -25,7 +25,7 @@ Live: Boulevard & Vagaro reconciliation (featured), memberships & packages, neur
 
 | Date | Article |
 |---|---|
-| 2026-10-13 | Cherry, CareCredit & Affirm payouts |
+| 2026-10-13 | Cherry & CareCredit payouts |
 | 2026-10-20 | MedSpa chart of accounts |
 | 2026-10-27 | Is my MedSpa profitable? |
 | 2026-11-03 | Provider commission bookkeeping |
