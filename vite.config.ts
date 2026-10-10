@@ -18,6 +18,11 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      // Publish source maps so production errors can be traced back to real
+      // source (also clears PageSpeed's "missing source maps" diagnostic).
+      sourcemap: true,
+    },
     server: {
       port: 3000,
       host: '0.0.0.0',

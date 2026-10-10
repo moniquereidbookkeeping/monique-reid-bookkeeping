@@ -45,6 +45,7 @@ export const FounderPortrait: React.FC<FounderPortraitProps> = ({
           height={614}
           className="relative z-[5] w-full h-auto object-contain object-bottom max-h-[540px] transition-transform duration-500 group-hover:scale-[1.015]"
           loading={variant === 'hero' ? 'eager' : 'lazy'}
+          fetchPriority={variant === 'hero' ? 'high' : 'auto'}
         />
       </div>
     </div>
