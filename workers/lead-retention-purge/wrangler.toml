@@ -11,7 +11,7 @@ preview_urls = false
 # Runs every Sunday at 10:00 UTC (6:00am Eastern during daylight saving time /
 # 5:00am Eastern in winter — adjust if a different day/time is preferred; cron is always in UTC).
 [triggers]
-crons = ["0 10 * * 0"]
+crons = ["0 10 * * SUN"]
 
 # Secrets — set these with `wrangler secret put <NAME>`, or in the Cloudflare
 # dashboard for this Worker (Settings -> Variables and Secrets). Do NOT put

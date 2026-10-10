@@ -37,7 +37,7 @@ new to set up on the Google side — just copy two values that already exist.
 
 4. Confirm the schedule is active: in the Cloudflare dashboard, open the
    `mr-bookkeeping-lead-retention` Worker → **Triggers** tab → you should see
-   a Cron Trigger for `0 10 * * 0` (every Sunday, 10:00 UTC).
+   a Cron Trigger for `0 10 * * SUN` (every Sunday, 10:00 UTC).
 
 That's it — from here it runs on its own, every week, with no further
 action needed.
