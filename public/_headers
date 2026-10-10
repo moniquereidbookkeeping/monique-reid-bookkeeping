@@ -5,9 +5,12 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000
 
-# Built JavaScript and CSS have a content fingerprint in the file name (index-AbC123.js), so a changed
-# file always gets a new name. Browsers can keep them for a year instead of re-downloading every 4 hours.
-/assets/index-*
+# Built JavaScript and CSS have a content fingerprint in the file name (index-AbC123.js, HomePage-DeF456.js),
+# so a changed file always gets a new name. Browsers can keep them for a year instead of re-downloading every
+# 4 hours. (The other files in /assets are images copied as-is from public/assets, so they are not listed.)
+/assets/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*.css
   Cache-Control: public, max-age=31536000, immutable
 
 # Self-hosted font files also carry a content fingerprint in the file name, so they never change in place.
