@@ -271,7 +271,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
       'medspa-month-end-close-checklist-quickbooks',
       'reconcile-boulevard-vagaro-quickbooks',
       'medspa-membership-revenue-quickbooks',
-      'record-cherry-carecredit-affirm-financing-quickbooks',
+      'record-cherry-carecredit-financing-quickbooks',
       'medspa-provider-commission-bookkeeping',
     ],
   },

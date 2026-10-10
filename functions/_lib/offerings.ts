@@ -22,7 +22,7 @@ QuickBooks Cleanup and Catch-Up (one-time, fixed price once scope is agreed, fre
 
 Other services: Financial Reporting and KPIs (from $797/mo, paired with monthly bookkeeping); Aesthetic and Wellness specialization (treatment COGS, unearned revenue for packages, gift cards and memberships, provider commission and 1099 payout clearing, financing fee reconciliation, IV hydration and GLP-1 revenue tracking); QuickBooks Setup and Chart of Accounts (project-based pricing); Historical Financial Records and Reporting (project-based pricing).
 
-Platforms commonly reconciled from their reports (no integration claims): Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Mangomint, Stripe. Patient financing commonly reconciled: Cherry, CareCredit, PatientFi, Affirm.
+Platforms commonly reconciled from their reports (no integration claims): Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Stripe. Patient financing commonly reconciled: Cherry, CareCredit, PatientFi.
 
 HARD RULES FOR ANYTHING YOU WRITE:
 - Only name services, plans, features and platforms from the list above. Never invent a service, discount, package or price, and never claim a direct software integration with any platform — Monique reconciles from their reports.
@@ -34,7 +34,7 @@ HARD RULES FOR ANYTHING YOU WRITE:
 `.trim();
 
 /** Platforms named in the catalog above, plus generic "your POS" / "your booking software". */
-const PLATFORM = String.raw`(?:Boulevard|Vagaro|Jane(?:\s+App)?|Mindbody|Zenoti|Square|Mangomint|Stripe|Cherry|CareCredit|PatientFi|Affirm|your\s+(?:POS|booking\s+(?:software|system|platform)))`;
+const PLATFORM = String.raw`(?:Boulevard|Vagaro|Jane(?:\s+App)?|Mindbody|Zenoti|Square|Stripe|Cherry|CareCredit|PatientFi|your\s+(?:POS|booking\s+(?:software|system|platform)))`;
 const INTEGRATION_CLAIMS = [
   // "syncs with Boulevard", "integrates directly with Vagaro", "connect Square to QuickBooks", "plugs into your POS"
   new RegExp(String.raw`\b(?:integrat\w*|sync\w*|plugs?\s+(?:in)?to|connect(?:s|ed|ing)?)\s+(?:(?:directly|automatically|seamlessly)\s+)?(?:(?:to|with|into|from)\s+)?(?:the\s+)?${PLATFORM}\b`, 'i'),

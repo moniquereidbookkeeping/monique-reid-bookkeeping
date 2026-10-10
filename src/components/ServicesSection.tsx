@@ -353,7 +353,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                     'Jane App',
                     'Mindbody',
                     'Zenoti',
-                    'Mangomint',
                     'Stripe',
                     'Square',
                     'Cherry',

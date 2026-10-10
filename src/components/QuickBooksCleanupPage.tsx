@@ -236,7 +236,7 @@ export const QuickBooksCleanupPage: React.FC<QuickBooksCleanupPageProps> = ({ on
 
       <RelatedArticles
         heading="Guides to the problems a cleanup fixes"
-        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
         onReadPost={onReadPost}
       />
     </>

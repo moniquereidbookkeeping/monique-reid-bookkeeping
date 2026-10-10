@@ -171,7 +171,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
 
       <RelatedArticles
         heading="Guides for South Florida practice owners"
-        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
         onReadPost={onReadPost}
       />
     </>

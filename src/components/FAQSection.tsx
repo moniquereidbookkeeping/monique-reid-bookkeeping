@@ -157,7 +157,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       id: 'faq-4',
       category: 'quickbooks-systems',
       categoryLabel: 'QUICKBOOKS & SYSTEMS',
-      question: 'How do you reconcile software such as Boulevard, Vagaro, Jane App, Mangomint, Square, or Stripe with QuickBooks?',
+      question: 'How do you reconcile software such as Boulevard, Vagaro, Jane App, Square, or Stripe with QuickBooks?',
       answer:
         'Practice-management and payment platforms frequently combine service revenue, product sales, client tips, memberships, processing fees, refunds, and other activity into a single bank deposit.\n\nPlatform reports, merchant statements, and bank deposits are compared to properly record the underlying activity in QuickBooks. Depending on your systems and workflow, clearing accounts or summarized entries may also be used to make monthly reconciliation more accurate and manageable.',
       takeaways: [

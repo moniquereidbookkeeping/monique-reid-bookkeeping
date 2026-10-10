@@ -812,15 +812,15 @@ const allBlogPosts: BlogPost[] = [
   },
   {
     id: 'post-014',
-    slug: 'record-cherry-carecredit-affirm-financing-quickbooks',
-    title: 'How to Record Cherry, CareCredit and Affirm Financing Payouts in QuickBooks',
+    slug: 'record-cherry-carecredit-financing-quickbooks',
+    title: 'How to Record Cherry and CareCredit Financing Payouts in QuickBooks',
     metaTitle: 'Cherry & CareCredit Payouts in QuickBooks for Med Spas',
     metaDescription:
-      'Patient financing payouts arrive net of fees. How a med spa should record and reconcile Cherry, CareCredit and Affirm payouts in QuickBooks.',
+      'Patient financing payouts arrive net of fees. How a med spa should record and reconcile Cherry and CareCredit payouts in QuickBooks.',
     excerpt:
       'When a patient finances a treatment, the payout that reaches your bank is smaller than the treatment price. Here is how to record financing payouts in QuickBooks so revenue and fees both appear correctly.',
     category: 'POS & Reconciliation',
-    tags: ['Patient Financing', 'Cherry', 'CareCredit', 'Affirm', 'QuickBooks', 'MedSpa', 'Reconciliation'],
+    tags: ['Patient Financing', 'Cherry', 'CareCredit', 'QuickBooks', 'MedSpa', 'Reconciliation'],
     publishedDate: '2026-10-13',
     readingTime: 5,
     coverImage: 'https://images.unsplash.com/photo-1634733988138-bf2c3a2a13fa?auto=format&fit=crop&w=1400&q=80',
@@ -836,7 +836,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'With most patient financing programs, including Cherry, CareCredit and Affirm, the patient finances the treatment with the lender, and the lender pays the practice. The practice generally receives the treatment price minus a fee. The fee rate depends on the program and on your agreement with the lender, so check your own statements rather than assuming a number.',
+        text: 'With patient financing programs such as Cherry and CareCredit, the patient finances the treatment with the lender, and the lender pays the practice. The practice generally receives the treatment price minus a fee. The fee rate depends on the program and on your agreement with the lender, so check your own statements rather than assuming a number.',
       },
       {
         type: 'callout',

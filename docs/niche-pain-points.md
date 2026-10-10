@@ -31,7 +31,7 @@ Status is set by `publishedDate` in `src/data/blogPosts.ts`: a post goes live wi
 
 Published (live): Boulevard and Vagaro reconciliation; membership and package revenue; neurotoxin and filler cost (all 2026-10-06); IV hydration cost per drip and nurse pay; GLP-1 medication cost and medical director pay (both 2026-10-07).
 
-Scheduled (written, not live yet): Cherry, CareCredit and Affirm financing (2026-10-13); chart of accounts (2026-10-20); is my MedSpa profitable (2026-10-27); provider commission (2026-11-03); month-end close checklist (2026-11-10); manufacturer rebates and rewards (2026-11-17); tips, refunds, no-shows and chargebacks (2026-11-24); lender-ready financials (2026-12-01); physician-owned and multi-entity books (2026-12-08); what your CPA needs (2027-01-05). Archived older posts live in `src/data/archivedBlogPosts.ts` (hidden; re-check facts before restoring).
+Scheduled (written, not live yet): Cherry and CareCredit financing (2026-10-13); chart of accounts (2026-10-20); is my MedSpa profitable (2026-10-27); provider commission (2026-11-03); month-end close checklist (2026-11-10); manufacturer rebates and rewards (2026-11-17); tips, refunds, no-shows and chargebacks (2026-11-24); lender-ready financials (2026-12-01); physician-owned and multi-entity books (2026-12-08); what your CPA needs (2027-01-05). Archived older posts live in `src/data/archivedBlogPosts.ts` (hidden; re-check facts before restoring).
 
 ## Rules for any new content
 - Voice: no "we/our" on marketing pages. "I" only where Monique speaks (About, Contact intro, booking emails). Privacy and Terms keep "we".

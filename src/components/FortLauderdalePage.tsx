@@ -179,7 +179,7 @@ export const FortLauderdalePage: React.FC<FortLauderdalePageProps> = ({ onNaviga
 
       <RelatedArticles
         heading="Guides for Fort Lauderdale practice owners"
-        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-affirm-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
+        slugs={['reconcile-boulevard-vagaro-quickbooks', 'medspa-membership-revenue-quickbooks', 'record-cherry-carecredit-financing-quickbooks', 'track-neurotoxin-filler-costs-quickbooks']}
         onReadPost={onReadPost}
       />
     </>
