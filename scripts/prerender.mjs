@@ -11,7 +11,21 @@ const ssrDir = join(root, '.ssr');
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 const { renderRoute, allPaths, CONTACT_EMAIL, CONTACT_PHONE_TEL } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
-const template = readFileSync(join(dist, 'index.html'), 'utf8');
+let template = readFileSync(join(dist, 'index.html'), 'utf8');
+
+// The whole stylesheet goes inside each page instead of a separate <link>, so the first paint never waits for
+// a CSS download (PageSpeed's "render-blocking request"). It is about 13 KB compressed, and after the first page
+// the site switches pages in the browser without downloading new HTML. Inlining all of it, not just the rules a
+// page seems to use, means every rule is there at first paint: nothing can show unstyled and then jump.
+{
+  const links = template.match(/<link rel="stylesheet"[^>]*>/g) ?? [];
+  if (links.length !== 1) throw new Error(`index.html: expected one built stylesheet link, found ${links.length}`);
+  const href = links[0].match(/href="\/([^"]+\.css)"/)?.[1];
+  if (!href) throw new Error(`index.html: could not read the stylesheet address from ${links[0]}`);
+  const css = readFileSync(join(dist, href), 'utf8');
+  if (/<\/style/i.test(css)) throw new Error(`${href}: contains "</style", cannot be inlined safely`);
+  template = template.replace(links[0], () => `<style>${css}</style>`);
+}
 
 // The business structured data in index.html is static JSON, so it cannot read src/constants/booking.ts.
 // Stop the build if its phone or email drifts from the ones shown on the Contact and Fort Lauderdale pages:
