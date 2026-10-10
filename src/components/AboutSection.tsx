@@ -96,7 +96,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
 
             <div className="space-y-4 text-lg text-[#4A5568] leading-relaxed">
               <p>
-                Hi, I'm Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
+                Hi, I'm Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper with a Bachelor of Business Administration. I've spent 10+ years helping small business owners get their books under control — the owners who are great at running their business and never wanted to become their own accountant to do it. More recently, I've focused that experience specifically on MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
               </p>
               {onViewAbout ? (
                 <p>
@@ -112,7 +112,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               ) : (
                 <>
                 <p>
-                  I chose to focus on this industry because its books are harder than most generalist bookkeepers are set up for. The financial workflows here are more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and a generic small-business setup often handles them poorly. I built my QuickBooks approach around how these practices operate.
+                  I made that shift because I kept running into the same problem: these practices' books are harder than a generalist bookkeeping setup is built for. POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, multiple payment platforms — a one-size-fits-all QuickBooks file handles that poorly, no matter how solid the bookkeeping fundamentals are. So I built my whole QuickBooks approach around how these practices actually operate.
                 </p>
                 <p>
                   My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
