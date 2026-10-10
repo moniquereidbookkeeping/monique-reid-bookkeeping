@@ -360,7 +360,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Free 20-Minute Zoom Call
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Book Your Free Financial Clarity Call
+                  Book Your Free Clarity Call
                 </h1>
               </div>
             </div>
