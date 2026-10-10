@@ -37,13 +37,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
         'Multi-month or multi-year bank, credit card, and financing account reconciliations',
         'Comprehensive transaction review, vendor verification, and recategorization',
         'Identification and resolution of duplicate, missing, and uncategorized entries',
-        'Specialized Chart of Accounts restructuring tailored to aesthetic and wellness modalities',
-        'Merchant and POS payout reconciliation for Boulevard, Vagaro, Stripe, Square, and connected gateways',
+        'Chart of Accounts restructured around your treatments and services',
+        'Merchant and POS payout reconciliation for Boulevard, Vagaro, Stripe, Square, and other payment processors',
         'Clear separation and documentation of owner, personal, and intercompany transactions',
       ],
       startingPrice: 'From $597',
       noticeTitle: 'Fixed-fee pricing',
-      notice: 'All cleanup projects include a complimentary preliminary review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',
+      notice: 'All cleanup projects start with a free first review to confirm scope. Price is fixed once scope is agreed — no hourly surprises.',
       detailPage: 'quickbooks-cleanup' as PageView,
       detailLabel: 'See how a med spa cleanup works',
     },
@@ -61,14 +61,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
         'Systematic transaction categorization and recurring expense verification',
         'Ongoing review of uncleared items, outstanding checks, and anything that needs follow-up from your practice',
         'Preparation of monthly Balance Sheet and Profit & Loss statements',
-        'Plain-English summary of notable trends and key variances (depending on plan)',
+        'Plain-language summary of notable trends and key variances (depending on plan)',
         'Organized year-end package prepared for your CPA or tax professional',
       ],
       startingPrice: 'From $497/mo',
       monthlyTiers: [
         { tier: 'Essential', price: '$497/mo', desc: 'Solo practitioners or new clinics with a straightforward account structure and clean transaction history.', highlights: ['Up to 3 accounts', 'Monthly reconciliation', 'P&L + Balance Sheet', 'Year-end CPA package'] },
         { tier: 'Growth', price: '$797/mo', desc: 'Expanding practices running memberships, patient financing platforms, or multiple POS or payment systems.', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
-        { tier: 'Full-Spectrum', price: '$1,197/mo', desc: 'High-volume or multi-location practices requiring provider-level, modality-level, and multi-account tracking.', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
+        { tier: 'Full-Spectrum', price: '$1,197/mo', desc: 'High-volume or multi-location practices needing tracking by provider, by treatment, and across many accounts.', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
       ],
       noticeTitle: 'Which Plan Fits',
       detailPage: 'monthly-bookkeeping' as PageView,
@@ -80,17 +80,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
       num: '03',
       phase: 'Grow',
       title: 'Financial Reporting & KPIs',
-      tagline: 'Plain-language reports on the numbers that drive practice growth and profitability.',
+      tagline: 'Clear reports on the numbers that drive practice growth and profitability.',
       lead: 'Turns accounting entries into clear reports that help owners understand treatment margins, revenue mix, and cash flow.',
       icon: TrendingUp,
       highlight: 'Reports designed for healthcare and aesthetic practice owners, not just for tax preparation.',
       deliverables: [
-        'Treatment and service-line margin reporting where cost records and inventory data allow',
+        'Treatment and service-line margin reporting where cost records and inventory data allow (Full-Spectrum)',
         'Monthly Balance Sheet reporting with clear visibility into assets, liabilities, and retained earnings',
-        'Period-over-period performance comparisons, including month-over-month and quarter-over-quarter trends',
-        'Revenue by treatment type (injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare, and memberships)',
-        'Plain-language summary of notable changes, overhead ratios, and areas to watch',
-        'Cash-flow reporting you can use when planning hiring, provider compensation, equipment leases, and expansion',
+        'Month-over-month revenue comparisons (Growth and up)',
+        'Revenue by treatment type (injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare, and memberships) (Full-Spectrum)',
+        'Plain-language summary of notable changes, overhead ratios, and areas to watch (Full-Spectrum)',
+        'Cash-flow reporting you can use when planning hiring, provider compensation, equipment leases, and expansion (scoped in your proposal)',
       ],
       startingPrice: 'From $797/mo',
       noticeTitle: 'Reporting Integration',
@@ -101,18 +101,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
     {
       id: 'focus',
       num: '04',
-      phase: 'Specialized',
+      phase: 'Tailor',
       title: 'Practice-Specific Bookkeeping',
       tagline: 'Bookkeeping methods built for the clinical and operational realities of self-pay healthcare.',
-      lead: 'Connects clinical scheduling software, inventory costs, and tiered provider pay to QuickBooks Online.',
+      lead: 'Reconciles your scheduling, inventory and provider-pay reports in QuickBooks Online.',
       icon: HeartHandshake,
       highlight: 'Industry-specific workflows that reflect clinical inventory, patient financing, and recurring membership models.',
       deliverables: [
         'Treatment COGS tracking for neurotoxins, dermal fillers, and specialty medical consumables where applicable',
         'Retail skincare and clinical inventory cost tracking and valuation schedules',
-        'Systematic unearned revenue liability tracking for prepaid packages, gift cards, and VIP memberships',
+        'Prepaid packages, gift cards, and memberships tracked as a liability until the treatment is delivered',
         'Provider commission, injector percentage, and 1099 contractor payout clearing reconciliations',
-        'Patient financing platform reconciliation (Cherry, CareCredit, PatientFi) isolating merchant discount fees',
+        'Patient financing platform reconciliation (Cherry, CareCredit, PatientFi), with the lender fees recorded separately',
         'Dedicated tracking for IV hydration, vitamin shot bars, and medical weight-loss (GLP-1/peptides) revenue streams',
         'Multi-location and provider-level performance tracking for expanding practices',
       ],
@@ -131,7 +131,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
       highlight: 'A Chart of Accounts built for aesthetic practices, capturing treatment revenue and clinical costs from day one.',
       deliverables: [
         'Complete QuickBooks Online company file setup, preferences, and permissions configuration',
-        'Specialized Chart of Accounts organized across clinical treatments, medical consumables, operating overhead, and administrative tiers',
+        'A chart of accounts organized by treatments, medical supplies, overhead, and administrative costs',
         'Bank, credit card, and merchant gateway feed connections, with categorization rules',
         'Practice-management and POS mapping (Boulevard, Vagaro, Jane App, Mindbody, Square, Stripe) to support clean reconciliation',
         'Product and service item catalog setup with accurate tax mapping based on client guidance and applicable rules',
@@ -147,15 +147,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
       id: 'scale',
       num: '06',
       phase: 'Scale',
-      title: 'Historical Financial Records & Reporting',
-      tagline: 'Multi-year financial reconstruction for lending, succession, or practice expansion.',
+      title: 'Historical Records & Reporting',
+      tagline: 'Multi-year records rebuilt for a loan, a sale or handover, or expansion.',
       lead: 'Designed for established aesthetic and wellness practices preparing for bank financing, partnership buy-ins, clinical expansion, or practice valuation review.',
       icon: LineChart,
       highlight: 'Standardized multi-year financial schedules that give lenders, CPAs, or advisors an organized historical record.',
       deliverables: [
-        'Multi-year financial record reconstruction, standardization, and normalization based on available records',
+        'Multi-year records rebuilt and organized consistently from the records available',
         'Historical multi-period Profit & Loss and Balance Sheet standardization for clear multi-year comparative analysis',
-        'Organization and scheduling of non-recurring, discretionary, and owner transactions for review by qualified CPAs or transaction advisors',
+        'One-time, discretionary, and owner transactions listed separately for your CPA or advisor to review',
         'Structured financial packages assembled to support financing applications and lender underwriting inquiries',
         'Historical trend schedules for revenue growth, clinical supply cost ratios, and operating overhead',
         'Scope note: this service organizes bookkeeping records. It does not include valuation opinions, audit opinions, or tax filings',
@@ -180,7 +180,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
             Bookkeeping Services for Med Spas, Medical Spas and Wellness Practices
           </h2>
           <p className="mt-4 text-lg text-[#4A5568] leading-relaxed">
-            From QuickBooks cleanup and monthly bookkeeping to reporting, setup and historical records, each service is built around how med spas, medical spas, aesthetic clinics and wellness practices actually run.
+            From QuickBooks cleanup and monthly bookkeeping to reporting, setup and historical records, each service is built around how med spas, medical spas, aesthetic clinics and wellness practices run.
           </p>
 
           {/* Filter Pills */}
@@ -332,13 +332,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <span className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">
-                  Practice software &amp; POS integration
+                  Your software, reconciled
                 </span>
                 <h3 id="pos-integration-heading" className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
                   Your Booking and Payment Software, Reconciled to QuickBooks
                 </h3>
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl leading-relaxed">
-                  You don't need to change your booking or POS system. Settlements, provider tips, merchant processing fees, patient financing transactions, and package sales are reconciled from your booking platform straight into QuickBooks Online.
+                  You don't need to change your booking or POS system. Settlements, provider tips, merchant processing fees, patient financing transactions, and package sales are reconciled in QuickBooks Online from your booking platform's own reports.
                 </p>
 
                 {/* The Technology Integration Grid */}
@@ -383,7 +383,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </a>
                 <p className="text-sm text-[#E2E8F0] mt-2.5 text-center lg:text-right">
-                  20-minute private consultation on Zoom
+                  Free 20-minute Clarity Call on Zoom
                 </p>
               </div>
             </div>
@@ -396,7 +396,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                   Keep your software from breaking your books.
                 </h4>
                 <p className="text-base text-[#4A5568] leading-relaxed mt-2.5">
-                  Relying on an automated POS sync alone can fill QuickBooks with unreconciled transactions, create duplicate entries, obscure merchant processing deductions, and produce misleading financial reports that distort your true cash flow metrics.
+                  Relying on an automated POS sync alone can fill QuickBooks with unreconciled transactions, create duplicate entries, hide merchant processing fees, and produce reports that misstate your cash flow.
                 </p>
               </div>
 
@@ -419,7 +419,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">2. Merchant and financing fee splits:</strong>{' '}
-                      Platforms such as Stripe, Square, Cherry, CareCredit, and PatientFi often withhold merchant and processing fees before depositing funds into your bank account, depending on your settings and processor. Those deductions are isolated as merchant expense, helping your gross collections and operational metrics reconcile to your bank feeds.
+                      Platforms such as Stripe, Square, Cherry, CareCredit, and PatientFi often withhold merchant and processing fees before depositing funds into your bank account, depending on your settings and processor. Those fees are recorded as merchant expense, helping your gross collections and operational metrics reconcile to your bank feeds.
                     </div>
                   </li>
 
@@ -438,7 +438,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                 <div className="p-4 sm:p-5 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35">
                   <p className="text-base text-[#4A5568] leading-relaxed">
                     <strong className="text-[#1A2E40] font-bold">In summary:</strong>{' '}
-                    You don't need to change the booking platform, POS, or patient financing software you love. The backend data flow is cleaned up, your software reporting is reconciled against your bank feeds, and clear, reliable financial statements are delivered every month.
+                    You don't need to change the booking platform, POS, or patient financing software you already use. Its reports are reconciled against your bank deposits, and clear, reliable financial statements are delivered every month.
                   </p>
                 </div>
               </div>

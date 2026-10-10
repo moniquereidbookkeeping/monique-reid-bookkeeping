@@ -83,7 +83,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-2 pt-1">
             <h4 className="text-sm font-bold text-[#1A2E40]">A. Contact and Consultation Information</h4>
             <p className="text-sm leading-relaxed">
-              When you contact us, submit an inquiry, or schedule a Financial Clarity Call, this may include, depending on how you contact us:
+              When you contact us, submit an inquiry, or schedule a free 20-minute Clarity Call, this may include, depending on how you contact us:
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E] pt-1">
               {[
@@ -128,7 +128,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E]">
               {[
                 'QuickBooks Online information',
-                'Bank and credit-card statements',
+                'Bank and credit card statements',
                 'Transaction information',
                 'Merchant-processor settlement reports',
                 'Payroll summaries',
@@ -435,7 +435,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
             The specific safeguards used may vary depending on the system, information, service provider, and nature of the engagement.
           </p>
           <p className="text-sm text-[#1A2E40] font-medium bg-[#1A2E40]/5 p-3 rounded-lg border-l-4 border-[#D4AF37]">
-            No method of electronic transmission or storage can be guaranteed to be completely secure. The FTC recommends that businesses scale their security measures to the sensitivity of the information they maintain.
+            No method of electronic transmission or storage can be guaranteed to be completely secure.
           </p>
         </div>
 
@@ -450,9 +450,6 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           </p>
           <p className="text-sm leading-relaxed">
             We do not intentionally request patient medical information when it is not necessary for the agreed bookkeeping services. Clients should not provide unnecessary sensitive information through ordinary website forms or email.
-          </p>
-          <p className="text-sm text-[#57534E] bg-[#FAF8F5] p-3 rounded-lg border border-[#D4AF37]/30">
-            This approach follows the FTC&apos;s guidance to take stock of sensitive information, keep only what is needed, protect it appropriately, and securely dispose of information that is no longer necessary.
           </p>
         </div>
 
@@ -490,9 +487,6 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           </p>
           <p className="text-sm leading-relaxed">
             Where notification is legally required, we will provide notice in the manner and within the timeframe required by applicable law.
-          </p>
-          <p className="text-sm text-[#57534E]">
-            The FTC recommends that businesses maintain a plan for responding to security incidents rather than assuming a breach will never occur.
           </p>
         </div>
 
@@ -564,7 +558,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-1 text-sm text-[#E2E8F0]">
             <p className="font-bold text-white text-base">Monique Reid Bookkeeping</p>
             <p>Monique Reid, Founder</p>
-            <p className="text-[#D4AF37] font-medium">Specialized Bookkeeping for MedSpas, Aesthetic Clinics &amp; Wellness Practices</p>
+            <p className="text-[#D4AF37] font-medium">Bookkeeping for MedSpas, Aesthetic Clinics &amp; Wellness Practices</p>
             <p className="pt-1">
               Website:{' '}
               <a

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { trackEvent } from '../lib/analytics';
 import { TurnstileWidget } from './TurnstileWidget';
-import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Lock, Loader2 } from 'lucide-react';
+import { getFallbackPlan } from '../data/fallbackPlan';
+import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Loader2 } from 'lucide-react';
 
 const LEAD_URL = '/api/lead';
 
@@ -20,96 +21,6 @@ interface Step {
 const TOTAL_QUESTIONS = 7;
 // Step at which lead capture appears
 const LEAD_CAPTURE_STEP = TOTAL_QUESTIONS + 1;
-
-// Fallback template plan if AI is unavailable
-const getFallbackPlan = (status: string, pos: string): Step[] => {
-  const s = status.toLowerCase();
-  const p = pos || 'your platform';
-
-  if (s.includes('cleanup') || s.includes('4 to 12')) {
-    return [
-      {
-        title: 'Historical Transaction Cleanup',
-        body: `Categorize and reconcile all ${p} transactions month by month to rebuild accurate records from the ground up.`,
-      },
-      {
-        title: 'Correct Chart of Accounts',
-        body: 'Rebuild your chart of accounts to properly separate clinical supplies, payroll, retail, and operating costs.',
-      },
-      {
-        title: 'CPA-Ready File Delivery',
-        body: 'Deliver a clean, fully reconciled QuickBooks file with P&L and Balance Sheet ready for your CPA.',
-      },
-    ];
-  }
-
-  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
-    return [
-      {
-        title: 'Reconcile Payouts & Fees',
-        body: `Reconcile ${p} batch deposits with merchant processing deductions so net banking activity and gross collections are clearly tracked.`,
-      },
-      {
-        title: 'Clean Chart of Accounts',
-        body: 'Separate clinical supply COGS from general operating expenses for clearer service-line margin visibility.',
-      },
-      {
-        title: 'Monthly Close Routine',
-        body: 'Reconcile your accounts systematically each month with an organized Balance Sheet and Profit & Loss.',
-      },
-    ];
-  }
-
-  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
-    return [
-      {
-        title: 'QuickBooks Company File Setup',
-        body: 'Configure your QBO account with the right settings, fiscal year, and industry classification from day one.',
-      },
-      {
-        title: 'Chart of Accounts Build',
-        body: 'Build a chart of accounts designed for aesthetic practices — service revenue, clinical supplies, retail, and payroll all properly separated.',
-      },
-      {
-        title: `Connect ${p} to QuickBooks`,
-        body: `Set up your ${p} reconciliation workflow so deposits can be matched to your bank statement each month.`,
-      },
-    ];
-  }
-
-  if (s.includes('current') || s.includes('ongoing')) {
-    return [
-      {
-        title: 'Service-Line P&L Report',
-        body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.`,
-      },
-      {
-        title: 'Membership Revenue Tracking',
-        body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.',
-      },
-      {
-        title: 'Monthly Financial Review',
-        body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income, with reports delivered by the 15th of the following month.',
-      },
-    ];
-  }
-
-  // Free-text "Other" status that didn't match a known category: don't assume membership tracking or a clean P&L already exist.
-  return [
-    {
-      title: 'Full QuickBooks Review',
-      body: `A complete look at your ${p} data and QuickBooks file to see exactly where things stand.`,
-    },
-    {
-      title: 'Clear Scope, Once Reviewed',
-      body: 'A specific plan for your books, defined after seeing what is actually there.',
-    },
-    {
-      title: 'Monthly Reporting, Once Confirmed',
-      body: 'Reliable monthly reports once your books are confirmed accurate and current.',
-    },
-  ];
-};
 
 export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
   const [step, setStep] = useState<number>(1);
@@ -680,7 +591,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   Your profile is reviewed personally before any follow-up guidance — no obligation.
                 </p>
                 <p className="text-sm text-[#4A5568]">
-                  Please don't include patient names or health details. Your answers are processed by an AI service to help draft your plan. See the{' '}
+                  Please don't include patient names or health details. Your answers are processed by an automated tool to help draft your plan. Details are never sold. See the{' '}
                   <a href="/privacy" className="underline hover:text-[#1A2E40]">Privacy Policy</a>.
                 </p>
 
@@ -725,10 +636,6 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <ArrowLeft className="w-4 h-4" />
                       Back
                     </button>
-                    <p className="flex items-center gap-1.5 text-sm text-[#4A5568]">
-                      <Lock className="w-3 h-3 text-[#D4AF37]" />
-                      Your answers are processed by an AI service to draft your plan. Your details go to Monique so she can follow up. Never sold.
-                    </p>
                   </div>
                   <button
                     onClick={handleLeadSubmit}

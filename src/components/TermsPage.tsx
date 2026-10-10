@@ -59,7 +59,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 Welcome to Monique Reid Bookkeeping (&ldquo;Monique Reid Bookkeeping,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of our website and related online services.
               </p>
               <p className="text-sm leading-relaxed">
-                By accessing or using this website, booking a free Financial Clarity Call, or submitting information through our website, you agree to these Terms.
+                By accessing or using this website, booking a free 20-minute Clarity Call, or submitting information through our website, you agree to these Terms.
               </p>
               <p className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] text-sm text-[#1A2E40] font-medium">
                 These website Terms are intended to govern use of the website and general online interactions. Specific bookkeeping and financial reporting engagements are governed by a separate written service agreement or statement of work.
@@ -88,7 +88,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 'Chart-of-accounts support',
                 'QuickBooks cleanup and catch-up bookkeeping',
                 'Monthly bookkeeping',
-                'Bank and credit-card reconciliations',
+                'Bank and credit card reconciliations',
                 'Financial reporting',
                 'Agreed-upon key performance indicator (KPI) reporting',
                 'Financial record organization',
@@ -179,7 +179,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             <ul className="list-disc list-inside space-y-1 text-sm pl-2">
               <li>Provide accurate and complete financial information.</li>
               <li>Provide timely access to relevant financial accounts and systems.</li>
-              <li>Maintain appropriate bank and credit-card records.</li>
+              <li>Maintain appropriate bank and credit card records.</li>
               <li>Provide invoices, receipts, statements and other supporting documentation when reasonably requested.</li>
               <li>Respond to questions and requests for clarification in a timely manner.</li>
               <li>Review information provided to us and notify us of known errors or omissions.</li>
@@ -329,11 +329,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
           </p>
           <div className="space-y-3">
             <div>
-              <h4 className="text-sm font-bold text-[#1A2E40]">Monthly Services</h4>
-              <p className="text-sm">Billing, deposits and termination terms are set out in your written service agreement.</p>
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-[#1A2E40]">Cleanup and Project Services</h4>
+              <h4 className="text-sm font-bold text-[#1A2E40]">Monthly, Cleanup and Project Services</h4>
               <p className="text-sm">Billing, deposits and termination terms are set out in your written service agreement.</p>
             </div>
             <div>
@@ -357,7 +353,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
             The cancellation or termination terms for a specific bookkeeping engagement will be stated in the applicable service agreement.
           </p>
           <p className="text-sm leading-relaxed">
-            Billing, deposits and termination terms are set out in your written service agreement. Any fees for services performed or expenses incurred before the effective termination date remain due.
+            Any fees for services performed or expenses incurred before the effective termination date remain due.
           </p>
           <div>
             <p className="text-sm font-semibold text-[#1A2E40] mb-2">We may suspend or terminate services when:</p>

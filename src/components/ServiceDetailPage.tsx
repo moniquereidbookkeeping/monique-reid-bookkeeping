@@ -176,7 +176,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     'Practices whose books are caught up (or have just been cleaned up) and need to stay that way',
     'Med spas running memberships, prepaid packages or patient financing alongside regular treatments',
     'Practices with several booking or payment platforms, accounts or locations to keep in step',
-    'Owners whose current reports do not show which services are actually worth keeping',
+    'Owners whose current reports do not show which services are worth keeping',
   ],
   includedTitle: 'What happens every month',
   includedIntro:
@@ -200,7 +200,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     },
     {
       title: 'Monthly statements',
-      body: 'A Profit & Loss and a Balance Sheet for every month, delivered by the 15th of the following month, with a plain-English summary of notable trends and changes on plans that include it.',
+      body: 'A Profit & Loss and a Balance Sheet for every month, delivered by the 15th of the following month, with a plain-language summary of notable trends and changes on plans that include it.',
     },
     {
       title: 'Year-end package for your CPA',
@@ -210,7 +210,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
   detail: {
     title: 'What makes med spa books different',
     intro:
-      'A general bookkeeper can get the bank balance to match. Monthly bookkeeping for a med spa also has to handle how aesthetic practices actually earn and spend:',
+      'A general bookkeeper can get the bank balance to match. Monthly bookkeeping for a med spa also has to handle how aesthetic practices earn and spend. Memberships, patient financing and provider pay are part of the Growth plan, and treatment product cost is part of Full-Spectrum:',
     items: [
       {
         title: 'Memberships, packages and gift cards',
@@ -230,7 +230,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
       },
       {
         title: 'Sales tax',
-        body: 'Sales tax is kept separate from operating revenue. Which treatments, products and packages are taxable is decided by your CPA or sales-tax advisor.',
+        body: 'Sales tax is kept separate from operating revenue. Which treatments, products and packages are taxable is decided by your CPA or sales tax advisor.',
       },
     ],
     note: 'Want reports beyond the monthly statements, such as revenue by treatment, margins and cash flow? See [financial reporting for med spas](financial-reporting).',
@@ -263,7 +263,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
   costTitle: 'What monthly bookkeeping costs',
   cost: [
     'Monthly plans start at $497/mo. Your price depends on monthly transaction volume, the number of bank and credit card accounts, the booking and payment platforms you use, the number of locations, and how much reporting you need.',
-    'Plans are Essential for solo practitioners and new clinics with a straightforward account structure, Growth for practices running memberships, patient financing or several platforms, and Full-Spectrum for high-volume or multi-location practices. Compare them on the [pricing page](pricing). After a free Financial Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
+    'Plans are Essential for solo practitioners and new clinics with a straightforward account structure, Growth for practices running memberships, patient financing or several platforms, and Full-Spectrum for high-volume or multi-location practices. Compare them on the [pricing page](pricing). After a free 20-minute Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
   ],
   related: {
     heading: 'Guides to the monthly work',
@@ -283,9 +283,9 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
   heroLine:
     'A QuickBooks Online setup built around how a med spa earns and spends, for new practices and for practices that have outgrown a generic setup.',
   intro: [
-    "QuickBooks Online's default setup is made for a generic small business. A med spa needs more than that. Injectables, laser, memberships and retail skincare earn in different ways, and neurotoxin, filler and medical consumables are costs of delivering treatments, not general overhead. When QuickBooks is set up for that from the start, your reports show what each part of the practice actually earns.",
+    "QuickBooks Online's default setup is made for a generic small business. A med spa needs more than that. Injectables, laser, memberships and retail skincare earn in different ways, and neurotoxin, filler and medical consumables are costs of delivering treatments, not general overhead. When QuickBooks is set up for that from the start, your reports show what each part of the practice earns.",
     'This setup is for practitioners launching a new med spa, aesthetic clinic, wellness suite or medical weight-loss clinic, and for established practices that have outgrown an off-the-shelf setup. It is done by a Certified Intuit ProAdvisor who works only with self-pay healthcare practices.',
-    'Setup builds the structure going forward. If your existing file already has months of miscategorized history, that is a [QuickBooks cleanup](quickbooks-cleanup), which includes restructuring the chart of accounts as part of correcting the past.',
+    'Setup builds the structure going forward. If your existing file already has months of miscategorized history, that is a [QuickBooks cleanup](quickbooks-cleanup), which can include restructuring the chart of accounts as part of correcting the past, depending on scope.',
   ],
   forTitle: 'When a QuickBooks setup makes sense',
   forItems: [
@@ -315,7 +315,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
     },
     {
       title: 'Products and services list',
-      body: 'A product and service item catalog with sales-tax mapping based on your guidance and the rules that apply. Your CPA or sales-tax advisor decides what is taxable.',
+      body: 'A product and service item catalog with sales tax mapping based on your guidance and the rules that apply. Your CPA or sales tax advisor decides what is taxable.',
     },
     {
       title: 'Opening balances and walkthrough',
@@ -357,7 +357,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
   stepsTitle: 'How the setup works',
   steps: [
     {
-      title: 'Free 20-minute Zoom call',
+      title: 'Free 20-minute Clarity Call',
       body: 'Talk through your services, locations, booking and payment platforms, and what you need your reports to show.',
     },
     {
@@ -381,7 +381,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
     'After setup, [monthly bookkeeping](monthly-bookkeeping) keeps the file current inside the structure you just built.',
   costTitle: 'What a QuickBooks setup costs',
   cost: [
-    'A QuickBooks setup is priced as a project, based on your services, accounts, platforms and locations. The scope and price are confirmed after a free Financial Clarity Call, before work begins.',
+    'A QuickBooks setup is priced as a project, based on your services, accounts, platforms and locations. The scope and price are confirmed after a free 20-minute Clarity Call, before work begins.',
     'Monthly bookkeeping plans start at $497 per month if you want the books kept up after setup. See the [pricing page](pricing) for monthly plans and cleanup pricing.',
   ],
   related: {
@@ -399,7 +399,7 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
   eyebrow: 'Reports Built for Practice Owners',
   h1: 'Financial Reporting for Med Spas',
   heroLine:
-    'Plain-language monthly reports on the numbers that drive a med spa: revenue by treatment, treatment costs, provider pay, margins and cash flow.',
+    'Monthly reports on the numbers that drive a med spa: revenue by treatment, treatment costs, provider pay, margins and cash flow.',
   intro: [
     'Many practice owners get a Profit & Loss that answers the tax question and little else. Financial reporting for a med spa should answer the owner\'s questions: which treatments make money, what product and provider pay really cost, where the cash went, and whether a busy month was also a profitable one.',
     'A full treatment calendar does not automatically mean profit. Prepaid packages and memberships bring in cash before the treatments are delivered. Neurotoxin and filler costs are not always matched to the revenue they produced. Patient financing fees quietly reduce margins, and provider commissions move with the schedule. Reporting built on organized books makes all of that visible.',
@@ -411,21 +411,21 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
     'Practices where the bank balance looks fine but something never adds up',
     'Owners planning a hire, a new provider, an equipment lease or a second location',
     'Practices whose revenue all sits in one income line, so treatment margins are invisible',
-    'Owners who want to compare this month and quarter with the last, in plain English',
+    'Owners who want to compare this month with the last',
   ],
   includedTitle: 'What the reports show',
   included: [
     {
       title: 'Revenue by treatment type',
-      body: 'Collections split by service line: injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare and memberships.',
+      body: 'Collections split by service line: injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare and memberships. On the Full-Spectrum plan.',
     },
     {
       title: 'Treatment and service-line margins',
-      body: 'What each service line earns after the product and supplies it uses, where cost records and inventory data allow.',
+      body: 'What each service line earns after the product and supplies it uses, where cost records and inventory data allow. On the Full-Spectrum plan.',
     },
     {
       title: 'Period comparisons',
-      body: 'Month-over-month and quarter-over-quarter trends, so a change shows up while there is still time to act on it.',
+      body: 'Month-over-month revenue trends, from the Growth plan up, so a change shows up while there is still time to act on it.',
     },
     {
       title: 'Balance Sheet',
@@ -433,11 +433,11 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
     },
     {
       title: 'Cash flow',
-      body: 'Cash-flow reporting you can use when planning hiring, provider compensation, equipment leases and expansion.',
+      body: 'Cash-flow reporting you can use when planning hiring, provider compensation, equipment leases and expansion. Scoped in your proposal, since it depends on your data.',
     },
     {
       title: 'Plain-language summary',
-      body: 'A short summary of notable changes, overhead ratios and areas to watch, written for an owner rather than an accountant.',
+      body: 'A short summary of notable changes, overhead ratios and areas to watch, written for an owner rather than an accountant. On the Full-Spectrum plan.',
     },
   ],
   detail: {
@@ -493,7 +493,7 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
   costTitle: 'What financial reporting costs',
   cost: [
     'Financial reporting starts with the Growth plan at $797/month and is always paired with ongoing monthly bookkeeping. Growth includes month-over-month revenue reporting. Revenue by service category and plain-language financial commentary are part of the Full-Spectrum plan at $1,197/month. What each report can show also depends on your platforms and the data available.',
-    'See the [pricing page](pricing) for plans. After a free Financial Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
+    'See the [pricing page](pricing) for plans. After a free 20-minute Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
   ],
   related: {
     heading: 'Guides to reading your numbers',

@@ -57,7 +57,7 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   },
   booked: {
     title: 'You\'re Booked | Monique Reid Bookkeeping',
-    description: 'Your free 20-minute Financial Clarity Call is confirmed.',
+    description: 'Your free 20-minute Clarity Call is confirmed.',
   },
   services: {
     title: 'Med Spa Bookkeeping Services | Monique Reid Bookkeeping',
@@ -82,12 +82,12 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   'financial-reporting': {
     title: 'Financial Reporting for Med Spas | Monique Reid',
     description:
-      'Monthly financial reporting for med spas: revenue by treatment, treatment costs, provider pay, margins and cash flow in plain English, with an example.',
+      'Monthly financial reporting for med spas: revenue by treatment, treatment costs, provider pay, margins and cash flow in plain language, with an example.',
   },
   about: {
-    title: 'Monique Reid | Certified Intuit ProAdvisor & QuickBooks Bookkeeper, FL',
+    title: 'Monique Reid | Certified Intuit ProAdvisor for Med Spas',
     description:
-      'Meet Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper in Fort Lauderdale, Florida, focused on bookkeeping for med spas and wellness practices.',
+      'Meet Monique Reid, a Certified Intuit ProAdvisor in Fort Lauderdale, Florida, who keeps the QuickBooks books for med spas and wellness practices.',
   },
   calculator: {
     title: 'Treatment Profit Calculator | Monique Reid Bookkeeping',
@@ -95,9 +95,9 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
       'Estimate what a single MedSpa treatment contributes after product cost, provider commission and payment fees, then see monthly and annual totals.',
   },
   contact: {
-    title: 'Book a Free 20-Min Clarity Call | Monique Reid Bookkeeping',
+    title: 'Free 20-Minute Clarity Call | Monique Reid Bookkeeping',
     description:
-      'Book a complimentary 20-minute call to talk through your practice books and the clearest path to organized financial records.',
+      'Book a free 20-minute Clarity Call to talk through your practice books and the clearest path to organized financial records.',
   },
   pricing: {
     title: 'Med Spa Bookkeeping Pricing & Monthly Plans | Monique Reid',

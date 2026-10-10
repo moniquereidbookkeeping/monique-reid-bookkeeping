@@ -15,7 +15,7 @@ const FLORIDA_ITEMS = [
   {
     icon: Receipt,
     title: 'Sales tax on retail products',
-    body: 'Skincare and other retail products are generally subject to Florida sales tax, and a county surtax may also apply, depending on where the sale happens. Your CPA confirms the rate. Sales-tax collected through your booking software is kept separate from revenue and reconciled, so your filing figures are easy to pull.',
+    body: 'Skincare and other retail products are generally subject to Florida sales tax, and a county surtax may also apply, depending on where the sale happens. Your CPA confirms the rate. Sales tax collected through your booking software is kept separate from revenue and reconciled, so your filing figures are easy to pull.',
   },
   {
     icon: Users,
@@ -54,7 +54,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
             Med Spa Bookkeeping in South Florida
           </h1>
           <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-            A local QuickBooks bookkeeper and Certified Intuit ProAdvisor for med spas, medical spas, aesthetic clinics, IV hydration and wellness practices.
+            A Fort Lauderdale-based QuickBooks bookkeeper and Certified Intuit ProAdvisor for med spas, medical spas, aesthetic clinics, IV hydration and wellness practices.
           </p>
         </div>
       </div>
@@ -71,7 +71,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
           <p>
             The work is done in QuickBooks and on Zoom, so there's no office visit and no time out of a clinic day
             beyond the call itself. You get reconciled accounts, a Profit &amp; Loss that separates injectables, treatments, retail and
-            memberships, and reports you can actually use. See the full list of {link('services', 'bookkeeping services')}, how a {link('quickbooks-cleanup', 'QuickBooks cleanup')} works,
+            memberships, and reports you can use. See the full list of {link('services', 'bookkeeping services')}, how a {link('quickbooks-cleanup', 'QuickBooks cleanup')} works,
             or compare {link('pricing', 'monthly plans and cleanup pricing')}.
           </p>
         </div>
@@ -143,7 +143,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
           <ol className="space-y-4 text-base sm:text-lg text-[#4A5568] leading-relaxed">
             <li className="flex gap-3">
               <Video className="w-6 h-6 text-[#8A6A00] shrink-0 mt-0.5" aria-hidden="true" />
-              <span><strong className="text-[#1A2E40]">A free 20-minute Zoom call</strong> to look at where your books stand today.</span>
+              <span><strong className="text-[#1A2E40]">A free 20-minute Clarity Call on Zoom</strong> to look at where your books stand today.</span>
             </li>
             <li className="flex gap-3">
               <FileCheck2 className="w-6 h-6 text-[#8A6A00] shrink-0 mt-0.5" aria-hidden="true" />

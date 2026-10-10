@@ -17,6 +17,7 @@
 
 import { OFFERINGS_TEXT, breaksOfferRules } from '../_lib/offerings';
 import { BOOKING_URL } from '../../src/constants/booking';
+import { getFallbackPlan } from '../../src/data/fallbackPlan';
 import { callGemini, DEFAULT_GEMINI_MODEL, allowedOrigin, clean, cleanName, corsHeaders, isEmail, json, rateLimited, readJsonBody, verifyTurnstile } from '../_lib/security';
 
 export interface Env {
@@ -85,7 +86,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     // The plan emailed to the prospect is built here on the server. Nothing the
     // browser sends can become email content.
     const aiSteps = safeSteps(expert?.steps);
-    const steps = aiSteps ?? getFallbackSteps(status, pos);
+    const steps = aiSteps ?? getFallbackPlan(status, pos);
     const aiError = aiSteps === null;
 
     // Emails — fire both, don't block on sheet
@@ -139,46 +140,6 @@ function enforcePackage(text: unknown, tier: Tier, cleanup: Cleanup): string {
   if (other.some((x) => t.includes(x))) return own;
   if (!cleanup.needed && /clean-?up/i.test(t)) return own;
   return t;
-}
-
-function getFallbackSteps(status: string, pos: string): { title: string; body: string }[] {
-  const s = status.toLowerCase();
-  const p = pos || 'your platform';
-  if (s.includes('cleanup') || s.includes('4 to 12')) {
-    return [
-      { title: 'Historical Transaction Cleanup', body: `Categorize and reconcile all ${p} transactions month by month to rebuild accurate records from the ground up.` },
-      { title: 'Correct Chart of Accounts', body: 'Rebuild your chart of accounts to properly separate clinical supplies, payroll, retail, and operating costs.' },
-      { title: 'CPA-Ready File Delivery', body: 'Deliver a clean, fully reconciled QuickBooks file with P&L and Balance Sheet ready for your CPA.' },
-    ];
-  }
-  if (s.includes('1 to 3') || s.includes('slightly') || s.includes('behind')) {
-    return [
-      { title: 'Reconcile Payouts & Fees', body: `Reconcile ${p} batch deposits with merchant processing fees so net banking activity and gross collections are clearly tracked.` },
-      { title: 'Clean Chart of Accounts', body: 'Separate clinical supply COGS from general operating expenses for clearer service-line margin visibility.' },
-      { title: 'Monthly Close Routine', body: 'Reconcile your accounts systematically each month with an organized Balance Sheet and Profit & Loss.' },
-    ];
-  }
-  if (s.includes('new') || s.includes('not') || s.includes('set up')) {
-    return [
-      { title: 'QuickBooks Company File Setup', body: 'Configure your QBO account with the right settings, fiscal year, and industry classification from day one.' },
-      { title: 'Chart of Accounts Build', body: 'Build a chart of accounts designed for aesthetic practices — service revenue, clinical supplies, retail, and payroll all properly separated.' },
-      { title: `Reconcile ${p} Payouts Monthly`, body: `Set up your ${p} reconciliation workflow so deposits can be matched to your bank statement each month.` },
-    ];
-  }
-  if (s.includes('current') || s.includes('ongoing')) {
-    return [
-      { title: 'Service-Line P&L Report', body: `Break down ${p} revenue by treatment category so you can see exactly which services drive your margins.` },
-      { title: 'Membership Revenue Tracking', body: 'Separate recurring membership income from retail and one-time services for cleaner, more accurate financial reporting.' },
-      { title: 'Monthly Financial Review', body: 'Deliver a monthly P&L dashboard with your key metrics: revenue, COGS, payroll ratio, and net income, with reports delivered by the 15th of the following month.' },
-    ];
-  }
-
-  // Free-text "Other" status that didn't match a known category: don't assume membership tracking or a clean P&L already exist.
-  return [
-    { title: 'Full QuickBooks Review', body: `A complete look at your ${p} data and QuickBooks file to see exactly where things stand.` },
-    { title: 'Clear Scope, Once Reviewed', body: 'A specific plan for your books, defined after seeing what is actually there.' },
-    { title: 'Monthly Reporting, Once Confirmed', body: 'Reliable monthly reports once your books are confirmed accurate and current.' },
-  ];
 }
 
 // ─────────────────────────────────────────────
@@ -460,7 +421,7 @@ async function sendThankYouEmail(env: Env, d: {
     formatStepsBlock(d.steps) +
     `I'd love to walk through this with you — 20 minutes, no sales pitch, just a clear picture of where your books stand and exactly what it takes to get them right.\n\n` +
     '──────────────────────────────\n' +
-    '→ Book your free 20-minute call:\n' +
+    '→ Book your free 20-minute Clarity Call:\n' +
     BOOKING_URL + '\n' +
     '──────────────────────────────\n\n' +
     `— Monique Reid\n` +

@@ -52,7 +52,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         "type": "paragraph",
-        "text": "Keeping service lines apart is what lets you compare them later. The right level of detail depends on your practice, so start with the lines you actually manage separately."
+        "text": "Keeping service lines apart is what lets you compare them later. The right level of detail depends on your practice, so start with the lines you manage separately."
       },
       {
         "type": "heading",
@@ -505,7 +505,7 @@ const allBlogPosts: BlogPost[] = [
     metaDescription:
       'Boulevard and Vagaro pay out in batches, net of fees. How to reconcile those deposits in QuickBooks so a med spa records true gross revenue and visible fees.',
     excerpt:
-      'If you are recording the deposit that hits your bank account as your revenue, your books are understating your true income and hiding your processing costs. Here is how Boulevard and Vagaro reconciliation should actually work in QuickBooks.',
+      'If you are recording the deposit that hits your bank account as your revenue, your books are understating your true income and hiding your processing costs. Here is how Boulevard and Vagaro reconciliation should work in QuickBooks.',
     category: 'POS & Reconciliation',
     tags: ['Boulevard', 'Vagaro', 'QuickBooks', 'Reconciliation', 'MedSpa', 'POS Deposits'],
     publishedDate: '2026-10-06',
@@ -516,7 +516,7 @@ const allBlogPosts: BlogPost[] = [
     content: [
       {
         type: 'intro',
-        text: 'If you use Boulevard or Vagaro to book appointments and collect payments, you already know the system handles scheduling and client management. What most practice owners do not realize is that the deposit hitting your business checking account from these platforms is not your revenue — it is your revenue minus merchant processing fees and any chargebacks or refunds. Card tips are usually included in that deposit and owed to your staff, rather than subtracted from it. Recording that deposit directly as income in QuickBooks is a common and costly mistake for aesthetic practice owners.',
+        text: 'If you use Boulevard or Vagaro to book appointments and collect payments, you already know the system handles scheduling and client management. What is easy to miss is that the deposit hitting your business checking account from these platforms is not your revenue — it is your revenue minus merchant processing fees and any chargebacks or refunds. Card tips are usually included in that deposit and owed to your staff, rather than subtracted from it. Recording that deposit directly as income in QuickBooks is a common and costly mistake for aesthetic practice owners.',
       },
       {
         type: 'heading',
@@ -615,7 +615,7 @@ const allBlogPosts: BlogPost[] = [
     content: [
       {
         type: 'intro',
-        text: 'Membership programs can be a strong growth tool for MedSpas and aesthetic clinics — predictable recurring revenue, improved patient retention, and a steady cash flow that does not depend entirely on appointment volume. But many practices that run memberships account for them incorrectly in QuickBooks. The result is financial statements that overstate income, a Balance Sheet that does not reflect outstanding obligations to members, and potential problems at tax time. Here is what is actually happening and how to fix it.',
+        text: 'Membership programs can be a strong growth tool for MedSpas and aesthetic clinics — predictable recurring revenue, improved patient retention, and a steady cash flow that does not depend entirely on appointment volume. But many practices that run memberships account for them incorrectly in QuickBooks. The result is financial statements that overstate income, a Balance Sheet that does not reflect outstanding obligations to members, and potential problems at tax time. Here is what is happening and how to fix it.',
       },
       {
         type: 'heading',
@@ -690,7 +690,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Correcting membership accounting is one of the highest-value improvements a MedSpa can make to its books. It takes some initial setup and a consistent month-end process, but the result is a financial picture you can actually trust — which is the whole point of keeping books in the first place.',
+        text: 'Correcting membership accounting is one of the highest-value improvements a MedSpa can make to its books. It takes some initial setup and a consistent month-end process, but the result is a financial picture you can trust — which is the whole point of keeping books in the first place.',
       },
       { type: 'paragraph', text: 'This article is general information, not tax or legal advice. How memberships, packages and gift cards are treated for tax, and which accounting method you use, depend on your situation and the terms you offer, so confirm them with your CPA.' },
     ],
@@ -1061,7 +1061,7 @@ const allBlogPosts: BlogPost[] = [
       },
       { type: 'heading', heading: 'No-show and late-cancellation fees' },
       { type: 'paragraph', text: 'A fee you charge and keep for a missed or late-cancelled appointment is income, but it is not treatment revenue. Give it its own income account, such as Cancellation and No-Show Fees, so it does not inflate the numbers you use to judge how your services perform. If your policy turns the fee into a credit toward a future visit instead, treat it like any other prepayment: a liability until the client uses it, then income when the treatment is delivered.' },
-      { type: 'paragraph', text: 'Whether these fees are subject to sales tax is a question for your CPA or sales-tax advisor. Once they decide, the books can record the fee and any tax separately.' },
+      { type: 'paragraph', text: 'Whether these fees are subject to sales tax is a question for your CPA or sales tax advisor. Once they decide, the books can record the fee and any tax separately.' },
       { type: 'heading', heading: 'Chargebacks: disputed until decided' },
       { type: 'paragraph', text: 'When a client disputes a card charge, the processor usually takes the disputed amount out of a payout and may add a dispute fee. At that point the outcome is not known yet, so the amount should not be written off as lost revenue straight away.' },
       {
@@ -1083,7 +1083,7 @@ const allBlogPosts: BlogPost[] = [
         text: 'Monthly bookkeeping matches each payout to its platform report, so tips, refunds, fees and chargebacks each land in the right place.',
         link: { page: 'monthly-bookkeeping', label: 'How monthly bookkeeping for med spas works' },
       },
-      { type: 'paragraph', text: 'This article is general information, not tax, payroll or legal advice. Tip reporting, payroll taxes and sales-tax treatment depend on your situation, so confirm them with your CPA and payroll provider.' },
+      { type: 'paragraph', text: 'This article is general information, not tax, payroll or legal advice. Tip reporting, payroll taxes and sales tax treatment depend on your situation, so confirm them with your CPA and payroll provider.' },
     ],
   },
   {
@@ -1232,7 +1232,7 @@ const allBlogPosts: BlogPost[] = [
     slug: 'iv-hydration-cost-per-drip-nurse-pay-quickbooks',
     title: 'IV Hydration Costs in QuickBooks: Supply Cost per Drip, Mobile Visits and Nurse Pay',
     metaTitle: 'IV Hydration Cost per Drip and Nurse Pay in QuickBooks',
-    metaDescription: 'How an IV hydration clinic can track supply cost per drip, mobile visit costs and nurse pay in QuickBooks, so you can see which drips actually make money.',
+    metaDescription: 'How an IV hydration clinic can track supply cost per drip, mobile visit costs and nurse pay in QuickBooks, so you can see which drips make money.',
     excerpt: 'Fluids, vitamins and tubing in one Supplies account, and nurse pay in one payroll line, hide what each drip costs to deliver. Here is how to set up IV supply cost, mobile costs and nurse pay so your books show your real margins.',
     category: 'Costs & Inventory',
     tags: ['IV Hydration', 'Cost of Goods Sold', 'Nurse Pay', '1099', 'Mobile IV', 'QuickBooks'],
@@ -1273,7 +1273,7 @@ const allBlogPosts: BlogPost[] = [
         ],
       },
       { type: 'heading', heading: 'Nurse pay: record it so you can read it' },
-      { type: 'paragraph', text: 'Nurse pay is usually the largest cost of a drip after supplies, and sometimes larger. How it is recorded depends on the arrangement:' },
+      { type: 'paragraph', text: 'Nurse pay is usually the second-largest cost of a drip after supplies, and sometimes the largest. How it is recorded depends on the arrangement:' },
       {
         type: 'list',
         items: [
@@ -1311,8 +1311,8 @@ const allBlogPosts: BlogPost[] = [
     slug: 'glp1-medication-cost-medical-director-pay-quickbooks',
     title: 'GLP-1 Medication Cost and Medical Director Pay in QuickBooks: A Guide for Weight Loss Clinics',
     metaTitle: 'GLP-1 Medication Cost and Provider Pay in QuickBooks',
-    metaDescription: 'How a weight loss clinic can record GLP-1 medication cost, pharmacy shipping, medical director fees and provider pay in QuickBooks to see real margins.',
-    excerpt: 'When pharmacy invoices sit in a general supplies account and provider pay sits in one payroll line, a weight loss program can look healthy while medication quietly takes more of every fee. Here is how to record both so each program month shows what it costs.',
+    metaDescription: 'How a weight-loss clinic can record GLP-1 medication cost, pharmacy shipping, medical director fees and provider pay in QuickBooks to see real margins.',
+    excerpt: 'When pharmacy invoices sit in a general supplies account and provider pay sits in one payroll line, a weight-loss program can look healthy while medication quietly takes more of every fee. Here is how to record both so each program month shows what it costs.',
     category: 'Costs & Inventory',
     tags: ['Medical Weight Loss', 'GLP-1', 'Cost of Goods Sold', 'Medical Director', 'Provider Pay', 'QuickBooks'],
     publishedDate: '2026-10-07',
@@ -1320,7 +1320,7 @@ const allBlogPosts: BlogPost[] = [
     coverImage: 'https://images.unsplash.com/photo-1752842936201-44291aee473f?auto=format&fit=crop&w=1400&q=80',
     coverAlt: 'Illustration of medication supplies and a cost report',
     content: [
-      { type: 'intro', text: `In a medical weight loss program, two costs decide whether a patient month makes money: the medication and the clinical time behind it. Both are easy to lose in the books. Pharmacy invoices land in a general Supplies or Medical Supplies account, shipping and cold packs land somewhere else, and medical director and provider pay sit in one payroll line. The program fee can look healthy while the medication behind it takes a bigger share every month. This guide covers how to record medication cost and provider pay so your books show what each program month really costs.` },
+      { type: 'intro', text: `In a medical weight-loss program, two costs decide whether a patient month makes money: the medication and the clinical time behind it. Both are easy to lose in the books. Pharmacy invoices land in a general Supplies or Medical Supplies account, shipping and cold packs land somewhere else, and medical director and provider pay sit in one payroll line. The program fee can look healthy while the medication behind it takes a bigger share every month. This guide covers how to record medication cost and provider pay so your books show what each program month really costs.` },
       { type: 'heading', heading: 'Medication is cost of goods sold, not supplies' },
       { type: 'paragraph', text: `GLP-1 medication such as semaglutide or tirzepatide, and any other medication you dispense, is a direct cost: it is in your books because a patient received it. It belongs in cost of goods sold, above gross profit. So does what it takes to get it to you or your patient, such as pharmacy shipping, cold-chain packaging, and the syringes or supplies dispensed with it. Rent, software and front-desk costs stay in operating expenses.` },
       { type: 'paragraph', text: 'Adjusted to your program and your CPA\'s preferences, a typical setup separates:' },
@@ -1379,9 +1379,9 @@ const allBlogPosts: BlogPost[] = [
       { type: 'tip', text: `Compare last month's medication cost with last month's program revenue. If you can't, because medication sits in a general supplies account, that is the first change to make.` },
       {
         type: 'cta-inline',
-        heading: 'Books set up for weight loss programs',
-        text: 'Medical weight loss bookkeeping separates medication cost, program fees, provider pay and medical director fees, so each month shows what your program really earns.',
-        link: { page: 'medical-weight-loss', label: 'How medical weight loss bookkeeping works' },
+        heading: 'Books set up for weight-loss programs',
+        text: 'Medical weight-loss bookkeeping separates medication cost, program fees, provider pay and medical director fees, so each month shows what your program really earns.',
+        link: { page: 'medical-weight-loss', label: 'How medical weight-loss bookkeeping works' },
       },
       { type: 'paragraph', text: 'This article is general information, not tax, payroll, legal or medical advice. Inventory treatment, worker classification and 1099 requirements depend on your situation, so confirm them with your CPA, payroll provider or attorney.' },
     ],

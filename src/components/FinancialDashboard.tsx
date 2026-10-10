@@ -143,7 +143,7 @@ const buildExplanations = (v: ExplanationInput): Record<MetricKey, MetricExplana
     commonTrap:
       'Counting loan principal, owner draws or equipment payments as operating expenses makes the practice look less profitable than it is.',
     solution:
-      'A clear chart of accounts keeps day-to-day overhead apart from loans and owner activity, so the Profit & Loss reflects how the practice is actually operating.',
+      'A clear chart of accounts keeps day-to-day overhead apart from loans and owner activity, so the Profit & Loss reflects how the practice is operating.',
   },
   surplus: {
     title: 'Operating Surplus',
@@ -170,7 +170,7 @@ const serviceInsights: Record<ServiceKey, { name: string; margin: string; explan
       'For energy-based treatments, margin depends on disposable tips, topical products and direct provider cost compared with treatment revenue. Equipment financing and lease payments are recorded separately.',
   },
   memberships: {
-    name: 'Membership Revenue & Recurring Packages',
+    name: 'Memberships & Prepaid Packages (collected)',
     margin: 'Timing of cash vs. revenue',
     explanation:
       'Memberships and packages are often paid before treatments are delivered. Revenue and margin are measured by matching the cost of services delivered to the portion of the fee earned in that period. Ask your CPA how this applies to your tax method.',
@@ -315,7 +315,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               Your books should tell you more than whether your bank account went up.
             </h2>
             <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
-              The financial side of your practice is organized so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice really is.
+              The financial side of your practice is organized so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice is.
             </p>
             <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 text-sm text-[#5A6578] flex items-center gap-2">
               <Info className="w-4 h-4 text-[#D4AF37] shrink-0" />
@@ -841,7 +841,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     : 'text-[#57534E] hover:text-[#1A2E40] hover:bg-[#F8FAFC]'
                 }`}
               >
-                Revenue Mix
+                Collections Mix
               </button>
               <button
                 onClick={() => setActiveTab('expenses')}
@@ -942,7 +942,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <div className="flex justify-between text-sm font-semibold mb-1.5">
                     <span className="text-[#1A2E40] flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#57534E]" />
-                      Membership Revenue &amp; Recurring Packages
+                      Memberships &amp; Prepaid Packages (collected)
                     </span>
                     <span className="text-[#1A2E40] font-bold tabular-nums">
                       {formatCurrency(animMemberships)} (
@@ -1096,7 +1096,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   Reports built for practice owners, not just accountants
                 </p>
                 <p className="text-sm sm:text-sm text-[#57534E] mt-1 leading-relaxed">
-                  Clear reports on treatment revenue, product costs, provider compensation and operating expenses, so you can see how your practice is really performing.
+                  Clear reports on treatment revenue, product costs, provider compensation and operating expenses, so you can see how your practice is performing.
                 </p>
               </div>
             </div>

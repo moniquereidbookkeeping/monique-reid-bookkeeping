@@ -170,7 +170,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
           {featured && (
             <div>
               <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-4">
-                ✦ Latest Featured Article
+                ✦ Featured Article
               </p>
               <FeaturedCard post={featured} onRead={() => onReadPost(featured.slug)} />
             </div>
@@ -206,7 +206,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
             Ready to get your practice books in order?
           </h2>
           <p className="text-sm text-[#E2E8F0] font-light leading-relaxed max-w-xl mx-auto">
-            Book a complimentary 20-minute Financial Clarity Call and let's discuss what your
+            Book a free 20-minute Clarity Call and let's discuss what your
             practice specifically needs — no obligation.
           </p>
           <a href="/contact"

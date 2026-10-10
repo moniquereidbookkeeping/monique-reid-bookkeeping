@@ -27,7 +27,7 @@ export const IV_HYDRATION: PracticeTypeContent = {
     'QuickBooks bookkeeping for IV hydration clinics, drip bars and mobile IV services, from a Certified Intuit ProAdvisor.',
   intro: [
     'IV hydration has its own financial pattern. Every drip uses fluids, vitamins and supplies, memberships are paid before visits happen, mobile visits cost more to deliver than in-clinic ones, and nurses may be employees or contractors. A general small-business setup in QuickBooks hides all of that inside one revenue line and one expense pile.',
-    'Monique Reid Bookkeeping is based in Fort Lauderdale and works with IV hydration and wellness practices across Florida and nationwide, so you can see which drips, memberships and services actually make money.',
+    'Monique Reid Bookkeeping is based in Fort Lauderdale and works with IV hydration and wellness practices across Florida and nationwide, so you can see which drips, memberships and services make money.',
   ],
   needsHeading: 'What IV hydration books need to get right',
   needs: [
@@ -76,16 +76,16 @@ export const MEDICAL_WEIGHT_LOSS: PracticeTypeContent = {
   eyebrow: 'Medical Weight Loss & GLP-1 Programs · Florida & Nationwide',
   h1: 'Medical Weight Loss & GLP-1 Clinic Bookkeeping',
   subtitle:
-    'QuickBooks bookkeeping for medical weight loss practices and GLP-1 programs, whether standalone or added to a med spa or wellness clinic.',
+    'QuickBooks bookkeeping for medical weight-loss practices and GLP-1 programs, whether standalone or added to a med spa or wellness clinic.',
   intro: [
-    'A medical weight loss program sells several different things at once: consultations, monthly program fees, medication, add-on injections and sometimes supplements. Each one earns differently and costs differently. When they all land in a single revenue line, you cannot tell what medication is costing you or whether the program fee covers the clinical time behind it.',
+    'A medical weight-loss program sells several different things at once: consultations, monthly program fees, medication, add-on injections and sometimes supplements. Each one earns differently and costs differently. When they all land in a single revenue line, you cannot tell what medication is costing you or whether the program fee covers the clinical time behind it.',
     'Monique Reid Bookkeeping is based in Fort Lauderdale and sets up and maintains QuickBooks for weight loss and GLP-1 clinics across Florida and nationwide.',
   ],
   needsHeading: 'What weight loss and GLP-1 books need to get right',
   needs: [
     {
       title: 'Separate what you sell',
-      body: 'Consultation fees, monthly program fees, medication, add-on injections such as B12, and supplements each get their own income line, so the Profit & Loss shows where revenue really comes from.',
+      body: 'Consultation fees, monthly program fees, medication, add-on injections such as B12, and supplements each get their own income line, so the Profit & Loss shows where revenue comes from.',
     },
     {
       title: 'Medication cost as cost of goods sold',
@@ -109,7 +109,7 @@ export const MEDICAL_WEIGHT_LOSS: PracticeTypeContent = {
     },
   ],
   accountsHeading: 'A starting chart of accounts',
-  accountsIntro: 'Adjusted to your program and your CPA\'s preferences, a typical weight loss setup separates:',
+  accountsIntro: 'Adjusted to your program and your CPA\'s preferences, a typical weight-loss setup separates:',
   accounts: [
     { group: 'Income', items: ['Consultations', 'Program fees (as earned)', 'Medication', 'Injections and add-ons', 'Supplements and retail'] },
     { group: 'Cost of goods sold', items: ['GLP-1 medication', 'Other medications and injectables', 'Pharmacy shipping and cold-chain'] },
@@ -206,7 +206,7 @@ export const PracticeTypePage: React.FC<PracticeTypePageProps> = ({ content, onN
           <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">
             Books already behind? Start with a fixed-fee {link('quickbooks-cleanup', 'QuickBooks cleanup')}. Already current?
             See {link('monthly-bookkeeping', 'monthly bookkeeping')} and {link('pricing', 'pricing')}, from $497 a month.
-            In Fort Lauderdale? Read about {link('fort-lauderdale', 'bookkeeping for Fort Lauderdale med spas')}, or {link('south-florida', 'across South Florida')}.
+            In Fort Lauderdale? Read about {link('fort-lauderdale', 'bookkeeping for Fort Lauderdale practices')}, or {link('south-florida', 'across South Florida')}.
           </p>
           <a href="/contact"
             onClick={(e) => { e.preventDefault(); onBookCall(); }}

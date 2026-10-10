@@ -19,7 +19,7 @@ const problems = [
     number: '02',
     title: 'Patient Financing Fees Hidden Inside Deposits',
     problem:
-      `When patients use Cherry, CareCredit, or PatientFi, the practice may pay a fee depending on the program, so the amount deposited into your bank can be lower than the original transaction, on the lender's own payout schedule. If those amounts aren't separated, it's hard to understand the true economics of each sale.`,
+      `When patients use Cherry, CareCredit, or PatientFi, the practice may pay a fee depending on the program, so the amount deposited into your bank can be lower than the original transaction, and it arrives on the lender's own payout schedule. If those amounts aren't separated, it's hard to understand the true economics of each sale.`,
     help:
       'Applicable financing costs are identified and categorized separately from the related revenue, so your reports reflect what patients paid and what it cost you to accept that payment.',
   },
@@ -35,9 +35,9 @@ const problems = [
     number: '04',
     title: 'Treatment Costs and Inventory Buried in Generic Expenses',
     problem:
-      `Neurotoxin, filler, skincare retail, IV supplies, and weight-loss medications are direct costs tied to specific services—not generic overhead. When they're lumped into broad expense categories, you lose visibility into what each service line actually costs to deliver, making it nearly impossible to know which treatments are worth your chair time.`,
+      `Neurotoxin, filler, skincare retail, IV supplies, and weight-loss medications are direct costs tied to specific services—not generic overhead. When they're lumped into broad expense categories, you lose visibility into what each service line costs to deliver, making it hard to know which treatments are worth your chair time.`,
     help:
-      'Product and supply costs are separated from operating overhead, and treatment-related expenses are categorized so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins actually are.',
+      'Product and supply costs are separated from operating overhead, and treatment-related expenses are categorized so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins are.',
   },
   {
     number: '05',
@@ -95,7 +95,7 @@ export const WhySpecializedSection: React.FC<WhySpecializedSectionProps> = ({ on
           <div className="max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-widest text-[#D4AF37]">The result</p>
             <p className="mt-2 text-xl sm:text-2xl font-serif font-bold text-white leading-snug">
-              Finally Know Whether Your Practice Is Actually Profitable
+              See Whether Your Practice Is Profitable
             </p>
             <p className="mt-2 text-base text-white/80 leading-relaxed">
               When your books follow how your practice operates, not just what hit the bank account, your monthly reports show which services earn, where costs run high, and whether the revenue you see is money you have actually made.

@@ -5,9 +5,11 @@ import { FounderPortrait } from './FounderPortrait';
 interface AboutSectionProps {
   onBookCall: () => void;
   showPortrait?: boolean;
+  /** Home page version: the first paragraph and a link to the About page, so the two pages do not repeat each other. */
+  onViewAbout?: () => void;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPortrait = true }) => {
+export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPortrait = true, onViewAbout }) => {
   return (
     <section id="about-section" className="py-14 lg:py-20 bg-white border-b border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +25,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
 
                 <div className="p-4 bg-white border-t border-[#E2E8F0] text-center">
                   <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-1">
-                    Specialized Bookkeeping
+                    Founder
                   </p>
                   <p className="font-serif font-bold text-xl text-[#1A2E40]">
                     Monique Reid
@@ -96,12 +98,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               <p>
                 Hi, I'm Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper with a Bachelor of Business Administration. I built this practice specifically to serve MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
               </p>
-              <p>
-                I chose to focus on this industry because its books are harder than most generalist bookkeepers are set up for. The financial workflows here are genuinely more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and a generic small-business approach often handles them poorly. I built my QuickBooks approach around how these practices actually operate, not around a generic small-business model.
-              </p>
-              <p>
-                My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can actually use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
-              </p>
+              {onViewAbout ? (
+                <p>
+                  <a
+                    href="/about"
+                    onClick={(e) => { e.preventDefault(); onViewAbout(); }}
+                    className="inline-flex items-center gap-1.5 font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]"
+                  >
+                    More about Monique and how she works
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </p>
+              ) : (
+                <>
+                <p>
+                  I chose to focus on this industry because its books are harder than most generalist bookkeepers are set up for. The financial workflows here are more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and a generic small-business setup often handles them poorly. I built my QuickBooks approach around how these practices operate.
+                </p>
+                <p>
+                  My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
+                </p>
+                </>
+              )}
             </div>
 
             {/* Core Values / Commitments */}
@@ -112,7 +129,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
                   <span>No Confusing Jargon</span>
                 </div>
                 <p className="text-sm text-[#4A5568]">
-                  Monthly summaries in plain language — where your cash went, what it cost, and what changed.
+                  Answers in plain language — where your cash went, what it cost, and what changed.
                 </p>
               </div>
 

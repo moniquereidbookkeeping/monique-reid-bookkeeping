@@ -17,10 +17,10 @@ Monthly Bookkeeping (fixed monthly plans, QuickBooks Online):
 - Growth, $797/mo: practices about $25K to $75K/month, or with memberships, prepaid packages, patient financing (Cherry, CareCredit, PatientFi), multiple POS or payment systems; up to 6 accounts; adds membership and package tracking, financing reconciliation, provider compensation reconciliation, month-over-month revenue reporting.
 - Full-Spectrum, $1,197/mo: practices $75K+/month, multi-location or 7+ accounts; adds multi-location tracking, inventory and treatment-cost (COGS) tracking, high transaction volume handling, revenue by service category, plain-language financial commentary.
 
-QuickBooks Cleanup and Catch-Up (one-time, fixed price once scope is agreed, free preliminary review):
+QuickBooks Cleanup and Catch-Up (one-time, fixed price once scope is agreed, free first review):
 - 1-3 months behind: $597. 4-6 months behind: $1,297. 7-12 months behind: $1,997. 13+ months or multi-entity: custom quote.
 
-Other services: Financial Reporting and KPIs (from $797/mo, paired with monthly bookkeeping); Aesthetic and Wellness specialization (treatment COGS, unearned revenue for packages, gift cards and memberships, provider commission and 1099 payout clearing, financing fee reconciliation, IV hydration and GLP-1 revenue tracking); QuickBooks Setup and Chart of Accounts (project-based pricing); Historical Financial Records and Reporting (project-based pricing).
+Other services: Financial Reporting and KPIs (from $797/mo, paired with monthly bookkeeping); Aesthetic and Wellness specialization (treatment COGS, unearned revenue for packages, gift cards and memberships, provider commission and 1099 payout clearing, financing fee reconciliation, IV hydration and GLP-1 revenue tracking); QuickBooks Setup and Chart of Accounts (project-based pricing); Historical Records and Reporting (project-based pricing).
 
 Platforms commonly reconciled from their reports (no integration claims): Boulevard, Vagaro, Jane App, Mindbody, Zenoti, Square, Stripe. Patient financing commonly reconciled: Cherry, CareCredit, PatientFi.
 

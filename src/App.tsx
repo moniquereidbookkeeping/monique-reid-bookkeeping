@@ -19,6 +19,7 @@ import { HowItWorks } from './components/HowItWorks';
 import { ServicesSummary } from './components/ServicesSummary';
 import { NotFoundPage } from './components/NotFoundPage';
 import { AboutSection } from './components/AboutSection';
+import { AboutDetails } from './components/AboutDetails';
 import { FAQSection } from './components/FAQSection';
 import { ProfitCalculator } from './components/ProfitCalculator';
 import { ContactSection } from './components/ContactSection';
@@ -143,7 +144,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             {/* Compact services summary (full detail lives on the Services page) */}
             <ServicesSummary onNavigate={handleNavigate} />
 
-            {/* Free 60-second Health Check: the main lead magnet */}
+            {/* Free 7-question Health Check: the main lead magnet */}
             <PracticeAudit onBookCall={handleBookCall} />
 
             <PricingSection onBookCall={handleBookCall} onViewPricing={() => handleNavigate('pricing')} />
@@ -168,7 +169,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </section>
 
-            <AboutSection onBookCall={handleBookCall} />
+            <AboutSection onBookCall={handleBookCall} onViewAbout={() => handleNavigate('about')} />
 
             <RelatedArticles
               heading="Latest guides for practice owners"
@@ -176,7 +177,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               onReadPost={readPost}
             />
 
-            <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} includeSchema={false} onViewAll={() => handleNavigate('faq')} />
+            <FAQSection onBookCall={handleBookCall} featuredLimit={3} showCta={false} includeSchema={false} onViewAll={() => handleNavigate('faq')} />
 
             {/* Final call-to-action */}
             <section className="py-20 bg-[#1A2E40] text-white border-t border-[#D4AF37]/30 text-center relative overflow-hidden">
@@ -190,7 +191,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Let's talk about your practice.
                 </h2>
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
-                  Book a complimentary 20-minute Financial Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
+                  Book a free 20-minute Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a href="/contact"
@@ -220,7 +221,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Med Spa Bookkeeping Services Built Around Your Practice
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Specialized bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
+                  Bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
                 </p>
               </div>
             </div>
@@ -229,14 +230,14 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             <section aria-labelledby="service-pages-heading" className="py-12 lg:py-14 bg-white border-b border-[#E2E8F0]">
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 id="service-pages-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight text-center">
-                  Explore each service
+                  Service pages
                 </h2>
                 <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {([
                     ['monthly-bookkeeping', 'Monthly Bookkeeping', 'Reconciliations, payouts, memberships and provider pay, closed every month.'],
                     ['quickbooks-cleanup', 'QuickBooks Cleanup & Catch-Up', 'Months or years of books brought up to date at a fixed fee.'],
                     ['quickbooks-setup', 'QuickBooks Setup', 'A QuickBooks Online file and chart of accounts built for a med spa.'],
-                    ['financial-reporting', 'Financial Reporting', 'Revenue by treatment, margins, provider pay and cash flow in plain English.'],
+                    ['financial-reporting', 'Financial Reporting', 'Revenue by treatment, margins, provider pay and cash flow in plain language.'],
                     ['iv-hydration', 'IV Hydration Bookkeeping', 'Supply costs, memberships and nurse pay for IV clinics and drip bars.'],
                     ['medical-weight-loss', 'Medical Weight Loss Bookkeeping', 'Medication cost, program fees and provider pay for GLP-1 clinics.'],
                   ] as Array<[PageView, string, string]>).map(([page, title, body]) => (
@@ -327,6 +328,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             </div>
 
             <AboutSection onBookCall={handleBookCall} />
+            <AboutDetails onNavigate={handleNavigate} />
           </>
         )}
 
@@ -355,10 +357,10 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
                 <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Free 20-Minute Zoom Call
+                  On Zoom · No Obligation
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Book Your Free Clarity Call
+                  Book Your Free 20-Minute Clarity Call
                 </h1>
               </div>
             </div>
@@ -378,7 +380,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Med Spa Bookkeeping Plans &amp; Pricing
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Fixed monthly plans and fixed-fee cleanup projects, with a free call to find the right fit.
+                  Fixed monthly plans and fixed-fee cleanup projects, with a free 20-minute Clarity Call to find the right fit.
                 </p>
               </div>
             </div>
@@ -388,7 +390,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             <section className="py-12 bg-white border-b border-[#E2E8F0]">
               <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
                 <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">Questions about pricing?</h2>
-                <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Read answers about what affects your fee, how cleanup works, and what happens on the free call.</p>
+                <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Read answers about what affects your fee, how cleanup works, and what happens on the free Clarity Call.</p>
                 <a
                   href="/faq"
                   onClick={(e) => { e.preventDefault(); handleNavigate('faq'); }}
