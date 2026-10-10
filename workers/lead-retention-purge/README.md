@@ -45,7 +45,9 @@ action needed.
 ## Checking it worked
 
 - **Logs:** Worker → **Logs** tab in the dashboard shows each run and how
-  many rows it deleted (never the row contents — just a count).
+  many rows it deleted (never the row contents — just a count), or the error
+  if a run failed. This needs Workers Logs, which `[observability]` in
+  `wrangler.toml` turns on.
 - **Run it right now** instead of waiting for Sunday: the deployed Worker
   deliberately has no public URL (`workers_dev = false` in `wrangler.toml`),
   so nobody else can trigger it. To run a purge on demand, run it from your

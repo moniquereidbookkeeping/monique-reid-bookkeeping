@@ -13,6 +13,11 @@ preview_urls = false
 [triggers]
 crons = ["0 10 * * SUN"]
 
+# Workers Logs: keeps each run's log lines ("deleted N row(s)" or "failed: ...") in the dashboard's
+# Logs tab. Without this, only live tailing works and a failed Sunday run would leave no record.
+[observability]
+enabled = true
+
 # Secrets — set these with `wrangler secret put <NAME>`, or in the Cloudflare
 # dashboard for this Worker (Settings -> Variables and Secrets). Do NOT put
 # them in this file. Both values already exist as secrets on the main
