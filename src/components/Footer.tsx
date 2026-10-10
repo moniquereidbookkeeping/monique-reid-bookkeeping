@@ -241,6 +241,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           <img
             src="https://design.intuit.com/wp-content/uploads/2024/06/QBLogo-50-50-white-1600x1200-1-1024x262.png"
             alt="QuickBooks"
+            width={55}
+            height={14}
             className="h-3.5 w-auto opacity-70"
             loading="lazy"
           />
