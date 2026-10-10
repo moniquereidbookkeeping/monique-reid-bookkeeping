@@ -129,7 +129,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="space-y-2">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm font-semibold uppercase tracking-wider text-[#4A5568] w-full sm:w-auto shrink-0">Practice Management:</span>
-                  {['Boulevard', 'Vagaro', 'Jane', 'Mindbody', 'Zenoti'].map(name => (
+                  {['Boulevard', 'Vagaro', 'Jane App', 'Mindbody', 'Zenoti'].map(name => (
                     <span key={name} className="px-2.5 py-1 rounded-md bg-[#1A2E40]/5 border border-[#1A2E40]/10 text-sm font-medium text-[#1A2E40]">{name}</span>
                   ))}
                 </div>

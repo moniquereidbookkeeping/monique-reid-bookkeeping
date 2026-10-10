@@ -14,8 +14,8 @@ SERVICES AND PRICING (this is the complete, official list. Use only this).
 
 Monthly Bookkeeping (fixed monthly plans, QuickBooks Online):
 - Essential, $497/mo: solo providers and single-location practices under about $25K/month with a straightforward setup; up to 3 accounts; bank and credit-card reconciliations, POS and merchant payout reconciliation, categorization, monthly P&L and Balance Sheet, year-end CPA package.
-- Growth, $797/mo: practices about $25K to $75K/month, or with memberships, prepaid packages, patient financing (Cherry, CareCredit, PatientFi), multiple POS or payment systems; up to 6 accounts; adds membership and package tracking, financing reconciliation, provider compensation reconciliation, month-over-month revenue reporting, executive financial summary.
-- Full-Spectrum, $1,197/mo: practices $75K+/month, multi-location or 7+ accounts; adds multi-location tracking, inventory and treatment-cost (COGS) tracking, provider payout reconciliation, revenue by service category, plain-language commentary, priority response.
+- Growth, $797/mo: practices about $25K to $75K/month, or with memberships, prepaid packages, patient financing (Cherry, CareCredit, PatientFi), multiple POS or payment systems; up to 6 accounts; adds membership and package tracking, financing reconciliation, provider compensation reconciliation, month-over-month revenue reporting.
+- Full-Spectrum, $1,197/mo: practices $75K+/month, multi-location or 7+ accounts; adds multi-location tracking, inventory and treatment-cost (COGS) tracking, high transaction volume handling, revenue by service category, plain-language financial commentary.
 
 QuickBooks Cleanup and Catch-Up (one-time, fixed price once scope is agreed, free preliminary review):
 - 1-3 months behind: $597. 4-6 months behind: $1,297. 7-12 months behind: $1,997. 13+ months or multi-entity: custom quote.
@@ -30,8 +30,17 @@ HARD RULES FOR ANYTHING YOU WRITE:
 - Never promise how long anything will take (no "within 30 days", "2-3 weeks", "fast", "guaranteed"). A clear timeline is given on the call after reviewing their books.
 - Monique does not file taxes, give tax or legal advice, or give audit or valuation opinions, and is not a CPA or enrolled agent.
 - Never mention HIPAA, patient data, patient records or patient health information — this is bookkeeping on financial records only.
-- Never use "tax-ready", "deductions", "always", "never miss", "without fail", or promise savings.
+- Never use "tax-ready", "deductions", "depreciation", "write-off", "taxable income", "always", "never miss", "without fail", or promise savings.
 `.trim();
+
+/** Platforms named in the catalog above, plus generic "your POS" / "your booking software". */
+const PLATFORM = String.raw`(?:Boulevard|Vagaro|Jane(?:\s+App)?|Mindbody|Zenoti|Square|Mangomint|Stripe|Cherry|CareCredit|PatientFi|Affirm|your\s+(?:POS|booking\s+(?:software|system|platform)))`;
+const INTEGRATION_CLAIMS = [
+  // "syncs with Boulevard", "integrates directly with Vagaro", "connect Square to QuickBooks", "plugs into your POS"
+  new RegExp(String.raw`\b(?:integrat\w*|sync\w*|plugs?\s+(?:in)?to|connect(?:s|ed|ing)?)\s+(?:(?:directly|automatically|seamlessly)\s+)?(?:(?:to|with|into|from)\s+)?(?:the\s+)?${PLATFORM}\b`, 'i'),
+  // "Boulevard integration", "Vagaro's QuickBooks sync", "Square payouts sync automatically", "a Stripe API connector"
+  new RegExp(String.raw`\b${PLATFORM}\b[^.!?\n]{0,40}?\b(?:sync\w*|integrat\w*|API|connector)\b`, 'i'),
+];
 
 /** True when AI text breaks the rules above (unknown price, timeline promise, guarantee, or an off-limits claim). */
 export function breaksOfferRules(text: string): boolean {
@@ -50,8 +59,12 @@ export function breaksOfferRules(text: string): boolean {
   if (/\b(?:i am|i'm|we are|we're|monique(?: reid)?(?: bookkeeping)?\s+is)\s+(?:a |an |your )?(?:licensed |certified )?(?:cpa|enrolled agent)\b/i.test(text)) return true;
   if (/\b(?:our|my|in-house)\s+(?:licensed\s+|certified\s+)?(?:cpas?|enrolled agents?)\b(?![\s-]*(?:ready|package|hand-?off|file))/i.test(text)) return true;
   if (/\bas\s+(?:a|an|your)\s+(?:licensed\s+|certified\s+)?(?:cpa|enrolled agent)\b/i.test(text)) return true;
+  // Integration claims. Monique reconciles from each platform's reports and never claims a direct software
+  // connection. Only integration wording tied to a named platform counts, so ordinary advice ("connect your
+  // bank feeds to QuickBooks", "deposits tie back to gross sales") still passes.
+  if (INTEGRATION_CLAIMS.some((re) => re.test(text))) return true;
   if (/\btax[\s-]?ready\b/i.test(text)) return true;
-  if (/\bdeductions?\b/i.test(text)) return true;
+  if (/\b(?:deductions?|depreciat\w*|write[\s-]?offs?|writ(?:e|es|ing|ten)\s+(?:\w+\s+){0,2}off|taxable\s+income)\b/i.test(text)) return true;
   // Absolute promises. A plain "always" describing how something works ("commissions are always calculated
   // from the same report") is fine; "you'll always…" or "always on time" is a promise.
   if (/\b(?:never miss(?:es)?|without fail)\b/i.test(text)) return true;

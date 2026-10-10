@@ -4,6 +4,7 @@ import { PageView } from '../types';
 import { pathFor } from '../router';
 import { cleanupTiers } from '../data/cleanupPricing';
 import { RelatedArticles } from './RelatedArticles';
+import { PAYOUT_PLATFORMS } from '../constants/platforms';
 
 interface QuickBooksCleanupPageProps {
   onNavigate: (page: PageView) => void;
@@ -24,11 +25,11 @@ const SIGNS = [
 const FIXES = [
   {
     title: 'POS and payment payouts',
-    body: 'Boulevard, Vagaro, Square and Stripe often pay out net of processing fees and refunds, depending on your settings and processor. Card tips are usually included in the payout and owed to staff. Each payout is matched to its report, so revenue is recorded at the gross amount and processing fees are their own expense.',
+    body: `${PAYOUT_PLATFORMS} often pay out net of processing fees and refunds, depending on your settings and processor. Card tips are usually included in the payout and owed to staff. Each payout is matched to its report, so revenue is recorded at the gross amount and processing fees are their own expense.`,
   },
   {
     title: 'Patient financing',
-    body: "Depending on the program, Cherry, CareCredit and PatientFi may fund less than the treatment price, on the lender's own payout schedule. The full sale and the financing fee are recorded separately, so revenue is not understated and the fee is visible.",
+    body: "Depending on the program, Cherry, CareCredit and PatientFi may fund less than the treatment price and pay out on the lender's own schedule. The full sale and the financing fee are recorded separately, so revenue is not understated and the fee is visible.",
   },
   {
     title: 'Memberships, packages and gift cards',

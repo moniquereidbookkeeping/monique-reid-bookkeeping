@@ -3,7 +3,7 @@ import App from './App';
 import { PAGE_META, SITE_ORIGIN, PAGE_PATHS } from './router';
 import { blogPosts } from './data/blogPosts';
 import { cleanupTiers } from './data/cleanupPricing';
-import { FORT_LAUDERDALE_AREAS } from './components/FortLauderdalePage';
+import { BROWARD_CITIES, SOUTH_FLORIDA_AREAS } from './constants/serviceArea';
 
 /** Re-exported so the prerender step can check index.html's business data uses the same phone and email. */
 export { CONTACT_EMAIL, CONTACT_PHONE_TEL } from './constants/booking';
@@ -113,7 +113,6 @@ export function renderRoute(path: string): PrerenderRoute {
       breadcrumb([home, { name: 'Blog', url: `${SITE_ORIGIN}/blog` }, { name: post.title, url: canonical }]),
     );
   } else if (key === 'south-florida') {
-    const cities = ['Fort Lauderdale', 'Miami', 'Boca Raton', 'West Palm Beach', 'Hollywood', 'Coral Springs', 'Delray Beach', 'Coral Gables'];
     jsonLd.push(
       {
         '@context': 'https://schema.org',
@@ -124,8 +123,8 @@ export function renderRoute(path: string): PrerenderRoute {
         description: meta.description,
         provider: { '@id': `${SITE_ORIGIN}/#organization` },
         areaServed: [
-          ...cities.map((name) => ({ '@type': 'City', name: `${name}, FL` })),
-          ...['Broward County', 'Miami-Dade County', 'Palm Beach County'].map((name) => ({ '@type': 'AdministrativeArea', name: `${name}, FL` })),
+          ...SOUTH_FLORIDA_AREAS.flatMap((a) => a.cities).map((name) => ({ '@type': 'City', name: `${name}, FL` })),
+          ...SOUTH_FLORIDA_AREAS.map((a) => ({ '@type': 'AdministrativeArea', name: `${a.county}, FL` })),
         ],
       },
       breadcrumb([home, { name: CRUMB[key]!, url: canonical }]),
@@ -142,7 +141,7 @@ export function renderRoute(path: string): PrerenderRoute {
         description: meta.description,
         provider: { '@id': `${SITE_ORIGIN}/#organization` },
         areaServed: [
-          ...FORT_LAUDERDALE_AREAS.map((name) => ({ '@type': 'City', name: `${name}, FL` })),
+          ...BROWARD_CITIES.map((name) => ({ '@type': 'City', name: `${name}, FL` })),
           { '@type': 'AdministrativeArea', name: 'Broward County, FL' },
         ],
       },

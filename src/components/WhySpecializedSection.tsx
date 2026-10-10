@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
+import { PAYOUT_PLATFORMS } from '../constants/platforms';
 
 interface WhySpecializedSectionProps {
   onBookCall: () => void;
@@ -10,7 +11,7 @@ const problems = [
     number: '01',
     title: "POS Payouts That Don't Match Gross Sales",
     problem:
-      'Platforms such as Boulevard, Vagaro, Square, and Mindbody often pay out net of processing fees and refunds, depending on your settings and processor. Card tips are usually included in the payout and owed to staff, not subtracted from it. When only the deposited amount is recorded, your books may not clearly reflect gross sales—or the fees and liabilities tied to those transactions.',
+      `Platforms such as ${PAYOUT_PLATFORMS} often pay out net of processing fees and refunds, depending on your settings and processor. Card tips are usually included in the payout and owed to staff, not subtracted from it. When only the deposited amount is recorded, your books may not clearly reflect gross sales—or the fees and liabilities tied to those transactions.`,
     help:
       'Platform activity is reconciled against bank deposits, with processing fees, refunds, tips, and adjustments accounted for separately, giving you cleaner QuickBooks records and a clearer picture of practice revenue.',
   },

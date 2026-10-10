@@ -21,7 +21,7 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
         <CheckCircle2 className="w-9 h-9" />
       </div>
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1A2E40] leading-tight">
-        You're booked. I look forward to talking.
+        You're booked. Monique looks forward to talking with you.
       </h1>
       <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
         Your free 20-minute Financial Clarity Call is confirmed. No pressure. Just clarity.

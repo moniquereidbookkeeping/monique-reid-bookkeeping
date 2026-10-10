@@ -210,7 +210,8 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 'Boulevard',
                 'Zenoti',
                 'Vagaro',
-                'PatientNow',
+                'Jane App',
+                'Mindbody',
                 'Other practice-management, payment-processing or financial platforms',
               ].map((p, idx) => (
                 <span key={idx} className="px-3 py-1 bg-[#FAF8F5] border border-[#E2E8F0] rounded-lg">

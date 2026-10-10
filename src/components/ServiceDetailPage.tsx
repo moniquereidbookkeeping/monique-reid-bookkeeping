@@ -311,7 +311,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
     },
     {
       title: 'Booking and POS mapping',
-      body: 'Boulevard, Vagaro, Jane, Mindbody, Square or Stripe mapped to QuickBooks, so payouts can be reconciled cleanly each month.',
+      body: 'Boulevard, Vagaro, Jane App, Mindbody, Square or Stripe mapped to QuickBooks, so payouts can be reconciled cleanly each month.',
     },
     {
       title: 'Products and services list',

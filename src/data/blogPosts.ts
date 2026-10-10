@@ -61,7 +61,8 @@ const allBlogPosts: BlogPost[] = [
       {
         "type": "list",
         "items": [
-          "Neurotoxin and filler product",
+          "Neurotoxin product",
+          "Filler product",
           "Other treatment-specific products",
           "Retail product cost",
           "Direct supplies that are used up in a treatment"
@@ -118,6 +119,10 @@ const allBlogPosts: BlogPost[] = [
       {
         "type": "paragraph",
         "text": "Changing the chart of accounts also means moving past transactions to the right places. If your file has been in use for a while, ask your bookkeeper or CPA before reorganizing it."
+      },
+      {
+        "type": "paragraph",
+        "text": "This article is general information, not tax or legal advice. The right accounts depend on your practice, and how they map to your tax return is a question for your CPA."
       }
     ]
   },
@@ -143,7 +148,7 @@ const allBlogPosts: BlogPost[] = [
     "content": [
       {
         "type": "intro",
-        "text": "A full schedule and a growing revenue line feel like success, but they do not answer the owner’s main question: how much does the practice keep? QuickBooks can show that, as long as the books underneath are reliable."
+        "text": "A full schedule and a growing revenue line feel like success, but they do not answer the owner's main question: how much does the practice keep? QuickBooks can show that, as long as the books underneath are reliable."
       },
       {
         "type": "heading",
@@ -208,6 +213,10 @@ const allBlogPosts: BlogPost[] = [
       {
         "type": "paragraph",
         "text": "If the reports do not match what you see in the practice, the usual fix is in the books, not the report. A review of reconciliations and categories is the best first step."
+      },
+      {
+        "type": "paragraph",
+        "text": "This article is general information, not tax, financial or legal advice. Any figures are examples, not benchmarks, so review your own numbers with your CPA."
       }
     ]
   },
@@ -297,6 +306,10 @@ const allBlogPosts: BlogPost[] = [
       {
         "type": "paragraph",
         "text": "If the file is already behind, a cleanup before the CPA starts can save time and avoid corrections later."
+      },
+      {
+        "type": "paragraph",
+        "text": "This article is general information, not tax or legal advice. What a CPA needs varies by firm, entity type and situation, so confirm the list with your own CPA."
       }
     ]
   },
@@ -305,7 +318,7 @@ const allBlogPosts: BlogPost[] = [
     "slug": "medspa-month-end-close-checklist-quickbooks",
     "title": "A MedSpa Month-End Close Checklist for QuickBooks",
     "metaTitle": "MedSpa Month-End Close Checklist | QuickBooks Bookkeeping",
-    "metaDescription": "A month-end routine keeps a MedSpa’s QuickBooks accurate all year. Use this checklist to reconcile accounts, match deposits, review costs and check reports.",
+    "metaDescription": "A month-end routine keeps a MedSpa's QuickBooks accurate all year. Use this checklist to reconcile accounts, match deposits, review costs and check reports.",
     "excerpt": "Books that are only touched at tax time are rarely accurate. This month-end checklist shows what to review in QuickBooks each month so problems are caught while they are small.",
     "category": "QuickBooks & Cleanup",
     "tags": [
@@ -379,6 +392,10 @@ const allBlogPosts: BlogPost[] = [
       {
         "type": "paragraph",
         "text": "Exact steps vary with your accounting method, software and practice size, so adjust the checklist to fit your setup."
+      },
+      {
+        "type": "paragraph",
+        "text": "This article is general information, not tax or legal advice. Confirm tax questions, including accruals and inventory treatment, with your CPA."
       }
     ]
   },
@@ -562,7 +579,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'If you are starting from scratch or correcting a messy setup, the chart of accounts for a MedSpa should have at minimum: separate revenue accounts for Services and Retail Products, a Merchant Processing Fees expense account, a Tips Payable liability account, and a clearing account (in QuickBooks Online, Payments to deposit, formerly called Undeposited Funds) that holds your POS collections until the batch deposit posts.',
+        text: 'If you are starting from scratch or correcting a messy setup, the chart of accounts for a MedSpa should have at minimum: separate revenue accounts for Services and Retail Products, a Merchant Processing Fees expense account, a Tips Payable liability account, and a clearing account (in QuickBooks Online it is called Undeposited Funds, and some files now label it Payments to deposit, so check the name in your own file) that holds your POS collections until the batch deposit posts.',
       },
       {
         type: 'paragraph',
@@ -577,6 +594,7 @@ const allBlogPosts: BlogPost[] = [
         type: 'paragraph',
         text: 'Getting POS reconciliation right is foundational work. Everything else in your books — service-line profitability, provider performance, tax filing — depends on this being done correctly. If you inherited a QuickBooks file where this has been handled incorrectly, a cleanup is usually needed to correct the historical record and get to reliable numbers.',
       },
+      { type: 'paragraph', text: 'This article is general information, not tax or legal advice. Payout timing, fee handling and report names differ by platform, processor and QuickBooks version, so check your own reports, and confirm how revenue and fees are treated for tax with your CPA.' },
     ],
   },
   {
@@ -630,7 +648,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'The correct method is a two-step process. When you collect membership dues, you post the amount to a Deferred Revenue account (a current liability on your Balance Sheet). When a member visits and receives their included service, you move the corresponding amount from Deferred Revenue to Service Revenue on your P&L. This is called revenue recognition — you recognize income in the period the service is earned, not when the cash is received. If unused membership benefits expire, how and when that balance is recognized depends on your membership terms and your CPA’s guidance.',
+        text: 'The correct method is a two-step process. When you collect membership dues, you post the amount to a Deferred Revenue account (a current liability on your Balance Sheet). When a member visits and receives their included service, you move the corresponding amount from Deferred Revenue to Service Revenue on your P&L. This is called revenue recognition — you recognize income in the period the service is earned, not when the cash is received. If unused membership benefits expire, how and when that balance is recognized depends on your membership terms and your CPA\'s guidance.',
       },
       {
         type: 'callout',
@@ -663,7 +681,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Everything above reflects accrual accounting, which gives a more accurate picture of performance for a practice with memberships and prepaid packages. Cash accounting, which records income when received and expenses when paid, is simpler but can make a membership-based practice look better or worse than it really is in a given month. Your tax accounting method and the way you view your books for management can be different, and small businesses are often allowed to use cash for taxes. Talk with your CPA about which method applies to your tax return and whether your management reports should be on an accrual basis.',
+        text: 'Everything above reflects accrual accounting, which gives a more accurate picture of performance for a practice with memberships and prepaid packages. Cash accounting, which records income when received and expenses when paid, is simpler but can make a membership-based practice look better or worse than it really is in a given month. Your tax accounting method and the way you view your books for management can be different, and the rules for which tax method a business can use depend on its size and situation. Talk with your CPA about which method applies to your tax return and whether your management reports should be on an accrual basis.',
       },
       {
         type: 'tip',
@@ -674,6 +692,7 @@ const allBlogPosts: BlogPost[] = [
         type: 'paragraph',
         text: 'Correcting membership accounting is one of the highest-value improvements a MedSpa can make to its books. It takes some initial setup and a consistent month-end process, but the result is a financial picture you can actually trust — which is the whole point of keeping books in the first place.',
       },
+      { type: 'paragraph', text: 'This article is general information, not tax or legal advice. How memberships, packages and gift cards are treated for tax, and which accounting method you use, depend on your situation and the terms you offer, so confirm them with your CPA.' },
     ],
   },
   {
@@ -713,7 +732,7 @@ const allBlogPosts: BlogPost[] = [
         items: [
           'Expense when purchased — the simplest method. Product orders go straight to an expense account. The weakness is timing: a large order in one month makes that month look unprofitable and the next month look unusually strong.',
           'Inventory on hand with a monthly count — purchases go to an Inventory Asset account on your Balance Sheet. Each month you count what is on the shelf and move the cost of product used into Cost of Goods Sold. This evens out the swings and is a practical middle ground for many single-location practices.',
-          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online is included in the Plus and Advanced plans at the time of writing, but not in Simple Start or Essentials, so check your plan on Intuit’s current pricing page.',
+          'Item-by-item (perpetual) tracking — each vial or syringe is tracked in QuickBooks or in your practice-management software and costs move as treatments are recorded. It is the most precise and the most work. Inventory tracking inside QuickBooks Online is included in the Plus and Advanced plans at the time of writing, but not in Simple Start or Essentials, so check your plan on Intuit\'s current pricing page.',
         ],
       },
       {
@@ -755,7 +774,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'Opened product has a limited shelf life, so some product will be wasted, expire or be used for training. Those are real costs. Track them in their own account so you can see how much product is lost and whether ordering or scheduling needs to change. If you receive manufacturer rebates, loyalty-program credits or supplier credits, they usually reduce your product cost rather than count as sales income. Record them according to the terms of the program and your CPA’s guidance.',
+        text: 'Opened product has a limited shelf life, so some product will be wasted, expire or be used for training. Those are real costs. Track them in their own account so you can see how much product is lost and whether ordering or scheduling needs to change. If you receive manufacturer rebates, loyalty-program credits or supplier credits, they usually reduce your product cost rather than count as sales income. Record them according to the terms of the program and your CPA\'s guidance.',
       },
       {
         type: 'heading',
@@ -782,12 +801,13 @@ const allBlogPosts: BlogPost[] = [
       {
         type: 'tip',
         heading: 'Quick Check',
-        text: 'Run last month’s Profit & Loss. If you see a large "Supplies" line and no Cost of Goods Sold section, your product costs are almost certainly not separated, and your margins cannot be read from your books.',
+        text: 'Run last month\'s Profit & Loss. If you see a large "Supplies" line and no Cost of Goods Sold section, your product costs are almost certainly not separated, and your margins cannot be read from your books.',
       },
       {
         type: 'paragraph',
         text: 'Separating treatment costs is one of the most useful changes a MedSpa can make to its books. It takes some setup and a steady month-end routine, but it turns the Profit & Loss from a record of spending into a tool for pricing and planning. If your product costs have been buried in general expenses for a while, a cleanup can restate past months so your history is comparable.',
       },
+      { type: 'paragraph', text: 'This article is general information, not tax or legal advice. Inventory and product-cost treatment on your tax return depend on your situation, so confirm them with your CPA.' },
     ],
   },
   {
@@ -808,7 +828,7 @@ const allBlogPosts: BlogPost[] = [
     content: [
       {
         type: 'intro',
-        text: 'Patient financing helps more treatments get booked, but it often leaves a gap in the books. Depending on the program, the practice may pay a fee, so the deposit can be less than the treatment price, on the lender\'s own payout schedule. If that smaller deposit is recorded as the sale, revenue is understated and the financing fee never appears anywhere.',
+        text: 'Patient financing helps more treatments get booked, but it often leaves a gap in the books. Depending on the program, the practice may pay a fee, so the deposit, which arrives on the lender\'s own payout schedule, can be less than the treatment price. If that smaller deposit is recorded as the sale, revenue is understated and the financing fee never appears anywhere.',
       },
       {
         type: 'heading',
@@ -840,7 +860,7 @@ const allBlogPosts: BlogPost[] = [
         items: [
           'Record the sale at the full treatment price when the service is delivered, through your sales receipt or invoice.',
           'Create a separate expense account for patient financing fees so the cost is visible on its own line.',
-          'When the payout arrives, match it to the lender’s payout report, not just to the bank line.',
+          'When the payout arrives, match it to the lender\'s payout report, not just to the bank line.',
           'Record the fee for each payout, so that sale, fee and deposit add up exactly.',
           'Keep each lender separate, since payout schedules and fees can differ by program, and combining them hides which program costs what.',
         ],
@@ -875,6 +895,7 @@ const allBlogPosts: BlogPost[] = [
         type: 'paragraph',
         text: 'Details vary by lender and by how your practice management software syncs sales, so confirm the specifics for your setup. For how fees and treatment of financed sales affect your taxes, ask your CPA.',
       },
+      { type: 'paragraph', text: 'This article is general information, not tax, lending or legal advice. Program terms and fees differ by lender and contract, so check your own agreement.' },
     ],
   },
   {
@@ -937,7 +958,7 @@ const allBlogPosts: BlogPost[] = [
       },
       {
         "type": "paragraph",
-        "text": "Many practices place provider commissions in Cost of Goods Sold (sometimes labelled Cost of Services), next to product cost, so gross profit reflects the full direct cost of a treatment. Others keep them in operating expenses. Choose one approach with your CPA and use it every month, so one month can be compared with the next."
+        "text": "Many practices place provider commissions in Cost of Goods Sold (sometimes labeled Cost of Services), next to product cost, so gross profit reflects the full direct cost of a treatment. Others keep them in operating expenses. Choose one approach with your CPA and use it every month, so one month can be compared with the next."
       },
       {
         "type": "heading",
@@ -988,7 +1009,7 @@ const allBlogPosts: BlogPost[] = [
         ]
       },
       {
-        "type": "callout",
+        "type": "tip",
         "heading": "Quick Check",
         "text": "Open last month's Profit & Loss. If provider commission is not its own line, or if it does not roughly match what your booking platform says was earned that month, provider pay needs to be separated and tied to the commission report."
       },

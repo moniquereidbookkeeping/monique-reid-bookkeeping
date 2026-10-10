@@ -9,6 +9,7 @@ import {
   Sparkles,
   X,
 } from 'lucide-react';
+import { PAYOUT_PLATFORMS } from '../constants/platforms';
 
 interface FAQSectionProps {
   onBookCall: () => void;
@@ -54,7 +55,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'My Boulevard or Square deposit never matches my gross sales. I have no idea where the money went.',
       answer:
-        'This is one of the most common frustrations practice owners describe — and it can be fixed.\n\nPlatforms such as Boulevard, Vagaro, Square, Mindbody, and Mangomint often pay out net of processing fees and refunds, depending on your settings and processor, rather than your total sales. Card tips are usually included in the payout and owed to staff. If your books only record what deposited, that missing money disappears — and you lose visibility into real costs.\n\nPlatform reports are reconciled against your actual bank deposits line by line. Every fee and adjustment gets its own category, so you can see where the gap came from and what running your payment processing actually costs your practice.',
+        `This is one of the most common frustrations practice owners describe — and it can be fixed.\n\nPlatforms such as ${PAYOUT_PLATFORMS} often pay out net of processing fees and refunds, depending on your settings and processor, rather than your total sales. Card tips are usually included in the payout and owed to staff. If your books only record what deposited, that missing money disappears — and you lose visibility into real costs.\n\nPlatform reports are reconciled against your actual bank deposits line by line. Every fee and adjustment gets its own category, so you can see where the gap came from and what running your payment processing actually costs your practice.`,
       takeaways: [
         'Platform net deposits compared against gross sales reports',
         'Processing fees, refunds, and adjustments tracked separately',
@@ -122,7 +123,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
         'Monique Reid Bookkeeping provides specialized bookkeeping support for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related businesses.\n\nThe bookkeeping approach is customized to your services, payment platforms, provider-compensation structure, inventory, memberships, treatment packages, and number of locations.',
       takeaways: [
         'Specialized support for aesthetic and wellness businesses',
-        'Bookkeeping customized to your practice’s operations',
+        'Bookkeeping customized to your practice\'s operations',
         'Support for single-location and growing multi-location practices',
       ],
     },
@@ -136,7 +137,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       takeaways: [
         'Monthly reconciliation and transaction review',
         'Profit and Loss and Balance Sheet reports',
-        'Services tailored to your practice’s size and complexity',
+        'Services tailored to your practice\'s size and complexity',
       ],
     },
     {
@@ -149,14 +150,14 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       takeaways: [
         'Organized tracking for products, supplies, and operating expenses',
         'Clearer visibility into gross profit by service or treatment category',
-        'Financial reports structured around your practice’s operations',
+        'Financial reports structured around your practice\'s operations',
       ],
     },
     {
       id: 'faq-4',
       category: 'quickbooks-systems',
       categoryLabel: 'QUICKBOOKS & SYSTEMS',
-      question: 'How do you reconcile software such as Boulevard, Vagaro, Jane, Mangomint, Square, or Stripe with QuickBooks?',
+      question: 'How do you reconcile software such as Boulevard, Vagaro, Jane App, Mangomint, Square, or Stripe with QuickBooks?',
       answer:
         'Practice-management and payment platforms frequently combine service revenue, product sales, client tips, memberships, processing fees, refunds, and other activity into a single bank deposit.\n\nPlatform reports, merchant statements, and bank deposits are compared to properly record the underlying activity in QuickBooks. Depending on your systems and workflow, clearing accounts or summarized entries may also be used to make monthly reconciliation more accurate and manageable.',
       takeaways: [

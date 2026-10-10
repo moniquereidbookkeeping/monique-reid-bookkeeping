@@ -5,7 +5,7 @@ Pain and ease scores are the site owner's advisor judgment (not survey data). Sc
 
 ## Audience
 MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, related self-pay healthcare. Fort Lauderdale FL based, serves clients nationwide. QuickBooks Online only.
-Works fully remote (Zoom, QuickBooks Online, phone, email): no office visits and no public street address. South Florida service area (owner-confirmed October 2026): Fort Lauderdale, Wilton Manors, Oakland Park, Plantation, Davie and greater Broward County, plus Miami-Dade County (Miami, Miami Beach, Coral Gables, Aventura, Doral, Kendall) and Palm Beach County (Boca Raton, Delray Beach, Boynton Beach, West Palm Beach, Palm Beach Gardens, Jupiter) — all served remotely, same as practices nationwide. Public phone 386-297-9815; email monique@moniquereidbookkeeping.com.
+Works fully remote (Zoom, QuickBooks Online, phone, email): no office visits and no public street address. South Florida service area (owner-confirmed October 2026): Fort Lauderdale, Wilton Manors, Oakland Park, Plantation, Davie and greater Broward County, plus Miami-Dade County (Miami, Miami Beach, Coral Gables, Aventura, Doral, Kendall) and Palm Beach County (Boca Raton, Delray Beach, Boynton Beach, West Palm Beach, Palm Beach Gardens, Jupiter) — all served remotely, same as practices nationwide. Every page and schema reads this list from `src/constants/serviceArea.ts`; change it there. Public phone 386-297-9815; email monique@moniquereidbookkeeping.com.
 
 ## Pain points, ranked by pain
 
