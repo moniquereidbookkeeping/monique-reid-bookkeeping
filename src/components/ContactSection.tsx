@@ -89,7 +89,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             }}
             className="inline-block text-center font-semibold text-[#1A2E40]! underline decoration-[#D4AF37] underline-offset-4 hover:text-[#D4AF37]! cursor-pointer"
           >
-            Take the free 60-second Bookkeeping Health Check first
+            Take the free 7-question Bookkeeping Health Check first
           </a>
           .
         </p>
@@ -128,7 +128,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
           </div>
 
           <div className="text-sm text-[#E2E8F0]/80 text-center sm:text-right">
-            <p>Specialized Bookkeeping for MedSpas, Aesthetic Clinics &amp; Wellness Practices Nationwide</p>
+            <p>Bookkeeping for MedSpas, Aesthetic Clinics &amp; Wellness Practices Nationwide</p>
             <p className="text-[#D4AF37] font-medium mt-0.5">Replies within 1–2 business days</p>
           </div>
         </div>

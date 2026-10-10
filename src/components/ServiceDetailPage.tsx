@@ -176,7 +176,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     'Practices whose books are caught up (or have just been cleaned up) and need to stay that way',
     'Med spas running memberships, prepaid packages or patient financing alongside regular treatments',
     'Practices with several booking or payment platforms, accounts or locations to keep in step',
-    'Owners whose current reports do not show which services are actually worth keeping',
+    'Owners whose current reports do not show which services are worth keeping',
   ],
   includedTitle: 'What happens every month',
   includedIntro:
@@ -200,7 +200,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
     },
     {
       title: 'Monthly statements',
-      body: 'A Profit & Loss and a Balance Sheet for every month, delivered by the 15th of the following month, with a plain-English summary of notable trends and changes on plans that include it.',
+      body: 'A Profit & Loss and a Balance Sheet for every month, delivered by the 15th of the following month, with a plain-language summary of notable trends and changes on plans that include it.',
     },
     {
       title: 'Year-end package for your CPA',
@@ -230,7 +230,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
       },
       {
         title: 'Sales tax',
-        body: 'Sales tax is kept separate from operating revenue. Which treatments, products and packages are taxable is decided by your CPA or sales-tax advisor.',
+        body: 'Sales tax is kept separate from operating revenue. Which treatments, products and packages are taxable is decided by your CPA or sales tax advisor.',
       },
     ],
     note: 'Want reports beyond the monthly statements, such as revenue by treatment, margins and cash flow? See [financial reporting for med spas](financial-reporting).',
@@ -283,7 +283,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
   heroLine:
     'A QuickBooks Online setup built around how a med spa earns and spends, for new practices and for practices that have outgrown a generic setup.',
   intro: [
-    "QuickBooks Online's default setup is made for a generic small business. A med spa needs more than that. Injectables, laser, memberships and retail skincare earn in different ways, and neurotoxin, filler and medical consumables are costs of delivering treatments, not general overhead. When QuickBooks is set up for that from the start, your reports show what each part of the practice actually earns.",
+    "QuickBooks Online's default setup is made for a generic small business. A med spa needs more than that. Injectables, laser, memberships and retail skincare earn in different ways, and neurotoxin, filler and medical consumables are costs of delivering treatments, not general overhead. When QuickBooks is set up for that from the start, your reports show what each part of the practice earns.",
     'This setup is for practitioners launching a new med spa, aesthetic clinic, wellness suite or medical weight-loss clinic, and for established practices that have outgrown an off-the-shelf setup. It is done by a Certified Intuit ProAdvisor who works only with self-pay healthcare practices.',
     'Setup builds the structure going forward. If your existing file already has months of miscategorized history, that is a [QuickBooks cleanup](quickbooks-cleanup), which can include restructuring the chart of accounts as part of correcting the past, depending on scope.',
   ],
@@ -315,7 +315,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
     },
     {
       title: 'Products and services list',
-      body: 'A product and service item catalog with sales-tax mapping based on your guidance and the rules that apply. Your CPA or sales-tax advisor decides what is taxable.',
+      body: 'A product and service item catalog with sales tax mapping based on your guidance and the rules that apply. Your CPA or sales tax advisor decides what is taxable.',
     },
     {
       title: 'Opening balances and walkthrough',

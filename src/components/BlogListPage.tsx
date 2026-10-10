@@ -170,7 +170,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
           {featured && (
             <div>
               <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-4">
-                ✦ Latest Featured Article
+                ✦ Featured Article
               </p>
               <FeaturedCard post={featured} onRead={() => onReadPost(featured.slug)} />
             </div>

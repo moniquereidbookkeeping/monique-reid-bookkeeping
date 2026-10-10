@@ -61,7 +61,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
         'Systematic transaction categorization and recurring expense verification',
         'Ongoing review of uncleared items, outstanding checks, and anything that needs follow-up from your practice',
         'Preparation of monthly Balance Sheet and Profit & Loss statements',
-        'Plain-English summary of notable trends and key variances (depending on plan)',
+        'Plain-language summary of notable trends and key variances (depending on plan)',
         'Organized year-end package prepared for your CPA or tax professional',
       ],
       startingPrice: 'From $497/mo',
@@ -180,7 +180,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
             Bookkeeping Services for Med Spas, Medical Spas and Wellness Practices
           </h2>
           <p className="mt-4 text-lg text-[#4A5568] leading-relaxed">
-            From QuickBooks cleanup and monthly bookkeeping to reporting, setup and historical records, each service is built around how med spas, medical spas, aesthetic clinics and wellness practices actually run.
+            From QuickBooks cleanup and monthly bookkeeping to reporting, setup and historical records, each service is built around how med spas, medical spas, aesthetic clinics and wellness practices run.
           </p>
 
           {/* Filter Pills */}

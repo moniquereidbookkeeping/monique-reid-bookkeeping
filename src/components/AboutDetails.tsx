@@ -30,7 +30,7 @@ const PAGES: [PageView, string][] = [
   ['monthly-bookkeeping', 'Monthly bookkeeping'],
   ['quickbooks-cleanup', 'QuickBooks cleanup'],
   ['iv-hydration', 'IV hydration bookkeeping'],
-  ['medical-weight-loss', 'Medical weight loss bookkeeping'],
+  ['medical-weight-loss', 'Medical weight-loss bookkeeping'],
   ['fort-lauderdale', 'Fort Lauderdale practices'],
   ['south-florida', 'South Florida practices'],
 ];

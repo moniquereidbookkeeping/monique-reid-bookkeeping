@@ -80,7 +80,7 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
           className="px-6 py-3 rounded-xl border border-[#1A2E40] text-[#1A2E40]! font-bold hover:bg-[#1A2E40]/5 transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
         >
           <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-          Take the 60-second Health Check
+          Take the 7-question Health Check
         </a>
       </div>
 

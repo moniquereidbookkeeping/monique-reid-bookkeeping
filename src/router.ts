@@ -82,12 +82,12 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   'financial-reporting': {
     title: 'Financial Reporting for Med Spas | Monique Reid',
     description:
-      'Monthly financial reporting for med spas: revenue by treatment, treatment costs, provider pay, margins and cash flow in plain English, with an example.',
+      'Monthly financial reporting for med spas: revenue by treatment, treatment costs, provider pay, margins and cash flow in plain language, with an example.',
   },
   about: {
-    title: 'Monique Reid | Certified Intuit ProAdvisor & QuickBooks Bookkeeper, FL',
+    title: 'Monique Reid | Certified Intuit ProAdvisor for Med Spas',
     description:
-      'Meet Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper in Fort Lauderdale, Florida, focused on bookkeeping for med spas and wellness practices.',
+      'Meet Monique Reid, a Certified Intuit ProAdvisor in Fort Lauderdale, Florida, who keeps the QuickBooks books for med spas and wellness practices.',
   },
   calculator: {
     title: 'Treatment Profit Calculator | Monique Reid Bookkeeping',

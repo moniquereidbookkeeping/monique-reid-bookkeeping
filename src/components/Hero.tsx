@@ -70,12 +70,12 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-[#57534E] leading-relaxed max-w-2xl font-normal">
-              Payouts from Boulevard, Vagaro, Square, and Cherry are reconciled, memberships, packages, and patient financing are accounted for correctly, and inventory and treatment costs are tracked, so you clearly see where your money is going and what your practice is actually earning.
+              Payouts from Boulevard, Vagaro, Square and Cherry are reconciled. Memberships, packages and patient financing are accounted for correctly, and inventory and treatment costs are tracked, so you can see where your money goes and what your practice is earning.
             </p>
 
             {/* Strategic Segments Mention */}
             <div className="flex flex-wrap items-center gap-2 pt-1 text-sm text-[#4A5568]">
-              <span className="font-semibold text-[#1A2E40]">Specialized in:</span>
+              <span className="font-semibold text-[#1A2E40]">Serving:</span>
               <span className="px-2.5 py-1 rounded-md bg-[#1A2E40]/8 border border-[#1A2E40]/20 text-[#1A2E40] font-medium">MedSpas &amp; Aesthetic Practices</span>
               {chipLink('iv-hydration', 'IV Hydration & Wellness')}
               {chipLink('medical-weight-loss', 'Medical Weight-Loss')}
@@ -167,7 +167,7 @@ export const Hero: React.FC<HeroProps> = ({
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-bold uppercase tracking-wider text-[#8A6A00]">
-                      Specialized Bookkeeping
+                      MedSpa Bookkeeping
                     </p>
                     <p className="text-sm font-bold text-[#1A2E40]">
                       Clean books. Clearer decisions.

@@ -143,7 +143,7 @@ const buildExplanations = (v: ExplanationInput): Record<MetricKey, MetricExplana
     commonTrap:
       'Counting loan principal, owner draws or equipment payments as operating expenses makes the practice look less profitable than it is.',
     solution:
-      'A clear chart of accounts keeps day-to-day overhead apart from loans and owner activity, so the Profit & Loss reflects how the practice is actually operating.',
+      'A clear chart of accounts keeps day-to-day overhead apart from loans and owner activity, so the Profit & Loss reflects how the practice is operating.',
   },
   surplus: {
     title: 'Operating Surplus',
@@ -315,7 +315,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               Your books should tell you more than whether your bank account went up.
             </h2>
             <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
-              The financial side of your practice is organized so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice really is.
+              The financial side of your practice is organized so you can see where revenue is coming from, what your treatments and providers are costing you, and how profitable your practice is.
             </p>
             <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/35 text-sm text-[#5A6578] flex items-center gap-2">
               <Info className="w-4 h-4 text-[#D4AF37] shrink-0" />
@@ -1096,7 +1096,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   Reports built for practice owners, not just accountants
                 </p>
                 <p className="text-sm sm:text-sm text-[#57534E] mt-1 leading-relaxed">
-                  Clear reports on treatment revenue, product costs, provider compensation and operating expenses, so you can see how your practice is really performing.
+                  Clear reports on treatment revenue, product costs, provider compensation and operating expenses, so you can see how your practice is performing.
                 </p>
               </div>
             </div>

@@ -39,7 +39,7 @@ const monthlyPlans = [
     featured: false,
     badge: null as string | null,
     features: [
-      'Bank & credit-card reconciliations',
+      'Bank & credit card reconciliations',
       'POS & merchant payout reconciliation',
       'Transaction categorization',
       'Monthly Profit & Loss Statement',

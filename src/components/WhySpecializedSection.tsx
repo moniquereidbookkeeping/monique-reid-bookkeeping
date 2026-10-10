@@ -35,9 +35,9 @@ const problems = [
     number: '04',
     title: 'Treatment Costs and Inventory Buried in Generic Expenses',
     problem:
-      `Neurotoxin, filler, skincare retail, IV supplies, and weight-loss medications are direct costs tied to specific services—not generic overhead. When they're lumped into broad expense categories, you lose visibility into what each service line actually costs to deliver, making it hard to know which treatments are worth your chair time.`,
+      `Neurotoxin, filler, skincare retail, IV supplies, and weight-loss medications are direct costs tied to specific services—not generic overhead. When they're lumped into broad expense categories, you lose visibility into what each service line costs to deliver, making it hard to know which treatments are worth your chair time.`,
     help:
-      'Product and supply costs are separated from operating overhead, and treatment-related expenses are categorized so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins actually are.',
+      'Product and supply costs are separated from operating overhead, and treatment-related expenses are categorized so your service-line costs stay visible alongside your service-line revenue—making it easier to see where your margins are.',
   },
   {
     number: '05',

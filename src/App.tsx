@@ -144,7 +144,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             {/* Compact services summary (full detail lives on the Services page) */}
             <ServicesSummary onNavigate={handleNavigate} />
 
-            {/* Free 60-second Health Check: the main lead magnet */}
+            {/* Free 7-question Health Check: the main lead magnet */}
             <PracticeAudit onBookCall={handleBookCall} />
 
             <PricingSection onBookCall={handleBookCall} onViewPricing={() => handleNavigate('pricing')} />
@@ -221,7 +221,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Med Spa Bookkeeping Services Built Around Your Practice
                 </h1>
                 <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Specialized bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
+                  Bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
                 </p>
               </div>
             </div>
@@ -237,7 +237,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                     ['monthly-bookkeeping', 'Monthly Bookkeeping', 'Reconciliations, payouts, memberships and provider pay, closed every month.'],
                     ['quickbooks-cleanup', 'QuickBooks Cleanup & Catch-Up', 'Months or years of books brought up to date at a fixed fee.'],
                     ['quickbooks-setup', 'QuickBooks Setup', 'A QuickBooks Online file and chart of accounts built for a med spa.'],
-                    ['financial-reporting', 'Financial Reporting', 'Revenue by treatment, margins, provider pay and cash flow in plain English.'],
+                    ['financial-reporting', 'Financial Reporting', 'Revenue by treatment, margins, provider pay and cash flow in plain language.'],
                     ['iv-hydration', 'IV Hydration Bookkeeping', 'Supply costs, memberships and nurse pay for IV clinics and drip bars.'],
                     ['medical-weight-loss', 'Medical Weight Loss Bookkeeping', 'Medication cost, program fees and provider pay for GLP-1 clinics.'],
                   ] as Array<[PageView, string, string]>).map(([page, title, body]) => (

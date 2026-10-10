@@ -25,7 +25,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
 
                 <div className="p-4 bg-white border-t border-[#E2E8F0] text-center">
                   <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00] mb-1">
-                    Specialized Bookkeeping
+                    Founder
                   </p>
                   <p className="font-serif font-bold text-xl text-[#1A2E40]">
                     Monique Reid
@@ -112,10 +112,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               ) : (
                 <>
                 <p>
-                  I chose to focus on this industry because its books are harder than most generalist bookkeepers are set up for. The financial workflows here are genuinely more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and a generic small-business approach often handles them poorly. I built my QuickBooks approach around how these practices actually operate, not around a generic small-business model.
+                  I chose to focus on this industry because its books are harder than most generalist bookkeepers are set up for. The financial workflows here are more complex — POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, and multiple payment platforms — and a generic small-business setup often handles them poorly. I built my QuickBooks approach around how these practices operate.
                 </p>
                 <p>
-                  My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can actually use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
+                  My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
                 </p>
                 </>
               )}
