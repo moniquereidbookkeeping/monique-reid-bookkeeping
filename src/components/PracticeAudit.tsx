@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { trackEvent } from '../lib/analytics';
 import { TurnstileWidget } from './TurnstileWidget';
 import { getFallbackPlan } from '../data/fallbackPlan';
-import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Lock, Loader2 } from 'lucide-react';
+import { CheckCircle2, Calendar, Sparkles, RefreshCw, ArrowRight, ArrowLeft, Send, Loader2 } from 'lucide-react';
 
 const LEAD_URL = '/api/lead';
 
@@ -591,7 +591,7 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                   Your profile is reviewed personally before any follow-up guidance — no obligation.
                 </p>
                 <p className="text-sm text-[#4A5568]">
-                  Please don't include patient names or health details. Your answers are processed by an AI service to help draft your plan. See the{' '}
+                  Please don't include patient names or health details. Your answers are processed by an automated tool to help draft your plan. Details are never sold. See the{' '}
                   <a href="/privacy" className="underline hover:text-[#1A2E40]">Privacy Policy</a>.
                 </p>
 
@@ -636,10 +636,6 @@ export const PracticeAudit: React.FC<PracticeAuditProps> = ({ onBookCall }) => {
                       <ArrowLeft className="w-4 h-4" />
                       Back
                     </button>
-                    <p className="flex items-center gap-1.5 text-sm text-[#4A5568]">
-                      <Lock className="w-3 h-3 text-[#D4AF37]" />
-                      Your answers are processed by an AI service to draft your plan. Your details go to Monique so she can follow up. Never sold.
-                    </p>
                   </div>
                   <button
                     onClick={handleLeadSubmit}
