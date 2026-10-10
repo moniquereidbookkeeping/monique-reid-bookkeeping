@@ -210,7 +210,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
   detail: {
     title: 'What makes med spa books different',
     intro:
-      'A general bookkeeper can get the bank balance to match. Monthly bookkeeping for a med spa also has to handle how aesthetic practices actually earn and spend:',
+      'A general bookkeeper can get the bank balance to match. Monthly bookkeeping for a med spa also has to handle how aesthetic practices earn and spend. Memberships, patient financing and provider pay are part of the Growth plan, and treatment product cost is part of Full-Spectrum:',
     items: [
       {
         title: 'Memberships, packages and gift cards',
@@ -285,7 +285,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
   intro: [
     "QuickBooks Online's default setup is made for a generic small business. A med spa needs more than that. Injectables, laser, memberships and retail skincare earn in different ways, and neurotoxin, filler and medical consumables are costs of delivering treatments, not general overhead. When QuickBooks is set up for that from the start, your reports show what each part of the practice actually earns.",
     'This setup is for practitioners launching a new med spa, aesthetic clinic, wellness suite or medical weight-loss clinic, and for established practices that have outgrown an off-the-shelf setup. It is done by a Certified Intuit ProAdvisor who works only with self-pay healthcare practices.',
-    'Setup builds the structure going forward. If your existing file already has months of miscategorized history, that is a [QuickBooks cleanup](quickbooks-cleanup), which includes restructuring the chart of accounts as part of correcting the past.',
+    'Setup builds the structure going forward. If your existing file already has months of miscategorized history, that is a [QuickBooks cleanup](quickbooks-cleanup), which can include restructuring the chart of accounts as part of correcting the past, depending on scope.',
   ],
   forTitle: 'When a QuickBooks setup makes sense',
   forItems: [
@@ -399,7 +399,7 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
   eyebrow: 'Reports Built for Practice Owners',
   h1: 'Financial Reporting for Med Spas',
   heroLine:
-    'Plain-language monthly reports on the numbers that drive a med spa: revenue by treatment, treatment costs, provider pay, margins and cash flow.',
+    'Monthly reports on the numbers that drive a med spa: revenue by treatment, treatment costs, provider pay, margins and cash flow.',
   intro: [
     'Many practice owners get a Profit & Loss that answers the tax question and little else. Financial reporting for a med spa should answer the owner\'s questions: which treatments make money, what product and provider pay really cost, where the cash went, and whether a busy month was also a profitable one.',
     'A full treatment calendar does not automatically mean profit. Prepaid packages and memberships bring in cash before the treatments are delivered. Neurotoxin and filler costs are not always matched to the revenue they produced. Patient financing fees quietly reduce margins, and provider commissions move with the schedule. Reporting built on organized books makes all of that visible.',
@@ -411,21 +411,21 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
     'Practices where the bank balance looks fine but something never adds up',
     'Owners planning a hire, a new provider, an equipment lease or a second location',
     'Practices whose revenue all sits in one income line, so treatment margins are invisible',
-    'Owners who want to compare this month and quarter with the last, in plain English',
+    'Owners who want to compare this month with the last',
   ],
   includedTitle: 'What the reports show',
   included: [
     {
       title: 'Revenue by treatment type',
-      body: 'Collections split by service line: injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare and memberships.',
+      body: 'Collections split by service line: injectables, laser, IV hydration, wellness infusions, medical weight-loss, retail skincare and memberships. On the Full-Spectrum plan.',
     },
     {
       title: 'Treatment and service-line margins',
-      body: 'What each service line earns after the product and supplies it uses, where cost records and inventory data allow.',
+      body: 'What each service line earns after the product and supplies it uses, where cost records and inventory data allow. On the Full-Spectrum plan.',
     },
     {
       title: 'Period comparisons',
-      body: 'Month-over-month and quarter-over-quarter trends, so a change shows up while there is still time to act on it.',
+      body: 'Month-over-month revenue trends, from the Growth plan up, so a change shows up while there is still time to act on it.',
     },
     {
       title: 'Balance Sheet',
@@ -433,11 +433,11 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
     },
     {
       title: 'Cash flow',
-      body: 'Cash-flow reporting you can use when planning hiring, provider compensation, equipment leases and expansion.',
+      body: 'Cash-flow reporting you can use when planning hiring, provider compensation, equipment leases and expansion. Scoped in your proposal, since it depends on your data.',
     },
     {
       title: 'Plain-language summary',
-      body: 'A short summary of notable changes, overhead ratios and areas to watch, written for an owner rather than an accountant.',
+      body: 'A short summary of notable changes, overhead ratios and areas to watch, written for an owner rather than an accountant. On the Full-Spectrum plan.',
     },
   ],
   detail: {

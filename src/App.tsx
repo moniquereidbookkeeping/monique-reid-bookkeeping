@@ -19,6 +19,7 @@ import { HowItWorks } from './components/HowItWorks';
 import { ServicesSummary } from './components/ServicesSummary';
 import { NotFoundPage } from './components/NotFoundPage';
 import { AboutSection } from './components/AboutSection';
+import { AboutDetails } from './components/AboutDetails';
 import { FAQSection } from './components/FAQSection';
 import { ProfitCalculator } from './components/ProfitCalculator';
 import { ContactSection } from './components/ContactSection';
@@ -168,7 +169,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               </div>
             </section>
 
-            <AboutSection onBookCall={handleBookCall} />
+            <AboutSection onBookCall={handleBookCall} onViewAbout={() => handleNavigate('about')} />
 
             <RelatedArticles
               heading="Latest guides for practice owners"
@@ -176,7 +177,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
               onReadPost={readPost}
             />
 
-            <FAQSection onBookCall={handleBookCall} featuredLimit={6} showCta={false} includeSchema={false} onViewAll={() => handleNavigate('faq')} />
+            <FAQSection onBookCall={handleBookCall} featuredLimit={3} showCta={false} includeSchema={false} onViewAll={() => handleNavigate('faq')} />
 
             {/* Final call-to-action */}
             <section className="py-20 bg-[#1A2E40] text-white border-t border-[#D4AF37]/30 text-center relative overflow-hidden">
@@ -190,7 +191,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Let's talk about your practice.
                 </h2>
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
-                  Book a complimentary 20-minute Financial Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
+                  Book a free 20-minute Financial Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a href="/contact"
@@ -229,7 +230,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             <section aria-labelledby="service-pages-heading" className="py-12 lg:py-14 bg-white border-b border-[#E2E8F0]">
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 id="service-pages-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight text-center">
-                  Explore each service
+                  Service pages
                 </h2>
                 <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {([
@@ -327,6 +328,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
             </div>
 
             <AboutSection onBookCall={handleBookCall} />
+            <AboutDetails onNavigate={handleNavigate} />
           </>
         )}
 
@@ -358,7 +360,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Free 20-Minute Zoom Call
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Book Your Free Clarity Call
+                  Book Your Free Financial Clarity Call
                 </h1>
               </div>
             </div>

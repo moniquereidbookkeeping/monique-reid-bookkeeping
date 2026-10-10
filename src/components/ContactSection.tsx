@@ -48,7 +48,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-sm font-bold text-[#1A2E40]">20-Minute Private Zoom Call</p>
-              <p className="text-sm text-[#57534E]">Complimentary review, no obligation</p>
+              <p className="text-sm text-[#57534E]">Free call, no obligation</p>
             </div>
           </div>
 

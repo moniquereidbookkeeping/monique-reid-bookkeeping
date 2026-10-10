@@ -51,7 +51,7 @@ const FIXES = [
 
 const STEPS = [
   { icon: Video, title: 'Free 20-minute Zoom call', body: 'Talk through where the books stand and what you need them for: taxes, a loan, a sale or just clarity.' },
-  { icon: Search, title: 'Diagnostic review', body: 'A look at your QuickBooks file, bank and card activity and payout reports to confirm how far behind the books are.' },
+  { icon: Search, title: 'Free first review', body: 'A look at your QuickBooks file, bank and card activity and payout reports to confirm how far behind the books are.' },
   { icon: ClipboardList, title: 'Fixed-fee proposal', body: 'A clear scope and a fixed price. No hourly billing, and no surprises once the scope is agreed.' },
   { icon: FileCheck2, title: 'Month-by-month cleanup', body: 'Accounts are reconciled and transactions corrected period by period, with a running list of questions only you can answer.' },
   { icon: CheckCircle2, title: 'Handover', body: 'Reconciled accounts, a corrected Profit & Loss and Balance Sheet, and notes for your CPA on anything that needs their decision.' },
@@ -101,8 +101,8 @@ export const QuickBooksCleanupPage: React.FC<QuickBooksCleanupPageProps> = ({ on
             in "Miscellaneous". Most medical spa files need some of both.
           </p>
           <p>
-            Either way, the goal is the same: books your CPA can file from without a list of corrections, and reports you
-            can read to see how the practice is really doing. Monique Reid Bookkeeping is based in Fort Lauderdale and
+            Either way, the goal is the same: reconciled books your CPA can work from, and reports you can read to see
+            how the practice is doing. Monique Reid Bookkeeping is based in Fort Lauderdale and
             cleans up QuickBooks for practices across {link('south-florida', 'South Florida')}, the rest of Florida and
             nationwide.
           </p>
@@ -154,7 +154,7 @@ export const QuickBooksCleanupPage: React.FC<QuickBooksCleanupPageProps> = ({ on
               Cleanup pricing: a fixed fee, set by how far behind you are
             </h2>
             <p className="mt-3 text-lg text-[#4A5568] leading-relaxed">
-              Every cleanup starts with a complimentary review to confirm scope. The price is fixed once scope is agreed.
+              Every cleanup starts with a free first review to confirm scope. The price is fixed once scope is agreed.
             </p>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

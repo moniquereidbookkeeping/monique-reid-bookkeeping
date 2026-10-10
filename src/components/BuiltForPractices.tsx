@@ -98,15 +98,15 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                 {[
                   {
                     title: 'Books Kept Current & Reconciled',
-                    desc: 'Bank accounts, credit cards, and merchant payout feeds reconciled systematically each month to resolve discrepancies promptly.',
+                    desc: 'Bank accounts, credit cards, and merchant payout feeds reconciled each month, with any discrepancies followed up.',
                   },
                   {
-                    title: 'Revenue & COGS Categorized Consistently',
-                    desc: 'Injectables, clinical supplies, wellness therapies, and prepaid memberships separated cleanly so service-line margins are transparent.',
+                    title: 'Transactions Categorized Consistently',
+                    desc: 'The same categories every month, with treatment costs and service-line margins on plans that include them.',
                   },
                   {
-                    title: 'Monthly Reporting In Plain Language',
-                    desc: 'Clear visual reports, executive takeaways, and plain-language summaries you can use immediately to guide practice decisions.',
+                    title: 'Monthly Profit & Loss and Balance Sheet',
+                    desc: 'Reconciled monthly statements, plus a plain-language summary on plans that include it.',
                   },
                   {
                     title: 'Proactive Follow-Up on Uncleared Items',

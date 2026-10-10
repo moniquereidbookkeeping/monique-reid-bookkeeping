@@ -366,7 +366,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
                 ✦ Ready to Talk About Your Practice?
               </p>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
-                Book a Complimentary 20-Minute Financial Clarity Call
+                Book a Free 20-Minute Financial Clarity Call
               </h3>
               <p className="text-sm text-[#E2E8F0] font-light leading-relaxed max-w-md mx-auto">
                 Share what's happening with your books and get a clear path forward — no obligation.

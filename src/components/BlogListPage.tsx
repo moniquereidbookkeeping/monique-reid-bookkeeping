@@ -206,7 +206,7 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onReadPost, onBookCa
             Ready to get your practice books in order?
           </h2>
           <p className="text-sm text-[#E2E8F0] font-light leading-relaxed max-w-xl mx-auto">
-            Book a complimentary 20-minute Financial Clarity Call and let's discuss what your
+            Book a free 20-minute Financial Clarity Call and let's discuss what your
             practice specifically needs — no obligation.
           </p>
           <a href="/contact"

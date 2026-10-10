@@ -31,7 +31,7 @@ const monthlyPlans = [
   {
     id: 'entry',
     name: 'Essential',
-    revenueRange: 'Under $25K / month',
+    revenueRange: 'Revenue under $25K/mo',
     tagline: 'Solo providers and single-location practices with one POS and a straightforward payment setup.',
     startingAt: '$497',
     period: '/month',
@@ -46,13 +46,13 @@ const monthlyPlans = [
       'Monthly Balance Sheet',
       'Year-end CPA reporting package',
     ],
-    complexityNote: 'Best for solo providers or boutique practices with one bank account and a single POS platform.',
+    complexityNote: 'Best for solo providers or boutique practices with one to three bank and card accounts and a single POS platform.',
     cta: 'Book Your Free 20-Min Clarity Call',
   },
   {
     id: 'growth',
     name: 'Growth',
-    revenueRange: '$25K – $75K / month',
+    revenueRange: 'Revenue $25K–$75K/mo',
     tagline: 'Multi-provider aesthetic and wellness practices with memberships, patient financing, and multiple payment systems.',
     startingAt: '$797',
     period: '/month',
@@ -73,7 +73,7 @@ const monthlyPlans = [
   {
     id: 'full-spectrum',
     name: 'Full-Spectrum',
-    revenueRange: '$75K+ / month',
+    revenueRange: 'Revenue $75K+/mo',
     tagline: 'Multi-location or high-volume practices with inventory, COGS tracking, and complex workflows.',
     startingAt: '$1,197',
     period: '/month',
@@ -305,7 +305,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-sm font-bold uppercase tracking-widest text-[#8A6A00]">Cleanup pricing</p>
             <h3 className="mt-2 text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight">Fixed fee, set by how far behind your books are</h3>
-            <p className="mt-2 text-base text-[#4A5568] leading-relaxed">Every cleanup starts with a complimentary review to confirm scope. The price is fixed once scope is agreed, with no hourly surprises.</p>
+            <p className="mt-2 text-base text-[#4A5568] leading-relaxed">Every cleanup starts with a free first review to confirm scope. The price is fixed once scope is agreed, with no hourly surprises.</p>
           </div>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {cleanupTiers.map((tier) => (
@@ -359,7 +359,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               Not Sure Which Plan Fits?
             </p>
             <p className="text-lg sm:text-xl font-serif font-bold text-white leading-snug mb-2">
-              Start with a Free 20-Minute Clarity Call
+              Start with a Free 20-Minute Financial Clarity Call
             </p>
             <p className="text-sm text-white/70 leading-relaxed">
               You don't need to diagnose your own bookkeeping problems first. The 20-minute Zoom call walks through your

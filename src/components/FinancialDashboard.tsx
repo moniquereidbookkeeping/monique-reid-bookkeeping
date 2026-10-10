@@ -170,7 +170,7 @@ const serviceInsights: Record<ServiceKey, { name: string; margin: string; explan
       'For energy-based treatments, margin depends on disposable tips, topical products and direct provider cost compared with treatment revenue. Equipment financing and lease payments are recorded separately.',
   },
   memberships: {
-    name: 'Membership Revenue & Recurring Packages',
+    name: 'Memberships & Prepaid Packages (collected)',
     margin: 'Timing of cash vs. revenue',
     explanation:
       'Memberships and packages are often paid before treatments are delivered. Revenue and margin are measured by matching the cost of services delivered to the portion of the fee earned in that period. Ask your CPA how this applies to your tax method.',
@@ -841,7 +841,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                     : 'text-[#57534E] hover:text-[#1A2E40] hover:bg-[#F8FAFC]'
                 }`}
               >
-                Revenue Mix
+                Collections Mix
               </button>
               <button
                 onClick={() => setActiveTab('expenses')}
@@ -942,7 +942,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <div className="flex justify-between text-sm font-semibold mb-1.5">
                     <span className="text-[#1A2E40] flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#57534E]" />
-                      Membership Revenue &amp; Recurring Packages
+                      Memberships &amp; Prepaid Packages (collected)
                     </span>
                     <span className="text-[#1A2E40] font-bold tabular-nums">
                       {formatCurrency(animMemberships)} (

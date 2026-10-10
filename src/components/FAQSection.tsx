@@ -81,7 +81,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'I can\'t tell if my practice is actually profitable. The bank account looks okay sometimes, but something never adds up.',
       answer:
-        'That feeling — where the schedule looks full but the money feels tight — is almost always a sign that cash flow and profitability are disconnected in your books.\n\nA busy treatment calendar does not automatically mean profit. Prepaid packages and memberships bring in cash upfront but the services still have to be delivered. Neurotoxin and filler costs are not always matched to the revenue they generate. Cherry fees quietly reduce your margins. Provider commissions fluctuate. Without organized books, all of this is invisible.\n\nWhen your QuickBooks is set up correctly for your practice, your monthly Profit and Loss statement shows what you actually earned after every real cost came out — not just what landed in the bank. That is the number that tells you whether the practice is healthy.',
+        'That feeling — where the schedule looks full but the money feels tight — is often a sign that cash flow and profitability are disconnected in your books.\n\nA busy treatment calendar does not automatically mean profit. Prepaid packages and memberships bring in cash upfront but the services still have to be delivered. Neurotoxin and filler costs are not always matched to the revenue they generate. Cherry fees quietly reduce your margins. Provider commissions fluctuate. Without organized books, all of this is invisible.\n\nWhen your QuickBooks is set up correctly for your practice, your monthly Profit and Loss statement shows what you actually earned after every real cost came out — not just what landed in the bank. That is the number that tells you whether the practice is healthy.',
       takeaways: [
         'Profitability separated from cash flow so you see the real picture',
         'Treatment costs, product costs, and provider pay matched to the revenue they produced',
@@ -94,7 +94,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'I already have a bookkeeper, but the reports I get don\'t tell me anything useful. I can\'t see which services are worth keeping.',
       answer:
-        'A generalist bookkeeper can reconcile your accounts and keep your books from falling apart — but if they do not understand how aesthetic and wellness practices operate, the reports they produce will not help you make decisions.\n\nIf your revenue from injectables, skincare, IV drips, memberships, medical weight-loss programs, and treatment packages is all collapsed into one income line, you will never know which services are driving profitability and which ones are draining it.\n\nYour QuickBooks chart of accounts is restructured around your actual service lines and cost structure, so your financial reports show you where the revenue is coming from, what it cost to produce it, and where the real margin is in your practice.',
+        'A generalist bookkeeper can reconcile your accounts and keep your books from falling apart — but if they do not understand how aesthetic and wellness practices operate, the reports they produce will not help you make decisions.\n\nIf your revenue from injectables, skincare, IV drips, memberships, medical weight-loss programs, and treatment packages is all collapsed into one income line, it is hard to see which services are driving profitability and which ones are draining it.\n\nYour QuickBooks chart of accounts is restructured around your actual service lines and cost structure, so your financial reports show you where the revenue is coming from, what it cost to produce it, and where the real margin is in your practice.',
       takeaways: [
         'Revenue tracked by service category or treatment type',
         'Product, supply, and provider costs matched to the services they support',
@@ -107,7 +107,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'SOUND FAMILIAR?',
       question: 'Every tax season is a disaster. My CPA says my books are a mess and the bill is higher because of it.',
       answer:
-        'When your books arrive at your CPA\'s desk in rough shape, they have to spend their billable time reconstructing what should have been organized throughout the year. That adds to your tax prep invoice, delays your filing, and increases the chance that deductible expenses get missed because documentation was never gathered.\n\nThe goal is to hand your CPA clean, reconciled QuickBooks records, organized the way they need them. Every account reconciled. Every transaction categorized. Supporting documentation noted. Questions flagged and answered before they have to ask.\n\nYour CPA does the tax strategy and filing. Monique Reid Bookkeeping handles the year-round record-keeping that makes it possible to do that efficiently.',
+        'When your books arrive at your CPA\'s desk in rough shape, they have to spend their billable time reconstructing what should have been organized throughout the year. That adds to your tax prep invoice and can delay your filing.\n\nThe goal is to hand your CPA clean, reconciled QuickBooks records, organized the way they need them. Every account reconciled. Every transaction categorized. Supporting documentation noted. Open questions flagged and answered during the year.\n\nYour CPA does the tax strategy and filing. Monique Reid Bookkeeping handles the year-round record-keeping that makes it possible to do that efficiently.',
       takeaways: [
         'Month-by-month records your CPA can use without reconstruction',
         'Expenses documented and categorized throughout the year',
@@ -172,9 +172,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'CLEANUP & CATCH-UP',
       question: 'My books are many months behind or disorganized. What does the cleanup process involve?',
       answer:
-        'The process begins with a Diagnostic File Review of your QuickBooks account, bank and credit-card activity, merchant statements, loans, and available supporting records.\n\nNext, the affected periods are worked through to reconcile accounts, review transaction classifications, identify duplicates or missing activity, and document items requiring your input. At completion, you receive updated financial reports and a list of any remaining questions or adjustments to review with your CPA.',
+        'The process begins with a free first review of your QuickBooks account, bank and credit-card activity, merchant statements, loans, and available supporting records.\n\nNext, the affected periods are worked through to reconcile accounts, review transaction classifications, identify duplicates or missing activity, and document items requiring your input. At completion, you receive updated financial reports and a list of any remaining questions or adjustments to review with your CPA.',
       takeaways: [
-        'Diagnostic review before the cleanup begins',
+        'A free first review before the cleanup begins',
         'Month-by-month reconciliation of relevant accounts',
         'Updated financial reports prepared for management and CPA review',
       ],
@@ -201,7 +201,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
         'Sales-tax requirements vary by state, location, and the type of product or service being sold. Your CPA, attorney, or sales-tax advisor should determine which transactions are taxable and which rates apply to your practice.\n\nOnce those requirements are established, QuickBooks is organized to separate sales-tax activity from operating revenue, amounts recorded through your payment or practice-management platforms are reconciled, and clear reports are prepared for you or your tax professional.',
       takeaways: [
         'Separate tracking for sales tax and operating revenue',
-        'Reconciliation of sales-tax activity from connected platforms',
+        'Reconciliation of sales-tax activity from your payment and booking platforms',
         'Clear reports for filing by you or your tax professional',
       ],
     },
@@ -289,7 +289,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'What do you need from me to get started?',
       answer:
-        'Work typically begins with access to your QuickBooks Online file and the financial records relevant to your engagement. These may include bank and credit-card statements, merchant-processing reports, loan documents, payroll summaries, and reports from your practice-management software.\n\nAfter the initial review, you receive a clear list of any additional records or questions needed to begin the cleanup or monthly bookkeeping process.',
+        'Work typically begins with access to your QuickBooks Online file and the financial records relevant to your engagement. These may include bank and credit-card statements, merchant-processing reports, loan documents, payroll summaries, and reports from your practice-management software.\n\nAfter the first review, you receive a clear list of any additional records or questions needed to begin the cleanup or monthly bookkeeping process.',
       takeaways: [
         'A straightforward onboarding process',
         'A customized records checklist',
@@ -302,7 +302,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'How much do your bookkeeping services cost?',
       answer:
-        'Monthly bookkeeping plans start at $497 per month, and cleanup projects start at $597. Your price depends on the condition of your books, monthly transaction volume, number of bank and credit-card accounts, practice-management platforms, locations, and the level of reporting you need.\n\nAfter a complimentary Financial Clarity Call and initial review, you will receive a clearly defined scope and customized proposal before work begins.',
+        'Monthly bookkeeping plans start at $497 per month, and cleanup projects start at $597. Your price depends on the condition of your books, monthly transaction volume, number of bank and credit-card accounts, practice-management platforms, locations, and the level of reporting you need.\n\nAfter a free Financial Clarity Call and a first review, you will receive a clearly defined scope and customized proposal before work begins.',
       takeaways: [
         'Customized pricing based on your bookkeeping needs',
         'A clearly defined scope before work begins',
@@ -558,7 +558,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
                         <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-2.5">
                           <p className="text-sm font-bold uppercase tracking-wider text-[#1A2E40] flex items-center gap-1.5">
                             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-                            KEY TAKEAWAYS FOR MEDSPA AND AESTHETIC PRACTICES
+                            Key takeaways
                           </p>
                           <ul className="space-y-1.5">
                             {faq.takeaways.map((takeaway, tIdx) => (
@@ -627,7 +627,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
               Have a specific question about your books?
             </h4>
             <p className="text-sm sm:text-base text-[#E2E8F0] max-w-xl font-light leading-relaxed">
-              Every MedSpa, aesthetic clinic, and wellness practice has unique financial needs. Book a complimentary 20-minute Financial Clarity Call to discuss your QuickBooks setup, historical cleanup, monthly bookkeeping, or financial reporting needs.
+              Every MedSpa, aesthetic clinic, and wellness practice has unique financial needs. Book a free 20-minute Financial Clarity Call to discuss your QuickBooks setup, historical cleanup, monthly bookkeeping, or financial reporting needs.
             </p>
           </div>
 
