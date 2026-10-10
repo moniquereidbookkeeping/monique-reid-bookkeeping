@@ -110,7 +110,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
                   },
                   {
                     title: 'Proactive Follow-Up on Uncleared Items',
-                    desc: 'Unmatched deposits, 1099 contractor payments, or missing receipts flagged proactively so tax preparation is smooth and organized.',
+                    desc: 'Unmatched deposits, 1099 contractor payments, or missing receipts flagged proactively so your CPA starts from organized records.',
                   },
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">

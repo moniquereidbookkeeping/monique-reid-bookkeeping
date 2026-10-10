@@ -69,7 +69,7 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
           onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
           className="inline-block text-center px-6 py-3 rounded-xl bg-[#1A2E40] text-white! font-bold hover:bg-[#1A2E40]/90 transition-colors cursor-pointer"
         >
-          See how it works
+          Explore the services
         </a>
         <a href="/#health-check"
           onClick={(e) => {

@@ -14,12 +14,12 @@ const steps = [
   {
     icon: FileText,
     title: 'A clear plan and fixed price',
-    body: 'You get a written scope: cleanup if you need it, then a flat monthly plan for your practice.',
+    body: 'You get a written scope: cleanup if you need it, then a fixed monthly plan matched to your practice’s size.',
   },
   {
     icon: CheckCircle2,
     title: 'Clean books, every month',
-    body: 'Reconciled accounts and plain-English reports from a Certified Intuit ProAdvisor, so you always know where you stand.',
+    body: 'Reconciled accounts and plain-English reports from a Certified Intuit ProAdvisor, so you can see where you stand.',
   },
 ];
 

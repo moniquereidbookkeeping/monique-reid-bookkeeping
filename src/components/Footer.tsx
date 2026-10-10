@@ -4,6 +4,7 @@ import { PageView } from '../types';
 import { pathFor } from '../router';
 import { Calendar, ArrowUp, Mail, Phone } from 'lucide-react';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '../constants/booking';
+import { SITE_DISCLAIMER } from '../constants/config';
 
 interface FooterProps {
   onNavigate: (page: PageView) => void;
@@ -226,12 +227,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookCall }) => {
           </div>
         </div>
 
+        <p className="pt-5 mt-5 border-t border-white/10 text-center text-xs text-[#E2E8F0]/70 max-w-3xl mx-auto leading-relaxed">
+          {SITE_DISCLAIMER}
+        </p>
+
         {/* Intuit Solutions Provider mention. Per Intuit's ProAdvisor co-branding guide: the firm name/logo
             must read distinctly larger than and separated from this line, so it sits small, on its own row,
             well below the full-size brand logo at the top of the footer. QuickBooks logo only (never the
             standalone Intuit logo), referenced from Intuit's own brand site, same as this project's other
             externally-hosted images. */}
-        <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-center gap-2 text-xs text-[#E2E8F0]/70">
+        <div className="pt-3 flex items-center justify-center gap-2 text-xs text-[#E2E8F0]/70">
           <span>Monique Reid Bookkeeping is an Intuit Solutions Provider</span>
           <img
             src="https://design.intuit.com/wp-content/uploads/2024/06/QBLogo-50-50-white-1600x1200-1-1024x262.png"

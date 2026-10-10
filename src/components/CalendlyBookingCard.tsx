@@ -98,7 +98,7 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
             rel="noopener noreferrer"
             className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1A2E40] text-[#D4AF37] text-sm font-bold"
           >
-            Book your free call
+            Book Your Free 20-Min Clarity Call
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
@@ -113,7 +113,7 @@ export const CalendlyBookingCard: React.FC<CalendlyBookingCardProps> = () => {
       </div>
 
       <div className="mt-3 text-center text-sm text-[#64748B]">
-        <span>Powered by Calendly · Secure SSL encrypted calendar booking</span>
+        <span>Powered by Calendly</span>
       </div>
     </div>
   );

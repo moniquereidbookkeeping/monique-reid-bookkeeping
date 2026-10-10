@@ -21,7 +21,7 @@ export const NotFoundPage: React.FC<{ onNavigate: (p: PageView) => void }> = ({ 
           onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
           className="inline-block text-center px-6 py-3 rounded-xl border-2 border-[#1A2E40] text-[#1A2E40]! font-bold text-sm cursor-pointer"
         >
-          Book a free call
+          Book Your Free 20-Min Clarity Call
         </a>
       </div>
     </div>

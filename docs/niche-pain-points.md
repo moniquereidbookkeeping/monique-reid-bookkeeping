@@ -5,7 +5,7 @@ Pain and ease scores are the site owner's advisor judgment (not survey data). Sc
 
 ## Audience
 MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, related self-pay healthcare. Fort Lauderdale FL based, serves clients nationwide. QuickBooks Online only.
-Works fully remote (Zoom, QuickBooks Online, phone, email): no office visits and no public street address. Fort Lauderdale service area (owner-confirmed): Fort Lauderdale, Wilton Manors, Oakland Park, Plantation, Davie and greater Broward County. Public phone 386-297-9815; email monique@moniquereidbookkeeping.com.
+Works fully remote (Zoom, QuickBooks Online, phone, email): no office visits and no public street address. South Florida service area (owner-confirmed October 2026): Fort Lauderdale, Wilton Manors, Oakland Park, Plantation, Davie and greater Broward County, plus Miami-Dade County (Miami, Miami Beach, Coral Gables, Aventura, Doral, Kendall) and Palm Beach County (Boca Raton, Delray Beach, Boynton Beach, West Palm Beach, Palm Beach Gardens, Jupiter) — all served remotely, same as practices nationwide. Public phone 386-297-9815; email monique@moniquereidbookkeeping.com.
 
 ## Pain points, ranked by pain
 
@@ -41,6 +41,10 @@ Scheduled (written, not live yet): Cherry, CareCredit and Affirm financing (2026
 - Software-specific statements (Boulevard, Vagaro, Square, QuickBooks features, Allē, ASPIRE): keep general and hedged unless verified. Programs differ by manufacturer and contract.
 - Figures: examples only, labeled as examples. Plans: Essential $497, Growth $797, Full-Spectrum $1,197. Cleanup $597 (1-3 months), $1,297 (4-6), $1,997 (7-12), custom quote for 13+ months or multiple entities.
 - Call: free 20-minute private Zoom call. Button label exactly: "Book Your Free 20-Min Clarity Call". Name: Financial Clarity Call.
-- Credentials (use only this wording): Certified Intuit ProAdvisor; QuickBooks ProAdvisor Gold Tier; QuickBooks Workforce Certified; QuickBooks Online Level 2 Certified. (Owner-confirmed October 2026: the About page badges are Gold Tier, Workforce Certified and Level 2 Certified — Payroll Certified is no longer shown.)
+- Contact reply time: "Replies within 1–2 business days" is a real commitment, owner-confirmed (October 2026), not a placeholder — keep it as-is wherever it appears.
+- Credentials (use only this wording): Certified Intuit ProAdvisor; QuickBooks ProAdvisor Gold Tier; QuickBooks Workforce Certified; QuickBooks Online Level 2 Certified; Intuit Solutions Provider. (Owner-confirmed October 2026: the About page badges are Gold Tier, Workforce Certified and Level 2 Certified — Payroll Certified is no longer shown. Owner-confirmed the Intuit Solutions Provider designation, used in the footer.)
 - Degree: Bachelor of Business Administration. Owner-confirmed (October 2026) and allowed on the site, as on the About page. No other degree or license claims.
-- Post format: see `BlogPost` in `src/types.ts`; section types intro, heading, paragraph, list, callout, tip. Add to `src/data/blogPosts.ts`; the sitemap picks up new slugs on build.
+- Post format: see `BlogPost` in `src/types.ts`; section types intro, heading, paragraph, list, callout, tip, cta-inline. Add to `src/data/blogPosts.ts`; the sitemap picks up new slugs on build.
+- Patient health information: do not accept or handle it. Owner-confirmed (October 2026) the HIPAA business-associate conditional language is removed from Privacy and Terms — engagements are scoped so only financial reports are shared.
+- Pricing model: Essential/Growth/Full-Spectrum are fixed tier prices picked by the client's profile (accounts, revenue, complexity) — use "fixed monthly plan" / "starting at $497/mo", never "flat" alone implying no tiers, and never imply the price within a tier can rise.
+- Health Check leads: kept in lead records up to 24 months, then deleted (owner-confirmed October 2026). The Google Sheet is purged automatically every week by the `mr-bookkeeping-lead-retention` Cloudflare Worker (`workers/lead-retention-purge/`), which reuses the same Google service account `functions/api/lead.ts` already uses to write rows. The lead notification emails in Monique's Gmail inbox are a separate store the worker does not touch — those still need periodic manual cleanup.

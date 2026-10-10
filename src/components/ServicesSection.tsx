@@ -70,10 +70,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
         { tier: 'Growth', price: '$797/mo', desc: 'Expanding practices running memberships, patient financing platforms, or multiple POS integrations.', highlights: ['Up to 6 accounts', 'Membership & package tracking', 'Patient financing reconciliation', 'Executive financial summary'] },
         { tier: 'Full-Spectrum', price: '$1,197/mo', desc: 'High-volume or multi-location practices requiring provider-level, modality-level, and multi-account tracking.', highlights: ['7+ accounts', 'Multi-location tracking', 'Provider payout reconciliation', 'Priority response time'] },
       ],
-      noticeTitle: 'Customized Retainer',
+      noticeTitle: 'Which Plan Fits',
       detailPage: 'monthly-bookkeeping' as PageView,
       detailLabel: 'How monthly bookkeeping for med spas works',
-      notice: 'Monthly bookkeeping retainers are tailored to your practice’s transaction volume, active bank/credit accounts, POS integrations, and reporting depth.',
+      notice: 'Which monthly plan fits depends on your practice’s transaction volume, active bank/credit accounts, POS systems, and reporting depth.',
     },
     {
       id: 'reporting',
@@ -419,7 +419,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                     <span className="w-2.5 h-2.5 rounded-full bg-[#D4AF37] shrink-0 mt-2" aria-hidden="true" />
                     <div>
                       <strong className="text-[#1A2E40] font-bold">2. Merchant and financing fee splits:</strong>{' '}
-                      Platforms like Stripe, Square, Cherry, CareCredit, and PatientFi withhold merchant and processing fees before depositing funds into your bank account. Those deductions are cleanly isolated as merchant expense, helping ensure your gross collections and operational metrics reconcile accurately to your bank feeds.
+                      Platforms such as Stripe, Square, Cherry, CareCredit, and PatientFi often withhold merchant and processing fees before depositing funds into your bank account, depending on your settings and processor. Those deductions are isolated as merchant expense, helping your gross collections and operational metrics reconcile to your bank feeds.
                     </div>
                   </li>
 

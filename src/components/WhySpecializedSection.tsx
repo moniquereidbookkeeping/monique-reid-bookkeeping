@@ -10,7 +10,7 @@ const problems = [
     number: '01',
     title: "POS Payouts That Don't Match Gross Sales",
     problem:
-      'Platforms like Boulevard, Vagaro, Square, and Mindbody deposit net amounts after processing fees, refunds, tips, and other adjustments. When only the deposited amount is recorded, your books may not clearly reflect gross sales—or the fees and liabilities tied to those transactions.',
+      'Platforms such as Boulevard, Vagaro, Square, and Mindbody often pay out net of processing fees and refunds, depending on your settings and processor. Card tips are usually included in the payout and owed to staff, not subtracted from it. When only the deposited amount is recorded, your books may not clearly reflect gross sales—or the fees and liabilities tied to those transactions.',
     help:
       'Platform activity is reconciled against bank deposits, with processing fees, refunds, tips, and adjustments accounted for separately, giving you cleaner QuickBooks records and a clearer picture of practice revenue.',
   },
@@ -18,7 +18,7 @@ const problems = [
     number: '02',
     title: 'Patient Financing Fees Hidden Inside Deposits',
     problem:
-      `When patients use Cherry, CareCredit, or PatientFi, the amount deposited into your bank is lower than the original transaction because merchant fees are deducted first. If those amounts aren't separated, it's hard to understand the true economics of each sale.`,
+      `When patients use Cherry, CareCredit, or PatientFi, the practice may pay a fee depending on the program, so the amount deposited into your bank can be lower than the original transaction, on the lender's own payout schedule. If those amounts aren't separated, it's hard to understand the true economics of each sale.`,
     help:
       'Applicable financing costs are identified and categorized separately from the related revenue, so your reports reflect what patients paid and what it cost you to accept that payment.',
   },

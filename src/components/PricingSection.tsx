@@ -347,7 +347,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               </span>
             ))}
           </div>
-          <p className="mt-3 text-base text-[#4A5568]">More accounts, systems and revenue types mean more reconciliation work, so they raise the starting rate.</p>
+          <p className="mt-3 text-base text-[#4A5568]">More accounts, systems and revenue types mean more reconciliation work, which is why they move you into a higher-priced tier.</p>
         </div>
 
         )}

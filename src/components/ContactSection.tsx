@@ -58,7 +58,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
             </div>
             <div>
               <p className="text-sm font-bold text-[#1A2E40]">Client Financial Privacy</p>
-              <p className="text-sm text-[#57534E]">Strict confidentiality and data security</p>
+              <p className="text-sm text-[#57534E]">Your financial information is kept confidential</p>
             </div>
           </div>
 

@@ -20,7 +20,7 @@ const FLORIDA_ITEMS = [
   {
     icon: Receipt,
     title: 'Sales tax on retail products',
-    body: 'Skincare and other retail products are generally subject to Florida sales tax, and county surtax rates differ between Broward, Miami-Dade and Palm Beach. Sales-tax collected through your booking software is kept separate from revenue and reconciled, so your filing figures are easy to pull.',
+    body: 'Skincare and other retail products are generally subject to Florida sales tax, and a county surtax may also apply, depending on where the sale happens. Your CPA confirms the rate. Sales-tax collected through your booking software is kept separate from revenue and reconciled, so your filing figures are easy to pull.',
   },
   {
     icon: Users,
@@ -74,8 +74,8 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
             clean every month.
           </p>
           <p>
-            The work is done in QuickBooks and on Zoom, so you never need to take time out of a clinic day for a
-            meeting. You get reconciled accounts, a Profit &amp; Loss that separates injectables, treatments, retail and
+            The work is done in QuickBooks and on Zoom, so there's no office visit and no time out of a clinic day
+            beyond the call itself. You get reconciled accounts, a Profit &amp; Loss that separates injectables, treatments, retail and
             memberships, and reports you can actually use. See the full list of {link('services', 'bookkeeping services')}, how a {link('quickbooks-cleanup', 'QuickBooks cleanup')} works,
             or compare {link('pricing', 'monthly plans and cleanup pricing')}.
           </p>

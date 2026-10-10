@@ -53,7 +53,7 @@ export const IV_HYDRATION: PracticeTypeContent = {
     },
     {
       title: 'Booking and payment platforms',
-      body: 'Square, Mindbody, Stripe and booking links pay out net of fees. Revenue is recorded at the gross amount, with fees as their own expense, and every payout is matched to the bank.',
+      body: 'Square, Mindbody, Stripe and booking links often pay out net of processing fees, depending on your settings and processor. Revenue is recorded at the gross amount, with fees as their own expense, and every payout is matched to the bank.',
     },
   ],
   accountsHeading: 'A starting chart of accounts',
@@ -69,7 +69,7 @@ export const IV_HYDRATION: PracticeTypeContent = {
     'medspa-membership-revenue-quickbooks', // memberships and drip packages paid in advance
     'medspa-tips-refunds-chargebacks-quickbooks', // Square and Stripe payouts net of fees and refunds (scheduled)
   ],
-  note: 'Opening or in your first year? Setting this up before the first patient costs far less than correcting a year of mixed-up entries later.',
+  note: 'Opening or in your first year? Setting this up before the first patient usually costs less than correcting a year of mixed-up entries later.',
 };
 
 export const MEDICAL_WEIGHT_LOSS: PracticeTypeContent = {
@@ -97,7 +97,7 @@ export const MEDICAL_WEIGHT_LOSS: PracticeTypeContent = {
     },
     {
       title: 'Subscription billing payouts',
-      body: 'Stripe and EMR billing tools deposit net of fees and refunds. Revenue is recorded at the gross amount, fees as an expense, and each deposit is matched to the bank.',
+      body: 'Stripe and subscription billing tools often pay out net of processing fees and refunds, depending on your settings and processor. Revenue is recorded at the gross amount, fees as an expense, and each deposit is matched to the bank.',
     },
     {
       title: 'Medical director and provider pay',

@@ -119,7 +119,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
                 <div className="flex items-center gap-2 text-base font-bold text-[#1A2E40] mb-1">
                   <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
-                  <span>Ready for Tax Season</span>
+                  <span>Ready for Your CPA</span>
                 </div>
                 <p className="text-sm text-[#4A5568]">
                   Your CPA gets clean, reconciled records, so tax preparation starts from accurate books.

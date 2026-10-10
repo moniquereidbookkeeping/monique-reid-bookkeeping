@@ -85,14 +85,16 @@ const renderSection = (section: BlogSection, index: number, onNavigate: (page: P
           key={index}
           className="rounded-xl border border-[#D4AF37]/50 bg-gradient-to-br from-[#FAF8F5] to-[#FFF9EC] p-5 sm:p-6 space-y-2 shadow-sm"
         >
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
-              <Info className="w-3.5 h-3.5 text-[#D4AF37]" />
+          {section.heading && (
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+                <Info className="w-3.5 h-3.5 text-[#D4AF37]" />
+              </div>
+              <span className="text-sm font-bold uppercase tracking-wider text-[#8A6A00]">
+                {section.heading}
+              </span>
             </div>
-            <span className="text-sm font-bold uppercase tracking-wider text-[#8A6A00]">
-              {section.heading}
-            </span>
-          </div>
+          )}
           <p className="text-sm text-[#57534E] leading-relaxed pl-9">{section.text}</p>
         </div>
       );
@@ -103,14 +105,16 @@ const renderSection = (section: BlogSection, index: number, onNavigate: (page: P
           key={index}
           className="rounded-xl border border-[#1A2E40]/15 bg-gradient-to-br from-[#1A2E40]/5 to-[#1A2E40]/8 p-5 sm:p-6 space-y-2 shadow-sm"
         >
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center shrink-0">
-              <Lightbulb className="w-3.5 h-3.5 text-[#D4AF37]" />
+          {section.heading && (
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center shrink-0">
+                <Lightbulb className="w-3.5 h-3.5 text-[#D4AF37]" />
+              </div>
+              <span className="text-sm font-bold uppercase tracking-wider text-[#1A2E40]">
+                {section.heading}
+              </span>
             </div>
-            <span className="text-sm font-bold uppercase tracking-wider text-[#1A2E40]">
-              {section.heading}
-            </span>
-          </div>
+          )}
           <p className="text-sm text-[#57534E] leading-relaxed pl-9">{section.text}</p>
         </div>
       );
@@ -349,7 +353,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ slug, onBack, onBook
               if your books are behind, and{' '}
               <a href={pathFor('pricing')} onClick={(e) => { e.preventDefault(); onNavigate('pricing'); }}
                 className="font-semibold text-[#1A2E40] underline decoration-[#D4AF37] underline-offset-4 hover:text-[#8A6A00]">
-                flat monthly pricing
+                fixed monthly pricing
               </a>
               .
             </p>
