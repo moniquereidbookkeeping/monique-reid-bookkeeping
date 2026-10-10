@@ -3,42 +3,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, startTransition, useEffect, useState } from 'react';
 import { PageView } from './types';
 import { PAGE_META, SITE_ORIGIN, parsePath, pathFor } from './router';
+import type { PageComponents } from './routes';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { FinancialDashboard } from './components/FinancialDashboard';
-import { ServicesSection } from './components/ServicesSection';
-import { BuiltForPractices } from './components/BuiltForPractices';
 import { CookieBanner } from './components/CookieBanner';
 import { trackPageView, trackEvent } from './lib/analytics';
-import { BookedPage } from './components/BookedPage';
-import { PracticeAudit } from './components/PracticeAudit';
-import { HowItWorks } from './components/HowItWorks';
-import { ServicesSummary } from './components/ServicesSummary';
-import { NotFoundPage } from './components/NotFoundPage';
-import { AboutSection } from './components/AboutSection';
-import { AboutDetails } from './components/AboutDetails';
-import { FAQSection } from './components/FAQSection';
-import { ProfitCalculator } from './components/ProfitCalculator';
-import { ContactSection } from './components/ContactSection';
-import { TermsPage } from './components/TermsPage';
-import { PrivacyPage } from './components/PrivacyPage';
-import { BlogListPage } from './components/BlogListPage';
-import { BlogPostPage } from './components/BlogPostPage';
-import { PricingSection } from './components/PricingSection';
-import { WhySpecializedSection } from './components/WhySpecializedSection';
 import { Footer } from './components/Footer';
-import { SouthFloridaPage } from './components/SouthFloridaPage';
-import { FortLauderdalePage } from './components/FortLauderdalePage';
-import { RelatedArticles } from './components/RelatedArticles';
-import { QuickBooksCleanupPage } from './components/QuickBooksCleanupPage';
-import { PracticeTypePage, IV_HYDRATION, MEDICAL_WEIGHT_LOSS } from './components/PracticeTypePage';
-import { ServiceDetailPage, MONTHLY_BOOKKEEPING, QUICKBOOKS_SETUP, FINANCIAL_REPORTING } from './components/ServiceDetailPage';
-import { Calendar, ArrowRight, Sparkles } from 'lucide-react';
 
-export default function App({ initialPath }: { initialPath?: string } = {}) {
+/** `pages` draws each page: loaded up front for the prerender, on demand in the browser (see src/routes.ts). */
+export default function App({ initialPath, pages }: { initialPath?: string; pages: PageComponents }) {
   const initial = parsePath(initialPath ?? window.location.pathname);
   const [currentPage, setCurrentPage] = useState<PageView>(initial.page);
   const [currentBlogSlug, setCurrentBlogSlug] = useState<string>(initial.slug);
@@ -47,8 +22,10 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
   useEffect(() => {
     const onPop = () => {
       const { page, slug } = parsePath(window.location.pathname);
-      setCurrentPage(page);
-      setCurrentBlogSlug(slug);
+      startTransition(() => {
+        setCurrentPage(page);
+        setCurrentBlogSlug(slug);
+      });
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -83,8 +60,11 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
     }
-    setCurrentPage(page);
-    setCurrentBlogSlug(slug);
+    // A transition keeps the current page on screen while the next page's code downloads, instead of a blank gap.
+    startTransition(() => {
+      setCurrentPage(page);
+      setCurrentBlogSlug(slug);
+    });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -107,6 +87,8 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
   const readPost = (slug: string) => go('blog-post', slug);
 
+  const Page = pages[currentPage];
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#57534E]">
       {/* Accessible Skip Link */}
@@ -126,363 +108,11 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
 
       {/* Main Page Content Body */}
       <main id="main-content" className="flex-1">
-        {currentPage === 'home' && (
-          <>
-            <Hero
-              onBookCall={handleBookCall}
-              onExploreServices={() => handleNavigate('services')}
-              onViewDashboard={() => handleNavigate('dashboard')}
-              onNavigate={handleNavigate}
-            />
-
-            {/* The problem, in the owner's words */}
-            <WhySpecializedSection onBookCall={handleBookCall} />
-
-            {/* How working together works */}
-            <HowItWorks onBookCall={handleBookCall} />
-
-            {/* Compact services summary (full detail lives on the Services page) */}
-            <ServicesSummary onNavigate={handleNavigate} />
-
-            {/* Free 7-question Health Check: the main lead magnet */}
-            <PracticeAudit onBookCall={handleBookCall} />
-
-            <PricingSection onBookCall={handleBookCall} onViewPricing={() => handleNavigate('pricing')} />
-
-            {/* Dashboard teaser */}
-            <section className="py-12 bg-[#FDFCFA] border-b border-[#E2E8F0]">
-              <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-3">
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40]">
-                  See what clean books can tell you
-                </h2>
-                <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
-                  Explore an interactive example of how a MedSpa's revenue, treatment costs and provider pay look once they are categorized correctly.
-                </p>
-                <a
-                  href="/dashboard"
-                  onClick={(e) => { e.preventDefault(); handleNavigate('dashboard'); }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#1A2E40] text-[#1A2E40]! font-bold text-sm hover:bg-[#1A2E40] hover:text-white! transition-colors cursor-pointer"
-                >
-                  Open the example dashboard
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </section>
-
-            <AboutSection onBookCall={handleBookCall} onViewAbout={() => handleNavigate('about')} />
-
-            <RelatedArticles
-              heading="Latest guides for practice owners"
-              intro="Practical QuickBooks guides for MedSpas, aesthetic clinics and wellness practices."
-              onReadPost={readPost}
-            />
-
-            <FAQSection onBookCall={handleBookCall} featuredLimit={3} showCta={false} includeSchema={false} onViewAll={() => handleNavigate('faq')} />
-
-            {/* Final call-to-action */}
-            <section className="py-20 bg-[#1A2E40] text-white border-t border-[#D4AF37]/30 text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-6">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] text-sm font-bold uppercase tracking-widest">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Let's Get Started
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
-                  Let's talk about your practice.
-                </h2>
-                <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
-                  Book a free 20-minute Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
-                </p>
-                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a href="/contact"
-                    onClick={(e) => { e.preventDefault(); handleBookCall(); }}
-                    className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C765] to-[#D4AF37] hover:from-[#C8A02A] hover:via-[#D4AF37] hover:to-[#C8A02A] text-[#1A2E40]! font-bold text-sm sm:text-base transition-all shadow-[0_4px_16px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_22px_rgba(212,175,55,0.45)] border border-[#FFF5DE]/60 flex items-center justify-center gap-3 group active:scale-[0.99] cursor-pointer"
-                  >
-                    <span className="w-7 h-7 rounded-lg bg-[#1A2E40]/10 flex items-center justify-center text-[#1A2E40] shrink-0">
-                      <Calendar className="w-4 h-4" />
-                    </span>
-                    <span>Book Your Free 20-Min Clarity Call</span>
-                    <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              </div>
-            </section>
-          </>
-        )}
-
-        {currentPage === 'services' && (
-          <>
-            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Focused Support for Growing Practices
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Med Spa Bookkeeping Services Built Around Your Practice
-                </h1>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Bookkeeping for MedSpas, aesthetic clinics, IV hydration and wellness practices, medical weight-loss practices, and related self-pay healthcare businesses.
-                </p>
-              </div>
-            </div>
-
-            {/* Hub: each service with its own page gets a direct link, so this page points to them instead of competing */}
-            <section aria-labelledby="service-pages-heading" className="py-12 lg:py-14 bg-white border-b border-[#E2E8F0]">
-              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 id="service-pages-heading" className="text-2xl sm:text-3xl font-serif font-bold text-[#1A2E40] leading-tight text-center">
-                  Service pages
-                </h2>
-                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {([
-                    ['monthly-bookkeeping', 'Monthly Bookkeeping', 'Reconciliations, payouts, memberships and provider pay, closed every month.'],
-                    ['quickbooks-cleanup', 'QuickBooks Cleanup & Catch-Up', 'Months or years of books brought up to date at a fixed fee.'],
-                    ['quickbooks-setup', 'QuickBooks Setup', 'A QuickBooks Online file and chart of accounts built for a med spa.'],
-                    ['financial-reporting', 'Financial Reporting', 'Revenue by treatment, margins, provider pay and cash flow in plain language.'],
-                    ['iv-hydration', 'IV Hydration Bookkeeping', 'Supply costs, memberships and nurse pay for IV clinics and drip bars.'],
-                    ['medical-weight-loss', 'Medical Weight Loss Bookkeeping', 'Medication cost, program fees and provider pay for GLP-1 clinics.'],
-                  ] as Array<[PageView, string, string]>).map(([page, title, body]) => (
-                    <li key={page}>
-                      <a
-                        href={pathFor(page)}
-                        onClick={(e) => { e.preventDefault(); handleNavigate(page); }}
-                        className="group flex h-full flex-col rounded-xl border border-[#E2E8F0] bg-[#FDFCFA] p-5 hover:border-[#D4AF37] transition-colors"
-                      >
-                        <span className="text-lg font-serif font-bold text-[#1A2E40] group-hover:text-[#8A6A00]">{title}</span>
-                        <span className="mt-1.5 text-base text-[#4A5568] leading-relaxed flex-1">{body}</span>
-                        <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#1A2E40]">
-                          Learn more <ArrowRight className="w-3.5 h-3.5" />
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-
-            <ServicesSection onBookCall={handleBookCall} onNavigate={handleNavigate} />
-
-            <RelatedArticles
-              heading="Guides to how the work is done"
-              slugs={['medspa-membership-revenue-quickbooks', 'reconcile-boulevard-vagaro-quickbooks', 'track-neurotoxin-filler-costs-quickbooks', 'medspa-provider-commission-bookkeeping', 'medspa-chart-of-accounts-quickbooks']}
-              onReadPost={readPost}
-            />
-
-            {/* Pointer to the separate pricing page */}
-            <section className="py-12 bg-[#F4F6F8] border-b border-[#E2E8F0]">
-              <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">Ready to see what it costs?</h2>
-                <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Monthly plans start at $497 and cleanup projects start at $597. Full details are on the pricing page.</p>
-                <a href="/pricing"
-                  onClick={(e) => { e.preventDefault(); handleNavigate('pricing'); }}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white! font-bold text-base transition-all shadow-md cursor-pointer"
-                >
-                  <span>View Pricing</span>
-                </a>
-              </div>
-            </section>
-            <BuiltForPractices onBookCall={handleBookCall} onNavigate={handleNavigate} />
-          </>
-        )}
-
-        {currentPage === 'dashboard' && (
-          <>
-            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Interactive Example
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Example Med Spa P&amp;L Dashboard: See Where Revenue Goes
-                </h1>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  An interactive example of a med spa&apos;s monthly numbers. See how organized books separate treatment costs, provider pay and operating expenses, and show what is left. All figures are examples.{' '}
-                  <a href={pathFor('financial-reporting')} onClick={(e) => { e.preventDefault(); handleNavigate('financial-reporting'); }} className="text-white! font-semibold underline! decoration-[#D4AF37]! underline-offset-4">
-                    How financial reporting works
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            <FinancialDashboard
-              onExploreServices={() => handleNavigate('services')}
-              onBookCall={handleBookCall}
-            />
-          </>
-        )}
-
-        {currentPage === 'about' && (
-          <>
-            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Meet Monique Reid
-                </h1>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Specialized bookkeeping for MedSpa, aesthetic clinic, and wellness practice founders, based in{' '}
-                  <a href={pathFor('fort-lauderdale')} onClick={(e) => { e.preventDefault(); handleNavigate('fort-lauderdale'); }} className="text-white! font-semibold underline! decoration-[#D4AF37]! underline-offset-4">
-                    Fort Lauderdale
-                  </a>{' '}
-                  and serving practices nationwide.
-                </p>
-              </div>
-            </div>
-
-            <AboutSection onBookCall={handleBookCall} />
-            <AboutDetails onNavigate={handleNavigate} />
-          </>
-        )}
-
-        {currentPage === 'calculator' && (
-          <>
-            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Free Practice Tool
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Treatment Profit Calculator
-                </h1>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Estimate what a single treatment contributes after product cost, provider pay and payment fees.
-                </p>
-              </div>
-            </div>
-
-            <ProfitCalculator onBookCall={handleBookCall} />
-          </>
-        )}
-
-        {currentPage === 'contact' && (
-          <>
-            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  On Zoom · No Obligation
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Book Your Free 20-Minute Clarity Call
-                </h1>
-              </div>
-            </div>
-
-            <ContactSection onNavigate={handleNavigate} />
-          </>
-        )}
-
-        {currentPage === 'pricing' && (
-          <>
-            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Plans &amp; Pricing
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Med Spa Bookkeeping Plans &amp; Pricing
-                </h1>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Fixed monthly plans and fixed-fee cleanup projects, with a free 20-minute Clarity Call to find the right fit.
-                </p>
-              </div>
-            </div>
-
-            <PricingSection onBookCall={handleBookCall} onViewCleanup={() => handleNavigate('quickbooks-cleanup')} />
-
-            <section className="py-12 bg-white border-b border-[#E2E8F0]">
-              <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#1A2E40] leading-tight">Questions about pricing?</h2>
-                <p className="text-base sm:text-lg text-[#4A5568] leading-relaxed">Read answers about what affects your fee, how cleanup works, and what happens on the free Clarity Call.</p>
-                <a
-                  href="/faq"
-                  onClick={(e) => { e.preventDefault(); handleNavigate('faq'); }}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#1A2E40] hover:bg-[#253E52] text-white! font-bold text-base transition-all shadow-md cursor-pointer"
-                >
-                  <span>Read the FAQ</span>
-                </a>
-              </div>
-            </section>
-          </>
-        )}
-
-        {currentPage === 'faq' && (
-          <>
-            <div className="bg-[#1A2E40] text-white py-14 border-b border-[#D4AF37]/30">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-                <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold">
-                  Questions &amp; Answers
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Bookkeeping FAQ for Aesthetic &amp; Wellness Practices
-                </h1>
-                <p className="text-sm sm:text-base text-[#E2E8F0] max-w-2xl mx-auto font-light">
-                  Clear answers about cleanup, monthly bookkeeping, pricing, patient financing and memberships.
-                </p>
-              </div>
-            </div>
-
-            <FAQSection onBookCall={handleBookCall} hideHeading />
-          </>
-        )}
-
-        {currentPage === 'south-florida' && (
-          <SouthFloridaPage onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'fort-lauderdale' && (
-          <FortLauderdalePage onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'quickbooks-cleanup' && (
-          <QuickBooksCleanupPage onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'iv-hydration' && (
-          <PracticeTypePage content={IV_HYDRATION} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'medical-weight-loss' && (
-          <PracticeTypePage content={MEDICAL_WEIGHT_LOSS} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'monthly-bookkeeping' && (
-          <ServiceDetailPage content={MONTHLY_BOOKKEEPING} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'quickbooks-setup' && (
-          <ServiceDetailPage content={QUICKBOOKS_SETUP} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'financial-reporting' && (
-          <ServiceDetailPage content={FINANCIAL_REPORTING} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
-        )}
-
-        {currentPage === 'blog' && (
-          <BlogListPage
-            onReadPost={(slug) => go('blog-post', slug)}
-            onBookCall={handleBookCall}
-          />
-        )}
-
-        {currentPage === 'blog-post' && (
-          <BlogPostPage
-            slug={currentBlogSlug}
-            onBack={() => handleNavigate('blog')}
-            onBookCall={handleBookCall}
-            onReadPost={(slug) => go('blog-post', slug)}
-            onNavigate={handleNavigate}
-          />
-        )}
-
-        {currentPage === 'notfound' && <NotFoundPage onNavigate={handleNavigate} />}
-
-        {currentPage === 'booked' && <BookedPage onNavigate={handleNavigate} />}
-
-        {currentPage === 'terms' && (
-          <TermsPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
-        )}
-
-        {currentPage === 'privacy' && (
-          <PrivacyPage onNavigate={handleNavigate} onBookCall={handleBookCall} />
-        )}
+        {/* Same boundary on the server and in the browser, so hydration sees the same tree. In the browser the
+            page's code may still be loading: React keeps the prerendered HTML on screen until it arrives. */}
+        <Suspense fallback={<div className="min-h-[60vh]" aria-busy="true" />}>
+          <Page slug={currentBlogSlug} onNavigate={handleNavigate} onBookCall={handleBookCall} onReadPost={readPost} />
+        </Suspense>
       </main>
 
       <CookieBanner onNavigate={handleNavigate} />

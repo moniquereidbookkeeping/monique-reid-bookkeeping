@@ -13,6 +13,25 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g
 const { renderRoute, allPaths, CONTACT_EMAIL, CONTACT_PHONE_TEL } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href);
 const template = readFileSync(join(dist, 'index.html'), 'utf8');
 
+// The browser bundle is split per page (src/routes.ts). Each page's HTML gets <link rel="modulepreload"> tags for
+// its own page code and the shared pieces that code needs, so they download alongside the main script instead of
+// only after it has run. Vite's build manifest (vite build --manifest) maps each source file to its built files.
+const manifestPath = join(dist, '.vite', 'manifest.json');
+const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+function pagePreloads(source) {
+  if (!manifest[source]) throw new Error(`build manifest has no entry for ${source}`);
+  const files = new Set();
+  const visit = (key) => {
+    const chunk = manifest[key];
+    // The main entry and what it imports are already loaded by index.html's own <script> and preloads.
+    if (!chunk || chunk.isEntry || files.has(chunk.file)) return;
+    files.add(chunk.file);
+    (chunk.imports ?? []).forEach(visit);
+  };
+  visit(source);
+  return [...files].filter((f) => !template.includes(`/${f}"`));
+}
+
 // The business structured data in index.html is static JSON, so it cannot read src/constants/booking.ts.
 // Stop the build if its phone or email drifts from the ones shown on the Contact and Fort Lauderdale pages:
 // Google compares these with the Google Business Profile listing.
@@ -59,6 +78,7 @@ function build(path, outFile) {
   }
   // Page-specific structured data (breadcrumbs, article details) goes in the static HTML so every crawler sees it.
   const extraHead = [
+    ...pagePreloads(r.pageSource).map((f) => `<link rel="modulepreload" crossorigin href="/${f}">`),
     r.publishedTime ? `<meta property="article:published_time" content="${r.publishedTime}" />` : '',
     r.modifiedTime ? `<meta property="article:modified_time" content="${r.modifiedTime}" />` : '',
     ...r.jsonLd.map((d) => `<script type="application/ld+json">${JSON.stringify(d).replace(/</g, '\\u003c')}</script>`),
@@ -81,4 +101,6 @@ for (const p of paths) {
 build('/404', join(dist, '404.html'));
 
 rmSync(ssrDir, { recursive: true, force: true });
+// The manifest is only for this step; it is not part of the site.
+rmSync(join(dist, '.vite'), { recursive: true, force: true });
 console.log(`prerender: ${paths.length} pages + 404.html`);

@@ -1,6 +1,8 @@
 import { renderToString } from 'react-dom/server';
+import type { ComponentType } from 'react';
 import App from './App';
-import { PAGE_META, SITE_ORIGIN, PAGE_PATHS } from './router';
+import { PAGE_META, SITE_ORIGIN, PAGE_PATHS, parsePath } from './router';
+import { pageTable, pageFile, type PageProps } from './routes';
 import { blogPosts } from './data/blogPosts';
 import { cleanupTiers } from './data/cleanupPricing';
 import { BROWARD_CITIES, SOUTH_FLORIDA_AREAS } from './constants/serviceArea';
@@ -22,7 +24,16 @@ export interface PrerenderRoute {
   modifiedTime?: string;
   /** Share image for link previews; pages without one keep the site-wide og-image.png. */
   image?: { url: string; alt: string };
+  /** Source file of this page's code (as in Vite's build manifest), so its browser chunk can be preloaded. */
+  pageSource: string;
 }
+
+// Every page loaded up front: renderToString cannot wait for a page's code to load. Only the browser bundle
+// loads pages on demand (src/main.tsx); this server bundle never ships to visitors.
+const pages = pageTable(
+  import.meta.glob<{ default: ComponentType<PageProps> }>('./pages/*.tsx', { eager: true }),
+  (module) => module.default,
+);
 
 /** An article's Unsplash cover, cropped to the 1200x630 size link previews expect. */
 const shareImage = (cover: string): string | undefined =>
@@ -79,7 +90,7 @@ export function renderRoute(path: string): PrerenderRoute {
     : key
       ? PAGE_META[key]!
       : PAGE_META.notfound!;
-  const html = renderToString(<App initialPath={path} />);
+  const html = renderToString(<App initialPath={path} pages={pages} />);
   const isNoindex = key === 'booked' || (!post && !key);
   const canonical = SITE_ORIGIN + path;
   const home = { name: 'Home', url: `${SITE_ORIGIN}/` };
@@ -195,6 +206,7 @@ export function renderRoute(path: string): PrerenderRoute {
     publishedTime: post?.publishedDate,
     modifiedTime: modified,
     image: post && coverUrl ? { url: coverUrl, alt: post.title } : undefined,
+    pageSource: `src/${pageFile(parsePath(path).page).slice(2)}`,
   };
 }
 
