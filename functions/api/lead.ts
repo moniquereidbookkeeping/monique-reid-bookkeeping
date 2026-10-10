@@ -421,7 +421,7 @@ async function sendThankYouEmail(env: Env, d: {
     formatStepsBlock(d.steps) +
     `I'd love to walk through this with you — 20 minutes, no sales pitch, just a clear picture of where your books stand and exactly what it takes to get them right.\n\n` +
     '──────────────────────────────\n' +
-    '→ Book your free 20-minute call:\n' +
+    '→ Book your free 20-minute Clarity Call:\n' +
     BOOKING_URL + '\n' +
     '──────────────────────────────\n\n' +
     `— Monique Reid\n` +

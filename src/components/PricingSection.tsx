@@ -362,7 +362,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               Start with a Free 20-Minute Clarity Call
             </p>
             <p className="text-sm text-white/70 leading-relaxed">
-              You don't need to diagnose your own bookkeeping problems first. The 20-minute Zoom call walks through your
+              You don't need to diagnose your own bookkeeping problems first. The Clarity Call walks through your
               systems, identifies where things are breaking down, and covers exactly what is recommended — no pressure, no obligation.
             </p>
           </div>

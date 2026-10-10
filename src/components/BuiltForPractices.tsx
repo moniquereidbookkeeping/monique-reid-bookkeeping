@@ -130,7 +130,7 @@ export const BuiltForPractices: React.FC<BuiltForPracticesProps> = ({ onBookCall
               <div className="mt-8 pt-6 border-t border-white/10 space-y-4">
                 <div>
                   <p className="text-base text-[#E2E8F0]">Ready for clarity?</p>
-                  <p className="text-base font-bold text-[#D4AF37]">A free 20-minute private Zoom call</p>
+                  <p className="text-base font-bold text-[#D4AF37]">A free 20-minute Clarity Call on Zoom</p>
                 </div>
                 <a href="/contact"
                   onClick={(e) => { e.preventDefault(); onBookCall(); }}

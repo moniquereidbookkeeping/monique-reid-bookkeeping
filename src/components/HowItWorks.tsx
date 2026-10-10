@@ -8,8 +8,8 @@ interface HowItWorksProps {
 const steps = [
   {
     icon: Calendar,
-    title: 'Free 20-minute call',
-    body: 'A free call covers your practice, your software and where your books stand. No pressure.',
+    title: 'Free 20-minute Clarity Call',
+    body: 'The Clarity Call covers your practice, your software and where your books stand. No pressure.',
   },
   {
     icon: FileText,

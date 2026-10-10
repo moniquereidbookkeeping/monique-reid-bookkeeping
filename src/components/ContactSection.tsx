@@ -23,7 +23,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <p className="text-lg text-[#57534E] leading-relaxed font-normal">
-            This is a private 20-minute video call on Zoom. Select a convenient time below. I will review your practice's current bookkeeping setup, point out immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
+            The free 20-minute Clarity Call is a private video call on Zoom. Select a convenient time below. I will review your practice's current bookkeeping setup, point out immediate areas for cleanup or optimization, and outline a clear path to accurate numbers.
           </p>
           <p className="mt-3 text-base text-[#57534E]">
             Based in{' '}
@@ -47,8 +47,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) =>
               <Clock className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-sm font-bold text-[#1A2E40]">20-Minute Private Zoom Call</p>
-              <p className="text-sm text-[#57534E]">Free call, no obligation</p>
+              <p className="text-sm font-bold text-[#1A2E40]">Free 20-Minute Clarity Call</p>
+              <p className="text-sm text-[#57534E]">Private on Zoom, no obligation</p>
             </div>
           </div>
 

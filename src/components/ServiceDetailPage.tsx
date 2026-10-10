@@ -357,7 +357,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
   stepsTitle: 'How the setup works',
   steps: [
     {
-      title: 'Free 20-minute Zoom call',
+      title: 'Free 20-minute Clarity Call',
       body: 'Talk through your services, locations, booking and payment platforms, and what you need your reports to show.',
     },
     {

@@ -97,7 +97,7 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   contact: {
     title: 'Free 20-Minute Clarity Call | Monique Reid Bookkeeping',
     description:
-      'Book a free 20-minute call to talk through your practice books and the clearest path to organized financial records.',
+      'Book a free 20-minute Clarity Call to talk through your practice books and the clearest path to organized financial records.',
   },
   pricing: {
     title: 'Med Spa Bookkeeping Pricing & Monthly Plans | Monique Reid',

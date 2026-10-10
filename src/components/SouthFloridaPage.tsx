@@ -143,7 +143,7 @@ export const SouthFloridaPage: React.FC<SouthFloridaPageProps> = ({ onNavigate, 
           <ol className="space-y-4 text-base sm:text-lg text-[#4A5568] leading-relaxed">
             <li className="flex gap-3">
               <Video className="w-6 h-6 text-[#8A6A00] shrink-0 mt-0.5" aria-hidden="true" />
-              <span><strong className="text-[#1A2E40]">A free 20-minute Zoom call</strong> to look at where your books stand today.</span>
+              <span><strong className="text-[#1A2E40]">A free 20-minute Clarity Call on Zoom</strong> to look at where your books stand today.</span>
             </li>
             <li className="flex gap-3">
               <FileCheck2 className="w-6 h-6 text-[#8A6A00] shrink-0 mt-0.5" aria-hidden="true" />

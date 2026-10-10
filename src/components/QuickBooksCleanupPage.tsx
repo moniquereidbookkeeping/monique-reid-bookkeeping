@@ -50,7 +50,7 @@ const FIXES = [
 ];
 
 const STEPS = [
-  { icon: Video, title: 'Free 20-minute Zoom call', body: 'Talk through where the books stand and what you need them for: taxes, a loan, a sale or just clarity.' },
+  { icon: Video, title: 'Free 20-minute Clarity Call', body: 'Talk through where the books stand and what you need them for: taxes, a loan, a sale or just clarity.' },
   { icon: Search, title: 'Free first review', body: 'A look at your QuickBooks file, bank and card activity and payout reports to confirm how far behind the books are.' },
   { icon: ClipboardList, title: 'Fixed-fee proposal', body: 'A clear scope and a fixed price. No hourly billing, and no surprises once the scope is agreed.' },
   { icon: FileCheck2, title: 'Month-by-month cleanup', body: 'Accounts are reconciled and transactions corrected period by period, with a running list of questions only you can answer.' },

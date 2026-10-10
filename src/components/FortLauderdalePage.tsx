@@ -13,7 +13,7 @@ interface FortLauderdalePageProps {
 }
 
 const STEPS: Array<{ icon: typeof Video; title: string; body: string }> = [
-  { icon: Video, title: 'A free 20-minute call on Zoom', body: 'Talk through where your books stand and what you need them for. No office visit, and no time out of a clinic day beyond the call itself.' },
+  { icon: Video, title: 'A free 20-minute Clarity Call on Zoom', body: 'Talk through where your books stand and what you need them for. No office visit, and no time out of a clinic day beyond the call itself.' },
   { icon: Search, title: 'A first review', body: 'With access to your QuickBooks Online file and recent statements, the books are reviewed to see how current and how accurate they are.' },
   { icon: ClipboardList, title: 'A defined scope and proposal', body: 'You receive a clear scope and price before any work begins.' },
   { icon: Wrench, title: 'Catch up or set up, if needed', body: 'Books that are behind get a fixed-fee cleanup first. A new practice gets QuickBooks set up for a med spa from the start.' },
@@ -153,7 +153,7 @@ export const FortLauderdalePage: React.FC<FortLauderdalePageProps> = ({ onNaviga
             Talk it through
           </h2>
           <p className="text-base sm:text-lg text-[#E2E8F0] leading-relaxed max-w-2xl mx-auto">
-            Book the free 20-minute Zoom call, or call or email first.
+            Book the free 20-minute Clarity Call on Zoom, or call or email first.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href={`tel:${CONTACT_PHONE_TEL}`} className="inline-flex items-center gap-2 text-white! font-semibold underline! decoration-[#D4AF37]! underline-offset-4 hover:text-[#D4AF37]!">
