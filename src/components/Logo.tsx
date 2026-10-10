@@ -53,8 +53,8 @@ export const Logo: React.FC<LogoProps> = ({
         <img
           src="/mr-logo-full.png"
           alt="Monique Reid Bookkeeping"
-          width={340}
-          height={125}
+          width={600}
+          height={221}
           style={{ height: logoHeight, width: 'auto', maxWidth: logoMaxWidth }}
           className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           loading="eager"
