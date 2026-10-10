@@ -263,7 +263,7 @@ export const MONTHLY_BOOKKEEPING: ServiceDetailContent = {
   costTitle: 'What monthly bookkeeping costs',
   cost: [
     'Monthly plans start at $497/mo. Your price depends on monthly transaction volume, the number of bank and credit card accounts, the booking and payment platforms you use, the number of locations, and how much reporting you need.',
-    'Plans are Essential for solo practitioners and new clinics with a straightforward account structure, Growth for practices running memberships, patient financing or several platforms, and Full-Spectrum for high-volume or multi-location practices. Compare them on the [pricing page](pricing). After a free Financial Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
+    'Plans are Essential for solo practitioners and new clinics with a straightforward account structure, Growth for practices running memberships, patient financing or several platforms, and Full-Spectrum for high-volume or multi-location practices. Compare them on the [pricing page](pricing). After a free 20-minute Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
   ],
   related: {
     heading: 'Guides to the monthly work',
@@ -381,7 +381,7 @@ export const QUICKBOOKS_SETUP: ServiceDetailContent = {
     'After setup, [monthly bookkeeping](monthly-bookkeeping) keeps the file current inside the structure you just built.',
   costTitle: 'What a QuickBooks setup costs',
   cost: [
-    'A QuickBooks setup is priced as a project, based on your services, accounts, platforms and locations. The scope and price are confirmed after a free Financial Clarity Call, before work begins.',
+    'A QuickBooks setup is priced as a project, based on your services, accounts, platforms and locations. The scope and price are confirmed after a free 20-minute Clarity Call, before work begins.',
     'Monthly bookkeeping plans start at $497 per month if you want the books kept up after setup. See the [pricing page](pricing) for monthly plans and cleanup pricing.',
   ],
   related: {
@@ -493,7 +493,7 @@ export const FINANCIAL_REPORTING: ServiceDetailContent = {
   costTitle: 'What financial reporting costs',
   cost: [
     'Financial reporting starts with the Growth plan at $797/month and is always paired with ongoing monthly bookkeeping. Growth includes month-over-month revenue reporting. Revenue by service category and plain-language financial commentary are part of the Full-Spectrum plan at $1,197/month. What each report can show also depends on your platforms and the data available.',
-    'See the [pricing page](pricing) for plans. After a free Financial Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
+    'See the [pricing page](pricing) for plans. After a free 20-minute Clarity Call and a first review, you receive a defined scope and proposal before work begins.',
   ],
   related: {
     heading: 'Guides to reading your numbers',

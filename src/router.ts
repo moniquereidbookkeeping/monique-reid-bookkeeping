@@ -57,7 +57,7 @@ export const PAGE_META: Partial<Record<PageView, { title: string; description: s
   },
   booked: {
     title: 'You\'re Booked | Monique Reid Bookkeeping',
-    description: 'Your free 20-minute Financial Clarity Call is confirmed.',
+    description: 'Your free 20-minute Clarity Call is confirmed.',
   },
   services: {
     title: 'Med Spa Bookkeeping Services | Monique Reid Bookkeeping',

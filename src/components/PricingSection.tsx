@@ -359,7 +359,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onBookCall, onVi
               Not Sure Which Plan Fits?
             </p>
             <p className="text-lg sm:text-xl font-serif font-bold text-white leading-snug mb-2">
-              Start with a Free 20-Minute Financial Clarity Call
+              Start with a Free 20-Minute Clarity Call
             </p>
             <p className="text-sm text-white/70 leading-relaxed">
               You don't need to diagnose your own bookkeeping problems first. The 20-minute Zoom call walks through your

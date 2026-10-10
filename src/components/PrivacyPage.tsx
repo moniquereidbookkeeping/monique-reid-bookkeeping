@@ -83,7 +83,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate, onBookCall
           <div className="space-y-2 pt-1">
             <h4 className="text-sm font-bold text-[#1A2E40]">A. Contact and Consultation Information</h4>
             <p className="text-sm leading-relaxed">
-              When you contact us, submit an inquiry, or schedule a Clarity Call, this may include, depending on how you contact us:
+              When you contact us, submit an inquiry, or schedule a free 20-minute Clarity Call, this may include, depending on how you contact us:
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#57534E] pt-1">
               {[

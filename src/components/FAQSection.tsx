@@ -302,7 +302,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
       categoryLabel: 'GETTING STARTED',
       question: 'How much do your bookkeeping services cost?',
       answer:
-        'Monthly bookkeeping plans start at $497 per month, and cleanup projects start at $597. Your price depends on the condition of your books, monthly transaction volume, number of bank and credit card accounts, practice-management platforms, locations, and the level of reporting you need.\n\nAfter a free Financial Clarity Call and a first review, you will receive a clearly defined scope and customized proposal before work begins.',
+        'Monthly bookkeeping plans start at $497 per month, and cleanup projects start at $597. Your price depends on the condition of your books, monthly transaction volume, number of bank and credit card accounts, practice-management platforms, locations, and the level of reporting you need.\n\nAfter a free 20-minute Clarity Call and a first review, you will receive a clearly defined scope and customized proposal before work begins.',
       takeaways: [
         'Customized pricing based on your bookkeeping needs',
         'A clearly defined scope before work begins',
@@ -627,7 +627,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onBookCall, featuredLimi
               Have a specific question about your books?
             </h4>
             <p className="text-sm sm:text-base text-[#E2E8F0] max-w-xl font-light leading-relaxed">
-              Every MedSpa, aesthetic clinic, and wellness practice has unique financial needs. Book a free 20-minute Financial Clarity Call to discuss your QuickBooks setup, historical cleanup, monthly bookkeeping, or financial reporting needs.
+              Every MedSpa, aesthetic clinic, and wellness practice has unique financial needs. Book a free 20-minute Clarity Call to discuss your QuickBooks setup, historical cleanup, monthly bookkeeping, or financial reporting needs.
             </p>
           </div>
 

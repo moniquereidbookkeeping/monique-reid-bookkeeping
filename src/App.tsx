@@ -191,7 +191,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Let's talk about your practice.
                 </h2>
                 <p className="text-base sm:text-lg text-[#E2E8F0] max-w-2xl mx-auto font-light leading-relaxed">
-                  Book a free 20-minute Financial Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
+                  Book a free 20-minute Clarity Call on Zoom and share what is happening with your books. You will get clear options and a path to organized financial records.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a href="/contact"
@@ -360,7 +360,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
                   Free 20-Minute Zoom Call
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white">
-                  Book Your Free Clarity Call
+                  Book Your Free 20-Minute Clarity Call
                 </h1>
               </div>
             </div>

@@ -383,7 +383,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookCall, on
                   <ArrowRight className="w-4 h-4 text-[#1A2E40] group-hover:translate-x-1 transition-transform" />
                 </a>
                 <p className="text-sm text-[#E2E8F0] mt-2.5 text-center lg:text-right">
-                  Free 20-minute Financial Clarity Call on Zoom
+                  Free 20-minute Clarity Call on Zoom
                 </p>
               </div>
             </div>

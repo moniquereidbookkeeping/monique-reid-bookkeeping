@@ -24,7 +24,7 @@ export const BookedPage: React.FC<BookedPageProps> = ({ onNavigate }) => (
         You're booked. Monique looks forward to talking with you.
       </h1>
       <p className="mt-4 text-base sm:text-lg text-[#57534E] leading-relaxed">
-        Your free 20-minute Financial Clarity Call is confirmed. No pressure. Just clarity.
+        Your free 20-minute Clarity Call is confirmed. No pressure. Just clarity.
       </p>
 
       <div className="mt-10 grid gap-4 text-left">

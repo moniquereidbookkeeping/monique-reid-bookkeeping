@@ -59,7 +59,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate, onBookCall }) 
                 Welcome to Monique Reid Bookkeeping (&ldquo;Monique Reid Bookkeeping,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of our website and related online services.
               </p>
               <p className="text-sm leading-relaxed">
-                By accessing or using this website, booking a free Financial Clarity Call, or submitting information through our website, you agree to these Terms.
+                By accessing or using this website, booking a free 20-minute Clarity Call, or submitting information through our website, you agree to these Terms.
               </p>
               <p className="p-3.5 rounded-lg bg-[#1A2E40]/5 border-l-4 border-[#D4AF37] text-sm text-[#1A2E40] font-medium">
                 These website Terms are intended to govern use of the website and general online interactions. Specific bookkeeping and financial reporting engagements are governed by a separate written service agreement or statement of work.
