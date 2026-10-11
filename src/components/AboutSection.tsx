@@ -96,7 +96,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
 
             <div className="space-y-4 text-lg text-[#4A5568] leading-relaxed">
               <p>
-                Hi, I'm Monique Reid, a Certified Intuit ProAdvisor and QuickBooks bookkeeper with a Bachelor of Business Administration. I've spent 10+ years helping small business owners — the ones who are great at running their business and never wanted to become their own accountant — get their books under control. I built my practice specifically around MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and related self-pay healthcare businesses.
+                Hi, I'm Monique Reid, founder of Monique Reid Bookkeeping, a Certified QuickBooks ProAdvisor and QuickBooks bookkeeper with a Bachelor of Business Administration and over 10 years of experience helping small business owners take control of their financial records.I built my practice around the unique needs of MedSpas, aesthetic clinics, IV hydration and wellness businesses, medical weight-loss practices, and other self-pay healthcare businesses.
               </p>
               {onViewAbout ? (
                 <p>
@@ -112,10 +112,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               ) : (
                 <>
                 <p>
-                  I chose that focus because I kept running into the same problem: these practices' books are harder than a generalist bookkeeping setup is built for. POS and merchant payouts, patient financing through Cherry and CareCredit, prepaid packages, membership liabilities, treatment costs, multiple payment platforms — a one-size-fits-all QuickBooks file handles that poorly, no matter how solid the bookkeeping fundamentals are. So I built my whole QuickBooks approach around how these practices actually operate.
+                  Why this specialization? Because these practices operate differently from traditional small businesses, and their bookkeeping should reflect that. From POS and merchant deposit reconciliations to Cherry and CareCredit financing fees, prepaid treatment packages, membership liabilities, treatment costs, and provider compensation, the financial details require more than a one-size-fits-all approach.That's why I've tailored my QuickBooks services to how Medspa, aesthetic and wellness practices actually operate.
                 </p>
                 <p>
-                  My focus is on getting your QuickBooks records structured correctly, reconciled consistently, and organized in a way that produces reports you can use — so your CPA isn't cleaning up behind you at tax time, and you're not left guessing whether your practice is profitable.
+                  My goal is simple: To help you maintain accurate, consistently reconciled books and meaningful financial reports that give you a clearer picture of your practice's financial health and profitability. With organized records, you're better prepared for tax time, more confident in your numbers, and equipped to make informed decisions about your business.
                 </p>
                 </>
               )}
