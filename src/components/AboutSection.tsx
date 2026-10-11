@@ -112,7 +112,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall, showPort
               ) : (
                 <>
                 <p>
-                  Why this specialization? Because these practices operate differently from traditional small businesses, and their bookkeeping should reflect that. From POS and merchant deposit reconciliations to Cherry and CareCredit financing fees, prepaid treatment packages, membership liabilities, treatment costs, and provider compensation, the financial details require more than a one-size-fits-all approach.That's why I've tailored my QuickBooks services to how Medspa, aesthetic and wellness practices actually operate.
+                  Why this specialization? Because these practices operate differently from traditional small businesses, and their bookkeeping should reflect that. From POS and merchant deposit reconciliations to Cherry and CareCredit financing fees, prepaid treatment packages, membership liabilities, treatment costs, and provider compensation, the financial details require more than a one-size-fits-all approach. That's why I've tailored my QuickBooks services to how Medspa, aesthetic and wellness practices actually operate.
                 </p>
                 <p>
                   My goal is simple: To help you maintain accurate, consistently reconciled books and meaningful financial reports that give you a clearer picture of your practice's financial health and profitability. With organized records, you're better prepared for tax time, more confident in your numbers, and equipped to make informed decisions about your business.
