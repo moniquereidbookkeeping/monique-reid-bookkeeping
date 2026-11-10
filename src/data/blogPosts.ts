@@ -1386,6 +1386,107 @@ const allBlogPosts: BlogPost[] = [
       { type: 'paragraph', text: 'This article is general information, not tax, payroll, legal or medical advice. Inventory treatment, worker classification and 1099 requirements depend on your situation, so confirm them with your CPA, payroll provider or attorney.' },
     ],
   },
+  {
+    "id": "post-021",
+    "slug": "opening-medspa-bookkeeping-setup-checklist",
+    "title": "Opening a MedSpa: Your Pre-Launch Bookkeeping & QuickBooks Setup Checklist",
+    "metaTitle": "Opening a MedSpa: Pre-Launch Bookkeeping & QuickBooks Setup",
+    "metaDescription": "Set up QuickBooks Online, map your POS, and build your opening balance sheet before seeing your first aesthetic patient. Step-by-step MedSpa guide.",
+    "excerpt": "Launching a MedSpa requires more than top-tier neurotoxins and pristine treatment rooms; your financial plumbing must be ready on day one. Follow this pre-launch bookkeeping checklist to configure QuickBooks Online correctly before your doors open.",
+    "category": "New Practice Setup",
+    "tags": [
+      "MedSpa Bookkeeping",
+      "QuickBooks Online",
+      "Pre-Launch Setup",
+      "Chart of Accounts",
+      "Aesthetic Practice Finance"
+    ],
+    "publishedDate": "2026-12-15",
+    "readingTime": 6,
+    "coverImage": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=80",
+    "coverAlt": "Professional bookkeeper reviewing financial documents",
+    "featured": false,
+    "content": [
+      {
+        "type": "intro",
+        "text": "You have signed your commercial lease, placed orders for your laser devices, secured your medical director, and submitted your neurotoxin accounts with Allergan and Galderma. But if you have not established your financial foundation, you are preparing to launch in the dark. Too many aesthetic practice owners treat accounting as an afterthought—something to solve months after opening when taxes are due. By then, initial startup costs are co-mingled, point-of-sale deposits are miscategorized, and sales tax liabilities are a mess. Opening a MedSpa: Your Pre-Launch Bookkeeping & QuickBooks Setup Checklist is designed to eliminate that chaos. As a Certified Intuit ProAdvisor specializing strictly in aesthetic and wellness practices, I will walk you through the exact accounting infrastructure you must establish before treating your very first patient."
+      },
+      {
+        "type": "heading",
+        "heading": "1. Choose the Right QuickBooks Online Subscription and Entity Structure"
+      },
+      {
+        "type": "paragraph",
+        "text": "First, do not make the mistake of subscribing to QuickBooks Online Simple Start or Essentials to save a few dollars a month. MedSpas carry complex operational requirements including retail inventory tracking, multiple revenue streams, third-party financing clearing accounts, and often multi-location tracking. You need at least QuickBooks Online Plus, and in many high-volume practices, QuickBooks Online Advanced. QBO Plus provides the class and location tracking necessary to separate your clinical revenue from retail sales, or track performance by provider or room."
+      },
+      {
+        "type": "paragraph",
+        "text": "Simultaneously, ensure your bank accounts mirror your legal entity structure. Whether you are operating as an LLC taxed as an S-Corporation or a MSO/PC structure (Management Services Organization / Professional Corporation) common in corporate-practice-of-medicine states, your banking must be strictly segregated. Never spend personal funds out of a personal account for business launch expenses without logging them cleanly as Owner Contributions in QuickBooks."
+      },
+      {
+        "type": "heading",
+        "heading": "2. Build a MedSpa-Specific Chart of Accounts"
+      },
+      {
+        "type": "paragraph",
+        "text": "The generic Chart of Accounts (COA) provided by default inside QuickBooks Online is completely useless for an aesthetic practice. If all your inventory purchases go into a generic 'Supplies' expense account, you will never know your true Gross Margin per service line. Your COA must separate Direct Cost of Goods Sold (COGS) from General Operating Expenses."
+      },
+      {
+        "type": "list",
+        "items": [
+          "COGS - Injectables: Toxins (Botox, Dysport, Xeomin) and Dermal Fillers (Juvederm, Restylane, Sculptra).",
+          "COGS - Consumables & Medical Supplies: Microneedling tips, IV bags, numbing cream, gloves, and syringes.",
+          "COGS - Skincare Retail: Medical-grade skincare products purchased for resale (e.g., SkinCeuticals, ZO Skin Health, Alastin).",
+          "Clearing Accounts: Dedicated holding accounts for credit card processing, merchant payouts, patient financing platforms (Cherry, CareCredit, PatientFi), and gift card liabilities.",
+          "Unearned Revenue (Liability): Deferred revenue accounts specifically for gift certificates sold, membership package balances, and prepaid service packages."
+        ]
+      },
+      {
+        "type": "heading",
+        "heading": "3. Establish Your Opening Balance Sheet and Track Capital Assets"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before seeing patients, your practice will spend tens or hundreds of thousands of dollars on buildouts, medical devices, furniture, and licensing. For example, if a practice spends $150,000 acquiring a multi-wavelength laser device and $80,000 on tenant buildout improvements, entering these directly as operational expenses will artificially inflate your losses and distort your financial standing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Every dollar spent prior to your official launch date must be recorded on your Balance Sheet. Buildout costs must be classified under Fixed Assets as 'Leasehold Improvements.' Equipment purchases belong under 'Medical Equipment.' Startup funding—whether from personal savings, SBA loan draws, or investor capital—must be recorded under Owner Equity (Capital Contributions) or Long-Term Liabilities (Notes Payable). Setting up this opening balance sheet cleanly is non-negotiable for accurate tax depreciation tracking."
+      },
+      {
+        "type": "callout",
+        "text": "Critical Warning: Never record medical device lease payments purely as an operational software or subscription expense without verifying the lease terms. Capital leases must be capitalized as assets on your balance sheet with corresponding liability accounts for principal repayment."
+      },
+      {
+        "type": "heading",
+        "heading": "4. Map Your POS System to QBO Using Clearing Accounts"
+      },
+      {
+        "type": "paragraph",
+        "text": "Aesthetic practices run on specialized point-of-sale and practice management platforms such as Boulevard, Zenoti, Vagaro, Mindbody, or Jane App. A standard mistake MedSpa owners make is pushing a direct automated sync from their POS into QuickBooks, which floods the general ledger with hundreds of individual daily transactions, creates duplicate entries, and misclassifies gift card sales as instant revenue."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead, establish a daily sales summary workflow using Clearing Accounts. Your POS report daily totals (gross sales, discounts, sales tax collected, gift card liabilities, merchant processing fees, and patient financing payments from Cherry or CareCredit) should map directly into dedicated clearing accounts in QBO. When merchant processors payout net cash into your business checking account, those deposits offset the clearing account balance down to zero. This guarantees your revenue matches your actual POS reports while keeping bank reconciliations perfectly clean."
+      },
+      {
+        "type": "tip",
+        "text": "Set up a separate Unearned Revenue liability account in QBO specifically for Patient Financing. Platforms like Cherry or CareCredit payout cash net of merchant merchant discount fees upfront, but accounting must reflect the full charge amount and fee split accurately."
+      },
+      {
+        "type": "heading",
+        "heading": "5. Configure Bank Rules and Pre-Launch Vendor Automation"
+      },
+      {
+        "type": "paragraph",
+        "text": "As launch day approaches, recurring software subscriptions, utility accounts, inventory invoices, and merchant fees will hit your bank feed rapidly. Take an hour to establish automated Bank Rules within QuickBooks Online. For instance, set rule logic so that direct debits from Allergan Sales LLC automatically map to 'COGS - Injectables' and recurring debits from Boulevard or Zenoti map to 'Software Subscriptions.' Establishing these rules early prevents backlogs in your bank feed and ensures your pre-launch monthly reporting remains up to date."
+      },
+      {
+        "type": "cta-inline",
+        "text": "Setting up your MedSpa books correctly before your grand opening saves thousands of dollars in cleanup costs later. Book a free 20-minute discovery call with Monique Reid today to review your pre-launch setup and ensure your practice is financial-ready on day one."
+      }
+    ]
+  },
 ];
 
 /**
